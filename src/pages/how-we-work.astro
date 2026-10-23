@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import EvidenceLabel from '../components/EvidenceLabel.astro';
+---
+<Base title="How we work">
+  <PageHead title="How we work" lead="Our rules for facts, fairness and corrections." tools={false} />
+  <div class="stack" style="margin-top:16px">
+    <section class="card stack">
+      <h2>Evidence labels</h2>
+      <p><EvidenceLabel kind="verified" /> We checked it on site or against official records.</p>
+      <p><EvidenceLabel kind="audit" /> It comes from an Auditor-General report.</p>
+      <p><EvidenceLabel kind="official" /> The government stated it; we have not yet checked it.</p>
+      <p><EvidenceLabel kind="unverified" /> It was reported to us or listed somewhere; not yet confirmed.</p>
+    </section>
+    <section class="card stack">
+      <h2>Our rules</h2>
+      <ol style="padding-left:20px; margin:0" class="stack">
+        <li>Every number has a source a reader can check.</li>
+        <li>Allegations are never presented as proven. Clearances and acquittals are reported as prominently as the allegation.</li>
+        <li>An unfinished project is labelled "completion not yet verified" until proven otherwise.</li>
+        <li>Anyone criticised gets a chance to respond before publication.</li>
+        <li>Successes are reported as well as failures.</li>
+        <li>No accusations against private individuals, and no names of victims.</li>
+      </ol>
+    </section>
+    <section id="corrections" class="card stack">
+      <h2>Corrections</h2>
+      <p class="muted">When we get something wrong, we fix it and list the correction here with the date. No corrections yet.</p>
+    </section>
+  </div>
+</Base>

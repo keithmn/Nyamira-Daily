@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Placeholder from '../../components/Placeholder.astro';
+---
+<Base title="The Executive">
+  <PageHead eyebrow="Government" title="The County Executive" lead="The Governor, the County Executive Committee and the departments that run services and spend the county's money." crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/executive/', label: 'The Executive' }]} />
+  <div class="stack" style="margin-top:16px">
+    <div class="card">
+      <h3>How the Executive works</h3>
+      <p>The Governor leads the County Executive Committee. Each committee member (CEC member) heads a department, and a chief officer runs its daily work. Departments carry out the county's functions under the Fourth Schedule and spend the budget the Assembly approves.</p>
+    </div>
+    <Placeholder what="One page per county department">Each page will show who leads it (by role), its budget and spending, its projects, its services and its contacts. The department list will follow the county's current structure.</Placeholder>
+  </div>
+</Base>

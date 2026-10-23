@@ -1,0 +1,25 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { planned } from '../../../config.js';
+import PageHead from '../../../components/PageHead.astro';
+const parts = [
+  { href: '/government/assembly/sittings/', title: 'Sittings', text: 'A plain summary of every sitting: what was tabled, debated and decided.' },
+  { href: '/government/assembly/bills/', title: 'Bills and Acts', text: 'Every bill and the stage it has reached, and every Act with what it changes.' },
+  { href: '/government/assembly/committees/', title: 'Committees', text: 'What each committee does, its members, and summaries of its reports.' },
+  { href: '/government/assembly/petitions/', title: 'Petitions and motions', text: 'What residents and MCAs asked for, and what happened next.' },
+  { href: '/government/assembly/mcas/', title: 'MCA pages', text: 'Each ward MCA\'s committees, motions and statements, from Assembly records.' },
+];
+---
+<Base title="The Assembly">
+  <PageHead eyebrow="Government" title="The County Assembly" lead="What Nyamira's lawmakers did, sitting by sitting, from the Assembly's own records." crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/assembly/', label: 'The Assembly' }]} />
+  <div class="stack" style="margin-top:16px">
+    <div class="panel">
+      <h3>What the Assembly does</h3>
+      <p>The County Assembly makes county laws, approves the county budget and plans, and oversees the Executive. It has one elected MCA per ward, plus nominated members and a Speaker. It must let the public take part in its work.</p>
+    </div>
+    <div class="grid">
+      {parts.map((p) => (<a class={`card${planned.has(p.href) ? ' is-planned' : ''}`} href={p.href}><h2 style="font-size:22px">{p.title} {planned.has(p.href) && <span class="tag-planned">Planned</span>}</h2><p class="muted">{p.text}</p></a>))}
+    </div>
+    <p class="small muted">Source records: the County Assembly of Nyamira website (Hansard, order papers, bills, Acts, motions, committee reports, petitions tracker). Every summary links to the original.</p>
+  </div>
+</Base>

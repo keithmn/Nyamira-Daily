@@ -1,0 +1,12 @@
+---
+// Share and print, at the foot of each page (not above the content).
+interface Props { title: string }
+const { title } = Astro.props;
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+const wa = `https://wa.me/?text=${encodeURIComponent(`${title} — Nyamira Daily\n${url}`)}`;
+---
+<div class="page-tools foot" aria-label="Share this page">
+  <span class="small muted">Found this useful?</span>
+  <a class="btn" href={wa} rel="noopener">Share on WhatsApp</a>
+  <button class="btn quiet" type="button" onclick="window.print()">Print</button>
+</div>

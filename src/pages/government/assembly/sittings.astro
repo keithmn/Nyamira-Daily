@@ -1,0 +1,20 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import A from '../../../data/assembly.json';
+import { date } from '../../../lib/fmt.js';
+---
+<Base title="Sittings">
+  <PageHead eyebrow="The Assembly" title="Sittings" lead="What happened in recent County Assembly sittings, newest first, taken from the Assembly's own Hansard." crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/assembly/', label: 'The Assembly' }, { href: '/government/assembly/sittings/', label: 'Sittings' }]} />
+  <p class="updated">Checked 22 Oct 2026. The Assembly has published few Hansards: none for 2024, and none after 21 July 2026.</p>
+  <div class="stack" style="margin-top:16px">
+    {A.sittings.map((s) => (
+      <article class="card">
+        <span class="eyebrow">{date(s.date)}{s.date.length > 10 ? s.date.slice(10) : ''}</span>
+        <ul>{s.items.map((i) => <li>{i}</li>)}</ul>
+        <a class="small" href={s.url} rel="noopener">Read the Hansard (PDF)</a>
+      </article>
+    ))}
+  </div>
+  <div class="sw" lang="sw" style="margin-top:24px"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Hapa kuna muhtasari wa vikao vya hivi karibuni vya Bunge la Kaunti ya Nyamira, kutoka kwa rekodi rasmi (Hansard).</p></div>
+</Base>

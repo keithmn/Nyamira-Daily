@@ -1,0 +1,882 @@
+{
+ "checked": "2026-10-22",
+ "act": {
+  "name": "The Nyamira County Finance Act, 2025 (No. 5 of 2025)",
+  "year": 2025,
+  "status": "Enacted law: Date of Assent 17 October 2025; published in Kenya Gazette Supplement No. 12 (Nyamira County Acts No. 5), 22 December 2025; commences on Gazette publication (s.1). Covers FY 2025/2026; s.22 ends earlier rates for listed items; s.21 keeps unlisted pre-existing fees.",
+  "url": "https://nyamira.go.ke/static/documents/13_03_2026_10_15_18_am_The_Nyamira_County_Finance_Act,_2025_compressed_(1).pdf"
+ },
+ "otherSources": [
+  {
+   "name": "The Nyamira County Finance Act, 2023 (No. 1 of 2023)",
+   "status": "Assented 19 April 2023; Kenya Gazette Supplement No. 3, 26 May 2023; superseded for listed items by the 2025 Act",
+   "url": "https://nyamira.go.ke/static/documents/10_03_2025_10_02_12_pm_The_Nyamira_County_Finance_Act,_2023.pdf"
+  },
+  {
+   "name": "Nyamira Finance Bill 2023-2024 (Sept 2023 revised)",
+   "status": "Bill on county site; enactment not confirmed. The 2025 Act's comparison column is headed 'Approved Charges 2023/2024'",
+   "url": "https://nyamira.go.ke/static/documents/10_03_2025_10_13_30_pm_NYAMIRA_Finance_bill_2023-2024_SEP_2023_Revised_today.pdf"
+  },
+  {
+   "name": "County Bills and Acts list",
+   "url": "https://nyamira.go.ke/templates/document_list?id=6"
+  },
+  {
+   "name": "Nyamira County Revenue Administration Act, 2018",
+   "status": "Mentioned in s.2 of the 2025 Act; text not found online in this pass",
+   "url": null
+  }
+ ],
+ "fees": [
+  {
+   "group": "Business permits",
+   "item": "Small trader shop or retail service: 1-5 employees. 0- 50 sq. ft",
+   "amount": 5000,
+   "amountText": "Zone A KSh 5,000; Zone B KSh 3,000; Zone C KSh 2,500",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – General Traders' Shops and Retail Services",
+   "page": "Gazette p. 16 (PDF p. 17)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Small Kiosks and other general merchant shops (below 5 sq. ft.)",
+   "amount": 3000,
+   "amountText": "Zone A KSh 3,000; Zone B KSh 2,000; Zone C KSh 2,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – General Traders' Shops and Retail Services",
+   "page": "Gazette p. 16 (PDF p. 17)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Medium Kiosks and other general merchant shops (6-10 sq. ft.)",
+   "amount": 4000,
+   "amountText": "Zone A KSh 4,000; Zone B KSh 3,000; Zone C KSh 3,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – General Traders' Shops and Retail Services",
+   "page": "Gazette p. 16 (PDF p. 17)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Medium trader shop, mini supermarket or retail service 6-10 employees. 51-100 sq. feet plinth area",
+   "amount": 10000,
+   "amountText": "Zone A KSh 10,000; Zone B KSh 8,000; Zone C KSh 5,500",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – General Traders' Shops and Retail Services",
+   "page": "Gazette p. 16 (PDF p. 17)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Motor Cycle Repairs Shop, Small Garage (1 to 10 vehicles capacity)",
+   "amount": 5000,
+   "amountText": "Zone A KSh 5,000; Zone B KSh 5,000; Zone C KSh 5,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – General Traders' Shops and Retail Services",
+   "page": "Gazette p. 16 (PDF p. 17)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Saloon/Barbershop without Extra services",
+   "amount": 3000,
+   "amountText": "Zone A KSh 3,000; Zone B KSh 2,000; Zone C KSh 1,500",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – General Traders' Shops and Retail Services",
+   "page": "Gazette p. 17 (PDF p. 18)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Tailoring (Veranda)",
+   "amount": 3000,
+   "amountText": "Zone A KSh 3,000; Zone B KSh 2,500; Zone C KSh 1,500",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – General Traders' Shops and Retail Services",
+   "page": "Gazette p. 16 (PDF p. 17)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Additional fee where business operates an Mpesa and/or bank agency service",
+   "amount": 3000,
+   "amountText": "Zone A KSh 3,000; Zone B KSh 2,000; Zone C KSh 1,000",
+   "unit": "per year, on top of SBP",
+   "schedule": "First Schedule (Single Business Permit) – Note 1 under each category",
+   "page": "Gazette p. 17 (PDF p. 18)"
+  },
+  {
+   "group": "Business permits",
+   "item": "1 hawker without motor vehicle per day",
+   "amount": 200,
+   "amountText": "Zone A KSh 200; Zone B KSh 100; Zone C KSh 50",
+   "unit": "per day",
+   "schedule": "First Schedule (Single Business Permit) – Informal Sector",
+   "page": "Gazette p. 17 (PDF p. 18)"
+  },
+  {
+   "group": "Business permits",
+   "item": "1 hawker with motor vehicle 0 –2 tonnes per day",
+   "amount": 500,
+   "amountText": "KSh 500 all zones",
+   "unit": "per day",
+   "schedule": "First Schedule (Single Business Permit) – Informal Sector",
+   "page": "Gazette p. 17 (PDF p. 18)"
+  },
+  {
+   "group": "Business permits",
+   "item": "SMALL INFORMAL sector trader / service provider e.g. Shoe shiner, cobblers, street vendor (soda, sweets, cigarettes, blacksmith etc.) per day",
+   "amount": 50,
+   "amountText": "KSh 50 all zones",
+   "unit": "per day",
+   "schedule": "First Schedule (Single Business Permit) – Informal Sector",
+   "page": "Gazette p. 17 (PDF p. 18)"
+  },
+  {
+   "group": "Business permits",
+   "item": "SMALL INFORMAL sector trader / service provider e.g. Shoe shiner, cobbler & street vendor ... per Month Year",
+   "amount": 5000,
+   "amountText": "KSh 5,000 all zones (2023/24: 1,200 / 1,000 / 700). Act wording says 'per Month Year' – unit ambiguous",
+   "unit": "per year (as printed: 'per Month Year')",
+   "schedule": "First Schedule (Single Business Permit) – Informal Sector",
+   "page": "Gazette p. 17 (PDF p. 18)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Semi-Permanent INFORMAL sector trader up to two persons operating in veranda or temporary building E.g Shoe shiner, Cobbler per annum",
+   "amount": 3500,
+   "amountText": "KSh 3,500 all zones (a second, apparently duplicate row on p.18 lists 2,500 / 2,000 / 1,500)",
+   "unit": "per year",
+   "schedule": "First Schedule (Single Business Permit) – Informal Sector",
+   "page": "Gazette p. 18 (PDF p. 19)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Mali Mali Hawker",
+   "amount": 2000,
+   "amountText": "KSh 2,000 all zones",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – General Traders' Shops and Retail Services",
+   "page": "Gazette p. 16 (PDF p. 17)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Posho mill, jaggery, dealer",
+   "amount": 1500,
+   "amountText": "KSh 1,500 all zones (2023/24: 1,000)",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Agriculture, Forestry and Natural Resources Extraction",
+   "page": "Gazette p. 20 (PDF p. 21)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Small bar up to 9 customers with less than 5 rooms",
+   "amount": 8000,
+   "amountText": "Zone A KSh 8,000; Zone B KSh 7,500; Zone C KSh 7,500",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Accommodation and Catering",
+   "page": "Gazette p. 19 (PDF p. 20)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Small restaurant with bar/ membership club with up to 10 sitting customers/ members",
+   "amount": 10000,
+   "amountText": "Zone A KSh 10,000; Zone B KSh 8,000; Zone C KSh 6,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Accommodation and Catering",
+   "page": "Gazette p. 19 (PDF p. 20)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Small catering house, snack bar, tea house \"hotel\", no lodging, no alcohol served up to 6 sitting customers",
+   "amount": 8000,
+   "amountText": "Zone A KSh 8,000; Zone B KSh 5,000; Zone C KSh 3,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Accommodation and Catering",
+   "page": "Gazette p. 19 (PDF p. 20)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Small Eateries /makeshift shades with no sitting capacity (e.g. Mutura/roasted Maize, etc.)",
+   "amount": 3000,
+   "amountText": "Zone A KSh 3,000; Zone B KSh 2,000; Zone C KSh 1,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Accommodation and Catering",
+   "page": "Gazette p. 19 (PDF p. 20)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Other catering (Githeri, Porridge and others)",
+   "amount": 3000,
+   "amountText": "Zone A KSh 3,000; Zone B KSh 2,000; Zone C KSh 2,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Accommodation and Catering",
+   "page": "Gazette p. 20 (PDF p. 21)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Butchery; selling Cow/ Goat/ Sheep/ Poultry/ Pig meat without any eatery or roasted meat and/ or soup kitchen of any size",
+   "amount": 7000,
+   "amountText": "Zone A KSh 7,000; Zone B KSh 5,000; Zone C KSh 3,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Accommodation and Catering",
+   "page": "Gazette p. 19 (PDF p. 20)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Small Agrovet shop below 20 Sq ft",
+   "amount": 5000,
+   "amountText": "Zone A KSh 5,000; Zone B KSh 4,000; Zone C KSh 3,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Agriculture (Others)",
+   "page": "Gazette p. 21 (PDF p. 22)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Mobile Money Agents; e.g. Mpesa, Airtel",
+   "amount": 4000,
+   "amountText": "Zone A KSh 4,000; Zone B KSh 3,000; Zone C KSh 2,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Professional, Technical and Financial Services",
+   "page": "Gazette p. 22 (PDF p. 23)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Small workshop / service / repair /welding/carpenter with machine (s) with up to 3 employees & or premises of up to 24",
+   "amount": 8000,
+   "amountText": "Zone A KSh 8,000; Zone B KSh 5,000; Zone C KSh 5,000",
+   "unit": "per year (SBP) – jua kali-type workshop",
+   "schedule": "First Schedule (Single Business Permit) – Industrial Plants, Factories, Workshops, Contractors",
+   "page": "Gazette p. 25 (PDF p. 26)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Other manufacturer / workshop without machine (s) /laundry/scrap-dealer / with one Person acting",
+   "amount": 5000,
+   "amountText": "Zone A KSh 5,000; Zone B KSh 3,000; Zone C KSh 3,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Industrial Plants, Factories, Workshops, Contractors",
+   "page": "Gazette p. 25 (PDF p. 26)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Independent transport operator one vehicle (e.g. Transport Hire) who are not Distributors",
+   "amount": 5000,
+   "amountText": "KSh 5,000 all zones",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Transport, Communication and Storage",
+   "page": "Gazette p. 25 (PDF p. 26)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Phone and Phone Accessories vendors",
+   "amount": 5000,
+   "amountText": "Zone A KSh 5,000; Zone B KSh 4,000; Zone C KSh 3,000",
+   "unit": "per year (SBP)",
+   "schedule": "First Schedule (Single Business Permit) – Transport, Communication and Storage",
+   "page": "Gazette p. 26 (PDF p. 27)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Bar in respect of premises situated in Zone A – General retail alcoholic drink license (on License) or Bar",
+   "amount": 20000,
+   "amountText": "12 months KSh 20,000; 6 months KSh 15,000 (Zone B and C: 15,000 / 12,000)",
+   "unit": "per 12 months",
+   "schedule": "Second Schedule Part 7 – Alcoholic Drinks Control Services License Fees",
+   "page": "Gazette p. 85 (PDF p. 86)"
+  },
+  {
+   "group": "Business permits",
+   "item": "General retail alcoholic drink license (off license) or Wines & Spirits Retailers – Zone A",
+   "amount": 15000,
+   "amountText": "12 months KSh 15,000; 6 months KSh 12,000 (Zone B and C: 12,000 / 10,000)",
+   "unit": "per 12 months",
+   "schedule": "Second Schedule Part 7 – Alcoholic Drinks Control Services License Fees",
+   "page": "Gazette p. 85 (PDF p. 86)"
+  },
+  {
+   "group": "Business permits",
+   "item": "Application and inspection of liquor license",
+   "amount": 1000,
+   "amountText": "KSh 1,000",
+   "unit": "per application",
+   "schedule": "Second Schedule Part 7 – Alcoholic Drinks Control Services License Fees",
+   "page": "Gazette p. 85 (PDF p. 86)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Banana per bunch (Engote)",
+   "amount": 50,
+   "amountText": "KSh 50 (2023/24: 30)",
+   "unit": "per bunch",
+   "schedule": "Second Schedule Part 1 – Markets Dues Section, Market User Charge",
+   "page": "Gazette p. 32 (PDF p. 33)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Avocado per bag",
+   "amount": 50,
+   "amountText": "KSh 50",
+   "unit": "per bag",
+   "schedule": "Second Schedule Part 1 – Market User Charge",
+   "page": "Gazette p. 33 (PDF p. 34)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Dry cereals - ndengu, njahe, maize, rice etc. per bag",
+   "amount": 50,
+   "amountText": "KSh 50",
+   "unit": "per bag",
+   "schedule": "Second Schedule Part 1 – Market User Charge",
+   "page": "Gazette p. 33 (PDF p. 34)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Green maize per bag",
+   "amount": 50,
+   "amountText": "KSh 50",
+   "unit": "per bag",
+   "schedule": "Second Schedule Part 1 – Market User Charge",
+   "page": "Gazette p. 32 (PDF p. 33)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Sukuma wiki (kales) per bag",
+   "amount": 50,
+   "amountText": "KSh 50",
+   "unit": "per bag",
+   "schedule": "Second Schedule Part 1 – Market User Charge",
+   "page": "Gazette p. 32 (PDF p. 33)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "English potatoes per bag",
+   "amount": 50,
+   "amountText": "KSh 50",
+   "unit": "per bag",
+   "schedule": "Second Schedule Part 1 – Market User Charge",
+   "page": "Gazette p. 32 (PDF p. 33)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Eggs per tray",
+   "amount": 50,
+   "amountText": "KSh 50 (2023/24: 20)",
+   "unit": "per tray",
+   "schedule": "Second Schedule Part 1 – Market User Charge",
+   "page": "Gazette p. 31 (PDF p. 32)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Second hand Shoes and other second-hand items",
+   "amount": 100,
+   "amountText": "KSh 100",
+   "unit": "as printed (no unit stated)",
+   "schedule": "Second Schedule Part 1 – Market User Charge",
+   "page": "Gazette p. 34 (PDF p. 35)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Market Display tops: Zone A. Zone B",
+   "amount": 400,
+   "amountText": "KSh 400 (Zone C: 200)",
+   "unit": "as printed (period not stated)",
+   "schedule": "Second Schedule Part 1 – Markets Dues Section",
+   "page": "Gazette p. 31 (PDF p. 32)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Kiosk-rental fee (at bus stage/constructed by individuals)",
+   "amount": 500,
+   "amountText": "KSh 500",
+   "unit": "per (period truncated in Act text)",
+   "schedule": "Second Schedule Part 1 – Markets Dues Section",
+   "page": "Gazette p. 31 (PDF p. 32)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Lorry admission into the market",
+   "amount": 700,
+   "amountText": "KSh 700",
+   "unit": "per entry",
+   "schedule": "Second Schedule Part 1 – Market User Charge",
+   "page": "Gazette p. 33 (PDF p. 34)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Car / pickup admission",
+   "amount": 500,
+   "amountText": "KSh 500",
+   "unit": "per entry",
+   "schedule": "Second Schedule Part 1 – Market User Charge",
+   "page": "Gazette p. 33 (PDF p. 34)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Handcart admission",
+   "amount": 50,
+   "amountText": "KSh 50",
+   "unit": "per entry",
+   "schedule": "Second Schedule Part 1 – Market User Charge",
+   "page": "Gazette p. 33 (PDF p. 34)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Sugarcane/Bananas/Pineapple/Avocado/Maize/Beans/Guavas/Sweet Potatoes/ other crops movement cess (per vehicle) less or equal to 1Ton (20 x 50kg bags) per Instance",
+   "amount": 500,
+   "amountText": "KSh 500",
+   "unit": "per vehicle per instance",
+   "schedule": "Second Schedule Part 2 – Agriculture Services, item 34",
+   "page": "Gazette p. 35 (PDF p. 36)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "... other crops movement cess (per vehicle) 1-3 Tons (21 to 60 x 50kg bags) per Instance",
+   "amount": 1000,
+   "amountText": "KSh 1,000",
+   "unit": "per vehicle per instance",
+   "schedule": "Second Schedule Part 2 – Agriculture Services, item 35",
+   "page": "Gazette p. 35 (PDF p. 36)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "... other crops movement cess (per vehicle) greater than 3 Tons (over 60 x 50kg bags) per Instance",
+   "amount": 2000,
+   "amountText": "KSh 2,000",
+   "unit": "per vehicle per instance",
+   "schedule": "Second Schedule Part 2 – Agriculture Services, item 36",
+   "page": "Gazette p. 35 (PDF p. 36)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Tea sales cess (Road Maintenance) - Annual",
+   "amount": null,
+   "amountText": "0.5% of sales of Processed Tea (Kgs)",
+   "unit": "annual, % of sales",
+   "schedule": "Second Schedule Part 2 – Other Agricultural Charges, item 45",
+   "page": "Gazette p. 35 (PDF p. 36)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Cess on Primary /Producer on Sold Milk (e.g. monthly per society)",
+   "amount": null,
+   "amountText": "0.5% of Farm gate Price (new)",
+   "unit": "monthly per society",
+   "schedule": "Second Schedule Part 2 – Dairy Services, item 28",
+   "page": "Gazette p. 35 (PDF p. 36)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Milk Bar License per annum",
+   "amount": 2500,
+   "amountText": "KSh 2,500 (new)",
+   "unit": "per year",
+   "schedule": "Second Schedule Part 2 – Dairy Services, item 22",
+   "page": "Gazette p. 35 (PDF p. 36)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Livestock Movement Permit per Cow",
+   "amount": 100,
+   "amountText": "KSh 100",
+   "unit": "per head",
+   "schedule": "Second Schedule Part 2 – Animal Sale/Movement Permits, item 58",
+   "page": "Gazette p. 36 (PDF p. 37)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Livestock Movement Permit per Goat/Sheep/Pig",
+   "amount": 50,
+   "amountText": "KSh 50",
+   "unit": "per head",
+   "schedule": "Second Schedule Part 2 – Animal Sale/Movement Permits, item 59",
+   "page": "Gazette p. 36 (PDF p. 37)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Slaughter fee cattle",
+   "amount": 300,
+   "amountText": "KSh 300 (2023/24: 100)",
+   "unit": "per head",
+   "schedule": "Second Schedule Part 2 – Livestock Services, item 8",
+   "page": "Gazette p. 34 (PDF p. 35)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Slaughter fee goat/sheep",
+   "amount": 200,
+   "amountText": "KSh 200 (2023/24: 50)",
+   "unit": "per head",
+   "schedule": "Second Schedule Part 2 – Livestock Services, item 9",
+   "page": "Gazette p. 34 (PDF p. 35)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Meat Inspection Services- Bovine",
+   "amount": 100,
+   "amountText": "KSh 100",
+   "unit": "per animal",
+   "schedule": "Second Schedule Part 2 – Livestock Services, item 3",
+   "page": "Gazette p. 34 (PDF p. 35)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Artificial Insemination 1st Insemination",
+   "amount": 500,
+   "amountText": "KSh 500 (repeat insemination free)",
+   "unit": "per insemination",
+   "schedule": "Second Schedule Part 2 – Livestock Services, item 1",
+   "page": "Gazette p. 34 (PDF p. 35)"
+  },
+  {
+   "group": "Markets and cess",
+   "item": "Subsidized fertilizer (planting)",
+   "amount": 1200,
+   "amountText": "KSh 1,200",
+   "unit": "as printed (bag size not stated)",
+   "schedule": "Second Schedule Part 2 – Agriculture Services, item 32",
+   "page": "Gazette p. 35 (PDF p. 36)"
+  },
+  {
+   "group": "Parking",
+   "item": "Motor Bikes (seasonal ticket) – 3 months",
+   "amount": 900,
+   "amountText": "KSh 900 (new)",
+   "unit": "per 3 months",
+   "schedule": "Second Schedule Part 5 – Parking and Transportation Fees, Annual Seasonal tickets",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Parking",
+   "item": "Motor Bikes (seasonal ticket) – 6 months",
+   "amount": 1500,
+   "amountText": "KSh 1,500 (new)",
+   "unit": "per 6 months",
+   "schedule": "Second Schedule Part 5 – Parking and Transportation Fees",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Parking",
+   "item": "Motor Bikes (Paid Once) – Annual",
+   "amount": 2400,
+   "amountText": "KSh 2,400 (new)",
+   "unit": "per calendar year",
+   "schedule": "Second Schedule Part 5 – Parking and Transportation Fees",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Parking",
+   "item": "Motor Bikes (From outside the County)",
+   "amount": 50,
+   "amountText": "KSh 50",
+   "unit": "per day",
+   "schedule": "Second Schedule Part 5 – Parking and Transportation Fees",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Parking",
+   "item": "Private vehicle (seasonal ticket)",
+   "amount": 500,
+   "amountText": "KSh 500",
+   "unit": "per month",
+   "schedule": "Second Schedule Part 5 – Parking and Transportation Fees",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Parking",
+   "item": "Saloon Car/Pick-Up – On-street parking in Towns",
+   "amount": 100,
+   "amountText": "KSh 100 (2023/24: 50)",
+   "unit": "per day",
+   "schedule": "Second Schedule Part 5 – On-street parking in Towns",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Parking",
+   "item": "Saloon Car/Pick-Up – Off Street Metered Parking",
+   "amount": 30,
+   "amountText": "KSh 30 (new)",
+   "unit": "per hour",
+   "schedule": "Second Schedule Part 5 – Off Street Metered Parking",
+   "page": "Gazette p. 70 (PDF p. 71)"
+  },
+  {
+   "group": "Parking",
+   "item": "Taxis, PSV Small cars (e.g. Uber, Sienta, Probox etc.) (up to 5-seater)",
+   "amount": 1200,
+   "amountText": "KSh 1,200",
+   "unit": "per month",
+   "schedule": "Second Schedule Part 5 – Parking and Transportation Fees",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Parking",
+   "item": "Matatu, Uber (up to 9-seater)",
+   "amount": 2100,
+   "amountText": "KSh 2,100 (2023/24: 2,500)",
+   "unit": "per month",
+   "schedule": "Second Schedule Part 5 – Parking and Transportation Fees",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Parking",
+   "item": "Matatu (10 to 17-seater)",
+   "amount": 2300,
+   "amountText": "KSh 2,300 (2023/24: 2,700)",
+   "unit": "per month",
+   "schedule": "Second Schedule Part 5 – Parking and Transportation Fees",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Parking",
+   "item": "Tuk-tuk",
+   "amount": 500,
+   "amountText": "KSh 500",
+   "unit": "per month",
+   "schedule": "Second Schedule Part 5 – Parking and Transportation Fees",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Parking",
+   "item": "Matatu – Registration (Application fee)",
+   "amount": 100,
+   "amountText": "KSh 100",
+   "unit": "once",
+   "schedule": "Second Schedule Part 5 – Registration (Application fee)",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Parking",
+   "item": "Unclamping charges",
+   "amount": 1000,
+   "amountText": "KSh 1,000",
+   "unit": "per instance",
+   "schedule": "Second Schedule Part 5 – Parking and Transportation Fees",
+   "page": "Gazette p. 69 (PDF p. 70)"
+  },
+  {
+   "group": "Buildings and land",
+   "item": "Land rates – Residential plots (valued land)",
+   "amount": null,
+   "amountText": "2.0% of current market value (all zones)",
+   "unit": "per year",
+   "schedule": "Second Schedule Part 6 – Land Rates Charges pursuant to the Rating Act",
+   "page": "Gazette p. 73 (PDF p. 74)"
+  },
+  {
+   "group": "Buildings and land",
+   "item": "Plot rent – Residential plots",
+   "amount": 1200,
+   "amountText": "Zone A KSh 1,200; Zone B KSh 1,000; Zone C KSh 800",
+   "unit": "per plot per year",
+   "schedule": "Second Schedule Part 6 – Plot Rent",
+   "page": "Gazette p. 74 (PDF p. 75)"
+  },
+  {
+   "group": "Buildings and land",
+   "item": "Plot rent – Plots size below 0.1Ha.",
+   "amount": 1000,
+   "amountText": "Zone A KSh 1,000; Zone B KSh 800; Zone C KSh 700",
+   "unit": "per plot per year",
+   "schedule": "Second Schedule Part 6 – Plot Rent",
+   "page": "Gazette p. 74 (PDF p. 75)"
+  },
+  {
+   "group": "Buildings and land",
+   "item": "House construction Approval-Single room",
+   "amount": 10000,
+   "amountText": "KSh 10,000 (new)",
+   "unit": "per approval",
+   "schedule": "Second Schedule Part 6 – Physical and Land Use Planning Services",
+   "page": "Gazette p. 77 (PDF p. 78)"
+  },
+  {
+   "group": "Buildings and land",
+   "item": "House construction Approval-Two bedrooms",
+   "amount": 20000,
+   "amountText": "KSh 20,000 (new)",
+   "unit": "per approval",
+   "schedule": "Second Schedule Part 6 – Physical and Land Use Planning Services",
+   "page": "Gazette p. 77 (PDF p. 78)"
+  },
+  {
+   "group": "Buildings and land",
+   "item": "House construction Approval-Three Bedrooms",
+   "amount": 25000,
+   "amountText": "KSh 25,000 (new)",
+   "unit": "per approval",
+   "schedule": "Second Schedule Part 6 – Physical and Land Use Planning Services",
+   "page": "Gazette p. 78 (PDF p. 79)"
+  },
+  {
+   "group": "Buildings and land",
+   "item": "Development permission (single development or single dwelling)",
+   "amount": 5600,
+   "amountText": "KSh 5,600; KSh 2,800 per additional floor",
+   "unit": "per application",
+   "schedule": "Second Schedule Part 6 – County Land Transaction Fees",
+   "page": "Gazette p. 77 (PDF p. 78)"
+  },
+  {
+   "group": "Buildings and land",
+   "item": "Processing fee for building plans",
+   "amount": 100,
+   "amountText": "KSh 100 per square meter of floor/plinth area",
+   "unit": "per sq m",
+   "schedule": "Second Schedule Part 6 – Development Application Fees",
+   "page": "Gazette p. 75 (PDF p. 76)"
+  },
+  {
+   "group": "Buildings and land",
+   "item": "Consent to transfer, charge, sub-lease",
+   "amount": 5000,
+   "amountText": "KSh 5,000",
+   "unit": "per instance",
+   "schedule": "Second Schedule Part 6 – County Land Transaction Fees",
+   "page": "Gazette p. 77 (PDF p. 78)"
+  },
+  {
+   "group": "Buildings and land",
+   "item": "Search fee (documents/public land)",
+   "amount": 1000,
+   "amountText": "KSh 1,000",
+   "unit": "per search",
+   "schedule": "Second Schedule Part 6 – County Land Transaction Fees",
+   "page": "Gazette p. 77 (PDF p. 78)"
+  },
+  {
+   "group": "Health",
+   "item": "Medical Examination Certificates for Food Handlers-Quarterly",
+   "amount": 400,
+   "amountText": "KSh 400",
+   "unit": "per quarter",
+   "schedule": "Second Schedule Part 4 – Public Health, Issuance of Certificates and/or Permits",
+   "page": "Gazette p. 65 (PDF p. 66)"
+  },
+  {
+   "group": "Health",
+   "item": "Food Handlers Certificate (laboratory)",
+   "amount": 600,
+   "amountText": "KSh 600 (2023/24: 500)",
+   "unit": "per certificate",
+   "schedule": "Second Schedule Part 3 – Medical Health Services (laboratory list, item 34)",
+   "page": "Gazette p. 40 (PDF p. 41)"
+  },
+  {
+   "group": "Health",
+   "item": "Food hygiene licence – CATEGORY A Market Stalls",
+   "amount": 500,
+   "amountText": "KSh 500",
+   "unit": "per year (as implied)",
+   "schedule": "Second Schedule Part 4 – Public Health, Issuance of Food Hygiene Licenses",
+   "page": "Gazette p. 63 (PDF p. 64)"
+  },
+  {
+   "group": "Health",
+   "item": "Food hygiene licence – Restaurants",
+   "amount": 3000,
+   "amountText": "KSh 3,000",
+   "unit": "per year (as implied)",
+   "schedule": "Second Schedule Part 4 – Public Health",
+   "page": "Gazette p. 64 (PDF p. 65)"
+  },
+  {
+   "group": "Health",
+   "item": "Food hygiene licence – Butcheries",
+   "amount": 1000,
+   "amountText": "KSh 1,000",
+   "unit": "per year (as implied)",
+   "schedule": "Second Schedule Part 4 – Public Health",
+   "page": "Gazette p. 64 (PDF p. 65)"
+  },
+  {
+   "group": "Health",
+   "item": "Issuance of health clearance for liquor licensing",
+   "amount": 2000,
+   "amountText": "KSh 2,000",
+   "unit": "per clearance",
+   "schedule": "Second Schedule Part 4 – Public Health",
+   "page": "Gazette p. 65 (PDF p. 66)"
+  },
+  {
+   "group": "Health",
+   "item": "Consultation for Adults (outpatient)",
+   "amount": 100,
+   "amountText": "KSh 100",
+   "unit": "per visit",
+   "schedule": "Second Schedule Part 3 – Medical Health Services, Outpatient Services",
+   "page": "Gazette p. 54 (PDF p. 55)"
+  },
+  {
+   "group": "Health",
+   "item": "OPD Card Adult",
+   "amount": 100,
+   "amountText": "KSh 100 (OPD Card Children: KSh 50)",
+   "unit": "per card",
+   "schedule": "Second Schedule Part 3 – Records Department",
+   "page": "Gazette p. 55 (PDF p. 56)"
+  },
+  {
+   "group": "Health",
+   "item": "Normal Delivery",
+   "amount": 11200,
+   "amountText": "KSh 11,200 (2023/24: 600); Part 3 heading says charges are per the gazetted SHA benefits package",
+   "unit": "per delivery",
+   "schedule": "Second Schedule Part 3 – Maternity Services",
+   "page": "Gazette p. 52 (PDF p. 53)"
+  },
+  {
+   "group": "Health",
+   "item": "Mortuary daily charges",
+   "amount": 500,
+   "amountText": "KSh 500",
+   "unit": "per day",
+   "schedule": "Second Schedule Part 3 – Mortuary and End of Life Services",
+   "page": "Gazette p. 53 (PDF p. 54)"
+  },
+  {
+   "group": "Other",
+   "item": "Exhumation Permit",
+   "amount": 10000,
+   "amountText": "KSh 10,000",
+   "unit": "per permit",
+   "schedule": "Second Schedule Part 4 – Public Health",
+   "page": "Gazette p. 65 (PDF p. 66)"
+  },
+  {
+   "group": "Other",
+   "item": "Fire Inspection application fee",
+   "amount": 1000,
+   "amountText": "KSh 1,000 (new)",
+   "unit": "per instance",
+   "schedule": "Second Schedule Part 5 – Fire Compliance Certificates",
+   "page": "Gazette p. 70 (PDF p. 71)"
+  },
+  {
+   "group": "Other",
+   "item": "Certificate of Fire Inspection (annual) for commercial enterprises e.g. shops, kiosks ... Up to 1000 sq. Ft",
+   "amount": 1000,
+   "amountText": "KSh 1,000 (2023/24: 500)",
+   "unit": "per year",
+   "schedule": "Second Schedule Part 5 – Fire Services",
+   "page": "Gazette p. 71 (PDF p. 72)"
+  },
+  {
+   "group": "Other",
+   "item": "Solid waste collection – Residential and Private areas within urban areas",
+   "amount": 1000,
+   "amountText": "KSh 1,000 per house per year (per-plot row: KSh 800 per plot per year)",
+   "unit": "per house per year",
+   "schedule": "Second Schedule – Conservancy, Solid waste collection & transportation services",
+   "page": "Gazette p. 93 (PDF p. 94)"
+  }
+ ],
+ "notes": [
+  "Pages are printed Gazette page numbers; the PDF page is one more (the cover is PDF p.1).",
+  "Where fees vary by zone, 'amount' is the Zone A figure; amountText gives all zones. Zone A = Nyamira Municipality, Keroka Municipality, Nyansiongo Township and any town raised to municipality status. Zone B = Kemera, Omogonchoro, Magombo, Chepilat, Ikonge, Ekerenyo, Mosobeti, Manga, Gesima, Nyamusi, Tombe, Girango, Magwagwa, Mokomoni, Nyabara Ibere, Nyansiongo Township, Kioge, Nyangori and Esani. Zone C = everywhere else (s.2, Gazette p.5).",
+  "No Nyamira Finance Act 2024 or 2026, and no Finance Bill 2026, was found on nyamira.go.ke (Bills and Acts list holds only the 2023 Act, the 2023-24 Bill and the 2025 Act). nyamiraassembly.go.ke refused connections and Kenya Law returned 403, so a 2026 bill pending in the Assembly cannot be fully ruled out.",
+  "The 2025 Act tables show 'Approved Charges 2023/2024' next to 'Approved Charges 2025/2026'. Only the 2025/2026 column is in force; 2023/24 figures are given for context where they changed.",
+  "Boda boda: the 2023 Act charged 'Motor Bikes Monthly' KSh 300 (2023 Act p.64). The 2025 Act replaces this with seasonal tickets of 900 for 3 months, 1,500 for 6 months and 2,400 per year.",
+  "The Act has no separate livestock-market entry fee per head of cattle or goats. Per-head charges are movement permits (Cow 100; Goat/Sheep/Pig 50) and slaughter fees.",
+  "The Act has no general per-bag produce cess at barriers. Produce cess is charged per vehicle by tonnage (500 / 1,000 / 2,000), plus separate crop movement permits, e.g. 'Bananas Movement Permit 1-3 Tons' 500 and 'Avocado Movement Permit 1-3 Tons' 1,000. Tea and coffee are charged as % road-maintenance cess on sales.",
+  "No public cemetery or burial-plot fee was found; only Exhumation Permit and mortuary charges are listed.",
+  "Hospital charges: Part 3 says charges follow the gazetted SHA benefits package. Some figures (e.g. Normal Delivery 11,200) are probably SHA reimbursement tariffs rather than out-of-pocket cash prices. Treat them carefully.",
+  "The Act has typos and ambiguities (e.g. 'per Month Year', duplicate informal-sector rows with different figures, a truncated Airbnb Zone A cell ',000'). These are reported as printed.",
+  "Downloads were treated as untrusted data. Text was extracted with pdftotext; the PDFs have a text layer, so no OCR was needed."
+ ]
+}

@@ -1,0 +1,79 @@
+---
+import wards from '../data/wards.json';
+import { lines2526, total, watch, sources } from '../lib/projects.js';
+import { ksh } from '../lib/fmt.js';
+import EvidenceLabel from './EvidenceLabel.astro';
+const rows = wards.map((w) => {
+  const l = lines2526(w.slug);
+  return { w, n: l.length, zero: l.filter((x) => !x.amount).length, b: total(w.slug, '2025/26', 'budgeted')?.amount ?? 0, roads: total(w.slug, '2023/24', 'contract')?.amount ?? null };
+});
+const sum = rows.reduce((a, r) => a + r.b, 0);
+const nlines = rows.reduce((a, r) => a + r.n, 0);
+const top = [...rows].sort((a, b) => b.b - a.b);
+const wname = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
+---
+<div class="stack-lg" style="margin-top:24px">
+  <section class="grid">
+    <div class="card">
+      <span class="eyebrow">Ward projects, FY2025/26 budget</span>
+      <span class="big">{ksh(sum)}</span>
+      <span>across {nlines} budget lines tagged to the 20 wards. County-wide "flagship" projects are not included.</span>
+      <EvidenceLabel kind="official" />
+      <span class="small muted">Source: <a href={sources.pbb2526.url} rel="noopener">Programme Based Budget 2025/26</a>, Table 18</span>
+    </div>
+    <div class="card">
+      <span class="eyebrow">Largest and smallest ward totals</span>
+      <span class="big">{ksh(top[0].b)}</span>
+      <span>{top[0].w.name} has the largest ward total in the FY2025/26 budget lines. {top[top.length - 1].w.name} has the smallest ({ksh(top[top.length - 1].b)}), partly because many of its lines are printed as zero.</span>
+      <EvidenceLabel kind="official" />
+    </div>
+    <div class="card">
+      <span class="eyebrow">Projects that raise questions</span>
+      <span class="big">{watch.length}</span>
+      <span>projects where the county's own documents show repeat budgeting or stalled work. These are questions to ask, not findings of wrongdoing.</span>
+      <a href="#watch">See the list</a>
+    </div>
+  </section>
+
+  <div class="sw" lang="sw">
+    <span class="eyebrow">Muhtasari kwa Kiswahili</span>
+    <p>Bajeti ya kaunti ya mwaka 2025/26 ina miradi {nlines} iliyotengwa kwa wadi 20, yenye jumla ya {ksh(sum)}. Chagua wadi yako kuona miradi yake.</p>
+  </div>
+
+  <section class="stack">
+    <h2>Every ward, side by side</h2>
+    <p class="muted">Budget lines are what the county planned to spend in each ward. Road contracts are what it signed for routine road maintenance in FY2023/24. Neither shows what was finished.</p>
+    <div class="table-box">
+      <table class="cards">
+        <thead><tr><th>Ward</th><th>Sub-county</th><th class="num">FY2025/26 ward budget</th><th class="num">Budget lines</th><th class="num">FY2023/24 road contracts</th></tr></thead>
+        <tbody>{rows.map((r) => (
+          <tr data-ward-row={r.w.slug}><td><a href={`/ward/${r.w.slug}/#projects`}>{r.w.name}</a></td><td data-label="Sub-county">{r.w.subCounty}</td><td class="num" data-label="FY2025/26 budget">{ksh(r.b)}</td><td class="num" data-label="Budget lines">{r.n}{r.zero ? ` (${r.zero} at zero)` : ''}</td><td class="num" data-label="FY2023/24 roads">{r.roads == null ? "None listed" : ksh(r.roads)}</td></tr>
+        ))}</tbody>
+      </table>
+    </div>
+    <p class="small muted">The budget document states KSh 357,124,313 for ward-based projects; the lines we extracted add up to {ksh(sum)}. We are checking the difference against the printed PDF. Road contract sums are from the <a href={sources.adp2526.url} rel="noopener">Annual Development Plan 2025/26</a>, pp.73–77.</p>
+  </section>
+
+  <section class="stack" id="watch">
+    <h2>Questions to ask</h2>
+    <p class="muted">Each item comes from the county's own plans and budgets, or the Controller of Budget. A project budgeted again can have good reasons, such as a new phase. We have not yet visited these sites.</p>
+    <div class="grid">
+      {watch.map((x) => (
+        <div class="card">
+          <span class="eyebrow">{wname[x.ward]} ward</span>
+          <h3>{x.title}</h3>
+          <p>{x.text}</p>
+          <span class="label unverified">Needs a site visit</span>
+          <span class="small muted">Sources: {x.src.map((id, i) => (<>{i > 0 && ', '}<a href={sources[id].url} rel="noopener">{id.toUpperCase()}</a></>))}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <details>
+    <summary>Where these figures come from</summary>
+    <ul class="small">{Object.values(sources).map((s) => <li><a href={s.url} rel="noopener">{s.title}</a> ({s.date})</li>)}</ul>
+    <p class="small">Three roads appear under different wards in the Controller of Budget's report and the county's plan; we use the county's ward coding. Some roads listed as "awaiting payment" in the plan were later reported paid in full.</p>
+  </details>
+  <p class="updated">Last updated 22 Oct 2026. <a href="/files/projects-v1.csv" download>Download all 404 project records (CSV)</a>.</p>
+</div>

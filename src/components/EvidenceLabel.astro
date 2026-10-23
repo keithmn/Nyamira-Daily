@@ -1,0 +1,7 @@
+---
+// One of four evidence labels used on every claim.
+interface Props { kind: 'verified' | 'audit' | 'official' | 'unverified' }
+const { kind } = Astro.props;
+const text = { verified: 'Verified', audit: 'Audit finding', official: 'Official claim', unverified: 'Unverified' }[kind];
+---
+<span class={`label ${kind}`}>{text}</span>

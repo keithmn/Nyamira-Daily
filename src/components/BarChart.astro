@@ -1,0 +1,46 @@
+---
+// Simple grouped bar chart drawn at build time as inline SVG.
+// One y-axis. Native <title> tooltips on every bar; the same numbers
+// are always also given in a table on the page.
+interface Series { name: string; values: (number | null)[] }
+interface Props { labels: string[]; series: Series[]; unit: string; format?: (v: number) => string; max?: number; title: string }
+const { labels, series, unit, title } = Astro.props;
+const fmt = Astro.props.format ?? ((v: number) => v.toLocaleString('en-KE'));
+const W = 720, H = 300, L = 52, R = 8, T = 12, B = 34;
+const all = series.flatMap((s) => s.values.filter((v): v is number => v != null));
+const rawMax = Astro.props.max ?? Math.max(...all);
+const step = (() => { const e = Math.pow(10, Math.floor(Math.log10(rawMax / 4))); for (const m of [1, 2, 2.5, 5, 10]) if (rawMax / (m * e) <= 5) return m * e; return 10 * e; })();
+const top = Math.ceil(rawMax / step) * step;
+const ticks = Array.from({ length: Math.round(top / step) + 1 }, (_, i) => i * step);
+const pw = W - L - R, ph = H - T - B;
+const gw = pw / labels.length;
+const gap = 2, bw = Math.min(22, (gw * 0.7 - gap * (series.length - 1)) / series.length);
+const y = (v: number) => T + ph - (v / top) * ph;
+const r = Math.min(4, bw / 2);
+const bar = (x: number, v: number) => {
+  const yt = y(v), yb = T + ph, h = yb - yt;
+  const rr = Math.min(r, h);
+  return `M${x},${yb}V${yt + rr}Q${x},${yt} ${x + rr},${yt}H${x + bw - rr}Q${x + bw},${yt} ${x + bw},${yt + rr}V${yb}Z`;
+};
+---
+<figure class="chart" style="margin:0">
+  <div class="legend" aria-hidden={series.length < 2 ? 'true' : undefined}>
+    {series.length > 1 && series.map((s, i) => <span><i class={`s${i + 1}`} style={`background:var(--series-${i + 1})`}></i>{s.name}</span>)}
+  </div>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={title}>
+    {ticks.map((t) => (<>
+      <line class={t === 0 ? 'axis' : 'gl'} x1={L} x2={W - R} y1={y(t)} y2={y(t)} />
+      <text x={L - 8} y={y(t) + 4} text-anchor="end">{fmt(t)}</text>
+    </>))}
+    {labels.map((lab, i) => {
+      const gx = L + i * gw + (gw - (bw * series.length + gap * (series.length - 1))) / 2;
+      return (<>
+        {series.map((s, j) => s.values[i] != null && (
+          <path d={bar(gx + j * (bw + gap), s.values[i] as number)} class={`s${j + 1}`} style={`fill:var(--series-${j + 1})`}><title>{`${lab} · ${s.name}: ${fmt(s.values[i] as number)} ${unit}`}</title></path>
+        ))}
+        <text x={L + i * gw + gw / 2} y={H - 12} text-anchor="middle">{lab.replace('20', '').replace('/', '/')}</text>
+      </>);
+    })}
+  </svg>
+  <figcaption class="small muted">{unit}. Hover or tap a bar for its value; all figures are in the table below.</figcaption>
+</figure>

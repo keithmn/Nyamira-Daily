@@ -1,0 +1,87 @@
+---
+import c from '../data/census.json';
+import { num } from '../lib/fmt.js';
+import EvidenceLabel from './EvidenceLabel.astro';
+import BarChart from './BarChart.astro';
+const k = c.county;
+const bands = c.age.filter((a) => ['0-14', '15-34', '35-64', '65+'].includes(a.band));
+const youth = bands.find((b) => b.band === '15-34');
+const kids = bands.find((b) => b.band === '0-14');
+const ind = c.indicators;
+const pick = (s) => ind.find((i) => i.name.toLowerCase().includes(s));
+const cards = [
+  { v: pick('piped'), label: 'of households get drinking water from a pipe or public tap' },
+  { v: pick('electricity'), label: 'of households light their homes with mains electricity' },
+  { v: pick('firewood'), label: 'of households cook mainly with firewood' },
+  { v: pick('internet'), label: 'of people aged 3 and over used the internet' },
+];
+const volIII = bands[0].url;
+---
+<div class="stack-lg" style="margin-top:24px">
+  <section class="grid">
+    <div class="card">
+      <span class="eyebrow">People in Nyamira (2019 census)</span>
+      <span class="big">{num(k.population)}</span>
+      <span>{num(k.female)} women and girls, {num(k.male)} men and boys, in {num(k.households)} households.</span>
+      <EvidenceLabel kind="official" />
+      <span class="small muted">Source: <a href={k.url} rel="noopener">KNBS 2019 Census, Volume I</a></span>
+    </div>
+    <div class="card">
+      <span class="eyebrow">A young county</span>
+      <span class="big">{Math.round(kids.share + youth.share)}%</span>
+      <span>of residents were under 35 in 2019: {kids.share}% under 15 and {youth.share}% aged 15 to 34.</span>
+      <EvidenceLabel kind="official" />
+      <span class="small muted">Source: <a href={volIII} rel="noopener">KNBS 2019 Census, Volume III</a></span>
+    </div>
+    <div class="card">
+      <span class="eyebrow">Mostly rural</span>
+      <span class="big">{Math.round((k.rural.population / k.population) * 100)}%</span>
+      <span>of people live in rural areas. The county covers {k.areaKm2} km², about {k.density} people per km².</span>
+      <EvidenceLabel kind="official" />
+    </div>
+  </section>
+
+  <div class="sw" lang="sw">
+    <span class="eyebrow">Muhtasari kwa Kiswahili</span>
+    <p>Kwa mujibu wa sensa ya 2019, Nyamira ina wakazi {num(k.population)}. Takriban asilimia {Math.round(kids.share + youth.share)} ni chini ya miaka 35.</p>
+  </div>
+
+  <section class="stack">
+    <h2>Age groups</h2>
+    <BarChart title="Nyamira population by age group, 2019 census" labels={bands.map((b) => b.band)} unit="People" series={[{ name: 'People', values: bands.map((b) => b.count) }]} />
+    <p class="small muted">Among people aged 20 to 34 there were 75,558 women and 55,992 men. The census does not say why.</p>
+  </section>
+
+  <section class="stack">
+    <h2>How people live</h2>
+    <div class="grid">
+      {cards.filter((x) => x.v).map((x) => (
+        <div class="card">
+          <span class="big">{x.v.value}%</span>
+          <span>{x.label}.</span>
+          <span class="small muted">{x.v.definition}. Source: <a href={x.v.url} rel="noopener">KNBS Vol IV</a>, {x.v.page}</span>
+        </div>
+      ))}
+    </div>
+    <p class="small muted">Most households get water from springs (36.4% protected) or streams and rivers (36.6%).</p>
+  </section>
+
+  <section class="stack">
+    <h2>By sub-county</h2>
+    <p class="muted">The census uses the national government's sub-counties, which do not match constituencies exactly. KNBS did not publish figures by ward.</p>
+    <div class="table-box">
+      <table class="cards">
+        <thead><tr><th>Census sub-county</th><th class="num">People</th><th class="num">Households</th><th class="num">Area (km²)</th><th class="num">People per km²</th><th>Matches constituency</th></tr></thead>
+        <tbody>{c.subCounties.map((s) => (
+          <tr><td>{s.name}</td><td class="num" data-label="People">{num(s.population)}</td><td class="num" data-label="Households">{num(s.households)}</td><td class="num" data-label="Area">{s.areaKm2}</td><td class="num" data-label="Per km²">{num(s.density)}</td><td data-label="Constituency" class="small">{s.constituencyMapping}</td></tr>
+        ))}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <details>
+    <summary>Why there is no population figure for each ward</summary>
+    <p class="small">The 2019 census reports were published by sub-county, division, location and sub-location, not by county assembly ward, and ward boundaries do not follow those units. The county's development plan (CIDP 2023–2027) also has no ward table. Some census areas share a ward's name, but they cover different ground, so we do not present them as ward figures. We will add ward estimates only if KNBS or IEBC publishes them.</p>
+  </details>
+  <p class="updated">Last updated 22 Oct 2026.</p>
+</div>

@@ -1,0 +1,15 @@
+---
+interface Crumb { href: string; label: string }
+interface Props { eyebrow?: string; title: string; lead?: string; crumbs?: Crumb[]; tools?: boolean }
+const { eyebrow, title, lead, crumbs = [], tools = true } = Astro.props;
+---
+{crumbs.length > 0 && (
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    {crumbs.map((c, i) => (<><a href={c.href}>{c.label}</a>{i < crumbs.length - 1 ? ' / ' : ''}</>))}
+  </nav>
+)}
+<header class="stack" style="padding: 24px 0 8px">
+  {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+  <h1>{title}</h1>
+  {lead && <p class="lead">{lead}</p>}
+</header>

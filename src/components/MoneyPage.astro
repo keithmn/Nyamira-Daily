@@ -1,0 +1,100 @@
+---
+import money from '../data/money.json';
+import BarChart from './BarChart.astro';
+import EvidenceLabel from './EvidenceLabel.astro';
+const ys = money.years;
+const last = ys[ys.length - 1];
+const bn = (m: number) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
+const mn = (m: number) => m >= 1000 ? bn(m) : `KSh ${m.toLocaleString('en-KE', { maximumFractionDigits: 1 })}M`;
+const totalSpent = ys.reduce((n, y) => n + y.spent, 0);
+const labels = ys.map((y) => y.fy);
+const fmtB = (v: number) => (v / 1000).toLocaleString('en-KE', { maximumFractionDigits: 1 });
+const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+---
+<div class="stack-lg" style="margin-top:24px">
+  <section class="grid">
+    <div class="card">
+      <span class="eyebrow">Last full year ({last.fy})</span>
+      <span class="big">{bn(last.spent)}</span>
+      <span>spent by the county, out of a budget of {bn(last.budget)}.</span>
+      <EvidenceLabel kind="official" />
+      <span class="small muted">Source: Controller of Budget, FY{last.fy} report</span>
+    </div>
+    <div class="card">
+      <span class="eyebrow">Development (roads, buildings, water)</span>
+      <span class="big">{last.devAbs}%</span>
+      <span>of the {last.fy} development budget was spent ({bn(last.dev)}). Most county money goes on salaries and running costs.</span>
+      <EvidenceLabel kind="official" />
+      <span class="small muted">Source: Controller of Budget, FY{last.fy} report</span>
+    </div>
+    <div class="card">
+      <span class="eyebrow">Since devolution began</span>
+      <span class="big">{bn(totalSpent)}</span>
+      <span>spent by the county over 12 years, FY2013/14 to FY2024/25 (adding each year's actual spending).</span>
+      <EvidenceLabel kind="official" />
+      <span class="small muted">Source: Controller of Budget annual reports</span>
+    </div>
+  </section>
+
+  <div class="sw" lang="sw">
+    <span class="eyebrow">Muhtasari kwa Kiswahili</span>
+    <p>Mwaka wa fedha {last.fy}, kaunti ya Nyamira ilitumia {bn(last.spent)} kati ya bajeti ya {bn(last.budget)}. Ni asilimia {last.devAbs} tu ya bajeti ya maendeleo iliyotumika. Takwimu hizi ni kutoka kwa Msimamizi wa Bajeti (Controller of Budget).</p>
+  </div>
+
+  <section class="stack">
+    <h2>Budget and spending, every year</h2>
+    <p class="muted">The county usually spends less than it budgets. The gap is money that was not released or not used that year.</p>
+    <BarChart title="Nyamira County approved budget and actual spending by financial year" labels={labels} unit="KSh billion" format={fmtB}
+      series={[{ name: 'Approved budget', values: ys.map((y) => y.budget) }, { name: 'Actually spent', values: ys.map((y) => y.spent) }]} />
+  </section>
+
+  <section class="stack">
+    <h2>How much of the development budget was used</h2>
+    <p class="muted">Development money pays for things that last: roads, buildings, water. A low share means projects were planned and funded but not paid for that year.</p>
+    <BarChart title="Share of development budget spent each year, per cent" labels={labels} unit="Per cent of development budget spent" max={100} format={(v) => `${v}%`}
+      series={[{ name: 'Development budget used', values: ys.map((y) => y.devAbs) }]} />
+  </section>
+
+  <section class="stack">
+    <h2>Money the county raised itself</h2>
+    <p class="muted">Fees, rates and permits collected locally ("own-source revenue"), against the county's own target. From FY2022/23 this includes hospital fees, so later years are not directly comparable with earlier ones.</p>
+    <BarChart title="Own-source revenue target and amount collected, KSh million" labels={labels} unit="KSh million"
+      series={[{ name: 'Target', values: ys.map((y) => y.osrTarget) }, { name: 'Collected', values: ys.map((y) => y.osr) }]} />
+  </section>
+
+  <details>
+    <summary>See the detail: every figure, with its source</summary>
+    <p class="small muted" style="margin:4px 0 12px">{money.note} All amounts in KSh.</p>
+    <div class="table-box">
+      <table class="cards">
+        <thead><tr><th>Year</th><th class="num">Budget</th><th class="num">Spent</th><th class="num">Development spent</th><th class="num">Dev. budget used</th><th class="num">Raised locally</th><th class="num">From national govt</th><th class="num">Pending bills</th><th>Source</th></tr></thead>
+        <tbody>
+          {ys.map((y) => (
+            <tr>
+              <td>{y.fy}</td>
+              <td class="num" data-label="Budget">{mn(y.budget)}</td>
+              <td class="num" data-label="Spent">{mn(y.spent)}</td>
+              <td class="num" data-label="Development spent">{mn(y.dev)}</td>
+              <td class="num" data-label="Dev. budget used">{y.devAbs}%</td>
+              <td class="num" data-label="Raised locally">{mn(y.osr)}{y.osrNote ? ' *' : ''}</td>
+              <td class="num" data-label="From national govt">{mn(y.eqShare)}</td>
+              <td class="num" data-label="Pending bills">{y.pending != null ? mn(y.pending) : 'Not reported'}{y.pendingNote ? ' *' : ''}</td>
+              <td data-label="Source"><a href={y.src} rel="noopener">CoB {y.fy}</a> <span class="small muted">{y.page}</span></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <ul class="small" style="margin-top:12px">
+      {ys.filter((y) => y.osrNote || y.pendingNote).map((y) => (
+        <li><strong>{y.fy}:</strong> {y.osrNote} {y.pendingNote}</li>
+      ))}
+    </ul>
+  </details>
+
+  <section class="stack">
+    <h2>Read these figures with care</h2>
+    <ul>{money.caveats.map((c) => <li>{c}</li>)}</ul>
+    <p class="updated">Last updated {date}. Spotted an error? See <a href="/how-we-work/#corrections">corrections</a>.</p>
+  </section>
+</div>

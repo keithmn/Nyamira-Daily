@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Placeholder from '../../components/Placeholder.astro';
+---
+<Base title="Show episodes">
+  <PageHead eyebrow="Learn" title="Show episodes" lead="Past episodes of Nyamira Watch, the nightly show." crumbs={[{ href: '/learn/', label: 'Learn' }, { href: '/learn/episodes/', label: 'Show episodes' }]} />
+  <div style="margin-top:16px"><Placeholder what="This lesson" /></div>
+</Base>

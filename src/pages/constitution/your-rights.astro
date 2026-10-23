@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+const rights = [
+  { art: 'Article 43', title: 'Economic and social rights', text: 'The right to the highest attainable standard of health, to accessible and adequate housing and reasonable sanitation, to be free from hunger, to clean and safe water, to social security and to education.' },
+  { art: 'Article 42', title: 'A clean and healthy environment', text: 'Everyone has the right to a clean and healthy environment.' },
+  { art: 'Article 35', title: 'Access to information', text: 'Every citizen has the right to information held by the state, including the county government.' },
+  { art: 'Article 37', title: 'Assembly, demonstration, picketing and petition', text: 'Everyone may assemble peacefully and present petitions to public authorities.' },
+  { art: 'Article 54', title: 'Persons with disabilities', text: 'Persons with disabilities have the right to access public places, information and services.' },
+  { art: 'Article 55', title: 'Youth', text: 'The state must take measures so that young people have access to education, employment and the chance to take part in governance.' },
+];
+---
+<Base title="Your rights">
+  <PageHead eyebrow="Constitution" title="Your rights and the county" lead="Rights in the Bill of Rights that county services must respect. Plain summaries; read the official text for the exact wording." crumbs={[{ href: '/constitution/', label: 'Constitution' }, { href: '/constitution/your-rights/', label: 'Your rights' }]} />
+  <div class="grid" style="margin-top:16px">
+    {rights.map((r) => (<div class="card"><span class="eyebrow">{r.art}</span><h3>{r.title}</h3><p>{r.text}</p></div>))}
+  </div>
+</Base>

@@ -1,0 +1,19 @@
+---
+// The two-layer rule: one number, one sentence, one label first; detail behind "See the detail".
+import EvidenceLabel from './EvidenceLabel.astro';
+interface Props {
+  topic: string; value: string; sentence: string;
+  evidence?: 'verified' | 'audit' | 'official' | 'unverified';
+  source?: string; href?: string;
+}
+const { topic, value, sentence, evidence, source, href } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+<Tag class="card" href={href}>
+  <span class="eyebrow">{topic}</span>
+  <span class="big">{value}</span>
+  <span>{sentence}</span>
+  {evidence && <EvidenceLabel kind={evidence} />}
+  {source && <span class="small muted">Source: {source}</span>}
+  <slot />
+</Tag>

@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+// Who is responsible, by service. County functions follow the Fourth Schedule of the Constitution.
+// Check every row against the Fourth Schedule and current law before launch.
+const rows = [
+  { problem: 'Dispensaries, health centres and county hospitals', who: 'County government (Health department)', why: 'County health services are a county function.' },
+  { problem: 'National referral hospitals', who: 'National government', why: 'National referral health facilities are a national function.' },
+  { problem: 'ECDE (nursery) centres and their teachers', who: 'County government', why: 'Pre-primary education is a county function.' },
+  { problem: 'Primary and secondary schools, and their teachers', who: 'National government (Ministry of Education; Teachers Service Commission)', why: 'Education beyond pre-primary is national.' },
+  { problem: 'Village polytechnics and vocational centres', who: 'County government', why: 'Village polytechnics are a county function.' },
+  { problem: 'County roads and street lights', who: 'County government (Roads department)', why: 'County transport, including county roads, is a county function.' },
+  { problem: 'Major national highways', who: 'National government road agencies', why: 'National trunk roads are a national function.' },
+  { problem: 'Water and sanitation services', who: 'County government, through the county water company', why: 'Water and sanitation services are a county function.' },
+  { problem: 'Markets, trade licences and business permits', who: 'County government (Trade department)', why: 'Trade development and regulation is a county function.' },
+  { problem: 'Farming support, extension officers, animal disease control', who: 'County government (Agriculture department)', why: 'Agriculture is a county function.' },
+  { problem: 'Police and security', who: 'National government (National Police Service)', why: 'Policing is a national function.' },
+  { problem: 'Chiefs and assistant chiefs', who: 'National government (Interior)', why: 'Chiefs belong to the national government administration, not the county.' },
+  { problem: 'National ID cards and birth certificates', who: 'National government', why: 'Registration of persons is national.' },
+  { problem: 'Projects funded by the MP (NG-CDF)', who: 'The constituency NG-CDF committee', why: 'NG-CDF is national money managed in each constituency, separate from county money.' },
+  { problem: 'Bursaries', who: 'Both: county bursary fund and NG-CDF bursaries', why: 'Two separate schemes; check which one you applied to.' },
+];
+---
+<Base title="Who's in charge?">
+  <PageHead eyebrow="Government" title="Who's in charge?" lead="Before you ask for help, know who is responsible. Find your problem below." crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/whos-in-charge/', label: "Who's in charge?" }]} />
+  <div class="table-box" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Problem</th><th>Who is responsible</th><th>Why</th></tr></thead>
+      <tbody>{rows.map((r) => (<tr><td><strong>{r.problem}</strong></td><td>{r.who}</td><td class="muted">{r.why}</td></tr>))}</tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin-top:12px">Based on the Fourth Schedule of the Constitution. <a href="/constitution/fourth-schedule/">Read the full list of county functions</a>.</p>
+</Base>

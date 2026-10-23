@@ -1,0 +1,44 @@
+---
+// "Your ward" panel. Every ward's version is built into the page; a small
+// script in Base shows the one the reader picked. Without JavaScript the
+// "choose your ward" block shows, with plain links to every ward page.
+import wards from '../data/wards.json';
+import { total } from '../lib/projects.js';
+import census from '../data/census.json';
+import { ksh, num } from '../lib/fmt.js';
+interface Props { topic: string }
+const { topic } = Astro.props;
+const cats = ['Health', 'Education', 'Worship', 'Market', 'Water', 'Public office'];
+const coming = {
+  money: 'how much development money was budgeted and spent in this ward',
+  prices: 'prices at the markets in and near this ward',
+  plans: 'what the county plans say this ward will get',
+};
+---
+<section class="myward panel stack" aria-label="Your ward">
+  <div class="stack" data-ward-only="">
+    <span class="eyebrow">Your ward</span>
+    <p>Choose your ward with the <strong>Your ward</strong> picker at the top of the page, and this site will show your ward's figures first.</p>
+    <details>
+      <summary>Or go straight to a ward page</summary>
+      <p class="small">{wards.map((w, i) => (<>{i > 0 && ' · '}<a href={`/ward/${w.slug}/`}>{w.name}</a></>))}</p>
+    </details>
+  </div>
+  {wards.map((w) => (
+    <div class="stack" data-ward-only={w.slug} hidden>
+      <span class="eyebrow">Your ward: {w.name} · {w.subCounty}</span>
+      {(topic === 'services' || topic === 'home') && (
+        <>
+          <p><strong>{w.facilities.length}</strong> public places and services listed in {w.name}{w.places.length ? `, and ${w.places.length} named places` : ''}.</p>
+          <div class="chips">
+            {cats.filter((c) => w.counts[c]).map((c) => <span class="chip">{c}: <strong>{w.counts[c]}</strong></span>)}
+          </div>
+        </>
+      )}
+      {topic === 'projects' && (() => { const b = total(w.slug, '2025/26', 'budgeted'); const r = total(w.slug, '2023/24', 'contract'); return <p><strong>{b ? ksh(b.amount) : '—'}</strong> in ward projects budgeted for FY2025/26{r ? `, and ${ksh(r.amount)} in FY2023/24 road maintenance contracts` : ''}.</p>; })()}
+      {topic === 'people' && (() => { const c = census.wards.find((x) => x.ward === w.slug); return <p>The 2019 census did not publish ward populations. {c?.votersRegisteredEarlier ? <>{w.name} had <strong>{num(c.votersRegisteredEarlier)}</strong> registered voters on the IEBC 2018 register (as reported in the county's CIDP 2018–22).</> : ''}</p>; })()}
+      {coming[topic] && <p class="muted">Coming soon for {w.name}: {coming[topic]}.</p>}
+      <div><a class="btn" href={`/ward/${w.slug}/`}>Open the {w.name} ward page</a></div>
+    </div>
+  ))}
+</section>

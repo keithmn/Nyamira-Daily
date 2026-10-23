@@ -1,0 +1,195 @@
+{
+ "updated": "2026-10-22",
+ "county": [
+  {
+   "office": "Governor",
+   "name": "Amos Kimwomi Nyaribo",
+   "party": "UPA",
+   "since": "Dec 2020 (took over after Governor Nyagarama died); elected Aug 2022",
+   "src": "https://www.kenyanews.go.ke/incumbents-retain-seats-in-nyamira/",
+   "note": "In November 2025 the County Assembly voted 23–0 to impeach Governor Nyaribo. On 3 December 2025 the Senate upheld his objection to the process, so he was not removed.",
+   "noteSrc": "https://citizen.digital/article/nyamira-governor-amos-nyaribo-survives-impeachment-after-senate-upholds-objections-n373964"
+  },
+  {
+   "office": "Deputy Governor",
+   "name": "James Gesami",
+   "party": "UPA ticket",
+   "since": "Aug 2021 (approved by the Assembly); elected Aug 2022",
+   "src": "https://www.the-star.co.ke/news/2021-08-09-nyamira-county-assembly-approves-dg-nominee-gesami"
+  },
+  {
+   "office": "Speaker, County Assembly",
+   "name": "Thaddeus Nyabaro Momanyi",
+   "party": "",
+   "since": "Elected Dec 2024",
+   "note": "Disputed. In June 2025 the High Court at Bomet found that former Speaker Enock Okero ceased to hold office on 24 October 2024 and dismissed a challenge to Nyabaro's election, but said it could not decide who is Speaker. Okero appealed, and in March 2026 The Standard reported a Labour Court finding that his removal was unlawful. Nyabaro chairs every 2025–2026 sitting in the Hansard.",
+   "src": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2025/7765/eng@2025-06-04"
+  }
+ ],
+ "national": [
+  {
+   "office": "Senator",
+   "name": "Erick Okong'o Mogeni",
+   "party": "ODM",
+   "since": "2017; re-elected 2022",
+   "src": "https://mzalendo.com/mps-performance/counties/nyamira/"
+  },
+  {
+   "office": "Woman Representative",
+   "name": "Jerusha Mongina Momanyi",
+   "party": "Jubilee",
+   "since": "2022",
+   "src": "https://mzalendo.com/mps-performance/counties/nyamira/"
+  },
+  {
+   "office": "MP, Borabu",
+   "name": "Patrick Kibagendi Osero",
+   "party": "ODM",
+   "since": "2022",
+   "src": "https://mzalendo.com/mps-performance/counties/nyamira/"
+  },
+  {
+   "office": "MP, Kitutu Masaba",
+   "name": "Clive Ombane Gisairo",
+   "party": "ODM",
+   "since": "2022",
+   "src": "https://mzalendo.com/parliament/politician/gisairo-clive"
+  },
+  {
+   "office": "MP, North Mugirango",
+   "name": "Joash Nyamache Nyamoko",
+   "party": "UDA",
+   "since": "2017; re-elected 2022",
+   "src": "https://mzalendo.com/mps-performance/counties/nyamira/"
+  },
+  {
+   "office": "MP, West Mugirango",
+   "name": "Stephen Mogaka",
+   "party": "Jubilee",
+   "since": "2022",
+   "src": "https://mzalendo.com/mps-performance/counties/nyamira/"
+  }
+ ],
+ "past": [
+  {
+   "office": "Governor",
+   "name": "John Obiero Nyagarama",
+   "party": "ODM",
+   "since": "Mar 2013 – Dec 2020 (died in office)",
+   "src": "https://capitalfm.africa/amos-nyaribo-takes-charge-as-nyamira-governor-to-serve-until-august-2022/"
+  }
+ ],
+ "mcaSource": "https://educationnewshub.co.ke/iebc-list-of-elected-and-gazetted-mcas-2022-per-county-nyamira-plus-votes-garnered/",
+ "mcas": {
+  "esise": {
+   "name": "Josiah Obegi Mang'era",
+   "party": "ODM",
+   "since": "2022"
+  },
+  "mekenene": {
+   "name": "Alfayo Ngeresa Mabera",
+   "party": "UPA",
+   "since": "2022"
+  },
+  "kiabonyoru": {
+   "name": "Thomas Vincent Benecha",
+   "party": "ODM",
+   "since": "2022"
+  },
+  "nyansiongo": {
+   "name": "Jackson Mogusu Mochumbe",
+   "party": "PDP",
+   "since": "Nov 2025 by-election",
+   "note": "Won the by-election after the 2022 result was overturned on petition.",
+   "src": "https://allafrica.com/stories/202512020074.html"
+  },
+  "rigoma": {
+   "name": "Emmanuel Nyambega Gisesa",
+   "party": "UPA",
+   "since": "2022",
+   "note": "Seat declared vacant Jul 2025; reinstated by an interim High Court order. Final ruling not yet confirmed.",
+   "src": "https://citizen.digital/news/relief-for-10-expelled-nyamira-mcas-as-court-reinstates-them-n366140"
+  },
+  "gachuba": {
+   "name": "Henry Onsinyo Obwaya",
+   "party": "KNC",
+   "since": "2022"
+  },
+  "kemera": {
+   "name": "James Matinga Nyachaki",
+   "party": "Wiper",
+   "since": "2022"
+  },
+  "magombo": {
+   "name": "Reuben Miinda Riechi",
+   "party": "FORD-Kenya",
+   "since": "2022"
+  },
+  "manga": {
+   "name": "Samwel G. Ogeto",
+   "party": "PPOK",
+   "since": "2022"
+  },
+  "gesima": {
+   "name": "Kenneth Atuth Nyameino",
+   "party": "UDA",
+   "since": "2022"
+  },
+  "nyamaiya": {
+   "name": "Christopher Moturi Osiemo",
+   "party": "UPA",
+   "since": "Nov 2025 by-election",
+   "note": "Elected after the death of MCA Elijah Osiemo Thomas in 2024.",
+   "src": "https://www.the-star.co.ke/news/2025-11-28-upa-candidate-wins-nyamaiya-ward-seat"
+  },
+  "bogichora": {
+   "name": "George Morara Abuga",
+   "party": "ODM",
+   "since": "2022"
+  },
+  "bosamaro": {
+   "name": "Charles Keganda Nyarango",
+   "party": "Jubilee",
+   "since": "2022"
+  },
+  "bonyamatuta": {
+   "name": "Julius Kimwom Matwere",
+   "party": "Independent",
+   "since": "2022"
+  },
+  "township": {
+   "name": "Duke Oyagi Masira",
+   "party": "ODM",
+   "since": "2022"
+  },
+  "itibo": {
+   "name": "Lameck Nyakianga Sikweya",
+   "party": "ANC",
+   "since": "2022"
+  },
+  "bomwagamo": {
+   "name": "Julius Obonyo Nyangana",
+   "party": "FORD-Kenya",
+   "since": "2022"
+  },
+  "bokeira": {
+   "name": "Joel Ombongi Nyang'au",
+   "party": "UPA",
+   "since": "2022",
+   "note": "Seat declared vacant Jul 2025; reinstated by an interim High Court order. Final ruling not yet confirmed.",
+   "src": "https://citizen.digital/news/relief-for-10-expelled-nyamira-mcas-as-court-reinstates-them-n366140"
+  },
+  "magwagwa": {
+   "name": "Abel Mokaya Mose",
+   "party": "UPA",
+   "since": "2022"
+  },
+  "ekerenyo": {
+   "name": "Jeremiah Njenga Ongaro",
+   "party": "UPA",
+   "since": "Nov 2025 by-election",
+   "note": "Elected after MCA Thaddeus Nyabaro became Speaker.",
+   "src": "https://www.the-star.co.ke/news/2025-11-28-upa-candidate-wins-nyamaiya-ward-seat"
+  }
+ }
+}

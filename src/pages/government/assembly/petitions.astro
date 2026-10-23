@@ -1,0 +1,20 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import A from '../../../data/assembly.json';
+---
+<Base title="Petitions and motions">
+  <PageHead eyebrow="The Assembly" title="Petitions and motions" lead="What residents and MCAs asked the Assembly to do, and what happened next." crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/assembly/', label: 'The Assembly' }, { href: '/government/assembly/petitions/', label: 'Petitions and motions' }]} />
+  <p class="small muted">The Assembly's petitions tracker page is empty, so these come from the Hansard and news reports. Want to petition the Assembly? See <a href="/learn/taking-part/">Taking part</a>.</p>
+  <div class="stack" style="margin-top:16px">
+    {A.petitionsMotions.map((p) => (
+      <article class="card">
+        <span class="eyebrow">{p.date}</span>
+        <h3>{p.title}</h3>
+        <p>{p.summary}</p>
+        {p.outcome && <p><strong>What happened:</strong> {p.outcome}</p>}
+        <a class="small" href={p.url} rel="noopener">Source</a>
+      </article>
+    ))}
+  </div>
+</Base>

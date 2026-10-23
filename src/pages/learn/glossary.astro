@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+const terms = [
+  ['Absorption rate', 'The share of the money budgeted that was actually spent.'],
+  ['Development budget', 'Money for building or buying things that last, such as roads, clinics and classrooms.'],
+  ['Recurrent budget', 'Money for running costs, such as salaries, drugs and fuel.'],
+  ['Equitable share', 'The county\'s share of money raised nationally, sent by the national government.'],
+  ['Own-source revenue', 'Money the county collects itself, from fees, permits and charges.'],
+  ['Pending bills', 'Bills the county owes to suppliers and has not yet paid.'],
+  ['MCA', 'Member of the County Assembly, elected by each ward.'],
+  ['CEC member', 'County Executive Committee member, who heads a county department.'],
+  ['Hansard', 'The official written record of what was said in the Assembly.'],
+  ['Order paper', 'The list of business for a sitting of the Assembly.'],
+  ['Public participation', 'The legal requirement for the county to involve residents in decisions.'],
+];
+---
+<Base title="Glossary">
+  <PageHead eyebrow="Learn" title="Glossary" lead="Plain meanings of words you will meet on this site." crumbs={[{ href: '/learn/', label: 'Learn' }, { href: '/learn/glossary/', label: 'Glossary' }]} />
+  <dl class="stack" style="margin-top:16px">
+    {terms.map(([t, d]) => (<div class="card"><dt><strong>{t}</strong></dt><dd style="margin:0">{d}</dd></div>))}
+  </dl>
+</Base>

@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+const bodies = [
+  { name: 'Office of the Auditor-General', does: 'Audits the county\'s accounts every year and reports on how money was used.', use: 'Read its reports on Nyamira; they are the strongest evidence on county spending.' },
+  { name: 'Controller of Budget', does: 'Approves withdrawals of public money and reports every quarter on how counties are spending their budgets.', use: 'Its reports show how much of the budget Nyamira actually spent.' },
+  { name: 'The Senate', does: 'Protects county interests and oversees the money the national government sends to counties.', use: 'Senate committees question governors on audit findings.' },
+  { name: 'Ethics and Anti-Corruption Commission (EACC)', does: 'Investigates corruption and unethical conduct by public officers.', use: 'Report suspected corruption to the EACC.' },
+  { name: 'Commission on Administrative Justice (Ombudsman)', does: 'Handles complaints about poor service, delay or unfair treatment by public offices.', use: 'Complain here if a county office treats you unfairly or will not respond.' },
+];
+---
+<Base title="Watchdogs and complaints">
+  <PageHead eyebrow="Government" title="Watchdogs and complaints" lead="The bodies that check the county, and how residents can use them." crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/watchdogs/', label: 'Watchdogs' }]} />
+  <div class="grid" style="margin-top:16px">
+    {bodies.map((b) => (<div class="card"><h3>{b.name}</h3><p>{b.does}</p><p class="muted small">{b.use}</p></div>))}
+  </div>
+</Base>

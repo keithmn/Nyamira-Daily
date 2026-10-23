@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import wards from '../../data/wards.json';
+import L from '../../data/leaders.json';
+const duty = {
+  'Governor': "Heads the county executive; leads county services and spending.",
+  'Deputy Governor': "Deputises for the Governor and acts in the Governor's absence.",
+  'Speaker, County Assembly': 'Presides over the County Assembly. Not an MCA while Speaker.',
+  'Senator': 'Represents the county in the Senate, including oversight of money sent to counties.',
+  'Woman Representative': 'Member of the National Assembly elected by the whole county.',
+};
+const row = (l) => ({ ...l, duty: duty[l.office] ?? 'Member of the National Assembly for this constituency; also oversees NG-CDF there.' });
+const subs = ['Borabu', 'Kitutu Masaba', 'North Mugirango', 'West Mugirango'];
+---
+<Base title="Leaders">
+  <PageHead eyebrow="Government" title="Nyamira's elected leaders" lead="Who holds each office now, what the office does, and where our information comes from." crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/leaders/', label: 'Leaders' }]} />
+  <p class="updated">Last checked 22 Oct 2026. Party shown is the party each person was elected on.</p>
+
+  <h2 style="margin-top:24px">County government</h2>
+  <div class="table-box" style="margin-top:12px">
+    <table class="cards">
+      <thead><tr><th>Office</th><th>Holder</th><th>Party</th><th>In office since</th><th>Job</th><th>Source</th></tr></thead>
+      <tbody>{L.county.map(row).map((r) => (
+        <tr><td>{r.office}</td><td data-label="Holder"><strong>{r.name}</strong></td><td data-label="Party">{r.party || '—'}</td><td data-label="Since">{r.since}</td><td data-label="Job">{r.duty}</td><td data-label="Source"><a href={r.src} rel="noopener">Source</a></td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+  {L.county.filter((r) => r.note).map((r) => <p class="small" style="margin-top:8px"><strong>{r.office}:</strong> {r.note} {r.noteSrc && <a href={r.noteSrc} rel="noopener">Source</a>}</p>)}
+
+  <h2 style="margin-top:32px">In Parliament</h2>
+  <div class="table-box" style="margin-top:12px">
+    <table class="cards">
+      <thead><tr><th>Office</th><th>Holder</th><th>Party</th><th>Since</th><th>Job</th><th>Source</th></tr></thead>
+      <tbody>{L.national.map(row).map((r) => (
+        <tr><td>{r.office}</td><td data-label="Holder"><strong>{r.name}</strong></td><td data-label="Party">{r.party}</td><td data-label="Since">{r.since}</td><td data-label="Job">{r.duty}</td><td data-label="Source"><a href={r.src} rel="noopener">Source</a></td></tr>
+      ))}</tbody>
+    </table>
+  </div>
+
+  <h2 style="margin-top:32px" id="mcas">Ward MCAs</h2>
+  <p class="muted small" style="margin-top:8px">From the IEBC's 2022 gazetted results (<a href={L.mcaSource} rel="noopener">list</a>), updated for the November 2025 by-elections.</p>
+  {subs.map((s) => (
+    <section class="stack" style="margin-top:16px">
+      <h3>{s}</h3>
+      <div class="grid">
+        {wards.filter((w) => w.subCounty === s).map((w) => { const m = L.mcas[w.slug]; return (
+          <a class="card" href={`/ward/${w.slug}/`} data-ward-row={w.slug}>
+            <span class="eyebrow">{w.name}</span>
+            <strong>{m?.name ?? 'Not confirmed'}</strong>
+            <span class="small muted">{m?.party}{m?.since && m.since !== '2022' ? ` · ${m.since}` : ''}</span>
+            {m?.note && <span class="small">{m.note}</span>}
+          </a>
+        ); })}
+      </div>
+    </section>
+  ))}
+
+  <h2 style="margin-top:32px">Past governors</h2>
+  <ul style="margin-top:8px">{L.past.map((p) => <li><strong>{p.name}</strong> ({p.party}), {p.since}. <a href={p.src} rel="noopener">Source</a></li>)}</ul>
+  <p class="small muted" style="margin-top:16px">Something changed or wrong? Leaders change through by-elections, court rulings and appointments. See <a href="/how-we-work/#corrections">corrections</a>.</p>
+</Base>

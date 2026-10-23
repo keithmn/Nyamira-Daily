@@ -1,0 +1,25 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import c from '../../../data/constitution.json';
+
+export function getStaticPaths() {
+  return c.chapter11.articles.map((a) => ({ params: { n: String(a.n) }, props: { a } }));
+}
+const { a } = Astro.props;
+const list = c.chapter11.articles;
+const i = list.findIndex((x) => x.n === a.n);
+const prev = list[i - 1], next = list[i + 1];
+---
+<Base title={`Article ${a.n}: ${a.title}`}>
+  <PageHead eyebrow={`Article ${a.n}`} title={a.title} crumbs={[{ href: '/constitution/', label: 'Constitution' }, { href: '/constitution/devolution/', label: 'Devolution' }, { href: `/constitution/article/${a.n}/`, label: `Article ${a.n}` }]} />
+  <div class="stack" style="margin-top:16px">
+    <section class="card"><span class="eyebrow">In plain words</span><p>{a.plain}</p><span class="small muted">A plain-language summary by Nyamira Daily, not the legal text. Read the official text before relying on it.</span></section>
+    {a.nyamira && <section class="card"><span class="eyebrow">In Nyamira</span><p>{a.nyamira}</p>{a.n === 196 && <a href="/learn/taking-part/">How to take part</a>}{(a.n === 178 || a.n === 177) && <a href="/government/leaders/">See the current leaders</a>}</section>}
+    <p><a class="btn quiet" href={c.officialUrl} rel="noopener">Read the official text on Kenya Law</a></p>
+    <nav class="page-tools" aria-label="Articles">
+      {prev && <a class="btn quiet" href={`/constitution/article/${prev.n}/`}>← Article {prev.n}</a>}
+      {next && <a class="btn quiet" href={`/constitution/article/${next.n}/`}>Article {next.n} →</a>}
+    </nav>
+  </div>
+</Base>

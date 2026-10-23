@@ -1,0 +1,14 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import A from '../../../data/assembly.json';
+---
+<Base title="Committees">
+  <PageHead eyebrow="The Assembly" title="Committees" lead="Much of the Assembly's work happens in committees, which examine bills, budgets and complaints before the full House votes." crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/assembly/', label: 'The Assembly' }, { href: '/government/assembly/committees/', label: 'Committees' }]} />
+  <p class="small muted">The Assembly's website lists committee names but not their mandates or chairs. Chairs are shown only where the Hansard names them.</p>
+  <div class="grid" style="margin-top:16px">
+    {A.committees.map((c) => (
+      <div class="card"><h3>{c.name}</h3><p class="muted">{c.purpose}</p>{c.chair && <span class="small">Chair (per Hansard): {c.chair}</span>}<a class="small" href={c.url} rel="noopener">Source</a></div>
+    ))}
+  </div>
+</Base>

@@ -1,0 +1,64 @@
+id,name,type,ward,sub_county,source,source_ref,lat,lon,evidence,notes
+NYM-P0001,Manga Rogoro Shopping Centre,Trading centre,Esise,Borabu,Google Maps (discovery),ChIJK6ENbjBuKxgRUf8DPz2hnuc,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0002,Raitigo Shopping Centre,Trading centre,Esise,Borabu,Google Maps (discovery),ChIJo1nbzPJvKxgRvowEYfjimlY,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0003,Mokomoni,Locality,Kiabonyoru,Borabu,Google Maps (discovery),ChIJY_CfGfMaKxgRSEB2uU1yluY,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0004,Kipkebe Tea Estate and Factory,Farm,Mekenene,Borabu,OpenStreetMap (ODbL),node/6118527430,-0.64655,35.05339,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0005,Kipkebe Tea Factory,Tea factory,Mekenene,Borabu,Google Maps (discovery),ChIJ____28wPKxgRoVQulbGdSw4,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0006,Kijauri Sub-County Hospital,Health facility,Nyansiongo,Borabu,Google Maps (discovery),ChIJfYvxBnZtKxgRrcEgz_jPX34,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0007,Nyansiongo,Town,Nyansiongo,Borabu,Google Maps (discovery),ChIJk-nq6xRtKxgRi5xS-eXt-Qg,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0008,Gachuba Centre,Trading centre,Gachuba,Kitutu Masaba,Google Maps (discovery),ChIJvWjH24AVKxgR3OByhVTi8fI,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0009,Girango,Village,Gachuba,Kitutu Masaba,OpenStreetMap (ODbL),node/9222885869,-0.7077,34.86452,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0010,Gesima,Town,Gesima,Kitutu Masaba,Google Maps (discovery),ChIJ7WoLQwETKxgRA2tpkBX4jRo,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0011,Mosobeti Market,Market,Gesima,Kitutu Masaba,Google Maps (discovery),ChIJgXCZbQARKxgRXHvvAM8ZOlY,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0012,Nyamakoroto Sokobe Shopping Centre,Trading centre,Gesima,Kitutu Masaba,Google Maps (discovery),ChIJq6qql4kTKxgRayOfeS_3Tiw,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0013,Kemera Market,Market,Kemera,Kitutu Masaba,Google Maps (discovery),ChIJPVyFtJQ9KxgRxTPYKPKHaCk,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0014,Nyangina,Village,Kemera,Kitutu Masaba,OpenStreetMap (ODbL),node/9222885867,-0.68888,34.84391,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0015,Magombo Trading Centre,Trading centre,Magombo,Kitutu Masaba,Google Maps (discovery),ChIJYZq7mYUWKxgRWzGrPwOYy3M,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0016,Manga,Village,Manga,Kitutu Masaba,OpenStreetMap (ODbL),node/2858154143,-0.61431,34.83553,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0017,Manga Stadium (under construction),Sports facility,Manga,Kitutu Masaba,Google Maps (discovery),ChIJ8cyesswiKxgRLGm1kxXBZxQ,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0018,Nyabioto,Village,Manga,Kitutu Masaba,OpenStreetMap (ODbL),node/9215245985,-0.61172,34.86351,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0019,Tombe Market,Market,Manga,Kitutu Masaba,Google Maps (discovery),ChIJXy8b8DgXKxgRRhZlEJvYEr8,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0020,Zacharia,Village,Manga,Kitutu Masaba,OpenStreetMap (ODbL),node/44910266,-0.6333,34.8333,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0021,Keroka Market,Market,Rigoma,Kitutu Masaba,Google Maps (discovery),ChIJ-a4QBoJrKxgRP8jKWHMcNI8,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0022,Kitutu Masaba Technical and Vocational College,Vocational centre,Rigoma,Kitutu Masaba,Google Maps (discovery),ChIJu7zccc4VKxgRZKzkAYlgCcc,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0023,Metamaywa Shopping Centre,Trading centre,Rigoma,Kitutu Masaba,Google Maps (discovery),ChIJ____S4psKxgRQ7Sk5yi6i44,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0024,Mochenwa Market,Market,Rigoma,Kitutu Masaba,Google Maps (discovery),ChIJjafrf7NsKxgRZr-OC29lorc,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0025,Rigoma Market Centre,Market,Rigoma,Kitutu Masaba,Google Maps (discovery),ChIJmdHz08EUKxgRmZVZz30ejKo,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0026,Kiomara,Village,Bokeira,North Mugirango,OpenStreetMap (ODbL),node/9217449860,-0.45705,34.97254,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0027,Nyambambo Market,Market,Bokeira,North Mugirango,Google Maps (discovery),ChIJUemlaxHhKhgRGd652okC-Ng,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0028,Nyamoti Shopping Centre,Trading centre,Bokeira,North Mugirango,Google Maps (discovery),ChIJ43f5DRPiKhgRv6I6Ni9FFZU,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0029,Nyamuse,Village,Bokeira,North Mugirango,OpenStreetMap (ODbL),node/9217469541,-0.4817,34.97134,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0030,Mabariri,Trading centre,Bomwagamo,North Mugirango,Google Maps (discovery),ChIJCwG25WIeKxgRNbnYlVxI7yY,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0031,Ikonge Market,Market,Ekerenyo,North Mugirango,Google Maps (discovery),ChIJ_VPTDUwdKxgRAB7OBE0GUnI,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0032,Ekerenyo,Town,Itibo,North Mugirango,Google Maps (discovery),ChIJOZXG1lAcKxgRQz_5G2QVckg,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0033,Ikonge,Village,Itibo,North Mugirango,OpenStreetMap (ODbL),node/44999203,-0.5333,35.0166,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0034,Nyaramba Market,Market,Itibo,North Mugirango,Google Maps (discovery),ChIJ9TpzXwAbKxgRpVi4qopiHgU,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0035,Magwagwa,Village,Magwagwa,North Mugirango,OpenStreetMap (ODbL),node/44930127,-0.4833,35.0166,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0036,Magwagwa Market,Market,Magwagwa,North Mugirango,Google Maps (discovery),ChIJb5iSVbniKhgR5FsNyHEqiWk,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0037,Maraagwa,Village,Magwagwa,North Mugirango,OpenStreetMap (ODbL),node/44929639,-0.4833,35.0166,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0038,Maragwa,Village,Magwagwa,North Mugirango,OpenStreetMap (ODbL),node/44929547,-0.4833,35.0166,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0039,Kiambere Shopping Centre,Trading centre,Bogichora,West Mugirango,Google Maps (discovery),ChIJEeMYO9kQKxgRxIv4iRfLJNI,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0040,Nyairasa Shopping Centre,Trading centre,Bogichora,West Mugirango,Google Maps (discovery),ChIJwVl89ScRKxgRxRXuDOrwUfo,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0041,Sironga Girls High School,School,Bogichora,West Mugirango,Google Maps (discovery),ChIJSzUcQbsZKxgREaKfPFEiIDQ,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0042,County Government of Nyamira (Gesima listing),Public office,Bonyamatuta,West Mugirango,Google Maps (discovery),ChIJJ5NdwLgRKxgRNtj42U90gXs,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0043,Kebirigo,Town,Bonyamatuta,West Mugirango,OpenStreetMap (ODbL),node/2987230799,-0.60118,34.96231,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0044,Kebirigo Market,Market,Bonyamatuta,West Mugirango,Google Maps (discovery),ChIJ8YOwSxgaKxgRhkuwZpumfwg,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0045,Konate Shopping Centre,Trading centre,Bonyamatuta,West Mugirango,Google Maps (discovery),ChIJK6OaNfkZKxgROltOqwEVCX0,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0046,St. Peter's Nyakemincha Secondary School,School,Bonyamatuta,West Mugirango,Google Maps (discovery),ChIJJa8N2pIXKxgRJUXGp186wEs,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0047,Bonyunyu,Village,Nyamaiya,West Mugirango,OpenStreetMap (ODbL),node/45006094,-0.51662,34.88328,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0048,Bunyunya,Village,Nyamaiya,West Mugirango,OpenStreetMap (ODbL),node/45006401,-0.5166,34.8833,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0049,Miruka,Village,Nyamaiya,West Mugirango,OpenStreetMap (ODbL),node/2868220641,-0.49995,34.88074,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0050,Miruka Market,Market,Nyamaiya,West Mugirango,Google Maps (discovery),ChIJF31y-eYfKxgRSAWgTnYVCrY,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0051,Nyamaiya Shopping Centre,Trading centre,Nyamaiya,West Mugirango,Google Maps (discovery),ChIJDd6z7PEfKxgRmHqRVTAI-ns,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0052,Nyamaiya Tea Buying Centre,Tea buying centre,Nyamaiya,West Mugirango,Google Maps (discovery),ChIJuU4rD1ceKxgRAnbDjZf_Kw8,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0053,Nyasore,Village,Nyamaiya,West Mugirango,OpenStreetMap (ODbL),node/9217469542,-0.48261,34.90817,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0054,Nyamira,Town,Township,West Mugirango,OpenStreetMap (ODbL),node/4870252485,-0.56659,34.93571,Unverified,From OpenStreetMap; confirm name and spelling locally
+NYM-P0055,Nyamira County Assembly,Public office,Township,West Mugirango,Google Maps (discovery),ChIJN6OfF0oZKxgRw3sBtfQmdFw,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0056,Nyamira Huduma Centre,Public office,Township,West Mugirango,Google Maps (discovery),ChIJp5cY2ksZKxgRZbTAfgWhY7Y,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0057,Nyamira town,Town,Township,West Mugirango,Google Maps (discovery),ChIJ4xlXDzgZKxgR8u3qWeBBOJw,,,Unverified,Ward assigned by boundary check; confirm on site
+NYM-P0058,Bong'ota Shopping Centre,Trading centre,,,Google Maps (discovery),ChIJxzE2yoBlKxgRfzsVHb5SPjg,,,Unverified,Border town just outside Nyamira ward boundaries; keep as reference only
+NYM-P0059,Moreremi Shopping Centre,Trading centre,,,Google Maps (discovery),ChIJTVFt3dlvKxgRCygCFiMyOeE,,,Unverified,Border town just outside Nyamira ward boundaries; keep as reference only
+NYM-P0060,Ndanai Market,Market,,,Google Maps (discovery),ChIJ4fp6J1NxKxgRhDH1YicId_s,,,Unverified,Border town just outside Nyamira ward boundaries; keep as reference only
+NYM-P0061,Ting'a Market,Market,,,Google Maps (discovery),ChIJw-qWUCMYKxgRbA115q6GrbM,,,Unverified,Border town just outside Nyamira ward boundaries; keep as reference only
+NYM-P0062,Bosamaro Masaba,Location (administrative),Bosamaro,West Mugirango,Google Maps (school listing address),Location named in Google school listing ChIJB9HRrY8RKxgR-AtM4Sy1g50,,,Unverified,Confirm against KNBS census list of locations
+NYM-P0063,Bosamaro Chache,Location (administrative),Bosamaro,West Mugirango,Google Maps (school listing address),Location named in Google school listing ChIJu5cKEhEXKxgRoHOzwSNtXoI,,,Unverified,Confirm against KNBS census list of locations

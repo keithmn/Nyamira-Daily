@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import { topics } from '../../data/topics.js';
+import wards from '../../data/wards.json';
+import MyWard from '../../components/MyWard.astro';
+import MoneyPage from '../../components/MoneyPage.astro';
+import ProjectsPage from '../../components/ProjectsPage.astro';
+import PeoplePage from '../../components/PeoplePage.astro';
+import { planned } from '../../config.js';
+
+export function getStaticPaths() {
+  return topics.map((t) => ({ params: { topic: t.slug }, props: { t } }));
+}
+const { t } = Astro.props;
+const isPlanned = planned.has(`/data/${t.slug}/`);
+const cats = ['Health', 'Education', 'Worship', 'Market', 'Water', 'Public office', 'Community centre', 'Agriculture'];
+const total = wards.reduce((n, w) => n + w.facilities.length, 0);
+---
+<Base title={t.title}>
+  <PageHead eyebrow="Data" title={t.title} lead={t.question} crumbs={[{ href: '/data/', label: 'Data' }, { href: `/data/${t.slug}/`, label: t.title }]} />
+
+  {t.slug !== 'open-data' && !isPlanned && <div style="margin-top:16px"><MyWard topic={t.slug} /></div>}
+
+  {t.slug === 'services' && (
+    <div class="stack" style="margin-top:16px">
+      <div class="card">
+        <span class="big">{total}</span>
+        <span>public places and services are listed for Nyamira so far, across all 20 wards. Most are not yet checked on site.</span>
+        <EvidenceLabel kind="unverified" />
+        <span class="small muted">Sources: {t.sources.join('; ')}</span>
+        <span class="updated">Last updated 22 Oct 2026</span>
+      </div>
+      <details>
+        <summary>See the detail: services by ward</summary>
+        <div class="table-box">
+          <table class="cards">
+            <thead><tr><th>Ward</th><th>Sub-county</th>{cats.map((c) => <th class="num">{c}</th>)}</tr></thead>
+            <tbody>
+              {wards.map((w) => (
+                <tr data-ward-row={w.slug}>
+                  <td><a href={`/ward/${w.slug}/`}>{w.name}</a></td>
+                  <td data-label="Sub-county">{w.subCounty}</td>
+                  {cats.map((c) => <td class="num" data-label={c}>{w.counts[c] ?? 0}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="small muted" style="margin-top:8px">Counts show what has been listed, not everything that exists. Water points and schools are badly under-listed.</p>
+      </details>
+    </div>
+  )}
+
+  {t.slug === 'open-data' && (
+    <div class="stack" style="margin-top:16px">
+      <div class="card">
+        <h3>County money, FY2013/14 to FY2024/25 (version 1)</h3>
+        <p class="muted">Budget, spending, development spending, local revenue, national transfers and pending bills, with the Controller of Budget source for each year.</p>
+        <a class="btn" href="/files/money-v1.csv" download>Download CSV</a>
+      </div>
+      <div class="card">
+        <h3>Ward projects (version 1)</h3>
+        <p class="muted">404 project records by ward: FY2025/26 budget lines, FY2023/24 contracts and spending, with the source page for each.</p>
+        <a class="btn" href="/files/projects-v1.csv" download>Download CSV</a>
+      </div>
+      <div class="card">
+        <h3>Places (version 1)</h3>
+        <p class="muted">Towns, markets, trading centres and administrative locations, with their ward.</p>
+        <a class="btn" href="/files/places-v1.csv" download>Download CSV</a>
+      </div>
+      <div class="card">
+        <h3>Services and facilities (version 1)</h3>
+        <p class="muted">Schools, health facilities, churches, markets, offices and more, with their ward and source.</p>
+        <a class="btn" href="/files/facilities-v1.csv" download>Download CSV</a>
+      </div>
+      <p class="small muted">Licence: free to reuse with credit to Nyamira Daily. Data from OpenStreetMap is © OpenStreetMap contributors (ODbL).</p>
+    </div>
+  )}
+
+  {t.slug === 'money' && <MoneyPage />}
+  {t.slug === 'projects' && <ProjectsPage />}
+  {t.slug === 'people' && <PeoplePage />}
+
+  {isPlanned && (
+    <div class="stack" style="margin-top:16px">
+      <p><span class="tag-planned">Planned</span> {t.status}.</p>
+      <p class="muted">This page will be published when its first figures have been checked. It will draw on:</p>
+      <ul>{t.sources.map((s) => <li>{s}</li>)}</ul>
+    </div>
+  )}
+</Base>

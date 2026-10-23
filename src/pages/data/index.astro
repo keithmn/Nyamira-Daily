@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { topics } from '../../data/topics.js';
+import { planned } from '../../config.js';
+const ready = topics.filter((t) => !planned.has(`/data/${t.slug}/`));
+const later = topics.filter((t) => planned.has(`/data/${t.slug}/`));
+---
+<Base title="Data">
+  <PageHead eyebrow="Data" title="Nyamira in numbers" lead="The county's money, projects, services, prices and people. Each page answers its question in one sentence first; the full tables and downloads sit one tap deeper." />
+  <div class="grid" style="margin-top:16px">
+    {ready.map((t) => (
+      <a class="card" href={`/data/${t.slug}/`}>
+        <h2 style="font-size:22px">{t.title}</h2>
+        <p class="muted">{t.question}</p>
+        <span class="small muted">Status: {t.status}</span>
+      </a>
+    ))}
+  </div>
+  <p class="muted" style="margin-top:24px"><span class="tag-planned">Planned</span> {later.map((t, i) => (<>{i > 0 && ' · '}<a href={`/data/${t.slug}/`}>{t.title}</a></>))}</p>
+</Base>

@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+// Deadlines set by the Public Finance Management Act, 2012 (confirm each against the Act before launch).
+const steps = [
+  { when: 'By 1 September', what: 'Annual Development Plan', note: 'What the county plans to do next year, submitted to the Assembly.' },
+  { when: 'By 30 September', what: 'County Budget Review and Outlook Paper', note: 'How last year\'s budget performed, and the outlook.' },
+  { when: 'By 28 February', what: 'County Fiscal Strategy Paper', note: 'Priorities and spending limits for the coming budget.' },
+  { when: 'By 30 April', what: 'Budget estimates', note: 'The detailed budget proposal, submitted to the Assembly.' },
+  { when: 'By 30 June', what: 'Budget approved', note: 'The Assembly passes the budget before the financial year starts on 1 July.' },
+];
+---
+<Base title="The budget calendar">
+  <PageHead eyebrow="Learn" title="The county budget calendar" lead="The county's budget follows the same legal timetable every year. Each step is a chance for residents to have a say." crumbs={[{ href: '/learn/', label: 'Learn' }, { href: '/learn/budget-calendar/', label: 'Budget calendar' }]} />
+  <div class="table-box" style="margin-top:16px">
+    <table>
+      <thead><tr><th>When</th><th>Document</th><th>What it is</th></tr></thead>
+      <tbody>{steps.map((s) => (<tr><td><strong>{s.when}</strong></td><td>{s.what}</td><td class="muted">{s.note}</td></tr>))}</tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin-top:12px">Source: Public Finance Management Act, 2012. The financial year runs from 1 July to 30 June.</p>
+</Base>

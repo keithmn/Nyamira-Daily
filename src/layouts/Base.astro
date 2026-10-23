@@ -1,0 +1,143 @@
+---
+import '../styles/global.css';
+import wards from '../data/wards.json';
+const subs = ['Borabu', 'Kitutu Masaba', 'North Mugirango', 'West Mugirango'];
+
+import PageTools from '../components/PageTools.astro';
+import { hasContact } from '../config.js';
+interface Props { title: string; description?: string; tools?: boolean }
+const { title, description = 'Nyamira Daily: facts about Nyamira County, its money, services, laws and leaders, in plain language.', tools = true } = Astro.props;
+
+const sections = [
+  { href: '/', label: 'Today' },
+  { href: '/data/', label: 'Data' },
+  { href: '/ward/', label: 'My Ward' },
+  { href: '/government/', label: 'Government' },
+  { href: '/constitution/', label: 'Constitution' },
+  { href: '/learn/', label: 'Learn' },
+];
+const path = Astro.url.pathname;
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const pageTitle = title === 'Today' ? 'Nyamira Daily' : `${title} · Nyamira Daily`;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#1e6b4f" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="bar">
+        <a class="brand" href="/">
+          <strong>Nyamira Daily</strong>
+          <span>Facts about our county, in plain language</span>
+        </a>
+        <div class="tools">
+          <a class="btn quiet" href="/search/">Search</a>
+          <details class="menu">
+            <summary class="btn quiet">Menu</summary>
+            <div class="menu-panel stack">
+              <label class="small" for="lang">Language</label>
+              <select id="lang" class="lang" aria-label="Choose language">
+                <option>English</option>
+                <option disabled>Kiswahili (coming soon)</option>
+                <option disabled>Ekegusii (coming soon)</option>
+              </select>
+              {hasContact && <a href="/tell-us/">Tell us about a project or problem</a>}
+              {hasContact && <a href="/subscribe/">Get updates on WhatsApp</a>}
+              <a href="/data/open-data/">Download the data</a>
+              <a href="/about/">About Nyamira Daily</a>
+              <a href="/how-we-work/">How we work</a>
+            </div>
+          </details>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Main sections">
+        {sections.map((s) => (
+          <a href={s.href} aria-current={isCurrent(s.href) ? 'page' : undefined}>{s.label}</a>
+        ))}
+      </nav>
+    </div>
+    <div class="ward-strip">
+      <div class="wrap">
+        <label for="ward-pick"><strong>Your ward</strong></label>
+        <select id="ward-pick" class="lang">
+          <option value="">Whole county</option>
+          {subs.map((s) => (
+            <optgroup label={s}>
+              {wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}
+            </optgroup>
+          ))}
+        </select>
+        {wards.map((w) => <a class="small" data-ward-only={w.slug} hidden href={`/ward/${w.slug}/`}>Open {w.name}</a>)}
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <slot />
+    {tools && <PageTools title={title} />}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap cols">
+      <div>
+        <strong>Nyamira Daily</strong>
+        <p class="muted small" style="margin-top:8px">An independent, non-partisan information service about Nyamira County. Every figure has a source; every claim has an evidence label.</p>
+      </div>
+      <div>
+        <strong>About</strong>
+        <ul>
+          <li><a href="/about/">About us</a></li>
+          <li><a href="/how-we-work/">How we work</a></li>
+          <li><a href="/how-we-work/#corrections">Corrections</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Use the data</strong>
+        <ul>
+          <li><a href="/data/open-data/">Download the data</a></li>
+          {hasContact && <li><a href="/subscribe/">WhatsApp and SMS updates</a></li>}
+          {hasContact && <li><a href="/tell-us/">Report a project or problem</a></li>}
+          <li><a href="/search/">Search the site</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Evidence labels</strong>
+        <ul class="small">
+          <li><span class="label verified">Verified</span> checked on site or against records</li>
+          <li><span class="label audit">Audit finding</span> from the Auditor-General</li>
+          <li><span class="label official">Official claim</span> stated by government, not yet checked</li>
+          <li><span class="label unverified">Unverified</span> reported, not yet confirmed</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script is:inline>
+  (function () {
+    var KEY = 'nd-ward', ward = '';
+    try { ward = localStorage.getItem(KEY) || ''; } catch (e) {}
+    var pick = document.getElementById('ward-pick');
+    function all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+    function apply() {
+      document.documentElement.setAttribute('data-ward', ward);
+      if (pick) pick.value = ward;
+      all('[data-ward-only]').forEach(function (el) { el.hidden = el.getAttribute('data-ward-only') !== ward; });
+      all('[data-ward-row]').forEach(function (el) { el.classList.toggle('mine', el.getAttribute('data-ward-row') === ward); });
+      all('[data-set-ward]').forEach(function (el) { el.hidden = el.getAttribute('data-set-ward') === ward; });
+    }
+    function choose(w) { ward = w; try { localStorage.setItem(KEY, w); } catch (e) {} apply(); }
+    if (pick) pick.addEventListener('change', function () { choose(pick.value); });
+    all('[data-set-ward]').forEach(function (el) { el.addEventListener('click', function () { choose(el.getAttribute('data-set-ward')); }); });
+    apply();
+  })();
+  </script>
+</body>
+</html>

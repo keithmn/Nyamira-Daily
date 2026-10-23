@@ -1,0 +1,18 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import wards from '../../../data/wards.json';
+import L from '../../../data/leaders.json';
+---
+<Base title="MCAs">
+  <PageHead eyebrow="The Assembly" title="Your MCAs" lead="The 20 elected ward MCAs. Records of each MCA's motions, statements and attendance will be added from Assembly records." crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/assembly/', label: 'The Assembly' }, { href: '/government/assembly/mcas/', label: 'MCAs' }]} />
+  <div class="table-box" style="margin-top:16px">
+    <table class="cards">
+      <thead><tr><th>Ward</th><th>Sub-county</th><th>MCA</th><th>Party</th><th>Since</th></tr></thead>
+      <tbody>{wards.map((w) => { const m = L.mcas[w.slug]; return (
+        <tr data-ward-row={w.slug}><td><a href={`/ward/${w.slug}/`}>{w.name}</a></td><td data-label="Sub-county">{w.subCounty}</td><td data-label="MCA"><strong>{m?.name}</strong></td><td data-label="Party">{m?.party}</td><td data-label="Since">{m?.since}</td></tr>
+      ); })}</tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin-top:12px">Speaker: {L.county.find((c) => c.office.startsWith('Speaker'))?.name} (disputed; see <a href="/government/leaders/">Leaders</a>). Nominated MCAs will be added. Sources: <a href={L.mcaSource} rel="noopener">IEBC 2022 list</a>; by-election results Nov 2025.</p>
+</Base>

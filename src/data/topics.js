@@ -1,0 +1,10 @@
+// Data topics. `status` tells readers honestly how far each one is.
+export const topics = [
+  { slug: 'money', title: 'Money', question: 'How much did Nyamira receive, and how was it spent, every year since 2013?', status: 'Twelve years of Controller of Budget figures, FY2013/14 to FY2024/25', sources: ['Controller of Budget county budget implementation reports', 'Auditor-General reports on Nyamira County', 'Commission on Revenue Allocation'] },
+  { slug: 'projects', title: 'Projects', question: 'What did the county plan to build, what was paid for, and what exists today?', status: 'Ward budget lines for FY2025/26 and road contracts for FY2023/24, from county plans and budgets', sources: ['Annual Development Plans', 'Programme-based budgets', 'Field verification'] },
+  { slug: 'services', title: 'Services', question: 'Where are the schools, health facilities, markets and offices in each ward?', status: 'First list ready; field checks under way', sources: ['Kenya Master Health Facility List (2017 export)', 'OpenStreetMap', 'Google Maps (discovery only)'] },
+  { slug: 'prices', title: 'Prices (Soko)', question: 'What does produce cost this week at Nyamira\'s markets?', status: 'Needs weekly price checks at Nyamira markets; the national market price system (KAMIS) has no usable Nyamira data we could reach yet', sources: ['KAMIS (national market information system)', 'Nyamira Daily market checks'] },
+  { slug: 'people', title: 'People', question: 'How many people live in Nyamira, and how young is the county?', status: '2019 census figures for the county and its sub-counties', sources: ['KNBS 2019 Kenya Population and Housing Census'] },
+  { slug: 'plans', title: 'Plans and promises', question: 'What did the county promise in its official plans, and was it delivered?', status: 'Plan library being assembled', sources: ['County Integrated Development Plans', 'Annual Development Plans', 'County Fiscal Strategy Papers'] },
+  { slug: 'open-data', title: 'Open data', question: 'Download our tables to check our work or use them yourself.', status: 'Places and services available now', sources: ['Nyamira Daily'] },
+];

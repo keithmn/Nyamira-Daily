@@ -1,0 +1,18 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import A from '../../../data/assembly.json';
+import { date } from '../../../lib/fmt.js';
+---
+<Base title="Bills and Acts">
+  <PageHead eyebrow="The Assembly" title="Bills and Acts" lead="Recent bills and the stage each one has reached. A bill becomes law only after the Governor signs it (assent) and it is published in the Gazette." crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/assembly/', label: 'The Assembly' }, { href: '/government/assembly/bills/', label: 'Bills and Acts' }]} />
+  <h2 style="margin-top:16px">Recent bills</h2>
+  <div class="table-box" style="margin-top:12px">
+    <table class="cards">
+      <thead><tr><th>Bill</th><th>Last stage on record</th><th>Date</th><th>What it does</th></tr></thead>
+      <tbody>{A.bills.map((b) => (<tr><td><a href={b.url} rel="noopener">{b.name}</a></td><td data-label="Stage">{b.stage}</td><td data-label="Date">{date(b.date)}</td><td data-label="What it does">{b.summary}</td></tr>))}</tbody>
+    </table>
+  </div>
+  <p class="small muted" style="margin-top:8px">We found no record of assent or gazettement for these bills yet. The Assembly's online bill tracker covers only 2013–2014 and 2018.</p>
+  <p style="margin-top:24px"><a class="btn quiet" href="/constitution/county-laws/">See Nyamira's Acts (2014–2023)</a></p>
+</Base>

@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import A from '../../data/assembly.json';
+const laws = [
+  { name: 'County Governments Act, 2012', what: 'How county governments are organised, including public participation and decentralised units.' },
+  { name: 'Public Finance Management Act, 2012', what: 'How county budgets are made, approved, spent and reported.' },
+  { name: 'Access to Information Act, 2016', what: 'How to request information from the county.' },
+  { name: 'Intergovernmental Relations Act, 2012', what: 'How the county and national governments work together.' },
+];
+---
+<Base title="County laws">
+  <PageHead eyebrow="Constitution" title="The laws behind devolution" lead="National laws that shape how Nyamira is run, and the county's own Acts." crumbs={[{ href: '/constitution/', label: 'Constitution' }, { href: '/constitution/county-laws/', label: 'County laws' }]} />
+  <div class="grid" style="margin-top:16px">
+    {laws.map((l) => (<div class="card"><h3>{l.name}</h3><p class="muted">{l.what}</p></div>))}
+  </div>
+  <h2 style="margin-top:32px">Nyamira's own Acts</h2>
+  <p class="small muted" style="margin-top:8px">From the Kenya Law listing of Nyamira County legislation. The list stops at 2023 and some years are missing, so it is incomplete. Descriptions are based on each Act's title; full-text summaries will follow.</p>
+  <div class="table-box" style="margin-top:12px">
+    <table class="cards">
+      <thead><tr><th>Act</th><th>Year</th><th>What it covers</th></tr></thead>
+      <tbody>{[...A.acts].sort((a, b) => b.year - a.year).map((a) => (<tr><td><a href={a.url} rel="noopener">{a.name}</a></td><td data-label="Year">{a.year}</td><td data-label="Covers">{a.summary}</td></tr>))}</tbody>
+    </table>
+  </div>
+  <p class="small" style="margin-top:12px">The fees the county charges are set each year in its Finance Act. See <a href="/learn/fees/">Fees you pay</a>.</p>
+</Base>

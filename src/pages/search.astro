@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+---
+<Base title="Search" tools={false}>
+  <PageHead title="Search" lead="Find a ward, a school or clinic, a leader, or a part of the Constitution." />
+  <form id="search-form" class="stack" role="search" style="max-width:640px">
+    <label for="q" class="small"><strong>Search Nyamira Daily</strong></label>
+    <input id="q" name="q" type="search" autocomplete="off" placeholder="e.g. Esise, dispensary, Speaker, budget" class="field" />
+  </form>
+  <p id="search-status" class="small muted" style="margin-top:12px" aria-live="polite">Type at least two letters.</p>
+  <ul id="search-results" class="stack" style="list-style:none;padding:0;margin-top:12px"></ul>
+  <a id="search-index" href="/search-index.json" hidden>index</a>
+  <noscript><p>Search needs JavaScript. You can browse from the menu instead.</p></noscript>
+  <script is:inline>
+  (function () {
+    var link = document.getElementById('search-index');
+    var raw = link.getAttribute('href');
+    var rel = raw.charAt(0) !== '/';           // relative links: offline/preview copy
+    var base = link.href.replace(/search-index\.json$/, '');
+    var input = document.getElementById('q'), out = document.getElementById('search-results'), status = document.getElementById('search-status');
+    var items = null;
+    function url(u) { var p = u.slice(1); if (rel && (p === '' || p.slice(-1) === '/')) p += 'index.html'; return base + p; }
+    function norm(s) { return (s || '').toLowerCase().replace(/[’']/g, ''); }
+    function run() {
+      var q = norm(input.value.trim());
+      out.innerHTML = '';
+      if (q.length < 2) { status.textContent = 'Type at least two letters.'; return; }
+      if (!items) { status.textContent = 'Loading…'; return; }
+      var words = q.split(/\s+/);
+      var hits = items.map(function (it) {
+        var t = norm(it.t), k = norm(it.k), s = 0;
+        for (var i = 0; i < words.length; i++) {
+          var w = words[i];
+          if (t.indexOf(w) === 0) s += 6; else if (t.indexOf(w) > -1) s += 4; else if (k.indexOf(w) > -1) s += 1; else return null;
+        }
+        return { it: it, s: s };
+      }).filter(Boolean).sort(function (a, b) { return b.s - a.s; }).slice(0, 30);
+      status.textContent = hits.length ? hits.length + (hits.length === 30 ? '+' : '') + ' results' : 'No results. Try another word.';
+      hits.forEach(function (h) {
+        var li = document.createElement('li'), a = document.createElement('a'), g = document.createElement('span');
+        a.href = url(h.it.u); a.textContent = h.it.t; a.style.fontWeight = '700';
+        g.className = 'small muted'; g.textContent = ' · ' + h.it.g;
+        li.appendChild(a); li.appendChild(g); out.appendChild(li);
+      });
+    }
+    fetch(link.href).then(function (r) { return r.json(); }).then(function (d) { items = d; run(); })
+      .catch(function () { status.textContent = 'Search could not load. Browse from the menu instead.'; });
+    document.getElementById('search-form').addEventListener('submit', function (e) { e.preventDefault(); run(); });
+    input.addEventListener('input', run);
+    try { var q0 = new URLSearchParams(location.search).get('q'); if (q0) input.value = q0; } catch (e) {}
+  })();
+  </script>
+</Base>

@@ -1,0 +1,529 @@
+{
+ "checked": "2026-10-22",
+ "acts": [
+  {
+   "name": "Nyamira County Trade and Investment Development Act, 2014 (Act No. 2 of 2014)",
+   "year": 2014,
+   "summary": "Sets out a county framework for promoting trade and investment in Nyamira.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Animal Diseases Control Act, 2014 (Act No. 3 of 2014)",
+   "year": 2014,
+   "summary": "Provides for the control of animal diseases in the county.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Early Childhood Development Education Act, 2014 (Act No. 5 of 2014)",
+   "year": 2014,
+   "summary": "Provides for how the county runs early childhood development education (ECDE).",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Physical Planning Act, 2014 (Act No. 6 of 2014)",
+   "year": 2014,
+   "summary": "Provides for physical (land-use) planning in the county.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Assembly Finance Act, 2015 (Act No. 3 of 2015)",
+   "year": 2015,
+   "summary": "Finance law listed under this title; Kenya Law's listing gives no further detail.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Alcoholic Drinks Control Act, 2015 (Act No. 4 of 2015)",
+   "year": 2015,
+   "summary": "Regulates alcoholic drinks in the county; Kenya Law marks it as not yet commenced, and its title is cut off in the listing.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Ward Development Fund Act, 2015 (Act No. 5 of 2015)",
+   "year": 2015,
+   "summary": "Sets up a fund for development projects at ward level.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Health Care Services Fund Act, 2015 (Act No. 6 of 2015)",
+   "year": 2015,
+   "summary": "Sets up a county fund for health care services.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Finance Act, 2016 (Act No. 2 of 2016)",
+   "year": 2016,
+   "summary": "Sets the county's taxes, fees and charges.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Education Support Act (Act No. 3 of 2016)",
+   "year": 2016,
+   "summary": "Provides for county education support, such as bursaries; check the Act for the details.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Finance Act, 2016 (Act No. 5a of 2016)",
+   "year": 2016,
+   "summary": "A second entry with the same title in Kenya Law's listing; it sets county taxes, fees and charges.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Supplementary Appropriation Act, 2017 (Act No. 1 of 2017)",
+   "year": 2017,
+   "summary": "Approves changes to the county's spending for the financial year.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Appropriation Act, 2017 (Act No. 2 of 2017)",
+   "year": 2017,
+   "summary": "Approves the county budget and lets money be drawn from the County Revenue Fund for the year.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Flag, Emblems and Order of Protocol Act, 2017 (Act No. 3 of 2017)",
+   "year": 2017,
+   "summary": "Sets out the county flag, emblems and order of protocol.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Supplementary Appropriation Act, 2018 (Act No. 1 of 2018)",
+   "year": 2018,
+   "summary": "Approves changes to the county's spending for the financial year.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Appropriation Act, 2018 (Act No. 3 of 2018)",
+   "year": 2018,
+   "summary": "Approves the county budget for the year.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Supplementary Appropriation Act (Act No. 6 of 2018)",
+   "year": 2018,
+   "summary": "Approves further changes to county spending; no year is given in the short title.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Supplementary Appropriation Act, 2019 (Act No. 1 of 2019)",
+   "year": 2019,
+   "summary": "Approves changes to the county's spending for the financial year.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Appropriation Act, 2019 (Act No. 2 of 2019)",
+   "year": 2019,
+   "summary": "Approves the county budget for the year.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Agricultural Development Fund Act, 2019 (Act No. 3 of 2019)",
+   "year": 2019,
+   "summary": "Sets up a county fund to support agricultural development.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Crop Agriculture Act, 2019 (Act No. 3a of 2019)",
+   "year": 2019,
+   "summary": "Regulates and promotes crop farming in the county.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Emergency Fund Regulations, 2019 (Legal Notice 2 of 2019)",
+   "year": 2019,
+   "summary": "Regulations, not an Act: they set the rules for running the county's emergency fund.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Supplementary Appropriation Act, 2020 (Act No. 1 of 2020)",
+   "year": 2020,
+   "summary": "Approves changes to the county's spending for the financial year.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Supplementary Appropriation (No. 2) Act, 2020 (Act No. 2 of 2020)",
+   "year": 2020,
+   "summary": "Approves a second round of spending changes in 2020.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Finance Act, 2020 (Act No. 3 of 2020)",
+   "year": 2020,
+   "summary": "Sets the county's taxes, fees and charges.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Appropriation Act, 2020 (Act No. 4 of 2020)",
+   "year": 2020,
+   "summary": "Approves the county budget for the year.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Climate Change Act, 2021 (Act No. 4 of 2021)",
+   "year": 2021,
+   "summary": "Provides a county framework for responding to climate change.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Appropriation Act, 2023 (Act No. 3 of 2023)",
+   "year": 2023,
+   "summary": "Approves the county budget for the year.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Finance Act, 2023 (Act No. 6 of 2023)",
+   "year": 2023,
+   "summary": "Sets the county's taxes, fees and charges.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Investment and Development Corporation Act, 2023 (Act No. 9 of 2023)",
+   "year": 2023,
+   "summary": "Sets up a county corporation to promote investment and development.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  },
+  {
+   "name": "Nyamira County Trade Development Revolving Fund Act, 2023 (Act No. 10 of 2023)",
+   "year": 2023,
+   "summary": "Sets up a revolving fund that lends to traders.",
+   "url": "https://new.kenyalaw.org/legislation/ke-046"
+  }
+ ],
+ "bills": [
+  {
+   "name": "Nyamira County Health Facilities Improvement Financing Bill, 2025",
+   "stage": "Third Reading passed",
+   "date": "2025-08-05",
+   "summary": "Lets county health facilities keep and manage the money they collect for services, and use it to support operations, medical supplies and primary health care (from the Health Services Committee's report). The record does not show Governor's assent or a gazetted Act.",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=913:august-5-2025-at-9-30am"
+  },
+  {
+   "name": "Nyamira County Revolving Health Products and Technologies Financing Bill, 2025",
+   "stage": "Third Reading passed",
+   "date": "2025-08-05",
+   "summary": "Sets up financing for health products and technologies (medicines and supplies) through a revolving arrangement. Assent was not found.",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=913:august-5-2025-at-9-30am"
+  },
+  {
+   "name": "Nyamira County Community Health Services (Amendment) Bill, 2025",
+   "stage": "Third Reading passed",
+   "date": "2025-08-05",
+   "summary": "Amends the county's community health services law. The Hansard records the third reading under the shortened title 'Nyamira County Health Services Amendment Bill, 2025'. Assent was not found.",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=913:august-5-2025-at-9-30am"
+  },
+  {
+   "name": "Nyamira County Education Support Fund Bill, 2026",
+   "stage": "Third Reading passed (with committee amendments)",
+   "date": "2026-06-30",
+   "summary": "Sets up a county Education Support Fund, including its administration, ward committees and the payment of bursaries and scholarships. Assent was not found.",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/129-hansard-reports-2026.html?download=912:june-30-2026-at-10-00am-pdf"
+  },
+  {
+   "name": "Nyamira County Appropriation Bill, 2026",
+   "stage": "Third Reading passed 30 Jun 2026. A Governor's memorandum on the Bill was tabled on 14 Jul 2026, and on 21 Jul 2026 the Speaker ruled it out of order and inadmissible. Assent status is unclear.",
+   "date": "2026-07-21",
+   "summary": "Authorises KSh 9,340,468,817 to be issued from the County Revenue Fund for FY ending 30 June 2027 (Memorandum of Objects, dated 29 June 2026). The Speaker said the Controller of Budget had written to the Assembly about a complaint raised by the Office of the Governor.",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/129-hansard-reports-2026.html?download=926:july-21-2026-at-2-30-pm"
+  }
+ ],
+ "sittings": [
+  {
+   "date": "2026-07-21",
+   "items": [
+    "Speaker's communication (afternoon sitting): the Governor's memorandum on the adopted Appropriation Bill, tabled on 14 July 2026, was ruled 'out of order and therefore, invalid' and ordered expunged from the records.",
+    "Reasons the Speaker gave: the memorandum proposed changes 'without identifying corresponding adjustments necessary to maintain a balanced appropriation' and did not identify the clauses to be amended.",
+    "The Speaker reported a letter from the Controller of Budget about a complaint from the Office of the Governor, and said the Assembly had responded."
+   ],
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/129-hansard-reports-2026.html?download=926:july-21-2026-at-2-30-pm"
+  },
+  {
+   "date": "2026-06-30",
+   "items": [
+    "Special sitting (Gazette Notice No. 9777 of 30 June 2026). The Hansard heading reads 'Tuesday, 30th July, 2026', but the file title and gazette notice point to 30 June.",
+    "Nyamira County Education Support Fund Bill, 2026 was passed at Third Reading after committee amendments.",
+    "Committee on Appointments report adopted, approving Ms. Felister Moige Samuel as a Member of the County Public Service Board.",
+    "Budget and Appropriations Committee report on the FY 2026/27 Budget Estimates adopted; Nyamira County Appropriation Bill, 2026 (KSh 9,340,468,817) read a Third Time after its publication period was shortened to one day."
+   ],
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/129-hansard-reports-2026.html?download=912:june-30-2026-at-10-00am-pdf"
+  },
+  {
+   "date": "2026-03-17",
+   "items": [
+    "Special sitting (Gazette Notice No. 3569 of 13 March 2026) to consider the Budget and Appropriations Committee report on the County Fiscal Strategy Paper 2026/27.",
+    "The procedural motion noted that the Executive submitted the CFSP on 3 March 2026, after the PFM Act deadline of 28 February.",
+    "The report quoted county revenue as at 31 Dec 2025: 'KSh 3.03 billion against a total revenue target of KSh 8.65 billion' (34.99%).",
+    "The report was adopted with amendments."
+   ],
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/129-hansard-reports-2026.html?download=931:march-17-2026-at-10-00-a-m"
+  },
+  {
+   "date": "2026-01-27",
+   "items": [
+    "Special sitting (Gazette Notice No. 2318 of 23 January 2026). The Chair paid tribute to the late Mr. Stephene Egoha Eronde, Assistant Director, ICT.",
+    "Budget and Appropriations Committee report on the County Annual Development Plan 2026/27 debated. The committee 'resolved that stalled projects be suspended from funding for investigations', and ward projects were capped at KSh 30 million per ward. The motion was agreed to with amendment.",
+    "Committee on Appointments report on the nominee for CECM Agriculture, Livestock and Fisheries, Dr. Peris Nyaboke Oroko, adopted. The nominee declined the approval hearing; the report recommends the Governor submit another name and that the House's committees jointly investigate how she served without approval."
+   ],
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/129-hansard-reports-2026.html?download=923:january-27-2026-at-10-00am"
+  },
+  {
+   "date": "2025-11-25",
+   "items": [
+    "Motion for the removal of Governor Amos Kimwomi Nyaribo by impeachment, on grounds of 'Gross Violation of the Constitution of Kenya and Other Laws' and 'Abuse of Office', moved by Hon. Matwere (Bonyamatuta Ward).",
+    "Clerk's result: 23 votes cast, 23 Yes, 0 No, 0 Abstain. The Speaker declared the motion carried and said the Senate Speaker would be notified.",
+    "Later outcome, not in this Hansard: on 3 Dec 2025 the Senate upheld the Governor's preliminary objection and the impeachment did not proceed (Citizen Digital)."
+   ],
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=932:november-25-at-9-30am"
+  },
+  {
+   "date": "2025-11-17",
+   "items": [
+    "Special sitting (Gazette Notice No. 10102 of 16 November 2025).",
+    "Hon. Matwere (Bonyamatuta Ward) gave notice of a motion to remove the Governor by impeachment.",
+    "The House rose at 10:06 a.m. The Hansard PDF is mostly a scanned image, so only the first page could be read as text."
+   ],
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=916:november-17-2025-at-10-00am"
+  },
+  {
+   "date": "2025-09-30",
+   "items": [
+    "Justice and Legal Affairs Committee report on 'the Legality of the Appointment of Dr. Peris Nyaboke Oroko' as CECM moved (report tabled 23 Sept 2025).",
+    "The committee found the appointment 'did not follow the lawful process of nomination, vetting, and approval' and was 'null and void'. It said she had been vetted on 2 April 2025 by the 'Bunge Mashinani' sittings, which the Bomet High Court nullified, and that payments to her amount to irregular expenditure.",
+    "The vote on this report is not clear from the published file, whose later pages repeat the 27 Jan 2026 proceedings."
+   ],
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=919:september-30-2025-at-9-30am"
+  },
+  {
+   "date": "2025-09-04",
+   "items": [
+    "Speaker's communication directed a matter to the Procedure and Rules Committee, with a report due within 21 days.",
+    "Hon. Mang'era (Esise Ward) sought a statement from the Leader of Majority on the Assembly's powers of invitation and summons.",
+    "Hon. Benecha (Kiabonyoru Ward) sought a statement from the County Assembly Service Board on what action was taken against staff who took part in the 'Bunge Mashinani' sittings, what they were paid and how it will be recovered, and on unpaid security guards at ward offices.",
+    "The heading gives the meeting time as 2:30 p.m. but records that the House rose at 10:13 a.m., so the times are inconsistent."
+   ],
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=918:september-4-2025-at-2-30pm"
+  },
+  {
+   "date": "2025-08-26 (2:30 p.m.)",
+   "items": [
+    "Statement sought, on behalf of the Leader of Majority, on the appointment of Dr. Peris Nyaboke Mong'are (Oroko) as CECM Agriculture. It asks why she remains in office despite the 4 June 2025 Bomet High Court judgement on the 'Bunge Mashinani' faction.",
+    "The Speaker directed the Implementation and Justice and Legal Affairs Committees to investigate and report within 21 days."
+   ],
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=914:august-26-2025-2-30pm"
+  },
+  {
+   "date": "2025-08-26 (9:30 a.m.)",
+   "items": [
+    "Communication from the Chair marking the end of recess and the resumption of the House.",
+    "Members made statements. These included concern that the plan for road maintenance using county machinery was running slowly: four wards done since February, out of 20."
+   ],
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=915:august-26-2025at-9-30am"
+  },
+  {
+   "date": "2025-08-05",
+   "items": [
+    "Special sitting during recess (Gazette Notice No. 10942 of 4 August 2025). The Speaker issued a communication against discussing matters before the courts (sub judice).",
+    "Health Services Committee report on three health Bills adopted. The Health Facilities Improvement Financing Bill 2025, the Revolving Health Products and Technologies Financing Bill 2025 and the Community Health Services (Amendment) Bill 2025 were each read a Third Time and passed.",
+    "Environment, Water, Energy, Mining and Natural Resources Committee report on the petition about the Ekerubo-Kemera Water Project (Kemera Ward) was laid and debated."
+   ],
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=913:august-5-2025-at-9-30am"
+  }
+ ],
+ "committees": [
+  {
+   "name": "Implementation Committee (standing)",
+   "purpose": "Follows up whether Assembly resolutions are carried out. The 26 Aug 2025 Hansard shows it given that role.",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/standing-committees-2.html"
+  },
+  {
+   "name": "Liaison Committee (standing)",
+   "purpose": "Coordinates the work of the committees (usual county assembly role; the site gives no mandate).",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/standing-committees-2.html"
+  },
+  {
+   "name": "Committee on Justice and Legal Affairs (standing)",
+   "purpose": "Legal and justice matters; investigated the legality of a CECM appointment in 2025 (30 Sept 2025 Hansard).",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/standing-committees-2.html"
+  },
+  {
+   "name": "Committee on Appointments (standing)",
+   "purpose": "Vets the Governor's nominees, such as CEC Members and County Public Service Board members, before approval (27 Jan and 30 Jun 2026 Hansards).",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/standing-committees-2.html"
+  },
+  {
+   "name": "Committee on Delegated Legislation (standing)",
+   "purpose": "Scrutinises regulations and other delegated legislation (usual role; the site gives no mandate).",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/standing-committees-2.html"
+  },
+  {
+   "name": "County Public Investments and Accounts Committee (standing)",
+   "purpose": "Examines county accounts and audit reports (usual role; the site gives no mandate).",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/standing-committees-2.html"
+  },
+  {
+   "name": "Selection Committee (standing)",
+   "purpose": "Assigns Members to committees (usual role; the site gives no mandate).",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/standing-committees-2.html"
+  },
+  {
+   "name": "County Assembly Procedure and Rules Committee (standing)",
+   "purpose": "Standing Orders and procedure; the 4 Sept 2025 Hansard shows a matter referred to it.",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/standing-committees-2.html"
+  },
+  {
+   "name": "House Business Committee (standing)",
+   "purpose": "Sets the Assembly's business and agenda; the Speaker chairs it (21 Jul 2026 Hansard: 'as a chair of HBC').",
+   "chair": "The Speaker (Hon. Thaddeus Nyabaro), per the 21 Jul 2026 Hansard",
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/standing-committees-2.html"
+  },
+  {
+   "name": "County Budget and Appropriations Committee (standing)",
+   "purpose": "Examines the budget estimates, CFSP, ADP and Appropriation Bills. Its mandate is read out in the 30 Jun 2026 Hansard.",
+   "chair": "Not stated explicitly. Hon. Duke Oyagi Masira (Township) presented the committee's reports and signed the Appropriation Bill, 2026 memorandum (30 Jun 2026 Hansard), so he is probably the chair, but this is not confirmed.",
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/standing-committees-2.html"
+  },
+  {
+   "name": "Youth, Gender, Sports, Culture and Social Services Committee (sectoral)",
+   "purpose": "Oversees the county's gender, youth, sports, culture and social services department.",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/sectorial-committees-2.html"
+  },
+  {
+   "name": "Energy, Water, Environment, Minerals and Natural Resources Committee (sectoral)",
+   "purpose": "Oversees water, environment, energy and natural resources. The Hansard calls it the 'Committee on Environment, Water, Energy, Mining and Natural Resources', and it handled the Ekerubo-Kemera water petition.",
+   "chair": "Hon. Miinda Riechi (Magombo Ward), per the 5 Aug 2025 Hansard",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=913:august-5-2025-at-9-30am"
+  },
+  {
+   "name": "Public Administration Committee (sectoral)",
+   "purpose": "Oversees public service management and administration.",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/sectorial-committees-2.html"
+  },
+  {
+   "name": "Lands, Housing and Urban Planning Committee (sectoral)",
+   "purpose": "Oversees lands, housing and urban development.",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/sectorial-committees-2.html"
+  },
+  {
+   "name": "Education and Vocational Committee (sectoral)",
+   "purpose": "Oversees ECDE and vocational training. The Hansard calls it the 'Committee on Education, Vocational Training and ICT', and it reported on the Education Support Fund Bill, 2026.",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/sectorial-committees-2.html"
+  },
+  {
+   "name": "Roads, Transport, Public Works and Disaster Management Committee (sectoral)",
+   "purpose": "Oversees roads, transport and public works.",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/sectorial-committees-2.html"
+  },
+  {
+   "name": "Health Services Committee (sectoral)",
+   "purpose": "Oversees county health services; it reported on the three 2025 health Bills.",
+   "chair": "Hon. Charles Keganda (Bosamaro Ward), per the 5 Aug 2025 Hansard",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=913:august-5-2025-at-9-30am"
+  },
+  {
+   "name": "Agriculture, Livestock and Fisheries Development Committee (sectoral)",
+   "purpose": "Oversees agriculture, livestock and fisheries.",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/sectorial-committees-2.html"
+  },
+  {
+   "name": "Trade, Tourism, Industry and Cooperative Development Committee (sectoral)",
+   "purpose": "Oversees trade, tourism, industry and cooperatives.",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/sectorial-committees-2.html"
+  },
+  {
+   "name": "Finance, ICT and Economic Planning Committee (sectoral)",
+   "purpose": "Oversees finance, ICT and economic planning.",
+   "chair": null,
+   "url": "https://nyamiraassembly.go.ke/index.php/committees1/sectorial-committees-2.html"
+  }
+ ],
+ "petitionsMotions": [
+  {
+   "date": "2025-11-17 to 2025-12-03",
+   "title": "Motion to remove Governor Amos Nyaribo by impeachment",
+   "summary": "Notice given 17 Nov 2025 by Hon. Matwere (Bonyamatuta Ward); motion debated 25 Nov 2025 on grounds of gross violation of the Constitution and abuse of office.",
+   "outcome": "Assembly: 23 Yes, 0 No, 0 Abstain, and declared carried. Senate (3 Dec 2025): upheld the Governor's preliminary objection, which challenged the motion's validity, the use of proxy votes and the vote count, so the impeachment did not proceed. Citizen Digital reports 38 Senators backed the decision and 4 opposed it.",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=932:november-25-at-9-30am"
+  },
+  {
+   "date": "2025-12-03",
+   "title": "Senate decision on Nyaribo impeachment (source for outcome above)",
+   "summary": "Citizen Digital report on the Senate vote of 3 December 2025.",
+   "outcome": "Governor remained in office.",
+   "url": "https://citizen.digital/article/nyamira-governor-amos-nyaribo-survives-impeachment-after-senate-upholds-objections-n373964"
+  },
+  {
+   "date": "2025-08-26 to 2026-01-27",
+   "title": "Statement and committee inquiry into the appointment of the CECM for Agriculture (Dr. Peris Nyaboke Oroko)",
+   "summary": "A statement was sought on 26 Aug 2025. The Justice and Legal Affairs Committee reported on 30 Sept 2025 that the appointment was 'null and void' because the vetting was done by the nullified 'Bunge Mashinani' sittings.",
+   "outcome": "The Governor then submitted the nominee for vetting. The Committee on Appointments reported that she declined the approval hearing, and the House adopted the report on 27 Jan 2026. It recommends the Governor submit another name and that committees jointly investigate her service without approval, reporting within 21 days. The result of that investigation was not found.",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/129-hansard-reports-2026.html?download=923:january-27-2026-at-10-00am"
+  },
+  {
+   "date": "2025-08-05",
+   "title": "Petition on Ekerubo-Kemera Water Project, Kemera Ward",
+   "summary": "Petitioners raised the condition of the water project. The Environment, Water, Energy, Mining and Natural Resources Committee laid and moved its report; the ward MCA said repair works were incomplete and some schools no longer receive water.",
+   "outcome": "Report debated on 5 Aug 2025. The adoption vote and follow-up by the Implementation Committee were not found in the record reviewed.",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=913:august-5-2025-at-9-30am"
+  },
+  {
+   "date": "2025-09-04",
+   "title": "Statement request on staff who took part in 'Bunge Mashinani' sittings",
+   "summary": "Hon. Benecha (Kiabonyoru) asked the County Assembly Service Board what action was taken against such staff, how much they were paid and how it will be recovered (citing the Senate report and the 4 June 2025 Bomet High Court judgement), and about unpaid security guards at ward offices.",
+   "outcome": "No response was found in the records reviewed.",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/128-hansard-reports-2025.html?download=918:september-4-2025-at-2-30pm"
+  },
+  {
+   "date": "2026-01-27",
+   "title": "ADP 2026/27: suspend funding to stalled projects pending investigation",
+   "summary": "The Budget and Appropriations Committee 'observed a lot of stalled projects which have been funded from previous budgets' and resolved that they be suspended from funding for investigation. It also capped ward projects at KSh 30 million per ward.",
+   "outcome": "Report adopted with amendment on 27 Jan 2026. Which projects were affected, and how this was carried into the 2026/27 budget, was not checked.",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/129-hansard-reports-2026.html?download=923:january-27-2026-at-10-00am"
+  },
+  {
+   "date": "2026-07-14 to 2026-07-21",
+   "title": "Governor's memorandum on the Appropriation Bill, 2026",
+   "summary": "The Governor's memorandum on the adopted Appropriation Bill was tabled on 14 Jul 2026.",
+   "outcome": "On 21 Jul 2026 the Speaker ruled it out of order and inadmissible, ordered it expunged and referred it back, citing a letter from the Controller of Budget. The final outcome (assent or re-consideration) is not known.",
+   "url": "https://nyamiraassembly.go.ke/index.php/hansard/category/129-hansard-reports-2026.html?download=926:july-21-2026-at-2-30-pm"
+  },
+  {
+   "date": "2025-07 (approx.)",
+   "title": "Expulsion of 10 MCAs linked to the 'Bunge Mashinani' faction, and court reinstatement",
+   "summary": "People Daily (8 Jul 2025) reported 10 MCAs lost their seats for missing eight consecutive sittings. Citizen Digital (11 Jul 2025) reported that the Nyamira High Court (Justice Wilfrida Okwany) temporarily reinstated them and dismissed the Assembly's objection to its jurisdiction.",
+   "outcome": "Interim orders pending a hearing set for 30 Jul 2025. The final outcome was not found.",
+   "url": "https://citizen.digital/article/relief-for-10-expelled-nyamira-mcas-as-court-reinstates-them-n366140"
+  },
+  {
+   "date": "2025-01-13",
+   "title": "Residents' signature drive to petition for dissolution of the county government",
+   "summary": "People Daily reported that residents launched a drive at Magombo market for 10,000 signatures per ward, to petition the President and Senate to dissolve the county government and Assembly, citing leadership wrangles and service delivery.",
+   "outcome": "Only the launch was reported; no filed petition or official response was found.",
+   "url": "https://peopledaily.digital/news/nyamira-residents-launch-move-to-dissolve-leadership/amp"
+  }
+ ],
+ "notes": [
+  "The Assembly website (nyamiraassembly.go.ke) refuses direct downloads intermittently ('connection reset'). Hansard PDFs were retrieved after retries; the 21 Jul 2026 9:30 a.m. Hansard (download id 927) could not be downloaded.",
+  "The Assembly publishes only a small share of Hansards: 6 files for 2026 and 8 for 2025, none for 2024, and the newest is 21 Jul 2026. No Hansard was found for Aug–Oct 2026.",
+  "Order Paper page: newest entry is 17 Nov 2025; its link text says 'Thursady 13th November 2025'. Only that entry had a working link.",
+  "Hansard file labels and contents do not always match. The file 'January 25 2026' (id 911) contains the 27 Jan 2026 sitting with 'SEPTEMBER 30, 2025' page headers. The 30 Sept 2025 file (id 919) has 27 Jan 2026 material after its first pages. The 30 Jun 2026 file's heading says 'Tuesday, 30th July, 2026'. Two 25 Nov 2025 files (ids 917 and 932) appear identical.",
+  "Acts: Kenya Law's Nyamira listing (ke-046) shows 31 items from 2014 to 2023, with no Acts dated 2024–2026. The Assembly's own Acts page lists categories only for 2013–2017. Each Act's URL points to the Kenya Law listing page because individual document links could not be fetched (Kenya Law returned 403 to direct requests). The Act summaries are based on titles only, not the Act texts. The listing omits 2013, 2021–2022 Appropriation Acts and others, so the list is incomplete.",
+  "Bills passed in 2025–2026 (three health Bills, the Education Support Fund Bill and the Appropriation Bill 2026) have no confirmed assent or gazettement. The Assembly's bill tracker page covers only 2013–2014 and 2018.",
+  "The Petitions Tracker page is an empty template. Petitions in this file come from Hansard and media reports.",
+  "Committee chairs: the Assembly's committee pages list no mandates or chairs. Chairs given here are as named in the Hansard; committee purposes marked 'usual role' are the standard county assembly functions, not the Assembly's published mandate.",
+  "Speaker dispute. The High Court at Bomet (Petition E004 of 2025, judgement 4 June 2025, Ng'arng'ar J) found that Enock Okero Ogori 'ceased to hold office as Speaker on 24 October 2024'. It dismissed the petition challenging Thaddeus Nyabaro's election but said it lacked jurisdiction to decide who is Speaker, and it declared the rival CFSP 2025/26 process null and void (https://new.kenyalaw.org/akn/ke/judgment/kehc/2025/7765/eng@2025-06-04). Citizen Digital (18 Jun 2025) reported that Nyabaro and Clerk Duke Onyari took office, and dated Okero's removal to September 2024, which differs from the court's date. Hon. Nyabaro is in the Chair in every 2025–2026 Hansard reviewed.",
+  "Members named in the summaries are named because the Hansard records them moving, seconding or requesting the item. No individual has been singled out beyond that."
+ ]
+}

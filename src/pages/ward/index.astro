@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import wards from '../../data/wards.json';
+import WardMap from '../../components/WardMap.astro';
+const subs = ['Borabu', 'Kitutu Masaba', 'North Mugirango', 'West Mugirango'];
+---
+<Base title="My Ward">
+  <PageHead eyebrow="My Ward" title="Choose your ward" lead="Tap your ward on the map, or pick it from the list. Each ward has one page with its services, projects, money and MCA." tools={false} />
+  <div class="stack-lg" style="margin-top:16px">
+    <WardMap mode="county" />
+    {subs.map((s) => (
+      <section class="stack">
+        <h2>{s}</h2>
+        <div class="grid">
+          {wards.filter((w) => w.subCounty === s).map((w) => (
+            <a class="card" href={`/ward/${w.slug}/`} data-ward-row={w.slug}>
+              <h3>{w.name}</h3>
+              <span class="small muted">{w.facilities.length} services listed · {w.places.length} places</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>

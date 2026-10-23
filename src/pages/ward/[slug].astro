@@ -1,0 +1,129 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import WardMap from '../../components/WardMap.astro';
+import wards from '../../data/wards.json';
+import leaders from '../../data/leaders.json';
+import money from '../../data/money.json';
+import census from '../../data/census.json';
+import { forWard, total, kindLabel, fyOrder, sources, watch } from '../../lib/projects.js';
+import { ksh, num } from '../../lib/fmt.js';
+
+export function getStaticPaths() {
+  return wards.map((w) => ({ params: { slug: w.slug }, props: { w } }));
+}
+const { w } = Astro.props;
+const mca = leaders.mcas[w.slug];
+const mp = leaders.national.find((l) => l.office === `MP, ${w.subCounty}`);
+const byCat = w.facilities.reduce((m, f) => { (m[f.category] ??= []).push(f); return m; }, {});
+const order = ['Health', 'Education', 'Worship', 'Market', 'Water', 'Public office', 'Community centre', 'Agriculture'];
+const last = money.years[money.years.length - 1];
+const proj = forWard(w.slug);
+const b2526 = total(w.slug, '2025/26', 'budgeted');
+const roads = total(w.slug, '2023/24', 'contract');
+const cw = census.wards.find((x) => x.ward === w.slug);
+const flags = watch.filter((x) => x.ward === w.slug);
+const byFy = fyOrder.map((fy) => ({ fy, rows: proj.filter((p) => p.fy === fy) })).filter((g) => g.rows.length);
+const bn = (m) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
+const mcaLine = mca ? mca.name + (mca.party ? ' (' + mca.party + ')' : '') : 'not confirmed';
+const catLine = order.filter((c) => byCat[c]).map((c) => c + ' ' + byCat[c].length).join(', ');
+const shareText = [
+  w.name + ' Ward, ' + w.subCounty + ' - Nyamira Daily',
+  'MCA: ' + mcaLine,
+  'Services listed: ' + w.facilities.length + ' (' + catLine + ')',
+  (b2526 ? 'Ward projects budgeted 2025/26: ' + ksh(b2526.amount) + '\n' : '') + 'County spent ' + bn(last.spent) + ' in ' + last.fy + '; ' + last.devAbs + '% of the development budget was used.',
+  new URL('/ward/' + w.slug + '/', Astro.site).toString(),
+].join('\n');
+const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+---
+<Base title={`${w.name} Ward`}>
+  <PageHead eyebrow={`${w.subCounty} sub-county`} title={`${w.name} Ward`} crumbs={[{ href: '/ward/', label: 'My Ward' }, { href: `/ward/${w.slug}/`, label: w.name }]} />
+
+  <div class="stack-lg" style="margin-top:8px">
+    <section class="receipt" aria-label={`${w.name} ward summary`}>
+      <span class="eyebrow">Ward receipt · {w.subCounty}</span>
+      <h2>{w.name} Ward</h2>
+      <div class="row"><span>MCA</span><span>{mca ? mcaLine : 'Not confirmed'}</span></div>
+      {mp && <div class="row"><span>MP ({w.subCounty})</span><span>{mp.name}</span></div>}
+      <div class="row"><span>Services listed</span><span>{w.facilities.length}</span></div>
+      {order.filter((c) => byCat[c]).map((c) => <div class="row"><span>&nbsp;&nbsp;{c}</span><span>{byCat[c].length}</span></div>)}
+      {b2526 && <div class="row"><span>Ward projects budgeted, 2025/26</span><span>{ksh(b2526.amount)}</span></div>}
+      {roads && <div class="row"><span>Road maintenance contracts, 2023/24</span><span>{ksh(roads.amount)}</span></div>}
+      {cw?.votersRegisteredEarlier && <div class="row"><span>Registered voters (IEBC 2018 register)</span><span>{num(cw.votersRegisteredEarlier)}</span></div>}
+      <div class="row"><span>Whole county spent, {last.fy}</span><span>{bn(last.spent)}</span></div>
+      <div class="row"><span>Development budget used</span><span>{last.devAbs}%</span></div>
+      <p class="small muted">Sources: MCA from IEBC 2022 results and later by-elections. Ward budget from the county's Programme Based Budget 2025/26 (Table 18); road contracts from the Annual Development Plan 2025/26. Services from the Nyamira Daily list, mostly not yet checked on site. County spending from the Controller of Budget.</p>
+      <div class="page-tools">
+        <a class="btn primary" href={wa} rel="noopener">Share this receipt on WhatsApp</a>
+        <button class="btn quiet" type="button" data-set-ward={w.slug}>Make {w.name} my ward</button>
+        <span class="small" data-ward-only={w.slug} hidden><strong>This is your ward.</strong></span>
+      </div>
+    </section>
+
+    {mca?.note && <p class="small"><strong>Note on the MCA seat:</strong> {mca.note} {mca.src && <a href={mca.src} rel="noopener">Source</a>}</p>}
+
+    <div class="sw" lang="sw">
+      <span class="eyebrow">Muhtasari kwa Kiswahili</span>
+      <p>Wadi ya {w.name} iko katika kaunti ndogo ya {w.subCounty}. Mwakilishi wa wadi (MCA) ni {mca?.name ?? 'bado hajathibitishwa'}. Tumeorodhesha huduma {w.facilities.length} katika wadi hii; nyingi bado hazijakaguliwa ana kwa ana.</p>
+    </div>
+
+    <section class="stack">
+      <h2>Ward map</h2>
+      <WardMap mode="ward" slug={w.slug} />
+    </section>
+
+    <section class="stack">
+      <h2>Services in {w.name}</h2>
+      <p class="muted small">Listed from public sources. "Unverified" means our correspondents have not yet visited. <span class="updated">Last updated 22 Oct 2026.</span></p>
+      {order.filter((c) => byCat[c]).map((c) => (
+        <details>
+          <summary>{c} ({byCat[c].length})</summary>
+          <div class="table-box">
+            <table class="cards">
+              <thead><tr><th>Name</th><th>Type</th><th>Evidence</th><th>Source</th></tr></thead>
+              <tbody>
+                {byCat[c].map((f) => (
+                  <tr>
+                    <td>{f.name}</td>
+                    <td data-label="Type">{f.subtype}{f.level ? ` · ${f.level}` : ''}{f.owner ? ` · ${f.owner}` : ''}</td>
+                    <td data-label="Evidence"><EvidenceLabel kind={f.evidence} /></td>
+                    <td class="small muted" data-label="Source">{f.source}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      ))}
+    </section>
+
+    <section class="stack" id="projects">
+      <h2>County projects in {w.name}</h2>
+      <p class="muted small">What the county's plans and budgets list for this ward. "Budgeted" is planned money; "Contract sum" is what was signed; "Spent" is what was reported paid. A budget line is not proof that work was done. Read from the county's own documents; we have not visited these sites yet.</p>
+      {flags.map((x) => <p class="sw"><span class="eyebrow">Question to ask</span><strong>{x.title}:</strong> {x.text}</p>)}
+      {byFy.length === 0 && <p class="muted">No ward-tagged projects found yet in the documents we have read.</p>}
+      {byFy.map((g, i) => (
+        <details open={i === 0}>
+          <summary>{g.fy === 'as at 30 Jun 2025' ? 'Status at 30 June 2025' : `FY${g.fy}`} ({g.rows.length})</summary>
+          <div class="table-box">
+            <table class="cards">
+              <thead><tr><th>Project</th><th>Department</th><th class="num">Amount</th><th>Type</th><th>Status reported</th><th>Source</th></tr></thead>
+              <tbody>{g.rows.map((p) => (
+                <tr><td>{p.name}{p.location && p.location !== `${w.name} Ward` ? ` (${p.location})` : ''}</td><td data-label="Department">{p.department}</td><td class="num" data-label="Amount">{p.amount ? ksh(p.amount) : 'Printed as 0 or blank'}</td><td data-label="Type">{kindLabel[p.kind] ?? p.kind}</td><td data-label="Status">{p.status ?? '—'}</td><td class="small" data-label="Source"><a href={sources[p.sourceId].url} rel="noopener">{p.sourceId.toUpperCase()}</a> {p.page}</td></tr>
+              ))}</tbody>
+            </table>
+          </div>
+        </details>
+      ))}
+      <a class="small" href="/data/projects/">Compare all wards</a>
+    </section>
+
+    {w.places.length > 0 && (
+      <section class="stack">
+        <h2>Places in {w.name}</h2>
+        <p>{w.places.map((p) => p.name).join(' · ')}</p>
+      </section>
+    )}
+  </div>
+</Base>

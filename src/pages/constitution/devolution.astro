@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import c from '../../data/constitution.json';
+const ch = c.chapter11;
+---
+<Base title="Devolution">
+  <PageHead eyebrow="Constitution" title={ch.title} lead={ch.summary} crumbs={[{ href: '/constitution/', label: 'Constitution' }, { href: '/constitution/devolution/', label: 'Devolution' }]} />
+  <div class="sw" lang="sw" style="margin-top:16px"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Sura ya Kumi na Moja ya Katiba ndiyo iliyounda serikali za kaunti. Inaeleza kwa nini mamlaka yaligatuliwa, na jinsi Bunge la Kaunti na Serikali Kuu ya Kaunti zinavyofanya kazi.</p></div>
+
+  <div class="table-box" style="margin-top:16px">
+    <table>
+      <thead><tr><th>Article</th><th>Title</th></tr></thead>
+      <tbody>{ch.articles.map((a) => (<tr><td>{a.n}</td><td><a href={`/constitution/article/${a.n}/`}>{a.title}</a></td></tr>))}</tbody>
+    </table>
+  </div>
+</Base>

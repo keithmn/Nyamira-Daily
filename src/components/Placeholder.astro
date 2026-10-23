@@ -1,0 +1,7 @@
+---
+// Marks something that is planned but not ready. Deliberately quiet: one line, no box.
+interface Props { what?: string }
+const { what = 'This page' } = Astro.props;
+const generic = what === 'This page' || what === 'This lesson';
+---
+<p class="muted"><span class="tag-planned">Planned</span> {generic ? 'Not published yet. It will go live once its first entries have been checked.' : `${what}: not published yet.`} <slot /></p>

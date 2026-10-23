@@ -1,0 +1,3121 @@
+[
+ {
+  "slug": "esise",
+  "name": "Esise",
+  "subCounty": "Borabu",
+  "counts": {
+   "Education": 4,
+   "Health": 10,
+   "Public office": 1
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0001",
+    "name": "Ensoko Primary School",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0002",
+    "name": "Kineni Primary School",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0003",
+    "name": "Riang'ombe Pri. School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0004",
+    "name": "Riang'ombe Secondary School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0005",
+    "name": "Alfa Clinic",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0006",
+    "name": "Chepngombe Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0007",
+    "name": "Ensakia Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0008",
+    "name": "Isoge Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0009",
+    "name": "Kahawa Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0010",
+    "name": "Kineni Dispensary (Esise)",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0011",
+    "name": "Mecheo Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0012",
+    "name": "Nderema Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0013",
+    "name": "Rietago Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0014",
+    "name": "Rigoko Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0015",
+    "name": "Raitigo Location Chief's Office",
+    "category": "Public office",
+    "subtype": "chief's office",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0001",
+    "name": "Manga Rogoro Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0002",
+    "name": "Raitigo Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "kiabonyoru",
+  "name": "Kiabonyoru",
+  "subCounty": "Borabu",
+  "counts": {
+   "Community centre": 1,
+   "Education": 6,
+   "Health": 7,
+   "Market": 2,
+   "Worship": 4
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0016",
+    "name": "Nyaramba",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0017",
+    "name": "Nyamiranga D.E.B Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0018",
+    "name": "Nyamiranga S.D.A Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0019",
+    "name": "Nyamiranga SDA Secondary School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0020",
+    "name": "St. Peters Nyakemincha Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0021",
+    "name": "Unnamed school",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0022",
+    "name": "Unnamed school",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0023",
+    "name": "Endiba Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0024",
+    "name": "Kebirigo Mission Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0025",
+    "name": "Mokomoni Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0026",
+    "name": "Nyabikomu Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0027",
+    "name": "Nyaramba Junction Medical Centre",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Practice - Clinical Officer",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0028",
+    "name": "St Norah's Clinc",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0029",
+    "name": "St Ruth Clinic",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0030",
+    "name": "Mokomoni Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0031",
+    "name": "Mokomoni Tea Buying Centre",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0032",
+    "name": "Erandi E.L.C.K Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0033",
+    "name": "Gietai S.D.A Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0034",
+    "name": "Nyamiranga S.D.A Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0035",
+    "name": "Riamairima P.A.G Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0003",
+    "name": "Mokomoni",
+    "type": "Locality",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "mekenene",
+  "name": "Mekenene",
+  "subCounty": "Borabu",
+  "counts": {
+   "Agriculture": 2,
+   "Education": 5,
+   "Health": 7,
+   "Market": 1,
+   "Water": 1,
+   "Worship": 4
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0036",
+    "name": "Keritor Tea Factory",
+    "category": "Agriculture",
+    "subtype": "tea factory",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0037",
+    "name": "Kipkebe Tea Factory",
+    "category": "Agriculture",
+    "subtype": "tea factory",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0038",
+    "name": "Borabu DEB Primary School",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0039",
+    "name": "Borabu Primary and Junior Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0040",
+    "name": "Nyagacho Primary",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0041",
+    "name": "Unnamed school",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0042",
+    "name": "Unnamed school",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0043",
+    "name": "Keritor Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0044",
+    "name": "Kerumbe Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0045",
+    "name": "Kipkebe Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Company Medical Service",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0046",
+    "name": "Kiptenden Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0047",
+    "name": "Magura Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0048",
+    "name": "Mwongori Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0049",
+    "name": "Sotik Highlands Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0050",
+    "name": "Kitaru Centre",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0051",
+    "name": "Unnamed water_well",
+    "category": "Water",
+    "subtype": "water_well",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0052",
+    "name": "Mekenene SDA Church",
+    "category": "Worship",
+    "subtype": "church",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0053",
+    "name": "Mesabisabi SDA Church",
+    "category": "Worship",
+    "subtype": "church",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0054",
+    "name": "Mosabisabi",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0055",
+    "name": "Mwamogusii SDA Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0004",
+    "name": "Kipkebe Tea Estate and Factory",
+    "type": "Farm",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0005",
+    "name": "Kipkebe Tea Factory",
+    "type": "Tea factory",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "nyansiongo",
+  "name": "Nyansiongo",
+  "subCounty": "Borabu",
+  "counts": {
+   "Agriculture": 1,
+   "Education": 4,
+   "Health": 8,
+   "Market": 2,
+   "Water": 2,
+   "Worship": 3
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0056",
+    "name": "Nyansiongo Tea Factory",
+    "category": "Agriculture",
+    "subtype": "tea factory",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0057",
+    "name": "Mekenene DEB Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0058",
+    "name": "Rigoko Secondary School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0059",
+    "name": "St James Nyaronde",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0060",
+    "name": "Tindereti DEB Primary School",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0061",
+    "name": "Borabu Nursing Home",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Private Practice - Nurse / Midwifery",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0062",
+    "name": "Kijauri Sub District Hospital",
+    "category": "Health",
+    "subtype": "Primary care hospitals",
+    "level": "Level 4",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0063",
+    "name": "Matutu Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0064",
+    "name": "Nyandoche Ibere Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0065",
+    "name": "Nyansiongo Nursing Home",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0066",
+    "name": "Nyaronde(Borabu)",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0067",
+    "name": "St Joseph's Nyansiongo Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Kenya Episcopal Conference-Catholic Secretariat",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0068",
+    "name": "Tindereti Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0069",
+    "name": "Nyansiongo",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0070",
+    "name": "Nyansiongo",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0071",
+    "name": "Unnamed wastewater_plant",
+    "category": "Water",
+    "subtype": "wastewater_plant",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0072",
+    "name": "Unnamed water_well",
+    "category": "Water",
+    "subtype": "water_well",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0073",
+    "name": "Nyansiongo Fellowship Church",
+    "category": "Worship",
+    "subtype": "church",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0074",
+    "name": "Omobirona SDA Church",
+    "category": "Worship",
+    "subtype": "church",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0075",
+    "name": "Valley SDA Church",
+    "category": "Worship",
+    "subtype": "church",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0006",
+    "name": "Kijauri Sub-County Hospital",
+    "type": "Health facility",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0007",
+    "name": "Nyansiongo",
+    "type": "Town",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "gachuba",
+  "name": "Gachuba",
+  "subCounty": "Kitutu Masaba",
+  "counts": {
+   "Education": 2,
+   "Health": 5,
+   "Worship": 5
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0076",
+    "name": "KERONGETA SECONDARY SCHOOL",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0077",
+    "name": "Nyaibasa Primary School",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0078",
+    "name": "Girango Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0079",
+    "name": "Nyagancha Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0080",
+    "name": "Nyangori dispensary (Masaba north)",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0081",
+    "name": "Soamam Medical Clinic",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0082",
+    "name": "girango dispensary",
+    "category": "Health",
+    "subtype": "hospital",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0083",
+    "name": "Gachuba Central SDA",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0084",
+    "name": "Gachuba Church grounds",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0085",
+    "name": "Nyamasebe SDA Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0086",
+    "name": "kerongeta church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0087",
+    "name": "nyabigege catholic",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0008",
+    "name": "Gachuba Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0009",
+    "name": "Girango",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   }
+  ]
+ },
+ {
+  "slug": "gesima",
+  "name": "Gesima",
+  "subCounty": "Kitutu Masaba",
+  "counts": {
+   "Community centre": 2,
+   "Education": 3,
+   "Health": 9
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0088",
+    "name": "Gesima",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0089",
+    "name": "KAMBINI",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0090",
+    "name": "Nyabiosi Secondary School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0091",
+    "name": "Riakworo Secondary School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0092",
+    "name": "St Don Bosco Secondary",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0093",
+    "name": "Esani Sub-District Hospital",
+    "category": "Health",
+    "subtype": "Primary care hospitals",
+    "level": "Level 4",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0094",
+    "name": "Gesima Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0095",
+    "name": "Machururiati Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0096",
+    "name": "Magombo Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0097",
+    "name": "Mochenwa Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0098",
+    "name": "Mosobeti Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0099",
+    "name": "Nyamakoroto Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0100",
+    "name": "Riakworo Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0101",
+    "name": "Rigoma Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0010",
+    "name": "Gesima",
+    "type": "Town",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0011",
+    "name": "Mosobeti Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0012",
+    "name": "Nyamakoroto Sokobe Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "kemera",
+  "name": "Kemera",
+  "subCounty": "Kitutu Masaba",
+  "counts": {
+   "Community centre": 1,
+   "Health": 6,
+   "Worship": 2
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0102",
+    "name": "Kemera",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0103",
+    "name": "Frankstar Medical Clinic (Manga)",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0104",
+    "name": "Getare Health Centre(Manga)",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0105",
+    "name": "Holsoms Nursing Home",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Private Practice - Clinical Officer",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0106",
+    "name": "Kemera Dispensary (Manga)",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0107",
+    "name": "Manga District Hospital",
+    "category": "Health",
+    "subtype": "Secondary care hospitals",
+    "level": "Level 4",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0108",
+    "name": "Robinson Medical Clinic (Manga)",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0109",
+    "name": "Catholic church (Kemera location)",
+    "category": "Worship",
+    "subtype": "church",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0110",
+    "name": "SDA Nyamira West Field Headquarters",
+    "category": "Worship",
+    "subtype": "church office",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0013",
+    "name": "Kemera Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0014",
+    "name": "Nyangina",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   }
+  ]
+ },
+ {
+  "slug": "magombo",
+  "name": "Magombo",
+  "subCounty": "Kitutu Masaba",
+  "counts": {
+   "Community centre": 2,
+   "Education": 1,
+   "Health": 6,
+   "Market": 1
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0111",
+    "name": "Gekano Bricks",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0112",
+    "name": "To St Theresas Gekano Girls",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0113",
+    "name": "Nyambaria High School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0114",
+    "name": "Bogwendo Health Centre(Manga)",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0115",
+    "name": "Gekano Health Centre (Manga)",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Kenya Episcopal Conference-Catholic Secretariat",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0116",
+    "name": "Kiangoso Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0117",
+    "name": "Magombo Community Dispensary (Manga)",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0118",
+    "name": "Nyambari Geke Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0119",
+    "name": "Roman Maternity and Nursing Home",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Private Practice - Nurse / Midwifery",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0120",
+    "name": "Magombo Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0015",
+    "name": "Magombo Trading Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "manga",
+  "name": "Manga",
+  "subCounty": "Kitutu Masaba",
+  "counts": {
+   "Education": 4,
+   "Health": 8,
+   "Market": 2,
+   "Worship": 1
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0121",
+    "name": "Nyaisa Manga SDA Mixed Secondary",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0122",
+    "name": "Riogoro PAG Primary School",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0123",
+    "name": "Sengera Manga Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0124",
+    "name": "Tombe Faith Academy",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0125",
+    "name": "Gesure Health Centre (Manga)",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0126",
+    "name": "Ikobe Health Centre(Manga)",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0127",
+    "name": "Manga Getobo Clinic",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0128",
+    "name": "Medicare Medical Clinic (Manga)",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0129",
+    "name": "Ogango Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0130",
+    "name": "Omosocho Medical Clinic (Manga)",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0131",
+    "name": "Tombe Dispensary",
+    "category": "Health",
+    "subtype": "hospital",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0132",
+    "name": "Tombe Health Centre (Manga)",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0133",
+    "name": "Manga Farmers Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0134",
+    "name": "Tombe Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0135",
+    "name": "New Life Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0016",
+    "name": "Manga",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0017",
+    "name": "Manga Stadium (under construction)",
+    "type": "Sports facility",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0018",
+    "name": "Nyabioto",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0019",
+    "name": "Tombe Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0020",
+    "name": "Zacharia",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   }
+  ]
+ },
+ {
+  "slug": "rigoma",
+  "name": "Rigoma",
+  "subCounty": "Kitutu Masaba",
+  "counts": {
+   "Agriculture": 1,
+   "Education": 3,
+   "Health": 6,
+   "Market": 1,
+   "Public office": 1,
+   "Worship": 1
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0136",
+    "name": "Nyankoba Tea Factory",
+    "category": "Agriculture",
+    "subtype": "tea factory",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0137",
+    "name": "Kitutu Masaba Technical and Vocational College",
+    "category": "Education",
+    "subtype": "technical and vocational college",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0138",
+    "name": "Nyatieko Primary School",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0139",
+    "name": "nyanchonori secondary school and church centre",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0140",
+    "name": "Firmview Medical Clinic",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0141",
+    "name": "Masaba District Hospital",
+    "category": "Health",
+    "subtype": "Secondary care hospitals",
+    "level": "Level 4",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0142",
+    "name": "Mong'oni",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0143",
+    "name": "Nyanchonori Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0144",
+    "name": "Omwabo Medical Clinic",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0145",
+    "name": "Rikenye Dispensary (Masaba)",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0146",
+    "name": "Keroka Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0147",
+    "name": "Keroka Police Station",
+    "category": "Public office",
+    "subtype": "police",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0148",
+    "name": "Saints Alive Redeemed Gospel Church",
+    "category": "Worship",
+    "subtype": "church",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0021",
+    "name": "Keroka Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0022",
+    "name": "Kitutu Masaba Technical and Vocational College",
+    "type": "Vocational centre",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0023",
+    "name": "Metamaywa Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0024",
+    "name": "Mochenwa Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0025",
+    "name": "Rigoma Market Centre",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "bokeira",
+  "name": "Bokeira",
+  "subCounty": "North Mugirango",
+  "counts": {
+   "Education": 1,
+   "Health": 2,
+   "Public office": 1,
+   "Worship": 1
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0149",
+    "name": "Gekonge Primary",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0150",
+    "name": "Esianyi Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0151",
+    "name": "Nyamusi Sub-District Hospital",
+    "category": "Health",
+    "subtype": "Primary care hospitals",
+    "level": "Level 4",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0152",
+    "name": "Nyamusi Police Station",
+    "category": "Public office",
+    "subtype": "police station",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0153",
+    "name": "Nyamusi Town PAG",
+    "category": "Worship",
+    "subtype": "church",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0026",
+    "name": "Kiomara",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0027",
+    "name": "Nyambambo Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0028",
+    "name": "Nyamoti Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0029",
+    "name": "Nyamuse",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   }
+  ]
+ },
+ {
+  "slug": "bomwagamo",
+  "name": "Bomwagamo",
+  "subCounty": "North Mugirango",
+  "counts": {
+   "Education": 3,
+   "Health": 4
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0154",
+    "name": "Etono SDA Primary",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0155",
+    "name": "Ntana Mixed Secondary School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0156",
+    "name": "St. Francis Gekendo Secondary School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0157",
+    "name": "Etono Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0158",
+    "name": "Kerobo Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0159",
+    "name": "Mabariri Medical Clinic (Nyamira North)",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Practice - Nurse / Midwifery",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0160",
+    "name": "Orwaki Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0030",
+    "name": "Mabariri",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "ekerenyo",
+  "name": "Ekerenyo",
+  "subCounty": "North Mugirango",
+  "counts": {
+   "Community centre": 1,
+   "Health": 2
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0161",
+    "name": "Ikonge",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0162",
+    "name": "Family Saver Clinic",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0163",
+    "name": "Sere Dispensary (Nyamira north)",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Public Institution",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0031",
+    "name": "Ikonge Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "itibo",
+  "name": "Itibo",
+  "subCounty": "North Mugirango",
+  "counts": {
+   "Community centre": 1,
+   "Education": 4,
+   "Health": 8,
+   "Market": 1
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0164",
+    "name": "Ekerenyo",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0165",
+    "name": "Ekerubo Gietai Technical Training Institute",
+    "category": "Education",
+    "subtype": "college",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0166",
+    "name": "Kenyoro Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0167",
+    "name": "The Nyamira National Polytechnic, Bonyunyu",
+    "category": "Education",
+    "subtype": "national polytechnic",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0168",
+    "name": "Unnamed school",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0169",
+    "name": "China Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0170",
+    "name": "Ekerenyo Sub-District Hospital",
+    "category": "Health",
+    "subtype": "Primary care hospitals",
+    "level": "Level 4",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0171",
+    "name": "Ikonge Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0172",
+    "name": "Itibo Health Centre S.D.A.",
+    "category": "Health",
+    "subtype": "hospital",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0173",
+    "name": "Itibo Mission Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0174",
+    "name": "Kenyoro Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0175",
+    "name": "Riechieri Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0176",
+    "name": "Samora Clinic",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0177",
+    "name": "Bonyunyu Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0032",
+    "name": "Ekerenyo",
+    "type": "Town",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0033",
+    "name": "Ikonge",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0034",
+    "name": "Nyaramba Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "magwagwa",
+  "name": "Magwagwa",
+  "subCounty": "North Mugirango",
+  "counts": {
+   "Education": 6,
+   "Health": 7,
+   "Worship": 1
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0178",
+    "name": "ECD",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0179",
+    "name": "Gitwebe ECD",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0180",
+    "name": "Gitwebe J.S.S",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0181",
+    "name": "Gitwebe Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0182",
+    "name": "Gitwebe Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0183",
+    "name": "Gitwebe Secondary Science lab",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0184",
+    "name": "Bekam Clinic",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0185",
+    "name": "Gisage Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0186",
+    "name": "Happy Magwagwa Clinic",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0187",
+    "name": "Magwagwa (SDA) Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0188",
+    "name": "Magwagwa Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0189",
+    "name": "Matongo Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0190",
+    "name": "Nyamusi Medical Center",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 2",
+    "owner": "Private Practice - Clinical Officer",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0191",
+    "name": "Gitwebe Baptist Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0035",
+    "name": "Magwagwa",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0036",
+    "name": "Magwagwa Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0037",
+    "name": "Maraagwa",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0038",
+    "name": "Maragwa",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   }
+  ]
+ },
+ {
+  "slug": "bogichora",
+  "name": "Bogichora",
+  "subCounty": "West Mugirango",
+  "counts": {
+   "Education": 2,
+   "Health": 6,
+   "Worship": 1
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0192",
+    "name": "Sironga Girls High School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0193",
+    "name": "Sironga Girls secondary school",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0194",
+    "name": "Bosiango Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0195",
+    "name": "Embonga Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0196",
+    "name": "Getiesi Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0197",
+    "name": "Gianchore Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0198",
+    "name": "Kenyambi Health Centre (Nyamira)",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0199",
+    "name": "Ogango Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0200",
+    "name": "Nyamira Catholic Mission",
+    "category": "Worship",
+    "subtype": "church",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0039",
+    "name": "Kiambere Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0040",
+    "name": "Nyairasa Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0041",
+    "name": "Sironga Girls High School",
+    "type": "School",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "bonyamatuta",
+  "name": "Bonyamatuta",
+  "subCounty": "West Mugirango",
+  "counts": {
+   "Agriculture": 1,
+   "Education": 4,
+   "Health": 5
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0201",
+    "name": "Kebirigo Tea Factory",
+    "category": "Agriculture",
+    "subtype": "tea factory",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0202",
+    "name": "Bosiango ELCK Primary",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0203",
+    "name": "Kebirigo Mixed High School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0204",
+    "name": "Rirumi SDA Primary School",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0205",
+    "name": "St. Peter's Nyakemincha Secondary School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0206",
+    "name": "Kenyerere Health Centre (Nyamira)",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0207",
+    "name": "Medicare Health- Satelitte",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Practice - Clinical Officer",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0208",
+    "name": "Nyamira Maternity and Nursing Home",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0209",
+    "name": "Riakinaro Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0210",
+    "name": "Riongige Dispensry",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0042",
+    "name": "County Government of Nyamira (Gesima listing)",
+    "type": "Public office",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0043",
+    "name": "Kebirigo",
+    "type": "Town",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0044",
+    "name": "Kebirigo Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0045",
+    "name": "Konate Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0046",
+    "name": "St. Peter's Nyakemincha Secondary School",
+    "type": "School",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ },
+ {
+  "slug": "bosamaro",
+  "name": "Bosamaro",
+  "subCounty": "West Mugirango",
+  "counts": {
+   "Education": 3,
+   "Health": 6
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0211",
+    "name": "Gesiaga High School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0212",
+    "name": "Riamandere Primary",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0213",
+    "name": "St. Nyantaro Primary School",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0214",
+    "name": "Igena-Itambe Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0215",
+    "name": "Joyride Medical Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 2",
+    "owner": "Private Practice - Clinical Officer",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0216",
+    "name": "Mongorisi Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0217",
+    "name": "Nyangweta Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0218",
+    "name": "Nyanturago Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0219",
+    "name": "Tinga Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0062",
+    "name": "Bosamaro Masaba",
+    "type": "Location (administrative)",
+    "source": "Google Maps (school listing address)"
+   },
+   {
+    "id": "NYM-P0063",
+    "name": "Bosamaro Chache",
+    "type": "Location (administrative)",
+    "source": "Google Maps (school listing address)"
+   }
+  ]
+ },
+ {
+  "slug": "nyamaiya",
+  "name": "Nyamaiya",
+  "subCounty": "West Mugirango",
+  "counts": {
+   "Agriculture": 1,
+   "Education": 2,
+   "Health": 6,
+   "Public office": 1
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0220",
+    "name": "Gianchore Tea Factory",
+    "category": "Agriculture",
+    "subtype": "tea factory",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0221",
+    "name": "Mang'ong'o Primary",
+    "category": "Education",
+    "subtype": "primary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0222",
+    "name": "Our Lady of Mercy Rangenyo Secondary School",
+    "category": "Education",
+    "subtype": "secondary school",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0223",
+    "name": "Motontera Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0224",
+    "name": "Nyabite Clinic",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Enterprise (Institution)",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0225",
+    "name": "Nyamaiya Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0226",
+    "name": "Nyansangio Dispensary",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0227",
+    "name": "Rangenyo Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0228",
+    "name": "St John's Nyabite",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Practice - Nurse / Midwifery",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0229",
+    "name": "Nyamaiya Police Post",
+    "category": "Public office",
+    "subtype": "police post",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0047",
+    "name": "Bonyunyu",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0048",
+    "name": "Bunyunya",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0049",
+    "name": "Miruka",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0050",
+    "name": "Miruka Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0051",
+    "name": "Nyamaiya Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0052",
+    "name": "Nyamaiya Tea Buying Centre",
+    "type": "Tea buying centre",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0053",
+    "name": "Nyasore",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)"
+   }
+  ]
+ },
+ {
+  "slug": "township",
+  "name": "Township",
+  "subCounty": "West Mugirango",
+  "counts": {
+   "Education": 2,
+   "Health": 7,
+   "Public office": 5,
+   "Water": 2,
+   "Worship": 2
+  },
+  "facilities": [
+   {
+    "id": "NYM-F0230",
+    "name": "Nyamira Lightgate Academy",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0231",
+    "name": "Nyamira Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0232",
+    "name": "Jamii Medical and Diagnostic centre",
+    "category": "Health",
+    "subtype": "Dispensaries and clinic-out patient only",
+    "level": "Level 2",
+    "owner": "Private Practice - Medical Specialist",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0233",
+    "name": "Kinara Hospital",
+    "category": "Health",
+    "subtype": "hospital",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0234",
+    "name": "Motagara Health Centre (Nyamira)",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0235",
+    "name": "Nyamira Adventist Health Centre",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 3",
+    "owner": "Christian Health Association of Kenya",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0236",
+    "name": "Nyamira County Beyond Zero Clinic",
+    "category": "Health",
+    "subtype": "Basic primary health care facility",
+    "level": "Level 2",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0237",
+    "name": "Nyamira County Referral Hospital",
+    "category": "Health",
+    "subtype": "hospital",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0238",
+    "name": "Nyamira District Hospital",
+    "category": "Health",
+    "subtype": "Secondary care hospitals",
+    "level": "Level 4",
+    "owner": "Ministry of Health",
+    "source": "Kenya Master Health Facility List (2017 export via HDX)",
+    "evidence": "official"
+   },
+   {
+    "id": "NYM-F0239",
+    "name": "Nyamira County Assembly",
+    "category": "Public office",
+    "subtype": "county assembly",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0240",
+    "name": "Nyamira Huduma Centre",
+    "category": "Public office",
+    "subtype": "Huduma centre",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0241",
+    "name": "Nyamira Law Courts",
+    "category": "Public office",
+    "subtype": "courthouse",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0242",
+    "name": "Nyamira Police Station",
+    "category": "Public office",
+    "subtype": "police station",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0243",
+    "name": "Nyankono Police Station",
+    "category": "Public office",
+    "subtype": "police station",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0244",
+    "name": "Nyamira Water Treatment Plant",
+    "category": "Water",
+    "subtype": "water_works",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0245",
+    "name": "Nyamira Water and Sanitation Company",
+    "category": "Water",
+    "subtype": "water utility office",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0246",
+    "name": "Nyamira South SDA Church",
+    "category": "Worship",
+    "subtype": "church",
+    "level": "",
+    "owner": "",
+    "source": "Google Maps (discovery)",
+    "evidence": "unverified"
+   },
+   {
+    "id": "NYM-F0247",
+    "name": "St. Joseph's Catholic Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": "",
+    "owner": "",
+    "source": "OpenStreetMap (ODbL), HOT export",
+    "evidence": "unverified"
+   }
+  ],
+  "places": [
+   {
+    "id": "NYM-P0054",
+    "name": "Nyamira",
+    "type": "Town",
+    "source": "OpenStreetMap (ODbL)"
+   },
+   {
+    "id": "NYM-P0055",
+    "name": "Nyamira County Assembly",
+    "type": "Public office",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0056",
+    "name": "Nyamira Huduma Centre",
+    "type": "Public office",
+    "source": "Google Maps (discovery)"
+   },
+   {
+    "id": "NYM-P0057",
+    "name": "Nyamira town",
+    "type": "Town",
+    "source": "Google Maps (discovery)"
+   }
+  ]
+ }
+]

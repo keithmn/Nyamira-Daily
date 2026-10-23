@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import StatCard from '../components/StatCard.astro';
+import MyWard from '../components/MyWard.astro';
+import wards from '../data/wards.json';
+import money from '../data/money.json';
+import leaders from '../data/leaders.json';
+
+const facilities = wards.reduce((n, w) => n + w.facilities.length, 0);
+const health = wards.reduce((n, w) => n + (w.counts.Health ?? 0), 0);
+const last = money.years[money.years.length - 1];
+const bn = (m) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
+const gov = leaders.county.find((l) => l.office === 'Governor');
+---
+<Base title="Today" tools={false}>
+  <div class="stack-lg" style="padding-top:24px">
+
+    <section class="stack" aria-labelledby="glance">
+      <span class="eyebrow">Nyamira at a glance</span>
+      <h1 id="glance">What our county has, spends and does</h1>
+      <p class="lead">Each number has a source and a label that says how solid it is. Tap a card for the detail.</p>
+      <div class="grid">
+        <StatCard topic="Money" value={bn(last.spent)} sentence={`spent by the county in ${last.fy}, out of a ${bn(last.budget)} budget. Only ${last.devAbs}% of the development budget was used.`} evidence="official" source={`Controller of Budget, FY${last.fy}`} href="/data/money/" />
+        <StatCard topic="The county" value="20 wards" sentence="in 4 sub-counties, each with an elected MCA. See who represents yours." evidence="verified" source="IEBC ward list; geoBoundaries" href="/ward/" />
+        <StatCard topic="Services" value={`${facilities}`} sentence="schools, health facilities, markets, churches and offices listed so far. Field checks are under way." evidence="unverified" source="Nyamira Daily database" href="/data/services/" />
+        <StatCard topic="Health" value={`${health}`} sentence="health facilities listed, mostly from the national health facility list." evidence="official" source="Kenya Master Health Facility List (2017 export)" href="/data/services/" />
+      </div>
+      <p class="updated">Figures last updated 22 Oct 2026.</p>
+    </section>
+
+    <MyWard topic="home" />
+
+    <div class="sw" lang="sw">
+      <span class="eyebrow">Muhtasari kwa Kiswahili</span>
+      <p>Nyamira Daily inaeleza kwa lugha rahisi jinsi pesa za kaunti zinavyotumika, huduma zilizopo katika kila wadi, na nani anawajibika. Kila takwimu ina chanzo chake.</p>
+    </div>
+
+    <section class="grid" aria-label="Find out more">
+      <a class="card" href="/government/leaders/">
+        <span class="eyebrow">Leaders</span>
+        <h3>Who represents you</h3>
+        <p class="muted">The Governor ({gov?.name}), Senator, MPs and all 20 ward MCAs, with sources.</p>
+      </a>
+      <a class="card" href="/government/whos-in-charge/">
+        <span class="eyebrow">Who's in charge?</span>
+        <h3>Who fixes what</h3>
+        <p class="muted">A road, a dispensary, a market: is it the county's job or the national government's?</p>
+      </a>
+      <a class="card" href="/constitution/fourth-schedule/">
+        <span class="eyebrow">Constitution</span>
+        <h3>What the county must provide</h3>
+        <p class="muted">The 14 jobs the Constitution gives every county government, in plain words.</p>
+      </a>
+      <a class="card" href="/data/projects/">
+        <span class="eyebrow">Projects</span>
+        <h3>What your ward was promised</h3>
+        <p class="muted">Every ward's project budget for 2025/26, and projects that need answers.</p>
+      </a>
+      <a class="card" href="/opportunities/">
+        <span class="eyebrow">Opportunities</span>
+        <h3>Jobs, tenders and bursaries</h3>
+        <p class="muted">What is open now, deadlines, and how to register for youth and women tenders (AGPO).</p>
+      </a>
+      <a class="card" href="/learn/fees/">
+        <span class="eyebrow">Fees you pay</span>
+        <h3>What the county can charge</h3>
+        <p class="muted">Business permits, market fees, parking and more, from the Finance Act 2025.</p>
+      </a>
+      <a class="card" href="/learn/taking-part/">
+        <span class="eyebrow">Taking part</span>
+        <h3>Have your say</h3>
+        <p class="muted">How to speak at a budget forum, petition the Assembly or request information.</p>
+      </a>
+    </section>
+
+    <section class="stack" aria-labelledby="show">
+      <span class="eyebrow">Nightly, 10 to 11 pm</span>
+      <h2 id="show">Nyamira Watch: the nightly show</h2>
+      <p class="muted">Live discussion of the county's facts, with guests. Also released as a podcast.</p>
+    </section>
+  </div>
+</Base>

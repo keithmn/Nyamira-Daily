@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import c from '../../data/constitution.json';
+const fs = c.fourthSchedule;
+---
+<Base title="What the county must do">
+  <PageHead eyebrow="Constitution" title="What the county government must do" lead={fs.summary} crumbs={[{ href: '/constitution/', label: 'Constitution' }, { href: '/constitution/fourth-schedule/', label: 'Fourth Schedule' }]} />
+  <div class="sw" lang="sw" style="margin-top:16px"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Katiba inaipa kila serikali ya kaunti majukumu 14, yakiwemo kilimo, huduma za afya za kaunti, barabara za kaunti, masoko, elimu ya chekechea (ECDE) na vyuo vya ufundi, pamoja na maji na usafi. Kama huduma iko kwenye orodha hii, kaunti ndiyo inayowajibika.</p></div>
+
+  <div class="grid" style="margin-top:16px">
+    {fs.functions.map((f) => (<div class="card"><span class="eyebrow">Function {f.n}</span><h3>{f.title}</h3><p class="muted">{f.covers}</p></div>))}
+  </div>
+  <p class="small muted" style="margin-top:16px">Summarised from the Fourth Schedule, Part 2, of the Constitution of Kenya, 2010. <a href="/government/whos-in-charge/">Who's in charge of my problem?</a></p>
+</Base>
