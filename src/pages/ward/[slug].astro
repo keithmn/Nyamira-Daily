@@ -13,6 +13,9 @@ import SplitBar from '../../components/viz/SplitBar.astro';
 import HBars from '../../components/viz/HBars.astro';
 import EmbedCode from '../../components/EmbedCode.astro';
 import CommunityReports from '../../components/CommunityReports.astro';
+import AuditFinding from '../../components/data/AuditFinding.astro';
+import { forWard as auditFor } from '../../lib/audit.js';
+const auditHere = auditFor(Astro.params.slug);
 import E from '../../data/elections.json';
 const reg22 = E.registeredByWard.find((r) => r.year === 2022 && r.ward === Astro.params.slug);
 import { getAlerts } from '../../lib/alerts-data.js';
@@ -120,6 +123,14 @@ const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.
     </section>
 
     <CommunityReports ward={w.slug} wardName={w.name} />
+
+    {auditHere.length > 0 && (
+      <section class="stack" id="audit">
+        <h2>What the Auditor-General said about places in {w.name}</h2>
+        <p class="muted small">From the Auditor-General's reports on the county. These are the auditor's findings, not court rulings. <a href="/data/audit/">All audit findings</a></p>
+        <ul class="alist">{auditHere.map((f) => <li><AuditFinding f={f} /></li>)}</ul>
+      </section>
+    )}
 
     <section class="stack" id="projects">
       <h2>County projects in {w.name}</h2>

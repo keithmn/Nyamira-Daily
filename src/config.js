@@ -19,7 +19,7 @@ export const adoptSignupUrl = '';
 // Pages that exist but have no real content yet. They stay reachable by
 // link, are tagged "Planned" in menus, and are left out of the home page.
 export const planned = new Set([
-  '/have-your-say/', '/tell-us/', '/subscribe/',
+  '/tell-us/', '/subscribe/',
   '/learn/episodes/',
   '/data/prices/', '/data/plans/',
   // Phase 1 scaffolding (docs/EXPANSION_SPEC.md 1.7): planned until real, consented entries exist

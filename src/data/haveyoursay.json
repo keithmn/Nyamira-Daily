@@ -1,0 +1,142 @@
+{
+  "checked": "2026-10-24",
+  "sources": [
+    {"id": "cgn-notice-adp-2027-28", "title": "Public Notice: Invitation to public participation for the preparation of County Annual Development Plan (CADP) for F/Y 2027/2028", "publisher": "County Government of Nyamira, Department of Finance and Economic Planning", "url": "https://www.nyamira.go.ke/static/documents/14_09_2026_09_31_27_am_NYAMIRA_COUNTY_GOVT_One_13X2B_9_Sept_26_(1).pdf", "date": "2026-09-14", "dateNote": "Date the file was posted on nyamira.go.ke (timestamp in file name). File name suggests the newspaper advert ran 9 Sept 2026; newspaper not identified. The notice itself is undated."},
+    {"id": "cgn-template-adp-2027-28", "title": "Template for collecting public views for Annual Development Plan for 2027/2028", "publisher": "County Government of Nyamira, Department of Finance, Economic Planning and Resource Mobilization", "url": "https://www.nyamira.go.ke/static/documents/14_09_2026_09_33_38_am_TEMPLATE-edited-_Public_participation.pdf", "date": "2026-09-14", "dateNote": "Posting date from file name."},
+    {"id": "cgn-cadp-2027-28", "title": "County Annual Development Plan 2027/2028 (October 2026)", "publisher": "County Government of Nyamira", "url": "https://www.nyamira.go.ke/static/documents/15_10_2026_05_57_18_pm_CADP_27-28_2-10.pdf", "date": "2026-10-15", "dateNote": "Posting date from file name; cover says October 2026."},
+    {"id": "cgn-notice-pbb-2026-27", "title": "Public Notice: Invitation to public participation for the preparation of the Program Based Budget Estimates for the Financial Year 2026/2027", "publisher": "County Government of Nyamira, Department of Finance, Economic Planning and Resource Mobilization", "url": "https://www.nyamira.go.ke/static/documents/17_04_2026_11_03_46_pm_Nyamira_County_13x2_14-4-26_(1).pdf", "date": "2026-04-17", "dateNote": "Posting date from file name. File name suggests the newspaper advert ran 14 April 2026; newspaper not identified. The notice itself is undated."},
+    {"id": "cgn-template-pbb-2026-27", "title": "Template for collecting public views for Program Based Budget Estimates for F/Y 2026/2027", "publisher": "County Government of Nyamira", "url": "https://www.nyamira.go.ke/static/documents/20_04_2026_05_40_19_pm_TEMPLATE.pdf", "date": "2026-04-20", "dateNote": "Posting date from file name."},
+    {"id": "cgn-popular-pbb-2026-27", "title": "Popular version (public participation) - CFSP ceilings 2026/2027", "publisher": "County Government of Nyamira", "url": "https://www.nyamira.go.ke/static/documents/20_04_2026_05_41_39_pm_POPULAR_VERSION-PUBLIC_PARTICIPATION.pdf", "date": "2026-04-20", "dateNote": "Posting date from file name."},
+    {"id": "cgn-notice-cfsp-2026-27", "title": "Public Participation: Invitation to public participation for the preparation of County Fiscal Strategy Paper (CFSP) and County Debt Management Strategy Paper (CDMSP) for Financial Year 2026/2027", "publisher": "County Government of Nyamira, Department of Finance, Economic Planning & Resource Mobilization", "url": "https://www.nyamira.go.ke/static/documents/23_02_2026_02_45_06_pm_0000435107-01_RUTH_OMWENGA.pdf", "date": "2026-02-23", "dateNote": "Posting date from file name; one day before the forum. Looks like a newspaper ad proof (ad no. 0000435107-01); print date and paper not identified. The notice itself is undated."},
+    {"id": "cgn-popular-cfsp-2026-27", "title": "County Fiscal Strategy Paper (CFSP) 2026/2027 - Popular Version (February 2026)", "publisher": "County Government of Nyamira", "url": "https://www.nyamira.go.ke/static/documents/23_02_2026_02_41_12_pm_Popular_version-1.pdf", "date": "2026-02-23", "dateNote": "Posting date from file name."},
+    {"id": "cgn-pp-report-adp-2026-27", "title": "Public Participation Report: Nyamira County Annual Development Plan (CADP) FY 2026/2027 (September 2025)", "publisher": "County Government of Nyamira", "url": "https://nyamira.go.ke/static/documents/21_10_2025_05_12_10_pm_ADP_PP_REPORT_compressed.pdf", "date": "2025-10-21", "dateNote": "Posting date from file name; cover says September 2025."},
+    {"id": "cgn-circular-1-2025-26", "title": "Budget Calendar and Guidelines for the Preparation of Medium Term Expenditure Framework 2026/2027 to 2028/2029 - County Treasury Circular No 1 2025/2026 (August 2025)", "publisher": "County Government of Nyamira, County Treasury", "url": "https://www.nyamira.go.ke/static/documents/02_10_2025_02_48_15_pm_MTEF_GUIDELINES_2025_compressed.pdf", "date": "2025-10-02", "dateNote": "Cover dated August 2025; posted on nyamira.go.ke 2 Oct 2025 (file name)."},
+    {"id": "cgn-finance-act-2025", "title": "The Nyamira County Finance Act, 2025 (No. 5 of 2025), Kenya Gazette Supplement No. 12 (Nyamira County Acts No. 5)", "publisher": "Government Printer / County Government of Nyamira", "url": "https://www.nyamira.go.ke/static/documents/13_03_2026_10_15_18_am_The_Nyamira_County_Finance_Act,_2025_compressed_(1).pdf", "date": "2025-12-22", "dateNote": "Gazette supplement dated Nairobi, 22 Dec 2025; assented 17 Oct 2025; posted on nyamira.go.ke 13 Mar 2026."},
+    {"id": "cgn-docs-public-notices", "title": "Public Notices (document list)", "publisher": "County Government of Nyamira", "url": "https://www.nyamira.go.ke/templates/document_list?id=4", "date": "2026-10-24", "dateNote": "Listing page, no publication date; date is the date checked."},
+    {"id": "cgn-docs-budget", "title": "Budget Documents (document list)", "publisher": "County Government of Nyamira", "url": "https://www.nyamira.go.ke/templates/document_list?id=2", "date": "2026-10-24", "dateNote": "Listing page, no publication date; date is the date checked."},
+    {"id": "cna-home", "title": "County Assembly of Nyamira - Home", "publisher": "County Assembly of Nyamira", "url": "https://nyamiraassembly.go.ke/index.php", "date": "2026-10-24", "dateNote": "Home page, no item dates; date is the date checked. Read through WebFetch because direct download was refused."},
+    {"id": "cna-about", "title": "About Us (contacts)", "publisher": "County Assembly of Nyamira", "url": "https://nyamiraassembly.go.ke/index.php/about-us.html", "date": "2026-02-02", "dateNote": "Date shown in page header."},
+    {"id": "cna-lcs", "title": "Legislative Procedure & Committee Services", "publisher": "County Assembly of Nyamira", "url": "https://nyamiraassembly.go.ke/index.php/about-us/offices/lcs.html", "date": "2026-10-07", "dateNote": "Date shown in page header, which may be the date the page was served, not when it was written."},
+    {"id": "cna-petitions-tracker", "title": "Petitions Tracker", "publisher": "County Assembly of Nyamira", "url": "https://nyamiraassembly.go.ke/index.php/petitions-tracker.html", "date": "2025-09-22", "dateNote": "Date shown in page header."},
+    {"id": "cna-budget-committee", "title": "County Budget and Appropriations Committee", "publisher": "County Assembly of Nyamira", "url": "https://nyamiraassembly.go.ke/index.php/committees1/standing-committees-2/68-finance-economic-planning-budget-committee.html", "date": "2026-10-24", "dateNote": "No date on page; date is the date checked."},
+    {"id": "law-petitions-act-2020", "title": "Petition to County Assemblies (Procedure) Act, No. 15 of 2020", "publisher": "Kenya Law (National Council for Law Reporting)", "url": "https://new.kenyalaw.org/akn/ke/act/2020/15", "date": "2020-07-17", "dateNote": "Gazetted 17 July 2020 (Vol. CXXII No. 140); commenced 27 July 2020; version revised 31 Dec 2022."},
+    {"id": "law-pfm-2012", "title": "Public Finance Management Act, No. 18 of 2012 (original text as published by NCLR)", "publisher": "National Council for Law Reporting (copy hosted by World Bank)", "url": "https://www.worldbank.org/content/dam/Worldbank/document/Africa/Kenya/Kenay%20Devolution/Public%20Finance%20Management%20Act%20%282012%29.pdf", "date": "2012-07-24", "dateNote": "Date of assent 24 July 2012 (as printed). As-enacted 2012 text. The consolidated version on new.kenyalaw.org/akn/ke/act/2012/18 could not be read in full here, so later amendments are NOT reflected; see notes.md."}
+  ],
+  "forums": [
+    {
+      "id": "adp-2027-28",
+      "title": "Public participation on the County Annual Development Plan (CADP) for F/Y 2027/2028",
+      "about": "Public consultations on possible programmes and projects to be prioritized in the County Annual Development Plan for FY 2027/2028 (under Article 201 of the Constitution, s.87 of the County Governments Act 2012, and ss.125(2) and 126 of the PFM Act 2012).",
+      "kind": "plan",
+      "dates": [
+        {"date": "2026-09-17", "ward": "Borabu Sub-County", "venue": "Borabu CDF Hall, 8.00am-5.00pm"},
+        {"date": "2026-09-17", "ward": "Masaba North Sub-County", "venue": "Rigoma Market, 8.00am-5.00pm"},
+        {"date": "2026-09-17", "ward": "Manga Sub-County", "venue": "Manga Social Hall, 8.00am-5.00pm"},
+        {"date": "2026-09-17", "ward": "Nyamira North Sub-County", "venue": "Ekerenyo Youth Hall, 8.00am-5.00pm"},
+        {"date": "2026-09-17", "ward": "Nyamira South Sub-County", "venue": "Township MCAs Office, 8.00am-5.00pm"}
+      ],
+      "memorandaDeadline": "2026-09-17",
+      "submitTo": "Ward/sub-county administrator's offices or through email info@nyamira.go.ke or through post office to: P.O BOX 434- 40500, Nyamira. Toll free number (800720176) during working hours. Memorandum template: https://www.nyamira.go.ke/static/documents/14_09_2026_09_33_38_am_TEMPLATE-edited-_Public_participation.pdf",
+      "sourceId": "cgn-notice-adp-2027-28",
+      "status": "past",
+      "conflict": "The final CADP 2027/2028 (source cgn-cadp-2027-28) gives two other dates for the same forums: 'conducted on 24th September 2026 at all Sub-County Headquarters' (section 1.3) and 'carried out on the 29th September 2026 at the five Sub-County Headquarters' (Projects from Public Participation). The notice date, 17 Sept 2026, is recorded here."
+    },
+    {
+      "id": "pbb-2026-27",
+      "title": "Public participation on the Program Based Budget Estimates for FY 2026/2027",
+      "about": "Consultative engagements on the draft Program Based Budget Estimates 2026/2027, aligned with the CIDP 2023-2027, CADP 2026/2027 and CFSP 2026 (under Article 201(a) of the Constitution, PFM Act ss.125(2) and 129(2)(a), and s.87 of the County Governments Act).",
+      "kind": "budget",
+      "dates": [
+        {"date": "2026-04-23", "ward": "Borabu Sub-County", "venue": "Borabu CDF Hall, 8.00am-5.00pm"},
+        {"date": "2026-04-23", "ward": "Masaba North Sub-County", "venue": "Rigoma Market, 8.00am-5.00pm"},
+        {"date": "2026-04-23", "ward": "Manga Sub-County", "venue": "Kemera MCAs office, 8.00am-5.00pm"},
+        {"date": "2026-04-23", "ward": "Nyamira North Sub-County", "venue": "Ekerenyo Youth Hall, 8.00am-5.00pm"},
+        {"date": "2026-04-23", "ward": "Nyamira South Sub-County", "venue": "Township MCAs Office, 8.00am-5.00pm"}
+      ],
+      "memorandaDeadline": "2026-04-23",
+      "submitTo": "Ward/sub-county administrator's offices or through email info@nyamira.go.ke or through post office to: P.O BOX 434- 40500, Nyamira (printed with a line break as 'info@ nyamira.go.ke'). Memorandum template: https://www.nyamira.go.ke/static/documents/20_04_2026_05_40_19_pm_TEMPLATE.pdf",
+      "sourceId": "cgn-notice-pbb-2026-27",
+      "status": "past",
+      "conflict": "Treasury Circular No 1 2025/2026 scheduled this forum for 14-16 April 2026. The forum was held on 23 April 2026, the same day the circular set for submitting the draft estimates to the County Executive Committee."
+    },
+    {
+      "id": "cfsp-cdmsp-2026-27",
+      "title": "Public participation on the County Fiscal Strategy Paper (CFSP) and County Debt Management Strategy Paper (CDMSP) for FY 2026/2027",
+      "about": "Consultative engagements on the CFSP (broad strategic priorities and policy goals for the 2026/2027-2028/2029 MTEF) and the County Debt Management Strategy Paper (under PFM Act ss.117 and 125, and s.87 of the County Governments Act).",
+      "kind": "budget",
+      "dates": [
+        {"date": "2026-02-24", "ward": "Borabu Sub-County", "venue": "Borabu CDF Hall, 8.00am-5.00pm"},
+        {"date": "2026-02-24", "ward": "Masaba North Sub-County", "venue": "Rigoma Market, 8.00am-5.00pm"},
+        {"date": "2026-02-24", "ward": "Manga Sub-County", "venue": "Kemera MCAs Office, 8.00am-5.00pm"},
+        {"date": "2026-02-24", "ward": "Nyamira North Sub-County", "venue": "Ekerenyo Youth Hall, 8.00am-5.00pm"},
+        {"date": "2026-02-24", "ward": "Nyamira South Sub-County", "venue": "Township MCAs Office, 8.00am-5.00pm"}
+      ],
+      "memorandaDeadline": "2026-02-24",
+      "submitTo": "Ward/Sub-County administrators' offices or through email info@nyamira.go.ke or through post office to P.O. BOX 434-40500, Nyamira. Memorandum template to be downloaded from www.nyamira.go.ke.",
+      "sourceId": "cgn-notice-cfsp-2026-27",
+      "status": "past",
+      "conflict": "Treasury Circular No 1 2025/2026 scheduled this forum for 16-17 February 2026. The forum was held on 24 February 2026."
+    },
+    {
+      "id": "adp-2026-27",
+      "title": "Public participation (feedback sessions) on the draft County Annual Development Plan FY 2026/2027",
+      "about": "Public feedback sessions on the draft CADP 2026/27, held by the County Treasury, to prioritize projects and programmes for FY 2026/27. The original notice was not found; details come from the county's Public Participation Report.",
+      "kind": "plan",
+      "dates": [
+        {"date": "2025-09-24", "ward": "Borabu Sub-County (Nyansiongo ward)", "venue": "Borabu CDF Hall, 8.00am-5.00pm"},
+        {"date": "2025-09-24", "ward": "Masaba North Sub-County (Rigoma ward)", "venue": "Rigoma Market, 8.00am-5.00pm"},
+        {"date": "2025-09-24", "ward": "Manga Sub-County (Manga ward)", "venue": "Manga Social Hall, 8.00am-5.00pm"},
+        {"date": "2025-09-24", "ward": "Nyamira North Sub-County (Ekerenyo ward)", "venue": "Ekerenyo Youth Hall, 8.00am-5.00pm"},
+        {"date": "2025-09-24", "ward": "Nyamira South Sub-County (Bosamaro ward as printed)", "venue": "Township MCAs Office, 8.00am-5.00pm"}
+      ],
+      "memorandaDeadline": null,
+      "submitTo": null,
+      "sourceId": "cgn-pp-report-adp-2026-27",
+      "status": "past",
+      "conflict": "The report calls the date 'Monday, 24th September 2025', but 24 Sept 2025 was a Wednesday. The report also says the exercise was 'advertised in the local daily'; that advert was not found."
+    },
+    {
+      "id": "cna-finance-bill-2025",
+      "title": "Public Participation on the Nyamira County Finance Bill, 2025 (County Assembly)",
+      "about": "Headline on the County Assembly home page only. No date, venue, deadline or address could be retrieved. The resulting Nyamira County Finance Act, 2025 was assented on 17 Oct 2025 (source cgn-finance-act-2025).",
+      "kind": "bill",
+      "dates": [],
+      "memorandaDeadline": null,
+      "submitTo": null,
+      "sourceId": "cna-home",
+      "status": "past"
+    }
+  ],
+  "cycle": [
+    {"document": "Budget circular (guidelines and budget calendar, including procedures for public participation)", "dueBy": "Not later than 30 August each year (issued by the CECM Finance)", "law": "PFM Act 2012 s.128(2)-(3)", "sourceId": "law-pfm-2012"},
+    {"document": "County Annual Development Plan: submission to County Assembly (copy to CRA and National Treasury)", "dueBy": "Not later than 1 September each year; publish within 7 days after submission", "law": "PFM Act 2012 s.126(3)", "sourceId": "law-pfm-2012"},
+    {"document": "County Budget Review and Outlook Paper (CBROP): submission to County Executive Committee", "dueBy": "By 30 September; CEC to approve within 14 days; laid before County Assembly not later than 7 days after CEC approval, then published", "law": "PFM Act 2012 s.118(1)(b), (3), (4)", "sourceId": "law-pfm-2012"},
+    {"document": "County Fiscal Strategy Paper: approved paper submitted to County Assembly", "dueBy": "By 28 February each year; Assembly to consider within 14 days of submission; publish within 7 days of submission. Must seek views of the public (s.117(5)(b))", "law": "PFM Act 2012 s.117(1), (5), (6), (8)", "sourceId": "law-pfm-2012"},
+    {"document": "Budget estimates and supporting Bills (except Finance Bill): submission to County Assembly", "dueBy": "By 30 April", "law": "PFM Act 2012 s.129(2)(a)", "sourceId": "law-pfm-2012"},
+    {"document": "Budget estimates: Assembly committee review must take into account the views of the public; Assembly approval in time for the appropriation law to pass", "dueBy": "By 30 June", "law": "PFM Act 2012 s.131(1)-(2)", "sourceId": "law-pfm-2012"},
+    {"document": "County Finance Bill: Assembly consideration and approval", "dueBy": "Not later than 90 days after passing the Appropriation Bill (2012 text; reportedly changed in 2026, see notes)", "law": "PFM Act 2012 s.133", "sourceId": "law-pfm-2012"},
+    {"document": "Public participation in the budget process (duty of CECM Finance)", "dueBy": "Throughout the budget process", "law": "PFM Act 2012 s.125(2)", "sourceId": "law-pfm-2012"},
+    {"document": "Nyamira: MTEF guidelines and budget calendar issued (Circular No 1 2025/2026)", "dueBy": "29 July 2025 (planned)", "law": "PFM Act s.128(2), as cited in the circular", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: public participation on ADP 2026/2027", "dueBy": "August 2025 (planned; held 24 Sept 2025 per PP report)", "law": "PFM Act s.126", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: ADP 2026/2027 submitted to County Assembly", "dueBy": "1 September 2025 (planned); publish 8 September 2025", "law": "PFM Act s.126", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: CBROP 2025 approved by CEC / submitted to Assembly and published", "dueBy": "30 September 2025 (CEC) / 21 October 2025 (Assembly and publication) (planned)", "law": "PFM Act s.118", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: sector hearings; sector reports published", "dueBy": "12-23 January 2026; publicised 9 February 2026 (planned)", "law": "PFM Act s.128 (circular)", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: CBEF consultation on CFSP and Debt Management Strategy Paper 2026; views of special interest groups", "dueBy": "12 February 2026 (CBEF); 13 February 2026 (special interest groups) (planned)", "law": "PFM Act ss.117(5), 137", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: public participation on CFSP and Debt Management Strategy Paper", "dueBy": "16-17 February 2026 (planned; held 24 Feb 2026)", "law": "PFM Act s.117(5)", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: CFSP and Debt Management Strategy Paper submitted to County Assembly; publicised; Assembly adoption deadline", "dueBy": "28 February 2026; publicise 7 March 2026; Assembly adopt by 14 March 2026 (planned)", "law": "PFM Act s.117", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: public participation on Programme Based Budget 2026/2027", "dueBy": "14-16 April 2026 (planned; held 23 April 2026)", "law": "PFM Act s.125(2)", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: CBEF consultation on Programme Based Budget", "dueBy": "22 April 2026 (planned)", "law": "PFM Act s.137", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: draft budget estimates to CEC / to County Assembly", "dueBy": "23 April 2026 / 27 April 2026 (planned)", "law": "PFM Act s.129", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: public participation on County Finance Bill 2026/2027", "dueBy": "23-24 June 2026 (planned)", "law": "PFM Act s.125(2) (circular)", "sourceId": "cgn-circular-1-2025-26"},
+    {"document": "Nyamira: CBEF consultative meeting on Finance Bill 2026/2027; CEC approval; Finance Bill to County Assembly", "dueBy": "25 June 2026 (CBEF); 26 June 2026 (CEC); 30 June 2026 (Assembly) (planned)", "law": "PFM Act s.133 (circular)", "sourceId": "cgn-circular-1-2025-26"}
+  ],
+  "channels": [
+    {"name": "Written memoranda to the County Executive (budget and plan consultations)", "how": "Download the memorandum template from www.nyamira.go.ke and submit written feedback to Ward/sub-county administrator's offices or through email info@nyamira.go.ke or through post office to: P.O BOX 434- 40500, Nyamira. Toll free number (800720176) during working hours.", "sourceId": "cgn-notice-adp-2027-28"},
+    {"name": "Petition to the County Assembly", "how": "Petition in writing (handwritten, printed or typed) in English or Kiswahili, addressed to the county assembly, in the form set out in the Schedule to the Act. It must state whether the matter was raised with a relevant body and the response, and whether it is pending before any court; end with a clear prayer; carry each petitioner's name, address, ID number and signature or thumb impression; have no annexes. Submit to the Clerk of the County Assembly (or have an MCA present it with the Speaker's consent). The Clerk reviews it within 7 days and forwards it to the Speaker; a committee considers it under the Standing Orders and responds by a report tabled in the Assembly; the petitioner is notified in writing within 14 days of the decision. (Petition to County Assemblies (Procedure) Act 2020, ss.3-5.)", "sourceId": "law-petitions-act-2020"},
+    {"name": "County Assembly of Nyamira: contacts (Clerk / Table Office handles petitions)", "how": "P.O Box 590- 40500 Nyamira; Tel: 0701 967 200; Email: info@nyamiraassembly.go.ke; www.nyamiraassembly.go.ke. The Table Office handles 'Serializing, custody and tracking of Statements, Petitions, Motions and Bills'.", "sourceId": "cna-lcs"},
+    {"name": "County Assembly Petitions Tracker", "how": "Public list of petitions received (9 entries, 2017, all objections to nominees for vetting). No submission instructions on the page.", "sourceId": "cna-petitions-tracker"},
+    {"name": "County Assembly committee hearings: Committee Services and Bunge Mashinani e-participation", "how": "Committee Services covers 'Facilitation of public participation and involvement in the activities of the committee'. The site lists a Bunge Mashinani e-participation forum (pages for Manga, Nyamira North, Nyamira South-Nyamaiya) and a Committees Sitting Schedule page. Contents could not be retrieved.", "sourceId": "cna-lcs"},
+    {"name": "County Budget and Appropriations Committee (reviews estimates)", "how": "Chair Hon. George Abuga; Vice Chair Hon. Zipporah Matundura. No committee-specific contact or call for memoranda posted. Write through the Assembly contacts.", "sourceId": "cna-budget-committee"},
+    {"name": "County Budget and Economic Forum (CBEF)", "how": "Established under PFM Act s.137: the Governor (chair), CEC members, and an equal number of non-public-officer representatives nominated by organisations of professionals, business, labour, women, persons with disabilities, the elderly and faith-based groups. It is consulted on county plans, the CFSP, the CBROP, and budgeting and economic matters. No official Nyamira CBEF membership list or contact was found. Nyamira's Circular No 1 2025/2026 puts CBEF non-state actors on the macro and sector working groups and schedules CBEF consultations (12 Feb, 22 Apr, 25 Jun 2026). CBROP 2025 reports that the planned induction of 21 CBEF members was 'Not done'.", "sourceId": "law-pfm-2012"}
+  ]
+}

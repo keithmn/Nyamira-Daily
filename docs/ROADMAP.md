@@ -22,7 +22,6 @@ Status as of 24 October 2026. The expansion plan is in `docs/EXPANSION_SPEC.md`;
 |---|---|
 | Data → Prices | No reachable source of Nyamira market prices. Needs weekly checks at Nyamira, Keroka and Ekerenyo markets, or a KAMIS export from a Kenyan connection. |
 | Data → Plans and promises | Needs the CIDP 2023–27 and ADP commitments extracted and matched to delivery. |
-| Have your say | Needs a calendar of public participation forums (county website, newspapers, ward administrators). |
 | Tell us, Get updates | Need a WhatsApp number or email (`src/config.js`). |
 | Learn → Show episodes | Needs the show's episode list and audio links. |
 | What's working, Nyamira's people, Heritage, Myth or fact | Real entries (with consent for people and photos). Example entries are drafts. |
@@ -33,11 +32,11 @@ Status as of 24 October 2026. The expansion plan is in `docs/EXPANSION_SPEC.md`;
 
 ## Next priorities (suggested order)
 
-1. **Reconcile the FY2025/26 ward budget total** (357.1M stated vs 372.6M extracted) against the printed PDF, and compare the later scanned PBB 2025/26 on nyamira.go.ke.
-2. **Auditor-General findings**: read every OAG report on Nyamira since 2013 and build an audit findings dataset (opinion, finding, amount, management response, repeated or resolved). This feeds an "Audit finding" layer across Money and Projects.
+1. ~~Reconcile the FY2025/26 ward budget total~~ Done (24 Oct 2026): the whole KSh 15.5M difference is in Roads, where the PBB's summary table moves ward lines to flagship (see `wardspend.json` notes). Still to do: compare the later scanned PBB 2025/26 on nyamira.go.ke.
+2. ~~**Auditor-General findings**~~ Done (24 Oct 2026, `/data/audit/`); still missing FY2014/15 and FY2015/16. Original note: read every OAG report on Nyamira since 2013 and build an audit findings dataset (opinion, finding, amount, management response, repeated or resolved). This feeds an "Audit finding" layer across Money and Projects.
 3. **Field verification**: a simple phone form (KoboToolbox or ODK) for correspondents to record a project or facility's GPS location, photo and condition (financial, physical and functional status). Results update evidence labels from Unverified to Verified.
 4. **Longitudinal project tracking**: give each project a stable ID across years, so repeat budgeting and cost changes show automatically (a "repeat budgeting register").
-5. **Have your say** calendar, and the contact channel for Tell us and Get updates.
+5. ~~Have your say calendar~~ Live (24 Oct 2026); check county notices monthly. Still needed: the contact channel for Tell us and Get updates.
 6. **Interactive map** (optional): MapLibre + OpenStreetMap with verified points, if the SVG maps become limiting.
 7. **Domain and hosting**: choose a domain, set `site` in `astro.config.mjs`, deploy to Netlify or Cloudflare Pages.
 
@@ -52,6 +51,8 @@ The site is static, so it updates only when rebuilt. **Set hosting (Netlify or C
 | Weekly | Opportunities (jobs, tenders, bursaries); rebuild so open/closed status updates |
 | Weekly | Number of the week (`src/content/numbers/`) |
 | Monthly | New Assembly Hansards → sittings, bills, petitions |
+| Monthly | County public notices → Have your say (`haveyoursay.json`) |
+| Each Dec–Mar | New Auditor-General reports → `audit.json` |
 | After each CoB annual report | Money figures |
 | Each June/July | New budget's ward lines → Projects and ward pages |
 | As they happen | Leaders (by-elections, court rulings), corrections |

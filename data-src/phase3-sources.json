@@ -210,6 +210,230 @@
    "bytes": 5689686,
    "sha256": "272c1739473529f302e0afc0437d853a0ed0d5ee4882555b715f37041060b4bb",
    "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "County-Assembly-of-Nyamira-2016-2017.pdf",
+   "bytes": 219794,
+   "sha256": "e66290084472a6a3cf94922581be32adbbeaf4c12a96a4adb6ba5ffd7ce36e4d",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "County-Assembly-of-Nyamira-2017-2018.pdf",
+   "bytes": 225277,
+   "sha256": "2b429c6ef17c9a6943db045bf21be5a84ca0a1cea9f3ac4a3090d9ce65ee344e",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "County-Assembly-of-Nyamira-2018-2019.pdf",
+   "bytes": 528150,
+   "sha256": "ee4c70c8f4a8742cc460ec6fa6705f06270059d2d8ed3860766acf35d9ae1655",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "County-Assembly-of-Nyamira-2019-2020.pdf",
+   "bytes": 531065,
+   "sha256": "ade05781a80611917c2484e01988284afab351b70ff302d03b9cc21e55f35d21",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "County-Assembly-of-Nyamira-2021-2022.pdf",
+   "bytes": 532380,
+   "sha256": "2b2c8cab19b07db010937bb3c63b7b4b62735e9501a2859107b1e55b3a3c33e5",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "County-Executive-of-Nyamira-2016-2017.pdf",
+   "bytes": 308225,
+   "sha256": "6f543ffd5274399c32d0f1395529918ea438fa33bd981d9a77b7dbf82b8fa18e",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "County-Executive-of-Nyamira-2017-2018.pdf",
+   "bytes": 246447,
+   "sha256": "98d2b9c755bbd3dd671431204a645cf49bc63ebdb10ae531b3581b90ce374c6a",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "County-Executive-of-Nyamira-2018-2019.pdf",
+   "bytes": 254332,
+   "sha256": "eb2ca0a200e3768297d6672aed7e71ad3a98815d1b243b7bc921488156317b4a",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "County-Executive-of-Nyamira-2019-2020.pdf",
+   "bytes": 598581,
+   "sha256": "686270b53590d5ad1846f7b0444b86465daead00a6a01aa57241d4ad899a6122",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "County-Executive-of-Nyamira-2021-2022.pdf",
+   "bytes": 647794,
+   "sha256": "91108423c6e5e95f6f3e0dd15ac3b12de3ad66b74a0c1b2f44c33619ec1029f0",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Assembly-2013-14-a.pdf",
+   "bytes": 10039617,
+   "sha256": "6a704d1e3ec7edc6fa705760a07edd741ebb54f031dffb5071aa8d44e7317d03",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Assembly-2013-14-b.pdf",
+   "bytes": 18619429,
+   "sha256": "09c4047bf457cc1dad3f410ba3e028d7068cb4b1b8653c6d1247a01b571f01b5",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Assembly-2020-21.pdf",
+   "bytes": 17254318,
+   "sha256": "a42c5ee681177647ddef7d3f1b99d132b5f1c6eb1936451e290b291263326afa",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Assembly-2021-22.pdf",
+   "bytes": 61825395,
+   "sha256": "332d0a5a9490841ef092801366c3754ed190425d25349545a59ccf56213c2565",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Assembly-2022-23.pdf",
+   "bytes": 58684210,
+   "sha256": "973afd7f60c8d837a022d88b6bd356c845c8e1105ff27cf50e2c4e06443679e5",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Assembly-2023-24.pdf",
+   "bytes": 32473877,
+   "sha256": "40d69bcdc2eca9cfdd5f6abb9e8d57928ceb10abcd127f597ee74ec50923c5ea",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Assembly-2024-25.pdf",
+   "bytes": 24619990,
+   "sha256": "40eb147addca884dd092475a24ffb286060a027807173b1224f8884b549a4d87",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-CountyGovt-2013-14-16months.pdf",
+   "bytes": 30396943,
+   "sha256": "aa962ddd2ee61b600e5b562b442a6a1b389bf8dd97e839f2405b328239840076",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Exec-2013-14-a.pdf",
+   "bytes": 15220838,
+   "sha256": "787eaac82867e98940c950d5a6660b5a258de489f32d4ea203eb778eee4badfa",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Exec-2013-14-b.pdf",
+   "bytes": 29888257,
+   "sha256": "80b9432ed2eb1a4bd1ca3ec13d56f820f261076e2a3284842f4f8cf8a18e822e",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Exec-2019-20.pdf",
+   "bytes": 30937016,
+   "sha256": "870cc5bd6cb5da5447674dcee66c4cf455900fd7adc485c85b5372b349ade05a",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Exec-2020-21.pdf",
+   "bytes": 36560282,
+   "sha256": "d0178a993febc05c62ad1b26cd44829b5749b1a3285d8637f9e5dc1dad95d74a",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Exec-2021-22.pdf",
+   "bytes": 172306071,
+   "sha256": "757cdbb098d96ad74aa5129d251d1c59e842b9f5db982cc66ea3aece7373edf4",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Exec-2022-23.pdf",
+   "bytes": 142136254,
+   "sha256": "d57ba09d8e08ee85414597cf3ee09473c023fddb5db1e3f5ac12354a848ac61c",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Exec-2023-24.pdf",
+   "bytes": 98578860,
+   "sha256": "3effd6d7c805f44dfffd89e87aad410bfa78b96d66227c66ba6882d45f73b886",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "PL-Exec-2024-25.pdf",
+   "bytes": 124121636,
+   "sha256": "9c36cc7c87ca5d53464f7e84f7ac277cf19b452236a71a1b2aa985f8c0a87331",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "volumes/AUDITOR-GENERALS-REPORT-ON-COUNTY-GOVERNMENTS-COUNTY-ASSEMBLIES-2024-2025-1.pdf",
+   "bytes": 11446165,
+   "sha256": "aa72b0a512fe01ce8f40b9ed8597bd78657a9f441a8daf4963b07e661104d896",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "volumes/AUDITOR-GENERALS-REPORT-ON-COUNTY-GOVERNMENTS-COUNTY-EXECUTIVES-2024-2025-1.pdf",
+   "bytes": 13839205,
+   "sha256": "033e2aa26aa77351ec46f062573f25ede47d3e3a99978aeacf9a66af5ba717a5",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "volumes/GREEN-BOOK-ASSEMBLIES-2024-FINAL-01-April-2025-KLB.pdf",
+   "bytes": 32379711,
+   "sha256": "683fa522bf11eaa2b0bc2a9eef51eadc3d664d9a512d3af63cb6e9479820f8a2",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "volumes/GREEN-BOOK-COUNTY-ASSEMBLIES-VOL.-2-2022-2023.pdf",
+   "bytes": 7016269,
+   "sha256": "5c0ebf31a7cd6dc07558e55507b2b5228fb9a653e638a39abd72beffa46674cf",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "volumes/GREEN-BOOK-COUNTY-EXECUTIVES-VOL-1-2022-2023-1.pdf",
+   "bytes": 8756083,
+   "sha256": "e873eb8a2f5b24366b4b847e529c832ef42d2aea02702a015597c6c406f9b953",
+   "url": null
+  },
+  {
+   "dataset": "audit",
+   "file": "volumes/GREEN-BOOK-EXECUTIVES-2024-FINAL-5.3.2025-SIGNED.pdf",
+   "bytes": 34055119,
+   "sha256": "bf36d9e65b7403f9ce66eaf32890834f546ca3674c331a2d5f734f9e68c59bcd",
+   "url": null
   }
  ]
 }

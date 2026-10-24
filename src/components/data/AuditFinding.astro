@@ -1,0 +1,19 @@
+---
+import { sources } from '../../lib/audit.js';
+import { ksh } from '../../lib/fmt.js';
+interface Props { f: any; ward?: string }
+const { f, ward } = Astro.props;
+const s = sources[f.sourceId];
+const sec = { basis: 'Basis for opinion', lawfulness: 'Use of public resources', other: 'Other matters' }[f.section] ?? f.section;
+---
+<div class="al" style="display:block">
+  <span class="al-t">{f.title}{f.amountKsh != null && <> · {ksh(f.amountKsh)}</>}</span>
+  <span class="al-s" style="display:block;margin-top:4px">{f.summary}</span>
+  <span class="al-m" style="margin-top:6px">
+    <span class="label audit">Audit finding</span>
+    <span>{f.entity}, FY{f.fy}</span><span>{sec}</span>
+    {ward && <a href={`/ward/${f.ward}/`}>{ward} ward</a>}
+    {f.statusLater && <span>Later: {f.statusLater.status} (FY{f.statusLater.fy})</span>}
+    <span>{s ? <a href={s.url} rel="noopener">Report</a> : f.sourceId}, p.{f.page}</span>
+  </span>
+</div>

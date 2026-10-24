@@ -15,7 +15,8 @@ import TeaMilkPage from '../../components/data/TeaMilkPage.astro';
 import HealthPage from '../../components/data/HealthPage.astro';
 import SchoolsPage from '../../components/data/SchoolsPage.astro';
 import SubLocationsPage from '../../components/data/SubLocationsPage.astro';
-const countyOnly = ['compare', 'then-and-now', 'tea-milk', 'health', 'schools', 'sub-locations'];
+import AuditPage from '../../components/data/AuditPage.astro';
+const countyOnly = ['audit', 'compare', 'then-and-now', 'tea-milk', 'health', 'schools', 'sub-locations'];
 import { planned } from '../../config.js';
 
 export function getStaticPaths() {
@@ -107,6 +108,7 @@ const total = wards.reduce((n, w) => n + w.facilities.length, 0);
   {t.slug === 'money' && <MoneyPage />}
   {t.slug === 'projects' && <ProjectsPage />}
   {t.slug === 'people' && <PeoplePage />}
+  {t.slug === 'audit' && <AuditPage />}
   {t.slug === 'compare' && <ComparePage />}
   {t.slug === 'then-and-now' && <ThenNowPage />}
   {t.slug === 'elections' && <ElectionsPage />}

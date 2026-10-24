@@ -1,9 +1,75 @@
 ---
+// Have your say: public participation forums from the county's own notices, the yearly budget cycle,
+// and how to send views. Only official notices; nothing is predicted. Data: src/data/haveyoursay.json.
 import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
-import Placeholder from '../components/Placeholder.astro';
+import EvidenceLabel from '../components/EvidenceLabel.astro';
+import H from '../data/haveyoursay.json';
+import { date } from '../lib/fmt.js';
+const srcs = Object.fromEntries(H.sources.map((s) => [s.id, s]));
+const today = new Date().toISOString().slice(0, 10);
+const upcoming = H.forums.filter((f) => f.dates.some((d) => d.date >= today));
+const past = H.forums.filter((f) => !upcoming.includes(f) && f.dates.length).sort((a, b) => b.dates[0].date.localeCompare(a.dates[0].date));
+const law = H.cycle.filter((c) => !c.document.startsWith('Nyamira'));
+const local = H.cycle.filter((c) => c.document.startsWith('Nyamira'));
+const memo = H.channels[0], petition = H.channels[1], assembly = H.channels[2];
 ---
-<Base title="Have your say">
-  <PageHead title="Have your say" lead="Upcoming public forums and deadlines for giving your views on the county budget, plans and laws." tools={false} />
-  <div style="margin-top:16px"><Placeholder what="This page" /></div>
+<Base title="Have your say" description="Public forums on Nyamira's budget and plans, the yearly budget calendar, and how to send your views.">
+  <PageHead eyebrow="Take part" title="Have your say" lead="The county must ask residents' views on its plans and budget every year. Here is when it happens, where, and how to send your views." crumbs={[{ href: '/take-part/', label: 'Take part' }, { href: '/have-your-say/', label: 'Have your say' }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    <section class="cols-2">
+      <div class="figure on-ink panel-ink">
+        <span class="eyebrow">Next public forum</span>
+        {upcoming.length ? upcoming.map((f) => (
+          <><span class="num" style="font-size:34px">{date(f.dates[0].date)}</span><p class="say">{f.title}</p></>
+        )) : (
+          <><span class="num" style="font-size:34px">None announced</span><p class="say">No forum notice was posted on the county's website when we last checked ({date(H.checked)}). In 2026 the forums were held on 24 February, 23 April and 17 September (below).</p></>
+        )}
+      </div>
+      <div class="stack">
+        <h2>How to send your views</h2>
+        <ol class="steps">
+          <li><strong>Write a short memorandum.</strong> Our <a href="/take-part/submission/">submission helper</a> writes one for you; the county also posts a template with each notice.</li>
+          <li><strong>Send it</strong> to info@nyamira.go.ke, by post to P.O. Box 434-40500 Nyamira, or hand it in at your ward or sub-county administrator's office. Toll-free line in working hours: 800 720 176.</li>
+          <li><strong>Or go to the forum</strong> and speak. Forums usually run 8am to 5pm at one venue in each sub-county.</li>
+        </ol>
+        <p class="source"><EvidenceLabel kind="official" /> From the county's notices: <a href={srcs[memo.sourceId]?.url} rel="noopener">{srcs[memo.sourceId]?.title}</a></p>
+      </div>
+    </section>
+
+    <section class="stack">
+      <h2>Recent forums</h2>
+      <ul class="alist">{past.map((f) => (
+        <li><div class="al" style="display:block">
+          <span class="al-t">{f.title}</span>
+          <span class="al-s" style="display:block;margin-top:4px">{f.about}</span>
+          <span class="al-m" style="margin-top:6px"><span>{date(f.dates[0].date)}</span>{f.memorandaDeadline && <span>Views due {date(f.memorandaDeadline)}</span>}{srcs[f.sourceId] && <a href={srcs[f.sourceId].url} rel="noopener">Notice</a>}</span>
+          {f.dates.some((d) => d.venue) && <details style="margin-top:8px"><summary>Venues</summary><ul class="small">{f.dates.map((d) => <li>{d.ward}: {d.venue}</li>)}</ul></details>}
+        </div></li>
+      ))}</ul>
+    </section>
+
+    <section class="stack">
+      <h2>The budget year, by law</h2>
+      <p class="muted">The Public Finance Management Act, 2012 sets these deadlines for every county. The public must be consulted on the plan, the fiscal strategy and the budget.</p>
+      <div class="table-box"><table class="cards">
+        <thead><tr><th>What</th><th>Due</th><th>Law</th></tr></thead>
+        <tbody>{law.map((c) => <tr><td>{c.document}</td><td data-label="Due">{c.dueBy}</td><td class="small" data-label="Law">{c.law}</td></tr>)}</tbody>
+      </table></div>
+      <details>
+        <summary>Nyamira's own calendar for 2025/26</summary>
+        <ul class="small">{local.map((c) => <li><strong>{c.document.replace('Nyamira: ', '')}:</strong> {c.dueBy}</li>)}</ul>
+        <p class="small muted">From County Treasury Circular No. 1 of 2025/26. Forums were held later than planned: the fiscal strategy forum on 24 February (planned 16–17 February) and the budget forum on 23 April (planned 14–16 April).</p>
+      </details>
+      <p class="small muted">A news report (September 2026) says a recent amendment changes the deadline for county Finance Bills; we have not yet confirmed it against the Act.</p>
+    </section>
+
+    <section class="stack">
+      <h2>Petition the County Assembly</h2>
+      <p>{petition.how}</p>
+      <p><strong>County Assembly of Nyamira:</strong> {assembly.how.split(" The Table Office")[0]}</p>
+      <p><a href="/take-part/submission/">Write a petition with the submission helper</a></p>
+    </section>
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Kaunti lazima iulize maoni ya wananchi kuhusu mipango na bajeti kila mwaka. Tuma maoni yako kwa info@nyamira.go.ke au kwa ofisi ya msimamizi wa wadi.</p></div>
+  </div>
 </Base>

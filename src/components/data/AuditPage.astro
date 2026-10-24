@@ -1,0 +1,61 @@
+---
+// Auditor-General: opinions every year and the findings behind them. Neutral, attributed, labelled.
+import { audit as A, sources, years, entities, opinionText, opinionOf, findingsFor } from '../../lib/audit.js';
+import EvidenceLabel from '../EvidenceLabel.astro';
+import AuditFinding from './AuditFinding.astro';
+import wards from '../../data/wards.json';
+const exec = A.opinions.filter((o) => o.entity === 'County Executive');
+const clean = exec.filter((o) => o.opinion === 'Unqualified').length;
+const latest = exec.sort((a, b) => b.fy.localeCompare(a.fy))[0];
+const wn = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
+const withWard = A.findings.filter((f) => f.ward);
+---
+<div class="stack-lg" style="margin-top:24px">
+  <section class="cols-2">
+    <div class="figure">
+      <span class="eyebrow">County Executive accounts</span>
+      <span class="num">{clean} of {exec.length}</span>
+      <p class="say">audits found so far gave the County Executive a clean opinion. The latest, for {latest.fy}, is <strong>{latest.opinion.toLowerCase()}</strong>: {opinionText[latest.opinion].toLowerCase()}.</p>
+      <p class="source"><EvidenceLabel kind="audit" /> Office of the Auditor-General reports, FY2013/14 and FY2016/17 to FY2024/25</p>
+    </div>
+    <div class="stack">
+      <h3 class="mini">What the opinions mean</h3>
+      <ul class="small">{Object.entries(opinionText).map(([k, v]) => <li><strong>{k}:</strong> {v}.</li>)}</ul>
+      <p class="small muted">An audit opinion is about the accounts: whether the figures can be trusted. A finding is a question the auditor raised; it is not a court finding of wrongdoing.</p>
+    </div>
+  </section>
+
+  <section class="stack">
+    <h2>Opinion every year</h2>
+    <div class="table-box"><table class="ops">
+      <thead><tr><th>Year</th>{entities.map((e) => <th>{e}</th>)}</tr></thead>
+      <tbody>{years.map((fy) => (
+        <tr><td>{fy}</td>{entities.map((e) => { const o = opinionOf(e, fy); return <td>{o ? <span class={`op op-${o.opinion.toLowerCase()}`}>{o.opinion}</span> : <span class="small muted">{fy === "2013/14" && e === "County Assembly" ? "No separate opinion" : "Report not found"}</span>}</td>; })}</tr>
+      ))}</tbody>
+    </table></div>
+    <p class="small muted">2013/14 covers the whole county government for its first 16 months; the County Assembly had no separate opinion that year. Reports for 2014/15 and 2015/16 could not be found on the Auditor-General's or Parliament's websites.</p>
+  </section>
+
+  {withWard.length > 0 && (
+    <section class="stack">
+      <h2>Findings about places in the wards ({withWard.length})</h2>
+      <ul class="alist">{withWard.sort((a, b) => b.fy.localeCompare(a.fy)).map((f) => <li><AuditFinding f={f} ward={wn[f.ward]} /></li>)}</ul>
+    </section>
+  )}
+
+  <section class="stack">
+    <h2>Every finding, year by year</h2>
+    {[...years].reverse().map((fy) => entities.map((e) => { const fs = findingsFor(e, fy); return fs.length > 0 && (
+      <details>
+        <summary>{e}, {fy} ({fs.length} findings){opinionOf(e, fy) && ` · ${opinionOf(e, fy).opinion}`}</summary>
+        <ul class="alist">{fs.map((f) => <li><AuditFinding f={f} ward={f.ward && wn[f.ward]} /></li>)}</ul>
+      </details>
+    ); }))}
+  </section>
+  <details>
+    <summary>Sources</summary>
+    <ul class="small">{A.sources.map((s) => <li><a href={s.url} rel="noopener">{s.title}</a>{s.date && ` (${s.date})`}</li>)}</ul>
+    <p class="small muted">Page numbers are pages of the PDF file. Some copies are scans; FY2024/25 findings come from the Auditor-General's summary volumes on county executives and county assemblies. Whether a finding was later resolved is shown only where a later report says so.</p>
+  </details>
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Maoni ya Mkaguzi Mkuu wa Hesabu kuhusu hesabu za kaunti ya Nyamira kila mwaka, na masuala aliyoibua. Haya ni maswali, si hukumu ya mahakama.</p></div>
+</div>
