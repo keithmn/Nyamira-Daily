@@ -31,6 +31,7 @@ Requires Node.js 18.20.8 or later (Astro 5).
 |---|---|
 | Page layout, header, menu, ward picker, footer | `src/layouts/Base.astro` |
 | Colours (light and dark), spacing, components' styles | `src/styles/global.css` |
+| Logos, icons, fonts, default share image | `public/brand/` (from the brand kit; see `docs/BRAND_BRIEF.md`) |
 | Shared components (evidence labels, stat cards, maps, charts, ward panel) | `src/components/` |
 | Pages (one file = one URL) | `src/pages/` |
 | All site data (JSON) | `src/data/` (see `docs/DATA.md`) |

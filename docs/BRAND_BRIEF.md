@@ -1,6 +1,6 @@
 # Brand brief: Nyamira Daily and NY Watch
 
-Status: exploration, October 2026. The symbol is not chosen yet. This brief guides the designer and the website's visual work.
+Status: delivered as brand kit v1, October 2026 (the avocado pin was chosen) and applied to the site; see `docs/DECISIONS.md` #18–19. This brief records the thinking behind it. One change from the brief below: League Spartan is now used for body text too (#19).
 
 ## Project
 Logo and visual identity for **Nyamira Daily**, an independent, non-partisan civic information platform for Nyamira County, Kenya.

@@ -5,7 +5,7 @@ Why the site is built the way it is. Add new decisions at the bottom with a date
 | # | Decision | Why |
 |---|---|---|
 | 1 | **Static site with Astro 5**, plain HTML output | Fast on cheap phones and slow networks, free to host (Netlify, Cloudflare Pages, GitHub Pages), nothing to hack or keep running. Astro 5 because the build environment's Node version did not support Astro 7. |
-| 2 | **System fonts, no web fonts, minimal JavaScript** | Pages are around 10–30 KB. Data costs matter to readers. |
+| 2 | **System fonts, no web fonts, minimal JavaScript** (fonts superseded by #19) | Pages are around 10–30 KB. Data costs matter to readers. |
 | 3 | **Two-layer pages**: one number, one sentence, one label first; detail behind "See the detail" | Most readers stop after the first screen. They should still leave with something true. |
 | 4 | **Evidence labels** on every figure (Verified, Audit finding, Official claim, Unverified) | Trust. See `EDITORIAL_RULES.md`. |
 | 5 | **Informational, not news-heavy** | The site is a reference people return to, not a feed. Short factual updates only. |
@@ -21,3 +21,5 @@ Why the site is built the way it is. Add new decisions at the bottom with a date
 | 15 | **Charts drawn at build time** (`src/components/BarChart.astro`) with one axis, native tooltips and the same numbers in a table | Accessible, light, no chart library. Series colours are tokens in `global.css` (light and dark). |
 | 16 | **No regex literals in `.astro` frontmatter of pages that use `getStaticPaths`** | Astro's compiler mis-parsed one and failed with `Unexpected "export"`. Use helpers in `src/lib/fmt.js` instead. |
 | 17 | **Dark mode supported** via `prefers-color-scheme` tokens in `global.css` | Many phones default to dark mode. |
+| 18 | **Brand kit v1 applied** (24 Oct 2026). Logos from `public/brand/` (header: horizontal logo, switching to the symbol under 160px; footer: reverse logo on Ink). Brand colours are `--nd-*` tokens; Signal Green for fills, marks and underlines only; Record Red only for NY Watch. Default share image `public/brand/og-default.png`. | Brand guidelines. Signal Green text on white is 2.0:1, too light to read, so text is always Ink (or White on dark). |
+| 19 | **League Spartan is the one web font**: Medium (500) for text, Bold (700) for headings. Subset to Latin, self-hosted WOFF2, about 22 KB for both weights, `font-display: swap`, Medium preloaded. Varela Round stays inside the logo files only. | The brand typeface. Small enough for cheap phones and cached after the first page. Its figures are proportional (no tabular figures), so numbers in table columns don't line up exactly. |

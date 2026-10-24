@@ -8,7 +8,7 @@ This repo is **Nyamira Daily**, an independent, non-partisan civic information w
 - **Never estimate, interpolate or invent data.** If a value is unknown, show it as unknown.
 - **Questions, not accusations.** Repeat budgeting, stalled works or conflicting figures are presented as "questions to ask" with their source documents. Never write "corruption", "stole", "looted" or "ghost project" unless a court or competent authority has established it. Full rules: `docs/EDITORIAL_RULES.md`.
 - **Non-partisan.** No content supporting or opposing any party, candidate or official.
-- **Readers are on cheap phones and expensive data.** Keep pages light: no web fonts, no big libraries, no client-side frameworks. Test at 390px width with no horizontal scroll.
+- **Readers are on cheap phones and expensive data.** Keep pages light: one self-hosted font only (League Spartan 500 and 700, about 22 KB; see `docs/DECISIONS.md` #19), no big libraries, no client-side frameworks. Test at 390px width with no horizontal scroll.
 - **Plain language.** Short sentences, explain terms, lead with the number.
 
 ## Conventions
@@ -19,7 +19,8 @@ This repo is **Nyamira Daily**, an independent, non-partisan civic information w
 - Unfinished pages go in the `planned` set in `src/config.js` (tagged "Planned", kept off the home page). Don't add "Coming soon" boxes.
 - Ward filter: `data-ward-only="<slug>"`, `data-ward-row="<slug>"`, `data-set-ward="<slug>"`; the script is at the bottom of `src/layouts/Base.astro`.
 - Number formatting: use `src/lib/fmt.js` (`ksh`, `num`, `date`). Avoid regex literals in frontmatter of pages with `getStaticPaths` (Astro compiler bug, see `docs/DECISIONS.md` #16).
-- Colours are CSS tokens in `src/styles/global.css` with dark-mode overrides; never hard-code colours in components.
+- Colours are CSS tokens in `src/styles/global.css` with dark-mode overrides; never hard-code colours in components. Brand colours are the `--nd-*` tokens: Signal Green is for fills, marks and underlines, never text on white or paper; Record Red appears only in NY Watch elements (`.nyw`).
+- Logos, icons and fonts are in `public/brand/`, copied unchanged from the brand kit. Never retype the wordmark, recolour, stretch or crop a logo; use the reverse versions on dark backgrounds. Where the show appears, use the NY Watch logo (`src/components/NyWatchLogo.astro`).
 - Short Kiswahili summaries use `<div class="sw" lang="sw">`. Mark new ones for native-speaker review.
 - Ward slugs: esise, mekenene, kiabonyoru, nyansiongo (Borabu); rigoma, gachuba, kemera, magombo, manga, gesima (Kitutu Masaba); nyamaiya, bogichora, bosamaro, bonyamatuta, township (West Mugirango); itibo, bomwagamo, bokeira, magwagwa, ekerenyo (North Mugirango).
 
