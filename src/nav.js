@@ -32,6 +32,8 @@ export const sections = [
     { href: '/report/', label: 'Is it working?', pages: [{ href: '/report/clinic/', label: 'Clinic check' }] },
     { href: '/adopt/', label: 'Adopt a project' },
     { href: '/take-part/submission/', label: 'Submission helper' },
+    { href: '/tools/budget-simulator/', label: 'Budget simulator' },
+    { href: '/tools/what-it-builds/', label: 'What could it build?' },
     { href: '/have-your-say/', label: 'Have your say' },
     { href: '/diaspora/', label: 'For the diaspora' },
     { href: '/fellowship/', label: 'Fellowship' },

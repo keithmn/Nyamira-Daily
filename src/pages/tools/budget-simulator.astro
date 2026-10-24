@@ -1,0 +1,111 @@
+---
+// 4.1 Budget simulator: "You run the county". Staff pay is fixed; the rest can be moved between groups
+// in KSh 50M steps and must balance. Small vanilla JS; works with a keyboard; no chart library.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import { grouped, budget as B } from '../../lib/budget.js';
+import U from '../../data/unit-costs.json';
+const gs = grouped();
+const total = B.countyTotal.total, wage = B.countyTotal.compensation;
+const movable = gs.reduce((n, g) => n + g.movable, 0); // the votes' own figures (1 KSh more than total minus wage, from rounding in the document)
+const m = (n) => 'KSh ' + (n / 1e6).toLocaleString('en-KE', { maximumFractionDigits: 0 }) + 'M';
+const b = (n) => 'KSh ' + (n / 1e9).toFixed(2) + 'B';
+const units = Object.fromEntries(U.items.map((i) => [i.key, { item: i.plural, min: i.min, max: i.max }]));
+const data = JSON.stringify({ gs: gs.map((g) => ({ key: g.key, label: g.label, movable: g.movable, item: g.item ?? null })), movable, units }).split('<').join('\\u003c');
+---
+<Base title="Budget simulator" description="You run Nyamira County: share out the 2025/26 budget and see the trade-offs.">
+  <PageHead eyebrow="Take part" title="You run the county" lead={`Nyamira's budget for 2025/26 is ${b(total)}. Staff pay (${b(wage)}) is fixed: workers must be paid. Share out the other ${b(movable)} the way you think best.`} crumbs={[{ href: '/take-part/', label: 'Take part' }, { href: '/tools/budget-simulator/', label: 'Budget simulator' }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    <section class="sim" data-sim hidden>
+      <div class="sim-bal on-ink" aria-live="polite"><span>Left to share</span><b data-left>KSh 0M</b><span class="small" data-leftmsg>Balanced. Move money between groups with − and +.</span></div>
+      <ul class="sim-list">
+        {gs.map((g) => (
+          <li data-g={g.key}>
+            <div class="sim-top"><span class="sim-name">{g.label}</span><span class="sim-val" data-val>{m(g.movable)}</span></div>
+            <div class="sim-ctl">
+              <button type="button" class="sim-btn" data-step="-1" aria-label={`Take KSh 50M from ${g.label}`}>−</button>
+              <span class="sim-bar"><i data-bar></i><em data-orig style={`left:${(g.movable / movable) * 100 * 2.5}%`} title="The county's figure"></em></span>
+              <button type="button" class="sim-btn" data-step="1" aria-label={`Add KSh 50M to ${g.label}`}>+</button>
+            </div>
+            <span class="small muted" data-diff>Same as the county</span>
+          </li>
+        ))}
+      </ul>
+      <p class="sim-say" data-say aria-live="polite">Start by taking money from one group and giving it to another.</p>
+      <div class="page-tools">
+        <a class="btn" data-share href="#" rel="noopener">Share my budget on WhatsApp</a>
+        <a class="btn quiet" data-submit href="/take-part/submission/">Turn this into a submission</a>
+        <button class="btn quiet" type="button" data-reset>Start again</button>
+      </div>
+    </section>
+    <noscript><p class="callout">The simulator needs JavaScript. The county's own figures are below.</p></noscript>
+
+    <section class="stack">
+      <h2>The county's budget, 2025/26</h2>
+      <div class="table-box"><table class="cards">
+        <thead><tr><th>Group</th><th class="num">Staff pay (fixed)</th><th class="num">Running costs</th><th class="num">Development</th><th class="num">Total</th></tr></thead>
+        <tbody>{gs.map((g) => <tr><td>{g.label}</td><td class="num" data-label="Staff pay">{m(g.wage)}</td><td class="num" data-label="Running costs">{m(g.operations)}</td><td class="num" data-label="Development">{m(g.development)}</td><td class="num" data-label="Total">{m(g.total)}</td></tr>)}</tbody>
+      </table></div>
+      <p class="source"><EvidenceLabel kind="official" /> Source: <a href={B.source.url} rel="noopener">{B.source.title}</a>, Tables 8, 12–17 and 19 ("printed estimates"; the document does not say they were approved by the Assembly). Groups are Nyamira Daily's; each covers one or more of the county's 24 budget votes.</p>
+      <details>
+        <summary>Why staff pay is fixed, and what the law says</summary>
+        <p>Salaries are contracts: a county can't stop paying its nurses, teachers and officers to fund a road this year. The county's budget says the wage bill is <strong>39.3%</strong> of the budget (p.29). The law (Public Finance Management (County Governments) Regulations, 2015, regulation 25) sets a ceiling of 35% of the county's total revenue; the budget document does not mention it.</p>
+      </details>
+    </section>
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Wewe ndiye unaendesha kaunti: gawa bajeti ya 2025/26 ya Nyamira na uone athari za uamuzi wako. Mishahara haiwezi kubadilishwa.</p></div>
+  </div>
+</Base>
+<script is:inline type="application/json" id="sim-data" set:html={data}></script>
+<script is:inline>
+(function () {
+  var root = document.querySelector('[data-sim]'); if (!root) return;
+  var D = JSON.parse(document.getElementById('sim-data').textContent), STEP = 5e7;
+  var cur = {}, orig = {};
+  D.gs.forEach(function (g) { cur[g.key] = g.movable; orig[g.key] = g.movable; });
+  var byKey = {}; D.gs.forEach(function (g) { byKey[g.key] = g; });
+  function m(n) { return 'KSh ' + Math.round(n / 1e6).toLocaleString('en-KE') + 'M'; }
+  function left() { var s = 0; for (var k in cur) s += cur[k]; return D.movable - s; }
+  function equiv(amount, key) {
+    var u = D.units[key]; if (!u || amount <= 0) return '';
+    var lo = Math.floor(amount / u.max), hi = Math.floor(amount / u.min);
+    return ' That is about the cost of ' + (lo === hi ? lo : lo + ' to ' + hi) + ' ' + u.item;
+  }
+  function draw() {
+    var l = left();
+    root.querySelector('[data-left]').textContent = (l < 0 ? '−' : '') + m(Math.abs(l));
+    root.querySelector('[data-leftmsg]').textContent = l === 0 ? 'Balanced.' : l > 0 ? 'Not yet shared out. Add it to a group.' : 'Over budget. Take money from a group.';
+    root.querySelector('.sim-bal').classList.toggle('over', l < 0);
+    D.gs.forEach(function (g) {
+      var li = root.querySelector('[data-g="' + g.key + '"]'), d = cur[g.key] - orig[g.key];
+      li.querySelector('[data-val]').textContent = m(cur[g.key]);
+      li.querySelector('[data-bar]').style.width = Math.min(100, cur[g.key] / D.movable * 250) + '%';
+      li.querySelector('[data-diff]').textContent = d === 0 ? 'Same as the county' : (d > 0 ? m(d) + ' more than the county' : m(-d) + ' less than the county');
+      li.querySelector('[data-step="-1"]').disabled = cur[g.key] < STEP;
+    });
+    var ups = D.gs.filter(function (g) { return cur[g.key] > orig[g.key]; }).sort(function (a, b) { return (cur[b.key] - orig[b.key]) - (cur[a.key] - orig[a.key]); });
+    var downs = D.gs.filter(function (g) { return cur[g.key] < orig[g.key]; }).sort(function (a, b) { return (orig[b.key] - cur[b.key]) - (orig[a.key] - cur[a.key]); });
+    var say = 'Start by taking money from one group and giving it to another.';
+    if (ups.length && downs.length) {
+      var amt = Math.min(cur[ups[0].key] - orig[ups[0].key], orig[downs[0].key] - cur[downs[0].key]);
+      say = 'You moved ' + m(amt) + ' from ' + downs[0].label.toLowerCase() + ' to ' + ups[0].label.toLowerCase() + '.' +
+        equiv(amt, ups[0].item) + (D.units[ups[0].item] ? ' (estimate, based on past county contract sums and budget lines).' : '') +
+        (D.units[downs[0].item] ? ' ' + downs[0].label + ' loses about the cost of ' + Math.floor(amt / D.units[downs[0].item].max) + ' to ' + Math.floor(amt / D.units[downs[0].item].min) + ' ' + D.units[downs[0].item].item + '.' : '');
+    }
+    root.querySelector('[data-say]').textContent = say;
+    var lines = ['My Nyamira budget for 2025/26 (Nyamira Daily budget simulator):'];
+    D.gs.forEach(function (g) { var d = cur[g.key] - orig[g.key]; if (d) lines.push(g.label + ': ' + (d > 0 ? '+' : '−') + m(Math.abs(d))); });
+    if (lines.length === 1) lines.push('Same as the county.');
+    lines.push(location.href);
+    root.querySelector('[data-share]').href = 'https://wa.me/?text=' + encodeURIComponent(lines.join('\n'));
+    var ask = lines.slice(1, -1).join('; ');
+    root.querySelector('[data-submit]').href = '/take-part/submission/?topic=Other&ask=' + encodeURIComponent('In the 2025/26 budget (or next year\'s), change the money for: ' + ask + '.');
+  }
+  root.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-step]');
+    if (b) { var k = b.closest('[data-g]').getAttribute('data-g'); cur[k] = Math.max(0, cur[k] + Number(b.getAttribute('data-step')) * STEP); draw(); }
+    if (e.target.closest('[data-reset]')) { for (var k2 in orig) cur[k2] = orig[k2]; draw(); }
+  });
+  root.hidden = false; draw();
+})();
+</script>

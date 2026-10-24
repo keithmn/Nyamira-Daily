@@ -36,6 +36,7 @@ export async function GET() {
     ['Stories', '/stories/'], ['Explainers', '/explainers/'], ['Number of the week', '/number-of-the-week/', 'radio'],
     ['Is it working?', '/report/', 'report water point borehole dispensary streetlight road bridge market broken'], ['Clinic check', '/report/clinic/', 'health centre dispensary medicines waiting'],
     ['Adopt a project', '/adopt/', 'volunteer school club photo monitor'],
+    ['Budget simulator: you run the county', '/tools/budget-simulator/', 'budget allocate departments health roads water wage bill'], ['What could it build?', '/tools/what-it-builds/', 'unit cost classroom borehole road km dispensary billion'],
     ['Alerts', '/alerts/', 'emergency fire flood landslide outage road closure notice'],
     ['Glossary', '/learn/glossary/'], ['About', '/about/'], ['How we work', '/how-we-work/', 'evidence labels corrections'],
   ];

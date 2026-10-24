@@ -63,6 +63,10 @@ const topics = ['Roads and bridges', 'Water', 'Health', 'Education and ECDE', 'A
     }
     out.value = t; document.dispatchEvent(new Event('nd-gen'));
   }
+  // Prefill from a link (for example from the budget simulator): ?topic=…&ask=…
+  var q = new URLSearchParams(location.search);
+  if (q.get('ask')) f.elements.ask.value = q.get('ask');
+  if (q.get('topic')) Array.prototype.forEach.call(f.elements.topic.options, function (o) { if (o.value === q.get('topic')) f.elements.topic.value = o.value; });
   f.addEventListener('input', build); f.addEventListener('change', build); build();
 })();
 </script>

@@ -1,0 +1,73 @@
+---
+// 4.2 What KSh 1 billion could build: equivalents from Nyamira's own past costs, shown as ranges.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import U from '../../data/unit-costs.json';
+import C from '../../data/compare.json';
+import M from '../../data/money.json';
+import { ksh } from '../../lib/fmt.js';
+const nya = C.counties.find((c) => c.county === 'Nyamira');
+const last = M.years[M.years.length - 1];
+const presets = [
+  { label: 'KSh 1 billion', amount: 1e9 },
+  { label: `Development budget not used, ${nya.fy}`, amount: nya.devBudget - nya.devSpent, note: `${ksh(nya.devBudget)} budgeted for development, ${ksh(nya.devSpent)} spent (Controller of Budget, FY${nya.fy}, Table 2.5).` },
+  { label: `Whole budget not spent, ${last.fy}`, amount: (last.budget - last.spent) * 1e6, note: `${ksh(last.budget * 1e6)} budget, ${ksh(last.spent * 1e6)} spent (Controller of Budget).` },
+];
+const fmtN = (n) => n.toLocaleString('en-KE');
+const range = (amount, it) => { const lo = Math.floor(amount / it.max), hi = Math.floor(amount / it.min); return lo === hi ? fmtN(lo) : `${fmtN(lo)}–${fmtN(hi)}`; };
+const data = JSON.stringify(U.items.map((i) => ({ key: i.key, min: i.min, max: i.max }))).split('<').join('\\u003c');
+---
+<Base title="What KSh 1 billion could build" description="See what an amount of county money equals in classrooms, boreholes, health blocks and roads, using Nyamira's own past costs.">
+  <PageHead eyebrow="Take part" title="What could it build?" lead="Enter an amount, or pick one, and see what it equals in classrooms, boreholes, health blocks and roads, using what Nyamira itself has paid or budgeted before." crumbs={[{ href: '/take-part/', label: 'Take part' }, { href: '/tools/what-it-builds/', label: 'What could it build?' }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    <form class="builder" data-wib onsubmit="return false" style="max-width:520px">
+      <label>Choose an amount
+        <select name="preset">{presets.map((p) => <option value={Math.round(p.amount)}>{p.label}: {ksh(p.amount)}</option>)}<option value="">Type my own amount</option></select>
+      </label>
+      <label data-own hidden>Amount in KSh<input name="own" inputmode="numeric" placeholder="e.g. 50,000,000" /></label>
+    </form>
+    <section class="stack">
+      <p class="say" style="font-size:19px"><span data-amt>{ksh(presets[0].amount)}</span> is about the same as:</p>
+      <ul class="wib">
+        {U.items.map((it) => (
+          <li data-k={it.key}><b data-n>{range(presets[0].amount, it)}</b><span>{it.item}</span><span class="small muted">Based on {it.n} past examples: {ksh(it.min)} to {ksh(it.max)} each ({it.basis}).</span></li>
+        ))}
+      </ul>
+      <p class="callout"><span><strong>Estimate: based on past county contract sums and budget lines.</strong> Not adjusted for inflation. Real costs depend on the site, the design and the contractor. Ranges show the cheapest and the dearest example.</span></p>
+      <p class="small muted" data-note>{presets[0].note}</p>
+    </section>
+    <details>
+      <summary>See the detail: every example used</summary>
+      {U.items.map((it) => (
+        <div class="stack" style="gap:6px;margin:12px 0">
+          <h3>{it.item}</h3>
+          <ul class="small">{it.examples.map((e) => <li><a href={`/projects/${e.projectId.toLowerCase()}/`}>{e.name}</a>: {ksh(e.amount)}{e.units !== 1 && ` for ${e.units} km (${ksh(e.perUnit)} per km)`} · {e.kind}, FY{e.fy} · {U.sources[e.sourceId]?.title.split(' – ').slice(1).join(' – ').split(' (')[0]} {e.page}</li>)}</ul>
+        </div>
+      ))}
+      <p class="source"><EvidenceLabel kind="official" /> All examples are from the county's own plans and budgets (see each project's page).</p>
+    </details>
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Ona kiasi fulani cha pesa za kaunti kinalingana na madarasa mangapi ya ECDE, visima, majengo ya zahanati au kilomita za barabara, kwa gharama za zamani za kaunti.</p></div>
+  </div>
+</Base>
+<script is:inline type="application/json" id="wib-data" set:html={data}></script>
+<script is:inline define:vars={{ notes: Object.fromEntries(presets.map((p) => [String(Math.round(p.amount)), p.note ?? ''])) }}>
+(function () {
+  var f = document.querySelector('[data-wib]'); if (!f) return;
+  var U = JSON.parse(document.getElementById('wib-data').textContent);
+  var own = f.querySelector('[data-own]');
+  function ksh(n) { return n >= 1e9 ? 'KSh ' + (n / 1e9).toFixed(2) + 'B' : n >= 1e6 ? 'KSh ' + (n / 1e6).toFixed(1) + 'M' : 'KSh ' + Math.round(n).toLocaleString('en-KE'); }
+  function run() {
+    var p = f.elements.preset.value; own.hidden = p !== '';
+    var amt = p !== '' ? Number(p) : Number((f.elements.own.value || '').split(',').join('').split(' ').join(''));
+    if (!amt || amt < 0) amt = 0;
+    document.querySelector('[data-amt]').textContent = ksh(amt);
+    document.querySelector('[data-note]').textContent = notes[p] || '';
+    U.forEach(function (u) {
+      var lo = Math.floor(amt / u.max), hi = Math.floor(amt / u.min);
+      document.querySelector('[data-k="' + u.key + '"] [data-n]').textContent = lo === hi ? lo.toLocaleString('en-KE') : lo.toLocaleString('en-KE') + '–' + hi.toLocaleString('en-KE');
+    });
+  }
+  f.addEventListener('change', run); f.addEventListener('input', run); run();
+})();
+</script>

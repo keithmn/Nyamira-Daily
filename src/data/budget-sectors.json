@@ -1,0 +1,761 @@
+{
+ "checked": "2026-10-24",
+ "fy": "2025/26",
+ "stage": "Budget estimates (PBB dated July 2025, columns headed 'Printed Estimates 2025/2026'); the document does not state that these are the Assembly-approved figures",
+ "source": {
+  "title": "County Government of Nyamira, The Programme Based Budget 2025/2026 (July 2025)",
+  "url": "https://nyamira.go.ke/static/documents/13_10_2025_09_51_47_am_PBB_2025-2026.pdf",
+  "table": "Table 12 (departmental recurrent), Table 13 (compensation to employees), Table 14 (social contributions), Table 15 (recurrent conditional grants), Table 16 (recurrent funds), Table 17 (operations and maintenance), Table 19 (development ceilings), Table 8 (recurrent + development total per department)",
+  "pages": "Printed page numbers equal PDF page numbers. T8 p.19-20; T10 p.28-29; T12 p.37-38; T13 p.38-39; T14 p.39-40; T15 p.40-41; T16 p.41; T17 p.41-42; T19 p.51-52"
+ },
+ "unit": "KSh",
+ "definitions": {
+  "compensation": "Table 13 'Compensation to Employees' + Table 14 'Social Contributions' (employer contributions). This matches the document's own wage-bill definition (39.3% statement, p.29).",
+  "operations": "Table 17 operations and maintenance + Table 16 recurrent funds + Table 15 recurrent conditional grants (i.e. all non-wage recurrent)",
+  "recurrent": "Table 12 'Printed Recurrent 2025/2026'",
+  "development": "Table 19 'Printed Dev Est 2025/2026'",
+  "total": "Table 8 'Printed Total Estimates 2025/2026'"
+ },
+ "departments": [
+  {
+   "name": "County Assembly",
+   "short": "County Assembly",
+   "vote": "5261",
+   "compensation": 405349717,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 353544720,
+    "socialContributions_T14": 51804997
+   },
+   "operations": 284064692,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 284064692,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 689414409,
+   "development": 232000000,
+   "developmentNote": null,
+   "total": 921414409,
+   "wageSharePctOfDeptTotal": 44.0,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "County Executive",
+   "short": "Governor's office / Executive",
+   "vote": "5262",
+   "compensation": 108848732,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 97869188,
+    "socialContributions_T14": 10979544
+   },
+   "operations": 336100974,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 336100974,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 444949706,
+   "development": 0,
+   "developmentNote": "Department not listed in Table 19; Table 8 shows 0 development for 2025/26",
+   "total": 444949706,
+   "wageSharePctOfDeptTotal": 24.5,
+   "note": "No development allocation (Table 8 shows 0; absent from Table 19).",
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Finance and Accounting services",
+   "short": "Finance",
+   "vote": "5263",
+   "compensation": 70977057,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 61505063,
+    "socialContributions_T14": 9471994
+   },
+   "operations": 116508334,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 91508334,
+    "recurrentFunds_T16": 25000000,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 187485391,
+   "development": 261573174,
+   "developmentNote": null,
+   "total": 449058565,
+   "wageSharePctOfDeptTotal": 15.8,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Crop Development",
+   "short": "Agriculture (crops)",
+   "vote": "5264",
+   "compensation": 56989200,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 50394711,
+    "socialContributions_T14": 6594489
+   },
+   "operations": 3540000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 3540000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 60529200,
+   "development": 317668919,
+   "developmentNote": null,
+   "total": 378198119,
+   "wageSharePctOfDeptTotal": 15.1,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Environment, Water, Energy & Natural Resources",
+   "short": "Environment & energy",
+   "vote": "5265",
+   "compensation": 45584289,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 37763340,
+    "socialContributions_T14": 7820949
+   },
+   "operations": 27000000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 27000000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 72584289,
+   "development": 248710133,
+   "developmentNote": null,
+   "total": 321294422,
+   "wageSharePctOfDeptTotal": 14.2,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Education & Vocational Training",
+   "short": "Education",
+   "vote": "5266",
+   "compensation": 369789259,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 305183543,
+    "socialContributions_T14": 64605716
+   },
+   "operations": 100476302,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 50476302,
+    "recurrentFunds_T16": 50000000,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 470265561,
+   "development": 108900000,
+   "developmentNote": null,
+   "total": 579165561,
+   "wageSharePctOfDeptTotal": 63.8,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Medical Services",
+   "short": "Hospitals (medical services)",
+   "vote": "5267",
+   "compensation": 471923038,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 428887672,
+    "socialContributions_T14": 43035366
+   },
+   "operations": 454697400,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 210000000,
+    "recurrentFunds_T16": 244697400,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 926620437,
+   "development": 419302600,
+   "developmentNote": null,
+   "total": 1345923037,
+   "wageSharePctOfDeptTotal": 35.1,
+   "note": "T13+T14 = 471,923,038 but Table 11 (p.32) prints dept compensation as 471,923,037; components therefore sum to 926,620,438, 1 KSh above the printed T12 recurrent 926,620,437. Table 15 prints the 75,179,711 recurrent conditional grant against vote 5267 'Medical services', but it is NOT inside Medical Services' T12/T11 recurrent total (471,923,037 wages + 244,697,400 FIF + 210,000,000 = 926,620,437); it reconciles exactly inside Primary Healthcare instead, so it is assigned there.",
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Land, Physical Planning, Housing and Urban Development",
+   "short": "Lands & housing",
+   "vote": "5268",
+   "compensation": 68128464,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 58590732,
+    "socialContributions_T14": 9537732
+   },
+   "operations": 24300000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 24300000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 92428464,
+   "development": 291023322,
+   "developmentNote": null,
+   "total": 383451786,
+   "wageSharePctOfDeptTotal": 17.8,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Water Sanitation and Irrigation",
+   "short": "Water",
+   "vote": "5269",
+   "compensation": 24726378,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 22825212,
+    "socialContributions_T14": 1901166
+   },
+   "operations": 19500000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 19500000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 44226378,
+   "development": 88700000,
+   "developmentNote": null,
+   "total": 132926378,
+   "wageSharePctOfDeptTotal": 18.6,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Transport & Public Works,",
+   "short": "Roads & public works",
+   "vote": "5270",
+   "compensation": 79159995,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 75473948,
+    "socialContributions_T14": 3686047
+   },
+   "operations": 28800000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 28800000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 107959995,
+   "development": 435716791,
+   "developmentNote": null,
+   "total": 543676786,
+   "wageSharePctOfDeptTotal": 14.6,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Trade, Tourism and Co-operatives Development",
+   "short": "Trade & co-ops",
+   "vote": "5271",
+   "compensation": 36848475,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 34058269,
+    "socialContributions_T14": 2790206
+   },
+   "operations": 8500000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 8500000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 45348475,
+   "development": 256200000,
+   "developmentNote": null,
+   "total": 301548475,
+   "wageSharePctOfDeptTotal": 12.2,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Youth, Gender, Culture and Social services",
+   "short": "Youth, gender & culture",
+   "vote": "5272",
+   "compensation": 43288718,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 36185984,
+    "socialContributions_T14": 7102734
+   },
+   "operations": 36500000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 36500000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 79788718,
+   "development": 26800000,
+   "developmentNote": null,
+   "total": 106588718,
+   "wageSharePctOfDeptTotal": 40.6,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "CPSB",
+   "short": "Public Service Board",
+   "vote": "5273",
+   "compensation": 50702654,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 45995319,
+    "socialContributions_T14": 4707335
+   },
+   "operations": 6597448,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 6597448,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 57300102,
+   "development": 0,
+   "developmentNote": "Department not listed in Table 19; Table 8 shows 0 development for 2025/26",
+   "total": 57300102,
+   "wageSharePctOfDeptTotal": 88.5,
+   "note": "County Public Service Board. No development allocation (Table 8 shows 0; absent from Table 19).",
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Public Service Management",
+   "short": "Public service & administration",
+   "vote": "5274",
+   "compensation": 253085294,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 213862634,
+    "socialContributions_T14": 39222660
+   },
+   "operations": 255000000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 217500000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 37500000
+   },
+   "recurrent": 508085294,
+   "development": 372500000,
+   "developmentNote": null,
+   "total": 880585294,
+   "wageSharePctOfDeptTotal": 28.7,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Nyamira Municipality",
+   "short": "Nyamira Municipality",
+   "vote": "5275",
+   "compensation": 46225393,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 38298067,
+    "socialContributions_T14": 7927326
+   },
+   "operations": 40558200,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 5558200,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 35000000
+   },
+   "recurrent": 86783593,
+   "development": 94295838,
+   "developmentNote": null,
+   "total": 181079431,
+   "wageSharePctOfDeptTotal": 25.5,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "The County Attorney",
+   "short": "County Attorney",
+   "vote": "5276",
+   "compensation": 18947242,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 14973914,
+    "socialContributions_T14": 3973328
+   },
+   "operations": 5500000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 5500000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 24447242,
+   "development": 0,
+   "developmentNote": null,
+   "total": 24447242,
+   "wageSharePctOfDeptTotal": 77.5,
+   "note": "Table 19 prints 0 development.",
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Economic Planning, Resources Mobilization and ICT",
+   "short": "Planning, revenue & ICT",
+   "vote": "5277",
+   "compensation": 132381420,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 117870805,
+    "socialContributions_T14": 14510615
+   },
+   "operations": 46170000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 46170000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 178551420,
+   "development": 20000000,
+   "developmentNote": null,
+   "total": 198551420,
+   "wageSharePctOfDeptTotal": 66.7,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Livestock and Fisheries Services",
+   "short": "Livestock & fisheries",
+   "vote": "5278",
+   "compensation": 88222873,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 79171902,
+    "socialContributions_T14": 9050971
+   },
+   "operations": 14695000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 14695000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 102917873,
+   "development": 16500000,
+   "developmentNote": null,
+   "total": 119417873,
+   "wageSharePctOfDeptTotal": 73.9,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Primary Healthcare",
+   "short": "Primary healthcare",
+   "vote": "5279",
+   "compensation": 975953637,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 896646635,
+    "socialContributions_T14": 79307002
+   },
+   "operations": 126112311,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 50932600,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 75179711
+   },
+   "recurrent": 1102065948,
+   "development": 41100000,
+   "developmentNote": null,
+   "total": 1143165948,
+   "wageSharePctOfDeptTotal": 85.4,
+   "note": "Includes the 75,179,711 recurrent conditional grant that Table 15 labels vote 5267 'Medical services'. With it, T13+T14+T17+grant = 1,102,065,948 = T12 exactly; Table 11 (p.36) lists PHC grant-funded items (Community Health Promoters grant, DANIDA, health-worker salary arrears).",
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Keroka municipality",
+   "short": "Keroka Municipality",
+   "vote": "5282",
+   "compensation": 23959379,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 21535990,
+    "socialContributions_T14": 2423389
+   },
+   "operations": 4600000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 4600000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 28559379,
+   "development": 20000000,
+   "developmentNote": null,
+   "total": 48559379,
+   "wageSharePctOfDeptTotal": 49.3,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Nyamira revenue board",
+   "short": "Revenue Board",
+   "vote": "5281",
+   "compensation": 2498185,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 1775685,
+    "socialContributions_T14": 722500
+   },
+   "operations": 11500000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 11500000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 13998185,
+   "development": 0,
+   "developmentNote": "Department not listed in Table 19; Table 8 shows 0 development for 2025/26",
+   "total": 13998185,
+   "wageSharePctOfDeptTotal": 17.8,
+   "note": "No development allocation (Table 8 shows 0).",
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Nyamira disability board",
+   "short": "Disability Board",
+   "vote": "5280",
+   "compensation": 2498185,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 1775685,
+    "socialContributions_T14": 722500
+   },
+   "operations": 2500000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 2500000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 4998185,
+   "development": 0,
+   "developmentNote": "Department not listed in Table 19; Table 8 shows 0 development for 2025/26",
+   "total": 4998185,
+   "wageSharePctOfDeptTotal": 50.0,
+   "note": "No development allocation (Table 8 shows 0).",
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Nyamira Investment Board",
+   "short": "Investment Board",
+   "vote": "5283",
+   "compensation": 2498185,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 1775685,
+    "socialContributions_T14": 722500
+   },
+   "operations": 3000000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 3000000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 5498185,
+   "development": 0,
+   "developmentNote": "Department not listed in Table 19; Table 8 shows 0 development for 2025/26",
+   "total": 5498185,
+   "wageSharePctOfDeptTotal": 45.4,
+   "note": "Table 13/14 call it 'Nyamira investment corporation'; T17 'Nyamira Investment Cooperation'. No development allocation.",
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  },
+  {
+   "name": "Nyamira Water and sanitation company",
+   "short": "NYAWASCO (water company)",
+   "vote": "5284",
+   "compensation": 22498185,
+   "compensationDetail": {
+    "compensationToEmployees_T13": 20000000,
+    "socialContributions_T14": 2498185
+   },
+   "operations": 8003000,
+   "operationsDetail": {
+    "operationsAndMaintenance_T17": 8003000,
+    "recurrentFunds_T16": 0,
+    "recurrentConditionalGrants_T15": 0
+   },
+   "recurrent": 30501185,
+   "development": 30000000,
+   "developmentNote": null,
+   "total": 60501185,
+   "wageSharePctOfDeptTotal": 37.2,
+   "note": null,
+   "page": {
+    "recurrent": "T12 p.38",
+    "compensation": "T13 p.38-39; T14 p.39-40",
+    "operations": "T17 p.41-42; T16 p.41; T15 p.40-41",
+    "development": "T19 p.51-52",
+    "total": "T8 p.19-20"
+   }
+  }
+ ],
+ "countyTotal": {
+  "compensation": 3401083954,
+  "compensationToEmployees_T13": 3015964703,
+  "socialContributions_T14": 385119251,
+  "operations": 1964223661,
+  "operationsAndMaintenance_T17": 1496846550,
+  "recurrentFunds_T16": 319697400,
+  "recurrentConditionalGrants_T15": 147679711,
+  "recurrent": 5365307614,
+  "development": 3280990777,
+  "total": 8646298391,
+  "page": "T8 TOTAL row p.20; T12 TOTAL p.38; T13 Total p.39; T14 Total p.40; T17 Total p.42; T19 TOTAL p.52; narrative p.19 and p.29",
+  "economicClassification_T10": {
+   "page": "p.28-29",
+   "compensationToEmployees_2100000": 3362351604,
+   "useOfGoodsAndServices_2200000_recurrent": 1226386097,
+   "currentTransfersToGovtAgencies_2600000": 493459711,
+   "socialBenefits_2700000": 189591283,
+   "otherExpense_2800000": 10000000,
+   "nonFinancialAssets_3100000_recurrent": 68518919,
+   "financialAssets_4100000": 15000000,
+   "currentExpenditure": 5365307614,
+   "capitalExpenditure": 3280990777,
+   "totalExpenditure": 8646298391
+  }
+ },
+ "wageBill": {
+  "amount": 3401083954,
+  "sharePct": 39.3,
+  "statement": "\"The total recurrent expenditure is estimated at Kshs.5,365,307,614 composed of Kshs.3,015,964,703 compensation to employees, Kshs.385,119,251 as social contributions, Kshs.1,496,846,549 as operations and maintenance, Kshs.319,697,400 as recurrent funds and Kshs.147,679,711 for recurrent conditional grants. In this budget, the wage-bill stands at 39.3%.\"",
+  "page": 29,
+  "computed": {
+   "shareOfTotalBudgetPct": 39.34,
+   "shareOfRecurrentPct": 63.39,
+   "note": "39.3% reproduces as (3,015,964,703 + 385,119,251) / 8,646,298,391 = 39.34%. Basis (total budget) is inferred by arithmetic; the document does not state the denominator."
+  },
+  "legalLimit": {
+   "pct": 35,
+   "statedInDocument": false,
+   "note": "No mention of the 35% wage-bill ceiling (PFM (County Governments) Regulations 2015, reg. 25(1)(b)) found in the PBB text. The PBB's printed 39.3% exceeds it, but the document does not comment on compliance."
+  },
+  "conflict": "Table 10 (Economic Classification, p.28) prints Compensation to Employees (2100000) as 3,362,351,604, which is 38,732,350 less than T13+T14 (3,401,083,954). 3,362,351,604 / 8,646,298,391 = 38.89%. Not reconciled in the document."
+ },
+ "checks": "For 23 of 24 departments T13+T14+T15+T16+T17 equals the T12 recurrent figure exactly (Medical Services is 1 KSh over, so compensation+operations across departments sum to 5,365,307,615 vs 5,365,307,614); and T12 recurrent + T19 development equals the T8 total exactly. Column sums equal printed totals for recurrent (5,365,307,614), development (3,280,990,777), total (8,646,298,391), compensation (3,015,964,703), social contributions (385,119,251), funds and grants. Department-level exceptions: (1) Table 15 attributes the 75,179,711 recurrent conditional grant to vote 5267 Medical services, but it only reconciles with Primary Healthcare's T12 recurrent, so it is assigned to Primary Healthcare; (2) Medical Services components sum 1 KSh above its printed recurrent (rounding). Narrative p.29 gives O&M as 1,496,846,549; Table 17 total and its rows give 1,496,846,550 (1 KSh). Table 10 (economic classification) prints Compensation to Employees 3,362,351,604, which does not match T13 (3,015,964,703) or T13+T14 (3,401,083,954); unreconciled. Vote codes differ between tables for Keroka Municipality (5280 in T11, 5282 in T17) and Disability Board (5282 in T11, 5280 in T17); 'vote' field uses T17. Table 19 header mislabels its projection columns '2025/2026, 2026/2027'; the 'Printed Dev Est 2025/2026' column was used and its total matches T8 and T18 grand total. Narrative p.19 gives development as Kshs.3,280,990,391 — a typo; every table prints 3,280,990,777 and 5,365,307,614 + 3,280,990,777 = 8,646,298,391."
+}
