@@ -17,7 +17,7 @@ This repo is **Nyamira Daily**, an independent, non-partisan civic information w
 - Two-layer pages: headline card (number, sentence, label, source) first; tables and caveats inside `<details>`.
 - Tables that should stack on phones use `class="cards"` with `data-label` on each `<td>`.
 - Unfinished pages go in the `planned` set in `src/config.js` (tagged "Planned", kept off the home page). Don't add "Coming soon" boxes.
-- Navigation has two bars, both defined in `src/nav.js`: the six sections (primary) and the pages inside the current section (secondary). When you add a page, add it to its section's `pages` there; keep bar labels short.
+- Navigation is defined in `src/nav.js`: the six sections, each opening a menu of its pages (pages can list pages of their own, like The Assembly or each sub-county's wards). When you add a page, add it to its section's `pages` there; keep labels short.
 - Ward filter: `data-ward-only="<slug>"`, `data-ward-row="<slug>"`, `data-set-ward="<slug>"`; the script is at the bottom of `src/layouts/Base.astro`.
 - Number formatting: use `src/lib/fmt.js` (`ksh`, `num`, `date`). Avoid regex literals in frontmatter of pages with `getStaticPaths` (Astro compiler bug, see `docs/DECISIONS.md` #16).
 - Colours are CSS tokens in `src/styles/global.css` with dark-mode overrides under `:root[data-theme="dark"]` (set by the header toggle script, see `docs/DECISIONS.md` #17); never hard-code colours in components. Logos that differ by mode come in pairs: `.for-light` (full-colour) and `.for-dark` (reverse), both `loading="lazy"`. Brand colours are the `--nd-*` tokens: Signal Green is for fills, marks and underlines, never text on white or paper; Record Red appears only in NY Watch elements (`.nyw`).

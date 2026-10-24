@@ -1,7 +1,8 @@
 // Site navigation, used by Base.astro.
-// Primary bar: the six sections. Secondary bar: the pages inside the section the reader is in.
-// Labels are kept short for the bars; each section's index page keeps the longer titles and descriptions.
-// Add a new page to its section's `pages` here so readers can reach it from the secondary bar.
+// The primary bar shows the six sections; tapping one opens a list of everything in it: first the
+// section's own page (`overview`, its title), then its pages, some with pages of their own.
+// Labels are kept short for the lists; each section's index page keeps the longer titles and descriptions.
+// Add a new page to its section's `pages` here so readers can reach it from the menu.
 import { topics } from './data/topics.js';
 import wards from './data/wards.json';
 import { planned } from './config.js';
@@ -15,27 +16,36 @@ const dataPages = [...topics]
   .map((t) => ({ href: `/data/${t.slug}/`, label: t.title }));
 
 export const sections = [
-  { href: '/', label: 'Today', pages: [
+  { href: '/', label: 'Today', overview: 'Nyamira at a glance', pages: [
     { href: '/opportunities/', label: 'Opportunities' },
     { href: '/have-your-say/', label: 'Have your say' },
   ] },
-  { href: '/data/', label: 'Data', pages: dataPages },
-  // My Ward: jump to each sub-county's wards on the ward list
-  { href: '/ward/', label: 'My Ward', pages: subCounties.map((s) => ({ href: `/ward/#${anchorFor(s)}`, label: s })) },
-  { href: '/government/', label: 'Government', pages: [
+  { href: '/data/', label: 'Data', overview: 'Nyamira in numbers', pages: dataPages },
+  // My Ward: every ward, grouped by sub-county (each group links to its place on the ward list)
+  { href: '/ward/', label: 'My Ward', overview: 'Choose your ward', pages: subCounties.map((s) => ({
+    href: `/ward/#${anchorFor(s)}`, label: s,
+    pages: wards.filter((w) => w.subCounty === s).map((w) => ({ href: `/ward/${w.slug}/`, label: w.name })),
+  })) },
+  { href: '/government/', label: 'Government', overview: 'How Nyamira is run', pages: [
     { href: '/government/whos-in-charge/', label: "Who's in charge?" },
     { href: '/government/leaders/', label: 'Leaders' },
     { href: '/government/executive/', label: 'The Executive' },
-    { href: '/government/assembly/', label: 'The Assembly' },
+    { href: '/government/assembly/', label: 'The Assembly', pages: [
+      { href: '/government/assembly/sittings/', label: 'Sittings' },
+      { href: '/government/assembly/bills/', label: 'Bills and Acts' },
+      { href: '/government/assembly/committees/', label: 'Committees' },
+      { href: '/government/assembly/petitions/', label: 'Petitions and motions' },
+      { href: '/government/assembly/mcas/', label: 'MCA pages' },
+    ] },
     { href: '/government/watchdogs/', label: 'Watchdogs' },
   ] },
-  { href: '/constitution/', label: 'Constitution', pages: [
+  { href: '/constitution/', label: 'Constitution', overview: 'The Constitution, for Nyamira', pages: [
     { href: '/constitution/devolution/', label: 'Devolution', also: ['/constitution/article/'] },
     { href: '/constitution/fourth-schedule/', label: 'What the county must do' },
     { href: '/constitution/your-rights/', label: 'Your rights' },
     { href: '/constitution/county-laws/', label: 'County laws' },
   ] },
-  { href: '/learn/', label: 'Learn', pages: [
+  { href: '/learn/', label: 'Learn', overview: 'Learn how Nyamira works', pages: [
     { href: '/learn/how-it-works/', label: 'How the county works' },
     { href: '/learn/budget-calendar/', label: 'Budget calendar' },
     { href: '/learn/taking-part/', label: 'Taking part' },
@@ -45,18 +55,17 @@ export const sections = [
   ] },
 ];
 
-const within = (path, page) => [page.href, ...(page.also ?? [])].some((href) => path.startsWith(href));
-
-// The section a page belongs to: by its address, or because it is one of the section's pages
-// (Opportunities and Have your say sit under Today).
-export function sectionFor(path) {
-  return sections.find((s) => (s.href === '/' ? path === '/' : path.startsWith(s.href)) || s.pages.some((p) => within(path, p)));
+// aria-current for a menu entry on this page: "page" if it is this page, "true" if it contains it
+// (a page listed under it, or an address it covers, like the articles under Devolution).
+export function stateFor(item, path) {
+  if (item.href === path) return 'page';
+  if ((item.pages ?? []).some((p) => stateFor(p, path))) return 'true';
+  if ((item.also ?? []).some((href) => path.startsWith(href))) return 'true';
+  return undefined;
 }
 
-// The secondary-bar entry for this page, if any. A ward page counts as its sub-county.
-export function currentPage(section, path) {
-  if (!section) return undefined;
-  const ward = wards.find((w) => path === `/ward/${w.slug}/`);
-  if (ward) return `/ward/#${anchorFor(ward.subCounty)}`;
-  return section.pages.find((p) => within(path, p))?.href;
+// The section a page belongs to: by its address, or because it is listed in the section
+// (Opportunities and Have your say sit under Today).
+export function sectionFor(path) {
+  return sections.find((s) => (s.href === '/' ? path === '/' : path.startsWith(s.href)) || s.pages.some((p) => stateFor(p, path)));
 }

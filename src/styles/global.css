@@ -149,28 +149,50 @@ details.menu { border: 0; padding: 0; }
 details.menu[open] { padding: 0; }
 .menu-panel { position: absolute; right: 0; top: calc(100% + 6px); z-index: 20; width: min(280px, calc(100vw - 32px)); background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; box-shadow: 0 8px 24px rgb(0 0 0 / 0.12); gap: 12px; }
 .menu-panel a { min-height: 32px; display: flex; align-items: center; }
-/* Primary bar: the six sections */
+/* Primary bar: the six sections. With JavaScript (.js) each is a button that opens its menu;
+   without, each is a link to the section's page. */
 .nav { position: relative; display: flex; gap: 0 4px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
 .nav::-webkit-scrollbar { display: none; }
-.nav a {
-  flex: 0 0 auto; padding: 12px 14px; min-height: 44px; font-weight: 500; color: var(--ink);
-  text-decoration: none; border-bottom: 4px solid transparent;
+.nav a, .nav-toggle {
+  flex: 0 0 auto; padding: 12px 14px; min-height: 44px; font: inherit; font-weight: 500; color: var(--ink);
+  text-decoration: none; background: none; border: 0; border-bottom: 4px solid transparent;
 }
+.nav-toggle { display: none; align-items: center; gap: 6px; cursor: pointer; }
+.js .nav-link { display: none; }
+.js .nav-toggle { display: inline-flex; }
+.nav a:focus-visible, .nav-toggle:focus-visible { outline-offset: -3px; } /* the bar scrolls, so keep the ring inside it */
+.nav-toggle .chev { flex: none; }
+.nav-toggle[aria-expanded="true"] { background: var(--surface); }
+.nav-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
 /* Current section: green bar plus Bold text, so it doesn't rely on green alone (green on white is 2.0:1) */
-.nav a[aria-current] { border-bottom-color: var(--brand); font-weight: 700; }
+.nav [aria-current] { border-bottom-color: var(--brand); font-weight: 700; }
 
-/* Secondary bar: the pages inside the current section. Smaller than the primary bar; the current page
-   is a Signal Green pill with Bold Ink text. */
-.subnav { border-top: 1px solid var(--line); background: var(--bg); }
-.subnav-row { position: relative; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 6px 16px; }
-.subnav-row::-webkit-scrollbar { display: none; }
-.subnav a {
-  flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 4px 14px;
-  border-radius: 999px; font-size: 16px; color: var(--ink); text-decoration: none;
+/* Section menus: a panel under the primary bar, over the page, listing everything in the section.
+   The section's own page comes first, across the top; pages with pages of their own (The Assembly,
+   each sub-county's wards) list them indented below. The current page is a Signal Green pill. */
+.nav-panels { position: relative; height: 0; z-index: 30; }
+.nav-panel {
+  position: absolute; top: 0; left: 0; right: 0; max-height: 75vh; overflow-y: auto;
+  background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  box-shadow: 0 16px 24px rgb(0 0 0 / 0.14);
 }
-.subnav a:hover { background: var(--surface); }
-.subnav a[aria-current] { background: var(--brand); color: var(--brand-ink); font-weight: 700; }
-.subnav a[aria-current] .tag-planned { color: var(--brand-ink); border-color: var(--brand-ink); }
+.nav-panel .wrap { padding-top: 12px; padding-bottom: 20px; }
+.nav-panel ul { list-style: none; margin: 0; padding: 0; }
+/* Entries flow down columns (at least 220px wide), so a long entry like The Assembly doesn't leave gaps */
+.menu-grid { columns: 220px; column-gap: 24px; }
+.menu-grid > li { break-inside: avoid; }
+.menu-grid > .menu-overview { column-span: all; border-bottom: 1px solid var(--line); padding-bottom: 6px; margin-bottom: 6px; }
+.nav-panel .menu-overview a { display: inline-flex; font-weight: 700; }
+.nav-panel a {
+  display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 12px; border-radius: 8px;
+  color: var(--ink); text-decoration: none;
+}
+.nav-panel a:hover { background: var(--surface); }
+.nav-panel a[aria-current="true"] { font-weight: 700; }
+.nav-panel a[aria-current="page"] { background: var(--brand); color: var(--brand-ink); font-weight: 700; }
+.nav-panel a[aria-current="page"] .tag-planned { color: var(--brand-ink); border-color: var(--brand-ink); }
+.nav-panel .menu-sub { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); margin: 0 0 8px 12px; padding-left: 8px; border-left: 2px solid var(--line); }
+.nav-panel .menu-sub a { min-height: 40px; }
 
 /* Buttons: Ink text on Signal Green; quiet buttons are Ink on the page background */
 .btn {
@@ -183,7 +205,7 @@ details.menu[open] { padding: 0; }
 .btn.quiet:hover { border-color: var(--ink); }
 /* Light/dark toggle: shown only once the theme script has run; a moon in light mode, a sun in dark mode */
 .btn.theme-toggle { display: none; width: 48px; padding: 0; align-self: stretch; } /* square, as tall as Search and Menu */
-:root[data-theme] .btn.theme-toggle { display: inline-flex; }
+.js .btn.theme-toggle { display: inline-flex; }
 .theme-toggle svg { display: block; }
 .theme-toggle .icon-sun { display: none; }
 :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
@@ -241,7 +263,7 @@ details[open] { padding-bottom: 16px; }
 .site-footer ul { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; }
 
 @media print {
-  .site-header .tools, .nav, .subnav, .page-tools, .site-footer { display: none; }
+  .site-header .tools, .primary-nav, .page-tools, .site-footer { display: none; }
   body { font-size: 12pt; }
   a { color: inherit; }
 }
@@ -333,7 +355,7 @@ a.card.is-planned { opacity: 0.7; }
 .receipt .row span:last-child { white-space: nowrap; }
 input.field { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; font-size: 18px; border: 1px solid var(--control-line); border-radius: 8px; background: var(--bg); color: var(--ink); }
 @media (max-width: 640px) {
-  .nav, .subnav-row { -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
+  .nav { -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
 }
 /* Very narrow phones (e.g. 280px folding phones): tighter header buttons so the symbol keeps its 24px minimum */
 @media (max-width: 340px) {
