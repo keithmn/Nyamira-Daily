@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import StatCard from '../components/StatCard.astro';
 import MyWard from '../components/MyWard.astro';
+import NyWatchLogo from '../components/NyWatchLogo.astro';
 import wards from '../data/wards.json';
 import money from '../data/money.json';
 import leaders from '../data/leaders.json';
@@ -73,7 +74,8 @@ const gov = leaders.county.find((l) => l.office === 'Governor');
       </a>
     </section>
 
-    <section class="stack" aria-labelledby="show">
+    <section class="stack nyw" aria-labelledby="show">
+      <NyWatchLogo />
       <span class="eyebrow">Nightly, 10 to 11 pm</span>
       <h2 id="show">Nyamira Watch: the nightly show</h2>
       <p class="muted">Live discussion of the county's facts, with guests. Also released as a podcast.</p>

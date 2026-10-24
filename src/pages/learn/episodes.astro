@@ -2,8 +2,10 @@
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import Placeholder from '../../components/Placeholder.astro';
+import NyWatchLogo from '../../components/NyWatchLogo.astro';
 ---
 <Base title="Show episodes">
   <PageHead eyebrow="Learn" title="Show episodes" lead="Past episodes of Nyamira Watch, the nightly show." crumbs={[{ href: '/learn/', label: 'Learn' }, { href: '/learn/episodes/', label: 'Show episodes' }]} />
+  <div class="nyw" style="margin-top:16px"><NyWatchLogo /></div>
   <div style="margin-top:16px"><Placeholder what="This lesson" /></div>
 </Base>

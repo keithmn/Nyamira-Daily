@@ -289,6 +289,13 @@ a.card.is-planned { opacity: 0.7; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 15px; }
 .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
 
+/* NY Watch (the show): its own logos, and the only place Record Red appears:
+   the recording dot, and "Live" / "New episode" badges (white on red, 4.8:1) once episodes are listed */
+.nyw-logo { display: block; }
+.nyw-logo img { display: block; width: 180px; height: auto; }
+.nyw .eyebrow::before { background: var(--nd-red); border-radius: 50%; }
+.nyw-badge { display: inline-block; align-self: flex-start; white-space: nowrap; padding: 2px 10px; border-radius: 999px; font-size: 14px; font-weight: 500; background: var(--nd-red); color: var(--nd-white); }
+
 /* Receipt */
 .receipt { border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); padding: 20px; display: flex; flex-direction: column; gap: 10px; max-width: 560px; font-variant-numeric: tabular-nums; }
 .receipt .row { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px dashed var(--line); padding-bottom: 8px; }
