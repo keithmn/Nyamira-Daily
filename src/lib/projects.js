@@ -19,3 +19,46 @@ export const watch = [
 ];
 export const notes = data.notes;
 export const checked = data.checked;
+
+// Reported percentage from a status line ("62% – Ongoing" → 62), or null
+export function pct(status) {
+  const m = /^(?:[a-z ;,]*?)(\d{1,3})%/i.exec(status ?? '');
+  return m ? Math.min(100, Number(m[1])) : null;
+}
+// The status line without contractor and table notes: "0% – Not procured | Contractor: …" → "0% – Not procured"
+export function statusShort(status) {
+  if (!status) return null;
+  return status.split('|')[0].trim();
+}
+
+// Every question to ask, for the home page map: the curated list above, then projects the county's
+// own reports list at 0% (deduplicated against the curated list). Each carries its sources.
+const fmtM = (n) => (n >= 1e6 ? 'KSh ' + parseFloat((n / 1e6).toFixed(2)) + 'M' : 'KSh ' + Math.round(n).toLocaleString('en-KE'));
+const zero = [];
+const seen = new Set();
+for (const p of projects) {
+  const st = statusShort(p.status);
+  if (!p.ward || !st || !st.startsWith('0%')) continue;
+  const key = p.ward + '|' + p.name;
+  if (seen.has(key)) continue;
+  seen.add(key);
+  const first = p.name.split(' ').find((w) => w.length > 4 && /^[A-Z]/.test(w) && !['Construction', 'Completion', 'Renovation', 'Repair', 'Fencing', 'Equipping', 'Distribution', 'Road'].includes(w));
+  if (first && watch.some((x) => x.ward === p.ward && x.title.includes(first))) continue;
+  zero.push({
+    ward: p.ward,
+    title: p.name.replace('Road routine maintenance: ', 'Road maintenance: '),
+    text: `${fmtM(p.amount)} set aside in FY${p.fy}. The county's own report lists it as "${st}".`,
+    src: [{ id: p.sourceId, page: p.page }],
+  });
+}
+export const questions = [
+  ...watch.map((x) => ({ ward: x.ward, title: x.title, text: x.text, src: x.src.map((id) => ({ id })) })),
+  ...zero,
+].map((q) => ({ ...q, src: q.src.map((s) => ({ title: shortTitle(sources[s.id].title), url: sources[s.id].url, page: s.page ?? '' })) }));
+// "County Government of Nyamira – Programme Based Budget 2025/2026 (July 2025), Table 18 …" → "Programme Based Budget 2025/2026"
+export function shortTitle(t) {
+  const parts = t.split(' – ');
+  const by = parts.length > 1 ? parts[0] : '';
+  const name = (parts.length > 1 ? parts.slice(1).join(' – ') : t).split(' (')[0].split(',')[0].trim();
+  return by && by !== 'County Government of Nyamira' ? by + ': ' + name : 'County ' + name.replace('County ', '');
+}

@@ -12,27 +12,28 @@ const fmtB = (v: number) => (v / 1000).toLocaleString('en-KE', { maximumFraction
 const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 ---
 <div class="stack-lg" style="margin-top:24px">
-  <section class="grid">
-    <div class="card">
-      <span class="eyebrow">Last full year ({last.fy})</span>
-      <span class="big">{bn(last.spent)}</span>
-      <span>spent by the county, out of a budget of {bn(last.budget)}.</span>
-      <EvidenceLabel kind="official" />
-      <span class="small muted">Source: Controller of Budget, FY{last.fy} report</span>
+  <section class="figure on-ink panel-ink" aria-label="Since devolution began">
+    <span class="eyebrow">Since devolution began</span>
+    <span class="num">{bn(totalSpent)}</span>
+    <p class="say">spent by the county over 12 years, FY2013/14 to FY2024/25 (adding each year's actual spending).</p>
+    <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget annual reports</p>
+  </section>
+
+  <section class="cols-2">
+    <div class="figure">
+      <span class="eyebrow">Last full year · {last.fy}</span>
+      <span class="num">{bn(last.spent)}</span>
+      <p class="say">spent by the county, out of a budget of <strong>{bn(last.budget)}</strong>.</p>
+      <div class="meter" aria-hidden="true"><i style={`width:${Math.round((last.spent / last.budget) * 100)}%`}></i></div>
+      <div class="meter-key"><span>Spent {bn(last.spent)}</span><span>Budget {bn(last.budget)}</span></div>
+      <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{last.fy} report</p>
     </div>
-    <div class="card">
-      <span class="eyebrow">Development (roads, buildings, water)</span>
-      <span class="big">{last.devAbs}%</span>
-      <span>of the {last.fy} development budget was spent ({bn(last.dev)}). Most county money goes on salaries and running costs.</span>
-      <EvidenceLabel kind="official" />
-      <span class="small muted">Source: Controller of Budget, FY{last.fy} report</span>
-    </div>
-    <div class="card">
-      <span class="eyebrow">Since devolution began</span>
-      <span class="big">{bn(totalSpent)}</span>
-      <span>spent by the county over 12 years, FY2013/14 to FY2024/25 (adding each year's actual spending).</span>
-      <EvidenceLabel kind="official" />
-      <span class="small muted">Source: Controller of Budget annual reports</span>
+    <div class="figure">
+      <span class="eyebrow">Development · {last.fy}</span>
+      <span class="num">{last.devAbs}%</span>
+      <p class="say">of the development budget (roads, buildings, water) was spent ({bn(last.dev)}). Most county money goes on salaries and running costs.</p>
+      <div class="meter" aria-hidden="true"><i style={`width:${last.devAbs}%`}></i></div>
+      <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{last.fy} report</p>
     </div>
   </section>
 
@@ -45,6 +46,7 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
     <h2>Budget and spending, every year</h2>
     <p class="muted">The county usually spends less than it budgets. The gap is money that was not released or not used that year.</p>
     <BarChart title="Nyamira County approved budget and actual spending by financial year" labels={labels} unit="KSh billion" format={fmtB}
+      colors={['var(--bar-quiet)', 'var(--brand)']}
       series={[{ name: 'Approved budget', values: ys.map((y) => y.budget) }, { name: 'Actually spent', values: ys.map((y) => y.spent) }]} />
   </section>
 
@@ -52,6 +54,7 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
     <h2>How much of the development budget was used</h2>
     <p class="muted">Development money pays for things that last: roads, buildings, water. A low share means projects were planned and funded but not paid for that year.</p>
     <BarChart title="Share of development budget spent each year, per cent" labels={labels} unit="Per cent of development budget spent" max={100} format={(v) => `${v}%`}
+      colors={['var(--brand)']}
       series={[{ name: 'Development budget used', values: ys.map((y) => y.devAbs) }]} />
   </section>
 
@@ -59,6 +62,7 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
     <h2>Money the county raised itself</h2>
     <p class="muted">Fees, rates and permits collected locally ("own-source revenue"), against the county's own target. From FY2022/23 this includes hospital fees, so later years are not directly comparable with earlier ones.</p>
     <BarChart title="Own-source revenue target and amount collected, KSh million" labels={labels} unit="KSh million"
+      colors={['var(--bar-quiet)', 'var(--brand)']}
       series={[{ name: 'Target', values: ys.map((y) => y.osrTarget) }, { name: 'Collected', values: ys.map((y) => y.osr) }]} />
   </section>
 

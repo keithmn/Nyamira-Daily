@@ -6,7 +6,7 @@ Status as of 23 October 2026.
 
 - **Today**: headline figures, your-ward panel, links into each section.
 - **Data**: Money (12 years, 3 charts), Projects (ward budgets, questions to ask, 404 records), Services (by ward), People (2019 census), Open data (4 CSVs).
-- **My Ward**: county map, 20 ward pages (receipt with WhatsApp share, ward map, MCA, services, county projects).
+- **Wards**: county map, 20 ward pages (receipt with WhatsApp share, ward map, MCA, services, county projects).
 - **Government**: Who's in charge, Leaders (all offices with sources), Executive (overview), Assembly (sittings, bills, committees, petitions and motions, MCAs), Watchdogs.
 - **Constitution**: devolution articles 174–200 with plain summaries, Fourth Schedule, your rights, county Acts.
 - **Learn**: how the county works, budget calendar, taking part, fees you pay, glossary.

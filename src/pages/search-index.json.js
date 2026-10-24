@@ -13,7 +13,7 @@ export function GET() {
   const items = [];
   const add = (t, u, k = '', g = 'Page') => items.push({ t, u, k, g });
   const pages = [
-    ['Today', '/'], ['Data', '/data/'], ['My Ward', '/ward/'], ['Government', '/government/'],
+    ['Today', '/'], ['Data', '/data/'], ['Wards', '/ward/'], ['Government', '/government/'],
     ["Who's in charge?", '/government/whos-in-charge/', 'responsible fix problem road hospital'],
     ['Leaders', '/government/leaders/', 'governor senator mp woman representative speaker mca'],
     ['The Executive', '/government/executive/', 'departments cec chief officer'],

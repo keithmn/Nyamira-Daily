@@ -43,7 +43,7 @@ Requires Node.js 18.20.8 or later (Astro 5).
 
 ## Sections
 
-Today · Data · My Ward · Government · Constitution · Learn, plus Opportunities, Search, About and How we work.
+Today · Wards · Data · Government · Constitution · Learn, plus Opportunities, Search, About and How we work.
 
 The six sections form the navigation bar. Tapping a section opens a menu listing everything in it: the section's own page first, then its pages (for Data: Money, Projects, Services, People, Open data…). The Assembly's pages appear under The Assembly, and My Ward lists all 20 wards by sub-county. Opportunities and Have your say sit under Today. Without JavaScript the sections are plain links to their pages. The menus are defined in `src/nav.js`.
 

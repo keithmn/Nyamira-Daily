@@ -7,7 +7,7 @@ import wards from '../../data/wards.json';
 import leaders from '../../data/leaders.json';
 import money from '../../data/money.json';
 import census from '../../data/census.json';
-import { forWard, total, kindLabel, fyOrder, sources, watch } from '../../lib/projects.js';
+import { forWard, total, kindLabel, fyOrder, sources, watch, pct, statusShort, shortTitle } from '../../lib/projects.js';
 import { ksh, num } from '../../lib/fmt.js';
 
 export function getStaticPaths() {
@@ -38,16 +38,18 @@ const shareText = [
 const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
 ---
 <Base title={`${w.name} Ward`}>
-  <PageHead eyebrow={`${w.subCounty} sub-county`} title={`${w.name} Ward`} crumbs={[{ href: '/ward/', label: 'My Ward' }, { href: `/ward/${w.slug}/`, label: w.name }]} />
+  <PageHead eyebrow={`${w.subCounty} sub-county`} title={`${w.name} Ward`} crumbs={[{ href: '/ward/', label: 'Wards' }, { href: `/ward/${w.slug}/`, label: w.name }]} />
 
   <div class="stack-lg" style="margin-top:8px">
+    <div class="ward-top">
+      <div class="stack">
     <section class="receipt" aria-label={`${w.name} ward summary`}>
       <span class="eyebrow">Ward receipt · {w.subCounty}</span>
       <h2>{w.name} Ward</h2>
       <div class="row"><span>MCA</span><span>{mca ? mcaLine : 'Not confirmed'}</span></div>
       {mp && <div class="row"><span>MP ({w.subCounty})</span><span>{mp.name}</span></div>}
       <div class="row"><span>Services listed</span><span>{w.facilities.length}</span></div>
-      {order.filter((c) => byCat[c]).map((c) => <div class="row"><span>&nbsp;&nbsp;{c}</span><span>{byCat[c].length}</span></div>)}
+      {order.filter((c) => byCat[c]).map((c) => <div class="row sub"><span>{c}</span><span>{byCat[c].length}</span></div>)}
       {b2526 && <div class="row"><span>Ward projects budgeted, 2025/26</span><span>{ksh(b2526.amount)}</span></div>}
       {roads && <div class="row"><span>Road maintenance contracts, 2023/24</span><span>{ksh(roads.amount)}</span></div>}
       {cw?.votersRegisteredEarlier && <div class="row"><span>Registered voters (IEBC 2018 register)</span><span>{num(cw.votersRegisteredEarlier)}</span></div>}
@@ -55,7 +57,7 @@ const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
       <div class="row"><span>Development budget used</span><span>{last.devAbs}%</span></div>
       <p class="small muted">Sources: MCA from IEBC 2022 results and later by-elections. Ward budget from the county's Programme Based Budget 2025/26 (Table 18); road contracts from the Annual Development Plan 2025/26. Services from the Nyamira Daily list, mostly not yet checked on site. County spending from the Controller of Budget.</p>
       <div class="page-tools">
-        <a class="btn primary" href={wa} rel="noopener">Share this receipt on WhatsApp</a>
+        <a class="btn" href={wa} rel="noopener">Share this receipt on WhatsApp</a>
         <button class="btn quiet" type="button" data-set-ward={w.slug}>Make {w.name} my ward</button>
         <span class="small" data-ward-only={w.slug} hidden><strong>This is your ward.</strong></span>
       </div>
@@ -68,16 +70,21 @@ const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
       <p>Wadi ya {w.name} iko katika kaunti ndogo ya {w.subCounty}. Mwakilishi wa wadi (MCA) ni {mca?.name ?? 'bado hajathibitishwa'}. Tumeorodhesha huduma {w.facilities.length} katika wadi hii; nyingi bado hazijakaguliwa ana kwa ana.</p>
     </div>
 
-    <section class="stack">
+      </div>
+    <section class="stack ward-map">
       <h2>Ward map</h2>
       <WardMap mode="ward" slug={w.slug} />
     </section>
+    </div>
 
     <section class="stack">
       <h2>Services in {w.name}</h2>
       <p class="muted small">Listed from public sources. "Unverified" means our correspondents have not yet visited. <span class="updated">Last updated 22 Oct 2026.</span></p>
+      <div class="count-tiles">
+        {order.filter((c) => byCat[c]).map((c) => <a href={`#svc-${c.toLowerCase().split(' ').join('-')}`}><b>{byCat[c].length}</b><span>{c}</span></a>)}
+      </div>
       {order.filter((c) => byCat[c]).map((c) => (
-        <details>
+        <details id={`svc-${c.toLowerCase().split(' ').join('-')}`}>
           <summary>{c} ({byCat[c].length})</summary>
           <div class="table-box">
             <table class="cards">
@@ -101,19 +108,35 @@ const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
     <section class="stack" id="projects">
       <h2>County projects in {w.name}</h2>
       <p class="muted small">What the county's plans and budgets list for this ward. "Budgeted" is planned money; "Contract sum" is what was signed; "Spent" is what was reported paid. A budget line is not proof that work was done. Read from the county's own documents; we have not visited these sites yet.</p>
-      {flags.map((x) => <p class="sw"><span class="eyebrow">Question to ask</span><strong>{x.title}:</strong> {x.text}</p>)}
+      {flags.map((x) => (
+        <div class="ask on-ink">
+          <span class="eyebrow">Question to ask</span>
+          <p><strong>{x.title}:</strong> {x.text}</p>
+          <p class="note">A question, not an accusation. Sources: {x.src.map((id, i) => <>{i > 0 && '; '}<a href={sources[id].url} rel="noopener">{shortTitle(sources[id].title)}</a></>)}</p>
+        </div>
+      ))}
       {byFy.length === 0 && <p class="muted">No ward-tagged projects found yet in the documents we have read.</p>}
       {byFy.map((g, i) => (
         <details open={i === 0}>
           <summary>{g.fy === 'as at 30 Jun 2025' ? 'Status at 30 June 2025' : `FY${g.fy}`} ({g.rows.length})</summary>
-          <div class="table-box">
-            <table class="cards">
-              <thead><tr><th>Project</th><th>Department</th><th class="num">Amount</th><th>Type</th><th>Status reported</th><th>Source</th></tr></thead>
-              <tbody>{g.rows.map((p) => (
-                <tr><td>{p.name}{p.location && p.location !== `${w.name} Ward` ? ` (${p.location})` : ''}</td><td data-label="Department">{p.department}</td><td class="num" data-label="Amount">{p.amount ? ksh(p.amount) : 'Printed as 0 or blank'}</td><td data-label="Type">{kindLabel[p.kind] ?? p.kind}</td><td data-label="Status">{p.status ?? '—'}</td><td class="small" data-label="Source"><a href={sources[p.sourceId].url} rel="noopener">{p.sourceId.toUpperCase()}</a> {p.page}</td></tr>
-              ))}</tbody>
-            </table>
-          </div>
+          <ul class="prows">{g.rows.map((p) => {
+            const pc = pct(p.status);
+            const st = statusShort(p.status);
+            const rest = p.status && p.status.includes('|') ? p.status.split('|').slice(1).join('|').trim() : '';
+            return (
+              <li>
+                <span class="pn">{p.name}{p.location && p.location !== `${w.name} Ward` ? ` (${p.location})` : ''}</span>
+                <span class="pa">{p.amount ? ksh(p.amount) : 'Printed as 0 or blank'}</span>
+                <span class="pm">
+                  <span>{kindLabel[p.kind] ?? p.kind}</span>
+                  {st && <span class="st">{pc != null && <span class="meter sm" aria-hidden="true" style="display:inline-block;width:72px;vertical-align:middle;margin-right:6px"><i style={`width:${pc}%`}></i></span>}{st}</span>}
+                  <span>{p.department}</span>
+                  <span><a href={sources[p.sourceId].url} rel="noopener">{shortTitle(sources[p.sourceId].title)}</a> {p.page}</span>
+                </span>
+                {rest && <span class="pm">{rest}</span>}
+              </li>
+            );
+          })}</ul>
         </details>
       ))}
       <a class="small" href="/data/projects/">Compare all wards</a>

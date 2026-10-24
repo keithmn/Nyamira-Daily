@@ -46,7 +46,7 @@ Six sections, in the main menu:
 |---|---|
 | Today | What our county has, spends and does: headline figures plus the reader's own ward |
 | Data | Money, projects, services, people (census), prices, plans; plus open data downloads |
-| My Ward | A page per ward (20): ward receipt, map, MCA, services, county projects |
+| Wards | A page per ward (20): ward receipt, map, MCA, services, county projects |
 | Government | Who's in charge of what, leaders, the Executive, the County Assembly, watchdogs |
 | Constitution | Devolution (Chapter 11), what the county must provide (Fourth Schedule), your rights, county laws |
 | Learn | How the county works, budget calendar, taking part, fees you pay, glossary |
@@ -55,7 +55,7 @@ A **"Your ward" picker** sits under the menu on every page. Readers choose their
 
 ## A related show
 
-"Nyamira Watch" is a nightly live show (10 to 11 pm, also released as a podcast) that discusses the county's facts. The site carries a link to its episodes. The show draws on the site's data; the site does not depend on the show.
+"NY Watch" is a nightly live show (10 to 11 pm, also released as a podcast) that discusses the county's facts. The site carries a link to its episodes. The show draws on the site's data; the site does not depend on the show.
 
 ## Languages
 

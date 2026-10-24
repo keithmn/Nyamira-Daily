@@ -20,12 +20,12 @@ export const sections = [
     { href: '/opportunities/', label: 'Opportunities' },
     { href: '/have-your-say/', label: 'Have your say' },
   ] },
-  { href: '/data/', label: 'Data', overview: 'Nyamira in numbers', pages: dataPages },
-  // My Ward: every ward, grouped by sub-county (each group links to its place on the ward list)
-  { href: '/ward/', label: 'My Ward', overview: 'Choose your ward', pages: subCounties.map((s) => ({
+  // Wards: every ward, grouped by sub-county (each group links to its place on the ward list)
+  { href: '/ward/', label: 'Wards', overview: 'Choose your ward', pages: subCounties.map((s) => ({
     href: `/ward/#${anchorFor(s)}`, label: s,
     pages: wards.filter((w) => w.subCounty === s).map((w) => ({ href: `/ward/${w.slug}/`, label: w.name })),
   })) },
+  { href: '/data/', label: 'Data', overview: 'Nyamira in numbers', pages: dataPages },
   { href: '/government/', label: 'Government', overview: 'How Nyamira is run', pages: [
     { href: '/government/whos-in-charge/', label: "Who's in charge?" },
     { href: '/government/leaders/', label: 'Leaders' },

@@ -1,0 +1,202 @@
+---
+// Home page opening panel: the whole county as a live map.
+// - Every ward is a link to its page (works without JavaScript).
+// - A pulsing dot marks each ward with a question to ask (src/lib/projects.js `questions`).
+// - With JavaScript, the panel beside the map steps through the questions (with pause, previous and next),
+//   and pointing at a ward (or tapping it once on a touch screen) shows that ward's figures instead.
+// - Motion stops for readers who ask their phone for reduced motion.
+import geo from '../data/geo.json';
+import wards from '../data/wards.json';
+import { questions, total } from '../lib/projects.js';
+import { ksh } from '../lib/fmt.js';
+import { subCounties } from '../nav.js';
+
+const subClass = { 'Borabu': 's1', 'Kitutu Masaba': 's2', 'North Mugirango': 's3', 'West Mugirango': 's4' };
+const info = Object.fromEntries(wards.map((w) => {
+  const b = total(w.slug, '2025/26', 'budgeted');
+  return [w.slug, {
+    name: w.name, sub: w.subCounty, href: `/ward/${w.slug}/`,
+    services: w.facilities.length,
+    budget: b ? ksh(b.amount) : null,
+    // Several 2025/26 lines for these two wards are printed as KSh 0 (see docs/DATA.md and wardspend.json notes)
+    low: w.slug === 'nyansiongo' || w.slug === 'nyamaiya',
+    questions: questions.filter((q) => q.ward === w.slug).length,
+  }];
+}));
+const qs = questions.map((q) => ({ ...q, name: info[q.ward].name }));
+const flagged = [...new Set(qs.map((q) => q.ward))];
+const data = JSON.stringify({ wards: info, questions: qs, centres: Object.fromEntries(Object.entries(geo.wards).map(([s, w]) => [s, [Number(w.cx), Number(w.cy)]])) }).split('<').join('\\u003c');
+const q0 = qs[0];
+---
+<section class="atlas-hero on-ink" aria-labelledby="hero-title">
+  <svg class="contours" aria-hidden="true" viewBox="0 0 1440 640" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M-20 480C200 420 360 530 600 460S1000 390 1460 450" /><path d="M-20 515C220 455 380 565 620 495S1020 425 1460 485" /><path d="M-20 550C240 490 400 600 640 530S1040 460 1460 520" /><path d="M-20 585C260 525 420 635 660 565S1060 495 1460 555" /></g></svg>
+  <div class="wrap hero-grid">
+    <div class="hero-top">
+      <span class="eyebrow">Nyamira County · 20 wards · 4 sub-counties</span>
+      <h1 id="hero-title">What our county has, spends and does</h1>
+      <p class="lead">Every number has a source and a label that says how solid it is. Point at a ward on the map, or choose yours.</p>
+    </div>
+
+    <div class="hero-pick">
+      <label class="hero-select">
+        <span class="vh">Your ward</span>
+        <select data-ward-pick>
+          <option value="">Choose your ward</option>
+          {subCounties.map((s) => (
+            <optgroup label={s}>
+              {wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}
+            </optgroup>
+          ))}
+        </select>
+      </label>
+      <a class="pill-btn line" href="/ward/">See all 20 wards</a>
+    </div>
+
+    <div class="hero-card" aria-live="polite">
+      <!-- Without JavaScript: the first question, and a link to the rest -->
+      <div class="hc-q" data-hc="q">
+        <div class="hc-top">
+          <span class="eyebrow"><span class="live" aria-hidden="true"></span>Question to ask</span>
+          <span class="hc-ctl">
+            <span class="hc-count" data-f="count">1 of {qs.length}</span>
+            <button type="button" class="hc-btn" data-act="prev" aria-label="Previous question" hidden>‹</button>
+            <button type="button" class="hc-btn" data-act="pause" aria-label="Pause" aria-pressed="false" hidden><span class="i-pause" aria-hidden="true"></span></button>
+            <button type="button" class="hc-btn" data-act="next" aria-label="Next question" hidden>›</button>
+          </span>
+        </div>
+        <span class="hc-ward" data-f="name">{q0.name} ward</span>
+        <h2 class="hc-title" data-f="title">{q0.title}</h2>
+        <p data-f="text">{q0.text}</p>
+        <p class="source"><span class="label official">Official claim</span> <span data-f="src">{q0.src.map((s, i) => <>{i > 0 && '; '}<a href={s.url} rel="noopener">{s.title}</a>{s.page && ` ${s.page}`}</>)}</span></p>
+        <p class="hc-note">A question, not an accusation. <a href="/data/projects/">All ward projects and questions</a></p>
+      </div>
+      <div class="hc-w" data-hc="w" hidden>
+        <div class="hc-top"><span class="eyebrow" data-f="sub"></span><span class="hc-count">Ward</span></div>
+        <h2 class="hc-title big" data-f="wname"></h2>
+        <div class="hc-figs">
+          <div><b data-f="services"></b><span>services listed</span><span class="label unverified">Unverified</span></div>
+          <div><b data-f="budget"></b><span data-f="bnote">ward projects, 2025/26 budget</span><span class="label official">Official claim</span></div>
+        </div>
+        <p class="hc-flag" data-f="flag"></p>
+        <a class="pill-btn" data-f="open" href="/ward/">Open ward</a>
+      </div>
+    </div>
+
+    <figure class="hero-map">
+      <svg viewBox="0 0 600 950" aria-label="Map of Nyamira County's 20 wards. Each ward links to its page; pulsing dots mark wards with a question to ask.">
+        {Object.entries(geo.wards).map(([s, w]) => (
+          <a href={`/ward/${s}/`} data-w={s} aria-label={`${w.name} ward${flagged.includes(s) ? ', has a question to ask' : ''}`}>
+            <path class={`hm-w ${subClass[info[s].sub]}`} d={w.d} />
+          </a>
+        ))}
+        {flagged.map((s, i) => (
+          <g class="hm-ping" data-p={s} aria-hidden="true">
+            <circle class="ring" cx={geo.wards[s].cx} cy={geo.wards[s].cy} r="9" style={`animation-delay:${(i * 0.37).toFixed(2)}s`} />
+            <circle class="dot" cx={geo.wards[s].cx} cy={geo.wards[s].cy} r="8" />
+          </g>
+        ))}
+        <g class="hm-label" aria-hidden="true" hidden><rect height="44" rx="22" /><text text-anchor="middle"></text></g>
+      </svg>
+      <figcaption>
+        <span class="key"><span class="live" aria-hidden="true"></span>Question to ask</span>
+        <span class="key"><i class="hm-key"></i><span class="hint-hover">Point at a ward</span><span class="hint-touch">Tap a ward</span></span>
+      </figcaption>
+    </figure>
+  </div>
+  <script is:inline type="application/json" id="hm-data" set:html={data}></script>
+</section>
+
+<script is:inline>
+(function () {
+  var root = document.querySelector('.atlas-hero');
+  var el = document.getElementById('hm-data');
+  if (!root || !el) return;
+  var D = JSON.parse(el.textContent);
+  var Q = D.questions, W = D.wards, C = D.centres;
+  var svg = root.querySelector('.hero-map svg');
+  var cardQ = root.querySelector('[data-hc="q"]'), cardW = root.querySelector('[data-hc="w"]');
+  var label = root.querySelector('.hm-label'), lrect = label.querySelector('rect'), ltext = label.querySelector('text');
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var i = 0, paused = still, hover = null, timer = null, lastTouch = false;
+  function f(card, k) { return card.querySelector('[data-f="' + k + '"]'); }
+  function each(sel, fn) { Array.prototype.forEach.call(root.querySelectorAll(sel), fn); }
+  root.classList.add('live-on');
+  each('.hc-btn', function (b) { b.hidden = false; });
+  var pauseBtn = root.querySelector('[data-act="pause"]');
+  function setPause(p) { paused = p; pauseBtn.setAttribute('aria-pressed', p ? 'true' : 'false'); pauseBtn.setAttribute('aria-label', p ? 'Play' : 'Pause'); pauseBtn.classList.toggle('is-paused', p); }
+  setPause(paused);
+
+  function showLabel(slug) {
+    var c = C[slug], name = W[slug].name, w = name.length * 14.5 + 40;
+    var x = Math.min(Math.max(c[0] - w / 2, 4), 596 - w), y = c[1] - 78 < 4 ? c[1] + 30 : c[1] - 70;
+    lrect.setAttribute('x', x); lrect.setAttribute('y', y); lrect.setAttribute('width', w);
+    ltext.setAttribute('x', x + w / 2); ltext.setAttribute('y', y + 30); ltext.textContent = name;
+    label.removeAttribute('hidden');
+  }
+  function mark() {
+    var focus = hover || Q[i].ward;
+    each('[data-w]', function (a) {
+      var s = a.getAttribute('data-w');
+      a.classList.toggle('is-on', s === hover);
+      a.classList.toggle('is-q', !hover && s === Q[i].ward);
+    });
+    each('[data-p]', function (g) { g.classList.toggle('hot', g.getAttribute('data-p') === focus); });
+    showLabel(focus);
+  }
+  function renderQ() {
+    var q = Q[i];
+    f(cardQ, 'name').textContent = q.name + ' ward';
+    f(cardQ, 'count').textContent = (i + 1) + ' of ' + Q.length;
+    f(cardQ, 'title').textContent = q.title;
+    f(cardQ, 'text').textContent = q.text;
+    var s = f(cardQ, 'src'); s.textContent = '';
+    q.src.forEach(function (x, k) {
+      if (k) s.appendChild(document.createTextNode('; '));
+      var a = document.createElement('a'); a.href = x.url; a.rel = 'noopener'; a.textContent = x.title; s.appendChild(a);
+      if (x.page) s.appendChild(document.createTextNode(' ' + x.page));
+    });
+  }
+  function renderW(slug) {
+    var w = W[slug];
+    f(cardW, 'sub').textContent = w.sub + ' sub-county';
+    f(cardW, 'wname').textContent = w.name;
+    f(cardW, 'services').textContent = w.services;
+    f(cardW, 'budget').textContent = w.budget || 'Not found';
+    f(cardW, 'bnote').textContent = w.low ? 'ward projects, 2025/26 (several lines printed as KSh 0)' : 'ward projects, 2025/26 budget';
+    f(cardW, 'flag').textContent = w.questions ? (w.questions === 1 ? '1 question to ask about a project here.' : w.questions + ' questions to ask about projects here.') : 'No questions to ask in the documents we have read so far.';
+    var o = f(cardW, 'open'); o.href = w.href; o.textContent = 'Open ' + w.name + ' →';
+  }
+  function draw() {
+    cardQ.hidden = !!hover; cardW.hidden = !hover;
+    if (hover) renderW(hover); else renderQ();
+    mark();
+  }
+  function go(step) { i = (i + step + Q.length) % Q.length; draw(); }
+  function tick() { clearInterval(timer); timer = setInterval(function () { if (!paused && !hover && !document.hidden) go(1); }, 6000); }
+
+  each('.hc-btn', function (b) {
+    b.addEventListener('click', function () {
+      var a = b.getAttribute('data-act');
+      if (a === 'pause') setPause(!paused); else { hover = null; go(a === 'next' ? 1 : -1); tick(); }
+    });
+  });
+  each('[data-w]', function (a) {
+    var s = a.getAttribute('data-w');
+    a.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hover = s; draw(); } });
+    a.addEventListener('focus', function () { if (!lastTouch) { hover = s; draw(); } });
+    a.addEventListener('pointerdown', function (e) { lastTouch = e.pointerType !== 'mouse'; });
+    // On a touch screen the first tap shows the ward; the "Open" button (or a second tap) goes to its page
+    a.addEventListener('click', function (e) { if (lastTouch && hover !== s) { e.preventDefault(); hover = s; draw(); } });
+  });
+  document.addEventListener('keydown', function () { lastTouch = false; });
+  svg.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { hover = null; draw(); } });
+  svg.addEventListener('focusout', function (e) { if (!svg.contains(e.relatedTarget)) { hover = null; draw(); } });
+
+  // The reader's own ward (from the picker) is outlined on the map
+  function mine() { var w = document.documentElement.getAttribute('data-ward') || ''; each('[data-w]', function (a) { a.classList.toggle('mine', a.getAttribute('data-w') === w); }); }
+  document.addEventListener('nd-ward', mine);
+  document.addEventListener('DOMContentLoaded', mine);
+  mine();
+  draw(); tick();
+})();
+</script>

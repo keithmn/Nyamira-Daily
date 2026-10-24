@@ -3,8 +3,10 @@
 // One y-axis. Native <title> tooltips on every bar; the same numbers
 // are always also given in a table on the page.
 interface Series { name: string; values: (number | null)[] }
-interface Props { labels: string[]; series: Series[]; unit: string; format?: (v: number) => string; max?: number; title: string }
+interface Props { labels: string[]; series: Series[]; unit: string; format?: (v: number) => string; max?: number; title: string; colors?: string[] }
 const { labels, series, unit, title } = Astro.props;
+// Optional colour per series (CSS values, normally tokens); defaults to the --series-* tokens
+const col = (j: number) => Astro.props.colors?.[j] ?? `var(--series-${j + 1})`;
 const fmt = Astro.props.format ?? ((v: number) => v.toLocaleString('en-KE'));
 const W = 720, H = 300, L = 52, R = 8, T = 12, B = 34;
 const all = series.flatMap((s) => s.values.filter((v): v is number => v != null));
@@ -25,7 +27,7 @@ const bar = (x: number, v: number) => {
 ---
 <figure class="chart" style="margin:0">
   <div class="legend" aria-hidden={series.length < 2 ? 'true' : undefined}>
-    {series.length > 1 && series.map((s, i) => <span><i class={`s${i + 1}`} style={`background:var(--series-${i + 1})`}></i>{s.name}</span>)}
+    {series.length > 1 && series.map((s, i) => <span><i class={`s${i + 1}`} style={`background:${col(i)}`}></i>{s.name}</span>)}
   </div>
   <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={title}>
     {ticks.map((t) => (<>
@@ -36,7 +38,7 @@ const bar = (x: number, v: number) => {
       const gx = L + i * gw + (gw - (bw * series.length + gap * (series.length - 1))) / 2;
       return (<>
         {series.map((s, j) => s.values[i] != null && (
-          <path d={bar(gx + j * (bw + gap), s.values[i] as number)} class={`s${j + 1}`} style={`fill:var(--series-${j + 1})`}><title>{`${lab} · ${s.name}: ${fmt(s.values[i] as number)} ${unit}`}</title></path>
+          <path d={bar(gx + j * (bw + gap), s.values[i] as number)} class={`s${j + 1}`} style={`fill:${col(j)}`}><title>{`${lab} · ${s.name}: ${fmt(s.values[i] as number)} ${unit}`}</title></path>
         ))}
         <text x={L + i * gw + gw / 2} y={H - 12} text-anchor="middle">{lab.replace('20', '').replace('/', '/')}</text>
       </>);

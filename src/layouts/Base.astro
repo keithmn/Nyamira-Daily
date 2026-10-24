@@ -19,6 +19,7 @@ const {
 const path = Astro.url.pathname;
 const section = sectionFor(path);
 const sectionState = (s: (typeof sections)[number]) => (s === section ? (s.href === path ? 'page' : 'true') : undefined);
+const isHome = path === '/';
 const pageTitle = title === 'Today' ? 'Nyamira Daily' : `${title} · Nyamira Daily`;
 
 // Sharing (WhatsApp, Facebook, X): pages without their own image use the default card.
@@ -96,17 +97,34 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
               <img class="for-light" src="/brand/Nyamira-Daily_symbol_full-colour.svg" alt="Nyamira Daily" width="216" height="256" loading="lazy" />
               <img class="for-dark" src="/brand/Nyamira-Daily_symbol_reverse.svg" alt="Nyamira Daily" width="216" height="256" loading="lazy" />
             </span>
-            <span class="tagline">Facts about our county, in plain language</span>
           </a>
         </div>
+        <!-- Your ward: one picker for the whole site (see the script at the bottom). On phones it gets its own row. -->
+        <div class={`ward-pick${isHome ? ' on-home' : ''}`}>
+          <label class="ward-pill">
+            <svg class="pin" viewBox="0 0 200 240" width="14" height="17" aria-hidden="true" focusable="false"><path d="M100 226C62 182 30 150 30 104 30 58 63 24 100 24s70 34 70 80c0 46-32 78-70 122z" fill="var(--nd-green)" /><circle cx="100" cy="102" r="34" fill="var(--nd-ink)" /></svg>
+            <span>Your ward</span>
+            <select id="ward-pick" data-ward-pick>
+              <option value="">Whole county</option>
+              {subCounties.map((s) => (
+                <optgroup label={s}>
+                  {wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}
+                </optgroup>
+              ))}
+            </select>
+          </label>
+          {wards.map((w) => <a class="ward-open" data-ward-only={w.slug} hidden href={`/ward/${w.slug}/`}>Open {w.name}</a>)}
+        </div>
         <div class="tools">
-          <button class="btn quiet theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Dark mode">
-            <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></svg>
-            <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+          <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
           </button>
-          <a class="btn quiet" href="/search/">Search</a>
+          <a class="icon-btn" href="/search/" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2" /><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></svg>
+          </a>
           <details class="menu">
-            <summary class="btn quiet">Menu</summary>
+            <summary class="icon-btn ink"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></svg><span class="vh">Menu</span></summary>
             <div class="menu-panel stack">
               <label class="small" for="lang">Language</label>
               <select id="lang" class="lang" aria-label="Choose language">
@@ -124,7 +142,7 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
         </div>
       </div>
     </div>
-    <!-- Primary bar. With JavaScript each section is a button that opens a list of everything in it;
+    <!-- Section bar: pills. With JavaScript each section is a button that opens a list of everything in it;
          without, each is a plain link to the section's page, which lists the same pages. -->
     <nav class="primary-nav" aria-label="Main sections">
       <div class="wrap">
@@ -163,59 +181,38 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
         ))}
       </div>
     </nav>
-    <div class="ward-strip">
-      <div class="wrap">
-        <label for="ward-pick"><strong>Your ward</strong></label>
-        <select id="ward-pick" class="lang">
-          <option value="">Whole county</option>
-          {subCounties.map((s) => (
-            <optgroup label={s}>
-              {wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}
-            </optgroup>
-          ))}
-        </select>
-        {wards.map((w) => <a class="small" data-ward-only={w.slug} hidden href={`/ward/${w.slug}/`}>Open {w.name}</a>)}
-      </div>
-    </div>
   </header>
 
-  <main id="main" class="wrap">
-    <slot />
-    {tools && <PageTools title={title} />}
+  <main id="main">
+    <slot name="hero" />
+    <div class="wrap">
+      <slot />
+      {tools && <PageTools title={title} />}
+    </div>
   </main>
 
+  <!-- Footer: always Ink. Who we are, one action, one row of links, then the labels and credits. -->
   <footer class="site-footer">
-    <div class="wrap cols">
-      <div class="footer-brand">
-        <img class="footer-logo" src="/brand/Nyamira-Daily_horizontal_reverse.svg" alt="Nyamira Daily" width="1197" height="228" loading="lazy" />
-        <p class="small">Independent. Not affiliated with the County Government of Nyamira.</p>
-        <p class="muted small" style="margin-top:8px">An independent, non-partisan information service about Nyamira County. Every figure has a source; every claim has an evidence label.</p>
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-id">
+          <img class="footer-logo" src="/brand/Nyamira-Daily_horizontal_reverse.svg" alt="Nyamira Daily" width="1197" height="228" loading="lazy" />
+          <p><strong>Independent.</strong> Not affiliated with the County Government of Nyamira.</p>
+        </div>
+        <a class="pill-btn" href="/how-we-work/#corrections">Spotted a mistake? Tell us <span aria-hidden="true">→</span></a>
       </div>
-      <div>
-        <strong>About</strong>
-        <ul>
-          <li><a href="/about/">About us</a></li>
-          <li><a href="/how-we-work/">How we work</a></li>
-          <li><a href="/how-we-work/#corrections">Corrections</a></li>
-        </ul>
-      </div>
-      <div>
-        <strong>Use the data</strong>
-        <ul>
-          <li><a href="/data/open-data/">Download the data</a></li>
-          {hasContact && <li><a href="/subscribe/">WhatsApp and SMS updates</a></li>}
-          {hasContact && <li><a href="/tell-us/">Report a project or problem</a></li>}
-          <li><a href="/search/">Search the site</a></li>
-        </ul>
-      </div>
-      <div>
-        <strong>Evidence labels</strong>
-        <ul class="small">
-          <li><span class="label verified">Verified</span> checked on site or against records</li>
-          <li><span class="label audit">Audit finding</span> from the Auditor-General</li>
-          <li><span class="label official">Official claim</span> stated by government, not yet checked</li>
-          <li><span class="label unverified">Unverified</span> reported, not yet confirmed</li>
-        </ul>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="/about/">About us</a>
+        <a href="/how-we-work/">How we work</a>
+        <a href="/how-we-work/#corrections">Corrections</a>
+        <a href="/data/open-data/">Download the data</a>
+        {hasContact && <a href="/subscribe/">WhatsApp and SMS updates</a>}
+        {hasContact && <a href="/tell-us/">Report a project or problem</a>}
+        <a href="/search/">Search</a>
+      </nav>
+      <div class="foot-fine">
+        <p class="foot-labels"><span>Every figure carries a label:</span> <span class="label verified">Verified</span> <span class="label audit">Audit finding</span> <span class="label official">Official claim</span> <span class="label unverified">Unverified</span> <a href="/how-we-work/">What they mean</a></p>
+        <p>© {new Date().getFullYear()} Nyamira Daily · Maps: geoBoundaries (CC BY 4.0), © OpenStreetMap contributors</p>
       </div>
     </div>
   </footer>
@@ -223,17 +220,17 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
   (function () {
     var KEY = 'nd-ward', ward = '';
     try { ward = localStorage.getItem(KEY) || ''; } catch (e) {}
-    var pick = document.getElementById('ward-pick');
+    var picks = all('[data-ward-pick]');
     function all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
     function apply() {
       document.documentElement.setAttribute('data-ward', ward);
-      if (pick) pick.value = ward;
+      picks.forEach(function (p) { p.value = ward; });
       all('[data-ward-only]').forEach(function (el) { el.hidden = el.getAttribute('data-ward-only') !== ward; });
       all('[data-ward-row]').forEach(function (el) { el.classList.toggle('mine', el.getAttribute('data-ward-row') === ward); });
       all('[data-set-ward]').forEach(function (el) { el.hidden = el.getAttribute('data-set-ward') === ward; });
     }
     function choose(w) { ward = w; try { localStorage.setItem(KEY, w); } catch (e) {} apply(); }
-    if (pick) pick.addEventListener('change', function () { choose(pick.value); });
+    picks.forEach(function (p) { p.addEventListener('change', function () { choose(p.value); document.dispatchEvent(new CustomEvent('nd-ward', { detail: ward })); }); });
     all('[data-set-ward]').forEach(function (el) { el.addEventListener('click', function () { choose(el.getAttribute('data-set-ward')); }); });
     apply();
     // On phones the primary bar scrolls sideways: centre the current section if it starts off screen
