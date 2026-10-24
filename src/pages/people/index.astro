@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { entries } from '../../lib/content.js';
+import wards from '../../data/wards.json';
+const wn = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
+const list = await entries('people');
+---
+<Base title="Nyamira's people">
+  <PageHead eyebrow="Stories" title="Nyamira's people" lead="Nurses, farmers, teachers and others who keep the county running. Every profile is published with the person's recorded consent. We never profile politicians or officials here." crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/people/', label: "Nyamira's people" }]} />
+  {list.length === 0 && <p class="muted">Nothing published here yet.</p>}
+  <ul class="rows" style="margin-top:16px">
+    {list.map((e) => <li><a class="row-link" href={`/people/${e.id}/`}><span><span class="t">{e.data.name}</span><span class="d">{e.data.role + " · " + (wn[e.data.ward] ?? "")}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
+  </ul>
+</Base>

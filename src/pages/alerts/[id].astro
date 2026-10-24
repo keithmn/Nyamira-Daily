@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import WardMap from '../../components/WardMap.astro';
+import LevelBadge from '../../components/LevelBadge.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import Sources from '../../components/Sources.astro';
+import StaleScript from '../../components/StaleScript.astro';
+import { render, getCollection } from 'astro:content';
+import { getAlerts } from '../../lib/alerts-data.js';
+import { statusLabel, eat, isStale } from '../../lib/alerts.js';
+import wards from '../../data/wards.json';
+export async function getStaticPaths() {
+  const all = await getAlerts();
+  return all.map((a) => ({ params: { id: a.id.toLowerCase() }, props: { a } }));
+}
+const { a } = Astro.props;
+const entry = (await getCollection('alerts')).find((e) => e.id === a.slug);
+const { Content } = await render(entry);
+const wn = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
+const where = [a.place, a.wards.length ? a.wards.map((s) => wn[s] ?? s).join(', ') + (a.wards.length > 1 ? ' wards' : ' ward') : 'County-wide'].filter(Boolean).join(', ');
+const url = new URL(`/alerts/${a.id.toLowerCase()}/`, Astro.site).toString();
+const wa = `https://wa.me/?text=${encodeURIComponent([`${a.title} (${where})`, a.summary, a.advice ? `What to do: ${a.advice}` : '', `Updated ${eat(a.updatedAt)}. Nyamira Daily: ${url}`].filter(Boolean).join('\n'))}`;
+---
+<Base title={a.title} description={a.summary}>
+  <PageHead eyebrow={`Alert · ${a.type}`} title={a.title} crumbs={[{ href: '/', label: 'Today' }, { href: '/alerts/', label: 'Alerts' }]} />
+  <div class="stack-lg" style="margin-top:8px">
+    <section class="cols-2">
+      <div class="stack">
+        <p class="source"><LevelBadge level={a.level} /> <span class={`astat ${a.status}`}>{statusLabel[a.status]}</span> <EvidenceLabel kind={a.evidenceLabel} />
+          {a.status === 'active' && <span class="stale-tag" data-stale={new Date(a.updatedAt).toISOString()} hidden={!isStale(a)}>Not updated recently: check the source</span>}</p>
+        {a.corrected && <p class="callout"><strong>Corrected:</strong>&nbsp;{a.corrected}</p>}
+        <p class="say" style="font-size:19px">{a.summary}</p>
+        {a.advice && <div class="ask do on-ink"><span class="eyebrow">What to do</span><p style="font-size:18px">{a.advice}</p></div>}
+        {a.contacts.length > 0 && <div class="stack" style="gap:6px"><h2>Who to call</h2><ul>{a.contacts.map((c) => <li><strong>{c}</strong></li>)}</ul></div>}
+        <p class="small muted">{where}. Started {eat(a.startedAt)}. Updated {eat(a.updatedAt)}{a.resolvedAt && `. Resolved ${eat(a.resolvedAt)}`}.</p>
+        <div class="page-tools"><a class="btn" href={wa} rel="noopener">Share on WhatsApp</a></div>
+        {a.swSummary && <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>{a.swSummary}</p></div>}
+      </div>
+      <div class="stack">
+        <h2>Where</h2>
+        {a.wards.length === 1 ? <WardMap mode="ward" slug={a.wards[0]} alerts={[a]} /> : <WardMap mode="county" alerts={[a]} />}
+      </div>
+    </section>
+    <section class="stack">
+      <h2>Updates</h2>
+      <div class="prose"><Content /></div>
+    </section>
+    <Sources list={a.sources} />
+  </div>
+  <StaleScript />
+</Base>

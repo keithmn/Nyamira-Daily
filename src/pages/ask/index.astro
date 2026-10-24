@@ -1,0 +1,112 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import DocTools from '../../components/DocTools.astro';
+import wards from '../../data/wards.json';
+import A from '../../data/asks.json';
+import { date } from '../../lib/fmt.js';
+import { subCounties } from '../../nav.js';
+const today = new Date().toISOString().slice(0, 10);
+const reqs = A.requests.map((r) => ({ ...r, overdue: r.status === 'sent' && r.dueOn < today }));
+const open = reqs.filter((r) => r.status === 'sent').length;
+const ACT = 'https://new.kenyalaw.org/akn/ke/act/2016/31/eng@2022-12-31';
+const template = `[Date]
+
+To: The Information Access Officer
+County Government of Nyamira
+P.O. Box 434-40500, Nyamira
+
+REQUEST FOR INFORMATION UNDER THE ACCESS TO INFORMATION ACT, 2016
+
+I am writing under Article 35 of the Constitution of Kenya and the Access to Information Act, 2016 to request the following information:
+
+[What you want to know, as exactly as you can]
+
+Please send copies of the documents, or a written answer, by [email / WhatsApp / I will collect].
+
+The Act requires a decision within 21 days of receiving this request. Please confirm that you have received it.
+
+Yours faithfully,
+[Your name]
+[Ward]
+[Phone or email]`;
+---
+<Base title="Ask Nyamira" description="Use your right to information to get official answers from the county. Write a request letter in two minutes.">
+  <PageHead eyebrow="Take part" title="Ask Nyamira" lead="You have a right to information held by the county (Article 35 of the Constitution). Ask in writing, keep a copy, and expect a decision within 21 days." crumbs={[{ href: '/take-part/', label: 'Take part' }, { href: '/ask/', label: 'Ask Nyamira' }]} />
+
+  <div class="stack-lg" style="margin-top:16px">
+    <section class="cols-2">
+      <div class="stack">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li><strong>Write to the county's information access officer.</strong> Say exactly what you want: a document, a contract, a list of payments. Asking costs nothing; you may be charged only for copies.</li>
+          <li><strong>Keep a copy</strong> and note the date you sent it. If you can't write, the officer must write down your request for you and give you a copy.</li>
+          <li><strong>Wait up to 21 days.</strong> The officer can extend this once, by 14 days, for a large request. If the information concerns someone's life or liberty, the answer is due within 48 hours.</li>
+          <li><strong>If you are refused, or get no reply</strong> (no reply in time counts as a refusal), ask the Commission on Administrative Justice (the Ombudsman) to review it within 30 days, or go to court.</li>
+        </ol>
+        <p class="source"><span class="label official">Official claim</span> Sources: <a href={ACT} rel="noopener">Access to Information Act, 2016</a>, sections 9, 12 and 14; Constitution of Kenya, Article 35; <a href="https://www.ombudsman.go.ke" rel="noopener">Commission on Administrative Justice</a>.</p>
+      </div>
+      <div class="figure on-ink panel-ink">
+        <span class="eyebrow">Requests we are tracking</span>
+        <span class="num">{reqs.length}</span>
+        <p class="say">{reqs.length === 0 ? 'None yet. When Nyamira Daily, or a resident who agrees to be listed, sends a request, it appears below with its deadline and the answer.' : `${open} still waiting for an answer.`}</p>
+      </div>
+    </section>
+
+    <section class="stack" id="builder">
+      <h2>Write your request</h2>
+      <p class="muted">Fill in what you know. Nothing you type leaves this page: copy the letter, send it on WhatsApp, or print it.</p>
+      <form class="builder" data-ask onsubmit="return false">
+        <label>What do you want to know?<span class="hint">For example: "the contract and payments for the Biticha Morera Dispensary outpatient block, FY2023/24 to FY2025/26".</span><textarea name="q" required></textarea></label>
+        <label>Which department, if you know<input name="dept" placeholder="e.g. Health Services" /></label>
+        <label>How do you want the answer?
+          <select name="how"><option>by email</option><option>on WhatsApp</option><option>I will collect it at the county offices</option></select>
+        </label>
+        <label>Your name<input name="name" autocomplete="name" /></label>
+        <label>Your ward
+          <select name="ward"><option value="">Choose</option>{subCounties.map((s) => <optgroup label={s}>{wards.filter((w) => w.subCounty === s).map((w) => <option>{w.name}</option>)}</optgroup>)}</select>
+        </label>
+        <label>Phone or email, for the reply<input name="contact" /></label>
+        <label>Your letter<textarea class="out" id="ask-out" readonly>{template}</textarea></label>
+      </form>
+      <DocTools target="ask-out" />
+      <p class="small muted">Send it by hand at the County Headquarters in Nyamira town, by post, or by email if the county gives one. Ask for a stamped copy.</p>
+    </section>
+
+    <section class="stack" id="tracker">
+      <h2>Requests and answers</h2>
+      {reqs.length === 0 ? <p class="muted">No requests listed yet.</p> : (
+        <div class="table-box"><table class="cards">
+          <thead><tr><th>Question</th><th>Asked of</th><th>Sent</th><th>Due</th><th>Status</th><th>Answer</th></tr></thead>
+          <tbody>{reqs.map((r) => (
+            <tr><td>{r.question}</td><td data-label="Asked of">{r.askedOf}</td><td data-label="Sent">{date(r.sentOn)}</td><td data-label="Due">{date(r.dueOn)}</td>
+              <td data-label="Status">{r.overdue ? <strong>Overdue</strong> : r.status}</td>
+              <td data-label="Answer">{r.answerSummary}{r.documents?.map((d) => <> <a href={d.url} rel="noopener">{d.title}</a></>)}</td></tr>
+          ))}</tbody>
+        </table></div>
+      )}
+    </section>
+
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Una haki ya kupata habari zilizo na kaunti (Kifungu cha 35 cha Katiba). Andika ombi lako, weka nakala, na utarajie uamuzi ndani ya siku 21.</p></div>
+  </div>
+</Base>
+
+<script is:inline>
+(function () {
+  var f = document.querySelector('[data-ask]'); if (!f) return;
+  var out = document.getElementById('ask-out');
+  function v(n) { return (f.elements[n].value || '').trim(); }
+  function build() {
+    var d = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    out.value = d + '\n\nTo: The Information Access Officer' + (v('dept') ? ', ' + v('dept') : '') +
+      '\nCounty Government of Nyamira\nP.O. Box 434-40500, Nyamira\n\nREQUEST FOR INFORMATION UNDER THE ACCESS TO INFORMATION ACT, 2016\n\n' +
+      'I am writing under Article 35 of the Constitution of Kenya and the Access to Information Act, 2016 to request the following information:\n\n' +
+      (v('q') || '[What you want to know, as exactly as you can]') +
+      '\n\nPlease send copies of the documents, or a written answer, ' + v('how') + '.\n\n' +
+      'The Act requires a decision within 21 days of receiving this request. Please confirm that you have received it.\n\nYours faithfully,\n' +
+      (v('name') || '[Your name]') + '\n' + (v('ward') ? v('ward') + ' ward' : '[Ward]') + '\n' + (v('contact') || '[Phone or email]');
+    document.dispatchEvent(new Event('nd-gen'));
+  }
+  f.addEventListener('input', build); f.addEventListener('change', build); build();
+})();
+</script>

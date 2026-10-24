@@ -19,6 +19,28 @@ All site data lives in `src/data/` as JSON files, built into pages at build time
 | `census.json` | Population, households, age groups, household indicators, by county and census sub-county; earlier registered voters per ward | KNBS 2019 Census Volumes I–IV; Nyamira CIDP 2018–22 Table 7 (IEBC 2018 voters) | 22 Oct 2026 | Next census |
 | `constitution.json` | Chapter 11 articles 174–200 with plain-language summaries and Nyamira notes; Fourth Schedule Part 2 functions | Constitution of Kenya, 2010 (Kenya Law) | Oct 2026 | Check titles and summaries against Kenya Law before launch |
 | `topics.js` | Data topics, their question and honest status | — | — | When a topic's status changes |
+| `asks.json` | Information requests (Ask Nyamira) and their answers. **Empty at launch.** List only requests by Nyamira Daily or residents who gave written consent | Our own requests and the county's replies | — | When a request is sent or answered; "overdue" is computed at build time from `dueOn` |
+| `geo.json` → `proj` | The map projection (minx, maxy, cos-lat factor, scale), so alerts with coordinates can be placed on the maps | Computed by `scripts/build-geo.py` | Oct 2026 | Re-run the script if boundaries change |
+
+## Content collections (`src/content/`)
+
+Markdown files, one per entry, checked against `src/content.config.ts` at build time. Anyone can add one: copy an existing file, change the frontmatter, commit. Entries with `draft: true` are left out of the site; build with `ND_DRAFTS=1 npm run build` to see them. The `EXAMPLE` entries are drafts: delete them before launch.
+
+| Collection | Page | Notes |
+|---|---|---|
+| `numbers` | `/number-of-the-week/`, latest on Today | One checked figure a week, with source, radio script and Kiswahili line |
+| `explainers` | `/explainers/` | Plain-language explainers with sources. One live: development budget |
+| `factchecks` | `/fact-check/` (Myth or fact) | Never link to private individuals; check claims about every side equally |
+| `stories` | `/whats-working/` | Evidence and evidence label required; photos only with consent |
+| `people` | `/people/` | Recorded consent date required; never politicians or officials |
+| `heritage` | `/heritage/` | Sources and contributor |
+| `alerts` | `/alerts/` | Sources: see below and `docs/EDITORIAL_RULES.md` section 11 |
+
+**Alert sources** (in order of preference): County Government of Nyamira (disaster and fire office, health department), Kenya Red Cross (Nyamira branch), Kenya Meteorological Department county advisories, Ministry of Health, Kenya Power regional notices, National Police Service, National Disaster Operations Centre; reputable outlets (Kenya News Agency, Nation, Standard, Star, Citizen); our own correspondents on site.
+
+## Machine-readable outputs
+
+Built with the site and documented on `/data/open-data/`: `/api/wards.json`, `/api/ward/<slug>.json`, `/api/ward/<slug>.txt` (plain text under 900 characters, for a future WhatsApp/SMS bot: `TODO(service)`), `/api/money.json`, `/api/projects.json`, `/api/opportunities.json`, `/api/alerts.json`, `/api/alerts/active.json`, `/api/alerts/active.txt` (for a future broadcast: `TODO(service)`), `/alerts/rss.xml`. Embeds: `/embed/ward/<slug>/`, `/embed/money/`. Licence: free to reuse with credit to Nyamira Daily; OpenStreetMap-derived data ODbL; ward boundaries geoBoundaries CC BY 4.0.
 
 ## Known caveats (do not remove from the site)
 

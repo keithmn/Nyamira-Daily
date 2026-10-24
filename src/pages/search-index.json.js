@@ -8,8 +8,9 @@ import { planned } from '../config.js';
 import F from '../data/fees.json';
 import A from '../data/assembly.json';
 import W from '../data/wardspend.json';
+import { entries } from '../lib/content.js';
 
-export function GET() {
+export async function GET() {
   const items = [];
   const add = (t, u, k = '', g = 'Page') => items.push({ t, u, k, g });
   const pages = [
@@ -30,6 +31,10 @@ export function GET() {
     ['Assembly sittings', '/government/assembly/sittings/', 'hansard impeachment appropriation'],
     ['Bills and Acts', '/government/assembly/bills/'], ['Committees', '/government/assembly/committees/'],
     ['Petitions and motions', '/government/assembly/petitions/'],
+    ['Take part', '/take-part/'], ['Ask Nyamira', '/ask/', 'access to information request letter article 35 right to information'],
+    ['Submission helper', '/take-part/submission/', 'budget forum petition public participation write'],
+    ['Stories', '/stories/'], ['Explainers', '/explainers/'], ['Number of the week', '/number-of-the-week/', 'radio'],
+    ['Alerts', '/alerts/', 'emergency fire flood landslide outage road closure notice'],
     ['Glossary', '/learn/glossary/'], ['About', '/about/'], ['How we work', '/how-we-work/', 'evidence labels corrections'],
   ];
   for (const [t, u, k] of pages) add(t, u, k);
@@ -46,5 +51,12 @@ export function GET() {
   for (const f of F.fees) add(f.item, '/learn/fees/', `${f.group} fee ${f.amountText}`, 'Fee');
   for (const a of A.acts) add(a.name, '/constitution/county-laws/', a.summary, 'County Act');
   for (const p of W.projects) if (p.ward) add(p.name, `/ward/${p.ward}/#projects`, `${p.department} project ${p.fy}`, `Project in ${wards.find((w) => w.slug === p.ward)?.name}`);
+  const label = { explainers: 'Explainer', factchecks: 'Myth or fact', stories: "What's working", people: "Nyamira's people", heritage: 'Heritage' };
+  const base = { explainers: '/explainers/', factchecks: '/fact-check/', stories: '/whats-working/', people: '/people/', heritage: '/heritage/' };
+  for (const c of Object.keys(label)) {
+    for (const e of await entries(c)) add(e.data.title ?? e.data.claim ?? e.data.name, `${base[c]}${e.id}/`, e.data.summary ?? e.data.story ?? '', label[c]);
+  }
+  for (const e of await entries('numbers')) add(`${e.data.figure} ${e.data.sentence}`, `/number-of-the-week/#${e.id}`, e.data.explanation, 'Number of the week');
+  for (const e of await entries('alerts')) add(e.data.title, `/alerts/${e.data.id.toLowerCase()}/`, `${e.data.type} ${e.data.place ?? ''} ${e.data.summary}`, 'Alert');
   return new Response(JSON.stringify(items));
 }

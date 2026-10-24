@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { render } from 'astro:content';
+import { entries } from '../../lib/content.js';
+import wards from '../../data/wards.json';
+export async function getStaticPaths() {
+  return (await entries('people')).map((e) => ({ params: { slug: e.id }, props: { e } }));
+}
+const { e } = Astro.props;
+const { Content } = await render(e);
+const w = wards.find((x) => x.slug === e.data.ward);
+const ph = e.data.photo?.consent ? e.data.photo : null;
+---
+<Base title={e.data.name} description={e.data.story}>
+  <PageHead eyebrow={`Nyamira's people · ${e.data.role}`} title={e.data.name} lead={e.data.story} crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/people/', label: "Nyamira's people" }]} />
+  {w && <p class="small"><a href={`/ward/${w.slug}/`}>{w.name} ward</a></p>}
+  {ph && <figure style="margin:16px 0"><img src={ph.src} alt={ph.alt} loading="lazy" /><figcaption class="small muted">Photo: {ph.credit}</figcaption></figure>}
+  <article class="stack prose" style="margin-top:16px"><Content /></article>
+  <p class="updated" style="margin-top:24px">Published with {e.data.name}'s consent. To ask for changes or removal, see <a href="/how-we-work/#corrections">corrections</a>.</p>
+</Base>

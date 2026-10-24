@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Sources from '../../components/Sources.astro';
+import { render } from 'astro:content';
+import { entries } from '../../lib/content.js';
+import wards from '../../data/wards.json';
+export async function getStaticPaths() {
+  return (await entries('heritage')).map((e) => ({ params: { slug: e.id }, props: { e } }));
+}
+const { e } = Astro.props;
+const { Content } = await render(e);
+const w = wards.find((x) => x.slug === e.data.ward);
+---
+<Base title={e.data.title} description={e.data.story}>
+  <PageHead eyebrow={`Heritage · ${e.data.place}`} title={e.data.title} lead={e.data.story} crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/heritage/', label: 'Heritage' }]} />
+  {w && <p class="small"><a href={`/ward/${w.slug}/`}>{w.name} ward</a> · Shared by {e.data.contributor}</p>}
+  {e.data.photos.filter((p) => p.consent).map((p) => <figure style="margin:16px 0"><img src={p.src} alt={p.alt} loading="lazy" /><figcaption class="small muted">Photo: {p.credit}</figcaption></figure>)}
+  <article class="stack prose" style="margin-top:16px"><Content /></article>
+  {e.data.sources.length > 0 && <Sources list={e.data.sources} />}
+</Base>

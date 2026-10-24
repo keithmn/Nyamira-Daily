@@ -65,3 +65,17 @@ The site does not support or oppose any party, candidate or official. Contributo
 
 - No personal data of private individuals.
 - Community reports ("Tell us") are checked before anything is published, and reporters are never identified without consent.
+
+## 11. Alerts and incidents
+
+Alerts (`src/content/alerts/`, spec item 1.8) are a calm record of what happened and what to do, not breaking news.
+
+- **Only confirmed events go live:** from an official source (County Government, Kenya Red Cross, Kenya Meteorological Department, Ministry of Health, Kenya Power, the police, the National Disaster Operations Centre), from a reputable outlet (Kenya News Agency, Nation, Standard, Star, Citizen), or verified by our own correspondent on site. A single social media post is not enough. If something unconfirmed is circulating and people need guidance, publish it as `unverified`, with "Reports, not yet confirmed" in the title, and update fast.
+- **Facts, not speculation.** No guessing about causes ("arson", "negligence") unless an authority has said so, attributed.
+- **Protect people.** No names of victims or injured people; no images of injured or dead people; no images of children without guardian consent. Numbers only as given by an authority, attributed.
+- **Calm language.** Lead with what residents should do. No sensational words.
+- **Disease outbreaks:** Ministry of Health or county health department information only. Never name patients, households or schools unless officials did so publicly.
+- **Security incidents:** official statements only, and only where residents need to act (for example, avoid an area).
+- **Emergency numbers** in `contacts` must be confirmed for Nyamira before an alert goes live.
+- **Keep it current.** Update `updatedAt` with every change and add a dated line to the update log. An active alert not updated for 72 hours shows "Not updated recently: check the source". Status runs active → monitoring → resolved.
+- **Corrections.** If an alert was wrong, set `corrected:` with what changed and keep the alert. Never delete one silently.

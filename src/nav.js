@@ -17,15 +17,30 @@ const dataPages = [...topics]
 
 export const sections = [
   { href: '/', label: 'Today', overview: 'Nyamira at a glance', pages: [
+    { href: '/alerts/', label: 'Alerts' },
+    { href: '/number-of-the-week/', label: 'Number of the week' },
     { href: '/opportunities/', label: 'Opportunities' },
-    { href: '/have-your-say/', label: 'Have your say' },
   ] },
   // Wards: every ward, grouped by sub-county (each group links to its place on the ward list)
   { href: '/ward/', label: 'Wards', overview: 'Choose your ward', pages: subCounties.map((s) => ({
     href: `/ward/#${anchorFor(s)}`, label: s,
     pages: wards.filter((w) => w.subCounty === s).map((w) => ({ href: `/ward/${w.slug}/`, label: w.name })),
   })) },
-  { href: '/data/', label: 'Data', overview: 'Nyamira in numbers', pages: dataPages },
+  { href: '/data/', label: 'Data', overview: 'Nyamira in numbers', pages: [...dataPages, { href: '/state-of-nyamira/', label: 'State of Nyamira' }] },
+  { href: '/take-part/', label: 'Take part', overview: 'Take part', pages: [
+    { href: '/ask/', label: 'Ask Nyamira' },
+    { href: '/take-part/submission/', label: 'Submission helper' },
+    { href: '/have-your-say/', label: 'Have your say' },
+    { href: '/diaspora/', label: 'For the diaspora' },
+    { href: '/fellowship/', label: 'Fellowship' },
+  ] },
+  { href: '/stories/', label: 'Stories', overview: 'Stories from Nyamira', pages: [
+    { href: '/whats-working/', label: "What's working" },
+    { href: '/people/', label: "Nyamira's people" },
+    { href: '/heritage/', label: 'Heritage' },
+    { href: '/fact-check/', label: 'Myth or fact' },
+    { href: '/explainers/', label: 'Explainers' },
+  ] },
   { href: '/government/', label: 'Government', overview: 'How Nyamira is run', pages: [
     { href: '/government/whos-in-charge/', label: "Who's in charge?" },
     { href: '/government/leaders/', label: 'Leaders' },
@@ -39,19 +54,21 @@ export const sections = [
     ] },
     { href: '/government/watchdogs/', label: 'Watchdogs' },
   ] },
-  { href: '/constitution/', label: 'Constitution', overview: 'The Constitution, for Nyamira', pages: [
-    { href: '/constitution/devolution/', label: 'Devolution', also: ['/constitution/article/'] },
-    { href: '/constitution/fourth-schedule/', label: 'What the county must do' },
-    { href: '/constitution/your-rights/', label: 'Your rights' },
-    { href: '/constitution/county-laws/', label: 'County laws' },
-  ] },
+  // Learn includes the Constitution pages (decision #25: seven sections fit one row on phones)
   { href: '/learn/', label: 'Learn', overview: 'Learn how Nyamira works', pages: [
+    { href: '/constitution/', label: 'The Constitution', pages: [
+      { href: '/constitution/devolution/', label: 'Devolution', also: ['/constitution/article/'] },
+      { href: '/constitution/fourth-schedule/', label: 'What the county must do' },
+      { href: '/constitution/your-rights/', label: 'Your rights' },
+      { href: '/constitution/county-laws/', label: 'County laws' },
+    ] },
     { href: '/learn/how-it-works/', label: 'How the county works' },
     { href: '/learn/budget-calendar/', label: 'Budget calendar' },
     { href: '/learn/taking-part/', label: 'Taking part' },
     { href: '/learn/fees/', label: 'Fees you pay' },
     { href: '/learn/glossary/', label: 'Glossary' },
     { href: '/learn/episodes/', label: 'Show episodes' },
+    { href: '/schools-programme/', label: 'Schools programme' },
   ] },
 ];
 

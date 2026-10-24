@@ -4,6 +4,7 @@ import BarChart from './BarChart.astro';
 import EvidenceLabel from './EvidenceLabel.astro';
 import Coins from './viz/Coins.astro';
 import SplitBar from './viz/SplitBar.astro';
+import EmbedCode from './EmbedCode.astro';
 const ys = money.years;
 const last = ys[ys.length - 1];
 const bn = (m: number) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
@@ -55,6 +56,8 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
       <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{last.fy} report</p>
     </div>
   </section>
+
+  <EmbedCode path="/embed/money/" title="Nyamira County money" height={640} />
 
   <div class="sw" lang="sw">
     <span class="eyebrow">Muhtasari kwa Kiswahili</span>

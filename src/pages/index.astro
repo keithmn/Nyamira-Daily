@@ -6,6 +6,9 @@ import NyWatchLogo from '../components/NyWatchLogo.astro';
 import EvidenceLabel from '../components/EvidenceLabel.astro';
 import Coins from '../components/viz/Coins.astro';
 import SplitBar from '../components/viz/SplitBar.astro';
+import NumberCard from '../components/NumberCard.astro';
+import { getNumbers } from '../lib/numbers.js';
+const [numberNow] = await getNumbers();
 import wards from '../data/wards.json';
 import money from '../data/money.json';
 import leaders from '../data/leaders.json';
@@ -62,6 +65,7 @@ const more = [
         </ul>
       </div>
       <div class="stack">
+        {numberNow && <div class="panel"><NumberCard e={numberNow} full={false} /></div>}
         <section class="nyw nyw-band on-ink stack" aria-labelledby="show">
           <NyWatchLogo on="dark" />
           <span class="eyebrow">Nightly, 10 to 11 pm</span>

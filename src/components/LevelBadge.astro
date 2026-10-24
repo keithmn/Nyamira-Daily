@@ -1,0 +1,6 @@
+---
+import { shapePath, levelLabel } from '../lib/alerts.js';
+interface Props { level: 'emergency' | 'disruption' | 'notice' }
+const { level } = Astro.props;
+---
+<span class={`lvl lv-${level}`}><svg viewBox="0 0 20 20" width="12" height="12" aria-hidden="true"><path class="am-shape" d={shapePath(level, 10, 10.5, 8)} /></svg>{levelLabel[level]}</span>

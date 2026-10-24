@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Sources from '../../components/Sources.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import { render } from 'astro:content';
+import { entries } from '../../lib/content.js';
+import { date } from '../../lib/fmt.js';
+import wards from '../../data/wards.json';
+export async function getStaticPaths() {
+  return (await entries('stories')).map((e) => ({ params: { slug: e.id }, props: { e } }));
+}
+const { e } = Astro.props;
+const { Content } = await render(e);
+const w = wards.find((x) => x.slug === e.data.ward);
+---
+<Base title={e.data.title} description={e.data.summary}>
+  <PageHead eyebrow={`What's working · ${e.data.sector}`} title={e.data.title} lead={e.data.summary} crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/whats-working/', label: "What's working" }]} />
+  <p class="source"><EvidenceLabel kind={e.data.evidenceLabel} /> {w ? <a href={`/ward/${w.slug}/`}>{w.name} ward</a> : 'County-wide'} · {date(e.data.date.toISOString())}</p>
+  {e.data.photos.filter((p) => p.consent).map((p) => <figure style="margin:16px 0"><img src={p.src} alt={p.alt} loading="lazy" /><figcaption class="small muted">Photo: {p.credit}</figcaption></figure>)}
+  <article class="stack prose" style="margin-top:16px"><Content /></article>
+  <Sources list={e.data.evidence} title="Evidence" />
+</Base>

@@ -1,4 +1,4 @@
-"""Build src/data/geo.json from ward boundaries (geoBoundaries ADM3, CC BY 4.0)
+"""Build src/data/geo.json (with `proj`, the projection, so the site can place points such as alerts) from ward boundaries (geoBoundaries ADM3, CC BY 4.0)
 and OpenStreetMap points (ODbL). Re-run when boundaries or points change:
   python3 scripts/build-geo.py <nyamira.json> <osm_fac.json>
 """
@@ -39,7 +39,7 @@ def cat(p):
     if 'water' in a: return 'water'
     return None
 
-out = {'w': W, 'h': H, 'wards': {}, 'source': 'Ward boundaries: geoBoundaries (CC BY 4.0). Points: © OpenStreetMap contributors (ODbL).'}
+out = {'w': W, 'h': H, 'proj': {'minx': minx, 'maxy': maxy, 'k': k, 'sc': sc}, 'wards': {}, 'source': 'Ward boundaries: geoBoundaries (CC BY 4.0). Points: © OpenStreetMap contributors (ODbL).'}
 for name, f in wards_geo.items():
     slug = name.lower().replace(' ', '-')
     rs = [thin(r) for r in rings(f['geometry'])]

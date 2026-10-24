@@ -5,8 +5,15 @@
 // mode "ward": zoomed to one ward, neighbours faint, OpenStreetMap points shown.
 import geo from '../data/geo.json';
 import wards from '../data/wards.json';
-interface Props { mode: 'county' | 'ward'; slug?: string }
+import AlertMarks from './AlertMarks.astro';
+import AlertKey from './AlertKey.astro';
+import { getAlerts, isLive } from '../lib/alerts-data.js';
+import { placeOf, levelLabel } from '../lib/alerts.js';
+interface Props { mode: 'county' | 'ward'; slug?: string; alerts?: any[] }
 const { mode, slug } = Astro.props;
+// Live alerts (active or monitoring): all of them on the county map, this ward's on a ward map
+const live = (Astro.props.alerts ?? (await getAlerts())).filter(isLive).filter((a) => mode === 'county' || a.wards.length === 0 || a.wards.includes(slug));
+const countyWide = live.filter((a) => !placeOf(a));
 const sub = Object.fromEntries(wards.map((w) => [w.slug, w.subCounty]));
 const subClass = { 'Borabu': 's1', 'Kitutu Masaba': 's2', 'North Mugirango': 's3', 'West Mugirango': 's4' };
 const list = Object.entries(geo.wards);
@@ -38,18 +45,24 @@ const present = me ? cats.filter((c) => me.points.some((p) => p.cat === c.key)) 
     {mode === 'ward' && me && me.points.map((p) => (
       <circle cx={p.x} cy={p.y} r={r} class={`pt ${p.cat}`}><title>{p.name}</title></circle>
     ))}
+    <AlertMarks alerts={live} r={me && mode === 'ward' ? me.span * 0.03 : 11} />
   </svg>
+  {countyWide.length > 0 && (
+    <div class="countywide">County-wide: {countyWide.map((a, i) => <>{i > 0 && ' · '}<a href={`/alerts/${a.id.toLowerCase()}/`}>{levelLabel[a.level]}: {a.title}</a></>)}</div>
+  )}
   {mode === 'county' ? (
     <figcaption class="small muted">
       <span class="key"><i class="s1"></i>Borabu</span>
       <span class="key"><i class="s2"></i>Kitutu Masaba</span>
       <span class="key"><i class="s3"></i>North Mugirango</span>
       <span class="key"><i class="s4"></i>West Mugirango</span>
+      {live.length > 0 && <AlertKey />}
       <span>Ward boundaries: geoBoundaries (CC BY 4.0), checked against the IEBC ward list.</span>
     </figcaption>
   ) : (
     <figcaption class="small muted">
       {present.length > 0 ? present.map((c) => <span class="key"><i class={`dot ${c.key}`}></i>{c.label}</span>) : <span>No mapped points yet.</span>}
+      {live.length > 0 && <AlertKey />}
       <span>Dots show only the {me?.points.length} named places already on OpenStreetMap, not everything in the ward. Boundaries: geoBoundaries (CC BY 4.0). Points: © OpenStreetMap contributors.</span>
     </figcaption>
   )}

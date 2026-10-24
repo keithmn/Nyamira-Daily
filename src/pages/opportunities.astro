@@ -54,7 +54,7 @@ const typeName = { job: 'Job', tender: 'Tender', bursary: 'Bursary', programme: 
       </div>
     </section>
     <script is:inline>
-    // Deadlines: "Closes in 3 days" from the reader's clock. Within 7 days the tag turns Record Red.
+    // Deadlines: "Closes in 3 days" from the reader's clock. Within 7 days the tag turns Ink (red is kept for emergencies, #25).
     (function () {
       var DAY = 864e5;
       Array.prototype.forEach.call(document.querySelectorAll('[data-closes]'), function (el) {

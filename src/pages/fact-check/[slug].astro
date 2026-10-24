@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Sources from '../../components/Sources.astro';
+import { render } from 'astro:content';
+import { entries } from '../../lib/content.js';
+import { date } from '../../lib/fmt.js';
+export async function getStaticPaths() {
+  return (await entries('factchecks')).map((e) => ({ params: { slug: e.id }, props: { e } }));
+}
+const { e } = Astro.props;
+const { Content } = await render(e);
+const ratingClass = 'r-' + e.data.rating.split(' ').join('-');
+---
+<Base title={`Myth or fact: ${e.data.claim}`} description={e.data.summary}>
+  <PageHead eyebrow="Myth or fact" title={e.data.claim} crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/fact-check/', label: 'Myth or fact' }]} />
+  <section class="figure">
+    <span class={`rating big ${ratingClass}`}>{e.data.rating}</span>
+    <p class="say">{e.data.summary}</p>
+    <p class="small muted">Where it circulated: {e.data.claimSource}. Checked {date(e.data.checkedOn.toISOString())}.</p>
+  </section>
+  <article class="stack prose" style="margin-top:24px"><Content /></article>
+  {e.data.swSummary && <div class="sw" lang="sw" style="margin-top:24px"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>{e.data.swSummary}</p></div>}
+  <Sources list={e.data.evidence} title="Evidence" />
+</Base>

@@ -1,0 +1,68 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import DocTools from '../../components/DocTools.astro';
+import wards from '../../data/wards.json';
+import { subCounties } from '../../nav.js';
+const topics = ['Roads and bridges', 'Water', 'Health', 'Education and ECDE', 'Agriculture', 'Markets and trade', 'Youth and sports', 'Other'];
+---
+<Base title="Submission helper" description="Write a short, clear submission for a budget forum, a county plan or a petition to the County Assembly.">
+  <PageHead eyebrow="Take part" title="Submission helper" lead="Write a short, clear submission for a budget forum, a county plan, or a petition to the County Assembly. Nothing you type leaves this page." crumbs={[{ href: '/take-part/', label: 'Take part' }, { href: '/take-part/submission/', label: 'Submission helper' }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    <form class="builder" data-sub onsubmit="return false">
+      <label>What is it for?
+        <select name="kind">
+          <option value="forum">A budget forum (public participation)</option>
+          <option value="plan">Comments on a county plan (CIDP or Annual Development Plan)</option>
+          <option value="petition">A petition to the County Assembly</option>
+        </select>
+      </label>
+      <label>Topic<select name="topic">{topics.map((t) => <option>{t}</option>)}</select></label>
+      <label>Ward
+        <select name="ward"><option value="">Whole county</option>{subCounties.map((s) => <optgroup label={s}>{wards.filter((w) => w.subCounty === s).map((w) => <option>{w.name}</option>)}</optgroup>)}</select>
+      </label>
+      <label>The problem<span class="hint">What is wrong, where, and since when. Facts, not names of people.</span><textarea name="problem"></textarea></label>
+      <label>What you want done<span class="hint">One or two clear requests, for example "budget for repairs to the Riomanga road in 2026/27".</span><textarea name="ask"></textarea></label>
+      <label>Your name (optional)<input name="name" autocomplete="name" /></label>
+      <label>Your submission<textarea class="out" id="sub-out" readonly>Fill in the form above and your submission appears here.</textarea></label>
+    </form>
+    <DocTools target="sub-out" />
+    <section class="stack">
+      <h2>Before you send it</h2>
+      <ul>
+        <li>Budget forums and plan comments: check the county's notice for the date, venue and email. See the <a href="/learn/budget-calendar/">budget calendar</a>.</li>
+        <li>Petitions: check the Assembly's rules on format and signatures before you submit. See <a href="/government/assembly/petitions/">petitions and motions</a> and <a href="/learn/taking-part/">how to take part</a>.</li>
+        <li>Keep a copy, and ask for a stamped receipt if you hand it in.</li>
+      </ul>
+    </section>
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Andika maoni mafupi na wazi kwa ajili ya mkutano wa bajeti, mpango wa kaunti, au ombi kwa Bunge la Kaunti. Hakuna unachoandika kinachotoka kwenye ukurasa huu.</p></div>
+  </div>
+</Base>
+
+<script is:inline>
+(function () {
+  var f = document.querySelector('[data-sub]'); if (!f) return;
+  var out = document.getElementById('sub-out');
+  function v(n) { return (f.elements[n].value || '').trim(); }
+  function build() {
+    var d = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    var place = v('ward') ? v('ward') + ' ward' : 'Nyamira County';
+    var problem = v('problem') || '[The problem: what, where, since when]';
+    var ask = v('ask') || '[What you want done]';
+    var name = v('name');
+    var t;
+    if (v('kind') === 'petition') {
+      t = d + '\n\nTo: The Clerk, County Assembly of Nyamira\n\nPETITION ON ' + v('topic').toUpperCase() + ' IN ' + place.toUpperCase() +
+        '\n\nWe, the undersigned residents of ' + place + ', draw the attention of the County Assembly to the following:\n\n' + problem +
+        '\n\nWe have raised this matter with the relevant county office [say when and how, or delete this line].' +
+        '\n\nWe therefore ask the County Assembly to:\n\n' + ask + '\n\nName, ID number (if required) and signature of each petitioner:\n1.\n2.\n3.';
+    } else {
+      t = d + '\n\nSubmission to the County Government of Nyamira' + (v('kind') === 'plan' ? ' on the county plan' : ' for the budget public participation forum') +
+        '\n\nTopic: ' + v('topic') + '\nWard: ' + place + '\n\nThe problem\n' + problem + '\n\nWhat we ask for\n' + ask +
+        '\n\nSubmitted by: ' + (name || 'a resident of ' + place);
+    }
+    out.value = t; document.dispatchEvent(new Event('nd-gen'));
+  }
+  f.addEventListener('input', build); f.addEventListener('change', build); build();
+})();
+</script>

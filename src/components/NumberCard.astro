@@ -1,0 +1,29 @@
+---
+// One "number of the week": the figure, one sentence, the label and source, then the explanation,
+// a WhatsApp share and the 30-second radio script.
+import EvidenceLabel from './EvidenceLabel.astro';
+import { weekOf } from '../lib/numbers.js';
+interface Props { e: any; full?: boolean }
+const { e, full = true } = Astro.props;
+const d = e.data;
+const url = new URL('/number-of-the-week/#' + e.id, Astro.site).toString();
+const wa = `https://wa.me/?text=${encodeURIComponent(`Number of the week: ${d.figure} ${d.sentence}\n${d.explanation}\nSource: ${d.sources[0].name}\n${url}`)}`;
+---
+<article class="figure numweek" id={e.id}>
+  <span class="eyebrow">Number of the week · {weekOf(d.week)}</span>
+  <span class="num">{d.figure}</span>
+  <p class="say">{d.sentence}</p>
+  <p class="source"><EvidenceLabel kind={d.evidenceLabel} /> Source: {d.sources.map((s, i) => <>{i > 0 && '; '}{s.url ? <a href={s.url} rel="noopener">{s.name}</a> : s.name}{s.page && `, ${s.page}`}</>)}</p>
+  {full && <p>{d.explanation}</p>}
+  <div class="page-tools">
+    <a class="btn" href={wa} rel="noopener">Share on WhatsApp</a>
+    {!full && <a class="btn quiet" href={`/number-of-the-week/#${e.id}`}>Why it matters</a>}
+  </div>
+  {full && (
+    <details>
+      <summary>30-second radio script</summary>
+      <p style="margin-bottom:12px">{d.radioScript}</p>
+    </details>
+  )}
+  {full && d.swSummary && <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>{d.swSummary}</p></div>}
+</article>

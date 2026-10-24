@@ -15,4 +15,7 @@ export const planned = new Set([
   '/have-your-say/', '/tell-us/', '/subscribe/',
   '/learn/episodes/',
   '/data/prices/', '/data/plans/',
+  // Phase 1 scaffolding (docs/EXPANSION_SPEC.md 1.7): planned until real, consented entries exist
+  '/whats-working/', '/people/', '/heritage/', '/fact-check/',
+  '/diaspora/', '/schools-programme/', '/fellowship/', '/state-of-nyamira/',
 ]);

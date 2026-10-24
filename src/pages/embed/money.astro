@@ -1,0 +1,22 @@
+---
+import Sheet from '../../layouts/Sheet.astro';
+import EmbedFoot from '../../components/EmbedFoot.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import Coins from '../../components/viz/Coins.astro';
+import SplitBar from '../../components/viz/SplitBar.astro';
+import money from '../../data/money.json';
+const last = money.years[money.years.length - 1];
+const bn = (m) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
+---
+<Sheet title="Nyamira County money" kind="embed">
+  <section class="embed-box figure">
+    <a class="embed-logo" href={new URL('/data/money/', Astro.site).toString()} target="_blank" rel="noopener"><img src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Nyamira Daily" width="1197" height="228" /></a>
+    <span class="eyebrow">Nyamira County money · {last.fy}</span>
+    <span class="num">{bn(last.spent)}</span>
+    <p class="say">spent by the county, out of a {bn(last.budget)} budget. <strong class="hot">{bn(last.budget - last.spent)}</strong> was not spent.</p>
+    <Coins part={(last.spent / last.budget) * 100} unit="KSh " title="Out of every KSh 100 in the budget" goodLabel="was spent" gapLabel="was not spent" />
+    <SplitBar title={`Development budget ${last.fy}`} parts={[{ value: last.devAbs, label: 'of the development budget used', tone: 'good' }, { value: 100 - last.devAbs, label: 'not used', tone: 'gap' }]} />
+    <p class="source"><EvidenceLabel kind="official" /> Controller of Budget, FY{last.fy}</p>
+    <EmbedFoot href="/data/money/" />
+  </section>
+</Sheet>

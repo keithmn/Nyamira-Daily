@@ -1,0 +1,16 @@
+---
+// Alert pings inside a map <svg>: emergency = red triangle (pulsing while active), disruption = amber
+// square, notice = blue circle. Each links to its alert. A dashed outline means "location approximate"
+// (placed at the ward's centre because the alert has no coordinates). County-wide alerts are not drawn.
+import { placeOf, shapePath, levelLabel, statusLabel } from '../lib/alerts.js';
+interface Props { alerts: any[]; r?: number }
+const { alerts, r = 10 } = Astro.props;
+const marks = alerts.map((a) => ({ a, p: placeOf(a) })).filter((m) => m.p);
+---
+{marks.map(({ a, p }) => (
+  <a href={`/alerts/${a.id.toLowerCase()}/`} class={`alert-mark lv-${a.level}${p.approx ? ' approx' : ''}${a.status === 'active' ? ' is-active' : ''}`}>
+    <title>{`${levelLabel[a.level]} (${statusLabel[a.status].toLowerCase()}): ${a.title}${p.approx ? '. Location approximate.' : ''}`}</title>
+    {a.level === 'emergency' && a.status === 'active' && <path class="am-ring" d={shapePath('emergency', p.x, p.y, r)} />}
+    <path class="am-shape" d={shapePath(a.level, p.x, p.y, r)} />
+  </a>
+))}

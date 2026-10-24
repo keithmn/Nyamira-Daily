@@ -4,14 +4,17 @@ import wards from '../data/wards.json';
 import { sections, sectionFor, stateFor, subCounties, anchorFor } from '../nav.js';
 
 import PageTools from '../components/PageTools.astro';
+import AlertBanner from '../components/AlertBanner.astro';
 import { hasContact, planned, show } from '../config.js';
-interface Props { title: string; description?: string; tools?: boolean; image?: string; imageAlt?: string }
+interface Props { title: string; description?: string; tools?: boolean; image?: string; imageAlt?: string; alertWard?: string; showDisruptions?: boolean }
 const {
   title,
   description = 'Nyamira Daily: facts about Nyamira County, its money, services, laws and leaders, in plain language.',
   tools = true,
   image,
   imageAlt = 'Nyamira Daily',
+  alertWard,
+  showDisruptions = false,
 } = Astro.props;
 
 // Navigation (src/nav.js): the section this page is in. aria-current is "page" on the exact page
@@ -186,6 +189,7 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
       </div>
     </nav>
   </header>
+  <AlertBanner ward={alertWard} disruptions={showDisruptions} />
 
   <main id="main">
     <slot name="hero" />

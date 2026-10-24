@@ -1,0 +1,76 @@
+---
+// Printable one-page A4 ward sheet for notice boards, chiefs' meetings, churches and markets.
+// Black-and-white safe: no meaning carried by colour alone.
+import Sheet from '../../../layouts/Sheet.astro';
+import QRCode from 'qrcode';
+import wards from '../../../data/wards.json';
+import { receipt } from '../../../lib/ward.js';
+import { lines2526 } from '../../../lib/projects.js';
+import { ksh, num, date } from '../../../lib/fmt.js';
+export function getStaticPaths() {
+  return wards.map((w) => ({ params: { slug: w.slug } }));
+}
+const { slug } = Astro.params;
+const r = receipt(slug, Astro.site);
+const lines = lines2526(slug).filter((p) => p.amount).sort((a, b) => b.amount - a.amount);
+const shown = lines.slice(0, 8);
+const qr = await QRCode.toString(r.url, { type: 'svg', margin: 0, errorCorrectionLevel: 'M', color: { dark: '#111111', light: '#ffffff' } });
+const qs = r.questions.slice(0, 3);
+---
+<Sheet title={`${r.name} Ward sheet`} kind="sheet">
+  <div class="sheet-tools">
+    <a href={`/ward/${slug}/`}>← Back to the {r.name} ward page</a>
+    <button class="btn" type="button" onclick="window.print()">Print this sheet</button>
+  </div>
+  <article class="a4">
+    <header class="a4-head">
+      <img src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Nyamira Daily" width="1197" height="228" />
+      <div><span class="eyebrow">Ward sheet · {r.subCounty} sub-county</span><h1>{r.name} Ward</h1></div>
+    </header>
+
+    <div class="a4-grid">
+      <section>
+        <h2>Ward receipt</h2>
+        <dl class="a4-rows">
+          <dt>MCA</dt><dd>{r.mca ? r.mca.name + (r.mca.party ? ` (${r.mca.party})` : '') : 'Not confirmed'}</dd>
+          {r.mp && <><dt>MP ({r.subCounty})</dt><dd>{r.mp}</dd></>}
+          <dt>Services listed</dt><dd>{r.services.total} <span class="a4-note">(not yet checked on site)</span></dd>
+          <dt>Most listed</dt><dd>{r.services.byCategory.slice(0, 4).map((c) => `${c.category} ${c.count}`).join(', ')}</dd>
+          {r.wardProjects2526 && <><dt>Ward projects budgeted, 2025/26</dt><dd>{ksh(r.wardProjects2526.amount)}</dd></>}
+          {r.roadContracts2324 && <><dt>Road maintenance contracts, 2023/24</dt><dd>{ksh(r.roadContracts2324.amount)}</dd></>}
+          {r.registeredVoters2018 && <><dt>Registered voters (IEBC 2018)</dt><dd>{num(r.registeredVoters2018)}</dd></>}
+          <dt>Whole county spent, {r.county.fy}</dt><dd>{ksh(r.county.spentKshMillion * 1e6)} of {ksh(r.county.budgetKshMillion * 1e6)}</dd>
+          <dt>Development budget used</dt><dd>{r.county.developmentBudgetUsedPct}%</dd>
+        </dl>
+        {r.mca?.note && <p class="a4-note">MCA seat: {r.mca.note}</p>}
+      </section>
+      <aside class="a4-qr">
+        <Fragment set:html={qr} />
+        <p>Scan for the full {r.name} page, with sources</p>
+      </aside>
+    </div>
+
+    {shown.length > 0 && (
+      <section>
+        <h2>Ward project lines in the 2025/26 budget{lines.length > shown.length ? ` (largest ${shown.length} of ${lines.length})` : ''}</h2>
+        <table class="a4-table"><tbody>
+          {shown.map((p) => <tr><td>{p.name.length > 90 ? p.name.slice(0, 88) + '…' : p.name}</td><td>{ksh(p.amount)}</td></tr>)}
+        </tbody></table>
+        <p class="a4-note">A budget line is planned money, not proof that work was done.</p>
+      </section>
+    )}
+
+    {qs.length > 0 && (
+      <section>
+        <h2>Questions to ask</h2>
+        <ol class="a4-qs">{qs.map((q) => <li><strong>{q.title}:</strong> {q.text}</li>)}</ol>
+        <p class="a4-note">Questions, not accusations. Ask at your ward's budget forum, or write to the county (see "Ask Nyamira" on the website).</p>
+      </section>
+    )}
+
+    <footer class="a4-foot">
+      <p><strong>Sources:</strong> MCA from IEBC 2022 results and later by-elections; ward budget from the County Programme Based Budget 2025/26 (Table 18); road contracts from the County Annual Development Plan 2025/26; services from the Nyamira Daily list (mostly not yet checked on site); county spending from the Controller of Budget.</p>
+      <p>Figures checked {date(r.updated)}. Printed from {r.url}. Nyamira Daily is independent and not affiliated with the County Government of Nyamira. Free to copy and share.</p>
+    </footer>
+  </article>
+</Sheet>

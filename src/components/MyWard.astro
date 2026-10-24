@@ -6,6 +6,9 @@ import wards from '../data/wards.json';
 import { total } from '../lib/projects.js';
 import census from '../data/census.json';
 import { ksh, num } from '../lib/fmt.js';
+import { getAlerts } from '../lib/alerts-data.js';
+import LevelBadge from './LevelBadge.astro';
+const activeAlerts = (await getAlerts()).filter((a) => a.status === 'active');
 interface Props { topic: string }
 const { topic } = Astro.props;
 const cats = ['Health', 'Education', 'Worship', 'Market', 'Water', 'Public office'];
@@ -27,6 +30,7 @@ const coming = {
   {wards.map((w) => (
     <div class="stack" data-ward-only={w.slug} hidden>
       <span class="eyebrow">Your ward: {w.name} · {w.subCounty}</span>
+      {activeAlerts.filter((a) => a.wards.includes(w.slug)).map((a) => <p><LevelBadge level={a.level} /> <a href={`/alerts/${a.id.toLowerCase()}/`}><strong>{a.title}</strong></a></p>)}
       {(topic === 'services' || topic === 'home') && (
         <>
           <p><strong>{w.facilities.length}</strong> public places and services listed in {w.name}{w.places.length ? `, and ${w.places.length} named places` : ''}.</p>

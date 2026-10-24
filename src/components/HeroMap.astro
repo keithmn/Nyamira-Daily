@@ -10,6 +10,10 @@ import wards from '../data/wards.json';
 import { questions, total } from '../lib/projects.js';
 import { ksh } from '../lib/fmt.js';
 import { subCounties } from '../nav.js';
+import AlertMarks from './AlertMarks.astro';
+import AlertKey from './AlertKey.astro';
+import { getAlerts, isLive } from '../lib/alerts-data.js';
+const liveAlerts = (await getAlerts()).filter(isLive);
 
 const subClass = { 'Borabu': 's1', 'Kitutu Masaba': 's2', 'North Mugirango': 's3', 'West Mugirango': 's4' };
 const info = Object.fromEntries(wards.map((w) => {
@@ -95,11 +99,13 @@ const q0 = qs[0];
             <circle class="dot" cx={geo.wards[s].cx} cy={geo.wards[s].cy} r="8" />
           </g>
         ))}
+        <AlertMarks alerts={liveAlerts} r={18} />
         <g class="hm-label" aria-hidden="true" hidden><rect height="44" rx="22" /><text text-anchor="middle"></text></g>
       </svg>
       <figcaption>
         <span class="key"><span class="live" aria-hidden="true"></span>Question to ask</span>
         <span class="key"><i class="hm-key"></i><span class="hint-hover">Point at a ward</span><span class="hint-touch">Tap a ward</span></span>
+        {liveAlerts.length > 0 && <AlertKey />}
       </figcaption>
     </figure>
   </div>

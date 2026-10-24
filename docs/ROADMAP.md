@@ -1,6 +1,6 @@
 # Roadmap
 
-Status as of 23 October 2026.
+Status as of 24 October 2026. The expansion plan is in `docs/EXPANSION_SPEC.md`; Phase 1 is built.
 
 ## Live (real, sourced content)
 
@@ -11,6 +11,7 @@ Status as of 23 October 2026.
 - **Constitution**: devolution articles 174–200 with plain summaries, Fourth Schedule, your rights, county Acts.
 - **Learn**: how the county works, budget calendar, taking part, fees you pay, glossary.
 - **Opportunities**, **About**, **How we work**, **Search**.
+- **Phase 1 (Oct 2026):** Ask Nyamira (letter builder; tracker empty until requests are sent), Submission helper, printable ward sheets with QR codes, APIs and embeds, Number of the week, Explainers, Alerts (pages, maps, banners, APIs, RSS; no live alerts yet).
 
 ## Planned (tagged "Planned" on the site)
 
@@ -21,6 +22,8 @@ Status as of 23 October 2026.
 | Have your say | Needs a calendar of public participation forums (county website, newspapers, ward administrators). |
 | Tell us, Get updates | Need a WhatsApp number or email (`src/config.js`). |
 | Learn → Show episodes | Needs the show's episode list and audio links. |
+| What's working, Nyamira's people, Heritage, Myth or fact | Real entries (with consent for people and photos). Example entries are drafts. |
+| For the diaspora, Fellowship, Schools programme, State of Nyamira | Content from Keith. |
 | Kiswahili and Ekegusii versions | Translators, and a decision on URL structure (for example `/sw/`). |
 
 ## Next priorities (suggested order)
@@ -33,11 +36,16 @@ Status as of 23 October 2026.
 6. **Interactive map** (optional): MapLibre + OpenStreetMap with verified points, if the SVG maps become limiting.
 7. **Domain and hosting**: choose a domain, set `site` in `astro.config.mjs`, deploy to Netlify or Cloudflare Pages.
 
+## Publishing alerts and other entries
+
+The site is static, so it updates only when rebuilt. **Set hosting (Netlify or Cloudflare Pages) to rebuild on every commit to `main`.** Then adding an alert is: add a Markdown file in `src/content/alerts/`, commit, push; it is live in about a minute. Later: a simple editing screen (for example Decap CMS) so a non-developer can post alerts from a phone. Before launch: delete the `EXAMPLE` drafts in `src/content/` and agree who posts and verifies alerts.
+
 ## Recurring jobs
 
 | How often | Job |
 |---|---|
 | Weekly | Opportunities (jobs, tenders, bursaries); rebuild so open/closed status updates |
+| Weekly | Number of the week (`src/content/numbers/`) |
 | Monthly | New Assembly Hansards → sittings, bills, petitions |
 | After each CoB annual report | Money figures |
 | Each June/July | New budget's ward lines → Projects and ward pages |

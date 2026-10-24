@@ -50,6 +50,7 @@ A repeating pattern built from data marks (bars, dots, ticks, grid) set to the r
 - **Neutrals:** near-black ink and warm off-white paper.
 - **Optional accent:** a muted terracotta (red earth). Test it, and use it sparingly.
 - **NY Watch only:** a red recording dot.
+- **Since Oct 2026 (DECISIONS #24, #25):** Signal Green is the main colour, Record Red (#E11D2A) the secondary, Ink and White the neutrals. On maps, red means an emergency alert and nothing else (health points are teal). Off the map, red marks gaps in charts (money not spent, unpaid bills, work at 0%), the NY Watch dot and the On air strip.
 
 Green is for shapes and fills only. Body text stays in dark ink, because light green text on white fails contrast.
 

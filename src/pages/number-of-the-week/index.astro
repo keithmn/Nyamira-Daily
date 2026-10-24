@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import NumberCard from '../../components/NumberCard.astro';
+import { getNumbers, weekOf } from '../../lib/numbers.js';
+const list = await getNumbers();
+const [latest, ...past] = list;
+---
+<Base title="Number of the week">
+  <PageHead eyebrow="Today" title="Number of the week" lead="One checked figure each week, what it means, and where it comes from. Radio stations may read the script on air with credit to Nyamira Daily." />
+  {latest && <NumberCard e={latest} />}
+  {past.length > 0 && (
+    <section class="stack" style="margin-top:40px">
+      <h2>Earlier weeks</h2>
+      <ul class="rows">{past.map((e) => <li><a class="row-link" href={`#${e.id}`}><span><span class="t">{e.data.figure} {e.data.sentence}</span><span class="d">{weekOf(e.data.week)}</span></span></a></li>)}</ul>
+      {past.map((e) => <NumberCard e={e} />)}
+    </section>
+  )}
+</Base>

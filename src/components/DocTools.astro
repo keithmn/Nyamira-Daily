@@ -1,0 +1,31 @@
+---
+// Copy / WhatsApp / Print buttons for a generated letter in the textarea with id `target`.
+interface Props { target: string }
+const { target } = Astro.props;
+---
+<div class="page-tools gen-tools" data-gen-tools={target} hidden>
+  <button class="btn" type="button" data-act="copy">Copy</button>
+  <a class="btn quiet" data-act="wa" href="#" rel="noopener">Send on WhatsApp</a>
+  <button class="btn quiet" type="button" data-act="print">Print</button>
+  <span class="small" data-act="msg" aria-live="polite"></span>
+</div>
+<script is:inline>
+(function () {
+  var box = document.currentScript.previousElementSibling, id = box.getAttribute('data-gen-tools');
+  var out = document.getElementById(id); if (!out) return;
+  box.hidden = false;
+  var msg = box.querySelector('[data-act="msg"]'), wa = box.querySelector('[data-act="wa"]');
+  var pre = document.createElement('pre'); pre.className = 'letter-print'; document.body.appendChild(pre);
+  function sync() { wa.href = 'https://wa.me/?text=' + encodeURIComponent(out.value); pre.textContent = out.value; }
+  out.addEventListener('input', sync); document.addEventListener('nd-gen', sync); sync();
+  box.querySelector('[data-act="copy"]').addEventListener('click', function () {
+    out.select();
+    try { navigator.clipboard.writeText(out.value).then(function () { msg.textContent = 'Copied.'; }, function () { document.execCommand('copy'); msg.textContent = 'Copied.'; }); }
+    catch (e) { document.execCommand('copy'); msg.textContent = 'Copied.'; }
+  });
+  box.querySelector('[data-act="print"]').addEventListener('click', function () {
+    document.documentElement.classList.add('print-letter'); window.print();
+    setTimeout(function () { document.documentElement.classList.remove('print-letter'); }, 500);
+  });
+})();
+</script>

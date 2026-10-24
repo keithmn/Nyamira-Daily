@@ -1,0 +1,13 @@
+---
+// "Use this on your site": the iframe code for an embed page.
+interface Props { path: string; title: string; height?: number }
+const { path, title, height = 560 } = Astro.props;
+const src = new URL(path, Astro.site).toString();
+const code = `<iframe src="${src}" title="${title} (Nyamira Daily)" width="100%" height="${height}" style="border:0;max-width:640px" loading="lazy"></iframe>`;
+---
+<details class="embed-code">
+  <summary>Use this on your site</summary>
+  <p class="small">Newsrooms and blogs may show this box on their own pages, free, with the credit it carries. Copy the code into your page: </p>
+  <textarea readonly rows="3" onclick="this.select()">{code}</textarea>
+  <p class="small"><a href={path}>Preview the embed</a></p>
+</details>

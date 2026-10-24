@@ -1,0 +1,6 @@
+---
+interface Props { href: string }
+const { href } = Astro.props;
+const full = new URL(href, Astro.site).toString();
+---
+<p class="embed-foot">Source: <a href={full} target="_blank" rel="noopener">Nyamira Daily</a>. Every figure has a source and an evidence label on the full page.</p>

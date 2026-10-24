@@ -1,0 +1,1 @@
+{ "updated": "2026-10-24", "note": "Information requests made by Nyamira Daily, or by residents who gave written consent to be listed. Shape per request: id, question, askedOf, sentOn, dueOn, status (sent | answered | partly answered | refused | no reply | appealed), answerSummary, documents [{title, url}], requester.", "requests": [] }

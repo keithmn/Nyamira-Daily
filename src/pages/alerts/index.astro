@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import WardMap from '../../components/WardMap.astro';
+import AlertList from '../../components/AlertList.astro';
+import StaleScript from '../../components/StaleScript.astro';
+import { getAlerts, isLive } from '../../lib/alerts-data.js';
+import { levels, levelLabel, alertTypes } from '../../lib/alerts.js';
+import wards from '../../data/wards.json';
+import { subCounties } from '../../nav.js';
+const all = await getAlerts();
+const live = all.filter(isLive);
+const past = all.filter((a) => !isLive(a));
+const count = (l) => live.filter((a) => a.level === l).length;
+const years = [...new Set(past.map((a) => new Date(a.startedAt).getFullYear()))].sort((a, b) => b - a);
+const byYear = years.map((y) => {
+  const list = past.filter((a) => new Date(a.startedAt).getFullYear() === y);
+  const types = [...new Set(list.map((a) => a.type))].map((t) => ({ t, n: list.filter((a) => a.type === t).length })).sort((a, b) => b.n - a.n);
+  return { y, list, types };
+});
+const types = [...alertTypes.emergency, ...alertTypes.disruption, ...alertTypes.notice];
+---
+<Base title="Alerts" description="Emergencies, disruptions and public notices affecting Nyamira residents: confirmed, sourced and updated until resolved." showDisruptions>
+  <PageHead eyebrow="Today" title="Alerts" lead="Emergencies, disruptions and public notices affecting Nyamira. We publish what is confirmed, say where it came from, and update it until it is resolved." />
+  <div class="stack-lg" style="margin-top:16px">
+    <section class="stack" aria-label="Current alerts">
+      <div class="counts">
+        {levels.map((l) => <div><b>{count(l)}</b><span>{levelLabel[l]}{count(l) === 1 ? '' : 's'} now</span></div>)}
+      </div>
+      {live.length === 0 && <p class="muted">No active alerts right now.</p>}
+    </section>
+
+    <section class="cols-2">
+      <WardMap mode="county" alerts={all} />
+      <div class="stack">
+        <form class="filters" data-afilter hidden onsubmit="return false">
+          <label>Show<select name="status"><option value="live">Current</option><option value="past">Past</option><option value="">All</option></select></label>
+          <label>Type<select name="type"><option value="">All types</option>{types.map((t) => <option value={t}>{t}</option>)}</select></label>
+          <label>Ward<select name="ward"><option value="">All wards</option>{subCounties.map((s) => <optgroup label={s}>{wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}</optgroup>)}</select></label>
+        </form>
+        <h2 id="current">Current</h2>
+        {live.length ? <AlertList alerts={live} /> : <p class="muted">None.</p>}
+        <p class="small muted" data-anone hidden>No alerts match these filters.</p>
+      </div>
+    </section>
+
+    <section class="stack" id="archive">
+      <h2>Archive</h2>
+      {past.length === 0 && <p class="muted">No past alerts yet. Resolved alerts stay here, so over time the archive shows patterns, such as fires per year by ward.</p>}
+      {byYear.map((g) => (
+        <section class="stack">
+          <h3>{g.y}</h3>
+          <p class="small">{g.types.map((t, i) => <>{i > 0 && ' · '}{t.t[0].toUpperCase() + t.t.slice(1)}: <strong>{t.n}</strong></>)}</p>
+          <AlertList alerts={g.list} />
+        </section>
+      ))}
+    </section>
+
+    <section class="stack">
+      <h2>How we handle alerts</h2>
+      <ul>
+        <li>Only confirmed events: from an official source, a reputable news outlet, or our own correspondent on site. Reports not yet confirmed are labelled "Unverified" and updated fast.</li>
+        <li>No names or images of victims, and no guessing about causes.</li>
+        <li>An alert not updated for 72 hours is marked "Not updated recently: check the source".</li>
+        <li>For apps and broadcasters: <a href="/api/alerts/active.json">active alerts (JSON)</a>, <a href="/api/alerts/active.txt">plain text</a>, <a href="/alerts/rss.xml">RSS feed</a>.</li>
+      </ul>
+    </section>
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Tahadhari za dharura, usumbufu wa huduma na matangazo kwa wakazi wa Nyamira. Tunachapisha tu yaliyothibitishwa, na chanzo chake.</p></div>
+  </div>
+  <StaleScript />
+  <script is:inline>
+  (function () {
+    var f = document.querySelector('[data-afilter]'); if (!f) return;
+    f.hidden = false;
+    var rows = Array.prototype.slice.call(document.querySelectorAll('[data-alert]'));
+    var none = document.querySelector('[data-anone]');
+    function run() {
+      var st = f.elements.status.value, ty = f.elements.type.value, wd = f.elements.ward.value, n = 0;
+      rows.forEach(function (r) {
+        var ok = (!st || r.getAttribute('data-status') === st) && (!ty || r.getAttribute('data-type') === ty) &&
+          (!wd || r.getAttribute('data-wards') === '' || (' ' + r.getAttribute('data-wards') + ' ').indexOf(' ' + wd + ' ') >= 0);
+        r.hidden = !ok; if (ok) n++;
+      });
+      none.hidden = n > 0;
+    }
+    f.addEventListener('change', run);
+  })();
+  </script>
+</Base>

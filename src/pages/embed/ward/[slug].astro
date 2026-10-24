@@ -1,0 +1,25 @@
+---
+import Sheet from '../../../layouts/Sheet.astro';
+import EmbedFoot from '../../../components/EmbedFoot.astro';
+import EvidenceLabel from '../../../components/EvidenceLabel.astro';
+import wards from '../../../data/wards.json';
+import { receipt } from '../../../lib/ward.js';
+import { ksh, num } from '../../../lib/fmt.js';
+export function getStaticPaths() { return wards.map((w) => ({ params: { slug: w.slug } })); }
+const r = receipt(Astro.params.slug, Astro.site);
+const full = new URL(`/ward/${r.slug}/`, Astro.site).toString();
+---
+<Sheet title={`${r.name} Ward receipt`} kind="embed">
+  <section class="embed-box receipt">
+    <a class="embed-logo" href={full} target="_blank" rel="noopener"><img src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Nyamira Daily" width="1197" height="228" /></a>
+    <span class="eyebrow">Ward receipt · {r.subCounty}</span>
+    <h2>{r.name} Ward</h2>
+    <div class="row"><span>MCA</span><span>{r.mca ? r.mca.name + (r.mca.party ? ` (${r.mca.party})` : '') : 'Not confirmed'}</span></div>
+    {r.mp && <div class="row"><span>MP</span><span>{r.mp}</span></div>}
+    <div class="row"><span>Services listed <EvidenceLabel kind="unverified" /></span><span>{r.services.total}</span></div>
+    {r.wardProjects2526 && <div class="row"><span>Ward projects budgeted, 2025/26 <EvidenceLabel kind="official" /></span><span>{ksh(r.wardProjects2526.amount)}</span></div>}
+    {r.registeredVoters2018 && <div class="row"><span>Registered voters (IEBC 2018)</span><span>{num(r.registeredVoters2018)}</span></div>}
+    <div class="row"><span>Whole county spent, {r.county.fy} <EvidenceLabel kind="official" /></span><span>{ksh(r.county.spentKshMillion * 1e6)}</span></div>
+    <EmbedFoot href={`/ward/${r.slug}/`} />
+  </section>
+</Sheet>

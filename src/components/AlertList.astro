@@ -1,0 +1,28 @@
+---
+// A list of alerts as rows. data-* attributes let the /alerts/ filter script show and hide rows.
+import LevelBadge from './LevelBadge.astro';
+import EvidenceLabel from './EvidenceLabel.astro';
+import wards from '../data/wards.json';
+import { statusLabel, eat, isStale } from '../lib/alerts.js';
+interface Props { alerts: any[] }
+const { alerts } = Astro.props;
+const wn = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
+---
+<ul class="alist">
+  {alerts.map((a) => (
+    <li data-alert data-status={a.status === 'resolved' ? 'past' : 'live'} data-type={a.type} data-wards={a.wards.join(' ')}>
+      <a class="al" href={`/alerts/${a.id.toLowerCase()}/`}>
+        <LevelBadge level={a.level} />
+        <span class="al-t">{a.title}</span>
+        <span class="al-s">{a.summary}</span>
+        <span class="al-m">
+          <span class={`astat ${a.status}`}>{statusLabel[a.status]}</span>
+          <EvidenceLabel kind={a.evidenceLabel} />
+          <span>{a.wards.length ? a.wards.map((s) => wn[s] ?? s).join(', ') : 'County-wide'}</span>
+          <span>Updated {eat(a.updatedAt)}</span>
+          {a.status === 'active' && <span class="stale-tag" data-stale={new Date(a.updatedAt).toISOString()} hidden={!isStale(a)}>Not updated recently: check the source</span>}
+        </span>
+      </a>
+    </li>
+  ))}
+</ul>

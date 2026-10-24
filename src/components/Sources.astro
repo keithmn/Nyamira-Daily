@@ -1,0 +1,12 @@
+---
+interface Src { name: string; url?: string; page?: string; date?: Date }
+interface Props { list: Src[]; title?: string; updated?: string }
+const { list, title = 'Sources', updated } = Astro.props;
+---
+<section class="stack" style="margin-top:32px">
+  <h2>{title}</h2>
+  <ul class="small">
+    {list.map((s) => <li>{s.url ? <a href={s.url} rel="noopener">{s.name}</a> : s.name}{s.page && `, ${s.page}`}{s.date && ` (${s.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })})`}</li>)}
+  </ul>
+  {updated && <p class="updated">Last updated {updated}. Spotted an error? See <a href="/how-we-work/#corrections">corrections</a>.</p>}
+</section>

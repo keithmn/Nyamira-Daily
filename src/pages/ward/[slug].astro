@@ -11,6 +11,10 @@ import { forWard, total, kindLabel, fyOrder, sources, watch, pct, statusShort, s
 import Pictos from '../../components/viz/Pictos.astro';
 import SplitBar from '../../components/viz/SplitBar.astro';
 import HBars from '../../components/viz/HBars.astro';
+import EmbedCode from '../../components/EmbedCode.astro';
+import { getAlerts } from '../../lib/alerts-data.js';
+import { levelLabel } from '../../lib/alerts.js';
+const wardAlerts = (await getAlerts()).filter((a) => a.status === 'active' && (a.wards.includes(Astro.params.slug) || a.wards.length === 0));
 import { ksh, num } from '../../lib/fmt.js';
 
 export function getStaticPaths() {
@@ -42,7 +46,7 @@ const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
 const sc = statusCounts(w.slug);
 const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.slug, '2025/26', 'budgeted')?.amount ?? 0, href: `/ward/${x.slug}/#projects` })).map((r) => ({ ...r, display: ksh(r.value) }));
 ---
-<Base title={`${w.name} Ward`}>
+<Base title={`${w.name} Ward`} alertWard={w.slug}>
   <PageHead eyebrow={`${w.subCounty} sub-county`} title={`${w.name} Ward`} crumbs={[{ href: '/ward/', label: 'Wards' }, { href: `/ward/${w.slug}/`, label: w.name }]} />
 
   <div class="stack-lg" style="margin-top:8px">
@@ -51,6 +55,7 @@ const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.
     <section class="receipt" aria-label={`${w.name} ward summary`}>
       <span class="eyebrow">Ward receipt · {w.subCounty}</span>
       <h2>{w.name} Ward</h2>
+      {wardAlerts.length > 0 && <div class="row"><span>Active alerts</span><span>{wardAlerts.map((a, i) => <>{i > 0 && ', '}<a href={`/alerts/${a.id.toLowerCase()}/`}>{levelLabel[a.level]}: {a.title}</a></>)}</span></div>}
       <div class="row"><span>MCA</span><span>{mca ? mcaLine : 'Not confirmed'}</span></div>
       {mp && <div class="row"><span>MP ({w.subCounty})</span><span>{mp.name}</span></div>}
       <div class="row"><span>Services listed</span><span>{w.facilities.length}</span></div>
@@ -64,10 +69,12 @@ const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.
       <div class="page-tools">
         <a class="btn" href={wa} rel="noopener">Share this receipt on WhatsApp</a>
         <button class="btn quiet" type="button" data-set-ward={w.slug}>Make {w.name} my ward</button>
+        <a class="btn quiet" href={`/ward/${w.slug}/sheet/`}>Print a ward sheet</a>
         <span class="small" data-ward-only={w.slug} hidden><strong>This is your ward.</strong></span>
       </div>
     </section>
 
+    <EmbedCode path={`/embed/ward/${w.slug}/`} title={`${w.name} Ward receipt`} height={520} />
     {mca?.note && <p class="small"><strong>Note on the MCA seat:</strong> {mca.note} {mca.src && <a href={mca.src} rel="noopener">Source</a>}</p>}
 
     <div class="sw" lang="sw">

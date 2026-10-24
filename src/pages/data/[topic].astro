@@ -75,7 +75,24 @@ const total = wards.reduce((n, w) => n + w.facilities.length, 0);
         <p class="muted">Schools, health facilities, churches, markets, offices and more, with their ward and source.</p>
         <a class="btn" href="/files/facilities-v1.csv" download>Download CSV</a>
       </div>
-      <p class="small muted">Licence: free to reuse with credit to Nyamira Daily. Data from OpenStreetMap is © OpenStreetMap contributors (ODbL).</p>
+      <section class="stack" style="margin-top:16px">
+        <h2>Live data for apps, newsrooms and radio</h2>
+        <p class="muted">These files are rebuilt every time the site changes. Each JSON file carries its licence, sources and the date it was generated.</p>
+        <div class="table-box"><table class="cards">
+          <thead><tr><th>Address</th><th>What it holds</th></tr></thead>
+          <tbody>
+            <tr><td><a href="/api/wards.json">/api/wards.json</a></td><td data-label="Holds">Ward receipts for all 20 wards</td></tr>
+            <tr><td><a href="/api/ward/rigoma.json">/api/ward/&lt;ward&gt;.json</a></td><td data-label="Holds">One ward's receipt (ward names as in the web address, e.g. rigoma)</td></tr>
+            <tr><td><a href="/api/ward/rigoma.txt">/api/ward/&lt;ward&gt;.txt</a></td><td data-label="Holds">The same receipt as plain text under 900 characters, for WhatsApp and SMS replies</td></tr>
+            <tr><td><a href="/api/money.json">/api/money.json</a></td><td data-label="Holds">County money by year</td></tr>
+            <tr><td><a href="/api/projects.json">/api/projects.json</a></td><td data-label="Holds">Ward projects, with sources</td></tr>
+            <tr><td><a href="/api/opportunities.json">/api/opportunities.json</a></td><td data-label="Holds">Jobs, tenders and bursaries</td></tr>
+            <tr><td><a href="/api/alerts.json">/api/alerts.json</a></td><td data-label="Holds">All alerts and incidents; <a href="/api/alerts/active.json">active.json</a> and <a href="/api/alerts/active.txt">active.txt</a> for current ones; <a href="/alerts/rss.xml">RSS feed</a></td></tr>
+          </tbody>
+        </table></div>
+        <p class="small muted">To show a ward or the county's money on your own website, use the embeds: the code is under "Use this on your site" on each ward page and on the Money page.</p>
+      </section>
+      <p class="small muted">Licence: free to reuse with credit to Nyamira Daily. Data from OpenStreetMap is © OpenStreetMap contributors (ODbL). Ward boundaries: geoBoundaries (CC BY 4.0).</p>
     </div>
   )}
 
