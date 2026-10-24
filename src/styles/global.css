@@ -149,14 +149,28 @@ details.menu { border: 0; padding: 0; }
 details.menu[open] { padding: 0; }
 .menu-panel { position: absolute; right: 0; top: calc(100% + 6px); z-index: 20; width: min(280px, calc(100vw - 32px)); background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; box-shadow: 0 8px 24px rgb(0 0 0 / 0.12); gap: 12px; }
 .menu-panel a { min-height: 32px; display: flex; align-items: center; }
-.nav { display: flex; gap: 0 4px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
+/* Primary bar: the six sections */
+.nav { position: relative; display: flex; gap: 0 4px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
 .nav::-webkit-scrollbar { display: none; }
 .nav a {
   flex: 0 0 auto; padding: 12px 14px; min-height: 44px; font-weight: 500; color: var(--ink);
   text-decoration: none; border-bottom: 4px solid transparent;
 }
 /* Current section: green bar plus Bold text, so it doesn't rely on green alone (green on white is 2.0:1) */
-.nav a[aria-current="page"] { border-bottom-color: var(--brand); font-weight: 700; }
+.nav a[aria-current] { border-bottom-color: var(--brand); font-weight: 700; }
+
+/* Secondary bar: the pages inside the current section. Smaller than the primary bar; the current page
+   is a Signal Green pill with Bold Ink text. */
+.subnav { border-top: 1px solid var(--line); background: var(--bg); }
+.subnav-row { position: relative; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 6px 16px; }
+.subnav-row::-webkit-scrollbar { display: none; }
+.subnav a {
+  flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 4px 14px;
+  border-radius: 999px; font-size: 16px; color: var(--ink); text-decoration: none;
+}
+.subnav a:hover { background: var(--surface); }
+.subnav a[aria-current] { background: var(--brand); color: var(--brand-ink); font-weight: 700; }
+.subnav a[aria-current] .tag-planned { color: var(--brand-ink); border-color: var(--brand-ink); }
 
 /* Buttons: Ink text on Signal Green; quiet buttons are Ink on the page background */
 .btn {
@@ -227,7 +241,7 @@ details[open] { padding-bottom: 16px; }
 .site-footer ul { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; }
 
 @media print {
-  .site-header .tools, .nav, .page-tools, .site-footer { display: none; }
+  .site-header .tools, .nav, .subnav, .page-tools, .site-footer { display: none; }
   body { font-size: 12pt; }
   a { color: inherit; }
 }
@@ -319,7 +333,7 @@ a.card.is-planned { opacity: 0.7; }
 .receipt .row span:last-child { white-space: nowrap; }
 input.field { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; font-size: 18px; border: 1px solid var(--control-line); border-radius: 8px; background: var(--bg); color: var(--ink); }
 @media (max-width: 640px) {
-  .nav { -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
+  .nav, .subnav-row { -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
 }
 /* Very narrow phones (e.g. 280px folding phones): tighter header buttons so the symbol keeps its 24px minimum */
 @media (max-width: 340px) {

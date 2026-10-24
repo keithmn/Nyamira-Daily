@@ -1,10 +1,10 @@
 ---
 import '../styles/global.css';
 import wards from '../data/wards.json';
-const subs = ['Borabu', 'Kitutu Masaba', 'North Mugirango', 'West Mugirango'];
+import { sections, sectionFor, currentPage, subCounties } from '../nav.js';
 
 import PageTools from '../components/PageTools.astro';
-import { hasContact } from '../config.js';
+import { hasContact, planned } from '../config.js';
 interface Props { title: string; description?: string; tools?: boolean; image?: string; imageAlt?: string }
 const {
   title,
@@ -14,16 +14,12 @@ const {
   imageAlt = 'Nyamira Daily',
 } = Astro.props;
 
-const sections = [
-  { href: '/', label: 'Today' },
-  { href: '/data/', label: 'Data' },
-  { href: '/ward/', label: 'My Ward' },
-  { href: '/government/', label: 'Government' },
-  { href: '/constitution/', label: 'Constitution' },
-  { href: '/learn/', label: 'Learn' },
-];
+// Navigation (src/nav.js): the section this page is in, and its entry in that section's secondary bar.
+// aria-current is "page" on the exact page and "true" on the section or group that contains it.
 const path = Astro.url.pathname;
-const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const section = sectionFor(path);
+const current = currentPage(section, path);
+const ariaCurrent = (href: string, isOn: boolean) => (isOn ? (href === path ? 'page' : 'true') : undefined);
 const pageTitle = title === 'Today' ? 'Nyamira Daily' : `${title} · Nyamira Daily`;
 
 // Sharing (WhatsApp, Facebook, X): pages without their own image use the default card.
@@ -129,16 +125,29 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
       </div>
       <nav class="nav" aria-label="Main sections">
         {sections.map((s) => (
-          <a href={s.href} aria-current={isCurrent(s.href) ? 'page' : undefined}>{s.label}</a>
+          <a href={s.href} aria-current={ariaCurrent(s.href, s === section)}>{s.label}</a>
         ))}
       </nav>
     </div>
+    {section && section.pages.length > 0 && (
+      <nav class="subnav" aria-label={`In ${section.label}`}>
+        <div class="wrap">
+          <div class="subnav-row">
+            {section.pages.map((p) => (
+              <a href={p.href} aria-current={ariaCurrent(p.href, p.href === current)}>
+                {p.label}{planned.has(p.href) && <span class="tag-planned">Planned</span>}
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+    )}
     <div class="ward-strip">
       <div class="wrap">
         <label for="ward-pick"><strong>Your ward</strong></label>
         <select id="ward-pick" class="lang">
           <option value="">Whole county</option>
-          {subs.map((s) => (
+          {subCounties.map((s) => (
             <optgroup label={s}>
               {wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}
             </optgroup>
@@ -206,6 +215,11 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
     if (pick) pick.addEventListener('change', function () { choose(pick.value); });
     all('[data-set-ward]').forEach(function (el) { el.addEventListener('click', function () { choose(el.getAttribute('data-set-ward')); }); });
     apply();
+    // On phones the bars scroll sideways: centre the current section and page if they start off screen
+    all('.nav, .subnav-row').forEach(function (bar) {
+      var cur = bar.querySelector('[aria-current]');
+      if (cur && cur.offsetLeft + cur.offsetWidth > bar.clientWidth) bar.scrollLeft = cur.offsetLeft - (bar.clientWidth - cur.offsetWidth) / 2;
+    });
   })();
   </script>
 </body>

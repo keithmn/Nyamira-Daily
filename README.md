@@ -30,6 +30,7 @@ Requires Node.js 18.20.8 or later (Astro 5).
 | What | Where |
 |---|---|
 | Page layout, header, menu, ward picker, footer | `src/layouts/Base.astro` |
+| Navigation: the six sections (primary bar) and the pages in each (secondary bar) | `src/nav.js` |
 | Colours (light and dark), spacing, components' styles | `src/styles/global.css` |
 | Logos, icons, fonts, default share image | `public/brand/` (from the brand kit; see `docs/BRAND_BRIEF.md`) |
 | Shared components (evidence labels, stat cards, maps, charts, ward panel) | `src/components/` |
@@ -43,6 +44,8 @@ Requires Node.js 18.20.8 or later (Astro 5).
 ## Sections
 
 Today · Data · My Ward · Government · Constitution · Learn, plus Opportunities, Search, About and How we work.
+
+The six sections form the primary navigation bar. Under it, a secondary bar lists the pages inside the section the reader is in (for Data: Money, Projects, Services, People, Open data…). Opportunities and Have your say sit under Today; My Ward's secondary bar jumps to each sub-county's wards. Both bars are defined in `src/nav.js`.
 
 ## Maps and the ward filter
 
