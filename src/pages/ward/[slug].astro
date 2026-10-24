@@ -7,7 +7,10 @@ import wards from '../../data/wards.json';
 import leaders from '../../data/leaders.json';
 import money from '../../data/money.json';
 import census from '../../data/census.json';
-import { forWard, total, kindLabel, fyOrder, sources, watch, pct, statusShort, shortTitle } from '../../lib/projects.js';
+import { forWard, total, kindLabel, fyOrder, sources, watch, pct, statusShort, shortTitle, statusCounts } from '../../lib/projects.js';
+import Pictos from '../../components/viz/Pictos.astro';
+import SplitBar from '../../components/viz/SplitBar.astro';
+import HBars from '../../components/viz/HBars.astro';
 import { ksh, num } from '../../lib/fmt.js';
 
 export function getStaticPaths() {
@@ -36,6 +39,8 @@ const shareText = [
   new URL('/ward/' + w.slug + '/', Astro.site).toString(),
 ].join('\n');
 const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+const sc = statusCounts(w.slug);
+const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.slug, '2025/26', 'budgeted')?.amount ?? 0, href: `/ward/${x.slug}/#projects` })).map((r) => ({ ...r, display: ksh(r.value) }));
 ---
 <Base title={`${w.name} Ward`}>
   <PageHead eyebrow={`${w.subCounty} sub-county`} title={`${w.name} Ward`} crumbs={[{ href: '/ward/', label: 'Wards' }, { href: `/ward/${w.slug}/`, label: w.name }]} />
@@ -80,9 +85,7 @@ const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
     <section class="stack">
       <h2>Services in {w.name}</h2>
       <p class="muted small">Listed from public sources. "Unverified" means our correspondents have not yet visited. <span class="updated">Last updated 22 Oct 2026.</span></p>
-      <div class="count-tiles">
-        {order.filter((c) => byCat[c]).map((c) => <a href={`#svc-${c.toLowerCase().split(' ').join('-')}`}><b>{byCat[c].length}</b><span>{c}</span></a>)}
-      </div>
+      <Pictos counts={order.filter((c) => byCat[c]).map((c) => ({ cat: c, n: byCat[c].length, href: `#svc-${c.toLowerCase().split(' ').join('-')}` }))} />
       {order.filter((c) => byCat[c]).map((c) => (
         <details id={`svc-${c.toLowerCase().split(' ').join('-')}`}>
           <summary>{c} ({byCat[c].length})</summary>
@@ -115,6 +118,20 @@ const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
           <p class="note">A question, not an accusation. Sources: {x.src.map((id, i) => <>{i > 0 && '; '}<a href={sources[id].url} rel="noopener">{shortTitle(sources[id].title)}</a></>)}</p>
         </div>
       ))}
+      {sc.total > 0 && (
+        <div class="figure">
+          <h3 class="mini">Progress the county reported for {sc.total} projects in {w.name}</h3>
+          <SplitBar title={`Reported progress, ${w.name}`} parts={[{ value: sc.done, label: 'finished (100%)', tone: 'good', show: String(sc.done) }, { value: sc.going, label: 'under way', tone: 'mid', show: String(sc.going) }, { value: sc.none, label: 'at 0%', tone: 'gap', show: String(sc.none) }]} />
+          <p class="source"><span class="label official">Official claim</span> From the county's own plans; only projects with a percentage reported. Each project counted once.</p>
+        </div>
+      )}
+      {b2526 && (
+        <details>
+          <summary>How {w.name}'s 2025/26 ward budget compares with the other wards</summary>
+          <HBars title="Ward project budgets, FY2025/26" rows={budgets} focus={w.slug} />
+          <p class="small muted">Source: Programme Based Budget 2025/26, Table 18 (ward-coded lines). Nyansiongo and Nyamaiya have several lines printed as KSh 0.</p>
+        </details>
+      )}
       {byFy.length === 0 && <p class="muted">No ward-tagged projects found yet in the documents we have read.</p>}
       {byFy.map((g, i) => (
         <details open={i === 0}>

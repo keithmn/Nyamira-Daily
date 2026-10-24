@@ -62,3 +62,17 @@ export function shortTitle(t) {
   const name = (parts.length > 1 ? parts.slice(1).join(' – ') : t).split(' (')[0].split(',')[0].trim();
   return by && by !== 'County Government of Nyamira' ? by + ': ' + name : 'County ' + name.replace('County ', '');
 }
+
+// Reported progress for projects (each project counted once: the last record we hold for it): finished (100%),
+// under way (1–99%) and not started (0%). Projects with no percentage reported are left out.
+export function statusCounts(slug) {
+  const latest = new Map();
+  for (const p of projects) {
+    if (slug && p.ward !== slug) continue;
+    const v = pct(p.status);
+    if (v == null) continue;
+    latest.set(p.ward + "|" + p.name, v);
+  }
+  const vals = [...latest.values()];
+  return { done: vals.filter((v) => v === 100).length, going: vals.filter((v) => v > 0 && v < 100).length, none: vals.filter((v) => v === 0).length, total: vals.length };
+}

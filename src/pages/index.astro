@@ -4,6 +4,8 @@ import HeroMap from '../components/HeroMap.astro';
 import MyWard from '../components/MyWard.astro';
 import NyWatchLogo from '../components/NyWatchLogo.astro';
 import EvidenceLabel from '../components/EvidenceLabel.astro';
+import Coins from '../components/viz/Coins.astro';
+import SplitBar from '../components/viz/SplitBar.astro';
 import wards from '../data/wards.json';
 import money from '../data/money.json';
 import leaders from '../data/leaders.json';
@@ -32,10 +34,10 @@ const more = [
       <div class="figure">
         <span class="eyebrow">Money · {last.fy}</span>
         <span class="num">{bn(last.spent)}</span>
-        <p class="say">spent by the county, out of a <strong>{bn(last.budget)}</strong> budget.</p>
-        <div class="meter" aria-hidden="true"><i style={`width:${spentPct}%`}></i></div>
-        <div class="meter-key"><span>Spent {bn(last.spent)}</span><span>Budget {bn(last.budget)}</span></div>
-        <div class="callout"><b>{last.devAbs}%</b><span>of the development budget (roads, buildings, water) was used.</span></div>
+        <p class="say">spent by the county, out of a <strong>{bn(last.budget)}</strong> budget. <strong class="hot">{bn(last.budget - last.spent)}</strong> was not spent.</p>
+        <Coins part={spentPct} unit="KSh " title="Out of every KSh 100 in the budget" goodLabel="was spent" gapLabel="was not spent" />
+        <h3 class="mini">Development money: roads, buildings, water</h3>
+        <SplitBar title={`Development budget ${last.fy}`} parts={[{ value: last.devAbs, label: 'used', tone: 'good' }, { value: 100 - last.devAbs, label: 'not used', tone: 'gap' }]} />
         <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{last.fy}</p>
         <a href="/data/money/"><strong>See 12 years of county money</strong></a>
       </div>

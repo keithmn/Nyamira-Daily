@@ -1,0 +1,27 @@
+---
+// Horizontal bars, one row per item, longest first. Rows with `ward` are highlighted when that ward
+// is the reader's ward (the site-wide picker sets class "mine"). `focus` marks one row in Signal Green
+// and the rest grey (used on a ward page to show where this ward sits).
+interface Row { label: string; value: number; display: string; href?: string; ward?: string; note?: string }
+interface Props { rows: Row[]; title: string; focus?: string; sort?: boolean }
+const { rows, title, focus, sort = true } = Astro.props;
+const list = sort ? [...rows].sort((a, b) => b.value - a.value) : rows;
+const max = Math.max(...list.map((r) => r.value), 1);
+---
+<figure class={`hbars${focus ? ' has-focus' : ''}`}>
+  <figcaption class="vh">{title}</figcaption>
+  <ol>
+    {list.map((r) => {
+      const Tag = r.href ? 'a' : 'div';
+      return (
+        <li data-ward-row={r.ward} class={focus && r.ward === focus ? 'focus' : undefined}>
+          <Tag class="hb-row" href={r.href}>
+            <span class="hb-label">{r.label}{r.note && <span class="hb-note"> {r.note}</span>}</span>
+            <span class="hb-track"><i style={`width:${Math.max(0.5, (r.value / max) * 100)}%`}></i></span>
+            <span class="hb-val">{r.display}</span>
+          </Tag>
+        </li>
+      );
+    })}
+  </ol>
+</figure>

@@ -299,11 +299,7 @@ a.card.is-planned { opacity: 0.7; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; }
 .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
 
-/* NY Watch (the show): its own logos. Record Red is the secondary colour, kept to two meanings:
-   "the show" (recording dot, Live / New episode badges, the On air strip) and "time is running out"
-   (deadlines closing within 7 days). Later: "Corrected" tags and form errors. Never on questions to ask,
-   project status, charts, evidence labels or buttons. White on red is 4.8:1; red text on white 4.8:1,
-   on Ink only at large sizes (4.0:1). */
+/* NY Watch (the show): its own logos. Record Red roles are set out in "Colour roles" further down. */
 .nyw-logo { display: block; }
 .nyw-logo img { display: block; width: 180px; height: auto; }
 .nyw .eyebrow::before { background: var(--nd-red); border-radius: 50%; }
@@ -608,7 +604,7 @@ a.tile:hover { border-color: var(--ink); }
 :root[data-theme="dark"] .hm-w.s1 { fill: #353533; } :root[data-theme="dark"] .hm-w.s2 { fill: #2e2e2c; }
 :root[data-theme="dark"] .hm-w.s3 { fill: #3b3b39; } :root[data-theme="dark"] .hm-w.s4 { fill: #323230; }
 /* (".hero-map svg" raises these above the dark-mode ward fills) */
-.hero-map svg [data-w].is-q .hm-w { fill: #1c5e3c; }
+.hero-map svg [data-w].is-q .hm-w { fill: #6a1a20; }
 .hero-map svg [data-w]:hover .hm-w, .hero-map svg [data-w]:focus .hm-w, .hero-map svg [data-w].is-on .hm-w { fill: var(--nd-green); }
 .hero-map svg [data-w].mine .hm-w { stroke: var(--nd-green); stroke-width: 5; }
 [data-w]:focus { outline: none; }
@@ -633,7 +629,7 @@ a.tile:hover { border-color: var(--ink); }
 .hc-ward { font-size: 13px; font-weight: 700; color: var(--nd-green); letter-spacing: 0.02em; margin-bottom: -6px; }
 
 /* Charts on phones: the SVG shrinks to about half size, so draw its text larger to stay readable */
-@media (max-width: 640px) { .chart text { font-size: 20px; } }
+@media (max-width: 640px) { .chart text { font-size: 17px; } }
 /* Ward page: receipt beside the ward map on wide screens */
 .ward-top { display: grid; gap: 40px; grid-template-columns: minmax(0, 1fr); align-items: start; }
 @media (min-width: 900px) { .ward-top { grid-template-columns: minmax(0, 600px) minmax(0, 1fr); } .ward-top .ward-map { position: sticky; top: 16px; } }
@@ -650,3 +646,78 @@ a.tile:hover { border-color: var(--ink); }
 .due { display: inline-block; align-self: flex-start; padding: 2px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; background: var(--surface); color: var(--ink); }
 .due.soon { background: var(--nd-red); color: var(--nd-white); }
 .due.past { color: var(--muted); font-weight: 500; }
+
+/* ===================================================================================
+   Colour roles (Oct 2026, decision #24): Signal Green is the main colour, Record Red the secondary,
+   Ink and White the neutrals. Red marks the critical numbers: the gap (money not spent, unpaid bills,
+   work at 0%, revenue short of target), questions to ask, deadlines and the show. Never on evidence
+   labels or as words of blame. Red text uses --accent-ink (5.9:1 on white, 6.8:1 on Ink in dark mode);
+   red fills use --accent.
+   =================================================================================== */
+:root { --accent: var(--nd-red); --accent-ink: #c0121e; --accent-soft: #fde8e9; }
+:root[data-theme="dark"] { --accent-ink: #ff6b73; --accent-soft: #3a1518; }
+.on-ink { --accent-ink: #ff6b73; }
+.hot { color: var(--accent-ink); }
+.num.hot { color: var(--accent-ink); }
+.mini { font-size: 16px; margin-top: 8px; }
+
+/* Out of every 100 (dots) */
+.coins { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
+.coins svg { width: 176px; height: 176px; flex: none; }
+.coins circle.on { fill: var(--brand); }
+.coins circle.gap { fill: var(--accent); }
+.coins figcaption { display: flex; flex-direction: column; gap: 8px; flex: 1 1 210px; }
+.coins-title { font-weight: 700; font-size: 15px; }
+.coins-key { display: flex; align-items: baseline; gap: 8px; font-size: 15px; }
+.coins-key b { font-size: 26px; line-height: 1; white-space: nowrap; }
+.coins-key.gap b { color: var(--accent-ink); }
+.coins-key i { width: 14px; height: 14px; border-radius: 50%; flex: none; align-self: center; }
+.coins-key i.on { background: var(--brand); } .coins-key i.gap { background: var(--accent); }
+
+/* Split bar */
+.splitbar { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.sb-bar { display: flex; height: 28px; border-radius: 8px; overflow: hidden; gap: 3px; }
+.sb-bar span { min-width: 6px; }
+.sb-good { background: var(--brand); } .sb-gap { background: var(--accent); } .sb-mid { background: var(--ink); } .sb-quiet { background: var(--bar-quiet); }
+.sb-key { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 15px; }
+.sb-k { display: inline-flex; align-items: baseline; gap: 6px; }
+.sb-k i { width: 12px; height: 12px; border-radius: 3px; align-self: center; }
+.sb-k b { font-size: 22px; line-height: 1; }
+.sb-k-good i { background: var(--brand); } .sb-k-gap i { background: var(--accent); } .sb-k-mid i { background: var(--ink); } .sb-k-quiet i { background: var(--bar-quiet); }
+.sb-k-gap b { color: var(--accent-ink); }
+
+/* Horizontal bars */
+.hbars { margin: 0; }
+.hbars ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.hbars li { max-width: none; }
+.hb-row { display: grid; grid-template-columns: minmax(84px, 9em) minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 5px 4px; border-radius: 8px; text-decoration: none; color: var(--ink); font-size: 15px; }
+a.hb-row:hover { background: var(--surface); }
+.hb-label { overflow-wrap: anywhere; line-height: 1.2; }
+.hb-note { color: var(--muted); font-size: 12px; }
+.hb-track { height: 16px; border-radius: 4px; background: transparent; }
+.hb-track i { display: block; height: 100%; border-radius: 4px; background: var(--brand); }
+.hb-val { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hbars.has-focus .hb-track i { background: var(--bar-quiet); }
+.hbars.has-focus li.focus .hb-track i { background: var(--brand); }
+.hbars.has-focus li.focus .hb-row { font-weight: 700; background: var(--brand-soft); }
+.hbars li.mine .hb-row { box-shadow: inset 0 0 0 2px var(--ink); font-weight: 700; }
+
+/* Pictograms */
+.pictos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr)); gap: 8px; }
+.pictos li { max-width: none; }
+.pc { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border-radius: 12px; background: var(--surface); text-decoration: none; color: var(--ink); }
+a.pc:hover { box-shadow: inset 0 0 0 2px var(--ink); }
+.pc-icons { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; min-height: 22px; }
+.pc-icons svg { fill: var(--ink); }
+.pc-more { font-weight: 700; font-size: 14px; margin-left: 4px; }
+.pc-text b { font-size: 22px; margin-right: 4px; }
+
+/* Red where it marks a question or the gap */
+.hm-ping .ring { stroke: var(--nd-red); }
+.hm-ping .dot { fill: var(--nd-red); }
+.live, .hero-map .key .live { background: var(--nd-red); }
+.live::after { border-color: var(--nd-red); }
+.ask { box-shadow: inset 6px 0 0 var(--nd-red); }
+.ask .eyebrow::before { color: #ff6b73; }
+.callout.gap { background: var(--accent-soft); }
+.callout.gap b { color: var(--accent-ink); }

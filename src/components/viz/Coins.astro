@@ -1,0 +1,18 @@
+---
+// "Out of every 100": a 10 × 10 grid of dots, the first `part` in Signal Green, the rest in Record Red.
+// Built for readers who find percentages hard: count the dots. Inline SVG, no script.
+interface Props { part: number; title: string; goodLabel: string; gapLabel: string; unit?: string }
+const { title, goodLabel, gapLabel, unit = '' } = Astro.props;
+const part = Math.max(0, Math.min(100, Math.round(Astro.props.part)));
+const dots = Array.from({ length: 100 }, (_, i) => ({ x: (i % 10) * 22 + 11, y: Math.floor(i / 10) * 22 + 11, on: i < part }));
+---
+<figure class="coins">
+  <svg viewBox="0 0 220 220" role="img" aria-label={`${title}: ${unit}${part} ${goodLabel}, ${unit}${100 - part} ${gapLabel}.`}>
+    {dots.map((d) => <circle cx={d.x} cy={d.y} r="8.5" class={d.on ? 'on' : 'gap'} />)}
+  </svg>
+  <figcaption>
+    <span class="coins-title">{title}</span>
+    <span class="coins-key"><i class="on"></i><b>{unit}{part}</b> {goodLabel}</span>
+    <span class="coins-key gap"><i class="gap"></i><b>{unit}{100 - part}</b> {gapLabel}</span>
+  </figcaption>
+</figure>

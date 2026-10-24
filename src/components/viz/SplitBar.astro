@@ -1,0 +1,17 @@
+---
+// One bar split into parts, with each part's share written above it in large type.
+// tone: "good" (Signal Green), "gap" (Record Red: money not spent, work not started), "mid" (Ink), "quiet" (grey).
+interface Part { value: number; label: string; tone: 'good' | 'gap' | 'mid' | 'quiet'; show?: string }
+interface Props { parts: Part[]; title: string }
+const { parts, title } = Astro.props;
+const sum = parts.reduce((a, p) => a + p.value, 0) || 1;
+const shown = parts.filter((p) => p.value > 0).map((p) => ({ ...p, pct: (p.value / sum) * 100 }));
+---
+<figure class="splitbar">
+  <div class="sb-bar" role="img" aria-label={`${title}: ${shown.map((p) => `${p.show ?? Math.round(p.pct) + '%'} ${p.label}`).join(', ')}.`}>
+    {shown.map((p) => <span class={`sb-${p.tone}`} style={`flex:${p.pct} 1 0`}></span>)}
+  </div>
+  <figcaption class="sb-key">
+    {shown.map((p) => <span class={`sb-k sb-k-${p.tone}`}><i></i><b>{p.show ?? `${Math.round(p.pct)}%`}</b> {p.label}</span>)}
+  </figcaption>
+</figure>

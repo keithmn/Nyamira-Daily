@@ -3,6 +3,10 @@ import wards from '../data/wards.json';
 import { lines2526, total, watch, sources } from '../lib/projects.js';
 import { ksh } from '../lib/fmt.js';
 import EvidenceLabel from './EvidenceLabel.astro';
+import HBars from './viz/HBars.astro';
+import SplitBar from './viz/SplitBar.astro';
+import { statusCounts } from '../lib/projects.js';
+const sc = statusCounts();
 const rows = wards.map((w) => {
   const l = lines2526(w.slug);
   return { w, n: l.length, zero: l.filter((x) => !x.amount).length, b: total(w.slug, '2025/26', 'budgeted')?.amount ?? 0, roads: total(w.slug, '2023/24', 'contract')?.amount ?? null };
@@ -43,6 +47,15 @@ const wname = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
   <section class="stack">
     <h2>Every ward, side by side</h2>
     <p class="muted">Budget lines are what the county planned to spend in each ward. Road contracts are what it signed for routine road maintenance in FY2023/24. Neither shows what was finished.</p>
+    <HBars title="Ward project budgets, FY2025/26" rows={rows.map((r) => ({ label: r.w.name, ward: r.w.slug, value: r.b, display: ksh(r.b), href: `/ward/${r.w.slug}/#projects`, note: r.zero ? `(${r.zero} at zero)` : undefined }))} />
+    <p class="source"><EvidenceLabel kind="official" /> Source: Programme Based Budget 2025/26, Table 18. Your ward is outlined once you choose it.</p>
+    <div class="figure">
+      <h3 class="mini">Progress the county reported for {sc.total} ward projects</h3>
+      <SplitBar title="Reported progress of ward projects" parts={[{ value: sc.done, label: 'finished (100%)', tone: 'good', show: String(sc.done) }, { value: sc.going, label: 'under way', tone: 'mid', show: String(sc.going) }, { value: sc.none, label: 'at 0%', tone: 'gap', show: String(sc.none) }]} />
+      <p class="source"><EvidenceLabel kind="official" /> From the county's own plans (ADP 2025/26, CADP 2026/27); only projects with a percentage reported, each counted once. We have not visited these sites.</p>
+    </div>
+    <details>
+      <summary>See the detail: every ward in a table</summary>
     <div class="table-box">
       <table class="cards">
         <thead><tr><th>Ward</th><th>Sub-county</th><th class="num">FY2025/26 ward budget</th><th class="num">Budget lines</th><th class="num">FY2023/24 road contracts</th></tr></thead>
@@ -51,6 +64,7 @@ const wname = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
         ))}</tbody>
       </table>
     </div>
+    </details>
     <p class="small muted">The budget document states KSh 357,124,313 for ward-based projects; the lines we extracted add up to {ksh(sum)}. We are checking the difference against the printed PDF. Road contract sums are from the <a href={sources.adp2526.url} rel="noopener">Annual Development Plan 2025/26</a>, pp.73–77.</p>
   </section>
 
