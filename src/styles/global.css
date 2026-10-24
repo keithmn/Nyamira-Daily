@@ -55,20 +55,27 @@
   --measure: 36em; /* about 70 characters of League Spartan per line */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: var(--nd-ink); --surface: #1e1e1c; --ink: var(--nd-white); --ink-2: #e2e2de;
-    --muted: #b3b3ad; --line: #3a3a37; --control-line: #8a8a85;
-    --brand-soft: #173a2a; --focus: var(--nd-white);
-    --verified-bg: #1d3a2a; --verified-ink: #b6ebcf;
-    --audit-bg: #1b2c45; --audit-ink: #bcd4f5;
-    --official-bg: #2a2d2b; --official-ink: #d9dbd8;
-    --unverified-bg: #3d2f12; --unverified-ink: #f5d9a6;
-    --series-1: #3987e5; --series-2: #d95926;
-    --map-1: #24443a; --map-2: #343f26; --map-3: #213d47; --map-4: #43392a;
-    --pt-school: #8fb8ee; --pt-health: #f29a8f; --pt-worship: #c3aef0; --pt-market: #f2b56b; --pt-place: #d9dbd8;
-  }
+/* Dark mode. data-theme is set before the page draws by the script in Base.astro's <head>: it follows the
+   phone's setting unless the reader chose otherwise with the header toggle. Without JavaScript, pages are light. */
+:root { color-scheme: light; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: var(--nd-ink); --surface: #1e1e1c; --ink: var(--nd-white); --ink-2: #e2e2de;
+  --muted: #b3b3ad; --line: #3a3a37; --control-line: #8a8a85;
+  --brand-soft: #173a2a; --focus: var(--nd-white);
+  --verified-bg: #1d3a2a; --verified-ink: #b6ebcf;
+  --audit-bg: #1b2c45; --audit-ink: #bcd4f5;
+  --official-bg: #2a2d2b; --official-ink: #d9dbd8;
+  --unverified-bg: #3d2f12; --unverified-ink: #f5d9a6;
+  --series-1: #3987e5; --series-2: #d95926;
+  --map-1: #24443a; --map-2: #343f26; --map-3: #213d47; --map-4: #43392a;
+  --pt-school: #8fb8ee; --pt-health: #f29a8f; --pt-worship: #c3aef0; --pt-market: #f2b56b; --pt-place: #d9dbd8;
 }
+/* Logos come in pairs: full-colour (.for-light) and reverse (.for-dark). Both are loading="lazy",
+   so only the one on screen is downloaded. */
+.for-dark { display: none !important; }
+:root[data-theme="dark"] .for-light { display: none !important; }
+:root[data-theme="dark"] .for-dark { display: block !important; }
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -160,6 +167,13 @@ details.menu[open] { padding: 0; }
 .btn:hover { border-color: var(--brand-ink); }
 .btn.quiet { background: var(--bg); border-color: var(--control-line); color: var(--ink); }
 .btn.quiet:hover { border-color: var(--ink); }
+/* Light/dark toggle: shown only once the theme script has run; a moon in light mode, a sun in dark mode */
+.btn.theme-toggle { display: none; width: 48px; padding: 0; align-self: stretch; } /* square, as tall as Search and Menu */
+:root[data-theme] .btn.theme-toggle { display: inline-flex; }
+.theme-toggle svg { display: block; }
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 select.lang { min-height: 44px; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--control-line); background: var(--bg); color: var(--ink); font: inherit; }
 
 /* Cards */
@@ -306,4 +320,9 @@ a.card.is-planned { opacity: 0.7; }
 input.field { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; font-size: 18px; border: 1px solid var(--control-line); border-radius: 8px; background: var(--bg); color: var(--ink); }
 @media (max-width: 640px) {
   .nav { -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
+}
+/* Very narrow phones (e.g. 280px folding phones): tighter header buttons so the symbol keeps its 24px minimum */
+@media (max-width: 340px) {
+  .tools { gap: 4px; }
+  .tools .btn { padding-left: 10px; padding-right: 10px; }
 }

@@ -40,6 +40,31 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
   <meta name="description" content={description} />
   <link rel="preload" href="/brand/fonts/LeagueSpartan-Medium.woff2" as="font" type="font/woff2" crossorigin />
   <meta name="theme-color" content="#111111" /><!-- Ink; meta tags can't read CSS tokens -->
+  <script is:inline>
+  // Light or dark, set before the page draws: the reader's choice from the header toggle (saved in this
+  // browser), otherwise the phone's setting. Choosing the same as the phone clears the saved choice.
+  (function () {
+    var KEY = 'nd-theme', root = document.documentElement;
+    var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+    function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+    function phone() { return media && media.matches ? 'dark' : 'light'; }
+    function show(theme) {
+      root.setAttribute('data-theme', theme);
+      var buttons = document.querySelectorAll('[data-theme-toggle]');
+      for (var i = 0; i < buttons.length; i++) buttons[i].setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+    }
+    function apply() { show(saved() || phone()); }
+    apply();
+    document.addEventListener('DOMContentLoaded', apply);
+    if (media && media.addEventListener) media.addEventListener('change', apply);
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest || !e.target.closest('[data-theme-toggle]')) return;
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      try { if (next === phone()) localStorage.removeItem(KEY); else localStorage.setItem(KEY, next); } catch (err) {}
+      show(next);
+    });
+  })();
+  </script>
   <link rel="icon" href="/brand/Nyamira-Daily_favicon.ico" sizes="32x32" />
   <link rel="icon" href="/brand/Nyamira-Daily_icon-square_on-black.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/brand/Nyamira-Daily_icon-square_on-black-180px.png" />
@@ -67,18 +92,22 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
         <div class="brand-slot">
           <a class="brand" href="/">
             <!-- Horizontal logo; the symbol alone when this slot is under 160px wide. Reverse versions in dark mode. -->
-            <picture class="logo-h">
-              <source srcset="/brand/Nyamira-Daily_horizontal_reverse.svg" media="(prefers-color-scheme: dark)" />
-              <img src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Nyamira Daily" width="1197" height="228" />
-            </picture>
-            <picture class="logo-s">
-              <source srcset="/brand/Nyamira-Daily_symbol_reverse.svg" media="(prefers-color-scheme: dark)" />
-              <img src="/brand/Nyamira-Daily_symbol_full-colour.svg" alt="Nyamira Daily" width="216" height="256" />
-            </picture>
+            <span class="logo-h">
+              <img class="for-light" src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Nyamira Daily" width="1197" height="228" loading="lazy" />
+              <img class="for-dark" src="/brand/Nyamira-Daily_horizontal_reverse.svg" alt="Nyamira Daily" width="1197" height="228" loading="lazy" />
+            </span>
+            <span class="logo-s">
+              <img class="for-light" src="/brand/Nyamira-Daily_symbol_full-colour.svg" alt="Nyamira Daily" width="216" height="256" loading="lazy" />
+              <img class="for-dark" src="/brand/Nyamira-Daily_symbol_reverse.svg" alt="Nyamira Daily" width="216" height="256" loading="lazy" />
+            </span>
             <span class="tagline">Facts about our county, in plain language</span>
           </a>
         </div>
         <div class="tools">
+          <button class="btn quiet theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+          </button>
           <a class="btn quiet" href="/search/">Search</a>
           <details class="menu">
             <summary class="btn quiet">Menu</summary>

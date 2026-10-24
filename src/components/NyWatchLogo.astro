@@ -4,7 +4,7 @@
 interface Props { alt?: string }
 const { alt = '' } = Astro.props;
 ---
-<picture class="nyw-logo">
-  <source srcset="/brand/NY-Watch_horizontal_reverse.svg" media="(prefers-color-scheme: dark)" />
-  <img src="/brand/NY-Watch_horizontal_full-colour.svg" alt={alt} width="924" height="228" loading="lazy" />
-</picture>
+<span class="nyw-logo">
+  <img class="for-light" src="/brand/NY-Watch_horizontal_full-colour.svg" alt={alt} width="924" height="228" loading="lazy" />
+  <img class="for-dark" src="/brand/NY-Watch_horizontal_reverse.svg" alt={alt} width="924" height="228" loading="lazy" />
+</span>
