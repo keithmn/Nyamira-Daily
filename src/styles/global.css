@@ -23,7 +23,7 @@
   --nd-ink:   #111111;  /* Ink */
   --nd-white: #FFFFFF;
   --nd-paper: #F5F5F3;  /* soft section background */
-  --nd-red:   #E11D2A;  /* Record Red: NY Watch only */
+  --nd-red:   #E11D2A;  /* Record Red: secondary, for the show and for time (see below and DECISIONS #23) */
 
   /* Roles used by components. Dark mode and the footer override these, never the brand colours. */
   --bg: var(--nd-white);
@@ -299,8 +299,11 @@ a.card.is-planned { opacity: 0.7; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; }
 .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
 
-/* NY Watch (the show): its own logos, and the only place Record Red appears:
-   the recording dot, and "Live" / "New episode" badges (white on red, 4.8:1) once episodes are listed */
+/* NY Watch (the show): its own logos. Record Red is the secondary colour, kept to two meanings:
+   "the show" (recording dot, Live / New episode badges, the On air strip) and "time is running out"
+   (deadlines closing within 7 days). Later: "Corrected" tags and form errors. Never on questions to ask,
+   project status, charts, evidence labels or buttons. White on red is 4.8:1; red text on white 4.8:1,
+   on Ink only at large sizes (4.0:1). */
 .nyw-logo { display: block; }
 .nyw-logo img { display: block; width: 180px; height: auto; }
 .nyw .eyebrow::before { background: var(--nd-red); border-radius: 50%; }
@@ -634,3 +637,16 @@ a.tile:hover { border-color: var(--ink); }
 /* Ward page: receipt beside the ward map on wide screens */
 .ward-top { display: grid; gap: 40px; grid-template-columns: minmax(0, 1fr); align-items: start; }
 @media (min-width: 900px) { .ward-top { grid-template-columns: minmax(0, 600px) minmax(0, 1fr); } .ward-top .ward-map { position: sticky; top: 16px; } }
+
+/* On air strip (Record Red = the show) */
+.onair { background: var(--nd-red); color: var(--nd-white); font-size: 15px; }
+.onair .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; min-height: 40px; padding-top: 6px; padding-bottom: 6px; }
+.onair a { color: var(--nd-white); text-decoration-color: var(--nd-white); font-weight: 700; }
+.onair .rec { width: 10px; height: 10px; border-radius: 50%; background: var(--nd-white); flex: none; animation: nd-rec 1.2s ease-in-out infinite alternate; }
+@keyframes nd-rec { to { opacity: 0.3; } }
+@media (prefers-reduced-motion: reduce) { .onair .rec { animation: none; } }
+
+/* Deadline tags (Opportunities). Within 7 days: Record Red = time is running out. */
+.due { display: inline-block; align-self: flex-start; padding: 2px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; background: var(--surface); color: var(--ink); }
+.due.soon { background: var(--nd-red); color: var(--nd-white); }
+.due.past { color: var(--muted); font-weight: 500; }

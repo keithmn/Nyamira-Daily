@@ -8,6 +8,8 @@ const closesAt = (s) => (s ? new Date(s.slice(0, 10) + 'T23:59:59') : null);
 const items = O.items.map((i) => ({ ...i, live: i.status === 'open' && closesAt(i.closes) && closesAt(i.closes) >= today }));
 const open = items.filter((i) => i.live);
 const past = items.filter((i) => !i.live);
+// Deadline for the "closes in N days" tag: "2026-10-28 10:30 EAT" → "2026-10-28T10:30:00+03:00" (end of day if no time)
+const closesIso = (s) => { const t = s.split(' ')[1]; return s.slice(0, 10) + 'T' + (t && t.includes(':') ? t : '23:59') + ':00+03:00'; };
 const typeName = { job: 'Job', tender: 'Tender', bursary: 'Bursary', programme: 'Programme' };
 ---
 <Base title="Opportunities">
@@ -21,6 +23,7 @@ const typeName = { job: 'Job', tender: 'Tender', bursary: 'Bursary', programme: 
         <article class="card">
           <span class="eyebrow">{typeName[i.type]} · closes {i.closes}</span>
           <h3>{i.title}</h3>
+          <span class="due" data-closes={closesIso(i.closes)}>Closes {date(i.closes)}</span>
           <span class="small muted">{i.by}</span>
           {i.reserved ? <span class="label verified">Reserved: {i.reserved}</span> : <span class="small">Open to all qualified applicants (not reserved).</span>}
           <details><summary>How to apply</summary><p class="small">{i.howToApply}</p></details>
@@ -50,6 +53,22 @@ const typeName = { job: 'Job', tender: 'Tender', bursary: 'Bursary', programme: 
         </table>
       </div>
     </section>
+    <script is:inline>
+    // Deadlines: "Closes in 3 days" from the reader's clock. Within 7 days the tag turns Record Red.
+    (function () {
+      var DAY = 864e5;
+      Array.prototype.forEach.call(document.querySelectorAll('[data-closes]'), function (el) {
+        var end = new Date(el.getAttribute('data-closes')).getTime(), now = Date.now();
+        if (isNaN(end)) return;
+        if (end < now) { el.textContent = 'Closed'; el.classList.add('past'); return; }
+        // Whole calendar days in Nairobi time (UTC+3) between today and the closing day
+        var day = function (t) { return Math.floor((t + 3 * 36e5) / DAY); };
+        var d = day(end) - day(now);
+        el.textContent = d === 0 ? 'Closes today' : d === 1 ? 'Closes tomorrow' : 'Closes in ' + d + ' days';
+        el.classList.toggle('soon', d <= 7);
+      });
+    })();
+    </script>
     <div class="sw" lang="sw">
       <span class="eyebrow">Muhtasari kwa Kiswahili</span>
       <p>Hapa utapata nafasi za kazi za kaunti, zabuni, basari na mipango ya vijana, pamoja na tarehe za mwisho. Thibitisha kila tangazo na ofisi husika kabla ya kutuma maombi.</p>

@@ -3,6 +3,10 @@ export const contact = {
   whatsapp: '',  // e.g. '2547XXXXXXXX' — turns on "Tell us" and "Get updates"
   email: '',
 };
+// NY Watch, the nightly show. The "On air now" strip shows from start to end hour, Nairobi time (EAT).
+// Add the stream or radio link to liveUrl and the strip links to it.
+export const show = { start: 22, end: 23, liveUrl: '' };
+
 export const hasContact = Boolean(contact.whatsapp || contact.email);
 
 // Pages that exist but have no real content yet. They stay reachable by

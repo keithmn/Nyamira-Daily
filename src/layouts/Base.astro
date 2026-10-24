@@ -4,7 +4,7 @@ import wards from '../data/wards.json';
 import { sections, sectionFor, stateFor, subCounties, anchorFor } from '../nav.js';
 
 import PageTools from '../components/PageTools.astro';
-import { hasContact, planned } from '../config.js';
+import { hasContact, planned, show } from '../config.js';
 interface Props { title: string; description?: string; tools?: boolean; image?: string; imageAlt?: string }
 const {
   title,
@@ -83,6 +83,10 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <!-- NY Watch on air: shown by the script below from 10 to 11 pm Nairobi time. Record Red means "the show". -->
+  <div class="onair" data-onair hidden>
+    <div class="wrap"><span class="rec" aria-hidden="true"></span><span><strong>On air now:</strong> NY Watch, 10 to 11 pm.</span>{show.liveUrl && <a href={show.liveUrl} rel="noopener">Watch live</a>}</div>
+  </div>
   <header class="site-header">
     <div class="wrap">
       <div class="bar">
@@ -216,7 +220,7 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
       </div>
     </div>
   </footer>
-  <script is:inline>
+  <script is:inline define:vars={{ SHOW_START: show.start, SHOW_END: show.end }}>
   (function () {
     var KEY = 'nd-ward', ward = '';
     try { ward = localStorage.getItem(KEY) || ''; } catch (e) {}
@@ -233,6 +237,14 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
     picks.forEach(function (p) { p.addEventListener('change', function () { choose(p.value); document.dispatchEvent(new CustomEvent('nd-ward', { detail: ward })); }); });
     all('[data-set-ward]').forEach(function (el) { el.addEventListener('click', function () { choose(el.getAttribute('data-set-ward')); }); });
     apply();
+
+    // NY Watch on air: 10 to 11 pm in Nairobi (UTC+3, no daylight saving), checked every minute
+    var onair = all('[data-onair]');
+    function airCheck() {
+      var h = (new Date().getUTCHours() + 3) % 24, on = h >= SHOW_START && h < SHOW_END;
+      onair.forEach(function (el) { el.hidden = !on; });
+    }
+    if (onair.length) { airCheck(); setInterval(airCheck, 60000); }
     // On phones the primary bar scrolls sideways: centre the current section if it starts off screen
     all('.nav').forEach(function (bar) {
       var cur = all('.nav [aria-current]').filter(function (el) { return el.offsetParent !== null; })[0];
