@@ -11,6 +11,7 @@ An independent, non-partisan information service about Nyamira County, Kenya: it
 | [`docs/DATA.md`](docs/DATA.md) | You touch anything in `src/data/` or need to refresh a dataset |
 | [`docs/DECISIONS.md`](docs/DECISIONS.md) | You wonder why something is built the way it is |
 | [`docs/ROADMAP.md`](docs/ROADMAP.md) | You're looking for what to build next |
+| [`docs/BRAND_BRIEF.md`](docs/BRAND_BRIEF.md) | You're working on the logo, colours, fonts or visual design |
 | [`CLAUDE.md`](CLAUDE.md) | You use an AI coding assistant (it reads this automatically) |
 
 ## Run it
