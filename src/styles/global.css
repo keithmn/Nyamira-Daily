@@ -3,16 +3,27 @@
    high contrast, works on cheap phones and slow connections. */
 
 :root {
-  --bg: #ffffff;
-  --surface: #f4f7f5;
-  --ink: #17211c;
-  --ink-2: #33403a;
-  --muted: #4a5651;
-  --line: #dde3df;
-  --brand: #1e6b4f;
-  --brand-ink: #ffffff;
-  --brand-soft: #eef4f0;
-  --focus: #b45309;
+  /* Brand colours (brand kit v1, Oct 2026). The single source of truth: everything below refers to these.
+     Green is for fills, marks and underlines, never text on white or paper (2.0:1).
+     Text is Ink on light backgrounds and White on dark ones. Red is for NY Watch only. */
+  --nd-green: #1FD07A;  /* Signal Green */
+  --nd-ink:   #111111;  /* Ink */
+  --nd-white: #FFFFFF;
+  --nd-paper: #F5F5F3;  /* soft section background */
+  --nd-red:   #E11D2A;  /* Record Red: NY Watch only */
+
+  /* Roles used by components. Dark mode and the footer override these, never the brand colours. */
+  --bg: var(--nd-white);
+  --surface: var(--nd-paper);
+  --ink: var(--nd-ink);
+  --ink-2: #333333;
+  --muted: #595957;
+  --line: #dcdcd7;          /* dividers and card edges */
+  --control-line: #8a8a85;  /* form fields: 3:1 against white and paper */
+  --brand: var(--nd-green); /* fills, active marks, underlines */
+  --brand-ink: var(--nd-ink); /* text on green */
+  --brand-soft: #e2f8ec;    /* Signal Green at ~13% on white: "your ward" highlights */
+  --focus: var(--nd-ink);
 
   /* Evidence labels */
   --verified-bg: #e3f1e7; --verified-ink: #1d5b36;
@@ -32,9 +43,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0f1a15; --surface: #16241d; --ink: #eef3f0; --ink-2: #d2ddd7;
-    --muted: #a9bab1; --line: #2a3d34; --brand: #7fd1a8; --brand-ink: #0e2a1d;
-    --brand-soft: #1c3329;
+    --bg: var(--nd-ink); --surface: #1e1e1c; --ink: var(--nd-white); --ink-2: #e2e2de;
+    --muted: #b3b3ad; --line: #3a3a37; --control-line: #8a8a85;
+    --brand-soft: #173a2a; --focus: var(--nd-white);
     --verified-bg: #1d3a2a; --verified-ink: #b6ebcf;
     --audit-bg: #1b2c45; --audit-ink: #bcd4f5;
     --official-bg: #2a2d2b; --official-ink: #d9dbd8;
@@ -52,10 +63,17 @@ body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: var(--font); font-size: 17px; line-height: 1.55;
 }
-a { color: var(--brand); text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+/* Links: Ink (or White) text with a Signal Green underline; the underline turns to the text colour on hover */
+a {
+  color: var(--ink);
+  text-decoration-line: underline; text-decoration-color: var(--brand);
+  text-decoration-thickness: 2px; text-underline-offset: 4px;
+}
+a:hover { text-decoration-color: currentColor; }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, summary:focus-visible {
   outline: 3px solid var(--focus); outline-offset: 2px;
 }
+::selection { background: var(--brand); color: var(--brand-ink); }
 img { max-width: 100%; height: auto; }
 h1, h2, h3 { line-height: 1.2; margin: 0; }
 h1 { font-size: clamp(28px, 5vw, 40px); letter-spacing: -0.01em; }
@@ -70,7 +88,8 @@ p { margin: 0; }
 .lead { font-size: 19px; color: var(--ink-2); max-width: 760px; }
 .muted { color: var(--muted); }
 .small { font-size: 14px; }
-.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+.eyebrow::before { content: ""; display: inline-block; width: 0.6em; height: 0.6em; margin-right: 0.5em; background: var(--brand); vertical-align: 0.05em; }
 
 .skip { position: absolute; left: -999px; }
 .skip:focus { left: 16px; top: 16px; background: var(--bg); padding: 12px; z-index: 10; }
@@ -94,19 +113,21 @@ details.menu[open] { padding: 0; }
 .nav::-webkit-scrollbar { display: none; }
 .nav a {
   flex: 0 0 auto; padding: 12px 14px; min-height: 44px; font-weight: 600; color: var(--ink);
-  text-decoration: none; border-bottom: 3px solid transparent;
+  text-decoration: none; border-bottom: 4px solid transparent;
 }
-.nav a[aria-current="page"] { border-bottom-color: var(--brand); }
+/* Current section: green bar plus heavier text, so it doesn't rely on green alone (green on white is 2.0:1) */
+.nav a[aria-current="page"] { border-bottom-color: var(--brand); font-weight: 800; }
 
-/* Buttons */
+/* Buttons: Ink text on Signal Green; quiet buttons are Ink on the page background */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   min-height: 44px; padding: 10px 16px; border-radius: 8px; font: inherit; font-weight: 600;
-  text-decoration: none; cursor: pointer; border: 1px solid var(--brand); color: var(--brand); background: transparent;
+  text-decoration: none; cursor: pointer; border: 1px solid var(--brand); color: var(--brand-ink); background: var(--brand);
 }
-.btn.primary { background: var(--brand); color: var(--brand-ink); }
-.btn.quiet { border-color: var(--line); color: var(--ink); }
-select.lang { min-height: 44px; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: inherit; }
+.btn:hover { border-color: var(--brand-ink); }
+.btn.quiet { background: var(--bg); border-color: var(--control-line); color: var(--ink); }
+.btn.quiet:hover { border-color: var(--ink); }
+select.lang { min-height: 44px; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--control-line); background: var(--bg); color: var(--ink); font: inherit; }
 
 /* Cards */
 .card { border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 8px; background: var(--bg); }
@@ -131,7 +152,13 @@ td.num, th.num { text-align: right; }
 
 /* Details (the second layer) */
 details { border: 1px solid var(--line); border-radius: var(--radius); padding: 0 16px; }
-details > summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; color: var(--brand); }
+details > summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; gap: 10px; color: var(--ink); }
+/* "See the detail": an Ink plus/minus on a green disc marks it as tappable */
+details:not(.menu) > summary::before {
+  content: "+"; flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--brand); color: var(--brand-ink); font-weight: 700; line-height: 1;
+}
+details:not(.menu)[open] > summary::before { content: "\2212"; }
 details[open] { padding-bottom: 16px; }
 
 .placeholder { border: 1px dashed var(--line); border-radius: var(--radius); padding: 16px; color: var(--muted); }
@@ -233,7 +260,7 @@ a.card.is-planned { opacity: 0.7; }
 .receipt h2 { font-size: 24px; }
 
 .receipt .row span:last-child { white-space: nowrap; }
-input.field { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; font-size: 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); }
+input.field { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; font-size: 18px; border: 1px solid var(--control-line); border-radius: 8px; background: var(--bg); color: var(--ink); }
 @media (max-width: 640px) {
   .nav { -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
 }
