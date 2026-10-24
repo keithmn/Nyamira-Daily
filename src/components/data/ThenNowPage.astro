@@ -1,0 +1,59 @@
+---
+// 3.2 Then and now: 2013 to today, built only from data we already hold. Each point carries its label.
+import M from '../../data/money.json';
+import E from '../../data/elections.json';
+import EvidenceLabel from '../EvidenceLabel.astro';
+import SplitBar from '../viz/SplitBar.astro';
+const a = M.years[0], z = M.years[M.years.length - 1];
+const bn = (m) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
+const mn = (m) => 'KSh ' + Math.round(m).toLocaleString('en-KE') + 'M';
+const x = (p, q) => (q / p).toFixed(1).replace('.0', '');
+const srcs = Object.fromEntries(E.sources.map((s) => [s.id, s]));
+const gov = (y) => { const g = E.elections.find((e) => e.year === y && e.race === 'Governor'); return { g, w: g.candidates.find((c) => c.elected) }; };
+const reg = (y) => E.registeredByWard.filter((r) => r.year === y).reduce((n, r) => n + r.registered, 0);
+const pairs = [
+  { t: 'Approved budget', then: bn(a.budget), now: bn(z.budget), times: x(a.budget, z.budget) },
+  { t: 'Money actually spent', then: bn(a.spent), now: bn(z.spent), times: x(a.spent, z.spent) },
+  { t: 'Sent by the national government (equitable share)', then: bn(a.eqShare), now: bn(z.eqShare), times: x(a.eqShare, z.eqShare) },
+  { t: 'Raised locally (fees, rates, permits)', then: mn(a.osr), now: mn(z.osr), times: x(a.osr, z.osr), note: 'From FY2022/23 this includes hospital fees, so the two years are not directly comparable.' },
+];
+const timeline = [
+  ...[2013, 2017, 2022].map((y) => { const { g, w } = gov(y); return { when: String(y), what: `${w.name} (${w.partyAbbr ?? w.party}) elected Governor with ${w.votes.toLocaleString('en-KE')} votes.`, src: srcs[g.sourceId], label: 'verified' }; }),
+  ...E.elections.filter((e) => e.race.startsWith('MCA by-election')).map((e) => { const w = e.candidates.find((c) => c.elected); return { when: e.race.split('(')[1].replace(')', ''), what: `By-election in ${e.ward.charAt(0).toUpperCase() + e.ward.slice(1)} ward: ${w.name} (${w.partyAbbr ?? w.party}) elected MCA.`, src: srcs[e.sourceId], label: 'verified' }; }),
+].sort((p, q) => Number(p.when.slice(-4)) - Number(q.when.slice(-4)));
+---
+<div class="stack-lg" style="margin-top:24px">
+  <p class="lead">Devolution began in March 2013, when Nyamira elected its first county government. Here is what has changed since, using only figures we hold, each with its source.</p>
+  <section class="stack">
+    <h2>County money: {a.fy} and {z.fy}</h2>
+    <div class="thennow">
+      {pairs.map((p) => (
+        <div class="tn">
+          <span class="eyebrow">{p.t}</span>
+          <div class="tn-row"><span><small>{a.fy}</small><b>{p.then}</b></span><span class="tn-arrow" aria-hidden="true">→</span><span><small>{z.fy}</small><b>{p.now}</b></span></div>
+          <span class="small">About <strong>{p.times} times</strong> as much.{p.note && ` ${p.note}`}</span>
+        </div>
+      ))}
+    </div>
+    <div class="cols-2">
+      <div class="figure"><h3 class="mini">Development budget used, {a.fy}</h3><SplitBar title={`Development budget ${a.fy}`} parts={[{ value: a.devAbs, label: 'used', tone: 'good' }, { value: 100 - a.devAbs, label: 'not used', tone: 'gap' }]} /></div>
+      <div class="figure"><h3 class="mini">Development budget used, {z.fy}</h3><SplitBar title={`Development budget ${z.fy}`} parts={[{ value: z.devAbs, label: 'used', tone: 'good' }, { value: 100 - z.devAbs, label: 'not used', tone: 'gap' }]} /></div>
+    </div>
+    <p class="source"><EvidenceLabel kind="official" /> Controller of Budget annual reports for <a href={a.src} rel="noopener">FY{a.fy}</a> ({a.page}) and <a href={z.src} rel="noopener">FY{z.fy}</a> ({z.page}). Amounts are not adjusted for inflation. "Times as much" is worked out by Nyamira Daily.</p>
+  </section>
+
+  <section class="cols-2">
+    <div class="figure">
+      <span class="eyebrow">Registered voters</span>
+      <div class="tn-row"><span><small>2017</small><b>{reg(2017).toLocaleString('en-KE')}</b></span><span class="tn-arrow" aria-hidden="true">→</span><span><small>2022</small><b>{reg(2022).toLocaleString('en-KE')}</b></span></div>
+      <p class="source"><EvidenceLabel kind="official" /> IEBC registers of voters per ward, 2017 and 2022. <a href="/data/elections/">Elections</a></p>
+    </div>
+    <div class="stack">
+      <h2>Timeline</h2>
+      <ol class="timeline">
+        {timeline.map((i) => <li><span class="tl-date">{i.when}</span><p>{i.what}</p><span class="small muted"><EvidenceLabel kind={i.label} /> {i.src?.url ? <a href={i.src.url} rel="noopener">{i.src.title}</a> : i.src?.title}</span></li>)}
+      </ol>
+    </div>
+  </section>
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Mabadiliko Nyamira tangu ugatuzi uanze mwaka 2013: bajeti, matumizi, mapato na viongozi waliochaguliwa.</p></div>
+</div>

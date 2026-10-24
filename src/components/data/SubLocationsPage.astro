@@ -1,0 +1,52 @@
+---
+// 3.7 Village level: 2019 census population by sub-location. Sub-locations are national government units
+// and do not match the county's wards, so no figure here is ever shown as a ward figure.
+import SL from '../../data/sublocations.json';
+import EvidenceLabel from '../EvidenceLabel.astro';
+const rows = SL.rows;
+const subs = [...new Set(rows.map((r) => r.subCounty))];
+const t = (s) => s.split(' ').map((w) => w.charAt(0) + w.slice(1).toLowerCase()).join(' ');
+const total = rows.reduce((n, r) => n + r.total, 0);
+---
+<div class="stack-lg" style="margin-top:24px">
+  <section class="cols-2">
+    <div class="figure">
+      <span class="eyebrow">2019 census · sub-locations</span>
+      <span class="num">{rows.length}</span>
+      <p class="say">sub-locations in Nyamira, home to {total.toLocaleString('en-KE')} people on census night (24/25 August 2019).</p>
+      <p class="source"><EvidenceLabel kind="official" /> Source: <a href={SL.source.url} rel="noopener">KNBS, 2019 Census Volume II</a>, Table 2.4</p>
+    </div>
+    <div class="callout"><span><strong>Sub-locations are not wards.</strong> They are national government areas (run by assistant chiefs) and their borders don't match the county's 20 wards. Use them to find your village's population, not your ward's. The census sub-counties are also different from the four constituencies.</span></div>
+  </section>
+
+  <section class="stack">
+    <label class="builder" style="max-width:420px" data-slfind hidden><span style="font-weight:700">Type your sub-location or location</span><input type="search" placeholder="e.g. Isoge" autocomplete="off" /></label>
+    {subs.map((s) => (
+      <details open={false} data-slgroup>
+        <summary>{t(s)} sub-county ({rows.filter((r) => r.subCounty === s).reduce((n, r) => n + r.total, 0).toLocaleString('en-KE')} people)</summary>
+        <div class="table-box"><table class="cards">
+          <thead><tr><th>Sub-location</th><th>Location</th><th class="num">People</th><th class="num">Households</th><th class="num">Area (sq km)</th></tr></thead>
+          <tbody>{rows.filter((r) => r.subCounty === s).map((r) => (
+            <tr data-sl={`${r.subLocation} ${r.location} ${r.division}`.toLowerCase()}><td>{t(r.subLocation)}</td><td data-label="Location">{t(r.location)}{r.division && r.division !== r.location ? `, ${t(r.division)} division` : ''}</td><td class="num" data-label="People">{r.total.toLocaleString('en-KE')}</td><td class="num" data-label="Households">{r.households?.toLocaleString('en-KE') ?? '—'}</td><td class="num" data-label="Area">{r.areaSqKm ?? '—'}</td></tr>
+          ))}</tbody>
+        </table></div>
+      </details>
+    ))}
+    <p class="small muted" data-slnone hidden>No sub-location matches that name.</p>
+    <p class="small muted">The table counts people by where they spent census night. Total also includes intersex people, who are not shown by sex below county level. Some names repeat in different places, so check the location too.</p>
+  </section>
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Idadi ya watu katika kila kata ndogo (sub-location) ya Nyamira kwa mujibu wa sensa ya 2019. Kata ndogo si sawa na wadi.</p></div>
+</div>
+<script is:inline>
+(function () {
+  var box = document.querySelector('[data-slfind]'); if (!box) return;
+  box.hidden = false;
+  var input = box.querySelector('input'), rows = document.querySelectorAll('[data-sl]'), groups = document.querySelectorAll('[data-slgroup]'), none = document.querySelector('[data-slnone]');
+  input.addEventListener('input', function () {
+    var q = input.value.trim().toLowerCase(), n = 0;
+    rows.forEach(function (r) { var ok = !q || r.getAttribute('data-sl').indexOf(q) >= 0; r.hidden = !ok; if (ok) n++; });
+    groups.forEach(function (g) { var any = g.querySelector('[data-sl]:not([hidden])'); g.hidden = !any; if (q) g.open = !!any; });
+    none.hidden = n > 0;
+  });
+})();
+</script>

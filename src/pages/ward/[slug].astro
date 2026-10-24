@@ -13,6 +13,8 @@ import SplitBar from '../../components/viz/SplitBar.astro';
 import HBars from '../../components/viz/HBars.astro';
 import EmbedCode from '../../components/EmbedCode.astro';
 import CommunityReports from '../../components/CommunityReports.astro';
+import E from '../../data/elections.json';
+const reg22 = E.registeredByWard.find((r) => r.year === 2022 && r.ward === Astro.params.slug);
 import { getAlerts } from '../../lib/alerts-data.js';
 import { levelLabel } from '../../lib/alerts.js';
 const wardAlerts = (await getAlerts()).filter((a) => a.status === 'active' && (a.wards.includes(Astro.params.slug) || a.wards.length === 0));
@@ -63,6 +65,7 @@ const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.
       {order.filter((c) => byCat[c]).map((c) => <div class="row sub"><span>{c}</span><span>{byCat[c].length}</span></div>)}
       {b2526 && <div class="row"><span>Ward projects budgeted, 2025/26</span><span>{ksh(b2526.amount)}</span></div>}
       {roads && <div class="row"><span>Road maintenance contracts, 2023/24</span><span>{ksh(roads.amount)}</span></div>}
+      {reg22 && <div class="row"><span>Registered voters (IEBC 2022) · <a href={`/data/elections/#ward-${w.slug}`}>results</a></span><span>{num(reg22.registered)}</span></div>}
       {cw?.votersRegisteredEarlier && <div class="row"><span>Registered voters (IEBC 2018 register)</span><span>{num(cw.votersRegisteredEarlier)}</span></div>}
       <div class="row"><span>Whole county spent, {last.fy}</span><span>{bn(last.spent)}</span></div>
       <div class="row"><span>Development budget used</span><span>{last.devAbs}%</span></div>

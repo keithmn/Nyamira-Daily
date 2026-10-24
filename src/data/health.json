@@ -1,0 +1,281 @@
+{
+ "checked": "2026-10-24", 
+ "sources": [
+  {
+   "id": "KDHS-2022", 
+   "title": "Kenya Demographic and Health Survey 2022, Main Report Volume 1", 
+   "publisher": "KNBS and ICF (with Ministry of Health)", 
+   "url": "https://www.knbs.or.ke/wp-content/uploads/2023/08/Kenya-Demographic-and-Health-Survey-2022-Main-Report-Volume-1.pdf", 
+   "dataYear": 2022, 
+   "localFile": "src/Kenya-Demographic-and-Health-Survey-2022-Main-Report-Volume-1.pdf", 
+   "pageNote": "Printed page numbers; PDF page = printed + 42. Figures in parentheses in the report are based on 25-49 unweighted cases (flagged here as smallSample)."
+  }, 
+  {
+   "id": "KDHS-2022-FS-NYAMIRA", 
+   "title": "2022 Kenya DHS Fact Sheet - Nyamira County", 
+   "publisher": "KNBS and ICF", 
+   "url": "https://www.knbs.or.ke/wp-content/uploads/2023/08/Kenya-Demographic-and-Health-Survey-2022-Factsheet-Nyamira.pdf", 
+   "dataYear": 2022, 
+   "localFile": "src/Kenya-Demographic-and-Health-Survey-2022-Factsheet-Nyamira.pdf", 
+   "pageNote": "2-page fact sheet, rounded values; consistent with main report."
+  }, 
+  {
+   "id": "NYAMIRA-CIDP-2023-27", 
+   "title": "County Government of Nyamira, County Integrated Development Plan 2023-2027", 
+   "publisher": "County Government of Nyamira (hosted by Council of Governors Maarifa Centre)", 
+   "url": "https://maarifa.cog.go.ke/sites/default/files/2024-06/NYAMIRA%20CIDP%202023-2027.pdf", 
+   "localFile": "src/NYAMIRA_CIDP_2023-2027.pdf", 
+   "pageNote": "Printed page 28 (PDF p. 43), section 2.3.1 Health Sector review of CIDP 2018-22. Figures are county-reported, give no data year or underlying source, and are internally inconsistent (72.8% vs 72% skilled delivery)."
+  }, 
+  {
+   "id": "NYAMIRA-ADP-2026-27", 
+   "title": "County Government of Nyamira, County Annual Development Plan 2026/2027", 
+   "publisher": "County Government of Nyamira", 
+   "url": "https://www.nyamira.go.ke/static/documents/27_10_2025_10_11_08am_ADP_2026-2027_compressed.pdf", 
+   "localFile": "src/27_10_2025_10_11_08am_ADP_2026-2027_compressed.pdf", 
+   "pageNote": "Checked; health section reports activity outputs only (e.g. 'number of immunizations support done': target 8, achieved 0), no coverage rates. No items taken."
+  }
+ ], 
+ "items": [
+  {
+   "indicator": "Women with a live birth in past 2 years who received ANC from a skilled provider (most recent birth)", 
+   "value": 100.0, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 261, Table 9.1C", 
+   "denominatorWeighted": 55, 
+   "detail": {
+    "doctor": 37.0, 
+    "nurse/midwife/clinical officer": 63.0, 
+    "no ANC": 0.0
+   }
+  }, 
+  {
+   "indicator": "Women with a live birth in past 2 years with 4+ ANC visits (most recent birth)", 
+   "value": 65.8, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 263, Table 9.2C", 
+   "denominatorWeighted": 55, 
+   "detail": {
+    "none": 0.0, 
+    "1": 3.8, 
+    "2-3": 30.4, 
+    "4-7": 62.9, 
+    "8+": 2.8
+   }
+  }, 
+  {
+   "indicator": "Women whose first ANC visit was before 4 months of pregnancy", 
+   "value": 18.0, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 263, Table 9.2C", 
+   "denominatorWeighted": 55, 
+   "medianMonthsAtFirstVisit": 5.6
+  }, 
+  {
+   "indicator": "Live births in past 2 years delivered in a health facility", 
+   "value": 93.7, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 274, Table 9.7C", 
+   "denominatorWeighted": 57, 
+   "detail": {
+    "public sector": 71.7, 
+    "private (non-NGO)": 19.7, 
+    "private NGO": 0.0, 
+    "faith-based": 2.2, 
+    "home": 6.3, 
+    "other": 0.0
+   }
+  }, 
+  {
+   "indicator": "Live births in past 2 years delivered by a skilled provider", 
+   "value": 92.6, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 278, Table 9.9C", 
+   "denominatorWeighted": 57, 
+   "detail": {
+    "doctor": 38.4, 
+    "nurse/midwife/clinical officer": 54.1, 
+    "traditional birth attendant": 0.0, 
+    "relative/friend/other": 3.3, 
+    "no one": 4.1
+   }
+  }, 
+  {
+   "indicator": "Children 12-23 months fully vaccinated (basic antigens)", 
+   "value": 82.7, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 322, Table 10.4C (continued)", 
+   "denominatorWeighted": 24, 
+   "smallSample": true, 
+   "byVaccine": {
+    "BCG": 100.0, 
+    "DPT-HepB-Hib 1": 100.0, 
+    "DPT-HepB-Hib 2": 96.0, 
+    "DPT-HepB-Hib 3": 95.5, 
+    "OPV 0": 94.8, 
+    "OPV 1": 97.4, 
+    "OPV 2": 94.8, 
+    "OPV 3": 88.8, 
+    "IPV": 79.0, 
+    "Pneumococcal 1": 97.0, 
+    "Pneumococcal 2": 97.0, 
+    "Pneumococcal 3": 93.9, 
+    "Rotavirus 1": 96.6, 
+    "Rotavirus 2": 96.6, 
+    "MR 1": 92.5
+   }, 
+   "note": "All Nyamira values in this row are in parentheses (25-49 unweighted cases). Card or mother's report, any time before survey."
+  }, 
+  {
+   "indicator": "Children 12-23 months fully vaccinated (according to national schedule)", 
+   "value": 55.8, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 322, Table 10.4C (continued)", 
+   "denominatorWeighted": 24, 
+   "smallSample": true
+  }, 
+  {
+   "indicator": "Children 12-23 months with no vaccinations", 
+   "value": 0.0, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 322, Table 10.4C (continued)", 
+   "denominatorWeighted": 24, 
+   "smallSample": true
+  }, 
+  {
+   "indicator": "Children 24-35 months who received MR 2", 
+   "value": 75.3, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 322, Table 10.4C (continued)", 
+   "denominatorWeighted": 21, 
+   "smallSample": true
+  }, 
+  {
+   "indicator": "Children 24-35 months fully vaccinated (according to national schedule)", 
+   "value": 48.5, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 322, Table 10.4C (continued)", 
+   "denominatorWeighted": 21, 
+   "smallSample": true
+  }, 
+  {
+   "indicator": "Births delivered by a skilled provider (fact sheet, rounded)", 
+   "value": 93, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022-FS-NYAMIRA", 
+   "page": "p. 1"
+  }, 
+  {
+   "indicator": "Women with a live birth and 4+ ANC visits (fact sheet, rounded)", 
+   "value": 66, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022-FS-NYAMIRA", 
+   "page": "p. 1"
+  }, 
+  {
+   "indicator": "Children 12-23 months fully vaccinated, basic antigens (fact sheet, rounded; shown in parentheses)", 
+   "value": 83, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022-FS-NYAMIRA", 
+   "page": "p. 1"
+  }, 
+  {
+   "indicator": "Deliveries conducted by skilled attendants (county-reported, end of CIDP 2018-22 period)", 
+   "value": 72.8, 
+   "unit": "percent", 
+   "year": null, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "NYAMIRA-CIDP-2023-27", 
+   "page": "p. 28 (PDF p. 43), section 2.3.1", 
+   "note": "Stated as 'increased from 52% to 72.8%'. Same page also states '72% of births are attended to by skilled health personnel'. No year or data source given. Not comparable with KDHS."
+  }, 
+  {
+   "indicator": "Children fully immunized (county-reported)", 
+   "value": 86, 
+   "unit": "percent", 
+   "year": null, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "NYAMIRA-CIDP-2023-27", 
+   "page": "p. 28 (PDF p. 43), section 2.3.1", 
+   "note": "'86% of children are fully immunized'. No year, age group or data source given (likely KHIS administrative data, but not stated)."
+  }, 
+  {
+   "indicator": "Pregnant mothers on insurance cover (county-reported)", 
+   "value": 95, 
+   "unit": "percent", 
+   "year": null, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "NYAMIRA-CIDP-2023-27", 
+   "page": "p. 28 (PDF p. 43), section 2.3.1", 
+   "note": "No year or source given."
+  }
+ ], 
+ "khis": {
+  "site": "https://hiskenya.org", 
+  "publicNoLogin": "not confirmed; evidence says login required", 
+  "evidence": [
+   "Direct requests from this environment to hiskenya.org (/, /api/me, /api/system/info, /dhis-web-commons/security/login.action) were reset by the remote end on 2026-10-24; the site could not be reached at all, so no public endpoint could be tested.", 
+   "WebFetch refused hiskenya.org: robots.txt disallows automated access.", 
+   "PLOS Global Public Health 2021 (doi 10.1371/journal.pgph.0000029), data availability statement: 'Aggregated DHIS2 data is available online with access provided by Ministry of Health'.", 
+   "KHIS is a DHIS2 instance; DHIS2 data and API endpoints require an authenticated user unless the operator publishes public dashboards, and no public dashboard or open-data export for KHIS was found."
+  ]
+ }, 
+ "gaps": [
+  "No outpatient (OPD) visit figures for Nyamira found in any official public document; these exist mainly in KHIS (login).", 
+  "No facility-level or sub-county immunisation, ANC or delivery figures found publicly.", 
+  "KDHS 2022 county estimates rest on small samples (55 women, 57 births, 24 children aged 12-23 months); vaccination figures are flagged in the report as based on 25-49 unweighted cases.", 
+  "Nyamira ADP 2026/27 gives activity counts, not coverage rates; CIDP 2023-27 coverage figures lack year and source."
+ ]
+}

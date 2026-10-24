@@ -1,0 +1,53 @@
+---
+// 3.5 Health outcomes. KHIS facility data needs official access (Planned); meanwhile the county figures
+// from the 2022 Kenya Demographic and Health Survey, and what the county's own plan says.
+import H from '../../data/health.json';
+import Coins from '../viz/Coins.astro';
+import EvidenceLabel from '../EvidenceLabel.astro';
+const srcs = Object.fromEntries(H.sources.map((s) => [s.id, s]));
+const k = H.items.filter((i) => i.sourceId === 'KDHS-2022');
+const county = H.items.filter((i) => i.sourceId.startsWith('NYAMIRA-CIDP'));
+const get = (start) => k.find((i) => i.indicator.startsWith(start));
+const births = get('Live births in past 2 years delivered by a skilled provider');
+const anc4 = get('Women with a live birth in past 2 years with 4+ ANC visits');
+const vacc = get('Children 12-23 months fully vaccinated (basic antigens)');
+const kdhs = srcs['KDHS-2022'];
+---
+<div class="stack-lg" style="margin-top:24px">
+  <p class="lead">Figures for Nyamira from the 2022 Kenya Demographic and Health Survey, a national household survey. They come from small samples in the county (about 55 to 57 recent births), so treat them as a rough guide.</p>
+  <section class="cols-2">
+    <div class="figure">
+      <span class="eyebrow">Births with a skilled health worker · 2022</span>
+      <Coins part={births.value} title="Out of every 100 recent births in Nyamira" goodLabel="had a skilled health worker" gapLabel="did not" />
+      <p class="source"><EvidenceLabel kind="official" /> <a href={kdhs.url} rel="noopener">KDHS 2022</a>, {births.page}</p>
+    </div>
+    <div class="figure">
+      <span class="eyebrow">Antenatal visits · 2022</span>
+      <Coins part={anc4.value} title="Out of every 100 mothers of recent births" goodLabel="had 4 or more antenatal visits" gapLabel="had fewer" />
+      <p class="source"><EvidenceLabel kind="official" /> <a href={kdhs.url} rel="noopener">KDHS 2022</a>, {anc4.page}</p>
+    </div>
+    <div class="figure">
+      <span class="eyebrow">Vaccination · 2022</span>
+      <Coins part={vacc.value} title="Out of every 100 children aged 12–23 months" goodLabel="had all basic vaccines" gapLabel="did not" />
+      <p class="small muted">Based on a very small sample (25–49 children), marked as such in the survey report.</p>
+      <p class="source"><EvidenceLabel kind="official" /> <a href={kdhs.url} rel="noopener">KDHS 2022</a>, {vacc.page}</p>
+    </div>
+    <div class="stack">
+      <h3 class="mini">What the county's own plan says</h3>
+      <ul>{county.map((i) => <li><strong>{i.value}%</strong> {i.indicator.replace(' (county-reported)', '').replace(' (county-reported, end of CIDP 2018-22 period)', '')}. <span class="small muted">{i.note}</span></li>)}</ul>
+      <p class="source"><EvidenceLabel kind="official" /> {srcs['NYAMIRA-CIDP-2023-27']?.title}. No year or data source is given for these figures, so they cannot be compared with the survey.</p>
+    </div>
+  </section>
+  <section class="stack">
+    <h2>Health facility figures</h2>
+    <p>Monthly figures for each facility (immunisation, births, antenatal and outpatient visits) are kept in the Kenya Health Information System (KHIS), which needs a login from the Ministry of Health. They will appear here if we get access.</p>
+  </section>
+  <details>
+    <summary>See the detail: every figure, with its page</summary>
+    <div class="table-box"><table class="cards">
+      <thead><tr><th>Figure</th><th class="num">Value</th><th>Sample</th><th>Source</th></tr></thead>
+      <tbody>{H.items.map((i) => <tr><td>{i.indicator}</td><td class="num" data-label="Value">{i.value}{i.unit === 'percent' ? '%' : ''}</td><td data-label="Sample">{i.denominatorWeighted ?? '—'}</td><td class="small" data-label="Source">{srcs[i.sourceId]?.title}{i.page && `, ${i.page}`}</td></tr>)}</tbody>
+    </table></div>
+  </details>
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Takwimu za afya ya mama na mtoto Nyamira kutoka Utafiti wa Afya na Demografia wa Kenya 2022 (KDHS). Takwimu za kila kituo cha afya bado hazijapatikana.</p></div>
+</div>

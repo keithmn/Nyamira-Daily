@@ -1,0 +1,22 @@
+---
+// One race's results: every candidate as recorded, most votes first. Facts only, no commentary.
+interface Props { r: any; title?: string; srcs: Record<string, any> }
+const { r, title, srcs } = Astro.props;
+const list = [...r.candidates].sort((a, b) => (b.votes ?? -1) - (a.votes ?? -1));
+const total = r.validVotes ?? null;
+const s = srcs[r.sourceId];
+---
+<div class="stack" style="gap:8px">
+  {title && <h4>{title}</h4>}
+  <div class="table-box"><table class="cards">
+    <thead><tr><th>Candidate</th><th>Party</th><th class="num">Votes</th></tr></thead>
+    <tbody>{list.map((c) => (
+      <tr><td>{c.name}{c.elected && <strong> · Elected</strong>}</td><td data-label="Party">{c.partyAbbr ? `${c.party} (${c.partyAbbr})` : c.party}</td><td class="num" data-label="Votes">{c.votes != null ? c.votes.toLocaleString('en-KE') : 'Not published'}</td></tr>
+    ))}</tbody>
+  </table></div>
+  <p class="small muted">
+    {total != null && <>Total valid votes: {total.toLocaleString('en-KE')}. </>}
+    {r.note && <>{r.note} </>}
+    Source: {s ? (s.url ? <a href={s.url} rel="noopener">{s.title}</a> : s.title) : r.sourceId}{r.page && `, ${r.page}`}.
+  </p>
+</div>

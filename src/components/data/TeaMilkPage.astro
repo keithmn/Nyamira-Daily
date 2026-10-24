@@ -1,0 +1,75 @@
+---
+// 3.4 Tea and milk payouts. Each figure has its date and source; nothing is averaged across sources.
+import T from '../../data/teamilk.json';
+import HBars from '../viz/HBars.astro';
+import EvidenceLabel from '../EvidenceLabel.astro';
+const srcs = Object.fromEntries(T.sources.map((s) => [s.id, s]));
+const ours = T.factories.filter((f) => f.county === 'Nyamira');
+const fys = ['FY2025/26', 'FY2024/25', 'FY2023/24', 'FY2022/23', 'FY2021/22'];
+const bonus = (f, fy) => T.tea.filter((x) => x.measure === 'bonus' && x.factory === f && x.fy === fy);
+const totals = T.tea.filter((x) => x.measure === 'total');
+const base = 'FY2022/23';
+const chart = ours.map((f) => ({ f: f.name, x: bonus(f.name, base)[0] })).filter((r) => r.x);
+const label = (id) => (srcs[id]?.kind === 'official' ? 'official' : 'unverified');
+const cell = (list) => list.length ? `KSh ${list[0].kshPerKg}` : '—';
+---
+<div class="stack-lg" style="margin-top:24px">
+  <section class="cols-2">
+    <div class="figure">
+      <span class="eyebrow">Tea factories in Nyamira</span>
+      <span class="num">{ours.length}</span>
+      <p class="say">KTDA-managed factories in Nyamira County: {ours.map((f) => f.name).join(', ')}.</p>
+      <p class="small muted">Tombe: KTDA places it in Manga, Nyamira; the Tea Board of Kenya lists it under Kisii. Matunwa is a satellite of Nyansiongo; no payout figures were found for it.</p>
+      <p class="source"><EvidenceLabel kind="official" /> Sources: <a href={srcs['ktda-nyamira']?.url} rel="noopener">KTDA</a>, <a href={srcs['tbk-manufacturers']?.url} rel="noopener">Tea Board of Kenya</a></p>
+    </div>
+    <div class="stack">
+      <h3 class="mini">Annual bonus per kg of green leaf, {base.replace('FY', '')}</h3>
+      <HBars title={`Tea bonus per kg, ${base}`} rows={chart.map((r) => ({ label: r.f, value: r.x.kshPerKg, display: `KSh ${r.x.kshPerKg}` }))} />
+      <p class="source"><EvidenceLabel kind="unverified" /> Reported by The Standard, 18 Sep 2023. The latest year with figures for all six factories.</p>
+    </div>
+  </section>
+
+  <section class="stack">
+    <h2>Bonus (second payment) per kg, by year</h2>
+    <p class="muted">The bonus is paid once a year on top of the monthly rate. Figures are as reported; a dash means we found no reliable published figure.</p>
+    <div class="table-box"><table class="cards">
+      <thead><tr><th>Factory</th>{fys.map((fy) => <th class="num">{fy.replace('FY', '')}</th>)}</tr></thead>
+      <tbody>{ours.filter((f) => fys.some((fy) => bonus(f.name, fy).length)).map((f) => (
+        <tr><td>{f.name}</td>{fys.map((fy) => <td class="num" data-label={fy.replace('FY', '')}>{cell(bonus(f.name, fy))}</td>)}</tr>
+      ))}</tbody>
+    </table></div>
+    <ul class="small">
+      <li><strong>2025/26:</strong> only Gianchore's figure is from a reputable outlet (The Standard, 30 Sep 2026). KTDA called one bonus list circulating online fake, and Nyamira and Kisii growers have a court challenge to this year's bonus, so figures may change.</li>
+      <li><strong>2024/25:</strong> from the Daily Nation (29 Sep 2025), based on an interim report; KTDA had not confirmed factory figures at the time.</li>
+    </ul>
+  </section>
+
+  <section class="stack">
+    <h2>Total paid per kg (KTDA)</h2>
+    <div class="table-box"><table class="cards">
+      <thead><tr><th>Factory</th><th class="num">2021/22</th><th class="num">2020/21</th></tr></thead>
+      <tbody>{[...new Set(totals.map((x) => x.factory))].map((f) => (
+        <tr><td>{f}</td>{['FY2021/22', 'FY2020/21'].map((fy) => { const x = totals.find((t) => t.factory === f && t.fy === fy); return <td class="num" data-label={fy.replace('FY', '')}>{x ? `KSh ${x.kshPerKg}` : '—'}</td>; })}</tr>
+      ))}</tbody>
+    </table></div>
+    <p class="source"><EvidenceLabel kind="official" /> Source: <a href={srcs['ktda-bonus-2022']?.url} rel="noopener">{srcs['ktda-bonus-2022']?.title}</a>. KTDA tables for later years were not found.</p>
+  </section>
+
+  <section class="stack">
+    <h2>Milk</h2>
+    <p>We have not found a published farm-gate milk price for any buyer in Nyamira. Cooperatives and processors don't publish their prices. If you are a cooperative officer, <a href="/how-we-work/">tell us how to get your price list</a>.</p>
+  </section>
+
+  <details>
+    <summary>See the detail: every figure, with its source</summary>
+    <div class="table-box"><table class="cards">
+      <thead><tr><th>Factory</th><th>Year</th><th>Measure</th><th class="num">KSh per kg</th><th>Source</th><th>Label</th></tr></thead>
+      <tbody>{T.tea.map((x) => (
+        <tr><td>{x.factory}</td><td data-label="Year">{x.fy}</td><td data-label="Measure">{x.measure}</td><td class="num" data-label="KSh per kg">{x.kshPerKg}</td>
+          <td class="small" data-label="Source"><a href={srcs[x.sourceId]?.url} rel="noopener">{srcs[x.sourceId]?.publisher}</a>, {x.date}</td><td data-label="Label"><EvidenceLabel kind={label(x.sourceId)} /></td></tr>
+      ))}</tbody>
+    </table></div>
+    <p class="small muted">{T.editorialNote}</p>
+  </details>
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Malipo ya ziada (bonasi) ya chai kwa kila kilo katika viwanda sita vya KTDA vilivyoko Nyamira, kama yalivyoripotiwa. Bei ya maziwa haijachapishwa.</p></div>
+</div>

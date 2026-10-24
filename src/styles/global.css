@@ -865,3 +865,11 @@ ol.timeline { list-style: none; margin: 0; padding: 0 0 0 20px; border-left: 3px
 ol.timeline li { max-width: 40em; display: flex; flex-direction: column; gap: 6px; }
 ol.timeline .tl-date { font-weight: 700; }
 ol.timeline img { border-radius: 12px; }
+/* Then and now */
+.thennow { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 10px; }
+.tn { border: 1px solid var(--line); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.tn-row { display: flex; align-items: flex-end; gap: 10px; flex-wrap: wrap; }
+.tn-row span { display: flex; flex-direction: column; }
+.tn-row small { font-size: 12px; color: var(--muted); }
+.tn-row b { font-size: 24px; line-height: 1.1; }
+.tn-row .tn-arrow { font-size: 22px; color: var(--muted); padding-bottom: 2px; }

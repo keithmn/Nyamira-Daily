@@ -1,0 +1,56 @@
+---
+// 3.6 Schools: official county figures only. No school rankings (national policy discourages them).
+import S from '../../data/schools.json';
+import SplitBar from '../viz/SplitBar.astro';
+import HBars from '../viz/HBars.astro';
+import EvidenceLabel from '../EvidenceLabel.astro';
+const srcs = Object.fromEntries(S.sources.map((s) => [s.id, s]));
+const v = (name, year) => S.items.find((i) => i.indicator === name && (!year || i.year === year));
+const n = (x) => x?.value?.toLocaleString('en-KE') ?? '—';
+const levels = [
+  ['Pre-primary (ECDE)', 'Number of pre-primary institutions'],
+  ['Primary', 'Number of primary schools'],
+  ['Secondary', 'Number of secondary schools'],
+];
+const cand = [2023, 2024, 2025].map((y) => ({ y, x: v('KCSE registered candidates', y) })).filter((r) => r.x);
+const besb = srcs['MOE-BESB-2020'];
+---
+<div class="stack-lg" style="margin-top:24px">
+  <section class="tiles three">
+    {levels.map(([t, k]) => <div class="tile"><b>{n(v(`${k} (total)`))}</b><span>{t} schools and centres, 2020</span><EvidenceLabel kind="official" /></div>)}
+  </section>
+  <p class="source">Source: <a href={besb.url} rel="noopener">{besb.title}</a>, Table I.1 and related tables. This is the newest county breakdown the Ministry has published. Junior secondary schools started in 2023 and are not included.</p>
+
+  <section class="cols-2">
+    {levels.map(([t, k]) => (
+      <div class="figure">
+        <h3 class="mini">{t}: public and private</h3>
+        <SplitBar title={`${t} schools, public and private, 2020`} parts={[{ value: v(`${k} (public)`).value, label: 'public', tone: 'good', show: n(v(`${k} (public)`)) }, { value: v(`${k} (private)`).value, label: 'private', tone: 'mid', show: n(v(`${k} (private)`)) }]} />
+      </div>
+    ))}
+    <div class="figure">
+      <h3 class="mini">Learners per teacher, 2020</h3>
+      <p class="say">Primary: <strong>{n(v('Primary pupil-teacher ratio (all)'))}</strong> pupils per teacher. Secondary: <strong>{n(v('Secondary student-teacher ratio (all)'))}</strong> students per teacher. Of Nyamira's primary leavers, <strong>{v('Primary-to-secondary transition rate (overall)').value}%</strong> went on to secondary school.</p>
+    </div>
+  </section>
+
+  <section class="cols-2">
+    <div class="figure">
+      <span class="eyebrow">KCSE candidates</span>
+      <span class="num">{n(cand[cand.length - 1].x)}</span>
+      <p class="say">candidates registered for the KCSE exam in Nyamira in {cand[cand.length - 1].y}.</p>
+      <p class="source"><EvidenceLabel kind="official" /> Source: KNEC KCSE Essential Statistics 2024 and 2025. KNEC publishes no county grades or mean scores, so we show none.</p>
+    </div>
+    <HBars title="KCSE candidates registered in Nyamira" sort={false} rows={cand.map((r) => ({ label: String(r.y), value: r.x.value, display: n(r.x) }))} />
+  </section>
+
+  <details>
+    <summary>See the detail: every figure, with its page</summary>
+    <div class="table-box"><table class="cards">
+      <thead><tr><th>Figure</th><th class="num">Value</th><th>Year</th><th>Source</th></tr></thead>
+      <tbody>{S.items.map((i) => <tr><td>{i.indicator}</td><td class="num" data-label="Value">{typeof i.value === 'number' ? i.value.toLocaleString('en-KE') : i.value}</td><td data-label="Year">{i.year ?? 'Not stated'}</td><td class="small" data-label="Source">{srcs[i.sourceId]?.title}, {i.page}</td></tr>)}</tbody>
+    </table></div>
+    <ul class="small">{(S.gaps ?? []).map((g) => <li>{g}</li>)}</ul>
+  </details>
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Idadi ya shule na wanafunzi Nyamira kutoka takwimu rasmi za Wizara ya Elimu (2020) na KNEC. Hatupangi shule kwa nafasi.</p></div>
+</div>

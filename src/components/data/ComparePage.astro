@@ -1,0 +1,54 @@
+---
+// 3.1 How Nyamira compares: Nyamira beside five neighbours on four indicators, with the all-county
+// figure for context. No overall league table: each indicator stands alone, with its caveats.
+import C from '../../data/compare.json';
+import HBars from '../viz/HBars.astro';
+import EvidenceLabel from '../EvidenceLabel.astro';
+const cob = C.sources.find((s) => s.id.startsWith('cob'));
+const knbs = C.sources.find((s) => s.id.startsWith('knbs'));
+const nat = C.national;
+const nya = C.counties.find((c) => c.county === 'Nyamira');
+const kes = (n) => 'KSh ' + Math.round(n).toLocaleString('en-KE');
+const pct = (n) => Math.round(n) + '%';
+const natPop = nat.population2019;
+const ind = [
+  { key: 'perPerson', title: 'County spending per person, 2024/25', say: 'spent by the county for each resident.',
+    val: (c) => c.spent / c.population2019, fmt: kes, nat: nat.spent / natPop,
+    note: 'Worked out by Nyamira Daily: total spending in FY2024/25 divided by the 2019 census population (the latest count). Populations have grown since 2019, so the true figure per person today is lower.' },
+  { key: 'dev', title: 'Development budget used, 2024/25', say: 'of the development budget (roads, buildings, water) was spent.',
+    val: (c) => c.devAbsorptionPct, fmt: pct, nat: nat.devAbsorptionPct,
+    note: 'As stated by the Controller of Budget (Table 2.5). Budgets are at different revision stages: Nyamira, Bomet and Kericho used their first supplementary budget; Kisii, Homa Bay and Migori their second.' },
+  { key: 'osr', title: 'Local revenue collected against target, 2024/25', say: 'of the county\'s own revenue target (fees, rates, permits, hospital fees) was collected.',
+    val: (c) => c.osrPerformancePct, fmt: pct, nat: nat.osrPerformancePct,
+    note: 'As stated by the Controller of Budget (Table 2.1). Hospital fees (FIF) are more than half of local revenue in most of these counties. Kisii set no target for hospital fees, so its figure (above 100%) is not comparable; the report\'s own text puts it at 64%.' },
+  { key: 'devShare', title: 'Share of spending on development, 2024/25', say: 'of all county spending went on development rather than salaries and running costs.',
+    val: (c) => (c.devSpent / c.spent) * 100, fmt: pct, nat: (nat.devSpent / nat.spent) * 100,
+    note: 'Worked out by Nyamira Daily from the Controller of Budget\'s development and total spending (Table 2.5).' },
+];
+---
+<div class="stack-lg" style="margin-top:24px">
+  <p class="lead">Nyamira beside its neighbours: Kisii, Bomet, Kericho, Homa Bay and Migori. Each measure stands on its own; there is no overall ranking, because counties differ in size, needs and how they report.</p>
+  {ind.map((i) => (
+    <section class="cols-2">
+      <div class="figure">
+        <span class="eyebrow">{i.title}</span>
+        <span class="num">{i.fmt(i.val(nya))}</span>
+        <p class="say">{i.say} All 47 counties together: <strong>{i.fmt(i.nat)}</strong>.</p>
+        <p class="small muted">{i.note}</p>
+        <p class="source"><EvidenceLabel kind="official" /> Source: <a href={cob.url} rel="noopener">{cob.title}</a>{i.key === 'perPerson' && <>; <a href={knbs.url} rel="noopener">{knbs.title}</a></>}</p>
+      </div>
+      <HBars title={i.title} focus="nyamira" rows={C.counties.map((c) => ({ label: c.county, ward: c.county.toLowerCase(), value: i.val(c), display: i.fmt(i.val(c)), note: i.key === 'osr' && c.county === 'Kisii' ? '(not comparable)' : undefined }))} />
+    </section>
+  ))}
+  <details>
+    <summary>See the detail: every figure, with its page</summary>
+    <div class="table-box"><table class="cards">
+      <thead><tr><th>County</th><th class="num">Population 2019</th><th class="num">Budget</th><th class="num">Spent</th><th class="num">Development spent</th><th class="num">Local revenue (target)</th><th>Notes</th></tr></thead>
+      <tbody>{[...C.counties, { county: 'All 47 counties', population2019: natPop, ...nat }].map((c) => (
+        <tr><td>{c.county}</td><td class="num" data-label="Population 2019">{c.population2019.toLocaleString('en-KE')}</td><td class="num" data-label="Budget">KSh {(c.budget / 1e9).toFixed(2)}B</td><td class="num" data-label="Spent">KSh {(c.spent / 1e9).toFixed(2)}B</td><td class="num" data-label="Development spent">KSh {(c.devSpent / 1e9).toFixed(2)}B</td><td class="num" data-label="Local revenue">KSh {(c.osrActual / 1e6).toFixed(0)}M ({(c.osrTarget / 1e6).toFixed(0)}M)</td><td class="small" data-label="Notes">{c.notes}</td></tr>
+      ))}</tbody>
+    </table></div>
+    <p class="small muted">{C.unit} Page numbers are the report's printed pages; {C.pageNumbering}</p>
+  </details>
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Nyamira ikilinganishwa na kaunti jirani (Kisii, Bomet, Kericho, Homa Bay na Migori) kwa matumizi kwa kila mtu, matumizi ya bajeti ya maendeleo na mapato ya ndani, mwaka 2024/25.</p></div>
+</div>

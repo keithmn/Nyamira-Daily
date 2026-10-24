@@ -1,0 +1,526 @@
+{
+ "checked": "2026-10-24",
+ "sources": [
+  {
+   "id": "ktda-nyamira",
+   "title": "Nyamira County (factory listing)",
+   "publisher": "KTDA",
+   "url": "https://ktdateas.com/nyamira-county/",
+   "date": "undated (accessed 2026-10-24)",
+   "kind": "official"
+  },
+  {
+   "id": "ktda-kisii",
+   "title": "Kisii County (factory listing)",
+   "publisher": "KTDA",
+   "url": "https://ktdateas.com/kisii-county/",
+   "date": "undated (accessed 2026-10-24)",
+   "kind": "official"
+  },
+  {
+   "id": "ktda-tombe",
+   "title": "Tombe Tea Factory site",
+   "publisher": "KTDA / Tombe Tea Factory",
+   "url": "https://tombe.ktdateas.com/",
+   "date": "undated (accessed 2026-10-24)",
+   "kind": "official"
+  },
+  {
+   "id": "ktda-itumbe",
+   "title": "Itumbe Tea Factory",
+   "publisher": "KTDA",
+   "url": "https://ktdateas.com/itumbe-tea-factory/",
+   "date": "undated (accessed 2026-10-24)",
+   "kind": "official"
+  },
+  {
+   "id": "ktda-eberege",
+   "title": "Eberege Tea Factory",
+   "publisher": "KTDA",
+   "url": "https://ktdateas.com/eberege-tea-factory/",
+   "date": "undated (accessed 2026-10-24)",
+   "kind": "official"
+  },
+  {
+   "id": "ktda-rianyamwamu",
+   "title": "Rianyamwamu Tea Factory",
+   "publisher": "KTDA",
+   "url": "https://ktdateas.com/rianyamwamu-tea-factory/",
+   "date": "undated (accessed 2026-10-24)",
+   "kind": "official"
+  },
+  {
+   "id": "ktda-kiamokama",
+   "title": "Kiamokama Tea Factory site",
+   "publisher": "KTDA / Kiamokama Tea Factory",
+   "url": "https://kiamokama.ktdateas.com/",
+   "date": "undated (accessed 2026-10-24)",
+   "kind": "official"
+  },
+  {
+   "id": "tbk-manufacturers",
+   "title": "Tea Manufacturers / Factories",
+   "publisher": "Tea Board of Kenya",
+   "url": "https://www.teaboard.or.ke/dealers/manufacturers",
+   "date": "undated (accessed 2026-10-24)",
+   "kind": "official"
+  },
+  {
+   "id": "kna-matunwa",
+   "title": "Munya officially opens Matunwa tea factory in Nyamira",
+   "publisher": "Kenya News Agency",
+   "url": "https://www.kenyanews.go.ke/munya-officially-opens-matunwa-tea-factory-in-nyamira/",
+   "date": "undated on page",
+   "kind": "official"
+  },
+  {
+   "id": "ktda-bonus-2022",
+   "title": "Tea Growers Payment, June 2022 Financial Year (bonus advertisement PDF)",
+   "publisher": "KTDA",
+   "url": "https://ktdateas.com/docs/Bonus_ad_2022_Final_Version.pdf",
+   "date": "2022 (undated PDF; covers FY ended 30 June 2022)",
+   "kind": "official"
+  },
+  {
+   "id": "std-2023-09-18",
+   "title": "Tea farmers reap big as factories promise to pay higher bonuses",
+   "publisher": "The Standard",
+   "url": "https://standardmedia.co.ke/amp/national/article/2001481767/tea-farmers-reap-big-as-factories-promise-to-pay-higher-bonuses",
+   "date": "2023-09-18",
+   "kind": "media"
+  },
+  {
+   "id": "std-2024-09-16",
+   "title": "Boom for farmers, factory releases Sh616m tea bonus",
+   "publisher": "The Standard",
+   "url": "https://www.standardmedia.co.ke/business/business/article/2001502788/boom-for-farmers-factory-releases-sh616m-tea-bonus",
+   "date": "2024-09-16",
+   "kind": "media"
+  },
+  {
+   "id": "nation-2025-09-29",
+   "title": "Farmers' fury as tea bonus shrinks across regions",
+   "publisher": "Daily Nation",
+   "url": "https://nation.africa/kenya/news/farmers-fury-as-tea-bonus-shrinks-across-regions-5209386",
+   "date": "2025-09-29",
+   "kind": "media"
+  },
+  {
+   "id": "star-2025-10-02",
+   "title": "Senator Okenyuri decries tea bonus disparities among farmers",
+   "publisher": "The Star",
+   "url": "https://www.the-star.co.ke/news/2025-10-02-senator-okenyuri-decries-tea-bonus-disparities-among-farmers",
+   "date": "2025-10-02",
+   "kind": "media"
+  },
+  {
+   "id": "star-2025-10-07",
+   "title": "Tea farmers to get Sh2.7bn refund as part of bonus after State directive",
+   "publisher": "The Star",
+   "url": "https://www.the-star.co.ke/news/2025-10-07-tea-farmers-to-get-sh27bn-refund-as-part-of-bonus-after-state-directive",
+   "date": "2025-10-07",
+   "kind": "media"
+  },
+  {
+   "id": "star-2026-02-05",
+   "title": "Go back and review monthly tea pay to Sh26, PS orders KTDA factories as he warns on loan suspension",
+   "publisher": "The Star",
+   "url": "https://www.the-star.co.ke/news/2026-02-05-ps-to-ktda-go-back-and-review-monthly-tea-pay-to-sh26",
+   "date": "2026-02-05",
+   "kind": "media"
+  },
+  {
+   "id": "kna-2026-02-02",
+   "title": "Tea farmers elated by green leaf price review",
+   "publisher": "Kenya News Agency",
+   "url": "https://www.kenyanews.go.ke/?p=173557",
+   "date": "2026-02-02",
+   "kind": "official"
+  },
+  {
+   "id": "std-2026-09-30",
+   "title": "Tea factories declare lower bonuses",
+   "publisher": "The Standard",
+   "url": "https://www.standardmedia.co.ke/business/business/article/2001559057/tea-factories-declare-lower-bonuses",
+   "date": "2026-09-30",
+   "kind": "media"
+  },
+  {
+   "id": "nation-2026-10-09",
+   "title": "Ruto's Sh56 claim, court battle and fresh protests: Inside Kenya's tea bonus storm",
+   "publisher": "Daily Nation",
+   "url": "https://nation.africa/kenya/news/ruto-s-sh56-claim-court-battle-and-fresh-protests-inside-kenya-s-tea-bonus-storm-5626162",
+   "date": "2026-10-09",
+   "kind": "media"
+  },
+  {
+   "id": "bd-2024-02-29",
+   "title": "New KCC raises farm-gate prices by Sh5 a litre",
+   "publisher": "Business Daily",
+   "url": "https://www.businessdailyafrica.com/bd/markets/commodities/new-kcc-raises-farm-gate-prices-by-sh5-a-litre--4541042",
+   "date": "2024-02-29",
+   "kind": "media"
+  },
+  {
+   "id": "std-2017-09-02",
+   "title": "Brookside aims to raise Nyamira output",
+   "publisher": "The Standard",
+   "url": "https://standardmedia.co.ke/counties/article/2001253385/brookside-aims-to-raise-nyamira-output",
+   "date": "2017-09-02",
+   "kind": "media"
+  }
+ ],
+ "factories": [
+  {
+   "name": "Nyansiongo",
+   "county": "Nyamira",
+   "ward": null,
+   "locationSourceId": "ktda-nyamira",
+   "notes": "KTDA lists under Nyamira County: 'situated in Borabu District, Nyanza Province', 36 km from Kisii town. Tea Board of Kenya also lists county Nyamira. Named in KTDA Zone 10 (Nyamira) notice, Feb 2026."
+  },
+  {
+   "name": "Sanganyi",
+   "county": "Nyamira",
+   "ward": null,
+   "locationSourceId": "ktda-nyamira",
+   "notes": "KTDA: 'situated in Nyaramba Shopping Centre, Ekerenyo Sub-county of Nyamira County'. Tea Board lists Nyamira. Spelled 'Sang'anyi' in some media. Ward not stated (Nyaramba is a shopping centre, not confirmed as ward)."
+  },
+  {
+   "name": "Kebirigo",
+   "county": "Nyamira",
+   "ward": null,
+   "locationSourceId": "ktda-nyamira",
+   "notes": "KTDA: 'located in Kebirigo Sub-location, Bonyamatuta Masaba Location, Nyamira Division, of Nyamira District'; serves West Mugirango, North Mugirango and West Kitutu constituencies. Tea Board lists Nyamira. Spelled 'Kiberigo'/'Kibirigo' in some media."
+  },
+  {
+   "name": "Nyankoba",
+   "county": "Nyamira",
+   "ward": null,
+   "locationSourceId": "ktda-nyamira",
+   "notes": "KTDA gives only coordinates ('approx. 34.9 degrees East and 0.8 degrees South ... 2160m above sea level'), listed under Nyamira County. Tea Board lists Nyamira."
+  },
+  {
+   "name": "Tombe",
+   "county": "Nyamira",
+   "ward": null,
+   "locationSourceId": "ktda-tombe",
+   "notes": "CONFLICT: KTDA factory site says 'located in Tombe Market, Bonyamondo sub-location, Manga division, Manga District in Nyamira County'; Tea Board of Kenya manufacturers list gives county 'Kisii'. Not named in the Feb 2026 Zone 10 (Nyamira) monthly-rate notice. KTDA June 2022 table groups it as 'TOMBE/SOMBOGO'."
+  },
+  {
+   "name": "Gianchore",
+   "county": "Nyamira",
+   "ward": null,
+   "locationSourceId": "ktda-nyamira",
+   "notes": "KTDA lists under Nyamira County heading only; no sub-county given. Tea Board lists Nyamira."
+  },
+  {
+   "name": "Matunwa",
+   "county": "Nyamira",
+   "ward": null,
+   "locationSourceId": "tbk-manufacturers",
+   "notes": "Not in the original candidate list. Tea Board lists 'Matunwa Tea Factory Co. Ltd' as KTDA Managed, county Nyamira (and as Specialty with county column 'Nyansiogo'). KNA describes it as 'a satellite of Nyansiongo Tea Factory in Nyamira County' producing orthodox tea. No separate payout figures found."
+  },
+  {
+   "name": "Itumbe",
+   "county": "Kisii",
+   "ward": null,
+   "locationSourceId": "ktda-itumbe",
+   "notes": "NOT Nyamira. KTDA: 'located in Kenyerere sub location, Mokwerero location, Sameta sub-county in Kisii County.' Paired with Nyamache in KTDA tables."
+  },
+  {
+   "name": "Rianyamwamu",
+   "county": "Kisii",
+   "ward": null,
+   "locationSourceId": "ktda-rianyamwamu",
+   "notes": "NOT Nyamira. KTDA lists under Kisii County, 'located in Kisii central district', 15 km from Kisii town."
+  },
+  {
+   "name": "Eberege",
+   "county": "Kisii",
+   "ward": null,
+   "locationSourceId": "ktda-eberege",
+   "notes": "NOT Nyamira. KTDA: 'located in Kenyenya sub-county, Kisii County'."
+  },
+  {
+   "name": "Kiamokama",
+   "county": "Kisii",
+   "ward": null,
+   "locationSourceId": "ktda-kiamokama",
+   "notes": "NOT Nyamira. KTDA factory site: 'in Masimba area, Kiamokama Division, Masaba South District in Kisii County.' (Site contains injected casino spam.)"
+  }
+ ],
+ "tea": [
+  {
+   "factory": "Gianchore",
+   "fy": "FY2025/26",
+   "measure": "bonus",
+   "kshPerKg": 18.0,
+   "wording": "Momul posted Sh40.50 more than last year's Sh32.50 per kg, Gianchore Sh18 per kg, Kaptumo Sh12.50 per kg, compared to Sh13 per kg and Sh10.5 of last year, respectively. (bonus payments for the year 2025/2026; period July 1, 2025 to June 30, 2026)",
+   "sourceId": "std-2026-09-30",
+   "date": "2026-09-30"
+  },
+  {
+   "factory": "Sanganyi",
+   "fy": "FY2024/25",
+   "measure": "bonus",
+   "kshPerKg": 12.0,
+   "wording": "Other factories in West of Rift — including Ogembo/Eberege, Sanganyi, Nyansiongo, Mogogosiek, Kobel, and Boito — will each pay Sh12 per kilogram. (second payment/bonus; interim report for the financial year ending June 30, 2025; 'according to documents seen by the' Nation)",
+   "sourceId": "nation-2025-09-29",
+   "date": "2025-09-29"
+  },
+  {
+   "factory": "Nyansiongo",
+   "fy": "FY2024/25",
+   "measure": "bonus",
+   "kshPerKg": 12.0,
+   "wording": "Other factories in West of Rift — including Ogembo/Eberege, Sanganyi, Nyansiongo, Mogogosiek, Kobel, and Boito — will each pay Sh12 per kilogram. (second payment/bonus; interim report for the financial year ending June 30, 2025; 'according to documents seen by the' Nation)",
+   "sourceId": "nation-2025-09-29",
+   "date": "2025-09-29"
+  },
+  {
+   "factory": "Gianchore",
+   "fy": "FY2024/25",
+   "measure": "bonus",
+   "kshPerKg": 13.0,
+   "wording": "Gianchore, Kebirigo, Tombe, Kapkoros, Tirgaga, Olenguruone, and Motigo will pay Sh13 per kilogram. (second payment/bonus; interim report for the financial year ending June 30, 2025; 'according to documents seen by the' Nation)",
+   "sourceId": "nation-2025-09-29",
+   "date": "2025-09-29"
+  },
+  {
+   "factory": "Kebirigo",
+   "fy": "FY2024/25",
+   "measure": "bonus",
+   "kshPerKg": 13.0,
+   "wording": "Gianchore, Kebirigo, Tombe, Kapkoros, Tirgaga, Olenguruone, and Motigo will pay Sh13 per kilogram. (second payment/bonus; interim report for the financial year ending June 30, 2025; 'according to documents seen by the' Nation)",
+   "sourceId": "nation-2025-09-29",
+   "date": "2025-09-29"
+  },
+  {
+   "factory": "Tombe",
+   "fy": "FY2024/25",
+   "measure": "bonus",
+   "kshPerKg": 13.0,
+   "wording": "Gianchore, Kebirigo, Tombe, Kapkoros, Tirgaga, Olenguruone, and Motigo will pay Sh13 per kilogram. (second payment/bonus; interim report for the financial year ending June 30, 2025; 'according to documents seen by the' Nation)",
+   "sourceId": "nation-2025-09-29",
+   "date": "2025-09-29"
+  },
+  {
+   "factory": "Gianchore",
+   "fy": "FY2024/25",
+   "measure": "bonus",
+   "kshPerKg": 13.0,
+   "wording": "Gianchore Sh18 per kg ... compared to Sh13 per kg ... of last year (prior-year figure as reported in 2025/26 bonus story; sentence is ambiguous)",
+   "sourceId": "std-2026-09-30",
+   "date": "2026-09-30"
+  },
+  {
+   "factory": "Nyankoba",
+   "fy": "FY2023/24",
+   "measure": "bonus",
+   "kshPerKg": 40.0,
+   "wording": "Nyankoba's 22,000 growers will be paid Sh40 bonus per kg of green tea sold to the factory, an increase of Sh5, from the Sh35 that they were paid last year.",
+   "sourceId": "std-2024-09-16",
+   "date": "2024-09-16"
+  },
+  {
+   "factory": "Nyankoba",
+   "fy": "FY2022/23",
+   "measure": "bonus",
+   "kshPerKg": 35.0,
+   "wording": "Nyankoba Tea Factory farmers will be the second-highest beneficiaries. Farmers are to pocket Sh35 per kilo",
+   "sourceId": "std-2023-09-18",
+   "date": "2023-09-18"
+  },
+  {
+   "factory": "Nyankoba",
+   "fy": "FY2022/23",
+   "measure": "bonus",
+   "kshPerKg": 35.0,
+   "wording": "Sh40 bonus per kg ... an increase of Sh5, from the Sh35 that they were paid last year.",
+   "sourceId": "std-2024-09-16",
+   "date": "2024-09-16"
+  },
+  {
+   "factory": "Nyansiongo",
+   "fy": "FY2022/23",
+   "measure": "bonus",
+   "kshPerKg": 36.5,
+   "wording": "The farmers who will get the highest bonus pay are those from Nyansiongo Tea Factory Company, who will be paid Sh36.50, up from Sh27 that they earned last year.",
+   "sourceId": "std-2023-09-18",
+   "date": "2023-09-18"
+  },
+  {
+   "factory": "Kebirigo",
+   "fy": "FY2022/23",
+   "measure": "bonus",
+   "kshPerKg": 30.0,
+   "wording": "those who sell their green leaves to Kebirigo and Sang'anyi factories will be the lowest paid in the rank at Sh30 per kilo, up from Sh24 in the last financial year.",
+   "sourceId": "std-2023-09-18",
+   "date": "2023-09-18"
+  },
+  {
+   "factory": "Sanganyi",
+   "fy": "FY2022/23",
+   "measure": "bonus",
+   "kshPerKg": 30.0,
+   "wording": "those who sell their green leaves to Kebirigo and Sang'anyi factories will be the lowest paid in the rank at Sh30 per kilo, up from Sh24 in the last financial year.",
+   "sourceId": "std-2023-09-18",
+   "date": "2023-09-18"
+  },
+  {
+   "factory": "Tombe",
+   "fy": "FY2022/23",
+   "measure": "bonus",
+   "kshPerKg": 31.5,
+   "wording": "Other factories include Tombe, whose growers will be paid Sh31.50 per kilo",
+   "sourceId": "std-2023-09-18",
+   "date": "2023-09-18"
+  },
+  {
+   "factory": "Gianchore",
+   "fy": "FY2022/23",
+   "measure": "bonus",
+   "kshPerKg": 31.0,
+   "wording": "while those of Gianchore Sh31 and Sh30. (sentence as printed is ambiguous: a second unnamed factory may be at Sh30)",
+   "sourceId": "std-2023-09-18",
+   "date": "2023-09-18"
+  },
+  {
+   "factory": "Nyansiongo",
+   "fy": "FY2021/22",
+   "measure": "bonus",
+   "kshPerKg": 27.0,
+   "wording": "who will be paid Sh36.50, up from Sh27 that they earned last year.",
+   "sourceId": "std-2023-09-18",
+   "date": "2023-09-18"
+  },
+  {
+   "factory": "Kebirigo",
+   "fy": "FY2021/22",
+   "measure": "bonus",
+   "kshPerKg": 24.0,
+   "wording": "Kebirigo and Sang'anyi ... at Sh30 per kilo, up from Sh24 in the last financial year.",
+   "sourceId": "std-2023-09-18",
+   "date": "2023-09-18"
+  },
+  {
+   "factory": "Sanganyi",
+   "fy": "FY2021/22",
+   "measure": "bonus",
+   "kshPerKg": 24.0,
+   "wording": "Kebirigo and Sang'anyi ... at Sh30 per kilo, up from Sh24 in the last financial year.",
+   "sourceId": "std-2023-09-18",
+   "date": "2023-09-18"
+  },
+  {
+   "factory": "Nyansiongo",
+   "fy": "FY2021/22",
+   "measure": "total",
+   "kshPerKg": 47.0,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2022' (row 'NYANSIONGO')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  },
+  {
+   "factory": "Nyansiongo",
+   "fy": "FY2020/21",
+   "measure": "total",
+   "kshPerKg": 28.5,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2021' (row 'NYANSIONGO')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  },
+  {
+   "factory": "Nyankoba",
+   "fy": "FY2021/22",
+   "measure": "total",
+   "kshPerKg": 40.1,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2022' (row 'NYANKOBA')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  },
+  {
+   "factory": "Nyankoba",
+   "fy": "FY2020/21",
+   "measure": "total",
+   "kshPerKg": 25.0,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2021' (row 'NYANKOBA')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  },
+  {
+   "factory": "Tombe/Sombogo",
+   "fy": "FY2021/22",
+   "measure": "total",
+   "kshPerKg": 42.0,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2022' (row 'TOMBE/SOMBOGO')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  },
+  {
+   "factory": "Tombe/Sombogo",
+   "fy": "FY2020/21",
+   "measure": "total",
+   "kshPerKg": 24.5,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2021' (row 'TOMBE/SOMBOGO')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  },
+  {
+   "factory": "Kebirigo",
+   "fy": "FY2021/22",
+   "measure": "total",
+   "kshPerKg": 45.0,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2022' (row 'KEBIRIGO')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  },
+  {
+   "factory": "Kebirigo",
+   "fy": "FY2020/21",
+   "measure": "total",
+   "kshPerKg": 26.0,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2021' (row 'KEBIRIGO')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  },
+  {
+   "factory": "Gianchore",
+   "fy": "FY2021/22",
+   "measure": "total",
+   "kshPerKg": 41.0,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2022' (row 'GIANCHORE')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  },
+  {
+   "factory": "Gianchore",
+   "fy": "FY2020/21",
+   "measure": "total",
+   "kshPerKg": 24.0,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2021' (row 'GIANCHORE')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  },
+  {
+   "factory": "Sanganyi",
+   "fy": "FY2021/22",
+   "measure": "total",
+   "kshPerKg": 48.0,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2022' (row 'SANGANYI')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  },
+  {
+   "factory": "Sanganyi",
+   "fy": "FY2020/21",
+   "measure": "total",
+   "kshPerKg": 24.0,
+   "wording": "REGION 6 (Kisii/Nyamira) table, column 'TOTAL PAYMENT PER KG/GL KSHS JUNE 2021' (row 'SANGANYI')",
+   "sourceId": "ktda-bonus-2022",
+   "date": "2022"
+  }
+ ],
+ "milk": [],
+ "editorialNote": "Tea figures are kept only from KTDA, the Tea Board of Kenya, Kenya News Agency and reputable outlets (Standard, Nation, Star, Business Daily). Figures reported only by other sites were left out (see data-src/research-notes/teamilk.md)."
+}

@@ -8,6 +8,14 @@ import MyWard from '../../components/MyWard.astro';
 import MoneyPage from '../../components/MoneyPage.astro';
 import ProjectsPage from '../../components/ProjectsPage.astro';
 import PeoplePage from '../../components/PeoplePage.astro';
+import ComparePage from '../../components/data/ComparePage.astro';
+import ThenNowPage from '../../components/data/ThenNowPage.astro';
+import ElectionsPage from '../../components/data/ElectionsPage.astro';
+import TeaMilkPage from '../../components/data/TeaMilkPage.astro';
+import HealthPage from '../../components/data/HealthPage.astro';
+import SchoolsPage from '../../components/data/SchoolsPage.astro';
+import SubLocationsPage from '../../components/data/SubLocationsPage.astro';
+const countyOnly = ['compare', 'then-and-now', 'tea-milk', 'health', 'schools', 'sub-locations'];
 import { planned } from '../../config.js';
 
 export function getStaticPaths() {
@@ -21,7 +29,7 @@ const total = wards.reduce((n, w) => n + w.facilities.length, 0);
 <Base title={t.title}>
   <PageHead eyebrow="Data" title={t.title} lead={t.question} crumbs={[{ href: '/data/', label: 'Data' }, { href: `/data/${t.slug}/`, label: t.title }]} />
 
-  {t.slug !== 'open-data' && !isPlanned && <div style="margin-top:16px"><MyWard topic={t.slug} /></div>}
+  {t.slug !== 'open-data' && !countyOnly.includes(t.slug) && !isPlanned && <div style="margin-top:16px"><MyWard topic={t.slug} /></div>}
 
   {t.slug === 'services' && (
     <div class="stack" style="margin-top:16px">
@@ -99,6 +107,13 @@ const total = wards.reduce((n, w) => n + w.facilities.length, 0);
   {t.slug === 'money' && <MoneyPage />}
   {t.slug === 'projects' && <ProjectsPage />}
   {t.slug === 'people' && <PeoplePage />}
+  {t.slug === 'compare' && <ComparePage />}
+  {t.slug === 'then-and-now' && <ThenNowPage />}
+  {t.slug === 'elections' && <ElectionsPage />}
+  {t.slug === 'tea-milk' && <TeaMilkPage />}
+  {t.slug === 'health' && <HealthPage />}
+  {t.slug === 'schools' && <SchoolsPage />}
+  {t.slug === 'sub-locations' && <SubLocationsPage />}
 
   {isPlanned && (
     <div class="stack" style="margin-top:16px">

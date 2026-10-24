@@ -1,0 +1,977 @@
+{
+ "checked": "2026-10-24", 
+ "sources": [
+  {
+   "id": "MOE-BESB-2020", 
+   "title": "Basic Education Statistical Booklet 2020", 
+   "publisher": "Ministry of Education, Republic of Kenya", 
+   "url": "https://www.education.go.ke/sites/default/files/Docs/The%20Basic%20Education%20Statistical%20Booklet%202020%20(1).pdf", 
+   "dataYear": 2020, 
+   "dataBasis": "NEMIS data captured at institutions (booklet section 2.3)", 
+   "localFile": "src/MoE_BESB_2020.pdf", 
+   "pageNote": "Pages are printed page numbers; PDF page = printed + 21. Annex tables I.x (pre-primary), II.x (primary), III.x (secondary), IV.x (assessments), V.x (adult education)."
+  }, 
+  {
+   "id": "KNEC-KCSE-2025-ES", 
+   "title": "2025 KCSE Examination Essential Statistics", 
+   "publisher": "Kenya National Examinations Council", 
+   "url": "https://www.knec.ac.ke/wp-content/uploads/2026/01/2025-KCSE-EXAMINATION-ESSENTIAL-STATISTICS.pdf", 
+   "dataYear": 2025, 
+   "localFile": "src/KNEC_2025-KCSE-EXAMINATION-ESSENTIAL-STATISTICS.pdf", 
+   "pageNote": "Pages are the document's 'Page n of 11'. KNEC uses its own county code 43 for Nyamira (KNBS code is 46). County candidature = registered candidates (Table 1 note: 'Entry' refers to registered candidates)."
+  }, 
+  {
+   "id": "KNEC-KCSE-2024-ES", 
+   "title": "2024 KCSE Examination Essential Statistics", 
+   "publisher": "Kenya National Examinations Council", 
+   "url": "https://www.knec.ac.ke/wp-content/uploads/2025/01/2024-KCSE-EXAMINATION-ESSENTIAL-STATISTICS.pdf", 
+   "dataYear": 2024, 
+   "localFile": "src/KNEC_2024-KCSE-EXAMINATION-ESSENTIAL-STATISTICS.pdf", 
+   "pageNote": "PDF page numbers (15-page PDF). Used here only for 2023 figures; 2024 figures are taken from the 2025 edition and agree with this one."
+  }, 
+  {
+   "id": "KNBS-SCHOOLCENSUS-PILOT-2024", 
+   "title": "2024 National School Census Pilot Report", 
+   "publisher": "Kenya National Bureau of Statistics", 
+   "url": "https://www.knbs.or.ke/wp-content/uploads/2025/01/2024-National-School-Census-Pilot-Report.pdf", 
+   "dataYear": 2024, 
+   "localFile": "src/KNBS_2024_School_Census_Pilot.pdf", 
+   "pageNote": "Printed page 4 (PDF page 11). Pilot covered one zone per county only; not a county total."
+  }, 
+  {
+   "id": "KDHS-2022", 
+   "title": "Kenya Demographic and Health Survey 2022, Main Report Volume 1", 
+   "publisher": "KNBS and ICF", 
+   "url": "https://www.knbs.or.ke/wp-content/uploads/2023/08/Kenya-Demographic-and-Health-Survey-2022-Main-Report-Volume-1.pdf", 
+   "dataYear": 2022, 
+   "localFile": "src/Kenya-Demographic-and-Health-Survey-2022-Main-Report-Volume-1.pdf", 
+   "pageNote": "Household survey, not administrative data. Printed page = PDF page - 42."
+  }
+ ], 
+ "items": [
+  {
+   "indicator": "Number of pre-primary institutions (public)", 
+   "value": 404, 
+   "unit": "institutions", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 84, Table I.1"
+  }, 
+  {
+   "indicator": "Number of pre-primary institutions (private)", 
+   "value": 161, 
+   "unit": "institutions", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 84, Table I.1"
+  }, 
+  {
+   "indicator": "Number of pre-primary institutions (total)", 
+   "value": 565, 
+   "unit": "institutions", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 84, Table I.1"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, public schools, PP1 boys", 
+   "value": 11235, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 85, Table I.2"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, public schools, PP1 girls", 
+   "value": 11163, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 85, Table I.2"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, public schools, PP1 total", 
+   "value": 22398, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 85, Table I.2"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, public schools, PP2 boys", 
+   "value": 9715, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 85, Table I.2"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, public schools, PP2 girls", 
+   "value": 9749, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 85, Table I.2"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, public schools, PP2 total", 
+   "value": 19464, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 85, Table I.2"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, public schools, total boys", 
+   "value": 20950, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 85, Table I.2"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, public schools, total girls", 
+   "value": 20912, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 85, Table I.2"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, public schools, total", 
+   "value": 41862, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 85, Table I.2"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, private schools, PP1 boys", 
+   "value": 2123, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 86, Table I.3"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, private schools, PP1 girls", 
+   "value": 2104, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 86, Table I.3"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, private schools, PP1 total", 
+   "value": 4227, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 86, Table I.3"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, private schools, PP2 boys", 
+   "value": 1698, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 86, Table I.3"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, private schools, PP2 girls", 
+   "value": 1691, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 86, Table I.3"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, private schools, PP2 total", 
+   "value": 3389, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 86, Table I.3"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, private schools, total boys", 
+   "value": 3821, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 86, Table I.3"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, private schools, total girls", 
+   "value": 3795, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 86, Table I.3"
+  }, 
+  {
+   "indicator": "Pre-primary enrolment, private schools, total", 
+   "value": 7616, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 86, Table I.3"
+  }, 
+  {
+   "indicator": "Pre-primary gross enrolment ratio (all)", 
+   "value": 167.8, 
+   "unit": "percent", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 89, Table I.6", 
+   "boys": 166.4, 
+   "girls": 169.2
+  }, 
+  {
+   "indicator": "Pre-primary teachers, public (all)", 
+   "value": 884, 
+   "unit": "teachers", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 90, Table I.7", 
+   "male": 129, 
+   "female": 755, 
+   "pupilTeacherRatio": 47
+  }, 
+  {
+   "indicator": "Pre-primary teachers, private (all)", 
+   "value": 315, 
+   "unit": "teachers", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 90, Table I.7", 
+   "male": 64, 
+   "female": 251, 
+   "pupilTeacherRatio": 24
+  }, 
+  {
+   "indicator": "Average pre-primary school size (all)", 
+   "value": 88, 
+   "unit": "learners per institution", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 87, Table I.4", 
+   "public": 104, 
+   "private": 47
+  }, 
+  {
+   "indicator": "Number of primary schools (public)", 
+   "value": 408, 
+   "unit": "schools", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 94, Table II.1"
+  }, 
+  {
+   "indicator": "Number of primary schools (private)", 
+   "value": 143, 
+   "unit": "schools", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 94, Table II.1"
+  }, 
+  {
+   "indicator": "Number of primary schools (total)", 
+   "value": 551, 
+   "unit": "schools", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 94, Table II.1"
+  }, 
+  {
+   "indicator": "Primary enrolment Grades 1-6 (ISCED 1), public schools, boys, total", 
+   "value": 49355, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 95, Table II.2", 
+   "byGrade": {
+    "Grade 1": 7571, 
+    "Grade 2": 7814, 
+    "Grade 3": 7883, 
+    "Grade 4": 7958, 
+    "Class 5": 9020, 
+    "Class 6": 9109
+   }
+  }, 
+  {
+   "indicator": "Primary enrolment Grades 1-6 (ISCED 1), public schools, girls, total", 
+   "value": 46398, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 96, Table II.3", 
+   "byGrade": {
+    "Grade 1": 7249, 
+    "Grade 2": 7209, 
+    "Grade 3": 7391, 
+    "Grade 4": 7515, 
+    "Class 5": 8375, 
+    "Class 6": 8659
+   }
+  }, 
+  {
+   "indicator": "Primary enrolment Grades 1-6 (ISCED 1), private schools, boys, total", 
+   "value": 9053, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 97, Table II.4", 
+   "byGrade": {
+    "Grade 1": 1597, 
+    "Grade 2": 1643, 
+    "Grade 3": 1557, 
+    "Grade 4": 1469, 
+    "Class 5": 1393, 
+    "Class 6": 1394
+   }
+  }, 
+  {
+   "indicator": "Primary enrolment Grades 1-6 (ISCED 1), private schools, girls, total", 
+   "value": 9158, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 98, Table II.5", 
+   "byGrade": {
+    "Grade 1": 1695, 
+    "Grade 2": 1524, 
+    "Grade 3": 1516, 
+    "Grade 4": 1448, 
+    "Class 5": 1492, 
+    "Class 6": 1483
+   }
+  }, 
+  {
+   "indicator": "Standard 7-8 enrolment (ISCED 2, 8-4-4), public schools, total", 
+   "value": 32474, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 99, Table II.6", 
+   "boys": 16484, 
+   "girls": 15990, 
+   "std7": {
+    "boys": 8749, 
+    "girls": 8386, 
+    "total": 17135
+   }, 
+   "std8": {
+    "boys": 7735, 
+    "girls": 7604, 
+    "total": 15339
+   }
+  }, 
+  {
+   "indicator": "Standard 7-8 enrolment (ISCED 2, 8-4-4), private schools, total", 
+   "value": 5292, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 100, Table II.7", 
+   "boys": 2495, 
+   "girls": 2797, 
+   "std7": {
+    "boys": 1266, 
+    "girls": 1443, 
+    "total": 2709
+   }, 
+   "std8": {
+    "boys": 1229, 
+    "girls": 1354, 
+    "total": 2583
+   }
+  }, 
+  {
+   "indicator": "Primary gross enrolment rate (overall)", 
+   "value": 106.2, 
+   "unit": "percent", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 104, Table II.11", 
+   "boys": 107.6, 
+   "girls": 104.8
+  }, 
+  {
+   "indicator": "Primary net enrolment rate (overall)", 
+   "value": 92.4, 
+   "unit": "percent", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 104, Table II.11", 
+   "boys": 92.6, 
+   "girls": 92.2
+  }, 
+  {
+   "indicator": "Primary teachers, public, TSC (all)", 
+   "value": 3944, 
+   "unit": "teachers", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 105, Table II.12", 
+   "male": 2064, 
+   "female": 1880
+  }, 
+  {
+   "indicator": "Primary teachers, public, BOM (all)", 
+   "value": 391, 
+   "unit": "teachers", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 105, Table II.12", 
+   "male": 213, 
+   "female": 178
+  }, 
+  {
+   "indicator": "Primary teachers, private (all)", 
+   "value": 836, 
+   "unit": "teachers", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 105, Table II.12", 
+   "male": 409, 
+   "female": 427
+  }, 
+  {
+   "indicator": "Primary pupil-teacher ratio (all)", 
+   "value": 32, 
+   "unit": "pupils per teacher", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 106, Table II.13", 
+   "public": 33, 
+   "private": 28
+  }, 
+  {
+   "indicator": "Average primary school size (all)", 
+   "value": 275, 
+   "unit": "learners per school", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 102, Table II.9", 
+   "public": 314, 
+   "private": 164
+  }, 
+  {
+   "indicator": "Number of secondary schools (public)", 
+   "value": 190, 
+   "unit": "schools", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 110, Table III.1"
+  }, 
+  {
+   "indicator": "Number of secondary schools (private)", 
+   "value": 4, 
+   "unit": "schools", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 110, Table III.1"
+  }, 
+  {
+   "indicator": "Number of secondary schools (total)", 
+   "value": 194, 
+   "unit": "schools", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 110, Table III.1"
+  }, 
+  {
+   "indicator": "Secondary enrolment, public schools, total", 
+   "value": 63634, 
+   "unit": "students", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 111, Table III.2", 
+   "boys": 32414, 
+   "girls": 31220, 
+   "byForm": {
+    "Form 1": {
+     "boys": 8573, 
+     "girls": 8158
+    }, 
+    "Form 2": {
+     "boys": 8039, 
+     "girls": 7821
+    }, 
+    "Form 3": {
+     "boys": 8110, 
+     "girls": 8036
+    }, 
+    "Form 4": {
+     "boys": 7692, 
+     "girls": 7205
+    }
+   }
+  }, 
+  {
+   "indicator": "Secondary enrolment, private schools, total", 
+   "value": 548, 
+   "unit": "students", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 112, Table III.3", 
+   "boys": 107, 
+   "girls": 441, 
+   "byForm": {
+    "Form 1": {
+     "boys": 29, 
+     "girls": 121
+    }, 
+    "Form 2": {
+     "boys": 18, 
+     "girls": 103
+    }, 
+    "Form 3": {
+     "boys": 21, 
+     "girls": 89
+    }, 
+    "Form 4": {
+     "boys": 39, 
+     "girls": 128
+    }
+   }
+  }, 
+  {
+   "indicator": "Secondary gross enrolment ratio (overall)", 
+   "value": 98.2, 
+   "unit": "percent", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 115, Table III.6", 
+   "boys": 98.5, 
+   "girls": 97.9
+  }, 
+  {
+   "indicator": "Secondary net enrolment rate (total)", 
+   "value": 78.6, 
+   "unit": "percent", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 115, Table III.6", 
+   "boys": 78.3, 
+   "girls": 79.0
+  }, 
+  {
+   "indicator": "Primary-to-secondary transition rate (overall)", 
+   "value": 91.2, 
+   "unit": "percent", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 116, Table III.7", 
+   "boys": 90.9, 
+   "girls": 91.5, 
+   "publicOverall": 91, 
+   "privateOverall": 92.2
+  }, 
+  {
+   "indicator": "Secondary teachers, public, TSC (all)", 
+   "value": 2437, 
+   "unit": "teachers", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 117, Table III.8", 
+   "male": 1648, 
+   "female": 789
+  }, 
+  {
+   "indicator": "Secondary teachers, public, BOM (all)", 
+   "value": 922, 
+   "unit": "teachers", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 117, Table III.8", 
+   "male": 645, 
+   "female": 277
+  }, 
+  {
+   "indicator": "Secondary teachers, private (all)", 
+   "value": 50, 
+   "unit": "teachers", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 117, Table III.8", 
+   "male": 31, 
+   "female": 19
+  }, 
+  {
+   "indicator": "Secondary student-teacher ratio (all)", 
+   "value": 26, 
+   "unit": "students per teacher", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 118, Table III.9", 
+   "public": 26, 
+   "private": 11, 
+   "note": "Ratio uses TSC teachers only for public schools (2,437), per the table."
+  }, 
+  {
+   "indicator": "Average secondary school size (overall)", 
+   "value": 331, 
+   "unit": "students per school", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 113, Table III.4", 
+   "public": 335, 
+   "private": 137
+  }, 
+  {
+   "indicator": "Class 6 pupils' mean achievement score, Mathematics", 
+   "value": 38.26, 
+   "unit": "mean score (percent)", 
+   "year": null, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 124, Table IV.1", 
+   "otherSubjects": {
+    "English": 47.75, 
+    "English Composition": 54.49, 
+    "Kiswahili": 41.81, 
+    "Insha": 54.91, 
+    "Science": 45.95
+   }, 
+   "note": "Table gives no assessment year or method; booklet acronym list includes NASMLA (KNEC national assessment). KSL columns blank for Nyamira. Treat year as unknown."
+  }, 
+  {
+   "indicator": "Adult candidates in KCPE", 
+   "value": 5, 
+   "unit": "candidates", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 126, Table IV.3", 
+   "male": 3, 
+   "female": 2, 
+   "earlier": {
+    "2018": 27, 
+    "2019": 35
+   }
+  }, 
+  {
+   "indicator": "Adult and continuing education centres", 
+   "value": 87, 
+   "unit": "centres", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 127, Table V.1", 
+   "earlier": {
+    "2018": 107, 
+    "2019": 102
+   }
+  }, 
+  {
+   "indicator": "Enrolment in adult and continuing education", 
+   "value": 5597, 
+   "unit": "learners", 
+   "year": 2020, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "MOE-BESB-2020", 
+   "page": "p. 128, Table V.2", 
+   "male": 1909, 
+   "female": 3688, 
+   "earlier": {
+    "2018": 6523, 
+    "2019": 6645
+   }
+  }, 
+  {
+   "indicator": "KCSE registered candidates", 
+   "value": 20964, 
+   "unit": "candidates", 
+   "year": 2025, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KNEC-KCSE-2025-ES", 
+   "page": "p. 3, Table 2", 
+   "female": 10068, 
+   "male": 10896, 
+   "femalePct": 48.03, 
+   "malePct": 51.97
+  }, 
+  {
+   "indicator": "KCSE registered candidates", 
+   "value": 18855, 
+   "unit": "candidates", 
+   "year": 2024, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KNEC-KCSE-2025-ES", 
+   "page": "p. 3, Table 2", 
+   "female": 9166, 
+   "male": 9689, 
+   "femalePct": 48.61, 
+   "malePct": 51.39, 
+   "crossCheck": "Same figures in 2024 Essential Statistics, Table 2 (PDF p. 4)"
+  }, 
+  {
+   "indicator": "KCSE registered candidates", 
+   "value": 16682, 
+   "unit": "candidates", 
+   "year": 2023, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KNEC-KCSE-2024-ES", 
+   "page": "PDF p. 4, Table 2", 
+   "female": 8145, 
+   "male": 8537, 
+   "femalePct": 48.83, 
+   "malePct": 51.17
+  }, 
+  {
+   "indicator": "KCSE candidates by age group", 
+   "value": 20964, 
+   "unit": "candidates", 
+   "year": 2025, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KNEC-KCSE-2025-ES", 
+   "page": "p. 6, Table 3", 
+   "byAge": {
+    "16 and below": 1034, 
+    "17": 4124, 
+    "18": 6764, 
+    "19": 5104, 
+    "20": 2355, 
+    "21": 1001, 
+    "22 and above": 582
+   }
+  }, 
+  {
+   "indicator": "KCSE candidates by age group", 
+   "value": 18855, 
+   "unit": "candidates", 
+   "year": 2024, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KNEC-KCSE-2025-ES", 
+   "page": "p. 6, Table 3", 
+   "byAge": {
+    "16 and below": 695, 
+    "17": 3559, 
+    "18": 6190, 
+    "19": 4364, 
+    "20": 2465, 
+    "21": 1036, 
+    "22 and above": 546
+   }
+  }, 
+  {
+   "indicator": "KCSE examination centres (all categories)", 
+   "value": 196, 
+   "unit": "centres", 
+   "year": 2025, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KNEC-KCSE-2025-ES", 
+   "page": "p. 10, Table 7", 
+   "byCategory": {
+    "National": 2, 
+    "Extra County": 20, 
+    "County": 21, 
+    "Sub County": 148, 
+    "Private": 5, 
+    "Special": 0
+   }
+  }, 
+  {
+   "indicator": "KCSE examination centres (all categories)", 
+   "value": 195, 
+   "unit": "centres", 
+   "year": 2024, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KNEC-KCSE-2024-ES", 
+   "page": "PDF p. 12, Table 4", 
+   "byCategory": {
+    "National": 2, 
+    "Extra County": 20, 
+    "County": 21, 
+    "Sub County": 147, 
+    "Private": 5, 
+    "Special": 0
+   }
+  }, 
+  {
+   "indicator": "Basic learning institutions covered in school census pilot, Keera zone (Nyamira South)", 
+   "value": 59, 
+   "unit": "institutions", 
+   "year": 2024, 
+   "level": "zone (pilot sample, not a sub-county total)", 
+   "area": "Keera zone, Nyamira South sub-county", 
+   "sourceId": "KNBS-SCHOOLCENSUS-PILOT-2024", 
+   "page": "p. 4 (PDF p. 11), Table 2", 
+   "byLevel": {
+    "Pre-primary": 19, 
+    "Primary": 18, 
+    "Junior": 13, 
+    "Secondary": 9, 
+    "Pre-vocational": 0, 
+    "International": 0
+   }
+  }, 
+  {
+   "indicator": "Primary school net attendance ratio (total)", 
+   "value": 90.3, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 44 (PDF p. 86), Table 2.12C", 
+   "male": 90.1, 
+   "female": 90.6, 
+   "gpi": 1.01, 
+   "gar": {
+    "male": 117.4, 
+    "female": 109.7, 
+    "total": 113.4, 
+    "gpi": 0.93
+   }
+  }, 
+  {
+   "indicator": "Secondary school net attendance ratio (total)", 
+   "value": 50.4, 
+   "unit": "percent", 
+   "year": 2022, 
+   "level": "county", 
+   "area": "Nyamira", 
+   "sourceId": "KDHS-2022", 
+   "page": "p. 45 (PDF p. 87), Table 2.12C", 
+   "male": 43.4, 
+   "female": 58.9, 
+   "gpi": 1.36, 
+   "gar": {
+    "male": 72.8, 
+    "female": 98.8, 
+    "total": 84.5, 
+    "gpi": 1.36
+   }
+  }
+ ], 
+ "gaps": [
+  "No official sub-county school counts or enrolment found (BESB 2020 is county-level only).", 
+  "No junior secondary (Grade 7-9) school counts or enrolment for Nyamira: BESB 2020 predates JSS (2023); no later booklet found on education.go.ke.", 
+  "Basic Education Statistical Booklet 2021 or later not found on education.go.ke; the 2019 booklet was found only on a third-party mirror (africacheck.org), so not used.", 
+  "KNEC KCSE Essential Statistics publish county candidature, ages and centre counts, but no county grade or mean-score results.", 
+  "No official KPSEA or KJSEA county summaries found on knec.ac.ke.", 
+  "ECDE in BESB is labelled 'pre-primary' (PP1-PP2); no separate county ECDE report used."
+ ]
+}

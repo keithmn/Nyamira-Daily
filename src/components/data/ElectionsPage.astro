@@ -1,0 +1,87 @@
+---
+// 3.3 Elections archive: strictly factual. Every candidate as recorded, with party and votes.
+// No predictions, commentary or polls.
+import E from '../../data/elections.json';
+import wards from '../../data/wards.json';
+import Results from './Results.astro';
+import EvidenceLabel from '../EvidenceLabel.astro';
+import { subCounties } from '../../nav.js';
+const srcs = Object.fromEntries(E.sources.map((s) => [s.id, s]));
+const reg = (y) => E.registeredByWard.filter((r) => r.year === y).reduce((n, r) => n + r.registered, 0);
+const r22 = reg(2022), r17 = reg(2017);
+const years = [2022, 2017, 2013];
+const county = (race) => years.map((y) => E.elections.find((e) => e.year === y && e.race === race)).filter(Boolean);
+const constituencies = [...new Set(E.elections.filter((e) => e.race === 'MNA').map((e) => e.constituency))];
+const wardRaces = (slug) => E.elections.filter((e) => e.ward === slug).sort((a, b) => b.year - a.year);
+const regOf = (slug, y) => E.registeredByWard.find((r) => r.ward === slug && r.year === y);
+const stations = (slug) => E.pollingStations.filter((p) => p.ward === slug && p.year === 2022).sort((a, b) => a.name.localeCompare(b.name));
+const regSrc = srcs['iebc-rov-caw-2022'];
+---
+<div class="stack-lg" style="margin-top:24px">
+  <section class="cols-2">
+    <div class="figure">
+      <span class="eyebrow">Registered voters · 2022</span>
+      <span class="num">{r22.toLocaleString('en-KE')}</span>
+      <p class="say">people were registered to vote in Nyamira's 20 wards for the 2022 general election ({r17.toLocaleString('en-KE')} in 2017).</p>
+      <p class="source"><EvidenceLabel kind="official" /> Source: <a href={regSrc.url} rel="noopener">{regSrc.title}</a></p>
+    </div>
+    <div class="stack">
+      <p class="lead">Results as recorded by the IEBC and the Kenya Gazette, with every candidate named as recorded. Facts only: no predictions, polls or commentary.</p>
+      <p class="small muted"><strong>2022:</strong> the IEBC has published only presidential polling-station forms for Nyamira. For the other races we show the winners as gazetted, with their votes. Full 2022 results will be added when the forms are published.</p>
+    </div>
+  </section>
+
+  <section class="stack" id="wards">
+    <h2>Your ward: MCA results and polling stations</h2>
+    {subCounties.map((s) => (
+      <details>
+        <summary>{s}</summary>
+        {wards.filter((w) => w.subCounty === s).map((w) => {
+          const st = stations(w.slug);
+          const g22 = regOf(w.slug, 2022), g17 = regOf(w.slug, 2017);
+          return (
+            <section class="stack" id={`ward-${w.slug}`} style="margin:12px 0 24px">
+              <h3><a href={`/ward/${w.slug}/`}>{w.name}</a></h3>
+              <p class="small">Registered voters: {g22 ? <strong>{g22.registered.toLocaleString('en-KE')}</strong> : 'not found'} in 2022{g17 && `, ${g17.registered.toLocaleString('en-KE')} in 2017`}.</p>
+              {wardRaces(w.slug).map((r) => <Results r={r} srcs={srcs} title={r.race === 'MCA' ? `${r.year} MCA` : `${r.race}`} />)}
+              {st.length > 0 && (
+                <details>
+                  <summary>Polling stations in 2022 ({st.length})</summary>
+                  <ul class="small">{st.map((p) => <li>{p.name}{p.registered != null && ` · ${p.registered.toLocaleString('en-KE')} voters`}</li>)}</ul>
+                  <p class="small muted">Source: {srcs[st[0].sourceId]?.title}.</p>
+                </details>
+              )}
+            </section>
+          );
+        })}
+      </details>
+    ))}
+  </section>
+
+  <section class="stack">
+    <h2>Governor, Senator and Woman Representative</h2>
+    {['Governor', 'Senator', 'Woman Representative'].map((race) => (
+      <details>
+        <summary>{race}</summary>
+        {county(race).map((r) => <Results r={r} srcs={srcs} title={`${r.year}`} />)}
+      </details>
+    ))}
+  </section>
+
+  <section class="stack">
+    <h2>Members of Parliament</h2>
+    {constituencies.map((c) => (
+      <details>
+        <summary>{c}</summary>
+        {years.map((y) => E.elections.find((e) => e.year === y && e.race === 'MNA' && e.constituency === c)).filter(Boolean).map((r) => <Results r={r} srcs={srcs} title={`${r.year}`} />)}
+      </details>
+    ))}
+  </section>
+
+  <details>
+    <summary>Sources and gaps</summary>
+    <ul class="small">{E.sources.filter((s) => s.kind === 'official').map((s) => <li>{s.url ? <a href={s.url} rel="noopener">{s.title}</a> : s.title}{s.date && ` (${s.date})`}</li>)}</ul>
+    <p class="small">Not available from official sources: rejected votes for every race and year; turnout at ward level; total valid votes for 2017 MCA and MP races; all 2022 results beyond the winners. We do not calculate turnout ourselves.</p>
+  </details>
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Matokeo ya uchaguzi wa 2013, 2017 na 2022 kwa kila wadi, kama yalivyorekodiwa na IEBC na Gazeti la Serikali, pamoja na vituo vya kupigia kura.</p></div>
+</div>

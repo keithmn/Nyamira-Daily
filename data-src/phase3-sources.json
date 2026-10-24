@@ -1,0 +1,215 @@
+{
+ "note": "Source documents used for the Phase 3 datasets. They are too large to keep in the repo; download them again from the URLs in each dataset (src/data/*.json sources) and check the sha256.",
+ "files": [
+  {
+   "dataset": "compare",
+   "file": "CoB_County_BIRR_FY2024-25.pdf",
+   "bytes": 47341631,
+   "sha256": "825edf1e1a347016a61477002471761e5f826e540ac153d74764087bb920b213",
+   "url": null
+  },
+  {
+   "dataset": "compare",
+   "file": "KNBS_2019_KPHC_Volume_I.pdf",
+   "bytes": 947484,
+   "sha256": "740093a7e0d3a2f34bc85bebfe343c3b45e6b8401a394470f191d281b280ae4e",
+   "url": null
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_4TH_MARCH_2013_GENERAL_ELECTION_DATA.pdf",
+   "bytes": 27249078,
+   "sha256": "73c4f6ae9ebe917fed4e3bed67221a10328383ba79ced3ea5f172c1dc1716a98",
+   "url": "https://www.iebc.or.ke/docs/4TH%20MARCH%202013%20GENERAL%20ELECTION%20DATA.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_7I1PWWMrXj_gazette-2017-11-20-no-172.pdf",
+   "bytes": 226675,
+   "sha256": "04684584b6d61e65482988af9a120da836d24242dd8b5fa2ae5c15b4d7c1bc24",
+   "url": "https://www.iebc.or.ke/uploads/resources/7I1PWWMrXj.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_EHWTStffeC_gazette-2025-12-01-no-247.pdf",
+   "bytes": 236261,
+   "sha256": "0cb3cf767b3b5f4017fe465b913db94fa241d7d08cac719766ee5d8e3a271d4e",
+   "url": "https://www.iebc.or.ke/uploads/resources/EHWTStffeC.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_QtsJ82ENhg_gazette-2017-08-22-no-121.pdf",
+   "bytes": 1341167,
+   "sha256": "ae39bec4182fc01faba36b26079d000573bbb57486d45d5aff2e75b8a875f970",
+   "url": "https://www.iebc.or.ke/uploads/resources/QtsJ82ENhg.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_Registered_Voters_Per_CAW_For_2017_General_Elections.pdf",
+   "bytes": 1082635,
+   "sha256": "1c4a20b2418e0d378dff61a61554f6605dec197d8cc8433859bee6774e59f13c",
+   "url": "https://www.iebc.or.ke/docs/Registered%20Voters%20Per%20CAW%20For%202017%20General%20Elections.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_Registered_Voters_Per_Contituency_For_2017_General_Elections.pdf",
+   "bytes": 184206,
+   "sha256": "08900db302196709168b01da32871d1a63abb5ef97ce32eb711b8e5a8d842d73",
+   "url": "https://www.iebc.or.ke/docs/Registered%20Voters%20Per%20Contituency%20For%202017%20General%20Elections.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_Registered_Voters_Per_County_For_2017_General_Elections.pdf",
+   "bytes": 38468,
+   "sha256": "c00fd7ea15c8edf952718e265ffc921ea8413fd6989854f4e3c028456d9da5aa",
+   "url": "https://www.iebc.or.ke/docs/Registered%20Voters%20Per%20County%20For%202017%20General%20Elections.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_Registered_Voters_Per_Polling_Station_For_2017_General_Elections.pdf",
+   "bytes": 40007510,
+   "sha256": "cfd9e6a6a55bce2519a1bd1e47368f98c0b567114b55062d44e69607e1faa858",
+   "url": "https://www.iebc.or.ke/docs/Registered%20Voters%20Per%20Polling%20Station%20For%202017%20General%20Elections.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_jx75CDXcFm_gazette-2022-09-06-no-179.pdf",
+   "bytes": 141375,
+   "sha256": "d7003952fc1e561383d9865eef1e09f54a46d517e5d918c7c76c251f94686d7c",
+   "url": "https://www.iebc.or.ke/uploads/resources/jx75CDXcFm.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_rov_per_caw.pdf",
+   "bytes": 1221563,
+   "sha256": "904aee16b5a1e13442eac5c1156482a2aa9418396f615ff6a97340fc66b8671c",
+   "url": "https://www.iebc.or.ke/docs/rov_per_caw.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_rov_per_constituency.pdf",
+   "bytes": 358431,
+   "sha256": "6affa5b6677abea44aaed2d66fe7b4b9165771efe67dd63856c68b1238b0aefb",
+   "url": "https://www.iebc.or.ke/docs/rov_per_constituency.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_rov_per_county.pdf",
+   "bytes": 220571,
+   "sha256": "1727da00467164dff2945ef61b9e37f6e5394a68ceb27005d4df715df0d4a9de",
+   "url": "https://www.iebc.or.ke/docs/rov_per_county.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_rov_per_polling_station.pdf",
+   "bytes": 45497087,
+   "sha256": "7d9144ddba1e866fc6a0ba62350c364c01613dd073c19e014451033f99fc3675",
+   "url": "https://www.iebc.or.ke/docs/rov_per_polling_station.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "iebc_siEABKREDq_2017-GE-results-report.pdf",
+   "bytes": 28837614,
+   "sha256": "6469ab334994c87932807ab463b638cce7e63ae8204da3f22d696fb65d3c5cb7",
+   "url": "https://www.iebc.or.ke/uploads/resources/siEABKREDq.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "ke-gazette-2013-03-13-no-45.pdf",
+   "bytes": 14255605,
+   "sha256": "08b101c30d6c6938fdb491388637e30e2d0341f6d69cb4d20cd800a88b91249f",
+   "url": "https://archive.gazettes.africa/archive/ke/2013/ke-government-gazette-dated-2013-03-13-no-45.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "ke-gazette-2017-08-18-no-118.pdf",
+   "bytes": 10899261,
+   "sha256": "ad5e36baeed17b4550ddd15b370169572234c6f64f072e1edf636a1e6bebd6e2",
+   "url": "https://archive.gazettes.africa/archive/ke/2017/ke-government-gazette-dated-2017-08-18-no-118.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "ke-gazette-2022-08-23-no-169.pdf",
+   "bytes": 975750,
+   "sha256": "fc7d5b8fa4a8a64349b4d63c84887cdc354133290510cb78fe44fcacd90b46a8",
+   "url": "https://archive.gazettes.africa/archive/ke/2022/ke-government-gazette-dated-2022-08-23-no-169.pdf"
+  },
+  {
+   "dataset": "elections",
+   "file": "ke-gazette-2022-08-24-no-170.pdf",
+   "bytes": 1335322,
+   "sha256": "0e54bb6ff72982d39e4b3271bcd1fcbff682683977477efeff7f897b1459813f",
+   "url": "https://archive.gazettes.africa/archive/ke/2022/ke-government-gazette-dated-2022-08-24-no-170.pdf"
+  },
+  {
+   "dataset": "schools-health-census",
+   "file": "27_10_2025_10_11_08am_ADP_2026-2027_compressed.pdf",
+   "bytes": 2035163,
+   "sha256": "ff4946e2f8cf5ed8a391d783fe4ef5d9fb66aa27cac39f3f993acb24c3c3506b",
+   "url": null
+  },
+  {
+   "dataset": "schools-health-census",
+   "file": "46-Nyamira-county-no-46.pdf",
+   "bytes": 665862,
+   "sha256": "0548e0d8e72c6bf36df08674af14cd4ac18fe85fa0a9527b620bde3b388b604e",
+   "url": null
+  },
+  {
+   "dataset": "schools-health-census",
+   "file": "KNBS_2024_School_Census_Pilot.pdf",
+   "bytes": 4603972,
+   "sha256": "80e04361ba457f3747cc62a6d4ecad88f4d166d6e21e30d6c2f2281e29ed6cbc",
+   "url": null
+  },
+  {
+   "dataset": "schools-health-census",
+   "file": "KNEC_2024-KCSE-EXAMINATION-ESSENTIAL-STATISTICS.pdf",
+   "bytes": 666644,
+   "sha256": "f44253ef0d75fe5124695ba4ff8dfd72d5e20b05b2acb4b5cd1496d10bce25e9",
+   "url": null
+  },
+  {
+   "dataset": "schools-health-census",
+   "file": "KNEC_2025-KCSE-EXAMINATION-ESSENTIAL-STATISTICS.pdf",
+   "bytes": 538740,
+   "sha256": "b2eca00d3cbfbc341838d04ba62f53d185412e95711c0134f8e9f61e88530a34",
+   "url": null
+  },
+  {
+   "dataset": "schools-health-census",
+   "file": "KPHC2019_Vol2.pdf",
+   "bytes": 3904167,
+   "sha256": "4e4e091a67eddebc7c1158d09c02f4470e10786a269443dde97a4fcc17a4872d",
+   "url": null
+  },
+  {
+   "dataset": "schools-health-census",
+   "file": "Kenya-Demographic-and-Health-Survey-2022-Factsheet-Nyamira.pdf",
+   "bytes": 195720,
+   "sha256": "7e061a491481e0191fe8d1fb109f4ecf5a7e7c1c1a6cc47aae7ef6436c40cd4f",
+   "url": null
+  },
+  {
+   "dataset": "schools-health-census",
+   "file": "Kenya-Demographic-and-Health-Survey-2022-Main-Report-Volume-1.pdf",
+   "bytes": 9732220,
+   "sha256": "f4e9173966816f216bc221c1620166d7c37aa973266446347aedb5a94b33385b",
+   "url": null
+  },
+  {
+   "dataset": "schools-health-census",
+   "file": "MoE_BESB_2020.pdf",
+   "bytes": 5765313,
+   "sha256": "353f9b99c1360aac902f95bda10f3fd2c915efb5ccb2f632daf586a3c135fefb",
+   "url": null
+  },
+  {
+   "dataset": "schools-health-census",
+   "file": "NYAMIRA_CIDP_2023-2027.pdf",
+   "bytes": 5689686,
+   "sha256": "272c1739473529f302e0afc0437d853a0ed0d5ee4882555b715f37041060b4bb",
+   "url": null
+  }
+ ]
+}
