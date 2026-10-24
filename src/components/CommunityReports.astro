@@ -1,0 +1,31 @@
+---
+// Community reports summary (only checked reports). Used on ward pages and the county view.
+import { latest, summarise, clinicSummary } from '../lib/reports.js';
+import { date } from '../lib/fmt.js';
+interface Props { ward?: string; wardName?: string }
+const { ward, wardName } = Astro.props;
+const list = latest().filter((r) => !ward || r.ward === ward);
+const sum = summarise(list);
+const old = list.filter((r) => r.old).length;
+const clinics = clinicSummary(ward);
+---
+<section class="stack" id="reports">
+  <h2>Community reports{wardName && ` in ${wardName}`}</h2>
+  {sum.length === 0 && clinics.length === 0 ? (
+    <p class="muted">No checked reports yet. <a href="/report/">Report a water point, dispensary, streetlight, road or market</a>.</p>
+  ) : (
+    <>
+      <ul>{sum.map((s) => <li>{s.text}</li>)}</ul>
+      {old > 0 && <p class="small muted">{old} of these {old === 1 ? 'was' : 'were'} reported more than 90 days ago and may be out of date.</p>}
+      {clinics.length > 0 && (
+        <div class="table-box"><table class="cards">
+          <thead><tr><th>Health facility</th><th class="num">Checks (90 days)</th><th>Medicines</th><th class="num">Staff on duty</th><th class="num">Open on time</th><th>Latest</th></tr></thead>
+          <tbody>{clinics.map((c) => (
+            <tr><td>{c.place}</td><td class="num" data-label="Checks">{c.n}</td><td data-label="Medicines">{c.medicines.yes} all there, {c.medicines.some} some missing, {c.medicines.none} none</td><td class="num" data-label="Staff on duty">{c.staffYes} of {c.n}</td><td class="num" data-label="Open on time">{c.openYes} of {c.n}</td><td data-label="Latest">{date(c.latest)}</td></tr>
+          ))}</tbody>
+        </table></div>
+      )}
+      <p class="source"><span class="label unverified">Community reports</span> From residents, checked by Nyamira Daily before publishing. Latest status per place.</p>
+    </>
+  )}
+</section>

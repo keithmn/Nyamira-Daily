@@ -29,6 +29,8 @@ export const sections = [
   { href: '/data/', label: 'Data', overview: 'Nyamira in numbers', pages: [...dataPages, { href: '/state-of-nyamira/', label: 'State of Nyamira' }] },
   { href: '/take-part/', label: 'Take part', overview: 'Take part', pages: [
     { href: '/ask/', label: 'Ask Nyamira' },
+    { href: '/report/', label: 'Is it working?', pages: [{ href: '/report/clinic/', label: 'Clinic check' }] },
+    { href: '/adopt/', label: 'Adopt a project' },
     { href: '/take-part/submission/', label: 'Submission helper' },
     { href: '/have-your-say/', label: 'Have your say' },
     { href: '/diaspora/', label: 'For the diaspora' },

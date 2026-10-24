@@ -12,6 +12,7 @@ Status as of 24 October 2026. The expansion plan is in `docs/EXPANSION_SPEC.md`;
 - **Learn**: how the county works, budget calendar, taking part, fees you pay, glossary.
 - **Opportunities**, **About**, **How we work**, **Search**.
 - **Phase 1 (Oct 2026):** Ask Nyamira (letter builder; tracker empty until requests are sent), Submission helper, printable ward sheets with QR codes, APIs and embeds, Number of the week, Explainers, Alerts (pages, maps, banners, APIs, RSS; no live alerts yet).
+- **Phase 2 (Oct 2026):** a page for every county project (`/projects/<id>/`, 349 projects with stable IDs), community-report summaries on ward pages (empty until reports are checked). Is it working?, Clinic check and Adopt a project are built but Planned until channels exist (below).
 
 ## Planned (tagged "Planned" on the site)
 
@@ -24,6 +25,8 @@ Status as of 24 October 2026. The expansion plan is in `docs/EXPANSION_SPEC.md`;
 | Learn → Show episodes | Needs the show's episode list and audio links. |
 | What's working, Nyamira's people, Heritage, Myth or fact | Real entries (with consent for people and photos). Example entries are drafts. |
 | For the diaspora, Fellowship, Schools programme, State of Nyamira | Content from Keith. |
+| Is it working?, Clinic check | `contact.whatsapp` or `reportFormUrl` in `src/config.js`, and a checking team. `TODO(service)`: receiving and storing reports. |
+| Adopt a project | `adoptSignupUrl` in `src/config.js`, and volunteers or school clubs. |
 | Kiswahili and Ekegusii versions | Translators, and a decision on URL structure (for example `/sw/`). |
 
 ## Next priorities (suggested order)

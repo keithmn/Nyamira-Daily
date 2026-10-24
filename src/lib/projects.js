@@ -76,3 +76,11 @@ export function statusCounts(slug) {
   const vals = [...latest.values()];
   return { done: vals.filter((v) => v === 100).length, going: vals.filter((v) => v > 0 && v < 100).length, none: vals.filter((v) => v === 0).length, total: vals.length };
 }
+
+// Projects by stable ID (scripts/project-ids.py): all records for one project, newest year first
+export function byProject() {
+  const m = new Map();
+  for (const p of projects) (m.get(p.projectId) ?? m.set(p.projectId, []).get(p.projectId)).push(p);
+  for (const list of m.values()) list.sort((a, b) => fyOrder.indexOf(a.fy) - fyOrder.indexOf(b.fy));
+  return m;
+}

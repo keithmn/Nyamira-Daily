@@ -20,6 +20,8 @@ All site data lives in `src/data/` as JSON files, built into pages at build time
 | `constitution.json` | Chapter 11 articles 174–200 with plain-language summaries and Nyamira notes; Fourth Schedule Part 2 functions | Constitution of Kenya, 2010 (Kenya Law) | Oct 2026 | Check titles and summaries against Kenya Law before launch |
 | `topics.js` | Data topics, their question and honest status | — | — | When a topic's status changes |
 | `asks.json` | Information requests (Ask Nyamira) and their answers. **Empty at launch.** List only requests by Nyamira Daily or residents who gave written consent | Our own requests and the county's replies | — | When a request is sent or answered; "overdue" is computed at build time from `dueOn` |
+| `reports.json` | Community reports (Is it working?, Clinic check). **Empty at launch.** Only reports with `checkedOn` set are shown; latest per place; older than 90 days flagged "may be out of date". Services, never people: strip names from notes | Residents via WhatsApp or the report form; checked by Nyamira Daily | — | As reports are checked. `TODO(service)`: receiving and storing reports |
+| `wardspend.json` → `projectId` | A stable ID per project, the same across years when ward and normalised name match | `scripts/project-ids.py` (rules in the script); manual matches in `data-src/project-id-overrides.json` | Oct 2026 | Re-run the script after adding records. Today 404 records make 349 projects; only 1 is matched across years automatically, because the documents name the same project differently. Add overrides as matches are confirmed |
 | `geo.json` → `proj` | The map projection (minx, maxy, cos-lat factor, scale), so alerts with coordinates can be placed on the maps | Computed by `scripts/build-geo.py` | Oct 2026 | Re-run the script if boundaries change |
 
 ## Content collections (`src/content/`)
@@ -35,6 +37,7 @@ Markdown files, one per entry, checked against `src/content.config.ts` at build 
 | `people` | `/people/` | Recorded consent date required; never politicians or officials |
 | `heritage` | `/heritage/` | Sources and contributor |
 | `alerts` | `/alerts/` | Sources: see below and `docs/EDITORIAL_RULES.md` section 11 |
+| `projectlogs` | Photo timeline on `/projects/<id>/` | Adopt a project: `projectId`, date, photo (with credit and consent), note, observer (first name or "Volunteer"), consent. Shown only when `consent: true` |
 
 **Alert sources** (in order of preference): County Government of Nyamira (disaster and fire office, health department), Kenya Red Cross (Nyamira branch), Kenya Meteorological Department county advisories, Ministry of Health, Kenya Power regional notices, National Police Service, National Disaster Operations Centre; reputable outlets (Kenya News Agency, Nation, Standard, Star, Citizen); our own correspondents on site.
 

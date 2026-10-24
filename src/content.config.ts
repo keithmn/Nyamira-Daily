@@ -49,4 +49,10 @@ const alerts = defineCollection({ loader: md('alerts'), schema: z.object({
   swSummary: z.string().optional(), corrected: z.string().optional(), draft: z.boolean().default(false),
 }) });
 
-export const collections = { numbers, explainers, factchecks, stories, people, heritage, alerts };
+// 2.3 Adopt a project: monthly photo logs by volunteers and school clubs
+const projectlogs = defineCollection({ loader: md('projectlogs'), schema: z.object({
+  projectId: z.string(), date: z.coerce.date(), photo: photo.optional(), note: z.string(),
+  observer: z.string().default('Volunteer'), consent: z.boolean(), draft: z.boolean().default(false),
+}) });
+
+export const collections = { numbers, explainers, factchecks, stories, people, heritage, alerts, projectlogs };

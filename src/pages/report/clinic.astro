@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import ReportForm from '../../components/ReportForm.astro';
+---
+<Base title="Clinic check" description="Tell us about your visit to a dispensary or health centre: medicines, staff, opening hours and waiting time.">
+  <PageHead eyebrow="Take part" title="Clinic check" lead="After a visit to a dispensary or health centre, tell us four things: medicines, staff on duty, opening hours and waiting time. Results are shown per facility, as community reports, once checked." crumbs={[{ href: '/take-part/', label: 'Take part' }, { href: '/report/', label: 'Is it working?' }, { href: '/report/clinic/', label: 'Clinic check' }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    <ReportForm clinic />
+    <p class="small muted">Please don't include names of patients or staff, or anything about your own health. We publish only totals per facility.</p>
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Baada ya kutembelea zahanati, tuambie kuhusu dawa, wahudumu, saa za kufungua na muda wa kusubiri.</p></div>
+  </div>
+</Base>

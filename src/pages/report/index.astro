@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import ReportForm from '../../components/ReportForm.astro';
+import CommunityReports from '../../components/CommunityReports.astro';
+---
+<Base title="Is it working?" description="Report whether a water point, dispensary, streetlight, road or market in your ward is working.">
+  <PageHead eyebrow="Take part" title="Is it working?" lead="Tell us whether a water point, dispensary, streetlight, road or market in your ward is working. We check reports before anything is published, and we report on services, never on people." crumbs={[{ href: '/take-part/', label: 'Take part' }, { href: '/report/', label: 'Is it working?' }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    <section class="stack">
+      <h2>Make a report</h2>
+      <ReportForm />
+      <p class="small">At a dispensary or health centre? Use the <a href="/report/clinic/">clinic check</a> instead.</p>
+    </section>
+    <CommunityReports />
+    <section class="stack">
+      <h2>What happens to your report</h2>
+      <ol class="steps">
+        <li>Our team checks it: a call, a second report, or a visit by a correspondent.</li>
+        <li>Once checked, it counts towards the summary for your ward. A visit by us makes it "Verified".</li>
+        <li>We show only the latest status for each place, with its date. After 90 days it is marked "may be out of date".</li>
+      </ol>
+    </section>
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Tuambie kama kisima, zahanati, taa ya barabarani, barabara au soko katika wadi yako kinafanya kazi. Tunakagua ripoti kabla ya kuchapisha.</p></div>
+  </div>
+</Base>

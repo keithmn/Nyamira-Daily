@@ -1,0 +1,58 @@
+---
+// One page per county project (stable ID across years), with every record we hold, its sources,
+// and a photo timeline from Adopt a project volunteers where one exists.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { byProject, kindLabel, sources, pct, statusShort, shortTitle, questions } from '../../lib/projects.js';
+import { entries } from '../../lib/content.js';
+import { ksh, date } from '../../lib/fmt.js';
+import { adoptSignupUrl } from '../../config.js';
+import wards from '../../data/wards.json';
+export function getStaticPaths() {
+  return [...byProject().entries()].map(([id, list]) => ({ params: { id: id.toLowerCase() }, props: { id, list } }));
+}
+const { id, list } = Astro.props;
+const first = list[0];
+const w = wards.find((x) => x.slug === first.ward);
+const logs = (await entries('projectlogs')).filter((e) => e.data.projectId === id && e.data.consent).sort((a, b) => b.data.date - a.data.date);
+const qs = questions.filter((q) => q.ward === first.ward && list.some((p) => p.name.includes(q.title) || q.title.includes(p.name)));
+const title = first.name.length > 110 ? first.name.slice(0, 108) + '…' : first.name;
+---
+<Base title={title} description={`A county project in ${w ? w.name + ' ward' : 'Nyamira County'}: what the county's documents say, with sources.`}>
+  <PageHead eyebrow={`County project · ${w ? w.name + ' ward' : 'County-wide'} · ${id}`} title={title} crumbs={w ? [{ href: '/ward/', label: 'Wards' }, { href: `/ward/${w.slug}/#projects`, label: w.name }] : [{ href: '/data/projects/', label: 'Projects' }]} />
+  <div class="stack-lg" style="margin-top:8px">
+    {first.name.length > 110 && <p>{first.name}</p>}
+    <section class="stack">
+      <h2>What the documents say</h2>
+      <ul class="prows">{list.map((p) => {
+        const pc = pct(p.status); const st = statusShort(p.status);
+        return (
+          <li>
+            <span class="pn">FY{p.fy === 'as at 30 Jun 2025' ? ' status at 30 June 2025' : p.fy} · {kindLabel[p.kind] ?? p.kind}</span>
+            <span class="pa">{p.amount ? ksh(p.amount) : 'Printed as 0 or blank'}</span>
+            <span class="pm">
+              {st && <span class="st">{pc != null && <span class="meter sm" aria-hidden="true" style="display:inline-block;width:72px;vertical-align:middle;margin-right:6px"><i style={`width:${pc}%`}></i></span>}{st}</span>}
+              <span>{p.department}</span>
+              <span><a href={sources[p.sourceId].url} rel="noopener">{shortTitle(sources[p.sourceId].title)}</a> {p.page}</span>
+            </span>
+          </li>
+        );
+      })}</ul>
+      <p class="source"><span class="label official">Official claim</span> From the county's own plans and budgets and the Controller of Budget. A budget line is planned money, not proof that work was done.</p>
+      {qs.map((q) => <div class="ask on-ink"><span class="eyebrow">Question to ask</span><p><strong>{q.title}:</strong> {q.text}</p></div>)}
+    </section>
+
+    <section class="stack">
+      <h2>Photo log</h2>
+      {logs.length === 0 ? (
+        <p class="muted">No photos yet. {adoptSignupUrl ? <a href="/adopt/">Adopt this project</a> : 'Volunteers will be able to adopt projects soon'} and send a photo each month.</p>
+      ) : (
+        <ol class="timeline">{logs.map((e) => (
+          <li><span class="tl-date">{date(e.data.date.toISOString())}</span>
+            {e.data.photo?.consent && <img src={e.data.photo.src} alt={e.data.photo.alt} loading="lazy" />}
+            <p>{e.data.note}</p><span class="small muted">{e.data.observer}{e.data.photo ? ` · Photo: ${e.data.photo.credit}` : ''} · <span class="label unverified">Community report</span></span></li>
+        ))}</ol>
+      )}
+    </section>
+  </div>
+</Base>

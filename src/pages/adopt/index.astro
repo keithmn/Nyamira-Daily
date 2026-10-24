@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { byProject } from '../../lib/projects.js';
+import { entries } from '../../lib/content.js';
+import { adoptSignupUrl } from '../../config.js';
+import { ksh } from '../../lib/fmt.js';
+import wards from '../../data/wards.json';
+import { subCounties } from '../../nav.js';
+const all = byProject();
+const logs = await entries('projectlogs');
+const adopted = [...new Set(logs.map((e) => e.data.projectId))].filter((id) => all.has(id));
+// Projects people can follow: ward projects in the latest budget
+const open = wards.map((w) => ({ w, list: [...all.entries()].filter(([, l]) => l[0].ward === w.slug && l.some((p) => p.fy === '2025/26')).map(([id, l]) => ({ id, name: l[0].name, amount: l.find((p) => p.fy === '2025/26')?.amount })) }));
+---
+<Base title="Adopt a project" description="Follow one county project in your ward and send a photo each month.">
+  <PageHead eyebrow="Take part" title="Adopt a project" lead="Volunteers and school clubs each follow one county project in their ward, and send a photo and a short note once a month. Over time, each project page shows a photo timeline." crumbs={[{ href: '/take-part/', label: 'Take part' }, { href: '/adopt/', label: 'Adopt a project' }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    <section class="cols-2">
+      <div class="stack">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li>Choose a project in your ward from the list below.</li>
+          <li>Sign up. We confirm the project and how to send photos.</li>
+          <li>Once a month, take a photo from the same spot and write one line: what changed?</li>
+          <li>We check each photo and add it to the project's page with the date. We use your first name only, or "Volunteer".</li>
+        </ol>
+        <p class="small muted">Photograph the work, not people. Stay safe: don't enter building sites, and ask before photographing on private land.</p>
+        {adoptSignupUrl ? <a class="pill-btn" href={adoptSignupUrl} rel="noopener">Sign up to adopt a project</a> : <p class="callout"><span>Sign-ups open soon.</span></p>}
+      </div>
+      <div class="figure on-ink panel-ink">
+        <span class="eyebrow">Projects being followed</span>
+        <span class="num">{adopted.length}</span>
+        <p class="say">{adopted.length === 0 ? 'None yet. Be the first in your ward.' : 'with at least one photo log.'}</p>
+      </div>
+    </section>
+    <section class="stack">
+      <h2>Projects in the 2025/26 budget, by ward</h2>
+      {subCounties.map((s) => (
+        <details>
+          <summary>{s}</summary>
+          {open.filter((o) => o.w.subCounty === s).map((o) => (
+            <div class="stack" style="gap:6px;margin:8px 0 16px">
+              <h3>{o.w.name}</h3>
+              <ul class="small">{o.list.map((p) => <li><a href={`/projects/${p.id.toLowerCase()}/`}>{p.name}</a>{p.amount ? ` · ${ksh(p.amount)}` : ''}</li>)}</ul>
+            </div>
+          ))}
+        </details>
+      ))}
+    </section>
+  </div>
+</Base>

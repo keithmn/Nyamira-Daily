@@ -1,0 +1,1 @@
+{ "note": "Manual matches for projects whose names differ between documents. Map a project key (ward|normalised name, as printed by scripts/project-ids.py --keys) to the key it should share an ID with. Add a reason and source for each.", "merge": {} }

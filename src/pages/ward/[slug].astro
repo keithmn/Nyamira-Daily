@@ -12,6 +12,7 @@ import Pictos from '../../components/viz/Pictos.astro';
 import SplitBar from '../../components/viz/SplitBar.astro';
 import HBars from '../../components/viz/HBars.astro';
 import EmbedCode from '../../components/EmbedCode.astro';
+import CommunityReports from '../../components/CommunityReports.astro';
 import { getAlerts } from '../../lib/alerts-data.js';
 import { levelLabel } from '../../lib/alerts.js';
 const wardAlerts = (await getAlerts()).filter((a) => a.status === 'active' && (a.wards.includes(Astro.params.slug) || a.wards.length === 0));
@@ -115,6 +116,8 @@ const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.
       ))}
     </section>
 
+    <CommunityReports ward={w.slug} wardName={w.name} />
+
     <section class="stack" id="projects">
       <h2>County projects in {w.name}</h2>
       <p class="muted small">What the county's plans and budgets list for this ward. "Budgeted" is planned money; "Contract sum" is what was signed; "Spent" is what was reported paid. A budget line is not proof that work was done. Read from the county's own documents; we have not visited these sites yet.</p>
@@ -149,7 +152,7 @@ const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.
             const rest = p.status && p.status.includes('|') ? p.status.split('|').slice(1).join('|').trim() : '';
             return (
               <li>
-                <span class="pn">{p.name}{p.location && p.location !== `${w.name} Ward` ? ` (${p.location})` : ''}</span>
+                <span class="pn"><a href={`/projects/${p.projectId.toLowerCase()}/`}>{p.name}</a>{p.location && p.location !== `${w.name} Ward` ? ` (${p.location})` : ''}</span>
                 <span class="pa">{p.amount ? ksh(p.amount) : 'Printed as 0 or blank'}</span>
                 <span class="pm">
                   <span>{kindLabel[p.kind] ?? p.kind}</span>

@@ -1,0 +1,5 @@
+{
+ "updated": "2026-10-24",
+ "note": "Community reports on public services, published only after Nyamira Daily has checked them (checkedOn set). Services, never people: remove names of staff or individuals from notes. Shape: id, category (water | health | streetlight | road | market | clinic), ward, place, status (working | partly | not working | closed), reportedOn, checkedOn, checkedBy, evidenceLabel (unverified | verified), photo, note; clinic reports add clinic {medicines: yes | some missing | none, staff: yes | no, openHours: yes | no, waiting: under 30 min | 30 to 60 min | 1 to 2 hours | over 2 hours}.",
+ "reports": []
+}

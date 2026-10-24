@@ -856,3 +856,12 @@ body.embed { padding: 12px; }
 .hero-pick { align-items: flex-start; }
 .key svg, .wardmap .key svg { width: 16px; height: 16px; flex: none; background: none; border-radius: 0; display: inline-block; }
 .ask.do .eyebrow::before { content: none; }
+fieldset.choice { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+fieldset.choice legend { font-weight: 700; margin-bottom: 6px; padding: 0; width: 100%; }
+.builder fieldset.choice label { flex-direction: row; align-items: center; gap: 8px; font-weight: 500; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--control-line); cursor: pointer; }
+.builder fieldset.choice label:has(input:checked) { background: var(--brand); border-color: var(--brand); color: var(--brand-ink); font-weight: 700; }
+.builder fieldset.choice input { width: auto; min-height: 0; accent-color: var(--nd-ink); }
+ol.timeline { list-style: none; margin: 0; padding: 0 0 0 20px; border-left: 3px solid var(--brand); display: flex; flex-direction: column; gap: 18px; }
+ol.timeline li { max-width: 40em; display: flex; flex-direction: column; gap: 6px; }
+ol.timeline .tl-date { font-weight: 700; }
+ol.timeline img { border-radius: 12px; }
