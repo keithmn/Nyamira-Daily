@@ -17,9 +17,11 @@ const gov = leaders.county.find((l) => l.office === 'Governor');
   <div class="stack-lg" style="padding-top:24px">
 
     <section class="stack" aria-labelledby="glance">
-      <span class="eyebrow">Nyamira at a glance</span>
-      <h1 id="glance">What our county has, spends and does</h1>
-      <p class="lead">Each number has a source and a label that says how solid it is. Tap a card for the detail.</p>
+      <div class="hero stack">
+        <span class="eyebrow">Nyamira at a glance</span>
+        <h1 id="glance">What our county has, spends and does</h1>
+        <p class="lead">Each number has a source and a label that says how solid it is. Tap a card for the detail.</p>
+      </div>
       <div class="grid">
         <StatCard topic="Money" value={bn(last.spent)} sentence={`spent by the county in ${last.fy}, out of a ${bn(last.budget)} budget. Only ${last.devAbs}% of the development budget was used.`} evidence="official" source={`Controller of Budget, FY${last.fy}`} href="/data/money/" />
         <StatCard topic="The county" value="20 wards" sentence="in 4 sub-counties, each with an elected MCA. See who represents yours." evidence="verified" source="IEBC ward list; geoBoundaries" href="/ward/" />
@@ -74,8 +76,8 @@ const gov = leaders.county.find((l) => l.office === 'Governor');
       </a>
     </section>
 
-    <section class="stack nyw" aria-labelledby="show">
-      <NyWatchLogo />
+    <section class="stack nyw nyw-band" aria-labelledby="show">
+      <NyWatchLogo on="dark" />
       <span class="eyebrow">Nightly, 10 to 11 pm</span>
       <h2 id="show">Nyamira Watch: the nightly show</h2>
       <p class="muted">Live discussion of the county's facts, with guests. Also released as a podcast.</p>

@@ -1,10 +1,17 @@
 ---
 // NY Watch logo. Use it (never the Nyamira Daily logo) wherever the show appears.
 // alt is empty by default because the show is named in the text beside it.
-interface Props { alt?: string }
-const { alt = '' } = Astro.props;
+// on="dark": always the reverse logo, for Ink panels that stay dark in light mode too.
+interface Props { alt?: string; on?: 'auto' | 'dark' }
+const { alt = '', on = 'auto' } = Astro.props;
 ---
 <span class="nyw-logo">
-  <img class="for-light" src="/brand/NY-Watch_horizontal_full-colour.svg" alt={alt} width="924" height="228" loading="lazy" />
-  <img class="for-dark" src="/brand/NY-Watch_horizontal_reverse.svg" alt={alt} width="924" height="228" loading="lazy" />
+  {on === 'dark' ? (
+    <img src="/brand/NY-Watch_horizontal_reverse.svg" alt={alt} width="924" height="228" loading="lazy" />
+  ) : (
+    <>
+      <img class="for-light" src="/brand/NY-Watch_horizontal_full-colour.svg" alt={alt} width="924" height="228" loading="lazy" />
+      <img class="for-dark" src="/brand/NY-Watch_horizontal_reverse.svg" alt={alt} width="924" height="228" loading="lazy" />
+    </>
+  )}
 </span>

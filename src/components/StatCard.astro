@@ -9,7 +9,7 @@ interface Props {
 const { topic, value, sentence, evidence, source, href } = Astro.props;
 const Tag = href ? 'a' : 'div';
 ---
-<Tag class="card" href={href}>
+<Tag class="card stat" href={href}>
   <span class="eyebrow">{topic}</span>
   <span class="big">{value}</span>
   <span>{sentence}</span>

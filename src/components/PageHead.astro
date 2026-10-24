@@ -8,7 +8,7 @@ const { eyebrow, title, lead, crumbs = [], tools = true } = Astro.props;
     {crumbs.map((c, i) => (<><a href={c.href}>{c.label}</a>{i < crumbs.length - 1 ? ' / ' : ''}</>))}
   </nav>
 )}
-<header class="stack" style="padding: 24px 0 8px">
+<header class="stack page-head" style="padding: 24px 0 8px">
   {eyebrow && <span class="eyebrow">{eyebrow}</span>}
   <h1>{title}</h1>
   {lead && <p class="lead">{lead}</p>}

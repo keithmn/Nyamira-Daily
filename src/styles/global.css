@@ -362,3 +362,48 @@ input.field { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; 
   .tools { gap: 4px; }
   .tools .btn { padding-left: 10px; padding-right: 10px; }
 }
+
+/* Colour pass (Oct 2026): Signal Green leads, Ink and White support.
+   Green stays a fill, bar or edge; text on it is Ink (11:1). Text on Ink panels is White. */
+
+/* Ward picker: a Signal Green band under the header on every page */
+.ward-strip { background: var(--nd-green); border-top: 0; color: var(--nd-ink); }
+.ward-strip label, .ward-strip strong { color: var(--nd-ink); }
+.ward-strip select { background: var(--nd-white); color: var(--nd-ink); border-color: var(--nd-ink); }
+.ward-strip select:focus-visible { outline-color: var(--nd-ink); }
+
+/* Home: the opening statement on an Ink panel with a green base line */
+.hero {
+  --ink: var(--nd-white); --ink-2: #e2e2de; --muted: #b3b3ad; --focus: var(--nd-white);
+  background: var(--nd-ink); color: var(--ink); border-radius: var(--radius);
+  padding: 28px 24px; border-bottom: 6px solid var(--nd-green);
+}
+.hero h1 { font-size: clamp(26px, 5vw, 40px); }
+:root[data-theme="dark"] .hero { background: var(--surface); }
+
+/* Other pages: a short green bar under the page title */
+.page-head h1::after {
+  content: ""; display: block; width: 56px; height: 6px; margin-top: 12px;
+  border-radius: 3px; background: var(--brand);
+}
+
+/* Headline figures: a green top edge marks the first layer */
+.card.stat { border-top: 6px solid var(--brand); }
+a.card:hover { background: var(--brand-soft); }
+
+/* Ward panel and Kiswahili summary: a light green tint instead of grey */
+.myward.panel { background: var(--brand-soft); }
+.sw { background: var(--brand-soft); }
+
+/* Ward receipt: green top edge, like the headline figures */
+.receipt { border-top: 6px solid var(--brand); }
+
+/* NY Watch on the home page: an Ink band with the reverse logo; the red dot stays the only red */
+.nyw-band {
+  --ink: var(--nd-white); --ink-2: #e2e2de; --muted: #b3b3ad; --focus: var(--nd-white);
+  background: var(--nd-ink); color: var(--ink); border-radius: var(--radius); padding: 28px 24px;
+}
+:root[data-theme="dark"] .nyw-band { background: var(--surface); }
+
+/* Footer: a green rule across the top */
+.site-footer { border-top: 6px solid var(--nd-green); }
