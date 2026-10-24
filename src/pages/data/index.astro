@@ -11,7 +11,7 @@ const later = topics.filter((t) => planned.has(`/data/${t.slug}/`));
   <div class="grid" style="margin-top:16px">
     {ready.map((t) => (
       <a class="card" href={`/data/${t.slug}/`}>
-        <h2 style="font-size:22px">{t.title}</h2>
+        <h2 style="font-size:18px">{t.title}</h2>
         <p class="muted">{t.question}</p>
         <span class="small muted">Status: {t.status}</span>
       </a>

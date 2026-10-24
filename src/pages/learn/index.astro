@@ -14,6 +14,6 @@ const lessons = [
 <Base title="Learn">
   <PageHead eyebrow="Learn" title="Learn how Nyamira works" lead="Short lessons, one idea at a time. Each can be printed for notice boards and barazas." tools={false} />
   <div class="grid" style="margin-top:16px">
-    {lessons.map((l) => (<a class={`card${planned.has(l.href) ? ' is-planned' : ''}`} href={l.href}><h2 style="font-size:22px">{l.title} {planned.has(l.href) && <span class="tag-planned">Planned</span>}</h2><p class="muted">{l.text}</p></a>))}
+    {lessons.map((l) => (<a class={`card${planned.has(l.href) ? ' is-planned' : ''}`} href={l.href}><h2 style="font-size:18px">{l.title} {planned.has(l.href) && <span class="tag-planned">Planned</span>}</h2><p class="muted">{l.text}</p></a>))}
   </div>
 </Base>

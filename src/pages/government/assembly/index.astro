@@ -18,7 +18,7 @@ const parts = [
       <p>The County Assembly makes county laws, approves the county budget and plans, and oversees the Executive. It has one elected MCA per ward, plus nominated members and a Speaker. It must let the public take part in its work.</p>
     </div>
     <div class="grid">
-      {parts.map((p) => (<a class={`card${planned.has(p.href) ? ' is-planned' : ''}`} href={p.href}><h2 style="font-size:22px">{p.title} {planned.has(p.href) && <span class="tag-planned">Planned</span>}</h2><p class="muted">{p.text}</p></a>))}
+      {parts.map((p) => (<a class={`card${planned.has(p.href) ? ' is-planned' : ''}`} href={p.href}><h2 style="font-size:18px">{p.title} {planned.has(p.href) && <span class="tag-planned">Planned</span>}</h2><p class="muted">{p.text}</p></a>))}
     </div>
     <p class="small muted">Source records: the County Assembly of Nyamira website (Hansard, order papers, bills, Acts, motions, committee reports, petitions tracker). Every summary links to the original.</p>
   </div>

@@ -13,6 +13,6 @@ const parts = [
 <Base title="Government">
   <PageHead eyebrow="Government" title="How Nyamira is run" lead="Who spends the money, who makes the laws, who is responsible for each problem, and who checks them." tools={false} />
   <div class="grid" style="margin-top:16px">
-    {parts.map((p) => (<a class={`card${planned.has(p.href) ? ' is-planned' : ''}`} href={p.href}><h2 style="font-size:22px">{p.title} {planned.has(p.href) && <span class="tag-planned">Planned</span>}</h2><p class="muted">{p.text}</p></a>))}
+    {parts.map((p) => (<a class={`card${planned.has(p.href) ? ' is-planned' : ''}`} href={p.href}><h2 style="font-size:18px">{p.title} {planned.has(p.href) && <span class="tag-planned">Planned</span>}</h2><p class="muted">{p.text}</p></a>))}
   </div>
 </Base>
