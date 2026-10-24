@@ -1,0 +1,14 @@
+{
+  "name": "Nyamira Daily",
+  "short_name": "Nyamira Daily",
+  "description": "Facts about Nyamira County, its money, services, laws and leaders, in plain language.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "minimal-ui",
+  "background_color": "#FFFFFF",
+  "theme_color": "#111111",
+  "icons": [
+    { "src": "/brand/Nyamira-Daily_icon-square_on-black-192px.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/brand/Nyamira-Daily_icon-square_on-black-512px.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

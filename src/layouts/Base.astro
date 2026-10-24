@@ -5,8 +5,14 @@ const subs = ['Borabu', 'Kitutu Masaba', 'North Mugirango', 'West Mugirango'];
 
 import PageTools from '../components/PageTools.astro';
 import { hasContact } from '../config.js';
-interface Props { title: string; description?: string; tools?: boolean }
-const { title, description = 'Nyamira Daily: facts about Nyamira County, its money, services, laws and leaders, in plain language.', tools = true } = Astro.props;
+interface Props { title: string; description?: string; tools?: boolean; image?: string; imageAlt?: string }
+const {
+  title,
+  description = 'Nyamira Daily: facts about Nyamira County, its money, services, laws and leaders, in plain language.',
+  tools = true,
+  image,
+  imageAlt = 'Nyamira Daily',
+} = Astro.props;
 
 const sections = [
   { href: '/', label: 'Today' },
@@ -19,6 +25,11 @@ const sections = [
 const path = Astro.url.pathname;
 const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
 const pageTitle = title === 'Today' ? 'Nyamira Daily' : `${title} · Nyamira Daily`;
+
+// Sharing (WhatsApp, Facebook, X): pages without their own image use the default card.
+const shareTitle = title === 'Today' ? 'Nyamira Daily' : title;
+const pageUrl = new URL(path, Astro.site).toString();
+const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toString();
 ---
 <!doctype html>
 <html lang="en">
@@ -28,18 +39,45 @@ const pageTitle = title === 'Today' ? 'Nyamira Daily' : `${title} · Nyamira Dai
   <title>{pageTitle}</title>
   <meta name="description" content={description} />
   <link rel="preload" href="/brand/fonts/LeagueSpartan-Medium.woff2" as="font" type="font/woff2" crossorigin />
-  <meta name="theme-color" content="#1e6b4f" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#111111" /><!-- Ink; meta tags can't read CSS tokens -->
+  <link rel="icon" href="/brand/Nyamira-Daily_favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/brand/Nyamira-Daily_icon-square_on-black.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/brand/Nyamira-Daily_icon-square_on-black-180px.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nyamira Daily" />
+  <meta property="og:title" content={shareTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:image" content={shareImage} />
+  {!image && <meta property="og:image:width" content="1200" />}
+  {!image && <meta property="og:image:height" content="630" />}
+  <meta property="og:image:alt" content={imageAlt} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={shareTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={shareImage} />
+  <meta name="twitter:image:alt" content={imageAlt} />
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
       <div class="bar">
-        <a class="brand" href="/">
-          <strong>Nyamira Daily</strong>
-          <span>Facts about our county, in plain language</span>
-        </a>
+        <div class="brand-slot">
+          <a class="brand" href="/">
+            <!-- Horizontal logo; the symbol alone when this slot is under 160px wide. Reverse versions in dark mode. -->
+            <picture class="logo-h">
+              <source srcset="/brand/Nyamira-Daily_horizontal_reverse.svg" media="(prefers-color-scheme: dark)" />
+              <img src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Nyamira Daily" width="1197" height="228" />
+            </picture>
+            <picture class="logo-s">
+              <source srcset="/brand/Nyamira-Daily_symbol_reverse.svg" media="(prefers-color-scheme: dark)" />
+              <img src="/brand/Nyamira-Daily_symbol_full-colour.svg" alt="Nyamira Daily" width="216" height="256" />
+            </picture>
+            <span class="tagline">Facts about our county, in plain language</span>
+          </a>
+        </div>
         <div class="tools">
           <a class="btn quiet" href="/search/">Search</a>
           <details class="menu">
@@ -89,8 +127,9 @@ const pageTitle = title === 'Today' ? 'Nyamira Daily' : `${title} · Nyamira Dai
 
   <footer class="site-footer">
     <div class="wrap cols">
-      <div>
-        <strong>Nyamira Daily</strong>
+      <div class="footer-brand">
+        <img class="footer-logo" src="/brand/Nyamira-Daily_horizontal_reverse.svg" alt="Nyamira Daily" width="1197" height="228" loading="lazy" />
+        <p class="small">Independent. Not affiliated with the County Government of Nyamira.</p>
         <p class="muted small" style="margin-top:8px">An independent, non-partisan information service about Nyamira County. Every figure has a source; every claim has an evidence label.</p>
       </div>
       <div>

@@ -112,9 +112,27 @@ main p, main li { max-width: var(--measure); }
 /* Header */
 .site-header { border-bottom: 1px solid var(--line); background: var(--bg); }
 .site-header .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; }
-.brand { display: flex; flex-direction: column; text-decoration: none; color: var(--ink); }
-.brand strong { font-size: 24px; letter-spacing: -0.02em; }
-.brand span { font-size: 14px; color: var(--muted); }
+/* Logo: horizontal at 40px tall (210px wide), shrinking to fit; the symbol alone when the slot is under 160px
+   (the guidelines' minimum width for the horizontal logo). Set by width only, so the SVG keeps its proportions.
+   The SVGs carry their own margin; with the bar's padding that gives at least the seed's width of clear space. */
+.brand-slot { flex: 1 1 auto; min-width: 0; container-type: inline-size; }
+.brand { display: inline-flex; align-items: center; gap: 24px; vertical-align: middle; text-decoration: none; color: var(--ink); }
+.brand img { display: block; }
+.logo-h { display: block; }
+.logo-h img { width: 210px; max-width: 100cqw; height: auto; }
+.logo-s { display: none; }
+.logo-s img { width: 29px; height: auto; } /* 34px tall */
+.brand .tagline { display: none; max-width: 13em; font-size: 14px; line-height: 1.3; color: var(--muted); }
+@container (max-width: 159.98px) {
+  .logo-h { display: none; }
+  .logo-s { display: block; }
+}
+@container (min-width: 480px) { .brand .tagline { display: block; } }
+/* Browsers without container queries: decide by screen width instead */
+@supports not (container-type: inline-size) {
+  .logo-h img { max-width: calc(100vw - 240px); }
+  @media (max-width: 400px) { .logo-h { display: none; } .logo-s { display: block; } }
+}
 .tools { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
 .menu { position: relative; }
 .menu > summary { list-style: none; color: var(--ink); }
@@ -184,8 +202,13 @@ details[open] { padding-bottom: 16px; }
 .page-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .page-tools.foot { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); }
 
-/* Footer */
-.site-footer { border-top: 1px solid var(--line); margin-top: 64px; padding: 32px 0; font-size: 16px; }
+/* Footer: always Ink with the reverse logo, in light and dark mode */
+.site-footer {
+  --bg: var(--nd-ink); --ink: var(--nd-white); --ink-2: #e2e2de; --muted: #b3b3ad; --line: #3a3a37; --focus: var(--nd-white);
+  background: var(--bg); color: var(--ink);
+  border-top: 1px solid var(--line); margin-top: 64px; padding: 40px 0; font-size: 16px;
+}
+.footer-logo { display: block; width: 220px; height: auto; margin-bottom: 16px; }
 .site-footer .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
 .site-footer ul { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; }
 
@@ -232,8 +255,6 @@ tr.mine td { background: var(--brand-soft); font-weight: 700; }
 
 /* Phones: keep the header short */
 @media (max-width: 640px) {
-  .brand strong { font-size: 21px; }
-  .brand span { display: none; }
   .nav a { padding: 10px 12px; min-height: 44px; }
   .ward-strip .wrap { flex-wrap: nowrap; }
   .ward-strip select { flex: 1; min-width: 0; }

@@ -1,0 +1,7 @@
+# Browser caching on Netlify and Cloudflare Pages (GitHub Pages ignores this file).
+# Brand files keep their original names, so they are cached for a week, not forever:
+# if a logo or font changes, readers get the new one within seven days.
+/brand/*
+  Cache-Control: public, max-age=604800
+/favicon.ico
+  Cache-Control: public, max-age=604800
