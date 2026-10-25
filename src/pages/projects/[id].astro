@@ -6,6 +6,7 @@ import PageHead from '../../components/PageHead.astro';
 import { byProject, kindLabel, sources, pct, statusShort, shortTitle, questions } from '../../lib/projects.js';
 import { entries } from '../../lib/content.js';
 import { ksh, date } from '../../lib/fmt.js';
+import { amountLabel } from '../../lib/project-amounts.js';
 import { adoptSignupUrl } from '../../config.js';
 import wards from '../../data/wards.json';
 export function getStaticPaths() {
@@ -29,7 +30,7 @@ const title = first.name.length > 110 ? first.name.slice(0, 108) + '…' : first
         return (
           <li>
             <span class="pn">FY{p.fy === 'as at 30 Jun 2025' ? ' status at 30 June 2025' : p.fy} · {kindLabel[p.kind] ?? p.kind}</span>
-            <span class="pa">{p.amount ? ksh(p.amount) : 'Printed as 0 or blank'}</span>
+            <span class="pa">{amountLabel(p.amount)}</span>
             <span class="pm">
               {st && <span class="st">{pc != null && <span class="meter sm" aria-hidden="true" style="display:inline-block;width:72px;vertical-align:middle;margin-right:6px"><i style={`width:${pc}%`}></i></span>}{st}</span>}
               <span>{p.department}</span>

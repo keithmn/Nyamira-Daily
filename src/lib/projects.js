@@ -1,4 +1,5 @@
 import data from '../data/wardspend.json';
+import { amountLabel, amountStatus, sumAmounts } from './project-amounts.js';
 import { pct, statusCountsFor } from './project-status.js';
 export const sources = Object.fromEntries(data.sources.map((s) => [s.id, s]));
 export const projects = data.projects;
@@ -7,6 +8,7 @@ export const kindLabel = { budgeted: 'Budgeted', contract: 'Contract sum', spent
 export function forWard(slug) { return projects.filter((p) => p.ward === slug); }
 export function total(slug, fy, kind) { return data.wardTotals.find((t) => t.ward === slug && t.fy === fy && t.kind === kind); }
 export function lines2526(slug) { return projects.filter((p) => p.ward === slug && p.fy === '2025/26' && p.kind === 'budgeted'); }
+export function budget2526(slug) { return sumAmounts(lines2526(slug).map((project) => project.amount)); }
 // FY order for display, newest first
 export const fyOrder = ['2025/26', 'as at 30 Jun 2025', '2024/25', '2023/24', '2022/23'];
 // Questions raised by the documents themselves (repeat budgeting, stalled works).
@@ -30,7 +32,7 @@ export function statusShort(status) {
 
 // Every question to ask, for the home page map: the curated list above, then projects the county's
 // own reports list at 0% (deduplicated against the curated list). Each carries its sources.
-const fmtM = (n) => (n >= 1e6 ? 'KSh ' + parseFloat((n / 1e6).toFixed(2)) + 'M' : 'KSh ' + Math.round(n).toLocaleString('en-KE'));
+const fmtM = (n) => (n >= 1e6 ? 'KSh ' + parseFloat((n / 1e6).toFixed(2)) + 'M' : amountLabel(n));
 const zero = [];
 const seen = new Set();
 for (const p of projects) {
@@ -44,7 +46,7 @@ for (const p of projects) {
   zero.push({
     ward: p.ward,
     title: p.name.replace('Road routine maintenance: ', 'Road maintenance: '),
-    text: `${fmtM(p.amount)} set aside in FY${p.fy}. The county's own report lists it as "${st}".`,
+    text: `${amountStatus(p.amount) === 'unavailable' ? 'Amount not reported' : `${fmtM(p.amount)} set aside`} in FY${p.fy}. The county's own report lists it as "${st}".`,
     src: [{ id: p.sourceId, page: p.page }],
   });
 }

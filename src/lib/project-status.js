@@ -39,7 +39,7 @@ export function pct(status) {
   let invalidProgressValue = false;
 
   for (const clause of status.split(/[;|\n]/)) {
-    const percentages = [...clause.matchAll(/(?<![\d.,])([+-]?\d+(?:[.,]\d+)?)\s*%(?!\d)/g)];
+    const percentages = [...clause.matchAll(/(?<![\d.,])([+\-\u2212]?\d+(?:[.,]\d+)?)\s*%(?!\d)/g)];
     for (const match of percentages) {
       const rawValue = match[1];
       const before = clause.slice(0, match.index);
@@ -52,10 +52,12 @@ export function pct(status) {
         const immediatelyBeforeLabel = precedingLabelText.slice(-40);
         const betweenLabelAndValue = before.slice(labelStart + label[0].length);
         if (/\b(?:target|planned|expected|proposed)\b/i.test(immediatelyBeforeLabel)) continue;
+        if (/\bfinancial\s*$/i.test(immediatelyBeforeLabel)) continue;
+        if (/\bnot\s*$/i.test(betweenLabelAndValue)) continue;
         if (/\b(?:target|planned|expected|financial|expenditure|allocation|budget|commitment|paid)\b/i.test(betweenLabelAndValue)) continue;
-        if (labelName === 'implementation' && /\bfinancial\b/i.test(immediatelyBeforeLabel)) continue;
       } else {
         if (/\b(?:financial|expenditure|allocation|budget|commitment|paid|target|planned|expected|proposed)\b/i.test(before)) continue;
+        if (/\bnot\s*$/i.test(before)) continue;
         const after = clause.slice(match.index + match[0].length);
         if (!/^\s*(?:\([^)]*\)\s*)?(?:[-–—:]\s*)?(?:complete(?:d)?\b|on-going\b|ongoing\b|works?\s+in\s+progress\b)/i.test(after)) continue;
       }

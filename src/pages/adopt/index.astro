@@ -4,7 +4,7 @@ import PageHead from '../../components/PageHead.astro';
 import { byProject } from '../../lib/projects.js';
 import { entries } from '../../lib/content.js';
 import { adoptSignupUrl } from '../../config.js';
-import { ksh } from '../../lib/fmt.js';
+import { amountLabel } from '../../lib/project-amounts.js';
 import wards from '../../data/wards.json';
 import { subCounties } from '../../nav.js';
 const all = byProject();
@@ -42,7 +42,7 @@ const open = wards.map((w) => ({ w, list: [...all.entries()].filter(([, l]) => l
           {open.filter((o) => o.w.subCounty === s).map((o) => (
             <div class="stack" style="gap:6px;margin:8px 0 16px">
               <h3>{o.w.name}</h3>
-              <ul class="small">{o.list.map((p) => <li><a href={`/projects/${p.id.toLowerCase()}/`}>{p.name}</a>{p.amount ? ` · ${ksh(p.amount)}` : ''}</li>)}</ul>
+              <ul class="small">{o.list.map((p) => <li><a href={`/projects/${p.id.toLowerCase()}/`}>{p.name}</a> · {amountLabel(p.amount)}</li>)}</ul>
             </div>
           ))}
         </details>

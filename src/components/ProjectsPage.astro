@@ -1,11 +1,11 @@
 ---
 import wards from '../data/wards.json';
-import { lines2526, total, watch, sources, shortTitle } from '../lib/projects.js';
-import { ksh } from '../lib/fmt.js';
+import { budget2526, lines2526, total, watch, sources, shortTitle } from '../lib/projects.js';
 import EvidenceLabel from './EvidenceLabel.astro';
 import HBars from './viz/HBars.astro';
 import SplitBar from './viz/SplitBar.astro';
 import { statusCounts } from '../lib/projects.js';
+import { amountLabel, amountStatus } from '../lib/project-amounts.js';
 const sc = statusCounts();
 const statusCaveats = [
   sc.undated && `${sc.undated} project${sc.undated === 1 ? '' : 's'} have undated percentage observations`,
@@ -15,26 +15,36 @@ const statusCaveats = [
 ].filter(Boolean);
 const rows = wards.map((w) => {
   const l = lines2526(w.slug);
-  return { w, n: l.length, zero: l.filter((x) => !x.amount).length, b: total(w.slug, '2025/26', 'budgeted')?.amount ?? 0, roads: total(w.slug, '2023/24', 'contract')?.amount ?? null };
+  const roads = total(w.slug, '2023/24', 'contract');
+  return {
+    w,
+    n: l.length,
+    zero: l.filter((x) => amountStatus(x.amount) === 'reported_zero').length,
+    amountUnavailable: l.filter((x) => amountStatus(x.amount) === 'unavailable').length,
+    b: budget2526(w.slug),
+    roads: roads ? roads.amount : undefined,
+  };
 });
-const sum = rows.reduce((a, r) => a + r.b, 0);
+const sum = rows.some((r) => r.b == null) ? null : rows.reduce((a, r) => a + r.b, 0);
 const nlines = rows.reduce((a, r) => a + r.n, 0);
-const top = [...rows].sort((a, b) => b.b - a.b);
+const reportedTotals = rows.filter((r) => r.b != null).sort((a, b) => a.b - b.b);
 const wname = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
 ---
 <div class="stack-lg" style="margin-top:24px">
   <section class="grid">
     <div class="card">
       <span class="eyebrow">Ward projects, FY2025/26 budget</span>
-      <span class="big">{ksh(sum)}</span>
-      <span>across {nlines} budget lines tagged to the 20 wards. County-wide "flagship" projects are not included.</span>
+      <span class="big">{amountLabel(sum)}</span>
+      <span>across {nlines} budget lines tagged to the 20 wards. County-wide "flagship" projects are not included.{rows.some((r) => r.amountUnavailable) && ` ${rows.reduce((count, r) => count + r.amountUnavailable, 0)} lines have no reported amount.`}</span>
       <EvidenceLabel kind="official" />
       <span class="small muted">Source: <a href={sources.pbb2526.url} rel="noopener">Programme Based Budget 2025/26</a>, Table 18</span>
     </div>
     <div class="card">
       <span class="eyebrow">Largest and smallest ward totals</span>
-      <span class="big">{ksh(top[0].b)}</span>
-      <span>{top[0].w.name} has the largest ward total in the FY2025/26 budget lines. {top[top.length - 1].w.name} has the smallest ({ksh(top[top.length - 1].b)}), partly because many of its lines are printed as zero.</span>
+      {reportedTotals.length > 0 ? <>
+        <span class="big">{amountLabel(reportedTotals[reportedTotals.length - 1].b)}</span>
+        <span>{reportedTotals[reportedTotals.length - 1].w.name} has the largest reported ward total in the FY2025/26 budget lines. {reportedTotals[0].w.name} has the smallest reported total ({amountLabel(reportedTotals[0].b)}). Missing totals are not ranked as zero.</span>
+      </> : <><span class="big">No totals reported</span><span>Ward totals cannot be ranked without reported amounts.</span></>}
       <EvidenceLabel kind="official" />
     </div>
     <div class="card">
@@ -47,13 +57,13 @@ const wname = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
 
   <div class="sw" lang="sw">
     <span class="eyebrow">Muhtasari kwa Kiswahili</span>
-    <p>Bajeti ya kaunti ya mwaka 2025/26 ina miradi {nlines} iliyotengwa kwa wadi 20, yenye jumla ya {ksh(sum)}. Chagua wadi yako kuona miradi yake.</p>
+    <p>Bajeti ya kaunti ya mwaka 2025/26 ina mistari {nlines} ya miradi katika wadi 20, yenye jumla iliyoripotiwa ya {amountLabel(sum)}. Chagua wadi yako kuona miradi yake.</p>
   </div>
 
   <section class="stack">
     <h2>Every ward, side by side</h2>
     <p class="muted">Budget lines are what the county planned to spend in each ward. Road contracts are what it signed for routine road maintenance in FY2023/24. Neither shows what was finished.</p>
-    <HBars title="Ward project budgets, FY2025/26" rows={rows.map((r) => ({ label: r.w.name, ward: r.w.slug, value: r.b, display: ksh(r.b), href: `/ward/${r.w.slug}/#projects`, note: r.zero ? `(${r.zero} at zero)` : undefined }))} />
+    <HBars title="Ward project budgets, FY2025/26" rows={rows.map((r) => ({ label: r.w.name, ward: r.w.slug, value: r.b, display: amountLabel(r.b), href: `/ward/${r.w.slug}/#projects`, note: [r.zero ? `${r.zero} reported as KSh 0` : null, r.amountUnavailable ? `${r.amountUnavailable} amount not reported` : null].filter(Boolean).join('; ') || undefined }))} />
     <p class="source"><EvidenceLabel kind="official" /> Source: Programme Based Budget 2025/26, Table 18. Your ward is outlined once you choose it.</p>
     <div class="figure">
       <h3 class="mini">Latest dated physical progress reported for {sc.total} project IDs</h3>
@@ -71,12 +81,12 @@ const wname = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
       <table class="cards">
         <thead><tr><th>Ward</th><th>Sub-county</th><th class="num">FY2025/26 ward budget</th><th class="num">Budget lines</th><th class="num">FY2023/24 road contracts</th></tr></thead>
         <tbody>{rows.map((r) => (
-          <tr data-ward-row={r.w.slug}><td><a href={`/ward/${r.w.slug}/#projects`}>{r.w.name}</a></td><td data-label="Sub-county">{r.w.subCounty}</td><td class="num" data-label="FY2025/26 budget">{ksh(r.b)}</td><td class="num" data-label="Budget lines">{r.n}{r.zero ? ` (${r.zero} at zero)` : ''}</td><td class="num" data-label="FY2023/24 roads">{r.roads == null ? "None listed" : ksh(r.roads)}</td></tr>
+          <tr data-ward-row={r.w.slug}><td><a href={`/ward/${r.w.slug}/#projects`}>{r.w.name}</a></td><td data-label="Sub-county">{r.w.subCounty}</td><td class="num" data-label="FY2025/26 budget">{amountLabel(r.b)}</td><td class="num" data-label="Budget lines">{r.n}{r.zero ? ` (${r.zero} reported as KSh 0)` : ''}{r.amountUnavailable ? ` (${r.amountUnavailable} amount not reported)` : ''}</td><td class="num" data-label="FY2023/24 roads">{r.roads === undefined ? "None listed" : amountLabel(r.roads)}</td></tr>
         ))}</tbody>
       </table>
     </div>
     </details>
-    <p class="small muted">The budget document states KSh 357,124,313 for ward-based projects; the lines we extracted add up to {ksh(sum)}. We checked the PDF: the whole difference is in Roads, Transport and Public Works, where the ward lines in Table 18 add up to KSh 146.5M but the summary table (Table 20) counts KSh 131.0M as ward-based and moves KSh 15.5M to county-wide projects. We use the Table 18 lines. Road contract sums are from the <a href={sources.adp2526.url} rel="noopener">Annual Development Plan 2025/26</a>, pp.73–77.</p>
+    <p class="small muted">The budget document states KSh 357,124,313 for ward-based projects; the lines we extracted add up to {amountLabel(sum)}. We checked the PDF: the whole difference is in Roads, Transport and Public Works, where the ward lines in Table 18 add up to KSh 146.5M but the summary table (Table 20) counts KSh 131.0M as ward-based and moves KSh 15.5M to county-wide projects. We use the Table 18 lines. Road contract sums are from the <a href={sources.adp2526.url} rel="noopener">Annual Development Plan 2025/26</a>, pp.73–77.</p>
   </section>
 
   <section class="stack" id="watch">
@@ -100,5 +110,6 @@ const wname = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
     <ul class="small">{Object.values(sources).map((s) => <li><a href={s.url} rel="noopener">{s.title}</a> ({s.date})</li>)}</ul>
     <p class="small">Three roads appear under different wards in the Controller of Budget's report and the county's plan; we use the county's ward coding. Some roads listed as "awaiting payment" in the plan were later reported paid in full.</p>
   </details>
-  <p class="updated">Last updated 22 Oct 2026. <a href="/files/projects-v1.csv" download>Download all 404 project records (CSV)</a>.</p>
+  <p class="small muted">KSh 0 means the source reports zero. “Amount not reported” means the source does not provide an amount; unavailable amounts are not treated as zero in totals or charts.</p>
+  <p class="updated">Last updated 22 Oct 2026. <a href="/files/projects-v2.csv" download>Download all 404 project records (CSV, version 2)</a>.</p>
 </div>

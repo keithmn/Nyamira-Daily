@@ -7,7 +7,7 @@ import wards from '../../data/wards.json';
 import leaders from '../../data/leaders.json';
 import money from '../../data/money.json';
 import census from '../../data/census.json';
-import { forWard, total, kindLabel, fyOrder, sources, watch, pct, statusShort, shortTitle, statusCounts } from '../../lib/projects.js';
+import { budget2526, forWard, total, kindLabel, fyOrder, sources, watch, pct, statusShort, shortTitle, statusCounts } from '../../lib/projects.js';
 import Pictos from '../../components/viz/Pictos.astro';
 import SplitBar from '../../components/viz/SplitBar.astro';
 import HBars from '../../components/viz/HBars.astro';
@@ -20,6 +20,7 @@ import E from '../../data/elections.json';
 const reg22 = E.registeredByWard.find((r) => r.year === 2022 && r.ward === Astro.params.slug);
 import { getAlerts } from '../../lib/alerts-data.js';
 import { levelLabel } from '../../lib/alerts.js';
+import { amountLabel } from '../../lib/project-amounts.js';
 const wardAlerts = (await getAlerts()).filter((a) => a.status === 'active' && (a.wards.includes(Astro.params.slug) || a.wards.length === 0));
 import { ksh, num } from '../../lib/fmt.js';
 
@@ -33,7 +34,7 @@ const byCat = w.facilities.reduce((m, f) => { (m[f.category] ??= []).push(f); re
 const order = ['Health', 'Education', 'Worship', 'Market', 'Water', 'Public office', 'Community centre', 'Agriculture'];
 const last = money.years[money.years.length - 1];
 const proj = forWard(w.slug);
-const b2526 = total(w.slug, '2025/26', 'budgeted');
+const b2526 = budget2526(w.slug);
 const roads = total(w.slug, '2023/24', 'contract');
 const cw = census.wards.find((x) => x.ward === w.slug);
 const flags = watch.filter((x) => x.ward === w.slug);
@@ -45,7 +46,7 @@ const shareText = [
   w.name + ' Ward, ' + w.subCounty + ' - Nyamira Daily',
   'MCA: ' + mcaLine,
   'Services listed: ' + w.facilities.length + ' (' + catLine + ')',
-  (b2526 ? 'Ward projects budgeted 2025/26: ' + ksh(b2526.amount) + '\n' : '') + 'County spent ' + bn(last.spent) + ' in ' + last.fy + '; ' + last.devAbs + '% of the development budget was used.',
+  (b2526 != null ? 'Ward projects budgeted 2025/26: ' + amountLabel(b2526) + '\n' : '') + 'County spent ' + bn(last.spent) + ' in ' + last.fy + '; ' + last.devAbs + '% of the development budget was used.',
   new URL('/ward/' + w.slug + '/', Astro.site).toString(),
 ].join('\n');
 const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
@@ -56,7 +57,10 @@ const statusCaveats = [
   sc.unreported && `${sc.unreported} project${sc.unreported === 1 ? '' : 's'} have no supported completion percentage`,
   sc.unidentified && `${sc.unidentified} status record${sc.unidentified === 1 ? '' : 's'} lack a project ID`,
 ].filter(Boolean);
-const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.slug, '2025/26', 'budgeted')?.amount ?? 0, href: `/ward/${x.slug}/#projects` })).map((r) => ({ ...r, display: ksh(r.value) }));
+const budgets = wards.map((x) => {
+  const amount = budget2526(x.slug);
+  return { label: x.name, ward: x.slug, value: amount, href: `/ward/${x.slug}/#projects`, display: amountLabel(amount) };
+});
 ---
 <Base title={`${w.name} Ward`} alertWard={w.slug}>
   <PageHead eyebrow={`${w.subCounty} sub-county`} title={`${w.name} Ward`} crumbs={[{ href: '/ward/', label: 'Wards' }, { href: `/ward/${w.slug}/`, label: w.name }]} />
@@ -72,8 +76,8 @@ const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.
       {mp && <div class="row"><span>MP ({w.subCounty})</span><span>{mp.name}</span></div>}
       <div class="row"><span>Services listed</span><span>{w.facilities.length}</span></div>
       {order.filter((c) => byCat[c]).map((c) => <div class="row sub"><span>{c}</span><span>{byCat[c].length}</span></div>)}
-      {b2526 && <div class="row"><span>Ward projects budgeted, 2025/26</span><span>{ksh(b2526.amount)}</span></div>}
-      {roads && <div class="row"><span>Road maintenance contracts, 2023/24</span><span>{ksh(roads.amount)}</span></div>}
+      {b2526 != null && <div class="row"><span>Ward projects budgeted, 2025/26</span><span>{amountLabel(b2526)}</span></div>}
+      {roads && <div class="row"><span>Road maintenance contracts, 2023/24</span><span>{amountLabel(roads.amount)}</span></div>}
       {reg22 && <div class="row"><span>Registered voters (IEBC 2022) · <a href={`/government/elections/#ward-${w.slug}`}>results</a></span><span>{num(reg22.registered)}</span></div>}
       {cw?.votersRegisteredEarlier && <div class="row"><span>Registered voters (IEBC 2018 register)</span><span>{num(cw.votersRegisteredEarlier)}</span></div>}
       <div class="row"><span>Whole county spent, {last.fy}</span><span>{bn(last.spent)}</span></div>
@@ -160,11 +164,11 @@ const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.
           <p class="source"><span class="label official">Official claim</span> Counts cover project IDs with status records, not the full project inventory. One entry per reviewed ID, using its latest dated physical-progress percentage. Financial expenditure is not physical progress. {statusCaveats.length > 0 && `${statusCaveats.join('; ')}. `}{sc.sources.length > 0 && <span>Sources: {sc.sources.map((source, i) => <span>{i > 0 && '; '}<a href={sources[source.sourceId].url} rel="noopener">{shortTitle(sources[source.sourceId].title)}</a> (published {sources[source.sourceId].date}){source.pages.length > 0 && `, ${source.pages.join('; ')}`}</span>)}. </span>}These are historical reports, not a current site assessment. A reported completion percentage does not establish that a service is operating. We have not visited these sites.</p>
         </div>
       )}
-      {b2526 && (
+      {b2526 != null && (
         <details>
           <summary>How {w.name}'s 2025/26 ward budget compares with the other wards</summary>
           <HBars title="Ward project budgets, FY2025/26" rows={budgets} focus={w.slug} />
-          <p class="small muted">Source: Programme Based Budget 2025/26, Table 18 (ward-coded lines). Nyansiongo and Nyamaiya have several lines printed as KSh 0.</p>
+          <p class="small muted">Source: Programme Based Budget 2025/26, Table 18 (ward-coded lines). KSh 0 is shown only where the source explicitly reports zero; missing amounts are not drawn as zero.</p>
         </details>
       )}
       {byFy.length === 0 && <p class="muted">No ward-tagged projects found yet in the documents we have read.</p>}
@@ -178,7 +182,7 @@ const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.
             return (
               <li>
                 <span class="pn"><a href={`/projects/${p.projectId.toLowerCase()}/`}>{p.name}</a>{p.location && p.location !== `${w.name} Ward` ? ` (${p.location})` : ''}</span>
-                <span class="pa">{p.amount ? ksh(p.amount) : 'Printed as 0 or blank'}</span>
+                <span class="pa">{amountLabel(p.amount)}</span>
                 <span class="pm">
                   <span>{kindLabel[p.kind] ?? p.kind}</span>
                   {st && <span class="st">{pc != null && <span class="meter sm" aria-hidden="true" style="display:inline-block;width:72px;vertical-align:middle;margin-right:6px"><i style={`width:${pc}%`}></i></span>}{st}</span>}

@@ -111,6 +111,49 @@ test('the explicit as-at date in the existing schema is an observation date', ()
   );
 });
 
+test('approved CADP source dates are explicit and cover the reviewed candidate records', () => {
+  const candidateIds = new Set([
+    'P-b1944f0',
+    'P-610ca53',
+    'P-bb6f38c',
+    'P-d116175',
+    'P-0493bd5',
+    'P-0b87b5e',
+    'P-344a863',
+    'P-9e8373f',
+    'P-549ea2d',
+    'P-c6ee20e',
+    'P-e1db09c',
+    'P-ab34c05',
+    'P-788a27d',
+    'P-27c3a61',
+    'P-bf07028',
+  ]);
+  const candidates = sourceProjects.filter((project) => candidateIds.has(project.projectId));
+
+  assert.equal(new Set(candidates.map((project) => project.projectId)).size, 15);
+  assert.equal(candidates.length, 25);
+  assert.ok(candidates.every((project) => project.observedOn === '2025-06-30'));
+  assert.ok(candidates.every((project) => project.sourceId === 'cadp2627'));
+  assert.deepEqual(statusCountsFor(candidates), {
+    ...empty(),
+    done: 10,
+    going: 4,
+    none: 1,
+    total: 15,
+    observedFrom: '2025-06-30',
+    observedThrough: '2025-06-30',
+    sources: [{
+      sourceId: 'cadp2627',
+      pages: [
+        'p.54-55 (s.2.3.2 Medical Services)',
+        'p.55 (s.2.3.2 Primary Health Care budget allocation 2024/2025)',
+        'p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)',
+      ],
+    }],
+  });
+});
+
 test('a missing project identity is excluded and reported', () => {
   assert.deepEqual(
     statusCountsFor([record({ projectId: '' })]),
@@ -155,6 +198,23 @@ test('physical progress is selected instead of an earlier expenditure percentage
 
 test('financial progress is not interpreted as physical progress', () => {
   assert.equal(pct('Financial progress 100%'), null);
+});
+
+test('financial completion and negated completion claims are unsupported', () => {
+  assert.equal(pct('Financial completion 100%'), null);
+  assert.equal(pct('Not 100% complete'), null);
+  assert.equal(pct('completion not 100%'), null);
+});
+
+test('Unicode minus signs are not discarded before percentage parsing', () => {
+  assert.equal(pct('Physical progress −10%'), null);
+});
+
+test('a dated financial-only status is not counted as a completed project', () => {
+  assert.deepEqual(
+    statusCountsFor([record({ status: 'financial completion 100%' })]),
+    { ...empty(), unreported: 1 },
+  );
 });
 
 test('a target completion value is not selected over an observed physical progress value', () => {

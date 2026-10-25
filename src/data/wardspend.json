@@ -3982,7 +3982,8 @@
    "status": "completion 43% (as at 30 Jun 2025)",
    "sourceId": "cadp2627",
    "page": "p.54-55 (s.2.3.2 Medical Services)",
-   "projectId": "P-b1944f0"
+   "projectId": "P-b1944f0",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "bokeira",
@@ -3995,7 +3996,8 @@
    "status": "completion 95% (as at 30 Jun 2025)",
    "sourceId": "cadp2627",
    "page": "p.54-55 (s.2.3.2 Medical Services)",
-   "projectId": "P-610ca53"
+   "projectId": "P-610ca53",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "ekerenyo",
@@ -4008,7 +4010,8 @@
    "status": "completion 47% (as at 30 Jun 2025)",
    "sourceId": "cadp2627",
    "page": "p.54-55 (s.2.3.2 Medical Services)",
-   "projectId": "P-bb6f38c"
+   "projectId": "P-bb6f38c",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "magwagwa",
@@ -4021,7 +4024,8 @@
    "status": "completion 0% (as at 30 Jun 2025)",
    "sourceId": "cadp2627",
    "page": "p.54-55 (s.2.3.2 Medical Services)",
-   "projectId": "P-d116175"
+   "projectId": "P-d116175",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "nyamaiya",
@@ -4346,7 +4350,8 @@
    "status": "65% – Ongoing",
    "sourceId": "cadp2627",
    "page": "p.55 (s.2.3.2 Primary Health Care budget allocation 2024/2025)",
-   "projectId": "P-0493bd5"
+   "projectId": "P-0493bd5",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": null,
@@ -4450,7 +4455,8 @@
    "status": "100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-0b87b5e"
+   "projectId": "P-0b87b5e",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "esise",
@@ -4463,7 +4469,8 @@
    "status": "expenditure up to 30 June 2025; 100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-0b87b5e"
+   "projectId": "P-0b87b5e",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "bogichora",
@@ -4476,7 +4483,8 @@
    "status": "100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-344a863"
+   "projectId": "P-344a863",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "bogichora",
@@ -4489,7 +4497,8 @@
    "status": "expenditure up to 30 June 2025; 100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-344a863"
+   "projectId": "P-344a863",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "bosamaro",
@@ -4502,7 +4511,8 @@
    "status": "100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-9e8373f"
+   "projectId": "P-9e8373f",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "bosamaro",
@@ -4515,7 +4525,8 @@
    "status": "expenditure up to 30 June 2025; 100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-9e8373f"
+   "projectId": "P-9e8373f",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "ekerenyo",
@@ -4528,7 +4539,8 @@
    "status": "100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-549ea2d"
+   "projectId": "P-549ea2d",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "ekerenyo",
@@ -4541,7 +4553,8 @@
    "status": "expenditure up to 30 June 2025; 100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-549ea2d"
+   "projectId": "P-549ea2d",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "itibo",
@@ -4554,7 +4567,8 @@
    "status": "100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-c6ee20e"
+   "projectId": "P-c6ee20e",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "itibo",
@@ -4567,7 +4581,8 @@
    "status": "expenditure up to 30 June 2025; 100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-c6ee20e"
+   "projectId": "P-c6ee20e",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "magwagwa",
@@ -4580,7 +4595,8 @@
    "status": "100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-e1db09c"
+   "projectId": "P-e1db09c",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "magwagwa",
@@ -4593,7 +4609,8 @@
    "status": "expenditure up to 30 June 2025; 100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-e1db09c"
+   "projectId": "P-e1db09c",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "rigoma",
@@ -4606,7 +4623,8 @@
    "status": "100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-ab34c05"
+   "projectId": "P-ab34c05",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "rigoma",
@@ -4619,7 +4637,8 @@
    "status": "expenditure up to 30 June 2025; 100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-ab34c05"
+   "projectId": "P-ab34c05",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "magombo",
@@ -4632,7 +4651,8 @@
    "status": "100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-788a27d"
+   "projectId": "P-788a27d",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "magombo",
@@ -4645,7 +4665,8 @@
    "status": "expenditure up to 30 June 2025; 100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-788a27d"
+   "projectId": "P-788a27d",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "nyansiongo",
@@ -4658,7 +4679,8 @@
    "status": "100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-27c3a61"
+   "projectId": "P-27c3a61",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "nyansiongo",
@@ -4671,7 +4693,8 @@
    "status": "expenditure up to 30 June 2025; 100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-27c3a61"
+   "projectId": "P-27c3a61",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": "manga",
@@ -4736,7 +4759,8 @@
    "status": "100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-bf07028"
+   "projectId": "P-bf07028",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": null,
@@ -4749,7 +4773,8 @@
    "status": "expenditure up to 30 June 2025; 100% Complete",
    "sourceId": "cadp2627",
    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)",
-   "projectId": "P-bf07028"
+   "projectId": "P-bf07028",
+   "observedOn": "2025-06-30"
   },
   {
    "ward": null,

@@ -21,9 +21,11 @@ npm install
 npm run dev      # local preview at http://localhost:4321
 npm run build    # builds the site into dist/ (about 90 pages)
 npm run preview  # serves the built site
+npm test         # Node regression tests
+python3 -m unittest discover -s scripts -p 'test_*.py'  # data and export safeguards
 ```
 
-Requires Node.js 18.20.8 or later (Astro 5).
+Requires Node.js 18.20.8 or later (Astro 5). Python 3 is used by data scripts and their tests.
 
 ## Where things live
 

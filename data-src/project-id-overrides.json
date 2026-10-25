@@ -1,1 +1,4 @@
-{ "note": "Manual matches for projects whose names differ between documents. Map a project key (ward|normalised name, as printed by scripts/project-ids.py --keys) to the key it should share an ID with. Add a reason and source for each.", "merge": {} }
+{
+ "note": "Reviewed aliases map a ward|normalized-name key from scripts/project-ids.py --keys to an existing stable projectId. Each entry requires a reason and source. Do not add uncertain matches or merge existing IDs here; existing IDs are preserved, and any migration needs a separately reviewed URL/identity plan.",
+ "aliases": {}
+}

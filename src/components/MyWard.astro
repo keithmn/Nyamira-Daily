@@ -3,9 +3,10 @@
 // script in Base shows the one the reader picked. Without JavaScript the
 // "choose your ward" block shows, with plain links to every ward page.
 import wards from '../data/wards.json';
-import { total } from '../lib/projects.js';
+import { budget2526, total } from '../lib/projects.js';
 import census from '../data/census.json';
-import { ksh, num } from '../lib/fmt.js';
+import { num } from '../lib/fmt.js';
+import { amountLabel } from '../lib/project-amounts.js';
 import { getAlerts } from '../lib/alerts-data.js';
 import LevelBadge from './LevelBadge.astro';
 const activeAlerts = (await getAlerts()).filter((a) => a.status === 'active');
@@ -39,7 +40,7 @@ const coming = {
           </div>
         </>
       )}
-      {topic === 'projects' && (() => { const b = total(w.slug, '2025/26', 'budgeted'); const r = total(w.slug, '2023/24', 'contract'); return <p><strong>{b ? ksh(b.amount) : '—'}</strong> in ward projects budgeted for FY2025/26{r ? `, and ${ksh(r.amount)} in FY2023/24 road maintenance contracts` : ''}.</p>; })()}
+      {topic === 'projects' && (() => { const b = budget2526(w.slug); const r = total(w.slug, '2023/24', 'contract'); return <p><strong>{amountLabel(b)}</strong> in ward projects budgeted for FY2025/26{r ? `, and ${amountLabel(r.amount)} in FY2023/24 road maintenance contracts` : ''}.</p>; })()}
       {topic === 'people' && (() => { const c = census.wards.find((x) => x.ward === w.slug); return <p>The 2019 census did not publish ward populations. {c?.votersRegisteredEarlier ? <>{w.name} had <strong>{num(c.votersRegisteredEarlier)}</strong> registered voters on the IEBC 2018 register (as reported in the county's CIDP 2018–22).</> : ''}</p>; })()}
       {coming[topic] && <p class="muted">Coming soon for {w.name}: {coming[topic]}.</p>}
       <div><a class="btn" href={`/ward/${w.slug}/`}>Open the {w.name} ward page</a></div>

@@ -1,7 +1,7 @@
 {
   "updated": "2026-10-22",
   "unit": "KSh million",
-  "note": "County totals (County Executive and County Assembly together), as reported by the Controller of Budget (CoB) in its annual County Governments Budget Implementation Review Report. The approved budget is the final (supplementary) budget where CoB says so.",
+  "note": "County totals (County Executive and County Assembly together), as reported by the Controller of Budget (CoB) in its annual County Governments Budget Implementation Review Report. The budget is the final approved/revised (supplementary) budget where CoB says so; expenditure is reported actual spending. These fields do not include a separate cash-release series. Equitable share is named as the CoB-reported measure and is not labelled as cash released.",
   "years": [
     { "fy": "2013/14", "budget": 3400, "spent": 2400, "dev": 726.1, "rec": 1700, "devAbs": 44, "osrTarget": 100.0, "osr": 94.0, "eqShare": 3300, "pending": null, "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-20132014/", "page": "pp.146–148" },
     { "fy": "2014/15", "budget": 4670, "spent": 3620, "dev": 1270, "rec": 2360, "devAbs": 65.2, "osrTarget": 219.05, "osr": 104.20, "eqShare": 3610, "pending": 403.34, "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-201415/", "page": "pp.205–207" },

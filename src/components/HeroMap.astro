@@ -7,7 +7,7 @@
 // - Motion stops for readers who ask their phone for reduced motion.
 import geo from '../data/geo.json';
 import wards from '../data/wards.json';
-import { questions, total } from '../lib/projects.js';
+import { budget2526, questions } from '../lib/projects.js';
 import { ksh } from '../lib/fmt.js';
 import { subCounties } from '../nav.js';
 import AlertMarks from './AlertMarks.astro';
@@ -17,11 +17,11 @@ const liveAlerts = (await getAlerts()).filter(isLive);
 
 const subClass = { 'Borabu': 's1', 'Kitutu Masaba': 's2', 'North Mugirango': 's3', 'West Mugirango': 's4' };
 const info = Object.fromEntries(wards.map((w) => {
-  const b = total(w.slug, '2025/26', 'budgeted');
+  const b = budget2526(w.slug);
   return [w.slug, {
     name: w.name, sub: w.subCounty, href: `/ward/${w.slug}/`,
     services: w.facilities.length,
-    budget: b ? ksh(b.amount) : null,
+    budget: b == null ? null : ksh(b),
     // Several 2025/26 lines for these two wards are printed as KSh 0 (see docs/DATA.md and wardspend.json notes)
     low: w.slug === 'nyansiongo' || w.slug === 'nyamaiya',
     questions: questions.filter((q) => q.ward === w.slug).length,

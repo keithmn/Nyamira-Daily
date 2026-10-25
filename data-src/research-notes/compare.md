@@ -62,6 +62,13 @@ Within that OSR, ordinary OSR was only 134.53m of its 400m target (34%). FIF was
 - Budgets are at different supplementary stages (I vs II).
 - The 2019 census populations are about six years older than FY 2024/25. Spending per person computed from them reflects 2019 population.
 
+### Published comparison treatment
+
+- `compare.json` retains CoB's raw Kisii Table 2.1 `osrPerformancePct` of 178% for traceability. The comparison chart uses `osrComparablePct: 64`, the report's section 3.16.2 ordinary-OSR-only rate (printed p.183); this compares ordinary receipts of KSh 556.54m with the ordinary-only target of KSh 865m. The table shows Kisii's all-source actual separately from that ordinary-only target and labels the scope mismatch.
+- Other county comparison rates use the CoB Table 2.1 performance values, whose actual/target scopes match. Their `osrComparablePct` is checked against rounded `osrActual / osrTarget`.
+- Budget and expenditure remain separate fields and are labeled as approved/revised budget and actual expenditure. A budget-minus-expenditure difference is not a cash-release measure. The dataset has no separate cash-release series.
+- `money.json`'s equitable-share values are labeled as CoB-reported equitable share; the site does not describe them as cash releases.
+
 ## Gaps
 - **No per-county averages** appear in chapter 2. Only all-county totals are given. Any average would have to be computed by the site, for example total ÷ 47.
 - Exchequer releases, pending bills and other details were not collected because they were out of scope. They are available in the same sections.

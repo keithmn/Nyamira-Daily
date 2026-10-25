@@ -12,10 +12,10 @@ const srcs = Object.fromEntries(E.sources.map((s) => [s.id, s]));
 const gov = (y) => { const g = E.elections.find((e) => e.year === y && e.race === 'Governor'); return { g, w: g.candidates.find((c) => c.elected) }; };
 const reg = (y) => E.registeredByWard.filter((r) => r.year === y).reduce((n, r) => n + r.registered, 0);
 const pairs = [
-  { t: 'Approved budget', then: bn(a.budget), now: bn(z.budget), times: x(a.budget, z.budget) },
-  { t: 'Money actually spent', then: bn(a.spent), now: bn(z.spent), times: x(a.spent, z.spent) },
-  { t: 'Sent by the national government (equitable share)', then: bn(a.eqShare), now: bn(z.eqShare), times: x(a.eqShare, z.eqShare) },
-  { t: 'Raised locally (fees, rates, permits)', then: mn(a.osr), now: mn(z.osr), times: x(a.osr, z.osr), note: 'From FY2022/23 this includes hospital fees, so the two years are not directly comparable.' },
+  { t: 'Final approved/revised budget', then: bn(a.budget), now: bn(z.budget), times: x(a.budget, z.budget) },
+  { t: 'Actual expenditure reported', then: bn(a.spent), now: bn(z.spent), times: x(a.spent, z.spent) },
+  { t: 'Equitable share reported by CoB', then: bn(a.eqShare), now: bn(z.eqShare), times: x(a.eqShare, z.eqShare), note: 'These are the reported equitable-share amounts; this dataset does not provide a separate cash-release series.' },
+  { t: 'Own-source revenue collected', then: mn(a.osr), now: mn(z.osr), times: null, note: 'Not directly comparable: the reporting scope changes from FY2022/23 when hospital fees were included.' },
 ];
 const timeline = [
   ...[2013, 2017, 2022].map((y) => { const { g, w } = gov(y); return { when: String(y), what: `${w.name} (${w.partyAbbr ?? w.party}) elected Governor with ${w.votes.toLocaleString('en-KE')} votes.`, src: srcs[g.sourceId], label: 'verified' }; }),
@@ -31,7 +31,7 @@ const timeline = [
         <div class="tn">
           <span class="eyebrow">{p.t}</span>
           <div class="tn-row"><span><small>{a.fy}</small><b>{p.then}</b></span><span class="tn-arrow" aria-hidden="true">→</span><span><small>{z.fy}</small><b>{p.now}</b></span></div>
-          <span class="small">About <strong>{p.times} times</strong> as much.{p.note && ` ${p.note}`}</span>
+          <span class="small">{p.times == null ? <strong>{p.note}</strong> : <>About <strong>{p.times} times</strong> as much. {p.note}</>}</span>
         </div>
       ))}
     </div>
@@ -39,7 +39,7 @@ const timeline = [
       <div class="figure"><h3 class="mini">Development budget used, {a.fy}</h3><SplitBar title={`Development budget ${a.fy}`} parts={[{ value: a.devAbs, label: 'used', tone: 'good' }, { value: 100 - a.devAbs, label: 'not used', tone: 'gap' }]} /></div>
       <div class="figure"><h3 class="mini">Development budget used, {z.fy}</h3><SplitBar title={`Development budget ${z.fy}`} parts={[{ value: z.devAbs, label: 'used', tone: 'good' }, { value: 100 - z.devAbs, label: 'not used', tone: 'gap' }]} /></div>
     </div>
-    <p class="source"><EvidenceLabel kind="official" /> Controller of Budget annual reports for <a href={a.src} rel="noopener">FY{a.fy}</a> ({a.page}) and <a href={z.src} rel="noopener">FY{z.fy}</a> ({z.page}). Amounts are not adjusted for inflation. "Times as much" is worked out by Nyamira Daily.</p>
+    <p class="source"><EvidenceLabel kind="official" /> Controller of Budget annual reports for <a href={a.src} rel="noopener">FY{a.fy}</a> ({a.page}) and <a href={z.src} rel="noopener">FY{z.fy}</a> ({z.page}). Amounts are not adjusted for inflation. "Times as much" is worked out by Nyamira Daily and is shown only where the measure remains comparable.</p>
   </section>
 
   <section class="cols-2">

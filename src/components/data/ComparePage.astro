@@ -18,9 +18,9 @@ const ind = [
   { key: 'dev', title: 'Development budget used, 2024/25', say: 'of the development budget (roads, buildings, water) was spent.',
     val: (c) => c.devAbsorptionPct, fmt: pct, nat: nat.devAbsorptionPct,
     note: 'As stated by the Controller of Budget (Table 2.5). Budgets are at different revision stages: Nyamira, Bomet and Kericho used their first supplementary budget; Kisii, Homa Bay and Migori their second.' },
-  { key: 'osr', title: 'Local revenue collected against target, 2024/25', say: 'of the county\'s own revenue target (fees, rates, permits, hospital fees) was collected.',
-    val: (c) => c.osrPerformancePct, fmt: pct, nat: nat.osrPerformancePct,
-    note: 'As stated by the Controller of Budget (Table 2.1). Hospital fees (FIF) are more than half of local revenue in most of these counties. Kisii set no target for hospital fees, so its figure (above 100%) is not comparable; the report\'s own text puts it at 64%.' },
+  { key: 'osr', title: 'Local revenue collected against a comparable target, 2024/25', say: 'of a like-for-like own-source revenue target was collected.',
+    val: (c) => c.osrComparablePct, fmt: pct, nat: nat.osrComparablePct,
+    note: 'Controller of Budget figures. Kisii’s chart value uses the report text’s 64% ordinary-revenue rate (p.183); its Table 2.1 rate of 178% compares all revenue, including hospital fees, against a target that excludes hospital fees. The other county rates use Table 2.1, whose actual and target scopes match.' },
   { key: 'devShare', title: 'Share of spending on development, 2024/25', say: 'of all county spending went on development rather than salaries and running costs.',
     val: (c) => (c.devSpent / c.spent) * 100, fmt: pct, nat: (nat.devSpent / nat.spent) * 100,
     note: 'Worked out by Nyamira Daily from the Controller of Budget\'s development and total spending (Table 2.5).' },
@@ -43,12 +43,12 @@ const ind = [
   <details>
     <summary>See the detail: every figure, with its page</summary>
     <div class="table-box"><table class="cards">
-      <thead><tr><th>County</th><th class="num">Population 2019</th><th class="num">Budget</th><th class="num">Spent</th><th class="num">Development spent</th><th class="num">Local revenue (target)</th><th>Notes</th></tr></thead>
+      <thead><tr><th>County</th><th class="num">Population 2019</th><th class="num">Approved/revised budget</th><th class="num">Actual expenditure</th><th class="num">Development expenditure</th><th class="num">Local revenue collected / target</th><th>Notes</th></tr></thead>
       <tbody>{[...C.counties, { county: 'All 47 counties', population2019: natPop, ...nat }].map((c) => (
-        <tr><td>{c.county}</td><td class="num" data-label="Population 2019">{c.population2019.toLocaleString('en-KE')}</td><td class="num" data-label="Budget">KSh {(c.budget / 1e9).toFixed(2)}B</td><td class="num" data-label="Spent">KSh {(c.spent / 1e9).toFixed(2)}B</td><td class="num" data-label="Development spent">KSh {(c.devSpent / 1e9).toFixed(2)}B</td><td class="num" data-label="Local revenue">KSh {(c.osrActual / 1e6).toFixed(0)}M ({(c.osrTarget / 1e6).toFixed(0)}M)</td><td class="small" data-label="Notes">{c.notes}</td></tr>
+        <tr><td>{c.county}</td><td class="num" data-label="Population 2019">{c.population2019.toLocaleString('en-KE')}</td><td class="num" data-label="Approved/revised budget">KSh {(c.budget / 1e9).toFixed(2)}B</td><td class="num" data-label="Actual expenditure">KSh {(c.spent / 1e9).toFixed(2)}B</td><td class="num" data-label="Development expenditure">KSh {(c.devSpent / 1e9).toFixed(2)}B</td><td class="num" data-label="Local revenue collected / target">{c.county === 'Kisii' ? <>KSh {(c.osrActual / 1e6).toFixed(0)}M total actual; KSh {(c.osrTarget / 1e6).toFixed(0)}M ordinary-only target</> : <>KSh {(c.osrActual / 1e6).toFixed(0)}M / {(c.osrTarget / 1e6).toFixed(0)}M</>}</td><td class="small" data-label="Notes">{c.notes}</td></tr>
       ))}</tbody>
     </table></div>
-    <p class="small muted">{C.unit} Page numbers are the report's printed pages; {C.pageNumbering}</p>
+    <p class="small muted">{C.unit} Budget is the approved/revised amount CoB reports; supplementary stages differ by county (Supplementary I for Nyamira, Bomet and Kericho; Supplementary II for Kisii, Homa Bay and Migori). Expenditure is actual reported spending, not an allocation or cash-release measure. Kisii’s total revenue and ordinary-only target are shown separately because their scopes differ. Page numbers are the report's printed pages; {C.pageNumbering}</p>
   </details>
-  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Nyamira ikilinganishwa na kaunti jirani (Kisii, Bomet, Kericho, Homa Bay na Migori) kwa matumizi kwa kila mtu, matumizi ya bajeti ya maendeleo na mapato ya ndani, mwaka 2024/25.</p></div>
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Nyamira ikilinganishwa na kaunti jirani (Kisii, Bomet, Kericho, Homa Bay na Migori) kwa matumizi kwa kila mtu, matumizi ya bajeti ya maendeleo na mapato ya ndani yanayolinganishwa kwa msingi unaofanana, mwaka 2024/25.</p></div>
 </div>

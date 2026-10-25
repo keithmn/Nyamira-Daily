@@ -1,6 +1,6 @@
 # Build status — ND-01 project-status aggregation
 
-Updated 25 Oct 2026. Local implementation branch; not committed, pushed, merged or deployed.
+Initial handoff written 25 Oct 2026. The implementation was subsequently committed and pushed as `f0b6c6f592becdf3d3d0c95b09b7c877ea0e0a89`; the bounded parser correction below is uncommitted.
 
 ## Starting point
 
@@ -86,3 +86,76 @@ Review primary sources to establish whether the currently undated project-progre
 
 - Status: **B. Awaiting specified manual checks.** ND-01 is not owner-approved.
 - The proposed next package is a primary-source audit for explicit observation dates only. Prerequisites: reviewer-approved source inventory and access to the cited original source documents/pages; record exactly which dated statement supports each proposed observation date. Do not infer from fiscal-year or publication dates, and do not edit date fields until evidence and proposed changes are reviewed separately.
+
+## Current state: conservative parser correction (25 Oct 2026, 20:19 EAT)
+
+### Checkpoint and worktree
+
+- Existing implementation checkpoint: branch `fix/nd-01-project-status`, commit `f0b6c6f592becdf3d3d0c95b09b7c877ea0e0a89`, tracking `origin/fix/nd-01-project-status`. The previous turn confirmed that commit was pushed. This correction does not rewrite that history.
+- Correction is limited to `src/lib/project-status.js` and `src/lib/project-status.test.js`; both are modified, unstaged, and uncommitted. No source dataset, project ID, public URL, or observation date was changed.
+- The branch remains under review and is not owner-approved. Merge and deployment status have not been independently verified.
+
+### Reproduction and correction
+
+- Added regressions before changing the parser. The focused pre-correction run failed all 3 new tests: financial/negated completion parsing, Unicode minus handling, and dated financial-only aggregation. The failing expectations were `null`/`unreported`; the old parser reported 100, 10, and one completed project respectively.
+- The parser now rejects `financial` only when it directly qualifies a recognized progress/completion label; rejects `not` in the local phrase between a completion label and value, or immediately before an unlabelled percentage; and includes Unicode minus in the signed numeric token so the existing unsupported-signed-value guard rejects it. This is local-context handling, not a global ban on those words or punctuation.
+- Synthetic outputs now are: `Financial completion 100%` → `null`; `Not 100% complete` → `null`; `completion not 100%` → `null`; `Physical progress −10%` → `null`. The legitimate expenditure-plus-physical and target-plus-current-physical cases still return 50 and 40.
+- Search of current `wardspend.json` found zero status strings matching these four requested synthetic phrase patterns. These tests do not establish errors in official records.
+
+### Verification and current coverage
+
+- `npm test` — passed: 25 tests, 25 passed, 0 failed, 0 skipped.
+- `npm run build` — passed: Astro built 504 pages.
+- `git diff --check` — passed after the code and handoff edits.
+- Recomputed current data coverage is unchanged: 15 included IDs, 111 undated, 0 conflicts, 46 unreported/unsupported, 0 unidentified. The parser correction changes no current record classifications.
+- The shared `pct()` consumers were checked in the project detail and ward pages. Both guard meter rendering with `pc != null`; the status text remains visible when percentage parsing returns null.
+- Browser tooling/pages were unavailable for visual inspection. Manual checks remain outstanding at 390px and 1280px, light and dark, for `/data/money/`, `/ward/gesima/`, and `/ward/kiabonyoru/`. Check layout/overflow, keyboard access, source links, date distinctions, counts against bars, and the explanatory empty state. Awaiting owner verification; no visual pass is claimed.
+
+## Primary-source date audit findings (25 Oct 2026)
+
+- The owner directed the next package to be a primary-source audit for explicit dates. The revised two-product brief and acceptance tests were read from `/Users/test/Documents`; the repository copies of `START_HERE.md`, `AUDIT_ADDENDUM.md`, and the historical `FINDINGS.md` were not available. The later two-product direction remains controlling; this audit does not create a newsroom.
+- Baseline on the current worktree, including the uncommitted parser correction: `npm test` passed with 25/25; `npm run build` passed with 504 pages. No application source or test file changed during the date audit.
+- Four cited official PDFs were retrieved and inspected. Evidence supports `observedOn: 2025-06-30` at the source-record level for 15 IDs inside County Annual Development Plan 2026/2027 section 2.3.2, explicitly titled “Status of projects as at 30th June 2025,” printed pp. 54–61. One candidate, Biticha Morera OPD (`P-0493bd5`), has a different ID and 65% status alongside a 62% Biticha Morera OPD record under `P-5ab05f9` in the same section. The user approved applying the date to both source rows without merging IDs; the current aggregation counts them separately pending identity review. The date-field changes and current coverage are recorded below.
+- The other 96 currently undated IDs remain unsupported by the inspected citations: 82 in the County Annual Development Plan 2025/2026, 8 in CoB FY2023/24 Table 3.234, and 6 in CoB FY2024/25 Table 3.416. Their fiscal/reporting periods are not substituted for observation dates. CoB Table 3.417’s explicit date applies to its separate stalled-project list and is not transferred to the six Table 3.416 records.
+- The detailed evidence, candidate IDs, official URLs, and retrieved-PDF SHA-256 fingerprints are in `docs/PROJECT_DATE_AUDIT.md`. At the time of the audit write-up, coverage was 15 included / 111 undated / 46 without supported physical progress / 0 conflicts / 0 unidentified.
+- The separate ND-01 browser checks remain outstanding; ND-01 is not marked owner-approved.
+
+## Current state: approved observation-date update (25 Oct 2026)
+
+- **Approval and scope:** the user approved applying the explicit CADP section date to all 15 candidate IDs at row level, including `P-0493bd5`, without merging it with `P-5ab05f9`. The unresolved identity ambiguity remains a risk: current project counts treat the two IDs separately.
+- **Data change:** added `observedOn: "2025-06-30"` to 25 existing status rows for the 15 candidate IDs in `src/data/wardspend.json`. No project IDs, names, status values, amounts, or URLs changed. The source-backed date and distinction from expected completion dates are documented in `docs/PROJECT_DATE_AUDIT.md` and `docs/DATA.md`.
+- **Regression coverage:** added a test that checks the exact 15 reviewed IDs, all 25 dated rows, the CADP source, and the aggregate classification. The test failed before the data change on the missing explicit dates and passed afterward.
+- **Coverage change:** before: 15 included (0 reported at 100%, 15 with reported progress from 1% to 99%, 0 at 0%), 111 undated, 46 unsupported/unreported, 0 conflicts, 0 unidentified. After: 30 included (10 reported at 100%, 19 with reported progress from 1% to 99%, 1 at 0%), 96 undated, 46 unsupported/unreported, 0 conflicts, 0 unidentified. The 15 newly dated rows contribute 10 at 100%, 4 from 1% to 99%, and 1 at 0%. This is calculation coverage, not the full county project inventory; 100% reported does not establish operation. The same-page Biticha Morera records may cause a distinct-project overcount until identity review.
+- **Verification for this update:** `node --test --test-name-pattern='approved CADP source dates' src/lib/project-status.test.js` failed before the source edit as expected, then passed after it (1 pass, 0 failures). Final `npm test` passed (26 tests, 0 failures, 0 skipped); `npm run build` passed (504 pages); `git diff --check` passed. The independent data assertion verified all 25 candidate rows have the approved date and the post-update coverage is 30 included / 96 undated / 46 unsupported / 0 conflicts / 0 unidentified.
+- **Still outstanding:** browser review at 390px and 1280px, in light and dark mode, for `/data/money/`, `/ward/gesima/`, and `/ward/kiabonyoru/`. Browser pages are not shared in this session; these checks await owner verification. Also unresolved: whether `P-0493bd5` and `P-5ab05f9` are separate work packages or duplicate/conflicting records.
+
+## Current state: ND-06 identity safeguards (25 Oct 2026)
+
+- **Finding:** `scripts/project-ids.py` regenerated every ID from the current ward/name key. A renamed row could therefore be assigned a new ID and break its existing project link. The override file was an empty key-to-key merge map with no structure requiring a reason or source.
+- **Change:** the script now treats existing `projectId` values as authoritative, reuses an existing ID for an identical normalized ward/name key, and assigns deterministic IDs only to new unmatched keys. A different name key can use a reviewed alias that names a currently existing ID and includes both a reason and source. Invalid aliases, conflicting IDs for one key, and ID collisions fail explicitly. `--keys` remains a read-only listing command.
+- **Conservative identity handling:** no real alias was added because the source review has not established that similar Biticha Morera OPD entries are the same work package. Existing IDs are not merged or migrated, preserving current public project URLs. Same-facility projects with distinct work-package names remain separate unless an evidence-backed alias is later approved.
+- **Tests:** added `scripts/test_project_ids.py` with seven unit cases for current-data ID preservation, renamed records, reusing normalized keys, explicitly reviewed aliases, distinct phases at the same facility, missing review metadata, and contradictory IDs. Current identity data remains 404 rows / 349 IDs; no source ID changed.
+- **Verification:** `python3 -m unittest scripts/test_project_ids.py` passed (7 tests); `npm test` passed (26 tests, 0 failures); `npm run build` passed (504 pages); `git diff --check` passed. `python3 scripts/project-ids.py --keys | head -n 8` smoke-tested key listing without writing data. An independent comparison confirmed all 404 current `projectId` values match the starting commit.
+- **Files:** `scripts/project-ids.py`, `scripts/test_project_ids.py`, `data-src/project-id-overrides.json`, `docs/DATA.md`, `docs/DECISIONS.md`, `docs/STATUS.md`, and this handover. The ND-01 parser/date changes already present in the worktree remain unrelated and preserved.
+- **Remaining evidence need:** source audit/reviewer must determine whether to alias any renamed or similar-name records, including the two Biticha Morera OPD IDs. Do not infer or merge identities; next data work requires cited evidence and approval.
+- **Visual review:** this tooling change has no page/UI changes. The earlier ND-01 browser checks remain outstanding and await owner verification.
+
+## Current state: ND-07 project amount handling (25 Oct 2026)
+
+- **Finding:** the current `wardspend.json` has 404 numeric project amounts, including 13 explicit zeros and no missing values. Some UI code treated `0` as false and rendered “Printed as 0 or blank,” omitted the amount from project lists, counted zero and missing rows together, or defaulted absent ward totals to numeric zero for charts. The v1 CSV represented the current zeros as `0` but had no explicit availability field.
+- **Change:** added `src/lib/project-amounts.js` to distinguish `reported_zero`, `reported_amount`, and `unavailable`; invalid/negative values fail. Ward budget sums are derived from source budget lines and remain unavailable if any component is unavailable. Charts leave the bar empty and display “Amount not reported” for unknown values; labels and receipts preserve reported KSh 0. Project details, ward lists, sector listings, adoption lists, embeds and printable sheets now distinguish the states.
+- **Downloads/API:** preserved `/files/projects-v1.csv` with its original columns and added `projects-v2.csv` with an `amount_status` column. `scripts/build-projects-csv.py` regenerates v2; its tests cover reported zero, positive, missing, invalid values and CSV serialization. `/api/projects.json` keeps numeric 0 separate from null/missing and explains that contract in its description.
+- **Coverage:** current records remain 404 numeric amounts: 391 positive, 13 explicit zero, 0 unavailable. All current FY2025/26 ward totals match their source-line sums; no figures changed.
+- **Tests:** added `src/lib/project-amounts.test.js` and `scripts/test_project_amounts_csv.py`. The Node suite checks amount states, unavailable aggregate behavior, and that all 20 computed ward budget totals still match the current source totals. The Python suite covers the CSV classification and export.
+- **Files:** amount helper/tests, amount-consuming project/ward components and pages, API description, generated CSV v2 and its generator/tests, download copy, `docs/DATA.md`, `docs/DECISIONS.md`, and this handover. Preserve all earlier ND-01/date-audit/ND-06 work.
+- **Visual review:** page displays changed. Browser pages are not shared; no visual pass is claimed. Manually verify Money and a ward with reported-zero lines, especially Nyansiongo or Nyamaiya, at 390px and 1280px in light and dark modes.
+- **Final verification:** `npm test` passed (31 tests, 0 failed); `python3 -m unittest discover -s scripts -p 'test_*.py'` passed (12 tests); `python3 scripts/build-projects-csv.py` generated 404 rows with 391 `reported_amount`, 13 `reported_zero`, and 0 `unavailable`; `npm run build` passed (504 pages); `git diff --check` passed. The row-level CSV test verifies `0`, blank, and positive values remain distinct. The current JSON dataset contains 404 numeric amounts (13 zero); no amount figure was changed.
+
+## Current state: ND-14 financial comparison rules (25 Oct 2026)
+
+- **Finding:** the county comparison chart used Kisii's reported 178% own-source revenue performance, which divides all revenue (including facility fees) by a target that excludes facility fees. The source's like-for-like ordinary-revenue rate is 64% (section 3.16.2, printed p.183). The UI marked Kisii “not comparable” but still plotted 178%. Budget tables also used generic “Budget”/“Spent” labels; the longitudinal budget-minus-expenditure text could be read as a cash-release figure. The data contains no separate cash-release series.
+- **Change:** added `osrComparablePct` alongside the untouched reported `osrPerformancePct`; Kisii now uses the source's ordinary-only 64% for the chart, while the detail table labels its all-source actual and ordinary-only target separately. The comparison table distinguishes approved/revised budget from actual expenditure and notes that supplementary stages differ by county. Money charts and the Then/Now panel clarify that budget less expenditure is not a measure of cash released. Equitable share is named as the CoB-reported measure, without claiming it is a cash-release series. The Then/Now panel no longer calculates an OSR “times as much” comparison across the reporting-scope change.
+- **Figures:** no underlying budget, expenditure, revenue, or equitable-share amounts changed. Kisii's raw 178% source value is retained for traceability; the comparable 64% value is sourced to the report's ordinary-only text. Data source references are in `compare.json` and `data-src/research-notes/compare.md`.
+- **Regression coverage:** added checks that the five comparable county rates match reported actual/target arithmetic, Kisii's raw and comparable values remain distinct and trace to p.183, the all-county rate reconciles, and the money dataset labels the measure types and release-series gap.
+- **Visual review:** comparison and money views changed. Browser pages are not shared; no visual check is claimed. Review `/data/money/` and its comparison toggle at 390px and 1280px, in light and dark modes, especially the Kisii row, target-scope note, and accessible table layout.
+- **Verification:** `node --test src/lib/financial-comparisons.test.js` passed (3 tests); full `npm test` passed (34 tests, 0 failures); `python3 -m unittest discover -s scripts -p 'test_*.py'` passed (12 tests); `npm run build` passed (504 pages); `git diff --check` passed.

@@ -41,7 +41,8 @@
    "recurrentBudget": 5232290000, 
    "recurrentAbsorptionPct": 88, 
    "overallAbsorptionPct": 70, 
-   "osrPerformancePct": 87, 
+   "osrPerformancePct": 87,
+   "osrComparablePct": 87,
    "pages": {
     "budget": "p.9 Table 2.5", 
     "spent": "p.9 Table 2.5", 
@@ -54,7 +55,8 @@
     "overallAbsorptionPct": "p.9 Table 2.5", 
     "osrTarget": "p.3 Table 2.1", 
     "osrActual": "p.3 Table 2.1", 
-    "osrPerformancePct": "p.3 Table 2.1", 
+    "osrPerformancePct": "p.3 Table 2.1",
+    "osrComparablePct": "p.3 Table 2.1",
     "population2019": "KNBS Vol I p.7 Table 2.2"
    }, 
    "ch3Exact": {
@@ -94,7 +96,8 @@
    "recurrentBudget": 9009240000, 
    "recurrentAbsorptionPct": 83, 
    "overallAbsorptionPct": 66, 
-   "osrPerformancePct": 178, 
+   "osrPerformancePct": 178,
+   "osrComparablePct": 64,
    "pages": {
     "budget": "p.9 Table 2.5", 
     "spent": "p.9 Table 2.5", 
@@ -107,7 +110,8 @@
     "overallAbsorptionPct": "p.9 Table 2.5", 
     "osrTarget": "p.3 Table 2.1", 
     "osrActual": "p.3 Table 2.1", 
-    "osrPerformancePct": "p.3 Table 2.1", 
+    "osrPerformancePct": "p.3 Table 2.1",
+    "osrComparablePct": "p.183 s.3.16.2 (ordinary OSR only)",
     "population2019": "KNBS Vol I p.7 Table 2.2"
    }, 
    "ch3Exact": {
@@ -147,7 +151,8 @@
    "recurrentBudget": 6466840000, 
    "recurrentAbsorptionPct": 90, 
    "overallAbsorptionPct": 80, 
-   "osrPerformancePct": 76, 
+   "osrPerformancePct": 76,
+   "osrComparablePct": 76,
    "pages": {
     "budget": "p.8 Table 2.5", 
     "spent": "p.8 Table 2.5", 
@@ -160,7 +165,8 @@
     "overallAbsorptionPct": "p.8 Table 2.5", 
     "osrTarget": "p.2 Table 2.1", 
     "osrActual": "p.2 Table 2.1", 
-    "osrPerformancePct": "p.2 Table 2.1", 
+    "osrPerformancePct": "p.2 Table 2.1",
+    "osrComparablePct": "p.2 Table 2.1",
     "population2019": "KNBS Vol I p.7 Table 2.2"
    }, 
    "ch3Exact": {
@@ -200,7 +206,8 @@
    "recurrentBudget": 6195650000, 
    "recurrentAbsorptionPct": 87, 
    "overallAbsorptionPct": 82, 
-   "osrPerformancePct": 88, 
+   "osrPerformancePct": 88,
+   "osrComparablePct": 88,
    "pages": {
     "budget": "p.9 Table 2.5", 
     "spent": "p.9 Table 2.5", 
@@ -213,7 +220,8 @@
     "overallAbsorptionPct": "p.9 Table 2.5", 
     "osrTarget": "p.2 Table 2.1", 
     "osrActual": "p.2 Table 2.1", 
-    "osrPerformancePct": "p.2 Table 2.1", 
+    "osrPerformancePct": "p.2 Table 2.1",
+    "osrComparablePct": "p.2 Table 2.1",
     "population2019": "KNBS Vol I p.7 Table 2.2"
    }, 
    "ch3Exact": {
@@ -253,7 +261,8 @@
    "recurrentBudget": 7939420000, 
    "recurrentAbsorptionPct": 91, 
    "overallAbsorptionPct": 82, 
-   "osrPerformancePct": 101, 
+   "osrPerformancePct": 101,
+   "osrComparablePct": 101,
    "pages": {
     "budget": "p.9 Table 2.5", 
     "spent": "p.9 Table 2.5", 
@@ -266,7 +275,8 @@
     "overallAbsorptionPct": "p.9 Table 2.5", 
     "osrTarget": "p.2 Table 2.1", 
     "osrActual": "p.2 Table 2.1", 
-    "osrPerformancePct": "p.2 Table 2.1", 
+    "osrPerformancePct": "p.2 Table 2.1",
+    "osrComparablePct": "p.2 Table 2.1",
     "population2019": "KNBS Vol I p.7 Table 2.2"
    }, 
    "ch3Exact": {
@@ -306,7 +316,8 @@
    "recurrentBudget": 7680600000, 
    "recurrentAbsorptionPct": 95, 
    "overallAbsorptionPct": 83, 
-   "osrPerformancePct": 86, 
+   "osrPerformancePct": 86,
+   "osrComparablePct": 86,
    "pages": {
     "budget": "p.9 Table 2.5", 
     "spent": "p.9 Table 2.5", 
@@ -319,7 +330,8 @@
     "overallAbsorptionPct": "p.9 Table 2.5", 
     "osrTarget": "p.3 Table 2.1", 
     "osrActual": "p.3 Table 2.1", 
-    "osrPerformancePct": "p.3 Table 2.1", 
+    "osrPerformancePct": "p.3 Table 2.1",
+    "osrComparablePct": "p.3 Table 2.1",
     "population2019": "KNBS Vol I p.7 Table 2.2"
    }, 
    "ch3Exact": {
@@ -357,7 +369,8 @@
   "recurrentBudget": 382699530000, 
   "recurrentAbsorptionPct": 91, 
   "overallAbsorptionPct": 78, 
-  "osrPerformancePct": 77, 
+  "osrPerformancePct": 77,
+  "osrComparablePct": 77,
   "pages": {
    "budget": "p.9 Table 2.5", 
    "spent": "p.9 Table 2.5", 
@@ -370,7 +383,8 @@
    "overallAbsorptionPct": "p.9 Table 2.5", 
    "osrTarget": "p.3 Table 2.1", 
    "osrActual": "p.3 Table 2.1", 
-   "osrPerformancePct": "p.2 text s.2.2.2", 
+   "osrPerformancePct": "p.2 text s.2.2.2",
+   "osrComparablePct": "p.2 text s.2.2.2",
    "population2019": "KNBS Vol I p.7 Table 2.2"
   }, 
   "scope": "All 47 county governments, aggregate totals (the report gives totals, not per-county averages)", 
