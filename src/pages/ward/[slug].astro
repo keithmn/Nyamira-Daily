@@ -50,6 +50,12 @@ const shareText = [
 ].join('\n');
 const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
 const sc = statusCounts(w.slug);
+const statusCaveats = [
+  sc.undated && `${sc.undated} project${sc.undated === 1 ? '' : 's'} have undated percentage observations`,
+  sc.conflicts && `${sc.conflicts} project${sc.conflicts === 1 ? '' : 's'} have conflicting observations on the latest date`,
+  sc.unreported && `${sc.unreported} project${sc.unreported === 1 ? '' : 's'} have no supported completion percentage`,
+  sc.unidentified && `${sc.unidentified} status record${sc.unidentified === 1 ? '' : 's'} lack a project ID`,
+].filter(Boolean);
 const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.slug, '2025/26', 'budgeted')?.amount ?? 0, href: `/ward/${x.slug}/#projects` })).map((r) => ({ ...r, display: ksh(r.value) }));
 ---
 <Base title={`${w.name} Ward`} alertWard={w.slug}>
@@ -142,11 +148,16 @@ const budgets = wards.map((x) => ({ label: x.name, ward: x.slug, value: total(x.
           <p class="note">A question, not an accusation. Sources: {x.src.map((id, i) => <>{i > 0 && '; '}<a href={sources[id].url} rel="noopener">{shortTitle(sources[id].title)}</a></>)}</p>
         </div>
       ))}
-      {sc.total > 0 && (
+      {(sc.total > 0 || statusCaveats.length > 0) && (
         <div class="figure">
-          <h3 class="mini">Progress the county reported for {sc.total} projects in {w.name}</h3>
-          <SplitBar title={`Reported progress, ${w.name}`} parts={[{ value: sc.done, label: 'finished (100%)', tone: 'good', show: String(sc.done) }, { value: sc.going, label: 'under way', tone: 'mid', show: String(sc.going) }, { value: sc.none, label: 'at 0%', tone: 'gap', show: String(sc.none) }]} />
-          <p class="source"><span class="label official">Official claim</span> From the county's own plans; only projects with a percentage reported. Each project counted once.</p>
+          <h3 class="mini">Latest dated physical progress reported for {sc.total} project IDs in {w.name}</h3>
+          {sc.observedFrom && <p class="small muted">{sc.observedFrom === sc.observedThrough ? <>Observation date: <time datetime={sc.observedFrom}>{sc.observedFrom}</time></> : <>Observation dates: <time datetime={sc.observedFrom}>{sc.observedFrom}</time> to <time datetime={sc.observedThrough}>{sc.observedThrough}</time></>}</p>}
+          {sc.total > 0 ? (
+            <SplitBar title={`Reported progress, ${w.name}`} parts={[{ value: sc.done, label: 'reported 100%', tone: 'good', show: String(sc.done) }, { value: sc.going, label: 'reported 1–99%', tone: 'mid', show: String(sc.going) }, { value: sc.none, label: 'reported 0%', tone: 'gap', show: String(sc.none) }]} />
+          ) : (
+            <p class="muted">No dated, comparable progress percentages are available in the records checked.</p>
+          )}
+          <p class="source"><span class="label official">Official claim</span> Counts cover project IDs with status records, not the full project inventory. One entry per reviewed ID, using its latest dated physical-progress percentage. Financial expenditure is not physical progress. {statusCaveats.length > 0 && `${statusCaveats.join('; ')}. `}{sc.sources.length > 0 && <span>Sources: {sc.sources.map((source, i) => <span>{i > 0 && '; '}<a href={sources[source.sourceId].url} rel="noopener">{shortTitle(sources[source.sourceId].title)}</a> (published {sources[source.sourceId].date}){source.pages.length > 0 && `, ${source.pages.join('; ')}`}</span>)}. </span>}These are historical reports, not a current site assessment. A reported completion percentage does not establish that a service is operating. We have not visited these sites.</p>
         </div>
       )}
       {b2526 && (

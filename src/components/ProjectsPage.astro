@@ -1,12 +1,18 @@
 ---
 import wards from '../data/wards.json';
-import { lines2526, total, watch, sources } from '../lib/projects.js';
+import { lines2526, total, watch, sources, shortTitle } from '../lib/projects.js';
 import { ksh } from '../lib/fmt.js';
 import EvidenceLabel from './EvidenceLabel.astro';
 import HBars from './viz/HBars.astro';
 import SplitBar from './viz/SplitBar.astro';
 import { statusCounts } from '../lib/projects.js';
 const sc = statusCounts();
+const statusCaveats = [
+  sc.undated && `${sc.undated} project${sc.undated === 1 ? '' : 's'} have undated percentage observations`,
+  sc.conflicts && `${sc.conflicts} project${sc.conflicts === 1 ? '' : 's'} have conflicting observations on the latest date`,
+  sc.unreported && `${sc.unreported} project${sc.unreported === 1 ? '' : 's'} have no supported completion percentage`,
+  sc.unidentified && `${sc.unidentified} status record${sc.unidentified === 1 ? '' : 's'} lack a project ID`,
+].filter(Boolean);
 const rows = wards.map((w) => {
   const l = lines2526(w.slug);
   return { w, n: l.length, zero: l.filter((x) => !x.amount).length, b: total(w.slug, '2025/26', 'budgeted')?.amount ?? 0, roads: total(w.slug, '2023/24', 'contract')?.amount ?? null };
@@ -50,9 +56,14 @@ const wname = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
     <HBars title="Ward project budgets, FY2025/26" rows={rows.map((r) => ({ label: r.w.name, ward: r.w.slug, value: r.b, display: ksh(r.b), href: `/ward/${r.w.slug}/#projects`, note: r.zero ? `(${r.zero} at zero)` : undefined }))} />
     <p class="source"><EvidenceLabel kind="official" /> Source: Programme Based Budget 2025/26, Table 18. Your ward is outlined once you choose it.</p>
     <div class="figure">
-      <h3 class="mini">Progress the county reported for {sc.total} ward projects</h3>
-      <SplitBar title="Reported progress of ward projects" parts={[{ value: sc.done, label: 'finished (100%)', tone: 'good', show: String(sc.done) }, { value: sc.going, label: 'under way', tone: 'mid', show: String(sc.going) }, { value: sc.none, label: 'at 0%', tone: 'gap', show: String(sc.none) }]} />
-      <p class="source"><EvidenceLabel kind="official" /> From the county's own plans (ADP 2025/26, CADP 2026/27); only projects with a percentage reported, each counted once. We have not visited these sites.</p>
+      <h3 class="mini">Latest dated physical progress reported for {sc.total} project IDs</h3>
+      {sc.observedFrom && <p class="small muted">{sc.observedFrom === sc.observedThrough ? <>Observation date: <time datetime={sc.observedFrom}>{sc.observedFrom}</time></> : <>Observation dates: <time datetime={sc.observedFrom}>{sc.observedFrom}</time> to <time datetime={sc.observedThrough}>{sc.observedThrough}</time></>}</p>}
+      {sc.total > 0 ? (
+        <SplitBar title="Reported progress of ward projects" parts={[{ value: sc.done, label: 'reported 100%', tone: 'good', show: String(sc.done) }, { value: sc.going, label: 'reported 1–99%', tone: 'mid', show: String(sc.going) }, { value: sc.none, label: 'reported 0%', tone: 'gap', show: String(sc.none) }]} />
+      ) : (
+        <p class="muted">No dated, comparable progress percentages are available in the records checked.</p>
+      )}
+      <p class="source"><EvidenceLabel kind="official" /> Counts cover project IDs with status records, not the full project inventory. One entry per reviewed ID, using its latest dated physical-progress percentage. Financial expenditure is not physical progress. {statusCaveats.length > 0 && `${statusCaveats.join('; ')}. `}{sc.sources.length > 0 && <span>Sources: {sc.sources.map((source, i) => <span>{i > 0 && '; '}<a href={sources[source.sourceId].url} rel="noopener">{shortTitle(sources[source.sourceId].title)}</a> (published {sources[source.sourceId].date}){source.pages.length > 0 && `, ${source.pages.join('; ')}`}</span>)}. </span>}These are historical reports, not a current site assessment. A reported completion percentage does not establish that a service is operating. We have not visited these sites.</p>
     </div>
     <details>
       <summary>See the detail: every ward in a table</summary>

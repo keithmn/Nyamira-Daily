@@ -25,3 +25,9 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - Extend Alerts with an "Update" level for official decisions (budgets passed, fee changes, court rulings), keeping the same rules: confirmed, sourced, calm, filed by ward and date.
 - Brand kit v1.1 files (swatches, social templates) from the canvas boards.
 - A light editing screen (e.g. Decap CMS) for alerts and number of the week.
+
+## Current worktree (25 Oct 2026; not merged)
+
+- ND-01 is implemented on `fix/nd-01-project-status`, awaiting owner manual checks. The project-status summary uses reviewed `projectId` values, explicit observation dates, and physical-progress wording. Undated progress, conflicting latest values, unsupported statuses and missing IDs are excluded and shown as coverage caveats. It is not owner-approved.
+- The current source data has one reviewed ID represented by changed names; the earlier name-key summary counted it twice. Many percentage-bearing status rows have no observation date, so they remain outside the dated summary pending source review. No project IDs, source figures or public URLs were changed.
+- After approval and manual preview checks, the next proposed task is to audit primary sources for explicit dates on currently undated statuses. Do not infer dates from fiscal-year labels. Continue the wider reliability work only as a separately scoped package.

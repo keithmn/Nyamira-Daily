@@ -1,6 +1,8 @@
 import data from '../data/wardspend.json';
+import { pct, statusCountsFor } from './project-status.js';
 export const sources = Object.fromEntries(data.sources.map((s) => [s.id, s]));
 export const projects = data.projects;
+export { pct };
 export const kindLabel = { budgeted: 'Budgeted', contract: 'Contract sum', spent: 'Spent', planned: 'Planned' };
 export function forWard(slug) { return projects.filter((p) => p.ward === slug); }
 export function total(slug, fy, kind) { return data.wardTotals.find((t) => t.ward === slug && t.fy === fy && t.kind === kind); }
@@ -20,11 +22,6 @@ export const watch = [
 export const notes = data.notes;
 export const checked = data.checked;
 
-// Reported percentage from a status line ("62% – Ongoing" → 62), or null
-export function pct(status) {
-  const m = /^(?:[a-z ;,]*?)(\d{1,3})%/i.exec(status ?? '');
-  return m ? Math.min(100, Number(m[1])) : null;
-}
 // The status line without contractor and table notes: "0% – Not procured | Contractor: …" → "0% – Not procured"
 export function statusShort(status) {
   if (!status) return null;
@@ -63,18 +60,8 @@ export function shortTitle(t) {
   return by && by !== 'County Government of Nyamira' ? by + ': ' + name : 'County ' + name.replace('County ', '');
 }
 
-// Reported progress for projects (each project counted once: the last record we hold for it): finished (100%),
-// under way (1–99%) and not started (0%). Projects with no percentage reported are left out.
 export function statusCounts(slug) {
-  const latest = new Map();
-  for (const p of projects) {
-    if (slug && p.ward !== slug) continue;
-    const v = pct(p.status);
-    if (v == null) continue;
-    latest.set(p.ward + "|" + p.name, v);
-  }
-  const vals = [...latest.values()];
-  return { done: vals.filter((v) => v === 100).length, going: vals.filter((v) => v > 0 && v < 100).length, none: vals.filter((v) => v === 0).length, total: vals.length };
+  return statusCountsFor(projects, slug);
 }
 
 // Projects by stable ID (scripts/project-ids.py): all records for one project, newest year first
