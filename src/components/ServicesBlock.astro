@@ -1,0 +1,20 @@
+---
+// Public places and services listed in each ward (from the Services page, now under People)
+import wards from '../data/wards.json';
+import EvidenceLabel from './EvidenceLabel.astro';
+const cats = ['Health', 'Education', 'Worship', 'Market', 'Water', 'Public office', 'Community centre', 'Agriculture'];
+const total = wards.reduce((n, w) => n + w.facilities.length, 0);
+---
+<div class="stack">
+  <p><strong>{total}</strong> public places and services are listed for Nyamira so far, across all 20 wards. Most are not yet checked on site.</p>
+  <p class="source"><EvidenceLabel kind="unverified" /> Sources: Kenya Master Health Facility List (2017 export); OpenStreetMap; Google Maps (discovery only). Last updated 22 Oct 2026.</p>
+  <div class="table-box">
+    <table class="cards">
+      <thead><tr><th>Ward</th><th>Sub-county</th>{cats.map((c) => <th class="num">{c}</th>)}</tr></thead>
+      <tbody>{wards.map((w) => (
+        <tr data-ward-row={w.slug}><td><a href={`/ward/${w.slug}/`}>{w.name}</a></td><td data-label="Sub-county">{w.subCounty}</td>{cats.map((c) => <td class="num" data-label={c}>{w.counts[c] ?? 0}</td>)}</tr>
+      ))}</tbody>
+    </table>
+  </div>
+  <p class="small muted">Counts show what has been listed, not everything that exists. Water points and schools are badly under-listed.</p>
+</div>

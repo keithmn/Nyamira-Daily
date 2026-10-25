@@ -5,6 +5,7 @@ import EvidenceLabel from './EvidenceLabel.astro';
 import Coins from './viz/Coins.astro';
 import SplitBar from './viz/SplitBar.astro';
 import EmbedCode from './EmbedCode.astro';
+import Toggle from './Toggle.astro';
 const ys = money.years;
 const last = ys[ys.length - 1];
 const bn = (m: number) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
@@ -57,7 +58,7 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
     </div>
   </section>
 
-  <p class="callout"><span><strong>What did the Auditor-General find?</strong> See the audit opinion on the county's accounts for every year, and the findings behind it: <a href="/data/audit/">Auditor-General</a>.</span></p>
+  <p class="callout"><span><strong>What did the Auditor-General find?</strong> See the audit opinion on the county's accounts for every year, and the findings behind it: <a href="#audit">What the Auditor-General found</a>.</span></p>
 
   <EmbedCode path="/embed/money/" title="Nyamira County money" height={640} />
 
@@ -66,8 +67,9 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
     <p>Mwaka wa fedha {last.fy}, kaunti ya Nyamira ilitumia {bn(last.spent)} kati ya bajeti ya {bn(last.budget)}. Ni asilimia {last.devAbs} tu ya bajeti ya maendeleo iliyotumika. Takwimu hizi ni kutoka kwa Msimamizi wa Bajeti (Controller of Budget).</p>
   </div>
 
+  <Toggle id="charts" title="Twelve years in charts" meta="Budget, spending, unpaid bills, local revenue">
   <section class="stack">
-    <h2>Budget and spending, every year</h2>
+    <h3>Budget and spending, every year</h3>
     <p class="muted">The county usually spends less than it budgets. The gap is money that was not released or not used that year.</p>
     <BarChart title="Nyamira County approved budget and actual spending by financial year" labels={labels} unit="KSh billion" format={fmtB}
       colors={['var(--bar-quiet)', 'var(--brand)']}
@@ -75,21 +77,21 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
   </section>
 
   <section class="stack">
-    <h2>Money budgeted but not spent, every year</h2>
+    <h3>Money budgeted but not spent, every year</h3>
     <p class="muted">The approved budget minus what was actually spent, worked out by Nyamira Daily from the Controller of Budget's figures.</p>
     <BarChart title="Budget not spent each year, KSh billion" labels={labels} unit="KSh billion not spent" format={fmtB} colors={['var(--accent)']}
       series={[{ name: 'Not spent', values: ys.map((y) => y.budget - y.spent) }]} />
   </section>
 
   <section class="stack">
-    <h2>Unpaid bills at the end of each year</h2>
+    <h3>Unpaid bills at the end of each year</h3>
     <p class="muted">Pending bills as reported by the Controller of Budget. Reports count them differently from year to year, and some years were not reported; see the table below.</p>
     <BarChart title="Pending bills reported at year end, KSh million" labels={labels} unit="KSh million in pending bills" colors={['var(--accent)']}
       series={[{ name: 'Pending bills', values: ys.map((y) => y.pending) }]} />
   </section>
 
   <section class="stack">
-    <h2>How much of the development budget was used</h2>
+    <h3>How much of the development budget was used</h3>
     <p class="muted">Development money pays for things that last: roads, buildings, water. A low share means projects were planned and funded but not paid for that year.</p>
     <BarChart title="Share of development budget spent each year, per cent" labels={labels} unit="Per cent of development budget spent" max={100} format={(v) => `${v}%`}
       colors={['var(--brand)']}
@@ -97,12 +99,14 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
   </section>
 
   <section class="stack">
-    <h2>Money the county raised itself</h2>
+    <h3>Money the county raised itself</h3>
     <p class="muted">Fees, rates and permits collected locally ("own-source revenue"), against the county's own target. From FY2022/23 this includes hospital fees, so later years are not directly comparable with earlier ones.</p>
     <BarChart title="Own-source revenue target and amount collected, KSh million" labels={labels} unit="KSh million"
       colors={['var(--bar-quiet)', 'var(--brand)']}
       series={[{ name: 'Target', values: ys.map((y) => y.osrTarget) }, { name: 'Collected', values: ys.map((y) => y.osr) }]} />
   </section>
+
+  </Toggle>
 
   <details>
     <summary>See the detail: every figure, with its source</summary>

@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import ElectionsPage from '../../components/data/ElectionsPage.astro';
+---
+<Base title="Elections" description="Who was elected in each Nyamira ward and constituency in 2013, 2017 and 2022, registered voters and polling stations.">
+  <div class="sec-dusk">
+    <PageHead eyebrow="Government" title="Elections" lead="Who was elected in each ward in 2013, 2017 and 2022, and where people vote." tone="dusk" crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/elections/', label: 'Elections' }]} />
+    <ElectionsPage />
+  </div>
+</Base>

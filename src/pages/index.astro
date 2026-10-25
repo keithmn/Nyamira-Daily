@@ -22,7 +22,7 @@ const gov = leaders.county.find((l) => l.office === 'Governor');
 const more = [
   { href: '/government/leaders/', t: 'Who represents you', d: `The Governor (${gov?.name}), Senator, MPs and all 20 ward MCAs, with sources.` },
   { href: '/government/whos-in-charge/', t: 'Who fixes what', d: "A road, a dispensary, a market: is it the county's job or the national government's?" },
-  { href: '/data/projects/', t: 'What your ward was promised', d: "Every ward's project budget for 2025/26, and projects that need answers." },
+  { href: '/data/money/#projects', t: 'What your ward was promised', d: "Every ward's project budget for 2025/26, and projects that need answers." },
   { href: '/constitution/fourth-schedule/', t: 'What the county must provide', d: 'The 14 jobs the Constitution gives every county government, in plain words.' },
   { href: '/opportunities/', t: 'Jobs, tenders and bursaries', d: 'What is open now, deadlines, and how to register for youth and women tenders (AGPO).' },
   { href: '/learn/fees/', t: 'What the county can charge', d: 'Business permits, market fees, parking and more, from the Finance Act 2025.' },
@@ -47,8 +47,8 @@ const more = [
       <div class="stack">
         <div class="tiles three">
           <a class="tile" href="/ward/"><b>20</b><span>wards, each with an elected MCA</span><EvidenceLabel kind="verified" /></a>
-          <a class="tile" href="/data/services/"><b>{facilities}</b><span>public places and services listed</span><EvidenceLabel kind="unverified" /></a>
-          <a class="tile" href="/data/services/"><b>{health}</b><span>health facilities listed</span><EvidenceLabel kind="official" /></a>
+          <a class="tile" href="/data/people/#services"><b>{facilities}</b><span>public places and services listed</span><EvidenceLabel kind="unverified" /></a>
+          <a class="tile" href="/data/health/#facilities"><b>{health}</b><span>health facilities listed</span><EvidenceLabel kind="official" /></a>
         </div>
         <p class="small muted">Sources: IEBC ward list and geoBoundaries (wards); the Nyamira Daily list, mostly not yet checked on site (services); Kenya Master Health Facility List, 2017 export (health). <span class="updated">Figures last updated 22 Oct 2026.</span></p>
         <MyWard topic="home" />
@@ -65,7 +65,7 @@ const more = [
         </ul>
       </div>
       <div class="stack">
-        {numberNow && <div class="panel"><NumberCard e={numberNow} full={false} /></div>}
+        {numberNow && <div class="panel sec-harvest"><NumberCard e={numberNow} full={false} /></div>}
         <section class="nyw nyw-band on-ink stack" aria-labelledby="show">
           <NyWatchLogo on="dark" />
           <span class="eyebrow">Nightly, 10 to 11 pm</span>

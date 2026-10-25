@@ -50,6 +50,7 @@ A repeating pattern built from data marks (bars, dots, ticks, grid) set to the r
 - **Neutrals:** near-black ink and warm off-white paper.
 - **Optional accent:** a muted terracotta (red earth). Test it, and use it sparingly.
 - **NY Watch only:** a red recording dot.
+- **Highlands palette (brand kit v1.1, Oct 2026, DECISIONS #30):** Tea #0B5D3B, Avocado #8DB33A, Harvest #F4B400, Red Earth #A63D2A, Rain #1F5F8B, Mist #DDEFE3, Dusk #3B2A6B, Bloom #F2C4B4, for backgrounds, photo overlays and social cards. Text is White on Tea, Red Earth, Rain and Dusk; Ink on the rest. Colour shows the topic: Harvest money, Rain health and water, Tea education and county figures, Avocado farming, Bloom people, Red Earth stories, Dusk elections, take part and NY Watch, Mist soft backgrounds. The County Government's green-and-orange and its seal are never used: we are independent.
 - **Since Oct 2026 (DECISIONS #24, #25):** Signal Green is the main colour, Record Red (#E11D2A) the secondary, Ink and White the neutrals. On maps, red means an emergency alert and nothing else (health points are teal). Off the map, red marks gaps in charts (money not spent, unpaid bills, work at 0%), the NY Watch dot and the On air strip.
 
 Green is for shapes and fills only. Body text stays in dark ink, because light green text on white fails contrast.

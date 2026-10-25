@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import ThenNowPage from '../../components/data/ThenNowPage.astro';
+---
+<Base title="Nyamira since 2013" description="What has changed in Nyamira since devolution began: money, voters and leaders, from the figures we hold.">
+  <div class="sec-earth">
+    <PageHead eyebrow="Stories · Feature" title="Nyamira since 2013" lead="Devolution began in March 2013. Here is what has changed since, using only figures we hold, each with its source." tone="earth" crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/stories/nyamira-since-2013/', label: 'Nyamira since 2013' }]} />
+    <ThenNowPage />
+  </div>
+</Base>

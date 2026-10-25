@@ -12,6 +12,7 @@ Status as of 24 October 2026. The expansion plan is in `docs/EXPANSION_SPEC.md`;
 - **Learn**: how the county works, budget calendar, taking part, fees you pay, glossary.
 - **Opportunities**, **About**, **How we work**, **Search**.
 - **Phase 1 (Oct 2026):** Ask Nyamira (letter builder; tracker empty until requests are sent), Submission helper, printable ward sheets with QR codes, APIs and embeds, Number of the week, Explainers, Alerts (pages, maps, banners, APIs, RSS; no live alerts yet).
+- **Restructure (25 Oct 2026):** six Data sector pages with toggles; Elections under Government; Nyamira since 2013 as a Stories feature; Wards menu by constituency; constituency pages with NG-CDF; Highlands palette applied.
 - **Phase 4 (Oct 2026):** Budget simulator (`/tools/budget-simulator/`) and What could it build? (`/tools/what-it-builds/`).
 - **Phase 3 (Oct 2026):** How Nyamira compares, Then and now, Elections (2013, 2017 full; 2022 winners), Tea and milk (tea only), Health (KDHS 2022), Schools (2020 statistics, KCSE candidates), Find your sub-location. Gaps: 2022 ward forms, milk prices, KHIS, newer school statistics.
 - **Phase 2 (Oct 2026):** a page for every county project (`/projects/<id>/`, 349 projects with stable IDs), community-report summaries on ward pages (empty until reports are checked). Is it working?, Clinic check and Adopt a project are built but Planned until channels exist (below).

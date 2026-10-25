@@ -1,0 +1,21 @@
+---
+// County ward projects for one sector, by ward, linking to each project's page.
+import wards from '../data/wards.json';
+import { projects, byProject } from '../lib/projects.js';
+import { ksh } from '../lib/fmt.js';
+interface Props { match: string; note?: string }
+const { match, note } = Astro.props;
+const re = new RegExp(match, 'i');
+const all = byProject();
+const ids = [...all.entries()].filter(([, l]) => l[0].ward && l.some((p) => re.test(p.department ?? '') || re.test(p.name)));
+const byWard = wards.map((w) => ({ w, list: ids.filter(([, l]) => l[0].ward === w.slug).map(([id, l]) => ({ id, name: l[0].name, latest: l[0] })) })).filter((g) => g.list.length);
+---
+<div class="stack">
+  <p class="small muted">{ids.length} projects in the county's plans and budgets. {note} A budget line is planned money, not proof that work was done.</p>
+  {byWard.map((g) => (
+    <div class="stack" style="gap:4px">
+      <h4><a href={`/ward/${g.w.slug}/#projects`}>{g.w.name}</a></h4>
+      <ul class="small">{g.list.map((p) => <li><a href={`/projects/${p.id.toLowerCase()}/`}>{p.name}</a> · FY{p.latest.fy}{p.latest.amount ? ` · ${ksh(p.latest.amount)}` : ''}</li>)}</ul>
+    </div>
+  ))}
+</div>

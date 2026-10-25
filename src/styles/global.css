@@ -898,3 +898,73 @@ table.ops td, table.ops th { white-space: nowrap; }
 .op-qualified { background: var(--surface); }
 .op-adverse, .op-disclaimer { background: var(--ink); color: var(--bg); }
 .alist .al { padding: 14px 4px; color: var(--ink); }
+
+/* Toggles (Notion-style) */
+details.toggle { border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 0; }
+details.toggle:last-of-type { border-bottom: 1px solid var(--line); }
+details.toggle > summary { list-style: none; display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 10px 4px; }
+details.toggle > summary::-webkit-details-marker { display: none; }
+details.toggle > summary::before { content: none; display: none; }
+details.toggle > summary:hover { background: var(--surface); }
+.tg-caret { flex: none; width: 28px; height: 28px; border-radius: 8px; background: var(--sec, var(--brand)); position: relative; }
+.tg-caret::after { content: ""; position: absolute; left: 10px; top: 9px; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 8px; border-color: transparent transparent transparent var(--sec-ink, var(--nd-ink)); transition: transform 0.15s; }
+details.toggle[open] > summary .tg-caret::after { transform: rotate(90deg); }
+.tg-title { font-size: 20px; margin: 0; flex: 1; }
+h3.tg-title { font-size: 17px; }
+.tg-meta { font-size: 13px; color: var(--muted); font-weight: 500; }
+.tg-body { padding: 8px 0 28px 40px; }
+@media (max-width: 640px) { .tg-body { padding-left: 0; } }
+@media (prefers-reduced-motion: reduce) { .tg-caret::after { transition: none; } }
+
+/* Highlands palette (brand kit v1.1, decision #30). Text on each: White on the dark four, Ink on the light four. */
+:root {
+  --hl-tea: #0B5D3B; --hl-avocado: #8DB33A; --hl-harvest: #F4B400; --hl-earth: #A63D2A;
+  --hl-rain: #1F5F8B; --hl-mist: #DDEFE3; --hl-dusk: #3B2A6B; --hl-bloom: #F2C4B4;
+}
+.sec-harvest { --sec: var(--hl-harvest); --sec-ink: #111111; --sec-soft: #fdf1cc; }
+.sec-rain { --sec: var(--hl-rain); --sec-ink: #FFFFFF; --sec-soft: #e1ecf4; }
+.sec-tea { --sec: var(--hl-tea); --sec-ink: #FFFFFF; --sec-soft: #dcefe4; }
+.sec-avocado { --sec: var(--hl-avocado); --sec-ink: #111111; --sec-soft: #eef5dd; }
+.sec-bloom { --sec: var(--hl-bloom); --sec-ink: #111111; --sec-soft: #fbece6; }
+.sec-earth { --sec: var(--hl-earth); --sec-ink: #FFFFFF; --sec-soft: #f6e1dc; }
+.sec-dusk { --sec: var(--hl-dusk); --sec-ink: #FFFFFF; --sec-soft: #e7e2f3; }
+.sec-mist { --sec: var(--hl-mist); --sec-ink: #111111; --sec-soft: #eef7f1; }
+:root[data-theme="dark"] .sec-harvest, :root[data-theme="dark"] .sec-rain, :root[data-theme="dark"] .sec-tea, :root[data-theme="dark"] .sec-avocado,
+:root[data-theme="dark"] .sec-bloom, :root[data-theme="dark"] .sec-earth, :root[data-theme="dark"] .sec-dusk, :root[data-theme="dark"] .sec-mist { --sec-soft: #1e1e1c; }
+
+/* Coloured page heads (sector and section pages) */
+.page-head.band { background: var(--sec); color: var(--sec-ink); border-radius: var(--radius); padding: 28px 24px 26px !important; margin-top: 16px; }
+.page-head.band .eyebrow, .page-head.band h1, .page-head.band .lead { color: var(--sec-ink); }
+.page-head.band .eyebrow::before { background: var(--sec-ink); }
+.page-head.band h1::after { background: var(--sec-ink); opacity: 0.85; }
+.page-head.band .lead { opacity: 0.92; }
+
+/* Coloured tiles (Data hub, Stories, Take part) */
+.sector-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 12px; }
+.sector-tile { display: flex; flex-direction: column; gap: 8px; min-height: 180px; padding: 20px; border-radius: var(--radius); background: var(--sec); color: var(--sec-ink); text-decoration: none; position: relative; overflow: hidden; }
+.sector-tile::after { content: ""; position: absolute; right: -60px; bottom: -60px; width: 170px; height: 170px; border-radius: 50%; border: 22px solid currentColor; opacity: 0.1; }
+.sector-tile h2 { font-size: 24px; color: inherit; }
+.sector-tile p { font-size: 15px; opacity: 0.92; color: inherit; max-width: none; }
+.sector-tile .go { margin-top: auto; background: var(--sec-ink); color: var(--sec); }
+.sector-tile:hover { box-shadow: inset 0 0 0 3px var(--sec-ink); }
+
+/* Home: number of the week on Harvest; NY Watch on Dusk */
+.panel.sec-harvest { background: var(--sec); color: var(--sec-ink); }
+.panel.sec-harvest .eyebrow, .panel.sec-harvest .num, .panel.sec-harvest .say, .panel.sec-harvest .source { color: #111111; }
+.panel.sec-harvest .eyebrow::before { background: #111111; }
+.panel.sec-harvest .btn { background: #111111; color: #FFFFFF; border-color: #111111; }
+.panel.sec-harvest .btn.quiet { background: transparent; color: #111111; border-color: #111111; }
+.nyw-band.on-ink { --panel: var(--hl-dusk); }
+:root[data-theme="dark"] .nyw-band.on-ink { --panel: var(--hl-dusk); }
+.sw { background: var(--hl-mist); color: #111111; border-left-color: var(--hl-tea); }
+.sw .eyebrow { color: #111111; }
+:root[data-theme="dark"] .sw { background: #1d3328; color: var(--ink); }
+:root[data-theme="dark"] .sw .eyebrow { color: var(--ink); }
+/* Menu groups that open (constituencies, The Assembly, The Constitution) */
+.nav-panel details.menu-group { border: 0; padding: 0; border-radius: 0; }
+.nav-panel details.menu-group > summary { list-style: none; display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 6px 12px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.nav-panel details.menu-group > summary::-webkit-details-marker { display: none; }
+.nav-panel details.menu-group > summary::before { content: ""; flex: none; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 8px; border-color: transparent transparent transparent currentColor; background: none; border-radius: 0; transition: transform 0.15s; }
+.nav-panel details.menu-group[open] > summary::before { transform: rotate(90deg); }
+.nav-panel details.menu-group > summary:hover { background: var(--surface); }
+.nav-panel details.menu-group[open] { padding-bottom: 6px; }

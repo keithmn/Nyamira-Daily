@@ -3,18 +3,19 @@ import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import { planned } from '../../config.js';
 const items = [
-  { href: '/whats-working/', t: "What's working", d: 'Projects and services that do what they promised, with the evidence.' },
-  { href: '/people/', t: "Nyamira's people", d: 'Nurses, farmers, teachers and others who keep the county running, with their consent.' },
-  { href: '/heritage/', t: 'Heritage', d: 'Places, history and traditions of Nyamira, with sources.' },
-  { href: '/fact-check/', t: 'Myth or fact', d: 'Claims that circulate about the county, checked against the records.' },
-  { href: '/explainers/', t: 'Explainers', d: 'How the county works, in plain words.' },
+  { href: '/stories/nyamira-since-2013/', t: 'Nyamira since 2013', d: 'Feature: what has changed since devolution began, from the figures we hold.', tone: 'earth' },
+  { href: '/whats-working/', t: "What's working", d: 'Projects and services that do what they promised, with the evidence.', tone: 'avocado' },
+  { href: '/people/', t: "Nyamira's people", d: 'Nurses, farmers, teachers and others who keep the county running, with their consent.', tone: 'bloom' },
+  { href: '/heritage/', t: 'Heritage', d: 'Places, history and traditions of Nyamira, with sources.', tone: 'earth' },
+  { href: '/fact-check/', t: 'Myth or fact', d: 'Claims that circulate about the county, checked against the records.', tone: 'rain' },
+  { href: '/explainers/', t: 'Explainers', d: 'How the county works, in plain words.', tone: 'tea' },
 ];
 ---
 <Base title="Stories">
-  <PageHead eyebrow="Stories" title="Stories from Nyamira" lead="What works, the people behind it, the county's heritage, and claims checked against the facts." />
-  <ul class="rows" style="margin-top:16px">
+  <div class="sec-earth"><PageHead eyebrow="Stories" title="Stories from Nyamira" lead="What works, the people behind it, the county's heritage, and claims checked against the facts." tone="earth" /></div>
+  <div class="sector-tiles" style="margin-top:16px">
     {items.map((m) => (
-      <li><a class="row-link" href={m.href}><span><span class="t">{m.t}{planned.has(m.href) && <span class="tag-planned" style="margin-left:8px">Planned</span>}</span><span class="d">{m.d}</span></span><span class="go" aria-hidden="true">→</span></a></li>
+      <a class={`sector-tile sec-${m.tone}`} href={m.href}><h2>{m.t}</h2><p>{m.d}</p>{planned.has(m.href) && <span class="tag-planned" style="align-self:flex-start;color:inherit;border-color:currentColor">Planned</span>}<span class="go" aria-hidden="true">→</span></a>
     ))}
-  </ul>
+  </div>
 </Base>

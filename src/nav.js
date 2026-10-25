@@ -11,9 +11,7 @@ export const subCounties = ['Borabu', 'Kitutu Masaba', 'North Mugirango', 'West 
 export const anchorFor = (name) => name.toLowerCase().split(' ').join('-');
 
 // Data topics in their usual order, planned ones last (as on the Data page)
-const dataPages = [...topics]
-  .sort((a, b) => planned.has(`/data/${a.slug}/`) - planned.has(`/data/${b.slug}/`))
-  .map((t) => ({ href: `/data/${t.slug}/`, label: t.title }));
+const dataPages = topics.map((t) => ({ href: `/data/${t.slug}/`, label: t.title }));
 
 export const sections = [
   { href: '/', label: 'Today', overview: 'Nyamira at a glance', pages: [
@@ -21,9 +19,9 @@ export const sections = [
     { href: '/number-of-the-week/', label: 'Number of the week' },
     { href: '/opportunities/', label: 'Opportunities' },
   ] },
-  // Wards: every ward, grouped by sub-county (each group links to its place on the ward list)
-  { href: '/ward/', label: 'Wards', overview: 'Choose your ward', pages: subCounties.map((s) => ({
-    href: `/ward/#${anchorFor(s)}`, label: s,
+  // Wards: the four constituencies; each opens to show its wards (decision #30)
+  { href: '/ward/', label: 'Wards', overview: 'All 20 wards', pages: subCounties.map((s) => ({
+    href: `/constituency/${anchorFor(s)}/`, label: `${s} Constituency`,
     pages: wards.filter((w) => w.subCounty === s).map((w) => ({ href: `/ward/${w.slug}/`, label: w.name })),
   })) },
   { href: '/data/', label: 'Data', overview: 'Nyamira in numbers', pages: [...dataPages, { href: '/state-of-nyamira/', label: 'State of Nyamira' }] },
@@ -39,6 +37,7 @@ export const sections = [
     { href: '/fellowship/', label: 'Fellowship' },
   ] },
   { href: '/stories/', label: 'Stories', overview: 'Stories from Nyamira', pages: [
+    { href: '/stories/nyamira-since-2013/', label: 'Nyamira since 2013' },
     { href: '/whats-working/', label: "What's working" },
     { href: '/people/', label: "Nyamira's people" },
     { href: '/heritage/', label: 'Heritage' },
@@ -48,6 +47,7 @@ export const sections = [
   { href: '/government/', label: 'Government', overview: 'How Nyamira is run', pages: [
     { href: '/government/whos-in-charge/', label: "Who's in charge?" },
     { href: '/government/leaders/', label: 'Leaders' },
+    { href: '/government/elections/', label: 'Elections' },
     { href: '/government/executive/', label: 'The Executive' },
     { href: '/government/assembly/', label: 'The Assembly', pages: [
       { href: '/government/assembly/sittings/', label: 'Sittings' },

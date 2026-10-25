@@ -1,0 +1,11 @@
+---
+// Notion-style toggle: a title you tap to open; the content stays on the page (and works without JavaScript).
+// Links to #id open it (script in Base.astro).
+interface Props { title: string; id?: string; meta?: string; open?: boolean; level?: 2 | 3 }
+const { title, id, meta, open = false, level = 2 } = Astro.props;
+const H = level === 2 ? 'h2' : 'h3';
+---
+<details class="toggle" id={id} open={open}>
+  <summary><span class="tg-caret" aria-hidden="true"></span><H class="tg-title">{title}</H>{meta && <span class="tg-meta">{meta}</span>}</summary>
+  <div class="tg-body"><slot /></div>
+</details>

@@ -25,6 +25,8 @@ This repo is **Nyamira Daily**, an independent, non-partisan civic information w
 - Short Kiswahili summaries use `<div class="sw" lang="sw">`. Mark new ones for native-speaker review.
 - Ward slugs: esise, mekenene, kiabonyoru, nyansiongo (Borabu); rigoma, gachuba, kemera, magombo, manga, gesima (Kitutu Masaba); nyamaiya, bogichora, bosamaro, bonyamatuta, township (West Mugirango); itibo, bomwagamo, bokeira, magwagwa, ekerenyo (North Mugirango).
 
+- **Structure (#30):** Data is six sector pages (`src/data/topics.js`: money, health, education, farming, people, open-data) with Notion-style toggles (`src/components/Toggle.astro`; a link to `#id` opens it). Elections live under Government, the four constituencies at `/constituency/<slug>/` (with NG-CDF, which is national money and must never be added to county figures). Old data URLs redirect (`astro.config.mjs`).
+- **Highlands palette:** sector colours via `.sec-<tone>` classes and `--hl-*` tokens; `PageHead tone=` gives a coloured head. See `docs/BRAND_BRIEF.md`.
 - Text content (explainers, fact-checks, stories, people, heritage, number of the week, alerts) lives in `src/content/` (schemas in `src/content.config.ts`). `draft: true` entries are hidden unless built with `ND_DRAFTS=1`. Alerts follow `docs/EDITORIAL_RULES.md` section 11.
 - The expansion plan is `docs/EXPANSION_SPEC.md`; work one phase at a time.
 

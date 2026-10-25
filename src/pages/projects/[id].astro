@@ -19,7 +19,7 @@ const qs = questions.filter((q) => q.ward === first.ward && list.some((p) => p.n
 const title = first.name.length > 110 ? first.name.slice(0, 108) + '…' : first.name;
 ---
 <Base title={title} description={`A county project in ${w ? w.name + ' ward' : 'Nyamira County'}: what the county's documents say, with sources.`}>
-  <PageHead eyebrow={`County project · ${w ? w.name + ' ward' : 'County-wide'} · ${id}`} title={title} crumbs={w ? [{ href: '/ward/', label: 'Wards' }, { href: `/ward/${w.slug}/#projects`, label: w.name }] : [{ href: '/data/projects/', label: 'Projects' }]} />
+  <PageHead eyebrow={`County project · ${w ? w.name + ' ward' : 'County-wide'} · ${id}`} title={title} crumbs={w ? [{ href: '/ward/', label: 'Wards' }, { href: `/ward/${w.slug}/#projects`, label: w.name }] : [{ href: '/data/money/#projects', label: 'Projects' }]} />
   <div class="stack-lg" style="margin-top:8px">
     {first.name.length > 110 && <p>{first.name}</p>}
     <section class="stack">

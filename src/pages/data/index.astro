@@ -2,20 +2,18 @@
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import { topics } from '../../data/topics.js';
-import { planned } from '../../config.js';
-const ready = topics.filter((t) => !planned.has(`/data/${t.slug}/`));
-const later = topics.filter((t) => planned.has(`/data/${t.slug}/`));
 ---
 <Base title="Data">
-  <PageHead eyebrow="Data" title="Nyamira in numbers" lead="The county's money, projects, services, prices and people. Each page answers its question in one sentence first; the full tables and downloads sit one tap deeper." />
-  <div class="grid" style="margin-top:16px">
-    {ready.map((t) => (
-      <a class="card" href={`/data/${t.slug}/`}>
-        <h2 style="font-size:18px">{t.title}</h2>
-        <p class="muted">{t.question}</p>
-        <span class="small muted">Status: {t.status}</span>
+  <PageHead eyebrow="Data" title="Nyamira in numbers" lead="One page per sector. Each answers its question in one sentence first; the detail sits in toggles you open, and every figure has its source." />
+  <div class="sector-tiles" style="margin-top:16px">
+    {topics.map((t) => (
+      <a class={`sector-tile sec-${t.tone}`} href={`/data/${t.slug}/`}>
+        <h2>{t.title}</h2>
+        <p>{t.question}</p>
+        <span class="go" aria-hidden="true">→</span>
       </a>
     ))}
+    <a class="sector-tile sec-dusk" href="/government/elections/"><h2>Elections</h2><p>Who was elected in each ward in 2013, 2017 and 2022, and where people vote.</p><span class="go" aria-hidden="true">→</span></a>
+    <a class="sector-tile sec-earth" href="/stories/nyamira-since-2013/"><h2>Nyamira since 2013</h2><p>What has changed since devolution began, in one feature.</p><span class="go" aria-hidden="true">→</span></a>
   </div>
-  <p class="muted" style="margin-top:24px"><span class="tag-planned">Planned</span> {later.map((t, i) => (<>{i > 0 && ' · '}<a href={`/data/${t.slug}/`}>{t.title}</a></>))}</p>
 </Base>

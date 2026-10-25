@@ -1,0 +1,110 @@
+---
+// One page per constituency: MP, wards, voters, and the NG-CDF (national government money, not county money).
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Toggle from '../../components/Toggle.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import HBars from '../../components/viz/HBars.astro';
+import wards from '../../data/wards.json';
+import leaders from '../../data/leaders.json';
+import E from '../../data/elections.json';
+import { subCounties, anchorFor } from '../../nav.js';
+import { cdf, cdfSources, forConstituency, sectorLabel } from '../../lib/ngcdf.js';
+import { ksh, num } from '../../lib/fmt.js';
+export function getStaticPaths() {
+  return subCounties.map((c) => ({ params: { slug: anchorFor(c) }, props: { c } }));
+}
+const { c } = Astro.props;
+const ws = wards.filter((w) => w.subCounty === c);
+const mp = leaders.national.find((l) => l.office === `MP, ${c}`);
+const reg = E.registeredByWard.filter((r) => r.year === 2022 && ws.some((w) => w.slug === r.ward)).reduce((n, r) => n + r.registered, 0);
+const f = forConstituency(c);
+const latestAudited = f.allocations.filter((a) => a.fy <= '2024/25').pop();
+const now = f.allocations[f.allocations.length - 1];
+const p25 = f.projects.filter((p) => p.fy === '2024/25');
+const sectors = [...new Set(p25.map((p) => sectorLabel(p.sector)))].sort().map((s) => ({ s, list: p25.filter((p) => sectorLabel(p.sector) === s).sort((a, b) => (b.amountKsh ?? 0) - (a.amountKsh ?? 0)) }));
+const older = f.projects.filter((p) => p.fy !== '2024/25');
+const src = (id) => cdfSources[id];
+const legal = cdf.about.filter((a) => a.text.startsWith('Legal status') || a.text.startsWith('On 6 February 2026'));
+const about = cdf.about.filter((a) => !legal.includes(a));
+---
+<Base title={`${c} Constituency`} description={`${c} constituency, Nyamira: its MP, wards, voters and the national government's Constituencies Development Fund (NG-CDF).`}>
+  <div class="sec-tea">
+    <PageHead eyebrow="Constituency" title={`${c} Constituency`} lead={`${ws.length} wards, one Member of Parliament, and the NG-CDF: money from the national government, separate from the county's budget.`} tone="tea" crumbs={[{ href: '/ward/', label: 'Wards' }, { href: `/constituency/${anchorFor(c)}/`, label: c }]} />
+    <div class="stack-lg" style="margin-top:16px">
+      <section class="cols-2">
+        <div class="receipt">
+          <span class="eyebrow">Constituency receipt</span>
+          <h2>{c}</h2>
+          <div class="row"><span>MP</span><span>{mp ? `${mp.name}${mp.party ? ` (${mp.party})` : ''}` : 'Not confirmed'}</span></div>
+          <div class="row"><span>Wards</span><span>{ws.length}</span></div>
+          <div class="row"><span>Registered voters (IEBC 2022)</span><span>{num(reg)}</span></div>
+          {now && <div class="row"><span>NG-CDF allocation, {now.fy}</span><span>{ksh(now.amountKsh)}</span></div>}
+          <p class="small muted">MP from Mzalendo and IEBC; voters from the IEBC register per ward; NG-CDF from the NG-CDF Board. <a href="/government/elections/">Election results</a></p>
+        </div>
+        <div class="stack">
+          <h2>Wards</h2>
+          <ul class="rows">{ws.map((w) => <li><a class="row-link" href={`/ward/${w.slug}/`}><span><span class="t">{w.name}</span><span class="d">{w.facilities.length} services listed</span></span><span class="go" aria-hidden="true">→</span></a></li>)}</ul>
+        </div>
+      </section>
+
+      <section class="stack">
+        <h2>NG-CDF: the Constituencies Development Fund</h2>
+        <p class="callout"><span><strong>National money, not county money.</strong> The NG-CDF comes from the national government's share of revenue and is run by a constituency committee, with the MP in an oversight role. It mostly pays for school projects, bursaries and security. It is not part of Nyamira County's budget.</span></p>
+        {latestAudited && (
+          <div class="cols-2">
+            <div class="figure">
+              <span class="eyebrow">Allocation · {latestAudited.fy}</span>
+              <span class="num">{ksh(latestAudited.amountKsh)}</span>
+              <p class="say">allocated to {c} by the NG-CDF Board.{now && now.fy !== latestAudited.fy && ` ${ksh(now.amountKsh)} for ${now.fy}.`}</p>
+              <p class="source"><EvidenceLabel kind="official" /> Source: <a href={src(latestAudited.sourceId)?.url} rel="noopener">NG-CDF Board, allocations</a></p>
+            </div>
+            <HBars title={`NG-CDF allocations to ${c}`} sort={false} rows={f.allocations.map((a) => ({ label: a.fy, value: a.amountKsh, display: ksh(a.amountKsh) }))} />
+          </div>
+        )}
+        <div class="stack">
+          {p25.length > 0 && (
+            <Toggle id="cdf-projects" title="Where the money went in 2024/25" meta={`${p25.length} budget lines`}>
+              <p class="small muted">From the audited financial statements (budget execution by sector and project), copied from a scanned report; lines under KSh 100,000 left out. Some lines name suppliers rather than projects. Check the source before quoting.</p>
+              {sectors.map((g) => (
+                <div class="stack" style="gap:4px;margin-bottom:14px">
+                  <h4>{g.s} · {ksh(g.list.reduce((n, p) => n + (p.amountKsh ?? 0), 0))}</h4>
+                  <ul class="small">{g.list.map((p) => <li>{p.name}: {ksh(p.amountKsh)}{p.actualKsh != null && p.actualKsh !== p.amountKsh && ` (spent ${ksh(p.actualKsh)})`}</li>)}</ul>
+                </div>
+              ))}
+              <p class="source"><EvidenceLabel kind="official" /> <a href={src(p25[0].sourceId)?.url} rel="noopener">{src(p25[0].sourceId)?.title}</a>, {p25[0].page}</p>
+            </Toggle>
+          )}
+          {f.bursaries.length > 0 && (
+            <Toggle id="cdf-bursaries" title="Bursaries" meta="As reported spent">
+              <ul class="small">{f.bursaries.map((b) => <li><strong>{b.fy}:</strong> {ksh(b.amountKsh)} · {b.category}{b.note && <span class="muted"> · {b.note}</span>} · <a href={src(b.sourceId)?.url} rel="noopener">source</a>, {b.page}</li>)}</ul>
+              <p class="small muted">No source gives a planned bursary share; these are amounts reported as spent. Missing years were not found.</p>
+            </Toggle>
+          )}
+          {f.audit.length > 0 && (
+            <Toggle id="cdf-audit" title="What the Auditor-General found" meta={`${f.audit.length} years`}>
+              {f.audit.map((y) => (
+                <div class="stack" style="gap:6px;margin-bottom:16px">
+                  <h4>{y.fy}: <span class={`op op-${y.opinion.toLowerCase()}`}>{y.opinion}</span></h4>
+                  <ul class="small">{y.findings.map((x) => <li><strong>{x.title}</strong>{x.amountKsh != null && ` · ${ksh(x.amountKsh)}`}: {x.summary} <span class="muted">({x.page})</span></li>)}</ul>
+                  <p class="source"><span class="label audit">Audit finding</span> <a href={src(y.sourceId)?.url} rel="noopener">{src(y.sourceId)?.title}</a></p>
+                </div>
+              ))}
+              <p class="small muted">"Unmodified" means a clean opinion. A finding is the auditor's question, not a court ruling.</p>
+            </Toggle>
+          )}
+          {older.length > 0 && (
+            <Toggle id="cdf-older" title="Projects named in earlier audit reports" meta={`${older.length}`}>
+              <ul class="small">{older.map((p) => <li><strong>{p.fy}:</strong> {p.name}{p.amountKsh != null && ` · ${ksh(p.amountKsh)}`}{p.status && <span class="muted"> · {p.status}</span>}</li>)}</ul>
+            </Toggle>
+          )}
+          <Toggle id="cdf-how" title="How the NG-CDF works">
+            <ul class="small">{about.map((a) => <li>{a.text} <span class="muted">({src(a.sourceId)?.title})</span></li>)}</ul>
+            {legal.length > 0 && <p class="small"><strong>Court case:</strong> {legal.map((a) => a.text).join(' ')} <span class="muted">(as reported by the media; we have not read the judgments)</span></p>}
+          </Toggle>
+        </div>
+      </section>
+      <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Eneo bunge la {c}: mbunge, wadi zake, wapiga kura na Hazina ya Maendeleo ya Maeneo Bunge (NG-CDF), ambayo ni pesa za serikali ya kitaifa, si za kaunti.</p></div>
+    </div>
+  </div>
+</Base>

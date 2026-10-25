@@ -16,7 +16,7 @@ const items = [
 ];
 ---
 <Base title="Take part">
-  <PageHead eyebrow="Take part" title="Take part" lead="The Constitution gives you the right to information and the right to be heard on how the county is run. These tools help you use them." />
+  <div class="sec-dusk"><PageHead eyebrow="Take part" title="Take part" lead="The Constitution gives you the right to information and the right to be heard on how the county is run. These tools help you use them." tone="dusk" /></div>
   <ul class="rows" style="margin-top:16px">
     {items.map((m) => (
       <li><a class="row-link" href={m.href}><span><span class="t">{m.t}{planned.has(m.href) && <span class="tag-planned" style="margin-left:8px">Planned</span>}</span><span class="d">{m.d}</span></span><span class="go" aria-hidden="true">→</span></a></li>

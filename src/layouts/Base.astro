@@ -172,13 +172,18 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
                 <li class="menu-overview"><a href={s.href} aria-current={s.href === path ? 'page' : undefined}>{s.overview}</a></li>
                 {s.pages.map((p) => (
                   <li>
-                    <a href={p.href} aria-current={stateFor(p, path)}>{p.label}{planned.has(p.href) && <span class="tag-planned">Planned</span>}</a>
-                    {p.pages && (
-                      <ul class="menu-sub">
-                        {p.pages.map((c) => (
-                          <li><a href={c.href} aria-current={stateFor(c, path)}>{c.label}{planned.has(c.href) && <span class="tag-planned">Planned</span>}</a></li>
-                        ))}
-                      </ul>
+                    {p.pages ? (
+                      <details class="menu-group" open={stateFor(p, path) ? true : undefined}>
+                        <summary aria-current={stateFor(p, path)}>{p.label}</summary>
+                        <ul class="menu-sub">
+                          <li><a href={p.href} aria-current={p.href === path ? 'page' : undefined}>About {p.label.replace(' Constituency', '')}</a></li>
+                          {p.pages.map((c) => (
+                            <li><a href={c.href} aria-current={stateFor(c, path)}>{c.label}{planned.has(c.href) && <span class="tag-planned">Planned</span>}</a></li>
+                          ))}
+                        </ul>
+                      </details>
+                    ) : (
+                      <a href={p.href} aria-current={stateFor(p, path)}>{p.label}{planned.has(p.href) && <span class="tag-planned">Planned</span>}</a>
                     )}
                   </li>
                 ))}
@@ -241,6 +246,15 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
     picks.forEach(function (p) { p.addEventListener('change', function () { choose(p.value); document.dispatchEvent(new CustomEvent('nd-ward', { detail: ward })); }); });
     all('[data-set-ward]').forEach(function (el) { el.addEventListener('click', function () { choose(el.getAttribute('data-set-ward')); }); });
     apply();
+
+    // Toggles: a link to #something opens the toggle (and any toggle around it) so the target is visible
+    function openTo() {
+      var id = decodeURIComponent(location.hash.slice(1)); if (!id) return;
+      var el = document.getElementById(id); if (!el) return;
+      for (var n = el; n; n = n.parentElement) if (n.tagName === 'DETAILS') n.open = true;
+      el.scrollIntoView();
+    }
+    openTo(); window.addEventListener('hashchange', openTo);
 
     // NY Watch on air: 10 to 11 pm in Nairobi (UTC+3, no daylight saving), checked every minute
     var onair = all('[data-onair]');

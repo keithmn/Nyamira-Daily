@@ -1,127 +1,100 @@
 ---
+// Data sectors (decision #30): Money, Health, Education, Farming, People and places, Open data.
+// Each opens with its headline figures; the rest sits in Notion-style toggles.
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
-import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import Toggle from '../../components/Toggle.astro';
 import { topics } from '../../data/topics.js';
-import wards from '../../data/wards.json';
 import MyWard from '../../components/MyWard.astro';
 import MoneyPage from '../../components/MoneyPage.astro';
 import ProjectsPage from '../../components/ProjectsPage.astro';
 import PeoplePage from '../../components/PeoplePage.astro';
 import ComparePage from '../../components/data/ComparePage.astro';
-import ThenNowPage from '../../components/data/ThenNowPage.astro';
-import ElectionsPage from '../../components/data/ElectionsPage.astro';
 import TeaMilkPage from '../../components/data/TeaMilkPage.astro';
 import HealthPage from '../../components/data/HealthPage.astro';
 import SchoolsPage from '../../components/data/SchoolsPage.astro';
 import SubLocationsPage from '../../components/data/SubLocationsPage.astro';
 import AuditPage from '../../components/data/AuditPage.astro';
-const countyOnly = ['audit', 'compare', 'then-and-now', 'tea-milk', 'health', 'schools', 'sub-locations'];
-import { planned } from '../../config.js';
+import ServicesBlock from '../../components/ServicesBlock.astro';
+import SectorProjects from '../../components/SectorProjects.astro';
+import CommunityReports from '../../components/CommunityReports.astro';
+import OpenData from '../../components/OpenData.astro';
+import wards from '../../data/wards.json';
 
 export function getStaticPaths() {
   return topics.map((t) => ({ params: { topic: t.slug }, props: { t } }));
 }
 const { t } = Astro.props;
-const isPlanned = planned.has(`/data/${t.slug}/`);
-const cats = ['Health', 'Education', 'Worship', 'Market', 'Water', 'Public office', 'Community centre', 'Agriculture'];
-const total = wards.reduce((n, w) => n + w.facilities.length, 0);
+const healthCount = wards.reduce((n, w) => n + (w.counts.Health ?? 0), 0);
 ---
 <Base title={t.title}>
-  <PageHead eyebrow="Data" title={t.title} lead={t.question} crumbs={[{ href: '/data/', label: 'Data' }, { href: `/data/${t.slug}/`, label: t.title }]} />
+  <div class={`sec-${t.tone}`}>
+    <PageHead eyebrow="Data" title={t.title} lead={t.question} tone={t.tone} crumbs={[{ href: '/data/', label: 'Data' }, { href: `/data/${t.slug}/`, label: t.title }]} />
 
-  {t.slug !== 'open-data' && !countyOnly.includes(t.slug) && !isPlanned && <div style="margin-top:16px"><MyWard topic={t.slug} /></div>}
-
-  {t.slug === 'services' && (
-    <div class="stack" style="margin-top:16px">
-      <div class="card">
-        <span class="big">{total}</span>
-        <span>public places and services are listed for Nyamira so far, across all 20 wards. Most are not yet checked on site.</span>
-        <EvidenceLabel kind="unverified" />
-        <span class="small muted">Sources: {t.sources.join('; ')}</span>
-        <span class="updated">Last updated 22 Oct 2026</span>
-      </div>
-      <details>
-        <summary>See the detail: services by ward</summary>
-        <div class="table-box">
-          <table class="cards">
-            <thead><tr><th>Ward</th><th>Sub-county</th>{cats.map((c) => <th class="num">{c}</th>)}</tr></thead>
-            <tbody>
-              {wards.map((w) => (
-                <tr data-ward-row={w.slug}>
-                  <td><a href={`/ward/${w.slug}/`}>{w.name}</a></td>
-                  <td data-label="Sub-county">{w.subCounty}</td>
-                  {cats.map((c) => <td class="num" data-label={c}>{w.counts[c] ?? 0}</td>)}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+    {t.slug === 'money' && (
+      <>
+        <div style="margin-top:16px"><MyWard topic="projects" /></div>
+        <MoneyPage />
+        <div class="stack" style="margin-top:32px">
+          <Toggle id="projects" title="Ward projects: what each ward was promised" meta="FY2025/26 budget lines, progress, questions to ask"><ProjectsPage /></Toggle>
+          <Toggle id="audit" title="What the Auditor-General found" meta="Audit opinion every year, 354 findings"><AuditPage /></Toggle>
+          <Toggle id="compare" title="How Nyamira compares with its neighbours" meta="Spending per person, development, local revenue"><ComparePage /></Toggle>
+          <Toggle id="tools" title="Try it yourself" meta="Budget simulator, what money could build">
+            <ul class="rows">
+              <li><a class="row-link" href="/tools/budget-simulator/"><span><span class="t">You run the county</span><span class="d">Share out the 2025/26 budget and see the trade-offs.</span></span><span class="go" aria-hidden="true">→</span></a></li>
+              <li><a class="row-link" href="/tools/what-it-builds/"><span><span class="t">What could it build?</span><span class="d">Classrooms, boreholes, health blocks and roads, from the county's own costs.</span></span><span class="go" aria-hidden="true">→</span></a></li>
+            </ul>
+          </Toggle>
         </div>
-        <p class="small muted" style="margin-top:8px">Counts show what has been listed, not everything that exists. Water points and schools are badly under-listed.</p>
-      </details>
-    </div>
-  )}
+      </>
+    )}
 
-  {t.slug === 'open-data' && (
-    <div class="stack" style="margin-top:16px">
-      <div class="card">
-        <h3>County money, FY2013/14 to FY2024/25 (version 1)</h3>
-        <p class="muted">Budget, spending, development spending, local revenue, national transfers and pending bills, with the Controller of Budget source for each year.</p>
-        <a class="btn" href="/files/money-v1.csv" download>Download CSV</a>
-      </div>
-      <div class="card">
-        <h3>Ward projects (version 1)</h3>
-        <p class="muted">404 project records by ward: FY2025/26 budget lines, FY2023/24 contracts and spending, with the source page for each.</p>
-        <a class="btn" href="/files/projects-v1.csv" download>Download CSV</a>
-      </div>
-      <div class="card">
-        <h3>Places (version 1)</h3>
-        <p class="muted">Towns, markets, trading centres and administrative locations, with their ward.</p>
-        <a class="btn" href="/files/places-v1.csv" download>Download CSV</a>
-      </div>
-      <div class="card">
-        <h3>Services and facilities (version 1)</h3>
-        <p class="muted">Schools, health facilities, churches, markets, offices and more, with their ward and source.</p>
-        <a class="btn" href="/files/facilities-v1.csv" download>Download CSV</a>
-      </div>
-      <section class="stack" style="margin-top:16px">
-        <h2>Live data for apps, newsrooms and radio</h2>
-        <p class="muted">These files are rebuilt every time the site changes. Each JSON file carries its licence, sources and the date it was generated.</p>
-        <div class="table-box"><table class="cards">
-          <thead><tr><th>Address</th><th>What it holds</th></tr></thead>
-          <tbody>
-            <tr><td><a href="/api/wards.json">/api/wards.json</a></td><td data-label="Holds">Ward receipts for all 20 wards</td></tr>
-            <tr><td><a href="/api/ward/rigoma.json">/api/ward/&lt;ward&gt;.json</a></td><td data-label="Holds">One ward's receipt (ward names as in the web address, e.g. rigoma)</td></tr>
-            <tr><td><a href="/api/ward/rigoma.txt">/api/ward/&lt;ward&gt;.txt</a></td><td data-label="Holds">The same receipt as plain text under 900 characters, for WhatsApp and SMS replies</td></tr>
-            <tr><td><a href="/api/money.json">/api/money.json</a></td><td data-label="Holds">County money by year</td></tr>
-            <tr><td><a href="/api/projects.json">/api/projects.json</a></td><td data-label="Holds">Ward projects, with sources</td></tr>
-            <tr><td><a href="/api/opportunities.json">/api/opportunities.json</a></td><td data-label="Holds">Jobs, tenders and bursaries</td></tr>
-            <tr><td><a href="/api/alerts.json">/api/alerts.json</a></td><td data-label="Holds">All alerts and incidents; <a href="/api/alerts/active.json">active.json</a> and <a href="/api/alerts/active.txt">active.txt</a> for current ones; <a href="/alerts/rss.xml">RSS feed</a></td></tr>
-          </tbody>
-        </table></div>
-        <p class="small muted">To show a ward or the county's money on your own website, use the embeds: the code is under "Use this on your site" on each ward page and on the Money page.</p>
-      </section>
-      <p class="small muted">Licence: free to reuse with credit to Nyamira Daily. Data from OpenStreetMap is © OpenStreetMap contributors (ODbL). Ward boundaries: geoBoundaries (CC BY 4.0).</p>
-    </div>
-  )}
+    {t.slug === 'health' && (
+      <>
+        <HealthPage />
+        <div class="stack" style="margin-top:32px">
+          <Toggle id="facilities" title="Health facilities by ward" meta={`${healthCount} listed`}>
+            <ul class="small">{wards.map((w) => <li><a href={`/ward/${w.slug}/`}>{w.name}</a>: {w.counts.Health ?? 0}</li>)}</ul>
+            <p class="source"><span class="label official">Official claim</span> Mostly from the Kenya Master Health Facility List (2017 export). Each ward page lists the facilities.</p>
+          </Toggle>
+          <Toggle id="clinic-checks" title="Clinic checks by residents"><CommunityReports /></Toggle>
+          <Toggle id="health-projects" title="Health projects in the wards"><SectorProjects match="health|medical|dispensary|opd" /></Toggle>
+        </div>
+      </>
+    )}
 
-  {t.slug === 'money' && <MoneyPage />}
-  {t.slug === 'projects' && <ProjectsPage />}
-  {t.slug === 'people' && <PeoplePage />}
-  {t.slug === 'audit' && <AuditPage />}
-  {t.slug === 'compare' && <ComparePage />}
-  {t.slug === 'then-and-now' && <ThenNowPage />}
-  {t.slug === 'elections' && <ElectionsPage />}
-  {t.slug === 'tea-milk' && <TeaMilkPage />}
-  {t.slug === 'health' && <HealthPage />}
-  {t.slug === 'schools' && <SchoolsPage />}
-  {t.slug === 'sub-locations' && <SubLocationsPage />}
+    {t.slug === 'education' && (
+      <>
+        <SchoolsPage />
+        <div class="stack" style="margin-top:32px">
+          <Toggle id="school-projects" title="ECDE and school projects in the wards"><SectorProjects match="education|ecde|vocational|polytechnic" note="Nursery (ECDE) classrooms and village polytechnics are county jobs; primary and secondary schools are national." /></Toggle>
+          <Toggle id="schools-listed" title="Schools listed in each ward">
+            <ul class="small">{wards.map((w) => <li><a href={`/ward/${w.slug}/`}>{w.name}</a>: {w.counts.Education ?? 0}</li>)}</ul>
+            <p class="small muted">Schools are badly under-listed so far; see each ward page.</p>
+          </Toggle>
+        </div>
+      </>
+    )}
 
-  {isPlanned && (
-    <div class="stack" style="margin-top:16px">
-      <p><span class="tag-planned">Planned</span> {t.status}.</p>
-      <p class="muted">This page will be published when its first figures have been checked. It will draw on:</p>
-      <ul>{t.sources.map((s) => <li>{s}</li>)}</ul>
-    </div>
-  )}
+    {t.slug === 'farming' && (
+      <>
+        <TeaMilkPage />
+        <div class="stack" style="margin-top:32px">
+          <Toggle id="farming-projects" title="Crop and livestock projects in the wards"><SectorProjects match="crop|livestock|agri|fisher|dairy|tea buying" /></Toggle>
+        </div>
+      </>
+    )}
+
+    {t.slug === 'people' && (
+      <>
+        <PeoplePage />
+        <div class="stack" style="margin-top:32px">
+          <Toggle id="sub-locations" title="Find your sub-location" meta="2019 census, all 113"><SubLocationsPage /></Toggle>
+          <Toggle id="services" title="Public places and services in each ward"><ServicesBlock /></Toggle>
+        </div>
+      </>
+    )}
+
+    {t.slug === 'open-data' && <OpenData />}
+  </div>
 </Base>

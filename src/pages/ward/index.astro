@@ -1,26 +1,33 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
+import Toggle from '../../components/Toggle.astro';
 import wards from '../../data/wards.json';
+import leaders from '../../data/leaders.json';
 import WardMap from '../../components/WardMap.astro';
 import { subCounties, anchorFor } from '../../nav.js';
 ---
 <Base title="Wards">
-  <PageHead eyebrow="Wards" title="Choose your ward" lead="Tap your ward on the map, or pick it from the list. Each ward has one page with its services, projects, money and MCA." tools={false} />
+  <div class="sec-tea">
+    <PageHead eyebrow="Wards" title="Choose your ward" lead="Nyamira has four constituencies and 20 wards. Tap your ward on the map, or open your constituency below." tone="tea" tools={false} />
+  </div>
   <div class="stack-lg" style="margin-top:16px">
-    <WardMap mode="county" />
-    {subCounties.map((s) => (
-      <section class="stack" id={anchorFor(s)}>
-        <h2>{s}</h2>
-        <div class="grid">
-          {wards.filter((w) => w.subCounty === s).map((w) => (
-            <a class="card" href={`/ward/${w.slug}/`} data-ward-row={w.slug}>
-              <h3>{w.name}</h3>
-              <span class="small muted">{w.facilities.length} services listed · {w.places.length} places</span>
-            </a>
-          ))}
-        </div>
-      </section>
-    ))}
+    <div class="cols-2">
+      <WardMap mode="county" />
+      <div class="stack sec-tea">
+        {subCounties.map((s) => {
+          const mp = leaders.national.find((l) => l.office === `MP, ${s}`);
+          const ws = wards.filter((w) => w.subCounty === s);
+          return (
+            <Toggle id={anchorFor(s)} title={`${s} Constituency`} meta={`${ws.length} wards${mp ? ` · MP ${mp.name}` : ''}`}>
+              <ul class="rows">
+                {ws.map((w) => <li data-ward-row={w.slug}><a class="row-link" href={`/ward/${w.slug}/`}><span><span class="t">{w.name}</span><span class="d">{w.facilities.length} services listed · {w.places.length} places</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
+              </ul>
+              <p style="margin-top:12px"><a href={`/constituency/${anchorFor(s)}/`}><strong>About {s} Constituency: MP, voters and NG-CDF money</strong></a></p>
+            </Toggle>
+          );
+        })}
+      </div>
+    </div>
   </div>
 </Base>
