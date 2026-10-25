@@ -76,6 +76,15 @@ export const sections = [
   ] },
 ];
 
+// Highlands colour for each section (brand kit v1.1, decision #31). Data sector pages set their own.
+export const sectionTone = { Today: 'harvest', Wards: 'tea', Data: 'tea', 'Take part': 'dusk', Stories: 'earth', Government: 'rain', Learn: 'mist' };
+export function toneFor(path) {
+  if (path.startsWith('/alerts/')) return 'mist';
+  if (path.startsWith('/projects/') || path.startsWith('/constituency/')) return 'tea';
+  const s = sectionFor(path);
+  return s ? sectionTone[s.label] : 'mist';
+}
+
 // aria-current for a menu entry on this page: "page" if it is this page, "true" if it contains it
 // (a page listed under it, or an address it covers, like the articles under Devolution).
 export function stateFor(item, path) {

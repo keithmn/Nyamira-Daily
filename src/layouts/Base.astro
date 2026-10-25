@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import wards from '../data/wards.json';
-import { sections, sectionFor, stateFor, subCounties, anchorFor } from '../nav.js';
+import { sections, sectionFor, stateFor, subCounties, anchorFor, toneFor } from '../nav.js';
 
 import PageTools from '../components/PageTools.astro';
 import AlertBanner from '../components/AlertBanner.astro';
@@ -196,7 +196,7 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
   </header>
   <AlertBanner ward={alertWard} disruptions={showDisruptions} />
 
-  <main id="main">
+  <main id="main" class={`sec-${toneFor(path)}`}>
     <slot name="hero" />
     <div class="wrap">
       <slot />

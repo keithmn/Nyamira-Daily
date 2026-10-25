@@ -968,3 +968,14 @@ h3.tg-title { font-size: 17px; }
 .nav-panel details.menu-group[open] > summary::before { transform: rotate(90deg); }
 .nav-panel details.menu-group > summary:hover { background: var(--surface); }
 .nav-panel details.menu-group[open] { padding-bottom: 6px; }
+/* Section colour reaches the small marks too: "See the detail" discs, toggles, row arrows, step numbers */
+details:not(.menu):not(.toggle):not(.menu-group) > summary::before { background: var(--sec, var(--brand)); color: var(--sec-ink, var(--brand-ink)); }
+main .rows .go, main ol.steps li::before { background: var(--sec, var(--brand)); color: var(--sec-ink, var(--brand-ink)); }
+main .sec-mist .rows .go, main.sec-mist .rows .go, main.sec-mist ol.steps li::before, main.sec-mist details:not(.menu):not(.toggle) > summary::before { background: var(--hl-tea); color: #FFFFFF; }
+.sec-mist .tg-caret { background: var(--hl-tea); }
+.sec-mist .tg-caret::after { border-left-color: #FFFFFF; }
+/* Learn and Alerts heads (Mist) get a Tea edge so they don't look washed out */
+.page-head.band.sec-mist { box-shadow: inset 6px 0 0 var(--hl-tea); }
+:root[data-theme="dark"] .page-head.band.sec-mist { background: #1d3328; color: var(--ink); }
+:root[data-theme="dark"] .page-head.band.sec-mist .eyebrow, :root[data-theme="dark"] .page-head.band.sec-mist h1, :root[data-theme="dark"] .page-head.band.sec-mist .lead { color: var(--ink); }
+:root[data-theme="dark"] .page-head.band.sec-mist .eyebrow::before, :root[data-theme="dark"] .page-head.band.sec-mist h1::after { background: var(--ink); }
