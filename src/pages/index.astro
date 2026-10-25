@@ -10,6 +10,7 @@ import NumberCard from '../components/NumberCard.astro';
 import { getNumbers } from '../lib/numbers.js';
 const [numberNow] = await getNumbers();
 import wards from '../data/wards.json';
+import { topics } from '../data/topics.js';
 import money from '../data/money.json';
 import leaders from '../data/leaders.json';
 
@@ -33,7 +34,7 @@ const more = [
   <HeroMap slot="hero" />
 
   <div class="stack-lg" style="padding-top:40px">
-    <section class="cols-2" aria-label="Nyamira at a glance">
+    <section class="cols-2 band sec-harvest" aria-label="Nyamira at a glance">
       <div class="figure">
         <span class="eyebrow">Money · {last.fy}</span>
         <span class="num">{bn(last.spent)}</span>
@@ -55,8 +56,17 @@ const more = [
       </div>
     </section>
 
+    <section class="band sec-tea stack" aria-labelledby="explore">
+      <h2 id="explore">Explore the data</h2>
+      <div class="sector-tiles compact">
+        {topics.map((t) => (
+          <a class={`sector-tile sec-${t.tone}`} href={`/data/${t.slug}/`}><h3>{t.title}</h3><p>{t.question}</p><span class="go" aria-hidden="true">→</span></a>
+        ))}
+      </div>
+    </section>
+
     <section class="cols-2">
-      <div class="stack">
+      <div class="stack band sec-rain">
         <h2>Find out more</h2>
         <ul class="rows">
           {more.map((m) => (

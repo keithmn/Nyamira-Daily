@@ -979,3 +979,90 @@ main .sec-mist .rows .go, main.sec-mist .rows .go, main.sec-mist ol.steps li::be
 :root[data-theme="dark"] .page-head.band.sec-mist { background: #1d3328; color: var(--ink); }
 :root[data-theme="dark"] .page-head.band.sec-mist .eyebrow, :root[data-theme="dark"] .page-head.band.sec-mist h1, :root[data-theme="dark"] .page-head.band.sec-mist .lead { color: var(--ink); }
 :root[data-theme="dark"] .page-head.band.sec-mist .eyebrow::before, :root[data-theme="dark"] .page-head.band.sec-mist h1::after { background: var(--ink); }
+
+/* ===== Highlands, medium (decision #32): tints for backgrounds, solid colour for heads and key numbers ===== */
+/* Each tone: --sec (solid), --sec-ink (text on solid), --sec-soft (tint), --sec-deep (text, numbers and bars on white or tint, 4.5:1+) */
+.sec-tea { --sec-deep: #0B5D3B; }
+:root[data-theme="dark"] .sec-tea { --sec-soft: #11261b; --sec-deep: #5fd39a; }
+.sec-harvest { --sec-deep: #8a5a00; }
+:root[data-theme="dark"] .sec-harvest { --sec-soft: #2b2410; --sec-deep: #F4B400; }
+.sec-rain { --sec-deep: #1F5F8B; }
+:root[data-theme="dark"] .sec-rain { --sec-soft: #142330; --sec-deep: #7fb6dd; }
+.sec-earth { --sec-deep: #A63D2A; }
+:root[data-theme="dark"] .sec-earth { --sec-soft: #2c1915; --sec-deep: #f0957f; }
+.sec-avocado { --sec-deep: #4a6a12; }
+:root[data-theme="dark"] .sec-avocado { --sec-soft: #1d2612; --sec-deep: #a9cf5a; }
+.sec-dusk { --sec-deep: #3B2A6B; }
+:root[data-theme="dark"] .sec-dusk { --sec-soft: #201b31; --sec-deep: #b9a6ee; }
+.sec-bloom { --sec-deep: #9a4630; }
+:root[data-theme="dark"] .sec-bloom { --sec-soft: #2d211d; --sec-deep: #F2C4B4; }
+.sec-mist { --sec-deep: #0B5D3B; }
+:root[data-theme="dark"] .sec-mist { --sec-soft: #16251d; --sec-deep: #8fd8ae; }
+/* Rotating colours for lists of cards and tiles, so a page of links reads as many colours, not one */
+main .grid > .card:nth-child(7n+1), main .tiles > .tile:nth-child(7n+1) { --sec: var(--hl-tea); --sec-ink: #FFFFFF; --sec-soft: #dcefe4; --sec-deep: #0B5D3B; }
+:root[data-theme="dark"] :is(main .grid > .card:nth-child(7n+1), main .tiles > .tile:nth-child(7n+1)) { --sec-soft: #11261b; --sec-deep: #5fd39a; }
+main .grid > .card:nth-child(7n+2), main .tiles > .tile:nth-child(7n+2) { --sec: var(--hl-harvest); --sec-ink: #111111; --sec-soft: #fdf1cc; --sec-deep: #8a5a00; }
+:root[data-theme="dark"] :is(main .grid > .card:nth-child(7n+2), main .tiles > .tile:nth-child(7n+2)) { --sec-soft: #2b2410; --sec-deep: #F4B400; }
+main .grid > .card:nth-child(7n+3), main .tiles > .tile:nth-child(7n+3) { --sec: var(--hl-rain); --sec-ink: #FFFFFF; --sec-soft: #e1ecf4; --sec-deep: #1F5F8B; }
+:root[data-theme="dark"] :is(main .grid > .card:nth-child(7n+3), main .tiles > .tile:nth-child(7n+3)) { --sec-soft: #142330; --sec-deep: #7fb6dd; }
+main .grid > .card:nth-child(7n+4), main .tiles > .tile:nth-child(7n+4) { --sec: var(--hl-earth); --sec-ink: #FFFFFF; --sec-soft: #f6e1dc; --sec-deep: #A63D2A; }
+:root[data-theme="dark"] :is(main .grid > .card:nth-child(7n+4), main .tiles > .tile:nth-child(7n+4)) { --sec-soft: #2c1915; --sec-deep: #f0957f; }
+main .grid > .card:nth-child(7n+5), main .tiles > .tile:nth-child(7n+5) { --sec: var(--hl-avocado); --sec-ink: #111111; --sec-soft: #eef5dd; --sec-deep: #4a6a12; }
+:root[data-theme="dark"] :is(main .grid > .card:nth-child(7n+5), main .tiles > .tile:nth-child(7n+5)) { --sec-soft: #1d2612; --sec-deep: #a9cf5a; }
+main .grid > .card:nth-child(7n+6), main .tiles > .tile:nth-child(7n+6) { --sec: var(--hl-dusk); --sec-ink: #FFFFFF; --sec-soft: #e7e2f3; --sec-deep: #3B2A6B; }
+:root[data-theme="dark"] :is(main .grid > .card:nth-child(7n+6), main .tiles > .tile:nth-child(7n+6)) { --sec-soft: #201b31; --sec-deep: #b9a6ee; }
+main .grid > .card:nth-child(7n+7), main .tiles > .tile:nth-child(7n+7) { --sec: var(--hl-bloom); --sec-ink: #111111; --sec-soft: #fbece6; --sec-deep: #9a4630; }
+:root[data-theme="dark"] :is(main .grid > .card:nth-child(7n+7), main .tiles > .tile:nth-child(7n+7)) { --sec-soft: #2d211d; --sec-deep: #F2C4B4; }
+main .grid > .card { background: var(--sec-soft); border-color: transparent; border-top: 6px solid var(--sec); position: relative; overflow: hidden; }
+main .grid > .card > * { position: relative; }
+main .grid > .card::after { content: ""; position: absolute; right: -46px; top: -46px; width: 120px; height: 120px; border-radius: 50%; border: 14px solid var(--sec); opacity: 0.16; pointer-events: none; }
+main .grid > a.card:hover { border-color: var(--sec-deep); box-shadow: inset 0 0 0 2px var(--sec-deep); }
+main .grid > .card h2, main .grid > .card h3, main .grid > .card .big { color: var(--sec-deep); }
+main .grid > .card .muted { color: var(--ink-2, var(--ink)); }
+main .grid > .card.mine { box-shadow: inset 0 0 0 2px var(--brand); }
+/* Tiles and stat cards: tinted, the number in the deep tone */
+main .tile { background: var(--sec-soft); border-color: transparent; }
+main a.tile:hover { border-color: var(--sec-deep); }
+main .tile b:not(.hot), main .card.stat .big:not(.hot) { color: var(--sec-deep); }
+main .card.stat { background: var(--sec-soft); border-color: transparent; border-left: 6px solid var(--sec); }
+/* Headline figures take the section's deep tone; red stays for gaps */
+main .figure .num:not(.hot) { color: var(--sec-deep); }
+main .callout:not(.gap) { background: var(--sec-soft); }
+main .callout:not(.gap) b { color: var(--sec-deep); }
+/* Bands: a tinted block that groups a part of a page */
+.band { background: var(--sec-soft); border-radius: var(--radius); padding: clamp(18px, 4vw, 32px); }
+.band > h2:first-child, .band .band-title { display: flex; align-items: center; gap: 10px; }
+.band > h2:first-child::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 3px; background: var(--sec-deep); }
+.band .tile, .band .card.stat { background: var(--bg); }
+/* Charts: bars and meters in the section's deep tone; a two-series chart in Rain and Harvest. Focus stays Signal Green, gaps stay red. */
+:root { --series-1: #1F5F8B; --series-2: #c98f00; }
+:root[data-theme="dark"] { --series-1: #7fb6dd; --series-2: #F4B400; }
+main .hb-track i { background: var(--sec-deep, var(--brand)); }
+main .hbars.has-focus .hb-track i { background: var(--bar-quiet); }
+main .hbars.has-focus li.focus .hb-track i { background: var(--brand); }
+main .meter > i { background: var(--sec-deep, var(--brand)); }
+/* Menus: each section carries its colour dot; its dropdown opens with a band of that colour */
+.nav a::before, .nav-toggle::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--dot, var(--brand)); box-shadow: inset 0 0 0 1.5px var(--dot-ring, transparent); }
+.nav-panel { border-top: 5px solid var(--sec-deep, var(--line)); }
+.nav-panel .menu-overview a { color: var(--sec-deep); }
+.nav-panel .menu-overview a[aria-current="page"] { color: var(--brand-ink); }
+/* Footer: a strip of the whole palette instead of a single green line */
+.site-footer { border-top: 0; position: relative; }
+.site-footer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: linear-gradient(90deg, var(--nd-green) 0 12.5%, var(--hl-tea) 0 25%, var(--hl-avocado) 0 37.5%, var(--hl-harvest) 0 50%, var(--hl-earth) 0 62.5%, var(--hl-rain) 0 75%, var(--hl-dusk) 0 87.5%, var(--hl-bloom) 0); }
+@media print { .band { background: none; padding: 0; } main .grid > .card, main .tile, main .card.stat { background: none; border: 1px solid #999; } main .grid > .card::after { display: none; } }
+main .tile { border-top: 4px solid var(--sec); }
+.sector-tiles.compact { grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 10px; }
+.sector-tiles.compact .sector-tile { min-height: 128px; padding: 16px; gap: 6px; }
+.sector-tiles.compact .sector-tile h3 { font-size: 19px; color: inherit; }
+.sector-tiles.compact .sector-tile p { font-size: 14px; }
+.band .rows { background: var(--bg); border-radius: 12px; padding: 0 12px; }
+/* On Ink panels the deep tone flips to its bright version */
+.sec-tea .on-ink, .on-ink.sec-tea { --sec-deep: #5fd39a; }
+.sec-harvest .on-ink, .on-ink.sec-harvest { --sec-deep: #F4B400; }
+.sec-rain .on-ink, .on-ink.sec-rain { --sec-deep: #7fb6dd; }
+.sec-earth .on-ink, .on-ink.sec-earth { --sec-deep: #f0957f; }
+.sec-avocado .on-ink, .on-ink.sec-avocado { --sec-deep: #a9cf5a; }
+.sec-dusk .on-ink, .on-ink.sec-dusk { --sec-deep: #b9a6ee; }
+.sec-bloom .on-ink, .on-ink.sec-bloom { --sec-deep: #F2C4B4; }
+.sec-mist .on-ink, .on-ink.sec-mist { --sec-deep: #8fd8ae; }
+main .receipt { border-top: 6px solid var(--sec); }

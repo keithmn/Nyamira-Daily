@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
 import wards from '../data/wards.json';
-import { sections, sectionFor, stateFor, subCounties, anchorFor, toneFor } from '../nav.js';
+import { sections, sectionFor, stateFor, subCounties, anchorFor, toneFor, sectionTone } from '../nav.js';
+const dotStyle = (label) => { const t = sectionTone[label] ?? 'mist'; return t === 'mist' ? '--dot: var(--hl-mist); --dot-ring: var(--hl-tea)' : `--dot: var(--hl-${t})`; };
 
 import PageTools from '../components/PageTools.astro';
 import AlertBanner from '../components/AlertBanner.astro';
@@ -156,8 +157,8 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
         <div class="nav">
           {sections.map((s) => (
             <>
-              <a class="nav-link" href={s.href} aria-current={sectionState(s)}>{s.label}</a>
-              <button class="nav-toggle" type="button" aria-expanded="false" aria-controls={`menu-${anchorFor(s.label)}`} aria-current={sectionState(s)}>
+              <a class="nav-link" style={dotStyle(s.label)} href={s.href} aria-current={sectionState(s)}>{s.label}</a>
+              <button class="nav-toggle" style={dotStyle(s.label)} type="button" aria-expanded="false" aria-controls={`menu-${anchorFor(s.label)}`} aria-current={sectionState(s)}>
                 {s.label}<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
               </button>
             </>
@@ -166,7 +167,7 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
       </div>
       <div class="nav-panels">
         {sections.map((s) => (
-          <div class="nav-panel" id={`menu-${anchorFor(s.label)}`} hidden>
+          <div class={`nav-panel sec-${sectionTone[s.label] ?? 'mist'}`} id={`menu-${anchorFor(s.label)}`} hidden>
             <div class="wrap">
               <ul class="menu-grid">
                 <li class="menu-overview"><a href={s.href} aria-current={s.href === path ? 'page' : undefined}>{s.overview}</a></li>
