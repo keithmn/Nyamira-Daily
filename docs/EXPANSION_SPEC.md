@@ -1,7 +1,7 @@
 # Nyamira Daily: build plan (expansion and alerts)
 
 Two specs in one file. **Part A:** the expansion, Phases 1 to 4. **Part B:** alerts and incidents, item **1.8** of Phase 1.
-Read `CLAUDE.md` and everything in `docs/` before you start. Every rule in `docs/EDITORIAL_RULES.md` applies.
+Read `AGENTS.md` and everything in `docs/` before you start. Every rule in `docs/EDITORIAL_RULES.md` applies.
 
 **Status (24 Oct 2026):** Phases 1 to 4 built (Phase 2 pages stay Planned until the reporting and sign-up channels are set); see `docs/ROADMAP.md`. Agreed changes to this spec: seven sections in the bar
 (Today, Wards, Data, Take part, Stories, Government, Learn; the Constitution pages sit under Learn) and red on maps reserved for

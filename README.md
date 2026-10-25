@@ -12,7 +12,7 @@ An independent, non-partisan information service about Nyamira County, Kenya: it
 | [`docs/DECISIONS.md`](docs/DECISIONS.md) | You wonder why something is built the way it is |
 | [`docs/ROADMAP.md`](docs/ROADMAP.md) | You're looking for what to build next |
 | [`docs/BRAND_BRIEF.md`](docs/BRAND_BRIEF.md) | You're working on the logo, colours, fonts or visual design |
-| [`CLAUDE.md`](CLAUDE.md) | You use an AI coding assistant (it reads this automatically) |
+| [`AGENTS.md`](AGENTS.md) | You use an AI coding assistant: the project rules (Codex reads it directly, Claude Code through `CLAUDE.md`) |
 
 ## Run it
 
