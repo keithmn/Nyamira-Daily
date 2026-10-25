@@ -4,6 +4,7 @@
 // alert's banner; the choice is kept in this browser only.
 import { getAlerts } from '../lib/alerts-data.js';
 import { shapePath, eat } from '../lib/alerts.js';
+import { alertDismissalKey } from '../lib/alert-dismissal.js';
 import wards from '../data/wards.json';
 interface Props { ward?: string; disruptions?: boolean }
 const { ward, disruptions = false } = Astro.props;
@@ -17,11 +18,11 @@ const groups = [
 {groups.map((g) => (
   <div class={`alert-banner lv-${g.level}`} role="region" aria-label={g.level === 'emergency' ? 'Emergency alert' : 'Disruption'} data-abanner>
     {g.list.map((a, i) => (
-      <div class="wrap" data-aid={a.id} hidden={i > 0}>
+      <div class="wrap" data-aid={alertDismissalKey(a)} hidden={i > 0}>
         <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path class="am-shape" d={shapePath(g.level, 10, 10.5, 8)} /></svg>
-        <span class="ab-text"><a href={`/alerts/${a.id.toLowerCase()}/`}>{a.title}</a>{" "}<span class="ab-meta">· {a.wards.length ? a.wards.map((s) => wn[s] ?? s).join(', ') : 'County-wide'} · updated <span data-ago={new Date(a.updatedAt).toISOString()}>{eat(a.updatedAt)}</span></span>
+        <span class="ab-text"><a href={`/alerts/${a.id.toLowerCase()}/`}>{a.title}</a>{" "}<span class="ab-meta">· {a.wards.length ? a.wards.map((s) => wn[s] ?? s).join(', ') : 'County-wide'} · checked {a.checkedAt ? eat(a.checkedAt) : 'date not recorded'} · updated <span data-ago={new Date(a.updatedAt).toISOString()}>{eat(a.updatedAt)}</span></span>
           {g.list.length > 1 && <> · <a href="/alerts/" data-more>+{g.list.length - 1} more</a></>}</span>
-        <button type="button" data-dismiss={a.id}>Hide</button>
+        <button type="button" data-dismiss={alertDismissalKey(a)}>Hide</button>
       </div>
     ))}
   </div>

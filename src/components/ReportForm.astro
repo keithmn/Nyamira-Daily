@@ -22,15 +22,15 @@ const cats = [['water', 'Water point'], ['health', 'Dispensary or health centre'
   <label>{clinic ? 'Which health facility?' : 'Which place?'}<span class="hint">Choose from our list, or type the name.</span><input name="place" list="rep-places" autocomplete="off" /><datalist id="rep-places"></datalist></label>
   {!clinic && (
     <fieldset class="choice"><legend>Is it working?</legend>
-      {['Working', 'Partly working', 'Not working', 'Closed'].map((s, i) => <label><input type="radio" name="status" value={s} checked={i === 2} /> {s}</label>)}
+      {['Working', 'Partly working', 'Not working', 'Closed', 'Not sure / could not check'].map((s) => <label><input type="radio" name="status" value={s} required /> {s}</label>)}
     </fieldset>
   )}
   {clinic && (
     <>
-      <fieldset class="choice"><legend>Were the medicines you needed available?</legend>{['Yes', 'Some missing', 'None'].map((s) => <label><input type="radio" name="medicines" value={s} /> {s}</label>)}</fieldset>
-      <fieldset class="choice"><legend>Was a health worker on duty?</legend>{['Yes', 'No'].map((s) => <label><input type="radio" name="staff" value={s} /> {s}</label>)}</fieldset>
-      <fieldset class="choice"><legend>Was it open at its stated hours?</legend>{['Yes', 'No'].map((s) => <label><input type="radio" name="openHours" value={s} /> {s}</label>)}</fieldset>
-      <fieldset class="choice"><legend>How long did you wait?</legend>{['Under 30 min', '30 to 60 min', '1 to 2 hours', 'Over 2 hours'].map((s) => <label><input type="radio" name="waiting" value={s} /> {s}</label>)}</fieldset>
+      <fieldset class="choice"><legend>Were the medicines you needed available?</legend>{['Yes', 'Some missing', 'None', 'Not sure / not checked'].map((s) => <label><input type="radio" name="medicines" value={s} required /> {s}</label>)}</fieldset>
+      <fieldset class="choice"><legend>Was a health worker on duty?</legend>{['Yes', 'No', 'Not sure / not checked'].map((s) => <label><input type="radio" name="staff" value={s} required /> {s}</label>)}</fieldset>
+      <fieldset class="choice"><legend>Was it open at its stated hours?</legend>{['Yes', 'No', 'Not sure / not checked'].map((s) => <label><input type="radio" name="openHours" value={s} required /> {s}</label>)}</fieldset>
+      <fieldset class="choice"><legend>How long did you wait?</legend>{['Under 30 min', '30 to 60 min', '1 to 2 hours', 'Over 2 hours', 'Did not wait / not sure'].map((s) => <label><input type="radio" name="waiting" value={s} required /> {s}</label>)}</fieldset>
     </>
   )}
   <label>Short note<span class="hint">What you saw and when. About the service, not about any person: please don't name staff or anyone else.</span><textarea name="note"></textarea></label>
@@ -41,7 +41,7 @@ const cats = [['water', 'Water point'], ['health', 'Dispensary or health centre'
       <span class="small muted">{contact.whatsapp ? 'You can add a photo in WhatsApp after the message.' : 'Copy your message into the form.'}</span>
     </div>
   ) : (
-    <p class="callout"><span>Reporting opens once our checking team is ready. You can write your message now and keep it.</span></p>
+    <p class="callout"><span>No reporting channel is configured. Nothing you enter here is sent or stored; copy the draft yourself if you need to keep it.</span></p>
   )}
 </form>
 <script is:inline type="application/json" id="rep-data" set:html={data}></script>
@@ -63,13 +63,16 @@ const cats = [['water', 'Water point'], ['health', 'Dispensary or health centre'
       lines.push('Medicines available: ' + (v('medicines') || '?'), 'Health worker on duty: ' + (v('staff') || '?'),
         'Open at stated hours: ' + (v('openHours') || '?'), 'Waiting time: ' + (v('waiting') || '?'));
     } else lines.push('Status: ' + v('status'));
-    lines.push('Date seen: ' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }));
+    lines.push('Date seen: ' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Africa/Nairobi' }));
     if (v('note')) lines.push('Note: ' + v('note'));
     out.value = lines.join('\n');
     if (send) send.href = 'https://wa.me/' + D.wa + '?text=' + encodeURIComponent(out.value);
   }
   f.addEventListener('change', function (e) { if (e.target.name === 'ward') fill(); build(); });
   f.addEventListener('input', build);
+  f.addEventListener('click', function (e) {
+    if (send && e.target.closest('[data-send]') && !f.reportValidity()) e.preventDefault();
+  });
   fill(); build();
 })();
 </script>

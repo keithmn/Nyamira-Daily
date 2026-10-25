@@ -3,16 +3,17 @@ export const contact = {
   whatsapp: '',  // e.g. '2547XXXXXXXX' — turns on "Tell us" and "Get updates"
   email: '',
 };
-// NY Watch, the nightly show. The "On air now" strip shows from start to end hour, Nairobi time (EAT).
-// Add the stream or radio link to liveUrl and the strip links to it.
-export const show = { start: 22, end: 23, liveUrl: '' };
+// NY Watch. A scheduled hour alone is not evidence that a broadcast is live.
+// Status values: planned, scheduled, confirmed_live, or recorded.
+export const show = { status: 'scheduled', start: 22, end: 23, liveUrl: '', confirmedAt: '', recordingUrl: '' };
 
 export const hasContact = Boolean(contact.whatsapp || contact.email);
 
-// Community reporting (Phase 2). Reports go to WhatsApp if contact.whatsapp is set, otherwise to this form
-// (for example a KoboToolbox link). TODO(service): receiving, checking and storing reports.
+// Community reporting stays disabled until both a monitored channel and a response owner are configured.
 export const reportFormUrl = '';
-export const canReport = Boolean(contact.whatsapp || reportFormUrl);
+export const reportResponseRole = '';
+export const canReport = Boolean((contact.whatsapp || reportFormUrl) && reportResponseRole);
+export const alertMonitoring = { role: 'Site owner', reviewCadence: 'daily' };
 // Adopt a project: the sign-up form for volunteers and school clubs
 export const adoptSignupUrl = '';
 

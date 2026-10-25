@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import EvidenceLabel from '../components/EvidenceLabel.astro';
+import CorrectionLog from '../components/CorrectionLog.astro';
 ---
 <Base title="How we work">
   <PageHead title="How we work" lead="Our rules for facts, fairness and corrections." tools={false} />
@@ -12,6 +13,8 @@ import EvidenceLabel from '../components/EvidenceLabel.astro';
       <p><EvidenceLabel kind="audit" /> It comes from an Auditor-General report.</p>
       <p><EvidenceLabel kind="official" /> The government stated it; we have not yet checked it.</p>
       <p><EvidenceLabel kind="unverified" /> It was reported to us or listed somewhere; not yet confirmed.</p>
+      <p>A label describes the evidence category, not every part of the check. Where recorded, each detailed evidence note should say what claim was checked, the method, the date, and the responsible person or role. “Verified” never means that a project is operational unless that specific service operation was checked.</p>
+      <p class="small muted">The current labels do not yet include those claim-level details for every figure. Missing reviewer, method or check-date information is not inferred.</p>
     </section>
     <section class="card stack">
       <h2>Our rules</h2>
@@ -26,7 +29,8 @@ import EvidenceLabel from '../components/EvidenceLabel.astro';
     </section>
     <section id="corrections" class="card stack">
       <h2>Corrections</h2>
-      <p class="muted">When we get something wrong, we fix it and list the correction here with the date. No corrections yet.</p>
+      <p class="muted">Accepted corrections are recorded here with what changed, why, when, and a source. Correction intake is not configured yet, so this site cannot receive or confirm a correction report.</p>
+      <CorrectionLog />
     </section>
   </div>
 </Base>

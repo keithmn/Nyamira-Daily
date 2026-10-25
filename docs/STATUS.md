@@ -10,7 +10,7 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 
 ## Before launch (needs a person)
 
-1. Set the domain in `astro.config.mjs` (`site`), and `contact.whatsapp`, `reportFormUrl`, `adoptSignupUrl`, `show.liveUrl` in `src/config.js`.
+1. Set `ND_SITE_URL=https://nyamiradaily.org` in the production build environment and verify hosting/DNS; configure `contact.whatsapp`, `reportFormUrl`, `adoptSignupUrl`, and `show.liveUrl` in `src/config.js` only when real, monitored destinations exist.
 2. Delete the EXAMPLE drafts in `src/content/` (alerts, stories, people, heritage, fact-check, project log).
 3. Native-speaker review of Kiswahili summaries; confirm emergency numbers before any alert goes live.
 4. Agree who posts and verifies alerts (`docs/EDITORIAL_RULES.md` §11).
@@ -26,12 +26,32 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - Brand kit v1.1 files (swatches, social templates) from the canvas boards.
 - A light editing screen (e.g. Decap CMS) for alerts and number of the week.
 
-## Current worktree (25 Oct 2026; ND-01 checkpoint committed, correction uncommitted)
+## Current worktree (25 Oct 2026; reliability follow-up in progress)
 
-- ND-01 implementation checkpoint is commit `f0b6c6f` on `fix/nd-01-project-status` (reported pushed; merge/deployment not verified). A bounded parser correction is currently uncommitted in `src/lib/project-status.js` and `src/lib/project-status.test.js`. The summary uses reviewed `projectId` values, explicit observation dates, and physical-progress wording. Undated progress, conflicting latest values, unsupported statuses and missing IDs are excluded and shown as coverage caveats. It is not owner-approved.
-- The current source data has one reviewed ID represented by changed names; the earlier name-key summary counted it twice. Many percentage-bearing status rows have no observation date, so they remain outside the dated summary pending source review. No project IDs, source figures or public URLs were changed.
-- The parser correction rejects locally negated completion claims, financial-only completion labels and Unicode-minus percentages. The 25-test suite and 504-page build pass; current dataset coverage remains 15 included / 111 undated / 46 unreported. Browser checks still await owner verification.
-- The primary-source date audit is recorded in `docs/PROJECT_DATE_AUDIT.md`. With owner approval, `observedOn: 2025-06-30` was added to 25 CADP rows for 15 reviewed IDs in the County Annual Development Plan 2026/2027. Coverage is now 30 included / 96 undated / 46 unsupported. Two Biticha Morera OPD IDs remain separate and may represent duplicate/conflicting work; current counts treat both separately pending identity review. The other 96 remain undated pending evidence. Do not infer dates from fiscal-year labels. Continue wider reliability work only as separately scoped packages.
-- ND-06 identity tooling was hardened: rerunning `scripts/project-ids.py` now preserves existing IDs; records with an identical normalized ward/name key reuse the existing ID; name changes require a reasoned, sourced alias entry. No source project ID or public URL was changed and no ambiguous alias was added. The Biticha Morera OPD relationship still needs a source-backed identity decision.
-- ND-07 amount handling now distinguishes KSh 0 from unavailable values in project and ward summaries, charts, receipts, and project CSV v2. Current figures are unchanged; see `docs/BUILD_STATUS.md` for test/build results and the pending visual review.
-- ND-14 financial comparisons were corrected to use like-for-like revenue actual/target scopes and clearer budget/expenditure labels. Budget less expenditure is not presented as cash released. See the current ND-14 handover in `docs/BUILD_STATUS.md`.
+- Current branch `fix/nd-01-project-status`, starting commit `ad2fb018e2964ebe85114271bf333d74cfc1efc1`. ND-01, ND-06, ND-07 and ND-14 are implemented locally; the commit is one ahead of `origin` and is not pushed from this follow-up.
+- ND-01 uses reviewed IDs and explicit, comparable observation dates. Coverage after the approved CADP date update is 30 included / 96 undated / 46 unsupported. The two Biticha Morera OPD IDs remain separate pending primary-source identity review. Owner visual acceptance remains outstanding.
+- The local reliability follow-up implements repository-supported parts of ND-02, ND-03, ND-04, ND-05, ND-08, ND-10, ND-11 and ND-12. Final checks: 58 Node tests and 12 Python tests pass; the local preview build generates 504 pages. The production build intentionally stops without an owner-supplied HTTPS domain. Details and remaining blockers are in `docs/BUILD_STATUS.md`.
+- ND-09 and ND-13 are not classified: their definitions are missing from the available repository brief/audit files. Do not infer their scope; provide the referenced specifications before implementation.
+- The owner supplied `nyamiradaily.org`; a public-config build with `ND_SITE_URL=https://nyamiradaily.org` passed locally. DNS, hosting environment configuration and deployment are not verified. Correction/report destination and response role remain outstanding. The owner volunteered to check alerts daily; this monitoring policy is configured. Intake remains disabled. The Night Watch remains separate and is not being built here.
+- Browser pages are not shared in this session. Responsive, keyboard-accessibility and light/dark visual checks await owner verification.
+
+## Revamp finding status (25 Oct 2026)
+
+| Finding | Current state |
+|---|---|
+| ND-01 project-status aggregation | Implemented and regression-tested; owner visual review remains outstanding. |
+| ND-02 opportunity deadlines | Shared Nairobi-time calculation implemented and regression-tested; source checks still need weekly maintenance. |
+| ND-03 production configuration | Fail-closed domain/draft checks implemented; owner supplied `nyamiradaily.org` and configured build passed. Hosting configuration and deployment are unverified. |
+| ND-04 corrections | Structured accepted-corrections log implemented; intake is disabled until a monitored destination and responder are supplied. |
+| ND-05 live-show indicators | Clock-based “On air now” claim removed; no live/recorded broadcast evidence or link is configured. |
+| ND-06 project identities | ID preservation safeguards implemented; Biticha Morera identity remains unresolved pending evidence. |
+| ND-07 missing amounts | Missing, zero and positive amounts remain distinct across summaries and exports. |
+| ND-08 publication controls | Central draft/scheduled-content filtering and CI checks implemented; branch protection/review policy remains a hosting/repository-owner decision. |
+| ND-09 | Needs more evidence: definition not present in the available brief/audit files. |
+| ND-10 evidence labels | Metadata fields and clearer label meanings implemented; source-backed details are still missing for existing claims. |
+| ND-11 alerts | Check timestamps/versioned dismissals implemented; site owner and daily review cadence are configured. Real alerts still require source-backed content and check times. |
+| ND-12 community reporting | Neutral required choices and uncertainty-aware summaries implemented; intake remains disabled pending destination and reviewer. |
+| ND-13 | Needs more evidence: definition not present in the available brief/audit files. |
+| ND-14 financial comparisons | Comparable measures and cautious budget/expenditure language implemented and regression-tested. |
+
+No entry in this table is an owner approval, production deployment, or independent verification of county data.

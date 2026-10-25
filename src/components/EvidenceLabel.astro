@@ -1,7 +1,31 @@
 ---
-// One of four evidence labels used on every claim.
-interface Props { kind: 'verified' | 'audit' | 'official' | 'unverified' }
-const { kind } = Astro.props;
+// Evidence labels identify the kind of source, not the scope or completeness of a check.
+interface Props {
+  kind: 'verified' | 'audit' | 'official' | 'unverified';
+  what?: string;
+  method?: string;
+  checkedOn?: string;
+  checkedBy?: string;
+}
+const { kind, what, method, checkedOn, checkedBy } = Astro.props;
 const text = { verified: 'Verified', audit: 'Audit finding', official: 'Official claim', unverified: 'Unverified' }[kind];
+const meaning = {
+  verified: 'Nyamira Daily checked this specific claim; see the details for scope and method.',
+  audit: 'This is a finding reported by an Auditor-General report, not a separate judgment by Nyamira Daily.',
+  official: 'This is what an official source states; it has not necessarily been independently verified.',
+  unverified: 'This information has not yet been confirmed.',
+}[kind];
+const hasDetails = Boolean(what || method || checkedOn || checkedBy);
 ---
-<span class={`label ${kind}`}>{text}</span>
+<span class={`label ${kind}`} aria-label={`${text}. ${meaning}`}>{text}</span>
+{hasDetails && (
+  <details class="evidence-detail small">
+    <summary>Evidence details</summary>
+    <dl>
+      {what && <><dt>Claim checked</dt><dd>{what}</dd></>}
+      {method && <><dt>Method</dt><dd>{method}</dd></>}
+      {checkedOn && <><dt>Checked on</dt><dd>{checkedOn}</dd></>}
+      {checkedBy && <><dt>Checked by</dt><dd>{checkedBy}</dd></>}
+    </dl>
+  </details>
+)}

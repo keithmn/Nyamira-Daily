@@ -3,27 +3,28 @@ import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import O from '../data/opportunities.json';
 import { date } from '../lib/fmt.js';
-const today = new Date();
-const closesAt = (s) => (s ? new Date(s.slice(0, 10) + 'T23:59:59') : null);
-const items = O.items.map((i) => ({ ...i, live: i.status === 'open' && closesAt(i.closes) && closesAt(i.closes) >= today }));
-const open = items.filter((i) => i.live);
-const past = items.filter((i) => !i.live);
-// Deadline for the "closes in N days" tag: "2026-10-28 10:30 EAT" → "2026-10-28T10:30:00+03:00" (end of day if no time)
-const closesIso = (s) => { const t = s.split(' ')[1]; return s.slice(0, 10) + 'T' + (t && t.includes(':') ? t : '23:59') + ':00+03:00'; };
+import { opportunitiesAt, daysUntilDeadline } from '../lib/opportunity-status.js';
+import { publicationTime } from '../lib/publication.js';
+const checkedAt = publicationTime;
+const items = opportunitiesAt(O.items, checkedAt);
+const open = items.filter((i) => i.availability === 'open');
+const past = items.filter((i) => i.availability === 'closed');
+const cancelled = items.filter((i) => i.availability === 'cancelled');
+const unknown = items.filter((i) => ['deadline_unknown', 'unknown'].includes(i.availability));
 const typeName = { job: 'Job', tender: 'Tender', bursary: 'Bursary', programme: 'Programme' };
 ---
 <Base title="Opportunities">
   <PageHead title="Opportunities" lead="County jobs, tenders, bursaries and programmes, with deadlines and how to apply." />
-  <p class="updated">Checked 22 Oct 2026. Always confirm details with the office named before you apply.</p>
+  <p class="updated">Deadline status calculated at build time ({checkedAt.toLocaleString('en-GB', { timeZone: 'Africa/Nairobi', dateStyle: 'medium', timeStyle: 'short' })} EAT). Source details last checked {date(O.checked)}. Rebuild to refresh status, and confirm details with the office named before you apply.</p>
   <div class="stack-lg" style="margin-top:16px">
     <section class="stack">
-      <h2>Open now ({open.length})</h2>
+      <h2>Open at the last build ({open.length})</h2>
       {open.length === 0 && <p class="muted">Nothing open at the moment. See the recent examples below for what to watch for.</p>}
       {open.map((i) => (
         <article class="card">
           <span class="eyebrow">{typeName[i.type]} · closes {i.closes}</span>
           <h3>{i.title}</h3>
-          <span class="due" data-closes={closesIso(i.closes)}>Closes {date(i.closes)}</span>
+          <span class="due">Closes {date(i.closes)}{daysUntilDeadline(i, checkedAt) === 0 ? ' · today' : daysUntilDeadline(i, checkedAt) === 1 ? ' · tomorrow' : ` · in ${daysUntilDeadline(i, checkedAt)} days`}</span>
           <span class="small muted">{i.by}</span>
           {i.reserved ? <span class="label verified">Reserved: {i.reserved}</span> : <span class="small">Open to all qualified applicants (not reserved).</span>}
           <details><summary>How to apply</summary><p class="small">{i.howToApply}</p></details>
@@ -44,31 +45,17 @@ const typeName = { job: 'Job', tender: 'Tender', bursary: 'Bursary', programme: 
     </section>
 
     <section class="stack">
-      <h2>Recently closed</h2>
-      <p class="muted small">Examples from 2026 to show when and where these usually appear.</p>
+      <h2>Closed</h2>
+      <p class="muted small">These notices are no longer open according to their recorded status or deadline.</p>
       <div class="table-box">
         <table class="cards">
-          <thead><tr><th>What</th><th>Type</th><th>Closed</th><th>Notice</th></tr></thead>
-          <tbody>{past.map((i) => (<tr><td>{i.title}</td><td data-label="Type">{typeName[i.type]}</td><td data-label="Closed">{i.closes ?? 'Date not stated'}</td><td data-label="Notice"><a href={i.url} rel="noopener">Source</a></td></tr>))}</tbody>
+          <thead><tr><th>What</th><th>Type</th><th>Deadline/status</th><th>Notice</th></tr></thead>
+          <tbody>{past.map((i) => (<tr><td>{i.title}</td><td data-label="Type">{typeName[i.type]}</td><td data-label="Deadline/status">{i.closes ?? 'Closed; date not stated'}</td><td data-label="Notice"><a href={i.url} rel="noopener">Source</a></td></tr>))}</tbody>
         </table>
       </div>
     </section>
-    <script is:inline>
-    // Deadlines: "Closes in 3 days" from the reader's clock. Within 7 days the tag turns Ink (red is kept for emergencies, #25).
-    (function () {
-      var DAY = 864e5;
-      Array.prototype.forEach.call(document.querySelectorAll('[data-closes]'), function (el) {
-        var end = new Date(el.getAttribute('data-closes')).getTime(), now = Date.now();
-        if (isNaN(end)) return;
-        if (end < now) { el.textContent = 'Closed'; el.classList.add('past'); return; }
-        // Whole calendar days in Nairobi time (UTC+3) between today and the closing day
-        var day = function (t) { return Math.floor((t + 3 * 36e5) / DAY); };
-        var d = day(end) - day(now);
-        el.textContent = d === 0 ? 'Closes today' : d === 1 ? 'Closes tomorrow' : 'Closes in ' + d + ' days';
-        el.classList.toggle('soon', d <= 7);
-      });
-    })();
-    </script>
+    {cancelled.length > 0 && <section class="stack"><h2>Cancelled</h2><ul>{cancelled.map((i) => <li>{i.title} · <a href={i.url} rel="noopener">official notice</a></li>)}</ul></section>}
+    {unknown.length > 0 && <section class="stack"><h2>Deadline or status unknown</h2><p class="muted">These are not counted as open because the recorded deadline or status is missing or unclear.</p><ul>{unknown.map((i) => <li>{i.title} · {i.closes ?? 'No closing date recorded'} · <a href={i.url} rel="noopener">official notice</a></li>)}</ul></section>}
     <div class="sw" lang="sw">
       <span class="eyebrow">Muhtasari kwa Kiswahili</span>
       <p>Hapa utapata nafasi za kazi za kaunti, zabuni, basari na mipango ya vijana, pamoja na tarehe za mwisho. Thibitisha kila tangazo na ofisi husika kabla ya kutuma maombi.</p>

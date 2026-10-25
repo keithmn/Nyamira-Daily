@@ -20,6 +20,7 @@ These rules matter more than the code. The site is only useful if people can tru
 | Unverified | Reported or listed, not yet confirmed | Services listed from maps that no one has visited |
 
 The labels are implemented in `src/components/EvidenceLabel.astro`. Use them everywhere a figure appears.
+Where a claim has been checked, record what part of it was checked, the method, date, and responsible person or role. An official-source label is not an expenditure check; a physical-progress check is not proof that a service operates. “Verified” must describe the precise claim checked.
 
 ## 3. Never manufacture wrongdoing
 

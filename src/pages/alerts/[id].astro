@@ -33,7 +33,7 @@ const wa = `https://wa.me/?text=${encodeURIComponent([`${a.title} (${where})`, a
         <p class="say" style="font-size:19px">{a.summary}</p>
         {a.advice && <div class="ask do on-ink"><span class="eyebrow">What to do</span><p style="font-size:18px">{a.advice}</p></div>}
         {a.contacts.length > 0 && <div class="stack" style="gap:6px"><h2>Who to call</h2><ul>{a.contacts.map((c) => <li><strong>{c}</strong></li>)}</ul></div>}
-        <p class="small muted">{where}. Started {eat(a.startedAt)}. Updated {eat(a.updatedAt)}{a.resolvedAt && `. Resolved ${eat(a.resolvedAt)}`}.</p>
+        <p class="small muted">{where}. Started {eat(a.startedAt)}. Information checked {a.checkedAt ? eat(a.checkedAt) : 'date not recorded'}. Page updated {eat(a.updatedAt)}{a.resolvedAt && `. Resolved ${eat(a.resolvedAt)}`}.</p>
         <div class="page-tools"><a class="btn" href={wa} rel="noopener">Share on WhatsApp</a></div>
         {a.swSummary && <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>{a.swSummary}</p></div>}
       </div>

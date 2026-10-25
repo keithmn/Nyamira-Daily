@@ -19,9 +19,16 @@ const clinics = clinicSummary(ward);
       {old > 0 && <p class="small muted">{old} of these {old === 1 ? 'was' : 'were'} reported more than 90 days ago and may be out of date.</p>}
       {clinics.length > 0 && (
         <div class="table-box"><table class="cards">
-          <thead><tr><th>Health facility</th><th class="num">Checks (90 days)</th><th>Medicines</th><th class="num">Staff on duty</th><th class="num">Open on time</th><th>Latest</th></tr></thead>
+          <thead><tr><th>Health facility</th><th class="num">Checks (90 days)</th><th>Medicines (yes / some missing / none / unknown)</th><th>Staff (yes / no / unknown)</th><th>Open on time (yes / no / unknown)</th><th>Wait (under 30m / 30–60m / 1–2h / over 2h / unknown)</th><th>Latest</th></tr></thead>
           <tbody>{clinics.map((c) => (
-            <tr><td>{c.place}</td><td class="num" data-label="Checks">{c.n}</td><td data-label="Medicines">{c.medicines.yes} all there, {c.medicines.some} some missing, {c.medicines.none} none</td><td class="num" data-label="Staff on duty">{c.staffYes} of {c.n}</td><td class="num" data-label="Open on time">{c.openYes} of {c.n}</td><td data-label="Latest">{date(c.latest)}</td></tr>
+            <tr>
+              <td>{c.place}</td><td class="num" data-label="Checks">{c.n}</td>
+              <td data-label="Medicines">{c.medicines.yes} / {c.medicines.some} / {c.medicines.none} / {c.medicines.unknown}</td>
+              <td data-label="Staff">{c.staff.yes} / {c.staff.no} / {c.staff.unknown}</td>
+              <td data-label="Open on time">{c.openHours.yes} / {c.openHours.no} / {c.openHours.unknown}</td>
+              <td data-label="Wait">{c.waiting.under30} / {c.waiting.thirtyToSixty} / {c.waiting.oneToTwoHours} / {c.waiting.overTwoHours} / {c.waiting.unknown}</td>
+              <td data-label="Latest">{date(c.latest)}</td>
+            </tr>
           ))}</tbody>
         </table></div>
       )}

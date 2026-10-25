@@ -1,8 +1,12 @@
 import { defineConfig } from 'astro/config';
+import { resolveSite } from './scripts/site-config.js';
+
+const isBuild = process.argv.includes('build');
+const site = resolveSite({ build: isBuild });
 
 // Nyamira Daily: a light, static, phone-first site.
 export default defineConfig({
-  site: 'https://nyamiradaily.example', // replace with the real domain
+  site,
   trailingSlash: 'always',
   build: { format: 'directory' },
   // Old data pages now live inside the sector pages (decision #30)

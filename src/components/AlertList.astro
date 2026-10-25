@@ -19,6 +19,7 @@ const wn = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
           <span class={`astat ${a.status}`}>{statusLabel[a.status]}</span>
           <EvidenceLabel kind={a.evidenceLabel} />
           <span>{a.wards.length ? a.wards.map((s) => wn[s] ?? s).join(', ') : 'County-wide'}</span>
+          <span>{a.checkedAt ? `Checked ${eat(a.checkedAt)}` : 'Check time not recorded'}</span>
           <span>Updated {eat(a.updatedAt)}</span>
           {a.status === 'active' && <span class="stale-tag" data-stale={new Date(a.updatedAt).toISOString()} hidden={!isStale(a)}>Not updated recently: check the source</span>}
         </span>

@@ -1,13 +1,14 @@
 // Community reports (Phase 2): only reports our team has checked (checkedOn set) are shown,
 // only the latest per place, and anything reported more than 90 days ago is flagged "may be out of date".
 import R from '../data/reports.json';
+import { summariseClinicChecks } from './report-summary.js';
 export const categories = {
   water: 'Water point', health: 'Dispensary or health centre', streetlight: 'Streetlight',
   road: 'Road or bridge', market: 'Market facility', clinic: 'Clinic check',
 };
-export const statuses = ['working', 'partly', 'not working', 'closed'];
+export const statuses = ['working', 'partly', 'not working', 'closed', 'unknown'];
 const plural = { water: 'water points', health: 'dispensaries or health centres', streetlight: 'streetlights', road: 'roads or bridges', market: 'market facilities' };
-export const statusText = { working: 'working', partly: 'partly working', 'not working': 'not working', closed: 'closed' };
+export const statusText = { working: 'working', partly: 'partly working', 'not working': 'not working', closed: 'closed', unknown: 'not sure or could not check' };
 const OLD_DAYS = 90;
 export function latest(today = new Date()) {
   const by = new Map();
@@ -39,18 +40,5 @@ export const reportsUpdated = R.updated;
 // Clinic checks: every checked report from the last 90 days, grouped by facility
 export function clinicSummary(ward, today = new Date()) {
   const rs = R.reports.filter((r) => r.category === 'clinic' && r.checkedOn && (!ward || r.ward === ward) && (today - new Date(r.reportedOn)) / 864e5 <= OLD_DAYS);
-  const by = new Map();
-  for (const r of rs) {
-    const k = `${r.ward}|${r.place.trim().toLowerCase()}`;
-    (by.get(k) ?? by.set(k, []).get(k)).push(r);
-  }
-  return [...by.values()].map((list) => {
-    const c = (f, val) => list.filter((r) => r.clinic?.[f] === val).length;
-    return {
-      place: list[0].place, ward: list[0].ward, n: list.length,
-      latest: list.map((r) => r.reportedOn).sort().pop(),
-      medicines: { yes: c('medicines', 'yes'), some: c('medicines', 'some missing'), none: c('medicines', 'none') },
-      staffYes: c('staff', 'yes'), openYes: c('openHours', 'yes'),
-    };
-  });
+  return summariseClinicChecks(rs);
 }

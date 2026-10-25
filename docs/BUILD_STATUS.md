@@ -159,3 +159,65 @@ Review primary sources to establish whether the currently undated project-progre
 - **Regression coverage:** added checks that the five comparable county rates match reported actual/target arithmetic, Kisii's raw and comparable values remain distinct and trace to p.183, the all-county rate reconciles, and the money dataset labels the measure types and release-series gap.
 - **Visual review:** comparison and money views changed. Browser pages are not shared; no visual check is claimed. Review `/data/money/` and its comparison toggle at 390px and 1280px, in light and dark modes, especially the Kisii row, target-scope note, and accessible table layout.
 - **Verification:** `node --test src/lib/financial-comparisons.test.js` passed (3 tests); full `npm test` passed (34 tests, 0 failures); `python3 -m unittest discover -s scripts -p 'test_*.py'` passed (12 tests); `npm run build` passed (504 pages); `git diff --check` passed.
+
+## Current state: reliability recommendations follow-up (25 Oct 2026)
+
+### Scope and preserved state
+
+- Started from branch `fix/nd-01-project-status`, commit `ad2fb018e2964ebe85114271bf333d74cfc1efc1`; the starting commit is one commit ahead of `origin/fix/nd-01-project-status`. This follow-up is local and must not be confused with the earlier committed ND-01/ND-06/ND-07/ND-14 changes.
+- The user asked to implement pending reliability recommendations. No monitored correction/report destination or response role is available; intake must remain disabled. At implementation start, no alert-maintenance owner had been supplied; the owner later volunteered to check alerts. The owner supplied `nyamiradaily.org` as the production domain. The Night Watch remains a separate future newsroom.
+
+### Implemented in this follow-up
+
+- **ND-02:** added a shared availability helper for explicit EAT deadlines and date-only deadlines (end of day Nairobi time). Open source records with missing/unparseable deadlines become `deadline_unknown`; explicit closed and cancelled states remain separate. The Opportunities page count, search entries and JSON API use the helper. Static status is labeled with its build evaluation time, and the API supplies `evaluatedAt` and `availabilityCounts`.
+- **ND-03:** public builds now require a real HTTPS `ND_SITE_URL`, reject reserved/local domains and reject draft preview mode. `ND_PREVIEW_BUILD=1` is restricted to local/CI preview builds and blocked on recognized production hosts. The owner supplied `nyamiradaily.org`; the public-configured local build passed. DNS, hosting settings and deployment remain unverified. CI preview builds use localhost and are not deployable output.
+- **ND-04:** added an accepted-corrections register requiring date, page, change, reason and source; the public method page says that intake is not configured and does not pretend reports can be received. The register is empty; no correction was invented. Intake remains blocked on owner destination and response role.
+- **ND-05:** removed the clock-triggered “On air now” banner. The episodes page distinguishes planned, scheduled, confirmed-live and recorded statuses and explicitly says a static page cannot confirm a broadcast remains live. No live URL or recording link was invented.
+- **ND-08:** centralized draft and `publishAt` filtering in `entries()`; future Number of the Week entries are also hidden. Planned pages are excluded from search. Public builds reject `ND_DRAFTS=1`. Added a GitHub Actions quality workflow for Node tests, Python tests and a non-deployable preview build.
+- **ND-10:** evidence labels now support claim, method, check date and responsible-role details. Guidance distinguishes source category from what was actually checked and warns that project progress is not operational evidence. Existing source-specific metadata has not been supplied for every claim, so this recommendation is only partially complete.
+- **ND-11:** published alerts require `checkedAt`; alert lists, detail pages and RSS distinguish check time from page update time. Banner dismissals are versioned by alert ID and update timestamp so an updated version can reappear. Stale alerts are not automatically resolved. The owner volunteered as alert-checking owner (`Site owner`) with a daily review cadence. This satisfies the owner/cadence publication gate; no draft alert was promoted or published.
+- **ND-12:** report status is no longer preselected; status and clinic questions require explicit answers and allow uncertainty. Clinic summaries keep unknown distinct from “no” and zero. No reports are sent/stored because there is no monitored destination or response owner.
+- **Cross-cutting checks:** added regression tests for the new policies and wired existing Node/Python coverage plus the preview build into CI. This is not a comprehensive validator of every source reference or every data field.
+
+### Requirements still blocked or incomplete
+
+| Item | State | Blocker / remaining work |
+|---|---|---|
+| ND-03 production build | Blocked | Owner must provide the real HTTPS domain and hosting configuration. |
+| ND-04 correction intake | Blocked | Owner must provide a monitored destination and response role; until then the register is manual and empty. |
+| ND-09 and ND-13 | Needs more evidence | Their definitions are absent from the supplied repository brief/audit files. Exact unavailable paths are listed in the ND-01 baseline section above. |
+| ND-10 claim-level metadata | Partial | Add source-backed claim scope, method, check date and reviewer role to existing data/labels; do not infer them. |
+| ND-11 alert service | Implemented with owner policy | Software surfaces check times and update revisions; site owner and daily cadence are configured. Each published alert still needs evidence and a current `checkedAt`. |
+| ND-12 reporting intake | Blocked | A human reviewer and monitored destination are required before accepting submissions. |
+| Visual review | Awaiting owner | Browser pages are not shared. Check `/opportunities/`, `/how-we-work/#corrections`, `/alerts/`, `/report/`, and changed pages at ~390px and ~1280px, in light and dark modes. |
+| Owner launch actions | Awaiting owner | Domain, contact endpoints, alert/report response owners, Kiswahili review, emergency-number confirmation, and example-draft disposition. |
+
+### Verification for this follow-up
+
+- `npm test` — passed: 58 tests, 58 passed, 0 failed.
+- `python3 -m unittest discover -s scripts -p 'test_*.py'` — passed: 12 tests.
+- `ND_PREVIEW_BUILD=1 npm run build` — passed: Astro built 504 pages. This output uses localhost URLs and is not deployable.
+- `npm run build` without `ND_SITE_URL` — failed intentionally at the preflight with “Set ND_SITE_URL to the real public HTTPS domain before building a public site.” This confirmed the fail-closed behavior before the owner supplied the domain; it is not an application build failure.
+- `git diff --check` — passed.
+- A post-build Node assertion checked that API availability counts matched item classifications, the page count and search index both contained the same three open-at-build opportunities, the home-page description qualifies status as last-build status, and planned report/adopt/episodes routes were absent from search. Built dataset classification at `2026-10-25T20:44:19.386Z`: 3 open, 10 closed, 0 cancelled, 0 deadline unknown, 0 unknown-status records. This is a time-sensitive build snapshot, not a guarantee of current availability after deployment.
+- The built home page and episodes page contain no “On air now” claim.
+- **Visual checks not run:** browser pages were not shared. Layout, keyboard access, source links, checked-time labels, forms and light/dark behavior still require owner verification.
+- **Remaining risks:** ND-09/ND-13 definitions are unavailable; ND-10 historical claim metadata is incomplete; correction/report destination and response role are missing; alert monitoring role/cadence is not configured; DNS, hosting environment and production deployment are unverified.
+
+### Current owner follow-up (25 Oct 2026, 23:50 EAT)
+
+- **Domain supplied:** `nyamiradaily.org`. Configured build command: `ND_SITE_URL=https://nyamiradaily.org npm run build`.
+- **Result:** passed; Astro built 504 pages. Post-build assertions verified the homepage Open Graph URL and opportunities API `site` field use `https://nyamiradaily.org/`, no localhost URL appears in the checked homepage/API/search index files, and API availability counts match the item classifications (3 open, 10 closed, 0 cancelled, 0 deadline-unknown, 0 unknown at `2026-10-25T20:50:22.569Z`).
+- **Regression checks rerun:** `npm test` passed (58/58); `python3 -m unittest discover -s scripts -p 'test_*.py'` passed (12/12); `git diff --check` passed.
+- **Not verified:** DNS, certificate/hosting configuration, repository deployment environment variables, production deployment, or live pages. Do not treat this build as a deployment or owner approval.
+- **Still awaiting:** browser visual and interaction review; correction/report destination and response role; source-backed metadata for existing claims; source definitions for ND-09/ND-13; project date and identity source review. No browser pages were shared, so no visual check is claimed.
+
+### Latest verification after owner input (25 Oct 2026, 23:57 EAT)
+
+- Set `alertMonitoring.role` to `Site owner` and `reviewCadence` to `daily` in `src/config.js`, based on the owner's answers (“me”; “daily”). Active-alert publication may proceed only for real, source-backed alert entries with required check times; no draft was promoted.
+- `npm test` — passed: 58 tests, 58 passed, 0 failed.
+- `python3 -m unittest discover -s scripts -p 'test_*.py'` — passed: 12 tests.
+- `ND_SITE_URL=https://nyamiradaily.org npm run build` — passed: Astro built 504 pages.
+- Post-build Node assertions verified the daily alert-monitoring configuration, homepage Open Graph URL and opportunities API use `https://nyamiradaily.org/`, checked homepage/API/search files do not contain `localhost:4321`, and API counts agree with classified items: 3 open, 10 closed, 0 cancelled, 0 deadline-unknown, 0 unknown at `2026-10-25T20:57:35.089Z`.
+- `git diff --check` — passed.
+- No browser pages were shared; responsive, light/dark, keyboard, link and source-date review remains unperformed. DNS, hosting configuration and deployment remain unverified.

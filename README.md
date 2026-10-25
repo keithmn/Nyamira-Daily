@@ -19,7 +19,7 @@ An independent, non-partisan information service about Nyamira County, Kenya: it
 ```
 npm install
 npm run dev      # local preview at http://localhost:4321
-npm run build    # builds the site into dist/ (about 90 pages)
+ND_PREVIEW_BUILD=1 npm run build  # local preview build into dist/ (uses localhost URLs)
 npm run preview  # serves the built site
 npm test         # Node regression tests
 python3 -m unittest discover -s scripts -p 'test_*.py'  # data and export safeguards
@@ -58,7 +58,7 @@ The six sections form the navigation bar. Tapping a section opens a menu listing
 
 ## Hosting
 
-`npm run build` produces plain HTML in `dist/`. Host it free on Netlify, Cloudflare Pages or GitHub Pages. Set the real domain in `astro.config.mjs` (`site`) before launch.
+Public builds require `ND_SITE_URL=https://your-real-domain` and reject placeholder/local domains. `ND_PREVIEW_BUILD=1` is only for local preview builds; production hosting environments reject it. Public builds also reject `ND_DRAFTS=1`. The owner supplied `nyamiradaily.org`; configure the deployment environment with `ND_SITE_URL=https://nyamiradaily.org`. A successful local build does not verify DNS, hosting settings, or deployment.
 
 ## The one rule
 

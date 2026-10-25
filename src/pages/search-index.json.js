@@ -9,6 +9,9 @@ import F from '../data/fees.json';
 import A from '../data/assembly.json';
 import W from '../data/wardspend.json';
 import { entries } from '../lib/content.js';
+import opportunities from '../data/opportunities.json';
+import { opportunitiesAt } from '../lib/opportunity-status.js';
+import { publicationTime } from '../lib/publication.js';
 
 export async function GET() {
   const items = [];
@@ -40,7 +43,10 @@ export async function GET() {
     ['Alerts', '/alerts/', 'emergency fire flood landslide outage road closure notice'],
     ['Glossary', '/learn/glossary/'], ['About', '/about/'], ['How we work', '/how-we-work/', 'evidence labels corrections'],
   ];
-  for (const [t, u, k] of pages) add(t, u, k);
+  for (const [t, u, k] of pages) if (!planned.has(u)) add(t, u, k);
+  for (const item of opportunitiesAt(opportunities.items, publicationTime).filter((item) => item.availability === 'open')) {
+    add(item.title, '/opportunities/', `${item.type} deadline ${item.closes} ${item.by}`, `Opportunity open at latest build · ${item.type}`);
+  }
   for (const t of topics) if (!planned.has(`/data/${t.slug}/`)) add(t.title, `/data/${t.slug}/`, t.question);
   add('County budget and spending', '/data/money/', 'money budget spending pending bills revenue controller of budget absorption');
   for (const w of wards) {

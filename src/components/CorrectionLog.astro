@@ -1,0 +1,16 @@
+---
+import corrections from '../data/corrections.json';
+import { date } from '../lib/fmt.js';
+---
+{corrections.items.length ? (
+  <ol class="stack">
+    {corrections.items.map((item) => (
+      <li>
+        <strong>{date(item.date)} · {item.page}</strong>
+        <p><strong>Changed:</strong> {item.changed}</p>
+        <p><strong>Why:</strong> {item.reason}</p>
+        {item.source && <p><a href={item.source} rel="noopener">Correction source</a></p>}
+      </li>
+    ))}
+  </ol>
+) : <p class="muted">No accepted corrections are recorded yet.</p>}
