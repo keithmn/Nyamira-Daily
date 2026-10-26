@@ -7,6 +7,8 @@ Read `AGENTS.md` and everything in `docs/` before you start. Every rule in `docs
 (Today, Wards, Data, Take part, Stories, Government, Learn; the Constitution pages sit under Learn) and red on maps reserved for
 emergencies, with red kept elsewhere for gaps in charts and for NY Watch (`docs/DECISIONS.md` #25).
 
+**Corrections service amendment (26 Oct 2026):** The owner explicitly requested a database-backed correction review workflow. Implement only the optional Cloudflare Pages Functions + D1 service documented in `docs/CORRECTIONS_SERVICE.md`; the public site remains static. Other server/database services still need separate approval. Do not enable intake until the account, retention policy, reviewer access and monitoring owner/cadence are configured.
+
 ---
 
 # PART A

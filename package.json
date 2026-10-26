@@ -7,10 +7,16 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "pages:dev": "wrangler pages dev dist",
+    "db:migrate:local": "wrangler d1 migrations apply nyamira-corrections --local",
+    "db:migrate:remote": "wrangler d1 migrations apply nyamira-corrections --remote",
     "test": "node --test"
   },
   "dependencies": {
     "astro": "^5.18.2",
     "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "wrangler": "^4.152.0"
   }
 }

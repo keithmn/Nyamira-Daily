@@ -7,7 +7,7 @@ const dotStyle = (label) => { const t = sectionTone[label] ?? 'mist'; return t =
 import PageTools from '../components/PageTools.astro';
 import AlertBanner from '../components/AlertBanner.astro';
 import { hasContact, planned } from '../config.js';
-interface Props { title: string; description?: string; tools?: boolean; image?: string; imageAlt?: string; alertWard?: string; showDisruptions?: boolean }
+interface Props { title: string; description?: string; tools?: boolean; image?: string; imageAlt?: string; alertWard?: string; showDisruptions?: boolean; noindex?: boolean }
 const {
   title,
   description = 'Nyamira Daily: facts about Nyamira County, its money, services, laws and leaders, in plain language.',
@@ -16,6 +16,7 @@ const {
   imageAlt = 'Nyamira Daily',
   alertWard,
   showDisruptions = false,
+  noindex = false,
 } = Astro.props;
 
 // Navigation (src/nav.js): the section this page is in. aria-current is "page" on the exact page
@@ -38,6 +39,7 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{pageTitle}</title>
   <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
   <link rel="preload" href="/brand/fonts/LeagueSpartan-Medium.woff2" as="font" type="font/woff2" crossorigin />
   <meta name="theme-color" content="#111111" /><!-- Ink; meta tags can't read CSS tokens -->
   <script is:inline>

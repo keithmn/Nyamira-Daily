@@ -24,10 +24,11 @@ Status as of 24 October 2026. The expansion plan is in `docs/EXPANSION_SPEC.md`;
 | Data → Prices | No reachable source of Nyamira market prices. Needs weekly checks at Nyamira, Keroka and Ekerenyo markets, or a KAMIS export from a Kenyan connection. |
 | Data → Plans and promises | Needs the CIDP 2023–27 and ADP commitments extracted and matched to delivery. |
 | Tell us, Get updates | Need a WhatsApp number or email (`src/config.js`). |
+| Corrections | Cloudflare Pages Functions + D1 review workflow is implemented locally. Configure Cloudflare, an owner-approved retention period, reviewer Access, and a person/cadence to monitor before enabling public intake. Accepted records still require a reviewed static-site change and rebuild. |
 | Learn → Show episodes | Needs the show's episode list and audio links. |
 | What's working, Nyamira's people, Heritage, Myth or fact | Real entries (with consent for people and photos). Example entries are drafts. |
 | For the diaspora, Fellowship, Schools programme, State of Nyamira | Content from Keith. |
-| Is it working?, Clinic check | `contact.whatsapp` or `reportFormUrl` in `src/config.js`, and a checking team. `TODO(service)`: receiving and storing reports. |
+| Is it working?, Clinic check | `contact.whatsapp` or `reportFormUrl` in `src/config.js`, and a checking team. Receiving/storing community service reports remains a separate, unimplemented service. |
 | Adopt a project | `adoptSignupUrl` in `src/config.js`, and volunteers or school clubs. |
 | Kiswahili and Ekegusii versions | Translators, and a decision on URL structure (for example `/sw/`). |
 
