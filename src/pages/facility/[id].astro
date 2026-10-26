@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import wards, { facilities } from '../../data/wards.js';
+
+export function getStaticPaths() {
+  return facilities.map((facility) => ({
+    params: { id: facility.id.toLowerCase() },
+    props: { facility },
+  }));
+}
+
+const { facility } = Astro.props;
+const ward = wards.find((item) => item.slug === facility.ward);
+if (!ward) throw new Error(`Facility ${facility.id} has no matching ward record.`);
+const serviceAnchor = `svc-${facility.category.toLowerCase().split(' ').join('-')}`;
+const wardServiceUrl = `/ward/${ward.slug}/#${serviceAnchor}`;
+---
+<Base
+  title={facility.name}
+  description={`Facility record for ${facility.name} in ${ward.name} Ward, ${ward.subCounty}. Sources, evidence and current unknowns.`}
+>
+  <PageHead
+    eyebrow={`Facility profile · ${facility.id}`}
+    title={facility.name}
+    lead={`${facility.category} · ${facility.subtype} · ${ward.name} Ward, ${ward.subCounty}`}
+    crumbs={[
+      { href: '/ward/', label: 'Wards' },
+      { href: `/ward/${ward.slug}/`, label: `${ward.name} Ward` },
+      { href: wardServiceUrl, label: 'Listed services' },
+    ]}
+  />
+
+  <div class="stack-lg" style="margin-top:8px">
+    <section class="card stack" aria-labelledby="facility-record-heading">
+      <h2 id="facility-record-heading">Current record</h2>
+      <p><EvidenceLabel kind={facility.evidence} /> {facility.evidenceNote}</p>
+      <p class="muted">This is a record in Nyamira Daily's current facility list, which is incomplete. It does not confirm that the facility currently operates or provides a particular service.</p>
+      <div class="table-box">
+        <table class="cards">
+          <tbody>
+            <tr><th scope="row">Type in source</th><td data-label="Type in source">{facility.subtype}</td></tr>
+            <tr><th scope="row">Level in source</th><td data-label="Level in source">{facility.level ?? 'Unknown'}</td></tr>
+            <tr><th scope="row">Ownership in source</th><td data-label="Ownership in source">{facility.owner ?? 'Unknown'}</td></tr>
+            <tr><th scope="row">Current capabilities and availability</th><td data-label="Current capabilities and availability">Unknown — no dated, editor-reviewed capability observation is recorded here.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="stack" aria-labelledby="facility-photo-heading">
+      <h2 id="facility-photo-heading">Photographs</h2>
+      <p class="muted"><strong>No verified photo yet.</strong> Photos are shown only when facility identity, capture date, photographer/source and applicable permissions are recorded.</p>
+    </section>
+
+    <section class="stack" aria-labelledby="facility-history-heading">
+      <h2 id="facility-history-heading">Reviewed history</h2>
+      <p class="muted">No dated, editor-reviewed changes are recorded for this profile yet.</p>
+    </section>
+
+    <details>
+      <summary>Source and record details</summary>
+      <div class="table-box">
+        <table class="cards">
+          <tbody>
+            <tr><th scope="row">Source</th><td data-label="Source">{facility.source}</td></tr>
+            <tr><th scope="row">Source reference</th><td data-label="Source reference">{facility.sourceRef ?? 'Not recorded'}</td></tr>
+            <tr><th scope="row">Separate source date</th><td data-label="Separate source date">Not recorded as a separate field; see the source note above.</td></tr>
+            <tr><th scope="row">Facility observation date</th><td data-label="Facility observation date">Not recorded.</td></tr>
+            <tr><th scope="row">Record note</th><td data-label="Record note">{facility.evidenceNote}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <p class="small"><a href={wardServiceUrl}>Back to listed services in {ward.name} Ward</a></p>
+  </div>
+</Base>
