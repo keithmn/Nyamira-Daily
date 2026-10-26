@@ -54,7 +54,7 @@ const healthCount = wards.reduce((n, w) => n + (w.counts.Health ?? 0), 0);
         <HealthPage />
         <div class="stack" style="margin-top:32px">
           <Toggle id="facilities" title="Health facilities by ward" meta={`${healthCount} listed`}>
-            <ul class="small">{wards.map((w) => <li><a href={`/ward/${w.slug}/`}>{w.name}</a>: {w.counts.Health ?? 0}</li>)}</ul>
+            <ul class="small">{wards.map((w) => <li><a href={`/ward/${w.slug}/`}>{w.name}</a>: {w.counts.Health ? <a href={`/ward/${w.slug}/#svc-health`}>{w.counts.Health}</a> : 0}</li>)}</ul>
             <p class="source"><span class="label official">Official claim</span> Mostly from the Kenya Master Health Facility List (2017 export). Each ward page lists the facilities.</p>
           </Toggle>
           <Toggle id="clinic-checks" title="Clinic checks by residents"><CommunityReports /></Toggle>
@@ -69,7 +69,7 @@ const healthCount = wards.reduce((n, w) => n + (w.counts.Health ?? 0), 0);
         <div class="stack" style="margin-top:32px">
           <Toggle id="school-projects" title="ECDE and school projects in the wards"><SectorProjects match="education|ecde|vocational|polytechnic" note="Nursery (ECDE) classrooms and village polytechnics are county jobs; primary and secondary schools are national." /></Toggle>
           <Toggle id="schools-listed" title="Schools listed in each ward">
-            <ul class="small">{wards.map((w) => <li><a href={`/ward/${w.slug}/`}>{w.name}</a>: {w.counts.Education ?? 0}</li>)}</ul>
+            <ul class="small">{wards.map((w) => <li><a href={`/ward/${w.slug}/`}>{w.name}</a>: {w.counts.Education ? <a href={`/ward/${w.slug}/#svc-education`}>{w.counts.Education}</a> : 0}</li>)}</ul>
             <p class="small muted">Schools are badly under-listed so far; see each ward page.</p>
           </Toggle>
         </div>

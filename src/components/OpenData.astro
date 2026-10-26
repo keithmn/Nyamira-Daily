@@ -18,9 +18,10 @@
         <a class="btn" href="/files/places-v1.csv" download>Download CSV</a>
       </div>
       <div class="card">
-        <h3>Services and facilities (version 1)</h3>
-        <p class="muted">Schools, health facilities, churches, markets, offices and more, with their ward and source.</p>
-        <a class="btn" href="/files/facilities-v1.csv" download>Download CSV</a>
+        <h3>Services and facilities (version 2)</h3>
+        <p class="muted">Listed facility records with stable profile URLs and source evidence. Candidate coordinates are omitted until reviewed. Version 1 remains available with its original columns.</p>
+        <a class="btn" href="/files/facilities-v2.csv" download>Download v2 CSV</a>
+        <p class="small"><a href="/files/facilities-v1.csv" download>Download version 1 (legacy)</a></p>
       </div>
       <section class="stack" style="margin-top:16px">
         <h2>Live data for apps, newsrooms and radio</h2>
@@ -31,6 +32,7 @@
             <tr><td><a href="/api/wards.json">/api/wards.json</a></td><td data-label="Holds">Ward receipts for all 20 wards</td></tr>
             <tr><td><a href="/api/ward/rigoma.json">/api/ward/&lt;ward&gt;.json</a></td><td data-label="Holds">One ward's receipt (ward names as in the web address, e.g. rigoma)</td></tr>
             <tr><td><a href="/api/ward/rigoma.txt">/api/ward/&lt;ward&gt;.txt</a></td><td data-label="Holds">The same receipt as plain text under 900 characters, for WhatsApp and SMS replies</td></tr>
+            <tr><td><a href="/api/facilities.json">/api/facilities.json</a></td><td data-label="Holds">Listed facility records with stable profile URLs; unknown dates/capabilities remain null and unreviewed coordinates are omitted</td></tr>
             <tr><td><a href="/api/money.json">/api/money.json</a></td><td data-label="Holds">County money by year</td></tr>
             <tr><td><a href="/api/projects.json">/api/projects.json</a></td><td data-label="Holds">Ward projects, with sources</td></tr>
             <tr><td><a href="/api/opportunities.json">/api/opportunities.json</a></td><td data-label="Holds">Jobs, tenders and bursaries</td></tr>

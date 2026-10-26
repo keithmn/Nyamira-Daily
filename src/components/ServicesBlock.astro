@@ -12,7 +12,7 @@ const total = wards.reduce((n, w) => n + w.facilities.length, 0);
     <table class="cards">
       <thead><tr><th>Ward</th><th>Sub-county</th>{cats.map((c) => <th class="num">{c}</th>)}</tr></thead>
       <tbody>{wards.map((w) => (
-        <tr data-ward-row={w.slug}><td><a href={`/ward/${w.slug}/`}>{w.name}</a></td><td data-label="Sub-county">{w.subCounty}</td>{cats.map((c) => <td class="num" data-label={c}>{w.counts[c] ?? 0}</td>)}</tr>
+        <tr data-ward-row={w.slug}><td><a href={`/ward/${w.slug}/`}>{w.name}</a></td><td data-label="Sub-county">{w.subCounty}</td>{cats.map((c) => <td class="num" data-label={c}>{w.counts[c] ? <a href={`/ward/${w.slug}/#svc-${c.toLowerCase().split(' ').join('-')}`}>{w.counts[c]}</a> : 0}</td>)}</tr>
       ))}</tbody>
     </table>
   </div>

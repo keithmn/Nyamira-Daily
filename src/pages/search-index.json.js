@@ -52,7 +52,7 @@ export async function GET() {
   for (const w of wards) {
     const m = leaders.mcas[w.slug];
     add(`${w.name} Ward`, `/ward/${w.slug}/`, `${w.subCounty} ${m?.name ?? ''} ${w.places.map((p) => p.name).join(' ')}`, 'Ward');
-    for (const f of w.facilities) add(f.name, `/ward/${w.slug}/`, `${f.category} ${f.subtype} ${w.name}`, `Service in ${w.name}`);
+    for (const f of w.facilities) add(f.name, `/facility/${f.id.toLowerCase()}/`, `${f.id} ${f.category} ${f.subtype} ${w.name} ${w.subCounty}`, `Facility · ${f.category}`);
   }
   for (const l of [...leaders.county, ...leaders.national]) add(l.name, '/government/leaders/', l.office, l.office);
   for (const [slug, m] of Object.entries(leaders.mcas)) add(m.name, `/ward/${slug}/`, 'mca', `MCA, ${wards.find((w) => w.slug === slug)?.name}`);

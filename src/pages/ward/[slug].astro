@@ -119,7 +119,7 @@ const budgets = wards.map((x) => {
               <tbody>
                 {byCat[c].map((f) => (
                   <tr>
-                    <td>{f.name}</td>
+                    <td><a href={`/facility/${f.id.toLowerCase()}/`}>{f.name}</a></td>
                     <td data-label="Type">{f.subtype}{f.level ? ` · ${f.level}` : ''}{f.owner ? ` · ${f.owner}` : ''}</td>
                     <td data-label="Evidence"><EvidenceLabel kind={f.evidence} /></td>
                     <td class="small muted" data-label="Source">{f.source}</td>
