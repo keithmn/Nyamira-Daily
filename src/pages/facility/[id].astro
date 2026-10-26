@@ -3,6 +3,10 @@ import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import EvidenceLabel from '../../components/EvidenceLabel.astro';
 import wards, { facilities } from '../../data/wards.js';
+import observationRecords from '../../data/facility-observations.json';
+import { latestFacilityCapabilities, observationsForFacility, validateFacilityObservations } from '../../lib/facility-observations.js';
+
+const reviewedObservations = validateFacilityObservations(observationRecords, facilities);
 
 export function getStaticPaths() {
   return facilities.map((facility) => ({
@@ -16,6 +20,8 @@ const ward = wards.find((item) => item.slug === facility.ward);
 if (!ward) throw new Error(`Facility ${facility.id} has no matching ward record.`);
 const serviceAnchor = `svc-${facility.category.toLowerCase().split(' ').join('-')}`;
 const wardServiceUrl = `/ward/${ward.slug}/#${serviceAnchor}`;
+const capabilitySummaries = latestFacilityCapabilities(reviewedObservations, facility.id);
+const facilityHistory = observationsForFacility(reviewedObservations, facility.id);
 ---
 <Base
   title={facility.name}
@@ -43,10 +49,19 @@ const wardServiceUrl = `/ward/${ward.slug}/#${serviceAnchor}`;
             <tr><th scope="row">Type in source</th><td data-label="Type in source">{facility.subtype}</td></tr>
             <tr><th scope="row">Level in source</th><td data-label="Level in source">{facility.level ?? 'Unknown'}</td></tr>
             <tr><th scope="row">Ownership in source</th><td data-label="Ownership in source">{facility.owner ?? 'Unknown'}</td></tr>
-            <tr><th scope="row">Current capabilities and availability</th><td data-label="Current capabilities and availability">Unknown — no dated, editor-reviewed capability observation is recorded here.</td></tr>
+            <tr><th scope="row">Latest reviewed capability observations</th><td data-label="Latest reviewed capability observations">{capabilitySummaries.length ? (
+              <div class="stack">{capabilitySummaries.map((item) => (
+                <div>
+                  <strong>{item.capability}</strong> · {item.status === 'reported-available' ? 'Reported available' : item.status === 'reported-unavailable' ? 'Reported unavailable' : 'Unknown'} on {item.observedOn}
+                  {item.conflict && <p class="small">Conflicting reviewed observations share this date; status is shown as unknown.</p>}
+                  {item.observations.map((observation) => <p class="small"><EvidenceLabel kind={observation.evidence} /> {observation.source} · {observation.sourceRef}</p>)}
+                </div>
+              ))}</div>
+            ) : 'Unknown — no dated, editor-reviewed capability observation is recorded here.'}</td></tr>
           </tbody>
         </table>
       </div>
+      <p class="small muted">These are dated, source-reported observations, not a live service guarantee. A later-dated record is shown as the latest observation; older reviewed entries remain in the history below.</p>
     </section>
 
     <section class="stack" aria-labelledby="facility-photo-heading">
@@ -56,7 +71,24 @@ const wardServiceUrl = `/ward/${ward.slug}/#${serviceAnchor}`;
 
     <section class="stack" aria-labelledby="facility-history-heading">
       <h2 id="facility-history-heading">Reviewed history</h2>
-      <p class="muted">No dated, editor-reviewed changes are recorded for this profile yet.</p>
+      {facilityHistory.length ? (
+        <div class="table-box">
+          <table class="cards">
+            <thead><tr><th>Observation</th><th>Evidence</th><th>Observed</th><th>Source</th><th>Scope</th><th>Reviewed</th><th>Published</th></tr></thead>
+            <tbody>{facilityHistory.map((observation) => (
+              <tr>
+                <td data-label="Observation">{observation.capability}: {observation.status === 'reported-available' ? 'Reported available' : observation.status === 'reported-unavailable' ? 'Reported unavailable' : 'Unknown'}</td>
+                <td data-label="Evidence"><EvidenceLabel kind={observation.evidence} /></td>
+                <td data-label="Observed">{observation.observedOn}</td>
+                <td data-label="Source">{observation.source}<br /><span class="small">{observation.sourceRef}</span></td>
+                <td data-label="Scope">{observation.scope}</td>
+                <td data-label="Reviewed"><time datetime={observation.reviewedAt}>{observation.reviewedAt}</time></td>
+                <td data-label="Published"><time datetime={observation.publishedAt}>{observation.publishedAt}</time></td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
+      ) : <p class="muted">No dated, editor-reviewed observations are published for this profile yet.</p>}
     </section>
 
     <details>
