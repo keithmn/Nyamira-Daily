@@ -19,7 +19,7 @@ import ServicesBlock from '../../components/ServicesBlock.astro';
 import SectorProjects from '../../components/SectorProjects.astro';
 import CommunityReports from '../../components/CommunityReports.astro';
 import OpenData from '../../components/OpenData.astro';
-import wards from '../../data/wards.json';
+import wards from '../../data/wards.js';
 
 export function getStaticPaths() {
   return topics.map((t) => ({ params: { topic: t.slug }, props: { t } }));

@@ -2,7 +2,7 @@
 // "Is it working?" and Clinic check forms. Nothing is stored here: the form writes a structured message
 // that opens in WhatsApp (contact.whatsapp) or points to the report form (reportFormUrl).
 // TODO(service): receiving, checking and storing reports.
-import wards from '../data/wards.json';
+import wards from '../data/wards.js';
 import { subCounties } from '../nav.js';
 import { contact, reportFormUrl, canReport } from '../config.js';
 interface Props { clinic?: boolean }

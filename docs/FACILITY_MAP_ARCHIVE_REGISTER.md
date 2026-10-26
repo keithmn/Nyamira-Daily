@@ -1,6 +1,6 @@
 # Facility map and archive register
 
-Started 26 Oct 2026. Discovery only; no implementation has been approved.
+Started 26 Oct 2026. Requirements interview and source audit are recorded here. Registry implementation progress and the approved ledger are tracked in `docs/STATUS.md`.
 
 ## Direction received
 
@@ -28,7 +28,7 @@ This supports Nyamira Daily's existing role as an independent public-information
 - **Map and image interaction:** map zoom changes the geographic view; opening a facility provides a separate image viewer with independent zoom controls. Confirmed by the owner on 26 Oct 2026.
 - **Facility image medium:** photographs of actual facilities. Coverage (for example, exterior versus interior), permissions, and collection process remain open.
 - **Capability basis:** show official service designation separately from dated observation of service availability/functionality. Each claim needs its own source and date; unobserved or unsupported status stays unknown. Confirmed by the owner on 26 Oct 2026.
-- **Initial coverage scope:** public facilities across the county, including national- and county-managed sites. Identify the responsible public body/management role. Include facility-level audit/book records only where a public, legally accessible source exists, with scope/date/source made clear; do not imply every facility has its own public audit. Private, faith-based, NGO and other providers are deferred to a later phase. Confirmed by the owner on 26 Oct 2026.
+- **Initial coverage scope (original decision; amended below):** public facilities across the county, including national- and county-managed sites. Identify the responsible public body/management role. Include facility-level audit/book records only where a public, legally accessible source exists, with scope/date/source made clear; do not imply every facility has its own public audit. The original decision deferred private, faith-based, NGO and other providers.
 
 ## Direction amendment — scope expanded, awaiting definition
 
@@ -39,6 +39,16 @@ This supports Nyamira Daily's existing role as an independent public-information
 - The owner selected “anyone acting in a documented public role” for person records.
 - Proposed rule to lock: include a person only where the public role and public-interest relevance are clear; limit content to role-relevant, source-backed facts; exclude private-resident dossiers, sensitive personal details and private/home-location data.
 - State: awaiting owner confirmation.
+
+## Facility profile scope and evidence amendment — approved 26 Oct 2026
+
+- The owner approved profiles for all 247 existing facility records across the current listed categories, preserving the IDs already present in `wards.json`. Public/private ownership should be displayed only where supported by a source.
+- This supersedes the earlier deferral of private, faith-based, NGO or other categories where such records already occur in the 247-entry list; it does not establish that the current list is complete or that an ownership value is verified.
+- The separate 63-row `places-v1.csv` / map-place list is unverified and is not a second profile set. Link a place row to a facility profile only after its real-world identity is reviewed. Do not create guessed matches or treat generic landmarks/villages as facilities.
+- The approved profile system keeps dated, sourced capability observations with explicit unknown states and a public history; public changes require editor review. Reader-facing pages remain static builds, with intake/review handled separately.
+- Facility observations will be a separate intake/review workflow in the existing D1 corrections-review service, not mixed with general correction reports. Reuse Access and anti-spam safeguards; approved changes publish only through the normal static build. This service is still on a separate, unmerged branch.
+- Resident and designated field-reporter observations are allowed. Public attribution is source category and date, not contributor names by default.
+- Facility/project photos need capture date, photographer/source and identity match; use “No verified photo yet” instead of generic imagery when unavailable. Incidental people may appear as context; identifiable people require consent. Do not publish sensitive personal details.
 
 ## Priority amendment — dataset gaps first
 
@@ -134,12 +144,11 @@ The current data is a useful seed list, not a county-wide public-facility invent
 
 - Does “blockchain” mean actual blockchain technology or a metaphor for linked, dated, auditable records?
 - What geographic hierarchy and authoritative boundary sources should define the encyclopedia?
-- Which facility types are in scope, and what sources establish their designated and observed capabilities?
-- Who collects, reviews and updates facility records and images?
+- Which sources establish each facility type's official designation and observed capabilities?
+- Which named people/roles own collection, editorial review and routine updates?
 - What dates should the archive distinguish (source/document date, field observation date, publication/update time)?
 - Are image permissions and any privacy/security restrictions known?
-- What first geography or set of facilities is suitable for a pilot?
 
 ## Status
 
-No code, data, map coordinates, facility capability claims, or imagery have been changed or added. Continue with one interview question at a time, lock each module with the owner's confirmation, then prepare an implementation ledger for approval before coding.
+The owner approved the facility-profile and icy-visual foundation and the ledger in `docs/STATUS.md`. Ledger item 1 is implemented on `feat/facility-profile-foundation`: the 247 existing facility IDs and source fields are preserved in `src/data/facilities.json`, and `wards.json` now references those IDs. The 69 coordinate pairs already present in the v1 CSV are retained as source attributes only; they have not been added to a map or treated as reviewed locations. The facility CSV remains byte-for-byte reproducible from the registry. No facility profiles, capability observations, review intake, photographs, new map points or icy styling have been implemented yet. Continue with ledger item 2 after review of this data-foundation change.

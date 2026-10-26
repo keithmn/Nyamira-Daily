@@ -1,6 +1,6 @@
 // Builds a small search index at build time: pages, wards, leaders,
 // constitution articles and listed services.
-import wards from '../data/wards.json';
+import wards from '../data/wards.js';
 import leaders from '../data/leaders.json';
 import c from '../data/constitution.json';
 import { topics } from '../data/topics.js';

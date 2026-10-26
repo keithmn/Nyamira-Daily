@@ -1,5 +1,5 @@
 // One ward's receipt as plain data: used by the printable sheet, the API (/api/ward/…) and the embed.
-import wards from '../data/wards.json';
+import wards from '../data/wards.js';
 import leaders from '../data/leaders.json';
 import money from '../data/money.json';
 import census from '../data/census.json';

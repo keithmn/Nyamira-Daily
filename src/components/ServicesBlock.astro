@@ -1,6 +1,6 @@
 ---
 // Public places and services listed in each ward (from the Services page, now under People)
-import wards from '../data/wards.json';
+import wards from '../data/wards.js';
 import EvidenceLabel from './EvidenceLabel.astro';
 const cats = ['Health', 'Education', 'Worship', 'Market', 'Water', 'Public office', 'Community centre', 'Agriculture'];
 const total = wards.reduce((n, w) => n + w.facilities.length, 0);
