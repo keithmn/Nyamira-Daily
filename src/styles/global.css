@@ -36,9 +36,10 @@
   --brand: var(--nd-green); /* fills, active marks, underlines */
   --brand-ink: var(--nd-ink); /* text on green */
   --brand-soft: #e2f8ec;    /* Signal Green at ~13% on white: "your ward" highlights */
-  --graphic-surface: var(--brand-soft);
-  --graphic-highlight: rgb(255 255 255 / 0.82);
-  --graphic-shadow: rgb(17 17 17 / 0.07);
+  --graphic-surface: #f4fff8;
+  --graphic-surface-low: #e8f8ef;
+  --graphic-highlight: rgb(255 255 255 / 0.92);
+  --graphic-shadow: rgb(17 17 17 / 0.09);
   --focus: var(--nd-ink);
 
   /* Evidence labels */
@@ -65,8 +66,8 @@
   color-scheme: dark;
   --bg: var(--nd-ink); --surface: #1e1e1c; --ink: var(--nd-white); --ink-2: #e2e2de;
   --muted: #b3b3ad; --line: #3a3a37; --control-line: #8a8a85;
-  --brand-soft: #173a2a; --graphic-surface: var(--surface);
-  --graphic-highlight: rgb(255 255 255 / 0.08); --graphic-shadow: rgb(0 0 0 / 0.24);
+  --brand-soft: #173a2a; --graphic-surface: #242a26; --graphic-surface-low: #1e1e1c;
+  --graphic-highlight: rgb(255 255 255 / 0.12); --graphic-shadow: rgb(0 0 0 / 0.28);
   --focus: var(--nd-white);
   --verified-bg: #1d3a2a; --verified-ink: #b6ebcf;
   --audit-bg: #1b2c45; --audit-ink: #bcd4f5;
@@ -457,12 +458,16 @@ input.field { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; 
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: clamp(16px, 3vw, 24px);
-  background: var(--graphic-surface);
-  box-shadow: inset 0 1px 0 var(--graphic-highlight), 0 6px 16px var(--graphic-shadow);
+  background:
+    linear-gradient(180deg, var(--graphic-highlight) 0%, transparent 38%),
+    linear-gradient(145deg, var(--graphic-surface), var(--graphic-surface-low));
+  box-shadow: inset 0 1px 0 var(--graphic-highlight), 0 8px 20px var(--graphic-shadow);
 }
 .graphic-tile {
-  background: var(--sec-soft, var(--graphic-surface));
-  box-shadow: inset 0 1px 0 var(--graphic-highlight), 0 4px 12px var(--graphic-shadow);
+  background:
+    linear-gradient(180deg, var(--graphic-highlight) 0%, transparent 42%),
+    linear-gradient(145deg, var(--graphic-surface), var(--graphic-surface-low));
+  box-shadow: inset 0 1px 0 var(--graphic-highlight), 0 6px 16px var(--graphic-shadow);
 }
 .meter { height: 12px; border-radius: 999px; background: var(--meter-track); overflow: hidden; }
 .meter > i { display: block; height: 100%; border-radius: 999px; background: var(--brand); }
