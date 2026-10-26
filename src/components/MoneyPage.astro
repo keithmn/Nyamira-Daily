@@ -24,14 +24,14 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
   </section>
 
   <section class="cols-2">
-    <div class="figure">
+    <div class="figure graphic-panel">
       <span class="eyebrow">Last full year · {last.fy}</span>
       <span class="num">{bn(last.spent)}</span>
       <p class="say">spent by the county, out of its final approved/revised budget of <strong>{bn(last.budget)}</strong>. The difference was <strong class="hot">{bn(last.budget - last.spent)}</strong>; this is not a measure of cash releases or proof that all budgeted funds were available to spend.</p>
       <Coins part={(last.spent / last.budget) * 100} unit="KSh " title="Out of every KSh 100 in the budget" goodLabel="was spent" gapLabel="was not spent" />
       <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{last.fy} report</p>
     </div>
-    <div class="figure">
+    <div class="figure graphic-panel">
       <span class="eyebrow">Development · {last.fy}</span>
       <span class="num">{last.devAbs}%</span>
       <p class="say">of the development budget (roads, buildings, water) was spent ({bn(last.dev)}). Most county money goes on salaries and running costs.</p>
@@ -41,14 +41,14 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
   </section>
 
   <section class="cols-2">
-    <div class="figure">
+    <div class="figure graphic-panel">
       <span class="eyebrow">Unpaid bills · {last.fy}</span>
       <span class="num hot">{mn(last.pending)}</span>
       <p class="say">in pending bills (money the county owes suppliers and contractors) reported at the end of the year.</p>
       <p class="small muted">{last.pendingNote}</p>
       <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{last.fy} report</p>
     </div>
-    <div class="figure">
+    <div class="figure graphic-panel">
       <span class="eyebrow">Money raised locally · {last.fy}</span>
       <span class="num">{mn(last.osr)}</span>
       <p class="say">collected from fees, rates and permits, against a target of <strong>{mn(last.osrTarget)}</strong>.</p>
@@ -68,7 +68,7 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
   </div>
 
   <Toggle id="charts" title="Twelve years in charts" meta="Budget, spending, unpaid bills, local revenue">
-  <section class="stack">
+  <section class="stack graphic-panel">
     <h3>Budget and spending, every year</h3>
     <p class="muted">The county's reported actual expenditure is often below its final approved/revised budget. The difference is budget less expenditure; these data do not show how much cash was released.</p>
     <BarChart title="Nyamira County final approved/revised budget and actual expenditure by financial year" labels={labels} unit="KSh billion" format={fmtB}
@@ -76,21 +76,21 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
       series={[{ name: 'Approved/revised budget', values: ys.map((y) => y.budget) }, { name: 'Actual expenditure', values: ys.map((y) => y.spent) }]} />
   </section>
 
-  <section class="stack">
+  <section class="stack graphic-panel">
     <h3>Money budgeted but not spent, every year</h3>
     <p class="muted">Final approved/revised budget minus reported actual expenditure, worked out by Nyamira Daily from the Controller of Budget's figures. This difference is not a cash-release figure.</p>
     <BarChart title="Budget not spent each year, KSh billion" labels={labels} unit="KSh billion not spent" format={fmtB} colors={['var(--accent)']}
       series={[{ name: 'Not spent', values: ys.map((y) => y.budget - y.spent) }]} />
   </section>
 
-  <section class="stack">
+  <section class="stack graphic-panel">
     <h3>Unpaid bills at the end of each year</h3>
     <p class="muted">Pending bills as reported by the Controller of Budget. Reports count them differently from year to year, and some years were not reported; see the table below.</p>
     <BarChart title="Pending bills reported at year end, KSh million" labels={labels} unit="KSh million in pending bills" colors={['var(--accent)']}
       series={[{ name: 'Pending bills', values: ys.map((y) => y.pending) }]} />
   </section>
 
-  <section class="stack">
+  <section class="stack graphic-panel">
     <h3>How much of the development budget was used</h3>
     <p class="muted">Development money pays for things that last: roads, buildings, water. A low share means projects were planned and funded but not paid for that year.</p>
     <BarChart title="Share of development budget spent each year, per cent" labels={labels} unit="Per cent of development budget spent" max={100} format={(v) => `${v}%`}
@@ -98,7 +98,7 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
       series={[{ name: 'Development budget used', values: ys.map((y) => y.devAbs) }]} />
   </section>
 
-  <section class="stack">
+  <section class="stack graphic-panel">
     <h3>Money the county raised itself</h3>
     <p class="muted">Fees, rates and permits collected locally ("own-source revenue"), against the county's own target. From FY2022/23 this includes hospital fees, so later years are not directly comparable with earlier ones.</p>
     <BarChart title="Own-source revenue target and amount collected, KSh million" labels={labels} unit="KSh million"

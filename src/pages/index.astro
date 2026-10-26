@@ -35,7 +35,7 @@ const more = [
 
   <div class="stack-lg" style="padding-top:40px">
     <section class="cols-2 band sec-harvest" aria-label="Nyamira at a glance">
-      <div class="figure">
+      <div class="figure graphic-panel">
         <span class="eyebrow">Money · {last.fy}</span>
         <span class="num">{bn(last.spent)}</span>
         <p class="say">spent by the county, out of a <strong>{bn(last.budget)}</strong> budget. <strong class="hot">{bn(last.budget - last.spent)}</strong> was not spent.</p>
@@ -47,9 +47,9 @@ const more = [
       </div>
       <div class="stack">
         <div class="tiles three">
-          <a class="tile" href="/ward/"><b>20</b><span>wards, each with an elected MCA</span><EvidenceLabel kind="verified" /></a>
-          <a class="tile" href="/data/people/#services"><b>{facilities}</b><span>public places and services listed</span><EvidenceLabel kind="unverified" /></a>
-          <a class="tile" href="/data/health/#facilities"><b>{health}</b><span>health facilities listed</span><EvidenceLabel kind="official" /></a>
+          <a class="tile graphic-tile" href="/ward/"><b>20</b><span>wards, each with an elected MCA</span><EvidenceLabel kind="verified" /></a>
+          <a class="tile graphic-tile" href="/data/people/#services"><b>{facilities}</b><span>public places and services listed</span><EvidenceLabel kind="unverified" /></a>
+          <a class="tile graphic-tile" href="/data/health/#facilities"><b>{health}</b><span>health facilities listed</span><EvidenceLabel kind="official" /></a>
         </div>
         <p class="small muted">Sources: IEBC ward list and geoBoundaries (wards); the Nyamira Daily list, mostly not yet checked on site (services); Kenya Master Health Facility List, 2017 export (health). <span class="updated">Figures last updated 22 Oct 2026.</span></p>
         <MyWard topic="home" />

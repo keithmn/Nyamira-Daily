@@ -56,3 +56,13 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 | ND-14 financial comparisons | Comparable measures and cautious budget/expenditure language implemented and regression-tested. |
 
 No entry in this table is an owner approval, production deployment, or independent verification of county data.
+
+## Public graphics foundation (26 Oct 2026)
+
+- This graphics task is on `feat/public-graphics-foundation`, based on `bea0021589d0a56d85c7206844e3eccbd7b08695` from `fix/nd-01-project-status`, separate from the corrections-review branch.
+- Approved direction: editorial atlas; restrained mix of pale, glossy surfaces and gentle elevation; app-polished mobile website, with a possible separate app deferred. Rollout is hybrid: shared visual foundation first, then page groups. First pass: home page and Data, starting with Money.
+- Implemented in this first pass: shared light/dark graphic-surface tokens and a reusable `.graphic-panel` / `.graphic-tile` style; applied to the home summary tiles and money summary/chart sections. No data or claims were changed.
+- The graphic style is lightweight CSS. It uses existing brand roles, keeps text contrast, and preserves the static SVG/HTML chart approach.
+- Validation: `npm test` passed (58 tests); `python3 -m unittest discover -s scripts -p 'test_*.py'` passed (12 tests); `ND_SITE_URL=https://nyamiradaily.org npm run build` passed and generated 504 pages; built-HTML assertions confirmed the home and Money graphic classes; `git diff --check` passed.
+- Not visually verified: 390px and desktop rendering in light and dark mode. No browser pages were shared; the checked Chromium, Playwright and Puppeteer tools were unavailable in this environment.
+- Next: owner visual review of the home and Money pages at phone and desktop sizes. Then continue to remaining Data sections and ward/facility maps; facility unknowns remain explicit.
