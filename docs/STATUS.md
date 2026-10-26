@@ -66,3 +66,11 @@ No entry in this table is an owner approval, production deployment, or independe
 - Validation: `npm test` passed (58 tests); `python3 -m unittest discover -s scripts -p 'test_*.py'` passed (12 tests); after the lighter/glossier adjustment, `ND_SITE_URL=https://nyamiradaily.org npm run build` passed and generated 504 pages; built-HTML assertions confirmed the home and Money graphic classes; CSS token assertions confirmed the brighter surface, stronger sheen and dark-mode counterpart; `git diff --check` passed.
 - Not visually verified: 390px and desktop rendering in light and dark mode. No browser pages were shared; the checked Chromium, Playwright and Puppeteer tools were unavailable in this environment.
 - Next: owner visual review of the home and Money pages at phone and desktop sizes. Then continue to remaining Data sections and ward/facility maps; facility unknowns remain explicit.
+
+## Varela Round headings (26 Oct 2026)
+
+- The owner approved the additional self-hosted font despite the earlier one-font guideline. Varela Round Regular now styles h1–h3; League Spartan remains the body, label and figure font.
+- Added the Google Fonts Latin text subset (`VarelaRound-Latin-Title.ttf`, 32,808 bytes) and its SIL Open Font License (`OFL-VarelaRound.txt`). The subset includes common English/Swahili Latin characters and punctuation; unsupported characters use the existing font fallback. The heading font is preloaded and uses `font-display: swap`.
+- Updated [AGENTS.md](../AGENTS.md), the brand brief and decisions to reflect the owner-approved change.
+- Validation: `npm test` passed (58 tests); `python3 -m unittest discover -s scripts -p 'test_*.py'` passed (12 tests); `ND_SITE_URL=https://nyamiradaily.org npm run build` passed (504 pages); generated-output assertions confirmed the font preload, `@font-face`, h1–h3 assignment, font asset and license; `git diff --check` passed.
+- Not visually checked at 390px/desktop or light/dark because no browser page was shared and local browser automation is unavailable. The added font increases the font download budget by about 33 KB; no logo artwork or data changed.

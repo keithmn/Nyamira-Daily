@@ -1,6 +1,6 @@
 # Brand brief: Nyamira Daily and NY Watch
 
-Status: delivered as brand kit v1, October 2026 (the avocado pin was chosen) and applied to the site; see `docs/DECISIONS.md` #18–19. This brief records the thinking behind it. One change from the brief below: League Spartan is now used for body text too (#19).
+Status: delivered as brand kit v1, October 2026 (the avocado pin was chosen) and applied to the site; see `docs/DECISIONS.md` #18–19 and #46. This brief records the thinking behind it. League Spartan is used for body text; Varela Round is now used for headings to match the logo.
 
 ## Project
 Logo and visual identity for **Nyamira Daily**, an independent, non-partisan civic information platform for Nyamira County, Kenya.
@@ -79,4 +79,4 @@ Green is for shapes and fills only. Body text stays in dark ink, because light g
 ## Applying it to the website (for developers)
 - Brand colours become tokens in `src/styles/global.css`, with a dark-mode set.
 - The four evidence-label colours stay separate from brand colours. They must never be confused with them.
-- At most one web font (the wordmark or display face), subset and self-hosted. Body text stays on system fonts to keep pages light.
+- Self-host fonts and keep them small. League Spartan serves body text and figures; the owner-approved Varela Round Latin subset serves headings (about 33 KB, SIL Open Font License). Both are local assets; body text remains League Spartan for consistency and predictable fallback.

@@ -1,9 +1,9 @@
 /* Nyamira Daily — global styles.
-   Principles: one small self-hosted font (League Spartan, two weights, ~22 KB), large tap targets,
-   high contrast, works on cheap phones and slow connections. */
+   Principles: small self-hosted font files, large tap targets, high contrast,
+   works on cheap phones and slow connections. */
 
-/* League Spartan (SIL OFL), subset to Latin. Medium (500) for text, labels and buttons; Bold (700) for headings.
-   Varela Round is only inside the logo files and is not loaded. */
+/* League Spartan (SIL OFL), subset to Latin, for text, labels, buttons and bold figures.
+   Varela Round is a Latin-subset title font; its OFL license is beside the font file. */
 @font-face {
   font-family: "League Spartan"; font-style: normal; font-weight: 500; font-display: swap;
   src: url("/brand/fonts/LeagueSpartan-Medium.woff2") format("woff2");
@@ -13,6 +13,10 @@
   font-family: "League Spartan"; font-style: normal; font-weight: 700; font-display: swap;
   src: url("/brand/fonts/LeagueSpartan-Bold.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Varela Round"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("/brand/fonts/VarelaRound-Latin-Title.ttf") format("truetype");
 }
 
 :root {
@@ -56,6 +60,7 @@
   --radius: 12px;
   --max: 1120px;
   --font: "League Spartan", "Futura", "Century Gothic", system-ui, sans-serif;
+  --title-font: "Varela Round", var(--font);
   --measure: 36em; /* about 70 characters of League Spartan per line */
 }
 
@@ -102,7 +107,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 }
 ::selection { background: var(--brand); color: var(--brand-ink); }
 img { max-width: 100%; height: auto; }
-h1, h2, h3 { font-weight: 700; line-height: 1.1; margin: 0; }
+h1, h2, h3 { font-family: var(--title-font); font-weight: 400; line-height: 1.1; margin: 0; }
 h1 { font-size: clamp(24px, 4vw, 32px); letter-spacing: -0.01em; }
 h2 { font-size: clamp(19px, 3vw, 22px); }
 h3 { font-size: 17px; }
