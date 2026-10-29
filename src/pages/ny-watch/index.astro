@@ -1,0 +1,23 @@
+---
+// NY Watch (decision #63): the podcast. One-on-one conversations with decision makers and others with a stake,
+// about the data on this site. Non-partisan: every office is offered the same access (EDITORIAL_RULES section 14),
+// so the page lists the offices that have appeared.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import NyWatchLogo from '../../components/NyWatchLogo.astro';
+import { entries } from '../../lib/content.js';
+import { date } from '../../lib/fmt.js';
+import { media } from '../../config.js';
+const list = (await entries('episodes')).filter((e) => e.data.series === 'ny-watch').sort((a, b) => b.data.date - a.data.date);
+const offices = [...new Set(list.flatMap((e) => e.data.guests.map((g) => g.office)))];
+---
+<Base title="NY Watch" description="One-on-one conversations with Nyamira's decision makers about the data.">
+  <PageHead eyebrow="Today" title="NY Watch" lead="One-on-one conversations with Nyamira's decision makers and others with a stake, about the data on this site and the week's highlighted figures." crumbs={[{ href: '/', label: 'Today' }, { href: '/ny-watch/', label: 'NY Watch' }]} />
+  <div class="nyw" style="margin-top:16px"><NyWatchLogo /></div>
+  {media.podcastUrl && <p><a class="btn" href={media.podcastUrl} rel="noopener">Listen to the podcast</a></p>}
+  {list.length === 0 && <p class="muted">Nothing published here yet.</p>}
+  <ul class="rows" style="margin-top:16px">
+    {list.map((e) => <li><a class="row-link" href={`/ny-watch/${e.id}/`}><span><span class="t">{e.data.title}</span><span class="d">Episode {e.data.number} · {date(e.data.date.toISOString())} · {e.data.guests.map((g) => g.office).join(', ')}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
+  </ul>
+  {offices.length > 0 && <p class="small muted">Offices that have appeared: {offices.join('; ')}. Every office is offered the same time and the same questions.</p>}
+</Base>

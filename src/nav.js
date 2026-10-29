@@ -26,7 +26,10 @@ const dataPages = topics.map((t) => ({ href: `/data/${t.slug}/`, label: t.title,
 // src/lib/icons.js. Each page has a short `desc` for the menu cards; pages can hold pages of their own.
 export const sections = [
   { href: '/', label: 'Today', icon: 'today', overview: 'Nyamira at a glance',
-    desc: "What's new in Nyamira: alerts, the number of the week and open opportunities.", pages: [
+    desc: "What's new in Nyamira: short news, the daily show, NY Watch, alerts, the number of the week and opportunities.", pages: [
+    { href: '/news/', label: 'News', icon: 'stories', desc: 'Short, sourced, tied to the data' },
+    { href: '/show/', label: 'The daily show', icon: 'camera', desc: 'Daily life in Nyamira, on YouTube' },
+    { href: '/ny-watch/', label: 'NY Watch', icon: 'question', desc: 'Decision makers on the data' },
     { href: '/alerts/', label: 'Alerts', icon: 'alert', desc: 'Emergencies and disruptions by ward' },
     { href: '/number-of-the-week/', label: 'Number of the week', icon: 'chart', desc: 'One figure, explained' },
     { href: '/opportunities/', label: 'Opportunities', icon: 'calendar', desc: 'Jobs, tenders and bursaries' },
@@ -54,6 +57,8 @@ export const sections = [
     { href: '/whats-working/', label: "What's working", icon: 'check', desc: 'Services that do what they promise' },
     { href: '/heritage/', label: 'Heritage', icon: 'worship', desc: 'Places, history and traditions' },
     { href: '/community/nyamira-since-2013/', label: 'Nyamira since 2013', icon: 'calendar', desc: 'What has changed since devolution' },
+    { href: '/community/clans/', label: 'Clans', icon: 'people', desc: 'The Abagusii clans of Nyamira' },
+    { href: '/community/knowledge/', label: 'Cultural knowledge', icon: 'learn', desc: 'Traditions recorded before they fade' },
   ] },
   { href: '/government/', label: 'Government', icon: 'government', overview: 'How Nyamira is run',
     desc: 'Who runs Nyamira: leaders, the Executive, the Assembly and the watchdogs.', pages: [
@@ -98,7 +103,6 @@ export const sections = [
     { href: '/learn/glossary/', label: 'Glossary', icon: 'learn', desc: 'Terms explained' },
     { href: '/explainers/', label: 'Explainers', icon: 'stories', desc: 'Short guides to big topics' },
     { href: '/fact-check/', label: 'Myth or fact', icon: 'question', desc: 'Claims checked against sources' },
-    { href: '/learn/episodes/', label: 'Show episodes', icon: 'phone', desc: 'Episodes of the show' },
     { href: '/schools-programme/', label: 'Schools programme', icon: 'education', desc: 'For schools' },
   ] },
   // About: who we are, how we work and how to reach us (decision #62; it took the header's ward picker's place)

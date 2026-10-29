@@ -1,0 +1,65 @@
+---
+// One episode of the daily show or NY Watch (decision #63, docs/EDITORIAL_RULES.md section 14).
+// Video: a button that loads YouTube's privacy-enhanced player only when tapped, so the page itself stays
+// light on data; without JavaScript it is a plain link. Audio: the browser's own player, nothing loaded until played.
+import { date } from '../lib/fmt.js';
+interface Props { episode: any }
+const { episode } = Astro.props;
+const d = episode.data;
+const watchUrl = d.youtubeId ? `https://www.youtube.com/watch?v=${d.youtubeId}` : null;
+---
+<div class="stack-lg" style="margin-top:8px">
+  <section class="card stack">
+    <span class="eyebrow">{d.series === 'ny-watch' ? 'NY Watch' : 'The daily show'} · Episode {d.number} · {date(d.date.toISOString())}</span>
+    <p>{d.summary}</p>
+    {d.youtubeId && (
+      <div class="video-lite" data-video={d.youtubeId}>
+        <a class="btn" href={watchUrl} rel="noopener" data-video-play>Play the video</a>
+        <span class="small muted">Plays from YouTube. Video uses a lot of mobile data.</span>
+      </div>
+    )}
+    {d.audioUrl && <audio controls preload="none" src={d.audioUrl} style="width:100%"></audio>}
+    <p class="small">{d.hosts.length === 1 ? 'Host' : 'Hosts'}: {d.hosts.join(', ')}{d.guests.length > 0 && <>. {d.guests.length === 1 ? 'Guest' : 'Guests'}: {d.guests.map((g) => `${g.name} (${g.office})`).join(', ')}</>}.</p>
+  </section>
+
+  {d.datasets.length > 0 && (
+    <section class="stack">
+      <h2>The data in this episode</h2>
+      <ul class="rows">
+        {d.datasets.map((link) => <li><a class="row-link" href={link.href}><span><span class="t">{link.label}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
+      </ul>
+    </section>
+  )}
+
+  {d.claims.length > 0 && (
+    <section class="stack">
+      <h2>Claims checked against our data</h2>
+      <div class="table-box">
+        <table class="cards">
+          <thead><tr><th>What was said</th><th>Who said it</th><th>What the data shows</th></tr></thead>
+          <tbody>{d.claims.map((c) => (
+            <tr><td>{c.claim}</td><td data-label="Who said it">{c.by}</td><td data-label="What the data shows">{c.check} <a href={c.href}>See the data</a></td></tr>
+          ))}</tbody>
+        </table>
+      </div>
+    </section>
+  )}
+</div>
+
+<script is:inline>
+  document.querySelectorAll('[data-video-play]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var box = link.closest('[data-video]');
+      var id = box && box.getAttribute('data-video');
+      if (!id || !/^[A-Za-z0-9_-]{11}$/.test(id)) return;
+      e.preventDefault();
+      var frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1';
+      frame.title = 'Episode video';
+      frame.allow = 'autoplay; encrypted-media; picture-in-picture';
+      frame.allowFullscreen = true;
+      frame.loading = 'lazy';
+      box.replaceChildren(frame);
+    });
+  });
+</script>

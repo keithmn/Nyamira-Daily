@@ -1,0 +1,32 @@
+---
+// Clans of Nyamira (decision #64): Abagusii clans as groups, from citable sources. Never a list of which person
+// belongs to which clan, and never linked to voting, parties or candidates (EDITORIAL_RULES section 12).
+// Family lineages are a later, separate service that needs consent and data protection first.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import data from '../../data/clans.json';
+const sourceById = Object.fromEntries(data.sources.map((s) => [s.id, s]));
+const cite = (item) => { const s = sourceById[item.source]; return s ? `${s.author ? s.author + ', ' : ''}${s.title}${s.year ? ' (' + s.year + ')' : ''}${item.page ? ', ' + item.page : ''}` : ''; };
+---
+<Base title="Clans of Nyamira" description="The Abagusii clans of Nyamira County: history, home areas and customs, from published sources.">
+  <PageHead eyebrow="Community" title="Clans of Nyamira" lead="For many people in Nyamira, the clan is the first identity: it shapes who may marry whom and much of social life. Here are the clans as groups, their history, home areas and customs, each from a published source or elders recorded with consent." crumbs={[{ href: '/community/', label: 'Community' }, { href: '/community/clans/', label: 'Clans' }]} />
+  {data.clans.length === 0 && <p class="muted">Nothing published here yet.</p>}
+  {data.general.length > 0 && (
+    <section class="card stack" style="margin-top:16px">
+      <h2>Why clan matters</h2>
+      {data.general.map((g) => <p>{g.text} <span class="small muted">{cite(g)}</span></p>)}
+    </section>
+  )}
+  <div class="stack-lg" style="margin-top:16px">
+    {data.clans.map((c) => (
+      <section class="stack" id={c.id}>
+        <h2>{c.name}</h2>
+        {c.spellings?.length > 0 && <p class="small muted">Also written: {c.spellings.join(', ')}</p>}
+        {c.areas?.length > 0 && <p><strong>Home areas:</strong> {c.areas.map((a) => a.place).join('; ')}</p>}
+        {(c.history ?? []).map((h) => <p>{h.text} <span class="small muted">{cite(h)}</span></p>)}
+        {(c.customs ?? []).map((h) => <p><strong>{h.topic}:</strong> {h.text} <span class="small muted">{cite(h)}</span></p>)}
+      </section>
+    ))}
+  </div>
+  <p class="small muted" style="margin-top:16px">We describe clans as groups. We never list which person belongs to which clan, and we never link clans to voting, parties or candidates.</p>
+</Base>

@@ -80,3 +80,23 @@ Alerts (`src/content/alerts/`, spec item 1.8) are a calm record of what happened
 - **Emergency numbers** in `contacts` must be confirmed for Nyamira before an alert goes live.
 - **Keep it current.** Update `updatedAt` with every change and add a dated line to the update log. An active alert not updated for 72 hours shows "Not updated recently: check the source". Status runs active → monitoring → resolved.
 - **Corrections.** If an alert was wrong, set `corrected:` with what changed and keep the alert. Never delete one silently.
+
+## 12. Clans, lineages and cultural knowledge
+
+- **Clans are described as groups.** Each clan's history, home areas, symbols and customs (including marriage rules) come from a published source or from elders recorded with consent, cited like any figure. Never publish a list of which person belongs to which clan, and never link clans to voting, parties, candidates or office holders. Nothing that ranks clans or could stigmatise one.
+- **Family lineages are personal data.** Clan and ethnic origin are sensitive personal data under Kenya's Data Protection Act 2019. No lineage is collected until there is a written data-protection plan: explicit consent from each living person named, a privacy notice, secure storage, a retention period, a way to withdraw, and registration with the Office of the Data Protection Commissioner if required. Lineage records are private by default.
+- **Cultural knowledge belongs to its community** (Protection of Traditional Knowledge and Cultural Expressions Act, 2016). Record it only with the knowledge holder's consent, and publish only what they agree to make public; record the date and how consent was given. Knowledge a holder asks to keep private, or that is sacred or restricted, is never published.
+- **Traditional medicine is heritage, not health advice.** No dosages, no claims that a remedy cures anything, and every entry says to see a health worker for illness.
+- **Spiritual practices are described with respect** and as the practitioners describe them. Never name or picture anyone as a witch or suggest someone practises harmful magic: accusations of witchcraft have led to violence against elderly people in Gusii land.
+
+## 13. News briefs
+
+- A brief is two to four sentences, dated, sourced, carries an evidence label and links to the dataset it changes (a budget passed, a report published, a project finished). No brief without data behind it.
+- Briefs stay small: the home page shows at most three, below the data, and no page leads with news.
+- The rules on fairness, independence and questions-not-accusations apply unchanged.
+
+## 14. The daily show and NY Watch
+
+- **The daily show** tells stories of daily life in Nyamira. Figures said on air come from this site, with their labels; people filmed give consent, and children only with a guardian's consent.
+- **NY Watch** is one-on-one with decision makers and others with a stake, about the data on this site. Every office is offered the same time and the same questions, and the page for each series lists the offices that have appeared. In an election period, candidates get equal offers or none appear.
+- Claims a guest makes about figures are checked against the data, and the check is shown on the episode page with a link to the data. A guest's opinion is labelled as theirs, never as a finding.

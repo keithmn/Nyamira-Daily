@@ -1,0 +1,22 @@
+---
+// The cultural knowledge archive (decision #65): traditional medicine, spiritual practices, ceremonies, crafts,
+// language and food, recorded only with the knowledge holder's consent (EDITORIAL_RULES section 12).
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import { entries } from '../../../lib/content.js';
+const list = (await entries('knowledge')).sort((a, b) => a.data.title.localeCompare(b.data.title, 'en'));
+const kinds = [...new Set(list.map((e) => e.data.kind))];
+---
+<Base title="Cultural knowledge" description="Abagusii traditions in Nyamira, recorded with the knowledge holders' consent before they are lost.">
+  <PageHead eyebrow="Community" title="Cultural knowledge" lead="Traditions that are fading: medicine, spiritual practices, ceremonies, crafts, language and food, recorded with the people who hold them and published only with their consent." crumbs={[{ href: '/community/', label: 'Community' }, { href: '/community/knowledge/', label: 'Cultural knowledge' }]} />
+  {list.length === 0 && <p class="muted">Nothing published here yet.</p>}
+  {kinds.map((kind) => (
+    <section class="stack" style="margin-top:16px">
+      <h2>{kind.charAt(0).toUpperCase() + kind.slice(1)}</h2>
+      <ul class="rows">
+        {list.filter((e) => e.data.kind === kind).map((e) => <li><a class="row-link" href={`/community/knowledge/${e.id}/`}><span><span class="t">{e.data.title}</span><span class="d">{e.data.place}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
+      </ul>
+    </section>
+  ))}
+  <p class="small muted" style="margin-top:16px">This knowledge belongs to the communities that hold it. Medicine is recorded as heritage, never as health advice. Knowledge a holder asks to keep private is not published.</p>
+</Base>

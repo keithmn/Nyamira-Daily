@@ -24,6 +24,8 @@ export default defineConfig({
     '/stories/': '/community/',
     '/stories/nyamira-since-2013/': '/community/nyamira-since-2013/',
     '/data/people/': '/community/people-and-places/',
+    // Show episodes moved to Today as NY Watch, now a podcast (decision #63)
+    '/learn/episodes/': '/ny-watch/',
     '/data/prices/': '/data/farming/',
     '/data/plans/': '/data/money/',
   },

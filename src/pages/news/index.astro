@@ -1,0 +1,15 @@
+---
+// News briefs (decision #63): short, dated, sourced, each tied to the data it changes. Newest first.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import NewsBrief from '../../components/NewsBrief.astro';
+import { entries } from '../../lib/content.js';
+const list = (await entries('news')).sort((a, b) => b.data.date - a.data.date);
+---
+<Base title="News" description="Short, sourced news about Nyamira County, each item linked to the data it changes.">
+  <PageHead eyebrow="Today" title="News" lead="Short, dated news about decisions and documents, each linked to the data it changes. The data comes first; these briefs say what changed." crumbs={[{ href: '/', label: 'Today' }, { href: '/news/', label: 'News' }]} />
+  {list.length === 0 && <p class="muted">Nothing published here yet.</p>}
+  <div class="stack-lg" style="margin-top:16px">
+    {list.map((brief) => <NewsBrief brief={brief} />)}
+  </div>
+</Base>

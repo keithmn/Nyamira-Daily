@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Episode from '../../components/Episode.astro';
+import { entries } from '../../lib/content.js';
+export async function getStaticPaths() {
+  return (await entries('episodes')).filter((e) => e.data.series === 'ny-watch').map((e) => ({ params: { slug: e.id }, props: { e } }));
+}
+const { e } = Astro.props;
+---
+<Base title={e.data.title} description={e.data.summary}>
+  <PageHead eyebrow={`NY Watch · Episode ${e.data.number}`} title={e.data.title} crumbs={[{ href: '/', label: 'Today' }, { href: '/ny-watch/', label: 'NY Watch' }]} />
+  <Episode episode={e} />
+</Base>

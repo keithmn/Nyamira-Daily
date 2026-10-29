@@ -1,0 +1,17 @@
+---
+// The daily show (decision #63): curated stories of daily life in Nyamira, on YouTube.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { entries } from '../../lib/content.js';
+import { date } from '../../lib/fmt.js';
+import { media } from '../../config.js';
+const list = (await entries('episodes')).filter((e) => e.data.series === 'show').sort((a, b) => b.data.date - a.data.date);
+---
+<Base title="The daily show" description="Daily life in Nyamira, on YouTube.">
+  <PageHead eyebrow="Today" title="The daily show" lead="Daily life in Nyamira, on YouTube: curated stories from across the county, with the figures behind them." crumbs={[{ href: '/', label: 'Today' }, { href: '/show/', label: 'The daily show' }]} />
+  {media.showChannelUrl && <p><a class="btn" href={media.showChannelUrl} rel="noopener">Our YouTube channel</a></p>}
+  {list.length === 0 && <p class="muted">Nothing published here yet.</p>}
+  <ul class="rows" style="margin-top:16px">
+    {list.map((e) => <li><a class="row-link" href={`/show/${e.id}/`}><span><span class="t">{e.data.title}</span><span class="d">Episode {e.data.number} · {date(e.data.date.toISOString())}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
+  </ul>
+</Base>

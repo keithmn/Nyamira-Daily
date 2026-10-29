@@ -1,0 +1,26 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import { entries } from '../../../lib/content.js';
+import { date } from '../../../lib/fmt.js';
+import { render } from 'astro:content';
+export async function getStaticPaths() {
+  return (await entries('knowledge')).map((e) => ({ params: { slug: e.id }, props: { e } }));
+}
+const { e } = Astro.props;
+const d = e.data;
+const { Content } = await render(e);
+---
+<Base title={d.title} description={d.summary}>
+  <PageHead eyebrow={`Cultural knowledge · ${d.kind}`} title={d.title} lead={d.summary} crumbs={[{ href: '/community/', label: 'Community' }, { href: '/community/knowledge/', label: 'Cultural knowledge' }]} />
+  <div class="stack-lg" style="margin-top:8px">
+    {d.kind === 'medicine' && <p class="card"><strong>Heritage, not health advice.</strong> This records a tradition as its holder describes it. Do not use it to treat illness; see a health worker.</p>}
+    <section class="card stack">
+      <p><strong>Shared by:</strong> {d.holder}{!d.holderNamed && ' (not named, at their request)'} · {d.place}</p>
+      <p><strong>Recorded:</strong> {date(d.recordedOn.toISOString())}, by {d.recordedBy}</p>
+      <p class="small muted">Published with the holder's consent, given on {date(d.consent.givenOn.toISOString())} ({d.consent.method}). The knowledge belongs to the community that holds it.</p>
+      {d.sources.length > 0 && <p class="small">Further reading: {d.sources.map((s, i) => <>{i > 0 && '; '}{s.url ? <a href={s.url} rel="noopener">{s.name}</a> : s.name}</>)}</p>}
+    </section>
+    <article class="stack prose"><Content /></article>
+  </div>
+</Base>

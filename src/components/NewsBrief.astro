@@ -1,0 +1,16 @@
+---
+// One news brief (decision #63, docs/EDITORIAL_RULES.md section 13): dated, sourced, tied to the data it changes.
+import EvidenceLabel from './EvidenceLabel.astro';
+import { date } from '../lib/fmt.js';
+interface Props { brief: any; heading?: 'h2' | 'h3' }
+const { brief, heading = 'h3' } = Astro.props;
+const d = brief.data;
+const H = heading;
+---
+<article class="brief stack" id={brief.id}>
+  <span class="eyebrow">{date(d.date.toISOString())}</span>
+  <H class="brief-title">{d.title}</H>
+  <p>{d.summary}</p>
+  <p class="small">See the data: {d.datasets.map((link, i) => <>{i > 0 && ' · '}<a href={link.href}>{link.label}</a></>)}</p>
+  <p class="source"><EvidenceLabel kind={d.evidenceLabel} /> {d.sources.map((s, i) => <>{i > 0 && '; '}{s.url ? <a href={s.url} rel="noopener">{s.name}</a> : s.name}{s.page && `, ${s.page}`}</>)}</p>
+</article>
