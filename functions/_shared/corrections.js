@@ -56,14 +56,14 @@ export function sameOrigin(request, configuredOrigin) {
   }
 }
 
-export async function parseForm(request) {
+export async function readFormFields(request, keys) {
   const rawLength = request.headers.get('content-length');
   if (rawLength && !/^\d+$/.test(rawLength)) return { error: 'The submission size could not be checked.' };
   const contentLength = Number(rawLength || 0);
   if (contentLength > MAX_BODY_BYTES) return { error: 'Submission is too large.' };
   const contentType = request.headers.get('content-type')?.split(';')[0].trim();
   if (!['multipart/form-data', 'application/x-www-form-urlencoded'].includes(contentType)) {
-    return { error: 'Send the correction form fields in the expected format.' };
+    return { error: 'Send the form fields in the expected format.' };
   }
   let form;
   try {
@@ -75,14 +75,17 @@ export async function parseForm(request) {
       body,
     }).formData();
   } catch {
-    return { error: 'Send the correction form fields in the expected format.' };
+    return { error: 'Send the form fields in the expected format.' };
   }
-  const fields = Object.fromEntries(
-    ['page', 'details', 'source', 'website', 'cf-turnstile-response'].map((key) => [
-      key,
-      String(form.get(key) || '').trim(),
-    ]),
-  );
+  return {
+    fields: Object.fromEntries(keys.map((key) => [key, String(form.get(key) || '').trim()])),
+  };
+}
+
+export async function parseForm(request) {
+  const parsed = await readFormFields(request, ['page', 'details', 'source', 'website', 'cf-turnstile-response']);
+  if (parsed.error) return parsed;
+  const { fields } = parsed;
   if (fields.details.length > 3_000 || fields.page.length > 500 || fields.source.length > 2_048) {
     return { error: 'One or more fields are too long.' };
   }
@@ -146,24 +149,31 @@ async function hmacHex(secret, value) {
   return Array.from(signature, (byte) => byte.toString(16).padStart(2, '0')).join('');
 }
 
-export async function consumeSubmissionLimit(db, clientIp, secret) {
+// Table names cannot be bound as SQL parameters, so only these are accepted.
+const RATE_LIMIT_TABLES = new Set(['correction_rate_limits', 'facility_observation_rate_limits']);
+
+export async function consumeSubmissionLimit(db, clientIp, secret, {
+  table = 'correction_rate_limits',
+  perHour = MAX_SUBMISSIONS_PER_HOUR,
+} = {}) {
+  if (!RATE_LIMIT_TABLES.has(table)) throw new Error(`Unknown rate-limit table: ${table}`);
   if (!clientIp || !secret || secret.length < 32) return null;
   const ipHash = await hmacHex(secret, clientIp);
   const result = await db.prepare(`
-    INSERT INTO correction_rate_limits (ip_hash, window_started, submission_count)
+    INSERT INTO ${table} (ip_hash, window_started, submission_count)
     VALUES (?, datetime('now'), 1)
     ON CONFLICT(ip_hash) DO UPDATE SET
       submission_count = CASE
-        WHEN correction_rate_limits.window_started < datetime('now', '-1 hour') THEN 1
-        ELSE correction_rate_limits.submission_count + 1
+        WHEN ${table}.window_started < datetime('now', '-1 hour') THEN 1
+        ELSE ${table}.submission_count + 1
       END,
       window_started = CASE
-        WHEN correction_rate_limits.window_started < datetime('now', '-1 hour') THEN datetime('now')
-        ELSE correction_rate_limits.window_started
+        WHEN ${table}.window_started < datetime('now', '-1 hour') THEN datetime('now')
+        ELSE ${table}.window_started
       END
     RETURNING submission_count
   `).bind(ipHash).first();
-  return result?.submission_count <= MAX_SUBMISSIONS_PER_HOUR;
+  return result?.submission_count <= perHour;
 }
 
 export async function verifyTurnstile(token, secret, expectedHostname) {
@@ -267,19 +277,23 @@ export function readReviewDecision(value) {
   };
 }
 
-export function acceptedCorrectionFromRow(row) {
-  const reviewedAt = new Date(`${row.reviewed_at.replace(' ', 'T')}Z`);
-  if (Number.isNaN(reviewedAt.valueOf())) throw new Error('Accepted correction has an invalid review timestamp.');
+export function nairobiDate(date = new Date()) {
   const dateParts = Object.fromEntries(
     new Intl.DateTimeFormat('en', {
       timeZone: 'Africa/Nairobi',
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
-    }).formatToParts(reviewedAt).map(({ type, value }) => [type, value]),
+    }).formatToParts(date).map(({ type, value }) => [type, value]),
   );
+  return `${dateParts.year}-${dateParts.month}-${dateParts.day}`;
+}
+
+export function acceptedCorrectionFromRow(row) {
+  const reviewedAt = new Date(`${row.reviewed_at.replace(' ', 'T')}Z`);
+  if (Number.isNaN(reviewedAt.valueOf())) throw new Error('Accepted correction has an invalid review timestamp.');
   return {
-    date: `${dateParts.year}-${dateParts.month}-${dateParts.day}`,
+    date: nairobiDate(reviewedAt),
     page: row.public_page,
     changed: row.public_changed,
     reason: row.public_reason,

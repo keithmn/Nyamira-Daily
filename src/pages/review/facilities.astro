@@ -1,0 +1,168 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+---
+<Base title="Facility report review" noindex>
+  <PageHead title="Facility report review" lead="Private review inbox for site editors." tools={false} />
+  <div class="stack" style="margin-top:16px">
+    <section class="card stack">
+      <p>These are reader reports about facilities, not verified facts. Accepting one records your reviewed wording; it reaches the public site only after you add the export to <code>src/data/facility-observations.json</code> and the site is rebuilt.</p>
+      <p>Public attribution is the source category and date. Never put a reporter's name, phone number or other personal details in the public fields.</p>
+      <p id="review-status" class="muted" role="status" aria-live="polite">Checking reviewer access…</p>
+      <div class="row">
+        <button class="btn quiet" id="reload-review" type="button">Reload inbox</button>
+        <a class="btn quiet" href="/api/review-facilities-export">Download accepted-observations export</a>
+        <a class="btn quiet" href="/review/corrections/">Correction inbox</a>
+      </div>
+    </section>
+    <section id="review-items" class="stack" aria-label="Facility reports"></section>
+  </div>
+</Base>
+
+<script>
+  const status = document.querySelector('#review-status');
+  const container = document.querySelector('#review-items');
+  const reload = document.querySelector('#reload-review');
+  const statusLabels = {
+    'reported-available': 'Reported available',
+    'reported-unavailable': 'Reported unavailable',
+    unknown: 'Unknown',
+  };
+  const sourceLabels = { resident: 'Resident', 'field-reporter': 'Field reporter' };
+
+  function text(tag, value) {
+    const element = document.createElement(tag);
+    element.textContent = value || '';
+    return element;
+  }
+
+  function field(labelText, name, value, type = 'textarea') {
+    const label = text('label', labelText);
+    const input = type === 'textarea' ? document.createElement('textarea') : document.createElement('input');
+    input.name = name;
+    input.value = value || '';
+    input.required = true;
+    if (type !== 'textarea') input.type = type;
+    label.append(input);
+    return label;
+  }
+
+  function choice(labelText, name, labels, value) {
+    const label = text('label', labelText);
+    const select = document.createElement('select');
+    select.name = name;
+    select.required = true;
+    select.append(new Option('Choose…', ''));
+    for (const [optionValue, optionLabel] of Object.entries(labels)) {
+      select.append(new Option(optionLabel, optionValue, false, optionValue === value));
+    }
+    label.append(select);
+    return label;
+  }
+
+  function makeCard(item) {
+    const article = document.createElement('article');
+    article.className = 'card stack';
+    const facilityName = item.facility ? item.facility.name : 'Facility not in current registry';
+    article.append(text('h2', `${item.status.toUpperCase()} · ${facilityName} (${item.facility_id})`));
+    if (item.facility) {
+      const profile = document.createElement('a');
+      profile.href = `/facility/${item.facility_id.toLowerCase()}/`;
+      profile.textContent = `Open profile · ${item.facility.category}`;
+      article.append(profile);
+    }
+    article.append(text('p', `Submitted ${item.created_at} UTC · Reference ${item.id}`));
+    article.append(text('p', `Reporter says (${sourceLabels[item.source_category] || item.source_category}): ${item.capability} · ${statusLabels[item.reported_status] || item.reported_status} on ${item.observed_on}`));
+    if (item.details) article.append(text('p', item.details));
+    if (item.source_url) {
+      const source = document.createElement('a');
+      source.href = item.source_url;
+      source.rel = 'noopener noreferrer';
+      source.textContent = 'Open reporter’s source link';
+      article.append(source);
+    }
+    if (item.status === 'accepted') {
+      article.append(text('p', `Published wording: ${item.public_capability} · ${statusLabels[item.public_status]} on ${item.public_observed_on} · ${item.public_evidence} · ${item.public_scope} · ${item.public_source_ref}`));
+    }
+    if (item.review_note) article.append(text('p', `Reviewer note: ${item.review_note}`));
+    for (const event of item.events || []) {
+      article.append(text('p', `${event.created_at} UTC · ${event.actor} · ${event.event_type}: ${event.note}`));
+    }
+    if (item.status !== 'pending') return article;
+
+    const form = document.createElement('form');
+    form.className = 'builder';
+    form.append(field('Public capability label', 'capability', item.capability, 'text'));
+    form.append(choice('Status to publish', 'observationStatus', statusLabels, item.reported_status));
+    form.append(field('Scope: what this observation covers and does not cover', 'scope', ''));
+    form.append(field('Date observed', 'observedOn', item.observed_on, 'date'));
+    form.append(choice('Public source category', 'sourceCategory', sourceLabels, item.source_category));
+    form.append(field('Public source reference (no personal names)', 'sourceRef', '', 'text'));
+    form.append(choice('Evidence label', 'evidence', {
+      unverified: 'Unverified: not checked by an editor',
+      verified: 'Verified: an editor checked it on site or against official records',
+    }, ''));
+    form.append(field('Internal review note (required)', 'note', ''));
+    const actions = document.createElement('div');
+    actions.className = 'row';
+    for (const [label, decision] of [['Accept', 'accepted'], ['Reject', 'rejected']]) {
+      const button = document.createElement('button');
+      button.className = decision === 'accepted' ? 'btn' : 'btn quiet';
+      button.type = 'submit';
+      button.value = decision;
+      button.formNoValidate = decision === 'rejected';
+      button.textContent = label;
+      actions.append(button);
+    }
+    form.append(actions);
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const decision = event.submitter?.value;
+      const values = Object.fromEntries(new FormData(form));
+      status.textContent = 'Saving the review decision…';
+      const buttons = [...form.querySelectorAll('button')];
+      buttons.forEach((button) => { button.disabled = true; });
+      try {
+        const response = await fetch('/api/review-facilities', {
+          method: 'PATCH',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ ...values, id: item.id, decision }),
+        });
+        const result = await response.json();
+        if (!response.ok) {
+          status.textContent = result.error || 'The review decision could not be saved.';
+          return;
+        }
+        status.textContent = `Saved as ${result.status}.`;
+        await loadInbox();
+      } catch {
+        status.textContent = 'The review decision could not be confirmed as saved. Reload the inbox before trying again.';
+      } finally {
+        buttons.forEach((button) => { button.disabled = false; });
+      }
+    });
+    article.append(form);
+    return article;
+  }
+
+  async function loadInbox() {
+    status.textContent = 'Loading facility report inbox…';
+    container.replaceChildren();
+    try {
+      const response = await fetch('/api/review-facilities', { headers: { accept: 'application/json' } });
+      const result = await response.json();
+      if (!response.ok) {
+        status.textContent = result.error || 'Reviewer access is required.';
+        return;
+      }
+      status.textContent = `${result.items.length} recent report(s). Signed in as ${result.reviewer}.`;
+      if (!result.items.length) container.append(text('p', 'No facility reports are currently in the inbox.'));
+      for (const item of result.items) container.append(makeCard(item));
+    } catch {
+      status.textContent = 'The review inbox could not be reached. Check the connection and try again.';
+    }
+  }
+
+  reload.addEventListener('click', loadInbox);
+  loadInbox();
+</script>

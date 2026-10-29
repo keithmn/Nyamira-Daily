@@ -77,3 +77,18 @@ The local form stays disabled with the example variables. To test an enabled for
 3. From the protected review screen, download the accepted-corrections export. Review it and copy the intended public record into `src/data/corrections.json`; preserve existing accepted records.
 4. Run tests and the public-site build. Submit the repository changes for the normal review and deployment process.
 5. The correction appears to readers only after that static build is deployed. Database acceptance alone is not publication.
+
+## Facility observation reports
+
+Facility reports use the same service, database, Turnstile check, salt, retention period and Access reviewers as corrections, but have their own tables (`migrations/0002_facility_observations.sql`), endpoints, inbox and switch (decision #49, #54). They are **disabled by default**, and switching on corrections does not switch them on.
+
+- **Public form:** on each facility profile (`src/components/FacilityObservationForm.astro`). It renders only when the build has `PUBLIC_FACILITY_INTAKE_ENABLED=true`, `PUBLIC_TURNSTILE_SITE_KEY` and `PUBLIC_CORRECTION_RETENTION_DAYS`; otherwise profiles show nothing. A report covers one facility and one capability: what was checked (the reporter's words), what they found (available, not available, or not sure), the date they saw it, and whether they are a resident or a Nyamira Daily field reporter. Extra detail and an HTTPS source link are optional. No names, contact details or uploads.
+- **Intake API:** `POST /api/facility-observations`. Needs `FACILITY_INTAKE_ENABLED=true` plus every server-side setting listed for corrections. It rejects facility IDs not in `src/data/facilities.json` and dates in the future (Nairobi time). Its limiter is separate from the corrections limiter: 10 reports per IP per hour, because one visit can cover several services.
+- **Review:** `/review/facilities/`, with `GET`/`PATCH /api/review-facilities` and `GET /api/review-facilities-export`. The existing Access paths (`/review/*` and `/api/review*`) already cover them, and the APIs check the same JWT and `CORRECTION_REVIEWER_EMAILS` allowlist. To accept, the editor sets every public field: capability label, status, scope, observation date, source category, a public source reference with no personal names, and the evidence label. For reader reports the evidence label is `unverified`, or `verified` only if an editor checked it on site or against official records. Choose "field reporter" only when you know the report came from a designated field reporter; the form category is self-declared.
+- **Retention:** after `CORRECTION_RETENTION_DAYS`, pending and rejected reports are deleted. Accepted reports lose the reporter's own words and link but keep the reviewed public fields, so the public history can still be exported.
+
+### Publishing accepted facility observations
+
+1. From `/review/facilities/`, download the accepted-observations export.
+2. Preview it: `node scripts/import-facility-observations.js <export.json>`. Then add it: `node scripts/import-facility-observations.js <export.json> --write`. The script copies public fields only, stamps `publishedAt` with the current UTC time, skips records already published, refuses a changed duplicate, and validates the result against the facility registry.
+3. Review the diff of `src/data/facility-observations.json`, run the tests and the build, and submit the change for the normal review and deployment. Observations appear on profiles and in `/api/facilities.json` only after that deploy.

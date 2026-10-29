@@ -1,5 +1,6 @@
 # Copy to .dev.vars for local Pages Functions testing. Never commit .dev.vars.
 CORRECTION_INTAKE_ENABLED=false
+FACILITY_INTAKE_ENABLED=false
 CORRECTION_SITE_ORIGIN=http://localhost:8788
 CORRECTION_SITE_HOST=localhost
 CORRECTION_RETENTION_DAYS=

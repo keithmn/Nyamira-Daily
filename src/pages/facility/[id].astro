@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import FacilityObservationForm from '../../components/FacilityObservationForm.astro';
 import wards, { facilities } from '../../data/wards.js';
 import observationRecords from '../../data/facility-observations.json';
 import { latestFacilityCapabilities, observationsForFacility, validateFacilityObservations } from '../../lib/facility-observations.js';
@@ -90,6 +91,8 @@ const facilityHistory = observationsForFacility(reviewedObservations, facility.i
         </div>
       ) : <p class="muted">No dated, editor-reviewed observations are published for this profile yet.</p>}
     </section>
+
+    <FacilityObservationForm facilityId={facility.id} facilityName={facility.name} />
 
     <details>
       <summary>Source and record details</summary>

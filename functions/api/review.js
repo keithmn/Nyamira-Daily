@@ -10,7 +10,7 @@ import {
   reviewItemLimit,
 } from '../_shared/corrections.js';
 
-async function requireReviewer(request, env) {
+async function requireReviewer(request, env, purge = purgeExpired) {
   if (!env.DB) return { response: jsonResponse({ error: 'Review database is not configured.' }, 503) };
   const retentionDays = readRetentionDays(env.CORRECTION_RETENTION_DAYS);
   if (retentionDays === null) {
@@ -18,7 +18,7 @@ async function requireReviewer(request, env) {
   }
   const email = await authorizeReviewer(request, env);
   if (!email) return { response: jsonResponse({ error: 'Reviewer access is required.' }, 401) };
-  await purgeExpired(env.DB, retentionDays);
+  await purge(env.DB, retentionDays);
   return { email };
 }
 

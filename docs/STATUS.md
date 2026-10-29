@@ -1,4 +1,4 @@
-# Status and handover (25 Oct 2026)
+# Status and handover (29 Oct 2026)
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md` / `CLAUDE.md`, then this, then `docs/`.
 
@@ -113,7 +113,7 @@ No entry in this table is an owner approval, production deployment, or independe
 2. **Static profile pages — complete (27 Oct 2026):** generate one page per current facility ID at `/facility/<lowercase-ID>/` (owner-approved 27 Oct 2026), with only sourced identity, owner/type/level, source and evidence fields; show unknown where current capabilities or dates are absent. Each profile says “No verified photo yet” and that no reviewed history is recorded. Profile discovery links are ledger item 3.
 3. **Cross-site integration — complete (27 Oct 2026):** ward service rows, health/education counts and search link to stable profile URLs. The v1 CSV and ward APIs remain unchanged; `facilities-v2.csv` and `/api/facilities.json` add profile URLs and omit candidate coordinates.
 4. **Dated history and capability records — complete (26 Oct 2026):** add type-scoped reported-available / reported-unavailable / unknown observations with source, observation date and review/publication timestamps; retain all reviewed entries. Use reviewed descriptive labels, not an invented controlled vocabulary. Do not upgrade old registry fields or category labels into capability claims.
-5. **Facility review intake:** coordinate with the separate corrections-review branch; add dedicated facility-observation tables and APIs, source-category attribution, editor review and a public-only approved export. Keep service and intake disabled until Cloudflare resources, reviewer access, retention and monitoring owner are configured.
+5. **Facility review intake — complete (29 Oct 2026), switched off:** corrections-review branch merged in; dedicated facility-observation tables and APIs, source-category attribution, editor review and a public-only approved export, plus an import script. Service and intake stay disabled until Cloudflare resources, reviewer access, retention and monitoring owner are configured. See the handover below.
 6. **Map/photo experience:** add geographic zoom only for sourced facility locations and a separate image viewer with its own zoom; require capture date, photographer/source, matching facility/project ID and permissions. No generic imagery; unidentified, private or non-consenting people are not published.
 7. **Site-wide icy surfaces:** move cards, tiles and graphic panels toward existing Mist/Rain tones with lightweight gloss; use real blur only on large hero panels. Preserve text contrast and all map/evidence/alert/critical-data color semantics.
 8. **Validation and handover:** tests for identity, unresolved place matches, unknown states, dated history, photo provenance, route links and review exports; build; check 390px/desktop and light/dark. No browser pages are shared yet, so visual inspection will need an owner or newly shared browser page.
@@ -135,3 +135,25 @@ No entry in this table is an owner approval, production deployment, or independe
 - **Validation after item 4:** `node --test src/lib/facility-observations.test.js src/lib/facility-api.test.js` passed (8 tests); `npm test` passed (74 tests); `python3 -m unittest discover -s scripts -p 'test_*.py'` passed (12 tests); `node scripts/build-facilities-csv.js --check` passed; `ND_SITE_URL=https://nyamiradaily.org npm run build` passed (751 pages); a built-output assertion checked all 247 profile pages/API records remain explicitly unknown with empty history; `git diff --check` passed. No browser visual review or deployment was performed.
 - **Not visually checked:** the profile pages use existing layouts and responsive card/table patterns, but no browser pages are shared in this session. Phone/desktop and light/dark visual review remains outstanding.
 - **Remaining risks / next:** no dated, editor-reviewed facility observations have been sourced yet; the 247-entry list is incomplete and the separate 63-row places list remains unlinked. Next is ledger item 5: integrate the dedicated facility-observation review workflow with the separate corrections-review service, but keep intake disabled until Cloudflare configuration, reviewer access, retention and monitoring ownership are supplied. Later steps still need authoritative dated sources, reviewed identity/coordinates, and photo assets/permissions. No deployment was performed.
+
+## Facility review intake handover (29 Oct 2026)
+
+- **Starting point:** `feat/facility-review-intake` at `c74555e` with an uncommitted merge of `feat/corrections-review-workflow` left by the previous session. Its two conflicts (`docs/DECISIONS.md`, `src/layouts/Base.astro`) had been resolved by keeping both sides; that merge was checked and committed as `2971ba3`.
+- **Implemented (ledger item 5), all switched off:**
+  - `migrations/0002_facility_observations.sql`: facility report, event and limiter tables, separate from corrections. The database enforces the allowed statuses and source categories, and accepted reports must have complete public fields.
+  - `functions/_shared/facility-observations.js`, `functions/api/facility-observations.js` (intake), `functions/api/review-facilities.js` (inbox list and decisions) and `functions/api/review-facilities-export.js` (accepted-only export). They reuse the corrections service's origin check, Turnstile, honeypot, HMAC limiter, Access JWT check and reviewer allowlist. `functions/_shared/corrections.js` and `functions/api/review.js` gained small parameters for that (form fields, limiter table, cleanup function); correction behaviour is unchanged.
+  - `src/components/FacilityObservationForm.astro` on each facility profile, rendering nothing unless the build flags are set. `src/pages/review/facilities.astro` is the noindex editor inbox, cross-linked with the corrections inbox.
+  - `scripts/import-facility-observations.js` adds an export to `src/data/facility-observations.json`.
+  - Decision #54 records the choices: one capability per report; editors write every public field; reader reports are `verified` or `unverified` only; a separate limiter of 10 per hour; accepted reports keep reviewed fields after retention. Setup and publishing steps are in `docs/CORRECTIONS_SERVICE.md`.
+- **Checks run:**
+  - `npm test` passed, 104 tests. These include an end-to-end run on `node:sqlite` with the real migrations: intake → Access-signed accept → second decision refused → retention cleanup → export → import.
+  - Python tests passed, 20.
+  - `node scripts/build-facilities-csv.js --check` passed.
+  - `ND_SITE_URL=https://nyamiradaily.org npm run build` passed, 764 pages: no profile renders the form and no page loads Turnstile.
+  - A preview build with `PUBLIC_FACILITY_INTAKE_ENABLED=true` and test settings put the form on all 247 profiles with no preselected answers, while the correction form stayed off.
+  - `wrangler pages functions build` compiled.
+  - `npm run db:migrate:local` applied 0002.
+  - `wrangler pages dev` smoke test with no settings: facility intake returned 503 (not enabled); review list, decisions and export returned 503 (retention not configured); corrections were unchanged.
+- **Not tested:** real Turnstile, a real Access application, and production D1. Nothing was provisioned or deployed.
+- **Before switching on:** everything already listed for corrections (D1, Turnstile, Access, retention, a named reviewer and how often they check), plus `npm run db:migrate:remote` for 0002. Then set `FACILITY_INTAKE_ENABLED` and `PUBLIC_FACILITY_INTAKE_ENABLED`. The owner may want to change the 10-per-hour limit (`facilitySubmissionsPerHour`).
+- **Next:** item 6 (map/photo experience) or item 7 (icy surfaces), once the branch chain is reviewed and merged (see below).
