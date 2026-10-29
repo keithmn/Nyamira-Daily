@@ -1,6 +1,6 @@
 PRAGMA foreign_keys = ON;
 
--- Road condition reports (decisions #55 and #57): a grade plus up to three checks in the
+-- Road condition reports (decisions #57 and #59): a grade plus up to three checks in the
 -- reporter's own words. Kept apart from correction and facility reports.
 CREATE TABLE IF NOT EXISTS road_condition_submissions (
   id TEXT PRIMARY KEY,

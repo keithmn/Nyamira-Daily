@@ -1,4 +1,4 @@
-// Published road condition reports (decisions #55 and #57): validation, history and the latest
+// Published road condition reports (decisions #57 and #59): validation, history and the latest
 // grade per road. Conflicting grades on the newest date show as "Not sure", like facilities.
 import { isDateOnly, isUtcTimestamp } from './facility-observations.js';
 

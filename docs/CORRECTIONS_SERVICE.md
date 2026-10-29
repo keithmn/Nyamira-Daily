@@ -95,7 +95,7 @@ Facility reports use the same service, database, Turnstile check, salt, retentio
 
 ## Road condition reports
 
-Road reports use the same service, Turnstile check, salt, retention period and Access reviewers, with their own tables (`migrations/0003_road_conditions.sql`), endpoints, inbox and switch (decisions #55, #57). They are **disabled by default**; switching on corrections or facility reports does not switch them on.
+Road reports use the same service, Turnstile check, salt, retention period and Access reviewers, with their own tables (`migrations/0003_road_conditions.sql`), endpoints, inbox and switch (decisions #57, #59). They are **disabled by default**; switching on corrections or facility reports does not switch them on.
 
 - **Public form:** on each road page (`src/components/RoadConditionForm.astro`), rendered only when the build has `PUBLIC_ROAD_INTAKE_ENABLED=true`, `PUBLIC_TURNSTILE_SITE_KEY` and `PUBLIC_CORRECTION_RETENTION_DAYS`. A report gives one grade (Good, Fair, Poor, Impassable or Not sure, each defined on the form), the date seen, the reporter's category and up to three optional checks in the reporter's own words (Yes, No or Not sure). Nothing is preselected.
 - **Intake API:** `POST /api/road-conditions`, needing `ROAD_INTAKE_ENABLED=true` plus every server-side setting listed for corrections. It rejects road IDs not in `src/data/roads.json` (a retired ID resolves to the road that replaced it) and future dates. Its limiter is separate: 10 reports per IP per hour.
