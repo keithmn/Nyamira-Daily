@@ -3,6 +3,10 @@ import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import EvidenceLabel from '../components/EvidenceLabel.astro';
 import CorrectionLog from '../components/CorrectionLog.astro';
+const correctionIntakeEnabled = import.meta.env.PUBLIC_CORRECTION_INTAKE_ENABLED === 'true';
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
+const correctionRetentionDays = Number(import.meta.env.PUBLIC_CORRECTION_RETENTION_DAYS);
+const hasCorrectionRetention = Number.isSafeInteger(correctionRetentionDays) && correctionRetentionDays >= 1 && correctionRetentionDays <= 3650;
 ---
 <Base title="How we work">
   <PageHead title="How we work" lead="Our rules for facts, fairness and corrections." tools={false} />
@@ -29,8 +33,68 @@ import CorrectionLog from '../components/CorrectionLog.astro';
     </section>
     <section id="corrections" class="card stack">
       <h2>Corrections</h2>
-      <p class="muted">Accepted corrections are recorded here with what changed, why, when, and a source. Correction intake is not configured yet, so this site cannot receive or confirm a correction report.</p>
+      <p>Accepted corrections are recorded here with what changed, why, when, and a source. A report is a lead for review, not a verified fact. It will not change the public record by itself.</p>
+      {correctionIntakeEnabled && turnstileSiteKey && hasCorrectionRetention ? (
+        <form id="correction-form" class="builder" action="/api/corrections" method="post">
+          <p class="small muted">Do not include private or sensitive personal information. You do not need to give your name or contact details. Submissions and review notes are kept for up to {correctionRetentionDays} days; deletion may happen on the next service request after that period. Sending a report does not mean it has been checked or that you will receive a reply.</p>
+          <label>
+            Page or record
+            <input class="field" name="page" type="text" maxlength="500" placeholder="/data/health/" required />
+            <span class="hint">Use the page path or a public Nyamira Daily URL.</span>
+          </label>
+          <label>
+            What may be wrong?
+            <textarea name="details" minlength="10" maxlength="3000" required></textarea>
+            <span class="hint">Explain what you saw and what you think needs checking.</span>
+          </label>
+          <label>
+            Public source link (optional)
+            <input class="field" name="source" type="url" maxlength="2048" placeholder="https://…" />
+          </label>
+          <label hidden aria-hidden="true">
+            Leave this field empty
+            <input name="website" type="text" tabindex="-1" autocomplete="off" />
+          </label>
+          <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
+          <button class="btn" type="submit">Send for review</button>
+          <p id="correction-form-status" class="muted" role="status" aria-live="polite"></p>
+        </form>
+      ) : (
+        <p class="muted">Correction submissions are not enabled yet. Do not send information here expecting it to be received. The review database and monitoring arrangements must be configured before intake opens.</p>
+      )}
       <CorrectionLog />
     </section>
   </div>
 </Base>
+
+{correctionIntakeEnabled && turnstileSiteKey && hasCorrectionRetention && (
+  <>
+    <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script>
+      const form = document.querySelector('#correction-form');
+      const status = document.querySelector('#correction-form-status');
+      form?.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        status.textContent = 'Sending for review…';
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        try {
+          const response = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+          const result = await response.json();
+          if (!response.ok) {
+            status.textContent = result.error || 'The report could not be saved.';
+            return;
+          }
+          form.reset();
+          const turnstile = Reflect.get(window, 'turnstile');
+          if (typeof turnstile?.reset === 'function') turnstile.reset();
+          status.textContent = `Saved for review. Reference: ${result.reference}. It has not changed the public record.`;
+        } catch {
+          status.textContent = 'The report could not be confirmed as saved. Please try again later.';
+        } finally {
+          button.disabled = false;
+        }
+      });
+    </script>
+  </>
+)}

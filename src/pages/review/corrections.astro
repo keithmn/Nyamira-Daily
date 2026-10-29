@@ -1,0 +1,132 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+---
+<Base title="Correction review" noindex>
+  <PageHead title="Correction review" lead="Private review inbox for site editors." tools={false} />
+  <div class="stack" style="margin-top:16px">
+    <section class="card stack">
+      <p>This page contains reader-submitted claims, not verified facts. Do not publish a report until you have checked its source and followed the editorial rules.</p>
+      <p id="review-status" class="muted" role="status" aria-live="polite">Checking reviewer access…</p>
+      <div class="row">
+        <button class="btn quiet" id="reload-review" type="button">Reload inbox</button>
+        <a class="btn quiet" href="/api/review-export">Download accepted-corrections export</a>
+      </div>
+    </section>
+    <section id="review-items" class="stack" aria-label="Correction submissions"></section>
+  </div>
+</Base>
+
+<script>
+  const status = document.querySelector('#review-status');
+  const container = document.querySelector('#review-items');
+  const reload = document.querySelector('#reload-review');
+
+  function text(tag, value) {
+    const element = document.createElement(tag);
+    element.textContent = value || '';
+    return element;
+  }
+
+  function field(labelText, name, value, type = 'textarea', required = true) {
+    const label = text('label', labelText);
+    const input = type === 'textarea' ? document.createElement('textarea') : document.createElement('input');
+    input.name = name;
+    input.value = value || '';
+    input.required = required;
+    if (type !== 'textarea') input.type = type;
+    if (name === 'sourceDate') input.type = 'date';
+    label.append(input);
+    return label;
+  }
+
+  function makeCard(item) {
+    const article = document.createElement('article');
+    article.className = 'card stack';
+    article.append(text('h2', `${item.status.toUpperCase()} · ${item.page_path}`));
+    article.append(text('p', `Submitted ${item.created_at} UTC · Reference ${item.id}`));
+    article.append(text('p', item.details));
+    if (item.source_url) {
+      const source = document.createElement('a');
+      source.href = item.source_url;
+      source.rel = 'noopener noreferrer';
+      source.textContent = 'Open submitter’s source link';
+      article.append(source);
+    }
+    if (item.review_note) article.append(text('p', `Reviewer note: ${item.review_note}`));
+    for (const event of item.events || []) {
+      article.append(text('p', `${event.created_at} UTC · ${event.actor} · ${event.event_type}: ${event.note}`));
+    }
+    if (item.status !== 'pending') return article;
+
+    const form = document.createElement('form');
+    form.className = 'builder';
+    form.append(field('Public page path', 'page', item.page_path, 'text'));
+    form.append(field('Public change (required to accept)', 'changed', '', 'textarea'));
+    form.append(field('Why the change is supported', 'reason', '', 'textarea'));
+    form.append(field('HTTPS source URL', 'source', item.source_url || '', 'url'));
+    form.append(field('Source date', 'sourceDate', '', 'date'));
+    form.append(field('Internal review note (required)', 'note', '', 'textarea'));
+    const actions = document.createElement('div');
+    actions.className = 'row';
+    for (const [label, statusValue] of [['Accept', 'accepted'], ['Reject', 'rejected']]) {
+      const button = document.createElement('button');
+      button.className = statusValue === 'accepted' ? 'btn' : 'btn quiet';
+      button.type = 'submit';
+      button.value = statusValue;
+      button.formNoValidate = statusValue === 'rejected';
+      button.textContent = label;
+      actions.append(button);
+    }
+    form.append(actions);
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const statusValue = event.submitter?.value;
+      const values = Object.fromEntries(new FormData(form));
+      status.textContent = 'Saving the review decision…';
+      const buttons = [...form.querySelectorAll('button')];
+      buttons.forEach((button) => { button.disabled = true; });
+      try {
+        const response = await fetch('/api/review', {
+          method: 'PATCH',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ id: item.id, status: statusValue, ...values }),
+        });
+        const result = await response.json();
+        if (!response.ok) {
+          status.textContent = result.error || 'The review decision could not be saved.';
+          return;
+        }
+        status.textContent = `Saved as ${result.status}.`;
+        await loadInbox();
+      } catch {
+        status.textContent = 'The review decision could not be confirmed as saved. Reload the inbox before trying again.';
+      } finally {
+        buttons.forEach((button) => { button.disabled = false; });
+      }
+    });
+    article.append(form);
+    return article;
+  }
+
+  async function loadInbox() {
+    status.textContent = 'Loading correction inbox…';
+    container.replaceChildren();
+    try {
+      const response = await fetch('/api/review', { headers: { accept: 'application/json' } });
+      const result = await response.json();
+      if (!response.ok) {
+        status.textContent = result.error || 'Reviewer access is required.';
+        return;
+      }
+      status.textContent = `${result.items.length} recent submission(s). Signed in as ${result.reviewer}.`;
+      if (!result.items.length) container.append(text('p', 'No submissions are currently in the inbox.'));
+      for (const item of result.items) container.append(makeCard(item));
+    } catch {
+      status.textContent = 'The review inbox could not be reached. Check the connection and try again.';
+    }
+  }
+
+  reload.addEventListener('click', loadInbox);
+  loadInbox();
+</script>

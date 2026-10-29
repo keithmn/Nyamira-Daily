@@ -9,6 +9,7 @@ import { date } from '../lib/fmt.js';
         <strong>{date(item.date)} · {item.page}</strong>
         <p><strong>Changed:</strong> {item.changed}</p>
         <p><strong>Why:</strong> {item.reason}</p>
+        {item.sourceDate && <p><strong>Source date:</strong> {date(item.sourceDate)}</p>}
         {item.source && <p><a href={item.source} rel="noopener">Correction source</a></p>}
       </li>
     ))}

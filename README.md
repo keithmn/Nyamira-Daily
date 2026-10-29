@@ -23,9 +23,11 @@ ND_PREVIEW_BUILD=1 npm run build  # local preview build into dist/ (uses localho
 npm run preview  # serves the built site
 npm test         # Node regression tests
 python3 -m unittest discover -s scripts -p 'test_*.py'  # data and export safeguards
+npm run db:migrate:local  # create the local D1 tables for the correction-review service
+npm run pages:dev         # serve dist/ and Cloudflare Pages Functions locally
 ```
 
-Requires Node.js 18.20.8 or later (Astro 5). Python 3 is used by data scripts and their tests.
+The Astro site requires Node.js 18.20.8 or later. The optional Cloudflare Pages/D1 tooling requires Node.js 22 or later. Python 3 is used by data scripts and their tests.
 
 ## Where things live
 
@@ -59,6 +61,8 @@ The six sections form the navigation bar. Tapping a section opens a menu listing
 ## Hosting
 
 Public builds require `ND_SITE_URL=https://your-real-domain` and reject placeholder/local domains. `ND_PREVIEW_BUILD=1` is only for local preview builds; production hosting environments reject it. Public builds also reject `ND_DRAFTS=1`. The owner supplied `nyamiradaily.org`; configure the deployment environment with `ND_SITE_URL=https://nyamiradaily.org`. A successful local build does not verify DNS, hosting settings, or deployment.
+
+The database-backed corrections workflow is an optional Cloudflare Pages Functions + D1 service. It is disabled until configured. See [`docs/CORRECTIONS_SERVICE.md`](docs/CORRECTIONS_SERVICE.md) before creating Cloudflare resources or enabling submissions.
 
 ## The one rule
 
