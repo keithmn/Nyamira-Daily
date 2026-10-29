@@ -1,0 +1,203 @@
+{
+  "checked": "2026-10-29",
+  "source": "OpenStreetMap contributors (ODbL), via the Humanitarian OpenStreetMap Team export in data-src/osm-points.json",
+  "evidence": "unverified",
+  "note": "Towns are OpenStreetMap places tagged town. Centres are named villages and markets. Duplicates (one place recorded as a point and an outline, or a market inside a town) are shown once. Places OpenStreetMap does not name or place, such as Ekerenyo, are not shown; locations are not checked on the ground. Left out: \"Zacharia\" (Manga), which looks like a tagging mistake, pending review.",
+  "places": [
+    {
+      "name": "Nyamira",
+      "kind": "town",
+      "ward": "township",
+      "lon": 34.93571,
+      "lat": -0.56659,
+      "osm": "node/4870252485",
+      "label": "below"
+    },
+    {
+      "name": "Kebirigo",
+      "kind": "town",
+      "ward": "bonyamatuta",
+      "lon": 34.96231,
+      "lat": -0.60118,
+      "osm": "node/2987230799"
+    },
+    {
+      "name": "Keroka",
+      "kind": "town",
+      "ward": "rigoma",
+      "lon": 34.94721,
+      "lat": -0.7782,
+      "osm": "node/44995465"
+    },
+    {
+      "name": "Kiomara",
+      "kind": "centre",
+      "ward": "bokeira",
+      "lon": 34.97254,
+      "lat": -0.45705,
+      "osm": "node/9217449860"
+    },
+    {
+      "name": "Nyamuse",
+      "kind": "centre",
+      "ward": "bokeira",
+      "lon": 34.97134,
+      "lat": -0.4817,
+      "osm": "node/9217469541"
+    },
+    {
+      "name": "Nyasore",
+      "kind": "centre",
+      "ward": "nyamaiya",
+      "lon": 34.90817,
+      "lat": -0.48261,
+      "osm": "node/9217469542"
+    },
+    {
+      "name": "Magwagwa",
+      "kind": "centre",
+      "ward": "magwagwa",
+      "lon": 35.0166,
+      "lat": -0.4833,
+      "osm": "node/44930127",
+      "note": "OpenStreetMap also has Maragwa and Maraagwa at the same point; shown with the ward's spelling."
+    },
+    {
+      "name": "Miruka",
+      "kind": "centre",
+      "ward": "nyamaiya",
+      "lon": 34.88074,
+      "lat": -0.49995,
+      "osm": "node/2868220641"
+    },
+    {
+      "name": "Bonyunyu",
+      "kind": "centre",
+      "ward": "nyamaiya",
+      "lon": 34.88328,
+      "lat": -0.51662,
+      "osm": "node/45006094",
+      "note": "OpenStreetMap also has Bunyunya at the same point."
+    },
+    {
+      "name": "Ikonge",
+      "kind": "centre",
+      "ward": "itibo",
+      "lon": 35.0166,
+      "lat": -0.5333,
+      "osm": "node/44999203"
+    },
+    {
+      "name": "Busiango",
+      "kind": "centre",
+      "ward": "bogichora",
+      "lon": 34.94848,
+      "lat": -0.63954,
+      "osm": "way/501465172"
+    },
+    {
+      "name": "Mekenene",
+      "kind": "centre",
+      "ward": "nyansiongo",
+      "lon": 35.04218,
+      "lat": -0.71643,
+      "osm": "node/9249507646"
+    },
+    {
+      "name": "Kijauri",
+      "kind": "centre",
+      "ward": "nyansiongo",
+      "lon": 35.01567,
+      "lat": -0.76041,
+      "osm": "node/9222885854"
+    },
+    {
+      "name": "Metamaywa",
+      "kind": "centre",
+      "ward": "rigoma",
+      "lon": 34.96889,
+      "lat": -0.77073,
+      "osm": "node/9222885863"
+    },
+    {
+      "name": "Girango",
+      "kind": "centre",
+      "ward": "gachuba",
+      "lon": 34.86452,
+      "lat": -0.7077,
+      "osm": "node/9222885869"
+    },
+    {
+      "name": "Nyangina",
+      "kind": "centre",
+      "ward": "kemera",
+      "lon": 34.84391,
+      "lat": -0.68888,
+      "osm": "node/9222885867"
+    },
+    {
+      "name": "Manga",
+      "kind": "centre",
+      "ward": "manga",
+      "lon": 34.83553,
+      "lat": -0.61431,
+      "osm": "node/2858154143"
+    },
+    {
+      "name": "Nyabioto",
+      "kind": "centre",
+      "ward": "manga",
+      "lon": 34.86351,
+      "lat": -0.61172,
+      "osm": "node/9215245985"
+    },
+    {
+      "name": "Magombo Market",
+      "kind": "centre",
+      "ward": "magombo",
+      "lon": 34.91324,
+      "lat": -0.67248,
+      "osm": "node/6776908886"
+    },
+    {
+      "name": "Tombe Market",
+      "kind": "centre",
+      "ward": "manga",
+      "lon": 34.874,
+      "lat": -0.65392,
+      "osm": "node/6776908888"
+    },
+    {
+      "name": "Bonyunyu Market",
+      "kind": "centre",
+      "ward": "itibo",
+      "lon": 35.02266,
+      "lat": -0.59289,
+      "osm": "node/5890534244"
+    },
+    {
+      "name": "Kitaru Centre",
+      "kind": "centre",
+      "ward": "mekenene",
+      "lon": 35.0489,
+      "lat": -0.61034,
+      "osm": "node/5901014578"
+    },
+    {
+      "name": "Mokomoni Market",
+      "kind": "centre",
+      "ward": "kiabonyoru",
+      "lon": 35.02651,
+      "lat": -0.61548,
+      "osm": "node/5894566945"
+    },
+    {
+      "name": "Nyansiongo",
+      "kind": "centre",
+      "ward": "nyansiongo",
+      "lon": 35.01458,
+      "lat": -0.7594,
+      "osm": "node/3098823940"
+    }
+  ]
+}

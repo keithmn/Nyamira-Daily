@@ -87,7 +87,7 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <SiteHeader path={path} isHome={isHome} />
+  <SiteHeader path={path} />
   <SectionTabs path={path} />
   <AlertBanner ward={alertWard} disruptions={showDisruptions} />
 

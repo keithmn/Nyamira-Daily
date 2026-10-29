@@ -1,0 +1,492 @@
+{
+ "retrieved": "2026-10-29",
+ "readme": "entries = rows from a published list that places the body in Nyamira (as printed). mentions = named bodies in county documents; not registers; basis says how firm each is. nameMatchesNoLocation = PBORA register rows whose NAME contains a Nyamira place word; the register has no location, so these are NOT confirmed to be in Nyamira. Nothing has been cleaned beyond whitespace.",
+ "registers": [
+  {
+   "id": "sasra-2026",
+   "title": "List of Licensed and Authorised Sacco Societies in Kenya for the Financial Year Ending 31st December 2026",
+   "publisher": "Sacco Societies Regulatory Authority (SASRA)",
+   "date": "PDF created 2 Feb 2026; posted on sasra.go.ke 13 Mar 2026",
+   "url": "https://www.sasra.go.ke/download/list-of-licensed-and-authorized-sacco-societies-in-kenya-for-the-financial-year-ending-31st-december-2026/",
+   "downloadable": true,
+   "fields": [
+    "serial no.",
+    "name",
+    "postal address",
+    "physical location of head office",
+    "county"
+   ],
+   "registrationNumber": false,
+   "coverage": "Schedule I: 176 deposit-taking SACCOs licensed for 2026; Schedule II: 176 non-withdrawable-deposit-taking SACCOs authorised; Schedule III: 5 restricted licences; Schedule IV: 1 revoked. Only SASRA-regulated SACCOs; the many small SACCOs supervised by the Commissioner for Co-operative Development are not in it.",
+   "nyamiraEntries": "0 rows with county printed as Nyamira. 1 row whose address is in Nyamira (Vision Point Sacco, Nyansiongo/Borabu) but whose county column is printed \"Kisii\".",
+   "usable": "Yes, as an official list of regulated SACCOs; county column cannot be trusted for Nyamira (see Vision Point).",
+   "confidence": "high"
+  },
+  {
+   "id": "sasra-2025",
+   "title": "List of Licensed and Authorised Sacco Societies in Kenya for the Financial Year Ending 31st December 2025",
+   "publisher": "SASRA",
+   "date": "posted 27 Jan 2025",
+   "url": "https://www.sasra.go.ke/download/list-of-licensed-and-authorized-sacco-societies-in-kenya-for-the-financial-year-ending-31st-december-2025/",
+   "downloadable": true,
+   "fields": [
+    "serial no.",
+    "name",
+    "postal address",
+    "physical location of head office",
+    "county"
+   ],
+   "nyamiraEntries": "Same as 2026: Vision Point Sacco (row 167) with county printed \"Kisii\"; no other Nyamira address.",
+   "usable": "Superseded by 2026 list",
+   "confidence": "high"
+  },
+  {
+   "id": "pbora-list",
+   "title": "List of PBOs (web page)",
+   "publisher": "Public Benefit Organizations Regulatory Authority (PBORA), formerly NGOs Co-ordination Board",
+   "date": "live page, retrieved 2026-10-29; no as-of date printed",
+   "url": "https://pbora.go.ke/pbos",
+   "downloadable": "HTML table only (no file)",
+   "fields": [
+    "reference no.",
+    "name of the organization"
+   ],
+   "registrationNumber": true,
+   "rowsRetrieved": 15292,
+   "nyamiraEntries": "Cannot be determined: the list has no location, county or area-of-operation field. 10 names contain a Nyamira place word (see nameMatchesNoLocation); several are clearly elsewhere (e.g. Nyamirambo, South Mugirango).",
+   "usable": "No, not as a Nyamira directory (no location). Useful only to confirm that a named organisation is registered and to get its reference number.",
+   "confidence": "high (about what it contains)"
+  },
+  {
+   "id": "pbo-sector-report-2024-25",
+   "title": "Annual PBO Sector Report 2024/2025",
+   "publisher": "PBORA",
+   "date": "posted April 2026",
+   "url": "https://pbora.go.ke/sites/default/files/2026-04/PBO%20SECTOR%20REPORT%202024-2025_0.pdf",
+   "downloadable": true,
+   "fields": [
+    "county counts only"
+   ],
+   "nyamiraEntries": "Counts only: Table 3 \"The Distribution of PBOs Across Counties\" (newly registered PBOs by intended county of operation): Nyamira 22 (p.18, PDF p.32; table starts p.17). Table 4 \"Project Implementation per County\": Nyamira 212 (p.18, PDF p.32; column header printed \"No. of PBOs\" but text calls these projects).",
+   "usable": "For two county-level counts only; no names.",
+   "confidence": "high"
+  },
+  {
+   "id": "ngo-sector-report-2022-23",
+   "title": "Annual NGO Sector Report 2022/2023",
+   "publisher": "NGOs Co-ordination Board (hosted on pbora.go.ke)",
+   "date": "June 2024 (print file date 15/06/2024)",
+   "url": "https://pbora.go.ke/sites/default/files/2025-09/Annual%20NGOS%20Sector%20Report%202022-2023.pdf",
+   "downloadable": true,
+   "fields": [
+    "county counts only"
+   ],
+   "nyamiraEntries": "Counts only: Table 3.3 \"County of operations for newly registered NGOs\": Nyamira 16 (p.26). Table 3.4 \"Project Implementation per County\": Nyamira 251 projects (p.27). NGOs can operate in several counties.",
+   "usable": "Counts only; no names.",
+   "confidence": "high"
+  },
+  {
+   "id": "ktda-nyamira",
+   "title": "Our Factories: Nyamira County",
+   "publisher": "Kenya Tea Development Agency (KTDA)",
+   "date": "live page, retrieved 2026-10-29 (no date printed)",
+   "url": "https://ktdateas.com/nyamira-county/",
+   "downloadable": "web page",
+   "fields": [
+    "factory name",
+    "short description with location"
+   ],
+   "nyamiraEntries": "6 tea factories listed under Nyamira County.",
+   "usable": "Yes for tea factories, but these are factory companies managed by KTDA, not co-operative societies or community groups; KTDA is a private company, not a regulator.",
+   "confidence": "medium-high"
+  },
+  {
+   "id": "cidp-2018-22",
+   "title": "Nyamira County Integrated Development Plan 2018-2022, s.1.22 Community Organizations/Non-State Actors and Table 16",
+   "publisher": "County Government of Nyamira",
+   "date": "2018",
+   "url": "https://www.nyamira.go.ke/static/documents/10_03_2025_08_02_03_pm_Final_CIDP-18-22.pdf",
+   "downloadable": true,
+   "fields": [
+    "narrative names of 4 NGOs/CBOs",
+    "co-operative counts by sub-county"
+   ],
+   "nyamiraEntries": "Names 4 non-state actors (narrative, p.43-44, PDF p.61-62). Co-operatives: text says \"The total number of registered cooperatives is 104 of which 74 are active with a total membership of 225,000 of whom 168,000 are active (75%)\"; Table 16 (p.44, PDF p.62; source line \"Cooperative annual report Nyamira County\") gives Manga 7, Masaba North 22, Nyamira South 39, Nyamira North 16, Borabu 22, Total 106 (text 104 vs table 106: conflict in the source).",
+   "usable": "Counts and a few names; old (2018).",
+   "confidence": "high (as printed); figures dated"
+  },
+  {
+   "id": "cidp-2023-27",
+   "title": "Nyamira CIDP 2023-2027",
+   "publisher": "County Government of Nyamira",
+   "date": "2023 (maarifa.cog.go.ke copy, June 2024)",
+   "url": "https://maarifa.cog.go.ke/sites/default/files/2024-06/NYAMIRA%20CIDP%202023-2027.pdf",
+   "downloadable": true,
+   "nyamiraEntries": "List of tables names \"Table 33: Distribution of Cooperative Societies within the Sub-Counties\" but the table is not in the body (broken cross-reference). Review of the previous plan (p.31, PDF p.46) says the sector formed \"8 new co-operative societies while reviving 5\". No register of names.",
+   "usable": "No directory.",
+   "confidence": "high"
+  },
+  {
+   "id": "knbs-csa-2015",
+   "title": "Nyamira County Statistical Abstract 2015",
+   "publisher": "KNBS (copy hosted by Council of Governors Maarifa)",
+   "date": "2015",
+   "url": "https://www.maarifa.cog.go.ke/sites/default/files/2026-02/2015-County-Statistical-Abstracts-Nyamira.pdf",
+   "downloadable": true,
+   "nyamiraEntries": "Counts only. Table 8.1 Co-operatives by type, status, membership and turnover 2013-2014 (p.12, PDF p.28; source: county trade department), e.g. 2014 provisional: Dairy 12 (7 active), Coffee 10 (10), Rural Saccos 15 (10), Urban Sacco 31 (23), Livestock 17 (12), Multipurpose 9 (5). Table 17.1 Registered women groups and 17.2 registered youth groups (p.42, PDF p.58): the rows are hard to interpret (\"Registered Women Groups 188/365\" and \"No. of Groups (SHG's) 418/435\"; footnote says women-group data is for Borabu sub-county only).",
+   "usable": "Old and internally unclear; not a directory. No later Nyamira edition found on knbs.or.ke (tested 2018-2023 file names: 404).",
+   "confidence": "medium"
+  },
+  {
+   "id": "county-adp-q4",
+   "title": "County ADPs 2024/25 and 2025/26; Fourth Quarter Budget Implementation Report FY2025/26",
+   "publisher": "County Government of Nyamira",
+   "date": "2024-2026",
+   "url": "https://nyamira.go.ke/static/documents/24_09_2026_07_23_34_am_4TH_QUARTER_YR_2025-2026_(1).pdf",
+   "downloadable": true,
+   "nyamiraEntries": "Scattered mentions of named groups and co-operatives (see mentions). ADP ward tables are proposals from public participation, not records of funding; several entries are proposals to establish societies that may not exist yet (e.g. \"Establishment of Kineni Farmers Cooperative Society\") and are excluded.",
+   "usable": "Only as dated official mentions, not as a register.",
+   "confidence": "medium"
+  },
+  {
+   "id": "community-groups-act",
+   "title": "Community Groups Registration Act, 2022 (Cap. 108A)",
+   "publisher": "Kenya Law",
+   "date": "Act No. 30 of 2022, commenced 26 July 2022",
+   "url": "https://new.kenyalaw.org/akn/ke/act/2022/30/eng@2022-12-31",
+   "downloadable": true,
+   "nyamiraEntries": "n/a. The national Director of social development registers community groups (s.9, s.13) and keeps \"the register\" (s.20). The Act gives members a right to inspect their own group's register of members (s.29) but contains no provision opening the national register of groups to the public. No public list of self-help, women's or youth groups was found.",
+   "usable": "Explains why no public group register exists; a records request to the Nyamira county co-ordinator of social development (s.4) would be the route.",
+   "confidence": "high (text read from Kenya Law PDF copy)"
+  }
+ ],
+ "notFound": [
+  "Commissioner for Co-operative Development / State Department for Co-operatives: no public register of co-operative societies (by name, county or registration number) found; CMIS is referred to in news but no public search was found.",
+  "State Department for Social Protection (Directorate of Social Development): no public list of registered self-help, women's or youth groups or CBOs.",
+  "Kenya Dairy Board licensed operators by county: no official list found.",
+  "AFA Coffee Directorate list of coffee co-operatives/pulping stations by county: not found (news cites \"21\" registered coffee co-operatives in Nyamira; secondary, not used).",
+  "Uwezo Fund, NGAAF, Women Enterprise Fund, Youth Enterprise Development Fund: no published list of Nyamira groups funded; KNA stories give totals only.",
+  "County youth/women funds (e.g. the county-KCB \"2Jiajiri\" partnership reported May 2025): no beneficiary list published on nyamira.go.ke.",
+  "Tea and dairy co-operatives: tea is organised through KTDA-managed factory companies, not co-operatives; no dairy co-operative register found (CIDP/abstract give counts only)."
+ ],
+ "entries": [
+  {
+   "name": "Vision Point Sacco Society Ltd",
+   "type": "Deposit-taking SACCO (licensed)",
+   "locationPrinted": "P.O. Box 42 – 40502, Nyansiongo; head office: Borabu Farmers Union Building, Keroka – Sotik Highway, Borabu",
+   "countyPrinted": "Kisii",
+   "register": "SASRA list of licensed and authorised Sacco societies FY2026, Schedule I (row 166)",
+   "registrationNumber": null,
+   "sourceUrl": "https://www.sasra.go.ke/download/list-of-licensed-and-authorized-sacco-societies-in-kenya-for-the-financial-year-ending-31st-december-2026/",
+   "page": "PDF p.2 of 4 (no printed page numbers)",
+   "notes": "County column printed as \"Kisii\" although Nyansiongo and Borabu are in Nyamira County; show as printed and flag. Same in FY2025 list (row 167)."
+  },
+  {
+   "name": "Tombe Tea Factory",
+   "type": "Tea factory (KTDA-managed)",
+   "locationPrinted": null,
+   "countyPrinted": "Nyamira County (page heading)",
+   "register": "KTDA website, Our Factories: Nyamira County",
+   "registrationNumber": null,
+   "sourceUrl": "https://ktdateas.com/nyamira-county/",
+   "page": "web page",
+   "notes": "Not a co-operative society or community group; listed for completeness. Matunwa factory (reported as a Nyansiongo satellite) is not listed on the page."
+  },
+  {
+   "name": "Sanganyi Tea Factory",
+   "type": "Tea factory (KTDA-managed)",
+   "locationPrinted": "situated in Nyaramba Shopping Centre, Ekerenyo Sub-county of Nyamira County along the Kericho - Kisii highway",
+   "countyPrinted": "Nyamira County (page heading)",
+   "register": "KTDA website, Our Factories: Nyamira County",
+   "registrationNumber": null,
+   "sourceUrl": "https://ktdateas.com/nyamira-county/",
+   "page": "web page",
+   "notes": "Not a co-operative society or community group; listed for completeness. Matunwa factory (reported as a Nyansiongo satellite) is not listed on the page."
+  },
+  {
+   "name": "Nyansiongo Tea Factory",
+   "type": "Tea factory (KTDA-managed)",
+   "locationPrinted": "situated in Borabu District, Nyanza Province",
+   "countyPrinted": "Nyamira County (page heading)",
+   "register": "KTDA website, Our Factories: Nyamira County",
+   "registrationNumber": null,
+   "sourceUrl": "https://ktdateas.com/nyamira-county/",
+   "page": "web page",
+   "notes": "Not a co-operative society or community group; listed for completeness. Matunwa factory (reported as a Nyansiongo satellite) is not listed on the page."
+  },
+  {
+   "name": "Nyankoba Tea Factory",
+   "type": "Tea factory (KTDA-managed)",
+   "locationPrinted": "situated approx. 34.9 degrees East and 0.8 degrees South of the equator at 2160m above sea level",
+   "countyPrinted": "Nyamira County (page heading)",
+   "register": "KTDA website, Our Factories: Nyamira County",
+   "registrationNumber": null,
+   "sourceUrl": "https://ktdateas.com/nyamira-county/",
+   "page": "web page",
+   "notes": "Not a co-operative society or community group; listed for completeness. Matunwa factory (reported as a Nyansiongo satellite) is not listed on the page."
+  },
+  {
+   "name": "Kebirigo Tea Factory",
+   "type": "Tea factory (KTDA-managed)",
+   "locationPrinted": "located in Kebirigo Sub-location, Bonyamatuta Masaba Location, Nyamira Division, of Nyamira District",
+   "countyPrinted": "Nyamira County (page heading)",
+   "register": "KTDA website, Our Factories: Nyamira County",
+   "registrationNumber": null,
+   "sourceUrl": "https://ktdateas.com/nyamira-county/",
+   "page": "web page",
+   "notes": "Not a co-operative society or community group; listed for completeness. Matunwa factory (reported as a Nyansiongo satellite) is not listed on the page."
+  },
+  {
+   "name": "Gianchore Tea Factory",
+   "type": "Tea factory (KTDA-managed)",
+   "locationPrinted": null,
+   "countyPrinted": "Nyamira County (page heading)",
+   "register": "KTDA website, Our Factories: Nyamira County",
+   "registrationNumber": null,
+   "sourceUrl": "https://ktdateas.com/nyamira-county/",
+   "page": "web page",
+   "notes": "Not a co-operative society or community group; listed for completeness. Matunwa factory (reported as a Nyansiongo satellite) is not listed on the page."
+  }
+ ],
+ "mentions": [
+  {
+   "name": "Part International",
+   "type": "NGO",
+   "locationPrinted": "\"within Nyamira\"",
+   "context": "\"involved in HIV/AIDS programs\"",
+   "source": "Nyamira CIDP 2018-2022, s.1.22",
+   "sourceUrl": "https://www.nyamira.go.ke/static/documents/10_03_2025_08_02_03_pm_Final_CIDP-18-22.pdf",
+   "page": "p.43 (PDF p.61)",
+   "basis": "listed by county as operating in Nyamira (2018)"
+  },
+  {
+   "name": "World Vision",
+   "type": "NGO",
+   "locationPrinted": "\"within Nyamira\"",
+   "context": "\"involved in OVCs ... education ... HIV/AIDS support programs\"",
+   "source": "Nyamira CIDP 2018-2022, s.1.22",
+   "sourceUrl": "https://www.nyamira.go.ke/static/documents/10_03_2025_08_02_03_pm_Final_CIDP-18-22.pdf",
+   "page": "p.43-44 (PDF p.61-62)",
+   "basis": "listed by county as operating in Nyamira (2018)"
+  },
+  {
+   "name": "Manga heart",
+   "type": "CBO",
+   "locationPrinted": "\"within Nyamira\"",
+   "context": "\"a CBO involved in OVC programmes and Gender based violence campaigns\". PBORA list has \"MANGA HEALTH EDUCATION AFRICAN RESOURCE TEAM (MANGA HEART)\", ref. 218/051/2020 - 186 (likely the same body; not confirmed).",
+   "source": "Nyamira CIDP 2018-2022, s.1.22",
+   "sourceUrl": "https://www.nyamira.go.ke/static/documents/10_03_2025_08_02_03_pm_Final_CIDP-18-22.pdf",
+   "page": "p.44 (PDF p.62)",
+   "basis": "listed by county as operating in Nyamira (2018)"
+  },
+  {
+   "name": "Tujikaze humanitarian program",
+   "type": "not stated",
+   "locationPrinted": "\"within Nyamira\"",
+   "context": "\"does campaigns on Gender based violence\"",
+   "source": "Nyamira CIDP 2018-2022, s.1.22",
+   "sourceUrl": "https://www.nyamira.go.ke/static/documents/10_03_2025_08_02_03_pm_Final_CIDP-18-22.pdf",
+   "page": "p.44 (PDF p.62)",
+   "basis": "listed by county as operating in Nyamira (2018)"
+  },
+  {
+   "name": "PESI Nyamira Farmers Cooperative Society",
+   "type": "Farmers co-operative society",
+   "locationPrinted": "\"At Rikenye in Kitutu Masaba (Rigoma)\"",
+   "context": "training session for members",
+   "source": "County Government of Nyamira, Fourth Quarter Budget Implementation Report FY2025/2026 (July 2026), agriculture section",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/24_09_2026_07_23_34_am_4TH_QUARTER_YR_2025-2026_(1).pdf",
+   "page": "PDF p.145 (no printed page number on this page)",
+   "basis": "named in county report as existing (training held)"
+  },
+  {
+   "name": "Kemaki Self-Help Group (SHG)",
+   "type": "Self-help group",
+   "locationPrinted": null,
+   "context": "\"supported through a Farmer Field School (FFS) initiative focusing on the beekeeping industry\"",
+   "source": "County Government of Nyamira, Fourth Quarter Budget Implementation Report FY2025/2026 (July 2026), agriculture section",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/24_09_2026_07_23_34_am_4TH_QUARTER_YR_2025-2026_(1).pdf",
+   "page": "PDF p.146 (no printed page number)",
+   "basis": "named in county report as supported"
+  },
+  {
+   "name": "Kilimo Bora CBO",
+   "type": "CBO",
+   "locationPrinted": "\"Rikenye Sublocation, Masaba North Sub-county\"",
+   "context": "partner in \"Economic Empowerment of Single Mothers Against GBV for Resilient Households\" initiative; banana-fibre training \"with support from the International Solidarity Foundation\"",
+   "source": "County Government of Nyamira, Fourth Quarter Budget Implementation Report FY2025/2026 (July 2026), agriculture section",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/24_09_2026_07_23_34_am_4TH_QUARTER_YR_2025-2026_(1).pdf",
+   "page": "PDF p.149-150 (no printed page number)",
+   "basis": "named in county report as partner"
+  },
+  {
+   "name": "Kemera Farmer Cooperative Society (FCS)",
+   "type": "Farmers co-operative society (FPO under NAVCDP)",
+   "locationPrinted": null,
+   "context": "\"Proposal Writing, detailed designing of two Enterprise Development Plans; Kemera Farmer Cooperative Society (FCS(10M))\"",
+   "source": "County Government of Nyamira, Fourth Quarter Budget Implementation Report FY2025/2026 (July 2026), agriculture section",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/24_09_2026_07_23_34_am_4TH_QUARTER_YR_2025-2026_(1).pdf",
+   "page": "PDF p.157 (no printed page number)",
+   "basis": "named in county report (NAVCDP)"
+  },
+  {
+   "name": "Bisembe Farmer Cooperative Society (FCS)",
+   "type": "Farmers co-operative society (FPO under NAVCDP)",
+   "locationPrinted": null,
+   "context": "\"Funding of & Bisembe Farmer Cooperative Society (FCS)(9M)\" (wording as printed). ADP 2024/25 (PDF p.41) and 2025/26 (PDF p.118) list \"Bisembe-FCS Gate\" as an installation site under Ekerenyo ward in a status table of lighting installations, which places the society in Ekerenyo ward (our reading of the table).",
+   "source": "County Government of Nyamira, Fourth Quarter Budget Implementation Report FY2025/2026 (July 2026), agriculture section",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/24_09_2026_07_23_34_am_4TH_QUARTER_YR_2025-2026_(1).pdf",
+   "page": "PDF p.157 (no printed page number)",
+   "basis": "named in county report as funded (NAVCDP)"
+  },
+  {
+   "name": "Baharini self help group",
+   "type": "Self-help group",
+   "locationPrinted": "\"Kitaru dam grounds\"",
+   "context": "\"Training of Baharini and Kitaru self help groups at Kitaru dam grounds\" (fisheries)",
+   "source": "County Government of Nyamira, Fourth Quarter Budget Implementation Report FY2025/2026 (July 2026), agriculture section",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/24_09_2026_07_23_34_am_4TH_QUARTER_YR_2025-2026_(1).pdf",
+   "page": "p.152 (PDF p.162)",
+   "basis": "named in county report (photo caption)"
+  },
+  {
+   "name": "Kitaru self help group",
+   "type": "Self-help group",
+   "locationPrinted": "\"Kitaru dam grounds\"",
+   "context": "same caption as above",
+   "source": "County Government of Nyamira, Fourth Quarter Budget Implementation Report FY2025/2026 (July 2026), agriculture section",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/24_09_2026_07_23_34_am_4TH_QUARTER_YR_2025-2026_(1).pdf",
+   "page": "p.152 (PDF p.162)",
+   "basis": "named in county report (photo caption)"
+  },
+  {
+   "name": "Inua Maisha Self Help group",
+   "type": "Self-help group",
+   "locationPrinted": "Ward column: Manga",
+   "context": "\"Provision of milk coolant for Inua Maisha Self Help group\"",
+   "source": "County Government of Nyamira, Annual Development Plan 2024/2025, ward proposals table",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/11_03_2025_09_05_49_am_Annual_Development_Plan_2024-2025_final-1_(1)_compressed_(1)_(1).pdf",
+   "page": "p.161 of 275 (PDF p.171)",
+   "basis": "ward proposal (not a record of funding)"
+  },
+  {
+   "name": "Mwanyataige self help group",
+   "type": "Self-help group",
+   "locationPrinted": "Ward column: Ekerenyo",
+   "context": "\"Distribution of greenhouses to Mwanyataige self help group\"; the same line in ADP 2025/26 (p.91, PDF p.241) names \"Nyamaruma self help group\" instead",
+   "source": "County Government of Nyamira, Annual Development Plan 2024/2025, ward proposals table",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/11_03_2025_09_05_49_am_Annual_Development_Plan_2024-2025_final-1_(1)_compressed_(1)_(1).pdf",
+   "page": "p.161 of 275 (PDF p.171)",
+   "basis": "ward proposal (not a record of funding); name differs between ADPs"
+  },
+  {
+   "name": "Nyamaruma self help group",
+   "type": "Self-help group",
+   "locationPrinted": "Ward column: Ekerenyo",
+   "context": "\"Distribution of greenhouses to Nyamaruma self help group\"",
+   "source": "County Government of Nyamira, Annual Development Plan 2025/2026, ward proposals table",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/11_03_2025_09_08_33_am_ANNUAL_DEVELOPMENT_PLAN_2025-2026-2_(2).pdf",
+   "page": "p.91 of 322 (PDF p.241)",
+   "basis": "ward proposal (not a record of funding)"
+  },
+  {
+   "name": "Obwanya self help group",
+   "type": "Self-help group",
+   "locationPrinted": "Ward column: Ekerenyo",
+   "context": "\"Provision of poultry to widows & Obwanya self help group\"",
+   "source": "County Government of Nyamira, Annual Development Plan 2025/2026, ward proposals table",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/11_03_2025_09_08_33_am_ANNUAL_DEVELOPMENT_PLAN_2025-2026-2_(2).pdf",
+   "page": "p.91 of 322 (PDF p.241); also ADP 2024/25 p.161 (PDF p.171)",
+   "basis": "ward proposal (not a record of funding)"
+  },
+  {
+   "name": "Kiabomonya tuinuane self help group",
+   "type": "Self-help group",
+   "locationPrinted": "Ward column: Ekerenyo",
+   "context": "\"Provision of rabbits to Kiabomonya tuinuane self help group\"",
+   "source": "County Government of Nyamira, Annual Development Plan 2025/2026, ward proposals table",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/11_03_2025_09_08_33_am_ANNUAL_DEVELOPMENT_PLAN_2025-2026-2_(2).pdf",
+   "page": "p.91 of 322 (PDF p.241); also ADP 2024/25 p.161 (PDF p.171)",
+   "basis": "ward proposal (not a record of funding)"
+  },
+  {
+   "name": "Hobanapo Cooperative Society (Kiabora)",
+   "type": "Co-operative society",
+   "locationPrinted": "Ward column: Bokeira",
+   "context": "\"Renovation and Equipping of Hobanapo Cooperative Society (Kiabora) for Value Addition\"",
+   "source": "County Government of Nyamira, Annual Development Plan 2025/2026, ward proposals table",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/11_03_2025_09_08_33_am_ANNUAL_DEVELOPMENT_PLAN_2025-2026-2_(2).pdf",
+   "page": "p.112 of 322 (PDF p.262); also ADP 2024/25 p.181 (PDF p.191)",
+   "basis": "ward proposal (not a record of funding)"
+  },
+  {
+   "name": "Eyaka cooperative society",
+   "type": "Co-operative society (coffee, per context)",
+   "locationPrinted": null,
+   "context": "\"Construction of coffee market at Eyaka cooperative society.\" (list of public-participation priorities; ward heading not verified)",
+   "source": "County Government of Nyamira, Annual Development Plan 2024/2025, ward proposals table",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/11_03_2025_09_05_49_am_Annual_Development_Plan_2024-2025_final-1_(1)_compressed_(1)_(1).pdf",
+   "page": "p.242 of 275 (PDF p.252)",
+   "basis": "public-participation priority (not a record of funding)"
+  },
+  {
+   "name": "Mabariri coffee cooperative society",
+   "type": "Coffee co-operative society",
+   "locationPrinted": null,
+   "context": "\"Equipping Mabariri coffee cooperative society.\"",
+   "source": "County Government of Nyamira, Annual Development Plan 2024/2025, ward proposals table",
+   "sourceUrl": "https://nyamira.go.ke/static/documents/11_03_2025_09_05_49_am_Annual_Development_Plan_2024-2025_final-1_(1)_compressed_(1)_(1).pdf",
+   "page": "p.242 of 275 (PDF p.252)",
+   "basis": "public-participation priority (not a record of funding)"
+  }
+ ],
+ "nameMatchesNoLocation": {
+  "register": "PBORA List of PBOs",
+  "url": "https://pbora.go.ke/pbos",
+  "rowsInRegister": 15292,
+  "pattern": "name contains a Nyamira county, sub-county, ward or town word",
+  "rows": [
+   {
+    "name": "BORABU ENVIRONMENTAL CONSERVATION FOR PROTECTION AND SUPPORT",
+    "referenceNo": "218/051/2009/0452"
+   },
+   {
+    "name": "BORABU INITIATIVE",
+    "referenceNo": "218/051/2020 - 120"
+   },
+   {
+    "name": "KEMERA LOCATION DEVELOPMENT NETWORK",
+    "referenceNo": "218/051/2007/179"
+   },
+   {
+    "name": "MANGA HEALTH EDUCATION AFRICAN RESOURCE TEAM (MANGA HEART)",
+    "referenceNo": "218/051/2020 - 186"
+   },
+   {
+    "name": "MANGA POVERTY IMPACT SOLUTIONS ORGANIZATION",
+    "referenceNo": "218/051/2010/0107"
+   },
+   {
+    "name": "MANGA RIDGE DEVELOPMENT AND RELIEF FOUNDATION",
+    "referenceNo": "218/051/2008/443"
+   },
+   {
+    "name": "NYAMIRA COUNTY COMMUNITY FORUM",
+    "referenceNo": "218/051/2014-0343"
+   },
+   {
+    "name": "NYAMIRA YOUTH ORGANIZATION",
+    "referenceNo": "218/051/2023 - 528"
+   },
+   {
+    "name": "PATIENCE MANGA FOUNDATION",
+    "referenceNo": "218/051/2023 - 517"
+   },
+   {
+    "name": "THE BORABU FOUNDATION",
+    "referenceNo": "218/051/2022 - 281"
+   }
+  ],
+  "caution": "Name only; none of these is confirmed to be based or active in Nyamira. \"Manga\" can be a surname (e.g. PATIENCE MANGA FOUNDATION) or another place. Names using other Gusii-area words (e.g. SOUTH MUGIRANGO, which is in Kisii County, and NYAMIRAMBO, in Kigali) were deliberately excluded by the pattern."
+ }
+}

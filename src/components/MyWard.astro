@@ -9,6 +9,7 @@ import { num } from '../lib/fmt.js';
 import { amountLabel } from '../lib/project-amounts.js';
 import { getAlerts } from '../lib/alerts-data.js';
 import LevelBadge from './LevelBadge.astro';
+import { subCounties } from '../nav.js';
 const activeAlerts = (await getAlerts()).filter((a) => a.status === 'active');
 interface Props { topic: string }
 const { topic } = Astro.props;
@@ -20,9 +21,20 @@ const coming = {
 };
 ---
 <section class="myward panel stack" aria-label="Your ward">
+  <label class="ward-pill myward-pick">
+    <svg class="pin" viewBox="0 0 200 240" width="13" height="16" aria-hidden="true" focusable="false"><path d="M100 226C62 182 30 150 30 104 30 58 63 24 100 24s70 34 70 80c0 46-32 78-70 122z" fill="var(--nd-green)" /><circle cx="100" cy="102" r="34" fill="var(--nd-ink)" /></svg>
+    <span>Your ward</span>
+    <select data-ward-pick aria-label="Your ward">
+      <option value="">Choose…</option>
+      {subCounties.map((s) => (
+        <optgroup label={s}>
+          {wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}
+        </optgroup>
+      ))}
+    </select>
+  </label>
   <div class="stack" data-ward-only="">
-    <span class="eyebrow">Your ward</span>
-    <p>Choose your ward with the <strong>Your ward</strong> picker at the top of the page, and this site will show your ward's figures first.</p>
+    <p>Choose your ward and this site will show your ward's figures first, on every page.</p>
     <details>
       <summary>Or go straight to a ward page</summary>
       <p class="small">{wards.map((w, i) => (<>{i > 0 && ' · '}<a href={`/ward/${w.slug}/`}>{w.name}</a></>))}</p>

@@ -13,6 +13,7 @@ import leaders from '../data/leaders.json';
 import Icon from './Icon.astro';
 import AlertMarks from './AlertMarks.astro';
 import AlertKey from './AlertKey.astro';
+import TownMarks from './TownMarks.astro';
 import { subCounties } from '../nav.js';
 import { categoryIcon } from '../lib/icons.js';
 import { budget2526 } from '../lib/projects.js';
@@ -62,6 +63,7 @@ const VB = '-60 -40 720 1030';
           </a>
         ))}
       </g>
+      <TownMarks labels="all" />
       <g class="at-labels" aria-hidden="true">
         {Object.entries(geo.wards).map(([s, g]) => (
           <g data-l={s}>
@@ -100,6 +102,7 @@ const VB = '-60 -40 720 1030';
     <div class="at-key v-wards">
       <p class="small"><strong>Find your ward.</strong> Tap a ward to zoom in and see its details; open its page for the MCA, money, projects and services.</p>
       <div class="pm-key small">{subCounties.map((s) => <span class="key"><i class={`pm-sw sc${subIdx[s]}`}></i>{s}</span>)}</div>
+      <div class="pm-key small"><span class="key"><i class="tm-sw tm-town"></i>Town</span><span class="key"><i class="tm-sw"></i>Centre or market (names show when you zoom in)</span><span class="key">From OpenStreetMap, not checked on the ground</span></div>
     </div>
     <div class="at-key v-facilities">
       <p class="small"><strong>What our facility list holds.</strong> Darker wards have more facilities in our list. The list is incomplete (247 records, mostly unverified), so a pale ward may just be less documented. Facilities get map points only once their locations are checked.</p>

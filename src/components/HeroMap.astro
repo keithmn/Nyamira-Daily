@@ -6,6 +6,7 @@
 //   and pointing at a ward (or tapping it once on a touch screen) shows that ward's figures instead.
 // - Motion stops for readers who ask their phone for reduced motion.
 import geo from '../data/geo.json';
+import TownMarks from './TownMarks.astro';
 import nb from '../data/neighbours.json';
 // Neighbouring counties, for context only (not links): where each name sits inside the frame.
 const nbLabels = [['Kisumu', 250, -72], ['Homa Bay', -95, 40], ['Kericho', 640, -40], ['Bomet', 655, 600], ['Kisii', -80, 600], ['Narok', 330, 1040]];
@@ -109,6 +110,7 @@ const q0 = qs[0];
           </a>
         ))}
         </g>
+        <TownMarks only="towns" scale={1.5} />
         {flagged.map((s, i) => (
           <g class="hm-ping" data-p={s} aria-hidden="true">
             <circle class="ring" cx={geo.wards[s].cx} cy={geo.wards[s].cy} r="9" style={`animation-delay:${(i * 0.37).toFixed(2)}s`} />
@@ -122,6 +124,7 @@ const q0 = qs[0];
         <span class="key"><span class="live" aria-hidden="true"></span>Question to ask</span>
         <span class="key"><i class="hm-key"></i><span class="hint-hover">Point at a ward</span><span class="hint-touch">Tap a ward</span></span>
         {liveAlerts.length > 0 && <AlertKey />}
+        <span class="key"><i class="tm-sw tm-town"></i>Town (OpenStreetMap)</span>
         <span class="key nb-key">Around it: Kisii, Bomet, Kericho, Kisumu, Homa Bay and Narok counties</span>
       </figcaption>
     </figure>

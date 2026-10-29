@@ -42,4 +42,4 @@ export const categoryIcon = {
   'Community centre': 'community', Worship: 'worship', Agriculture: 'agriculture',
 };
 export const topicIcon = { money: 'money', health: 'health', education: 'education', farming: 'farming', people: 'people', 'open-data': 'data' };
-export const sectionIcon = { Today: 'today', Wards: 'ward', Data: 'chart', 'Take part': 'takepart', Community: 'community', Government: 'government', Learn: 'learn' };
+export const sectionIcon = { Today: 'today', Wards: 'ward', Data: 'chart', 'Take part': 'takepart', Community: 'community', About: 'source', Government: 'government', Learn: 'learn' };

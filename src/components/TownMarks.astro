@@ -1,0 +1,24 @@
+---
+// Towns and centres on the county maps (decision #62): the reviewed OpenStreetMap places in
+// src/data/towns.json. Ink and white only; on maps red means an emergency alert and nothing else (#25).
+// `labels`: 'all' names every place (centre names show once the county map is zoomed in); 'towns' names only
+// the towns. `only`: 'towns' leaves the centres out altogether (the home hero, where dots mean questions).
+import towns from '../data/towns.json';
+import { project } from '../lib/alerts.js';
+interface Props { labels?: 'all' | 'towns'; only?: 'towns'; scale?: number }
+const { labels = 'all', only, scale = 1 } = Astro.props;
+const marks = towns.places.filter((p) => !only || p.kind === 'town').map((p) => {
+  const [x, y] = project(p.lon, p.lat);
+  return { ...p, x: x.toFixed(1), y: y.toFixed(1) };
+});
+---
+<g class="town-marks" aria-hidden="true" style={`--tm:${scale}`}>
+  {marks.map((m) => (
+    <g class={`tm tm-${m.kind}`} transform={`translate(${m.x} ${m.y})`}>
+      <circle r={(m.kind === 'town' ? 6.5 : 4) * scale} />
+      {(labels === 'all' || m.kind === 'town') && (m.label === 'below'
+        ? <text x="0" y={22 * scale} text-anchor="middle">{m.name}</text>
+        : <text x={(m.kind === 'town' ? 11 : 7) * scale} y={(m.kind === 'town' ? 6 : 4) * scale}>{m.name}</text>)}
+    </g>
+  ))}
+</g>

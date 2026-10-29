@@ -1,5 +1,5 @@
 // Site navigation, used by Base.astro.
-// Seven sections. On desktop each opens a mega menu of cards; on phones the hamburger sheet lists them all
+// Eight sections. On desktop each opens a mega menu of cards; on phones the hamburger sheet lists them all
 // (src/components/SiteHeader.astro). Section pages also get a secondary bar of their pages (SectionTabs.astro).
 // Labels are kept short for the lists; each section's index page keeps the longer titles and descriptions.
 // Add a new page to its section's `pages` here so readers can reach it from the menu.
@@ -101,10 +101,20 @@ export const sections = [
     { href: '/learn/episodes/', label: 'Show episodes', icon: 'phone', desc: 'Episodes of the show' },
     { href: '/schools-programme/', label: 'Schools programme', icon: 'education', desc: 'For schools' },
   ] },
+  // About: who we are, how we work and how to reach us (decision #62; it took the header's ward picker's place)
+  { href: '/about/', label: 'About', icon: 'source', overview: 'About Nyamira Daily',
+    desc: 'Who we are, how we check facts, how corrections work and how to reach us.', pages: [
+    { href: '/how-we-work/', label: 'How we work', icon: 'check', desc: 'Our rules for facts and fairness' },
+    { href: '/how-we-work/#evidence', label: 'Evidence labels', icon: 'source', desc: 'What each label on a figure means' },
+    { href: '/how-we-work/#corrections', label: 'Corrections', icon: 'question', desc: 'What we corrected, and how to tell us' },
+    { href: '/data/open-data/', label: 'Use our data', icon: 'data', desc: 'Free to reuse, with credit' },
+    { href: '/tell-us/', label: 'Contact us', icon: 'phone', desc: 'Tell us about a project or problem' },
+    { href: '/subscribe/', label: 'Get updates', icon: 'phone', desc: 'Updates on WhatsApp and SMS' },
+  ] },
 ];
 
 // Highlands colour for each section (brand kit v1.1, decision #31). Data sector pages set their own.
-export const sectionTone = { Today: 'harvest', Wards: 'tea', Data: 'tea', Community: 'bloom', Government: 'rain', 'Take part': 'dusk', Learn: 'mist' };
+export const sectionTone = { Today: 'harvest', Wards: 'tea', Data: 'tea', Community: 'bloom', Government: 'rain', 'Take part': 'dusk', Learn: 'mist', About: 'earth' };
 export function toneFor(path) {
   if (path.startsWith('/alerts/')) return 'mist';
   if (path.startsWith('/projects/') || path.startsWith('/constituency/')) return 'tea';

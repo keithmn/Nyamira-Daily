@@ -1,14 +1,13 @@
 ---
-// The site header (decision #60): one glass bar with the logo, the seven sections and the tools.
+// The site header (decision #60): one glass bar with the logo, the eight sections and the tools.
 // Desktop: the sections in a row, no bullets; each opens a mega menu of cards in its colour.
 // Phones and tablets: a hamburger opens a sheet with every section and its pages.
 // Without JavaScript the desktop sections are plain links and the hamburger still opens (it is a <details>).
 import Icon from './Icon.astro';
-import wards from '../data/wards.json';
-import { sections, sectionFor, stateFor, subCounties, anchorFor, sectionTone } from '../nav.js';
-import { hasContact, planned } from '../config.js';
-interface Props { path: string; isHome: boolean }
-const { path, isHome } = Astro.props;
+import { sections, sectionFor, stateFor, anchorFor, sectionTone } from '../nav.js';
+import { planned } from '../config.js';
+interface Props { path: string }
+const { path } = Astro.props;
 const section = sectionFor(path);
 const state = (s: (typeof sections)[number]) => (s === section ? (s.href === path ? 'page' : 'true') : undefined);
 const tone = (s: (typeof sections)[number]) => sectionTone[s.label] ?? 'mist';
@@ -42,21 +41,6 @@ const chev = '<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-
     </nav>
 
     <div class="hdr-tools">
-      <!-- Your ward: one picker for the whole site (see the script in Base.astro) -->
-      <div class={`ward-pick${isHome ? ' on-home' : ''}`}>
-        <label class="ward-pill">
-          <svg class="pin" viewBox="0 0 200 240" width="13" height="16" aria-hidden="true" focusable="false"><path d="M100 226C62 182 30 150 30 104 30 58 63 24 100 24s70 34 70 80c0 46-32 78-70 122z" fill="var(--nd-green)" /><circle cx="100" cy="102" r="34" fill="var(--nd-ink)" /></svg>
-          <span class="vh">Your ward</span>
-          <select data-ward-pick aria-label="Your ward">
-            <option value="">Whole county</option>
-            {subCounties.map((s) => (
-              <optgroup label={s}>
-                {wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}
-              </optgroup>
-            ))}
-          </select>
-        </label>
-      </div>
       <button class="icon-btn theme-toggle desk-only" type="button" data-theme-toggle aria-pressed="false" aria-label="Dark mode">
         <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
@@ -108,11 +92,6 @@ const chev = '<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-
                 <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
                 <span class="when-light">Dark mode</span><span class="when-dark">Light mode</span>
               </button>
-              {hasContact && <a href="/tell-us/">Tell us about a project or problem</a>}
-              {hasContact && <a href="/subscribe/">Get updates on WhatsApp</a>}
-              <a href="/data/open-data/">Download the data</a>
-              <a href="/about/">About Nyamira Daily</a>
-              <a href="/how-we-work/">How we work</a>
             </div>
           </div>
         </div>
