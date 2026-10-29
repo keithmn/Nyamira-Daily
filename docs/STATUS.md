@@ -168,10 +168,10 @@ No entry in this table is an owner approval, production deployment, or independe
   3. Review pages: button rows use `page-tools` (8px gap), and `tools={false}` removes the public Share/Print bar.
   4. "1 project have…" and "1 status record lack…" now agree in number (`ProjectsPage.astro`, `ward/[slug].astro`).
   5. Heading font: switched to Google Fonts' standard Latin woff2 for Varela Round (`VarelaRound-Latin.woff2`, 15,884 bytes, 230 characters, including the straight apostrophe and quotes) instead of the 32,808-byte TTF text subset (81 characters). Chrome now draws "What the county's own plan says" entirely in Varela Round. Using Google's own file avoids making a modified version under the font's Reserved Font Name. The old `VarelaRound-Latin-Title.ttf` was deleted with the owner's approval.
-- **Problems already on `main`; separate follow-up branch from `main`:**
-  1. **Most visible:** home Number of the Week in dark mode. "37%" is amber `rgb(244,180,0)` on the same amber panel (`.panel.sec-harvest`), so it is invisible, and the source link is about 1.9:1.
-  2. Money toggles at 390: `.tg-meta` squeezes titles to a word or two per line.
-  3. "Every ward, side by side": bar track width depends on the width of the value label, so bars aren't comparable.
-  4. Source lines split at the comma before page numbers (Number of the Week, Education, Health).
-  5. Esise ward map plots one school twice at the same point.
-  6. Home "Explore the data": the Open data tile (`--hl-mist` #DDEFE3) matches its `sec-tea` band (#DCEFE4) in light mode, and at 1280 six tiles leave two empty cells. First listed as introduced by the chain; neither its markup nor its colours changed there.
+- **Problems already on `main`: fixed on `fix/display-issues` (29 Oct 2026) and checked at 390px and 1280px, light and dark. Nothing scrolls sideways on the checked pages.**
+  1. Home Number of the Week: "37%" was amber on amber in dark mode because `main .figure .num:not(.hot)` outranked the panel's ink rule. A more specific panel rule now gives ink: 10.2:1 for the number and its source link in both modes, up from 1:1 in dark and 3.3:1 in light.
+  2. Toggles at 390: `.tg-meta` wraps under the title (`flex-basis: 100%`, aligned with the title). On Money, titles take at most 2 lines, down from up to 6.
+  3. Bar charts (`HBars`): under `@supports (grid-template-columns: subgrid)`, rows share one value column, so every track in a chart has the same width. Measured spread is 0px on Money, Education, Farming, Esise and Borabu. Browsers without subgrid keep the old layout.
+  4. Source lines: `.source` is now ordinary text flow instead of flex, so text after a link no longer becomes its own item. This applies to all 40 `<p class="source">` lines; none contains block content.
+  5. Ward maps draw each OpenStreetMap place once (21 duplicate pairs in 12 wards; see `docs/DATA.md`). The caption count follows, for example Esise "1 named place" instead of "2". **For the corrections log:** these mapped-place counts change on 12 ward pages.
+  6. Home "Explore the data": the Open data tile has a 1px outline in its own deep tone, and the six tiles sit in three columns from 700px.

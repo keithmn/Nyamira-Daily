@@ -24,7 +24,9 @@ const cats = [
   { key: 'school', label: 'School' }, { key: 'health', label: 'Health' }, { key: 'worship', label: 'Place of worship' },
   { key: 'market', label: 'Market or shop' }, { key: 'place', label: 'Village or centre' },
 ];
-const present = me ? cats.filter((c) => me.points.some((p) => p.cat === c.key)) : [];
+// OpenStreetMap often records one place twice (a point and a building outline): draw and count it once.
+const points = me ? [...new Map(me.points.map((p) => [`${p.cat}|${p.name}|${Math.round(p.x)}|${Math.round(p.y)}`, p])).values()] : [];
+const present = cats.filter((c) => points.some((p) => p.cat === c.key));
 ---
 <figure class={`wardmap ${mode}`}>
   <svg viewBox={vb} role="img" aria-label={mode === 'county' ? 'Map of Nyamira County showing its 20 wards. Tap a ward to open its page.' : `Map of ${me?.name} ward`}>
@@ -42,7 +44,7 @@ const present = me ? cats.filter((c) => me.points.some((p) => p.cat === c.key)) 
     {mode === 'ward' && me && list.filter(([s]) => s !== slug).map(([s, w]) => (
       <text x={w.cx} y={w.cy} class="wlabel faint" text-anchor="middle" style={`font-size:${me.span * 0.035}px`}>{w.name}</text>
     ))}
-    {mode === 'ward' && me && me.points.map((p) => (
+    {mode === 'ward' && me && points.map((p) => (
       <circle cx={p.x} cy={p.y} r={r} class={`pt ${p.cat}`}><title>{p.name}</title></circle>
     ))}
     <AlertMarks alerts={live} r={me && mode === 'ward' ? me.span * 0.03 : 11} />
@@ -63,7 +65,7 @@ const present = me ? cats.filter((c) => me.points.some((p) => p.cat === c.key)) 
     <figcaption class="small muted">
       {present.length > 0 ? present.map((c) => <span class="key"><i class={`dot ${c.key}`}></i>{c.label}</span>) : <span>No mapped points yet.</span>}
       {live.length > 0 && <AlertKey />}
-      <span>Dots show only the {me?.points.length} named places already on OpenStreetMap, not everything in the ward. Boundaries: geoBoundaries (CC BY 4.0). Points: © OpenStreetMap contributors.</span>
+      <span>Dots show only the {points.length} named place{points.length === 1 ? '' : 's'} already on OpenStreetMap, not everything in the ward. Boundaries: geoBoundaries (CC BY 4.0). Points: © OpenStreetMap contributors.</span>
     </figcaption>
   )}
 </figure>

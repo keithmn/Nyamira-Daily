@@ -481,7 +481,8 @@ input.field { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; 
 .meter > i { display: block; height: 100%; border-radius: 999px; background: var(--brand); }
 .meter.sm { height: 6px; }
 .meter-key { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--muted); }
-.source { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 13px; color: var(--muted); }
+.source { font-size: 13px; line-height: 1.7; color: var(--muted); }
+.source > .label { margin-right: 4px; }
 .callout { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 14px; background: var(--surface); }
 .callout b { font-size: 28px; line-height: 1; }
 
@@ -727,6 +728,12 @@ a.hb-row:hover { background: var(--surface); }
 .hb-track { height: 16px; border-radius: 4px; background: transparent; }
 .hb-track i { display: block; height: 100%; border-radius: 4px; background: var(--brand); }
 .hb-val { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* Bar charts: one shared value column, so every track has the same width and bars compare. */
+@supports (grid-template-columns: subgrid) {
+  .hbars ol { display: grid; grid-template-columns: minmax(84px, 9em) minmax(0, 1fr) auto; column-gap: 10px; }
+  .hbars li, .hbars .hb-row { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; }
+  .hb-val { text-align: right; }
+}
 .hbars.has-focus .hb-track i { background: var(--bar-quiet); }
 .hbars.has-focus li.focus .hb-track i { background: var(--brand); }
 .hbars.has-focus li.focus .hb-row { font-weight: 700; background: var(--brand-soft); }
@@ -942,7 +949,11 @@ details.toggle[open] > summary .tg-caret::after { transform: rotate(90deg); }
 h3.tg-title { font-size: 17px; }
 .tg-meta { font-size: 13px; color: var(--muted); font-weight: 500; }
 .tg-body { padding: 8px 0 28px 40px; }
-@media (max-width: 640px) { .tg-body { padding-left: 0; } }
+@media (max-width: 640px) {
+  .tg-body { padding-left: 0; }
+  details.toggle > summary { flex-wrap: wrap; row-gap: 2px; }
+  .tg-meta { flex-basis: 100%; padding-left: 40px; } /* caret 28px + gap 12px */
+}
 @media (prefers-reduced-motion: reduce) { .tg-caret::after { transition: none; } }
 
 /* Highlands palette (brand kit v1.1, decision #30). Text on each: White on the dark four, Ink on the light four. */
@@ -979,7 +990,8 @@ h3.tg-title { font-size: 17px; }
 
 /* Home: number of the week on Harvest; NY Watch on Dusk */
 .panel.sec-harvest { background: var(--sec); color: var(--sec-ink); }
-.panel.sec-harvest .eyebrow, .panel.sec-harvest .num, .panel.sec-harvest .say, .panel.sec-harvest .source { color: #111111; }
+.panel.sec-harvest .eyebrow, .panel.sec-harvest .num, .panel.sec-harvest .say, .panel.sec-harvest .source,
+main .panel.sec-harvest .figure .num:not(.hot), .panel.sec-harvest .source a { color: #111111; } /* outranks main .figure .num */
 .panel.sec-harvest .eyebrow::before { background: #111111; }
 .panel.sec-harvest .btn { background: #111111; color: #FFFFFF; border-color: #111111; }
 .panel.sec-harvest .btn.quiet { background: transparent; color: #111111; border-color: #111111; }
@@ -1081,6 +1093,9 @@ main .meter > i { background: var(--sec-deep, var(--brand)); }
 @media print { .band { background: none; padding: 0; } main .grid > .card, main .tile, main .card.stat { background: none; border: 1px solid #999; } main .grid > .card::after { display: none; } }
 main .tile { border-top: 4px solid var(--sec); }
 .sector-tiles.compact { grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 10px; }
+@media (min-width: 700px) { .sector-tiles.compact { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.band .sector-tile.sec-mist { box-shadow: inset 0 0 0 1px var(--sec-deep); }
+.band .sector-tile.sec-mist:hover { box-shadow: inset 0 0 0 3px var(--sec-ink); }
 .sector-tiles.compact .sector-tile { min-height: 128px; padding: 16px; gap: 6px; }
 .sector-tiles.compact .sector-tile h3 { font-size: 19px; color: inherit; }
 .sector-tiles.compact .sector-tile p { font-size: 14px; }
