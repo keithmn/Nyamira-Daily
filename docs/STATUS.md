@@ -10,7 +10,7 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 
 ## Minimal footer (30 Oct 2026, branch `fix/minimal-footer` from `d37f7bb`)
 
-- Decision #68 replaces #67: logo, social icons (from `social` in `src/config.js`; all empty for now, so no icons show), and one line naming the publisher, Underdawgs Rising Group Ltd., with independence and map credits.
+- Decision #68 replaces #67: logo, social icons (from `social` in `src/config.js`; all empty for now, so no icons show), and one line naming the publisher, Underdawgs Rising Group, "A bipartisan public information site" (owner wording) and the map credits.
 - To switch socials on: paste the full https links of the real accounts into `social` and rebuild.
 - Checks: `npm test` pass; build 850 pages; footer checked at 1280 and 390 px with and without sample links (sample links only in a throwaway preview build).
 
