@@ -1,0 +1,4417 @@
+{
+ "checked": "2026-10-29",
+ "source": {
+  "title": "2019 Kenya Population and Housing Census, Volume IV: Distribution of Population by Socio-Economic Characteristics",
+  "publisher": "Kenya National Bureau of Statistics (KNBS)",
+  "url": "https://www.knbs.or.ke/wp-content/uploads/2023/09/2019-Kenya-population-and-Housing-Census-Volume-4-Distribution-of-Population-by-Socio-Economic-Characteristics.pdf",
+  "note": "Census night 24/25 August 2019. Printed page numbers are given for each table."
+ },
+ "verification": "Every value in these tables was compared with the text of the KNBS PDF (528 values, no differences) on 29 Oct 2026.",
+ "areas": [
+  "Nyamira County",
+  "Borabu",
+  "Manga",
+  "Masaba North",
+  "Nyamira North",
+  "Nyamira South"
+ ],
+ "areasNote": "KNBS reports Nyamira's five census sub-counties, which are not the four constituencies, and nothing by ward. The county's CIDP 2023-27 (s.1.4.3, p.9) maps them: West Mugirango is Nyamira South; Kitutu Masaba is Manga and Masaba North; North Mugirango is Nyamira North without Kiabonyoru division; Borabu is Borabu sub-county plus Kiabonyoru division.",
+ "tables": [
+  {
+   "id": "mobile-phone",
+   "table": "Table 2.32",
+   "title": "Distribution of Population Age 3 years and Above Owning a Mobile Phone by Area of Residence, Sex, County and Sub County",
+   "base": "Population aged 3 years and above (intersex excluded per footnote). Question P-55: \"Has <Name> owned a Mobile Phone in the last 3 months?\"",
+   "unit": "persons and per cent",
+   "pagePrinted": "431",
+   "columns": [
+    "Population 3+: Total*",
+    "Population 3+: Male",
+    "Population 3+: Female",
+    "Owned mobile phone: Total*",
+    "Owned mobile phone: per cent",
+    "Owned mobile phone: Male",
+    "Owned mobile phone: Male per cent",
+    "Owned mobile phone: Female",
+    "Owned mobile phone: Female per cent"
+   ],
+   "rows": [
+    {
+     "area": "Nyamira County",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 566741,
+     "printed": "566,741",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 271344,
+     "printed": "271,344",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 295385,
+     "printed": "295,385",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Owned mobile phone: Total*",
+     "measure": "number",
+     "value": 257227,
+     "printed": "257,227",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Owned mobile phone: per cent",
+     "measure": "per cent",
+     "value": 45.4,
+     "printed": "45.4",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Owned mobile phone: Male",
+     "measure": "number",
+     "value": 119533,
+     "printed": "119,533",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Owned mobile phone: Male per cent",
+     "measure": "per cent",
+     "value": 44.1,
+     "printed": "44.1",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Owned mobile phone: Female",
+     "measure": "number",
+     "value": 137692,
+     "printed": "137,692",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Owned mobile phone: Female per cent",
+     "measure": "per cent",
+     "value": 46.6,
+     "printed": "46.6",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Borabu",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 68779,
+     "printed": "68,779",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Borabu",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 34446,
+     "printed": "34,446",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Borabu",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 34333,
+     "printed": "34,333",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Borabu",
+     "category": "Owned mobile phone: Total*",
+     "measure": "number",
+     "value": 33826,
+     "printed": "33,826",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Borabu",
+     "category": "Owned mobile phone: per cent",
+     "measure": "per cent",
+     "value": 49.2,
+     "printed": "49.2",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Borabu",
+     "category": "Owned mobile phone: Male",
+     "measure": "number",
+     "value": 16692,
+     "printed": "16,692",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Borabu",
+     "category": "Owned mobile phone: Male per cent",
+     "measure": "per cent",
+     "value": 48.5,
+     "printed": "48.5",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Borabu",
+     "category": "Owned mobile phone: Female",
+     "measure": "number",
+     "value": 17134,
+     "printed": "17,134",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Borabu",
+     "category": "Owned mobile phone: Female per cent",
+     "measure": "per cent",
+     "value": 49.9,
+     "printed": "49.9",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Manga",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 88406,
+     "printed": "88,406",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Manga",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 41976,
+     "printed": "41,976",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Manga",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 46428,
+     "printed": "46,428",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Manga",
+     "category": "Owned mobile phone: Total*",
+     "measure": "number",
+     "value": 40638,
+     "printed": "40,638",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Manga",
+     "category": "Owned mobile phone: per cent",
+     "measure": "per cent",
+     "value": 46,
+     "printed": "46.0",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Manga",
+     "category": "Owned mobile phone: Male",
+     "measure": "number",
+     "value": 18738,
+     "printed": "18,738",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Manga",
+     "category": "Owned mobile phone: Male per cent",
+     "measure": "per cent",
+     "value": 44.6,
+     "printed": "44.6",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Manga",
+     "category": "Owned mobile phone: Female",
+     "measure": "number",
+     "value": 21900,
+     "printed": "21,900",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Manga",
+     "category": "Owned mobile phone: Female per cent",
+     "measure": "per cent",
+     "value": 47.2,
+     "printed": "47.2",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Masaba North",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 104344,
+     "printed": "104,344",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Masaba North",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 49088,
+     "printed": "49,088",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Masaba North",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 55254,
+     "printed": "55,254",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Masaba North",
+     "category": "Owned mobile phone: Total*",
+     "measure": "number",
+     "value": 47862,
+     "printed": "47,862",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Masaba North",
+     "category": "Owned mobile phone: per cent",
+     "measure": "per cent",
+     "value": 45.9,
+     "printed": "45.9",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Masaba North",
+     "category": "Owned mobile phone: Male",
+     "measure": "number",
+     "value": 21623,
+     "printed": "21,623",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Masaba North",
+     "category": "Owned mobile phone: Male per cent",
+     "measure": "per cent",
+     "value": 44,
+     "printed": "44.0",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Masaba North",
+     "category": "Owned mobile phone: Female",
+     "measure": "number",
+     "value": 26239,
+     "printed": "26,239",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Masaba North",
+     "category": "Owned mobile phone: Female per cent",
+     "measure": "per cent",
+     "value": 47.5,
+     "printed": "47.5",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 156770,
+     "printed": "156,770",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 75072,
+     "printed": "75,072",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 81693,
+     "printed": "81,693",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Owned mobile phone: Total*",
+     "measure": "number",
+     "value": 67996,
+     "printed": "67,996",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Owned mobile phone: per cent",
+     "measure": "per cent",
+     "value": 43.4,
+     "printed": "43.4",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Owned mobile phone: Male",
+     "measure": "number",
+     "value": 31590,
+     "printed": "31,590",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Owned mobile phone: Male per cent",
+     "measure": "per cent",
+     "value": 42.1,
+     "printed": "42.1",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Owned mobile phone: Female",
+     "measure": "number",
+     "value": 36405,
+     "printed": "36,405",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Owned mobile phone: Female per cent",
+     "measure": "per cent",
+     "value": 44.6,
+     "printed": "44.6",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 148442,
+     "printed": "148,442",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 70762,
+     "printed": "70,762",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 77677,
+     "printed": "77,677",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Owned mobile phone: Total*",
+     "measure": "number",
+     "value": 66905,
+     "printed": "66,905",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Owned mobile phone: per cent",
+     "measure": "per cent",
+     "value": 45.1,
+     "printed": "45.1",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Owned mobile phone: Male",
+     "measure": "number",
+     "value": 30890,
+     "printed": "30,890",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Owned mobile phone: Male per cent",
+     "measure": "per cent",
+     "value": 43.7,
+     "printed": "43.7",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Owned mobile phone: Female",
+     "measure": "number",
+     "value": 36014,
+     "printed": "36,014",
+     "pagePrinted": 431
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Owned mobile phone: Female per cent",
+     "measure": "per cent",
+     "value": 46.4,
+     "printed": "46.4",
+     "pagePrinted": 431
+    }
+   ]
+  },
+  {
+   "id": "internet-computer",
+   "table": "Table 2.33",
+   "title": "Distribution of Population Age 3 Years and Above Using Internet and Computer/Laptop/Tablet by Area of Residence, Sex, County and Sub-County",
+   "base": "Population aged 3 years and above (intersex excluded per footnote). Questions P-57/P-58: used the internet / a computer, laptop or tablet \"from any location in the last 3 months\"",
+   "unit": "persons and per cent",
+   "pagePrinted": "441",
+   "columns": [
+    "Population 3+: Total*",
+    "Population 3+: Male",
+    "Population 3+: Female",
+    "Used internet: Total*",
+    "Used internet: per cent",
+    "Used internet: Male",
+    "Used internet: Male per cent",
+    "Used internet: Female",
+    "Used internet: Female per cent",
+    "Used desktop/laptop/tablet: Total*",
+    "Used desktop/laptop/tablet: per cent",
+    "Used desktop/laptop/tablet: Male",
+    "Used desktop/laptop/tablet: Male per cent",
+    "Used desktop/laptop/tablet: Female",
+    "Used desktop/laptop/tablet: Female per cent"
+   ],
+   "rows": [
+    {
+     "area": "Nyamira County",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 566741,
+     "printed": "566,741",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 271344,
+     "printed": "271,344",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 295385,
+     "printed": "295,385",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used internet: Total*",
+     "measure": "number",
+     "value": 90354,
+     "printed": "90,354",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used internet: per cent",
+     "measure": "per cent",
+     "value": 15.9,
+     "printed": "15.9",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used internet: Male",
+     "measure": "number",
+     "value": 51409,
+     "printed": "51,409",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used internet: Male per cent",
+     "measure": "per cent",
+     "value": 18.9,
+     "printed": "18.9",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used internet: Female",
+     "measure": "number",
+     "value": 38945,
+     "printed": "38,945",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used internet: Female per cent",
+     "measure": "per cent",
+     "value": 13.2,
+     "printed": "13.2",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used desktop/laptop/tablet: Total*",
+     "measure": "number",
+     "value": 42183,
+     "printed": "42,183",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used desktop/laptop/tablet: per cent",
+     "measure": "per cent",
+     "value": 7.4,
+     "printed": "7.4",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used desktop/laptop/tablet: Male",
+     "measure": "number",
+     "value": 24562,
+     "printed": "24,562",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used desktop/laptop/tablet: Male per cent",
+     "measure": "per cent",
+     "value": 9.1,
+     "printed": "9.1",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used desktop/laptop/tablet: Female",
+     "measure": "number",
+     "value": 17621,
+     "printed": "17,621",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Used desktop/laptop/tablet: Female per cent",
+     "measure": "per cent",
+     "value": 6,
+     "printed": "6.0",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 68779,
+     "printed": "68,779",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 34446,
+     "printed": "34,446",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 34333,
+     "printed": "34,333",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used internet: Total*",
+     "measure": "number",
+     "value": 13648,
+     "printed": "13,648",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used internet: per cent",
+     "measure": "per cent",
+     "value": 19.8,
+     "printed": "19.8",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used internet: Male",
+     "measure": "number",
+     "value": 7801,
+     "printed": "7,801",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used internet: Male per cent",
+     "measure": "per cent",
+     "value": 22.6,
+     "printed": "22.6",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used internet: Female",
+     "measure": "number",
+     "value": 5847,
+     "printed": "5,847",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used internet: Female per cent",
+     "measure": "per cent",
+     "value": 17,
+     "printed": "17.0",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used desktop/laptop/tablet: Total*",
+     "measure": "number",
+     "value": 6632,
+     "printed": "6,632",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used desktop/laptop/tablet: per cent",
+     "measure": "per cent",
+     "value": 9.6,
+     "printed": "9.6",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used desktop/laptop/tablet: Male",
+     "measure": "number",
+     "value": 3857,
+     "printed": "3,857",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used desktop/laptop/tablet: Male per cent",
+     "measure": "per cent",
+     "value": 11.2,
+     "printed": "11.2",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used desktop/laptop/tablet: Female",
+     "measure": "number",
+     "value": 2775,
+     "printed": "2,775",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Borabu",
+     "category": "Used desktop/laptop/tablet: Female per cent",
+     "measure": "per cent",
+     "value": 8.1,
+     "printed": "8.1",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 88406,
+     "printed": "88,406",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 41976,
+     "printed": "41,976",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 46428,
+     "printed": "46,428",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used internet: Total*",
+     "measure": "number",
+     "value": 13535,
+     "printed": "13,535",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used internet: per cent",
+     "measure": "per cent",
+     "value": 15.3,
+     "printed": "15.3",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used internet: Male",
+     "measure": "number",
+     "value": 7792,
+     "printed": "7,792",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used internet: Male per cent",
+     "measure": "per cent",
+     "value": 18.6,
+     "printed": "18.6",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used internet: Female",
+     "measure": "number",
+     "value": 5743,
+     "printed": "5,743",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used internet: Female per cent",
+     "measure": "per cent",
+     "value": 12.4,
+     "printed": "12.4",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used desktop/laptop/tablet: Total*",
+     "measure": "number",
+     "value": 5992,
+     "printed": "5,992",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used desktop/laptop/tablet: per cent",
+     "measure": "per cent",
+     "value": 6.8,
+     "printed": "6.8",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used desktop/laptop/tablet: Male",
+     "measure": "number",
+     "value": 3480,
+     "printed": "3,480",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used desktop/laptop/tablet: Male per cent",
+     "measure": "per cent",
+     "value": 8.3,
+     "printed": "8.3",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used desktop/laptop/tablet: Female",
+     "measure": "number",
+     "value": 2512,
+     "printed": "2,512",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Manga",
+     "category": "Used desktop/laptop/tablet: Female per cent",
+     "measure": "per cent",
+     "value": 5.4,
+     "printed": "5.4",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 104344,
+     "printed": "104,344",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 49088,
+     "printed": "49,088",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 55254,
+     "printed": "55,254",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used internet: Total*",
+     "measure": "number",
+     "value": 16755,
+     "printed": "16,755",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used internet: per cent",
+     "measure": "per cent",
+     "value": 16.1,
+     "printed": "16.1",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used internet: Male",
+     "measure": "number",
+     "value": 9583,
+     "printed": "9,583",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used internet: Male per cent",
+     "measure": "per cent",
+     "value": 19.5,
+     "printed": "19.5",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used internet: Female",
+     "measure": "number",
+     "value": 7172,
+     "printed": "7,172",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used internet: Female per cent",
+     "measure": "per cent",
+     "value": 13,
+     "printed": "13.0",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used desktop/laptop/tablet: Total*",
+     "measure": "number",
+     "value": 7588,
+     "printed": "7,588",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used desktop/laptop/tablet: per cent",
+     "measure": "per cent",
+     "value": 7.3,
+     "printed": "7.3",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used desktop/laptop/tablet: Male",
+     "measure": "number",
+     "value": 4420,
+     "printed": "4,420",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used desktop/laptop/tablet: Male per cent",
+     "measure": "per cent",
+     "value": 9,
+     "printed": "9.0",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used desktop/laptop/tablet: Female",
+     "measure": "number",
+     "value": 3168,
+     "printed": "3,168",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Masaba North",
+     "category": "Used desktop/laptop/tablet: Female per cent",
+     "measure": "per cent",
+     "value": 5.7,
+     "printed": "5.7",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 156770,
+     "printed": "156,770",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 75072,
+     "printed": "75,072",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 81693,
+     "printed": "81,693",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used internet: Total*",
+     "measure": "number",
+     "value": 21089,
+     "printed": "21,089",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used internet: per cent",
+     "measure": "per cent",
+     "value": 13.5,
+     "printed": "13.5",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used internet: Male",
+     "measure": "number",
+     "value": 12178,
+     "printed": "12,178",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used internet: Male per cent",
+     "measure": "per cent",
+     "value": 16.2,
+     "printed": "16.2",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used internet: Female",
+     "measure": "number",
+     "value": 8911,
+     "printed": "8,911",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used internet: Female per cent",
+     "measure": "per cent",
+     "value": 10.9,
+     "printed": "10.9",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used desktop/laptop/tablet: Total*",
+     "measure": "number",
+     "value": 10319,
+     "printed": "10,319",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used desktop/laptop/tablet: per cent",
+     "measure": "per cent",
+     "value": 6.6,
+     "printed": "6.6",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used desktop/laptop/tablet: Male",
+     "measure": "number",
+     "value": 6065,
+     "printed": "6,065",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used desktop/laptop/tablet: Male per cent",
+     "measure": "per cent",
+     "value": 8.1,
+     "printed": "8.1",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used desktop/laptop/tablet: Female",
+     "measure": "number",
+     "value": 4254,
+     "printed": "4,254",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Used desktop/laptop/tablet: Female per cent",
+     "measure": "per cent",
+     "value": 5.2,
+     "printed": "5.2",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Population 3+: Total*",
+     "measure": "number",
+     "value": 148442,
+     "printed": "148,442",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Population 3+: Male",
+     "measure": "number",
+     "value": 70762,
+     "printed": "70,762",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Population 3+: Female",
+     "measure": "number",
+     "value": 77677,
+     "printed": "77,677",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used internet: Total*",
+     "measure": "number",
+     "value": 25327,
+     "printed": "25,327",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used internet: per cent",
+     "measure": "per cent",
+     "value": 17.1,
+     "printed": "17.1",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used internet: Male",
+     "measure": "number",
+     "value": 14055,
+     "printed": "14,055",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used internet: Male per cent",
+     "measure": "per cent",
+     "value": 19.9,
+     "printed": "19.9",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used internet: Female",
+     "measure": "number",
+     "value": 11272,
+     "printed": "11,272",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used internet: Female per cent",
+     "measure": "per cent",
+     "value": 14.5,
+     "printed": "14.5",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used desktop/laptop/tablet: Total*",
+     "measure": "number",
+     "value": 11652,
+     "printed": "11,652",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used desktop/laptop/tablet: per cent",
+     "measure": "per cent",
+     "value": 7.8,
+     "printed": "7.8",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used desktop/laptop/tablet: Male",
+     "measure": "number",
+     "value": 6740,
+     "printed": "6,740",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used desktop/laptop/tablet: Male per cent",
+     "measure": "per cent",
+     "value": 9.5,
+     "printed": "9.5",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used desktop/laptop/tablet: Female",
+     "measure": "number",
+     "value": 4912,
+     "printed": "4,912",
+     "pagePrinted": 441
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Used desktop/laptop/tablet: Female per cent",
+     "measure": "per cent",
+     "value": 6.3,
+     "printed": "6.3",
+     "pagePrinted": 441
+    }
+   ]
+  },
+  {
+   "id": "drinking-water",
+   "table": "Table 2.15",
+   "title": "Percentage Distribution of Conventional Households by Main Source of Drinking Water, Area of Residence, County and Sub-County",
+   "base": "Conventional households",
+   "unit": "per cent of conventional households (first column is a count)",
+   "pagePrinted": "309",
+   "columns": [
+    "Conventional households",
+    "Pond",
+    "Dam/Lake",
+    "Stream/River",
+    "Protected spring",
+    "Unprotected spring",
+    "Protected well",
+    "Unprotected well",
+    "Borehole/Tube well",
+    "Piped into dwelling",
+    "Piped to yard/plot",
+    "Bottled water",
+    "Rain/Harvested water",
+    "Water vendor",
+    "Public tap/Standpipe",
+    "Not stated"
+   ],
+   "rows": [
+    {
+     "area": "Nyamira County",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 150499,
+     "printed": "150,499",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Pond",
+     "measure": "per cent",
+     "value": 0.5,
+     "printed": "0.5",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Dam/Lake",
+     "measure": "per cent",
+     "value": 0.5,
+     "printed": "0.5",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Stream/River",
+     "measure": "per cent",
+     "value": 36.6,
+     "printed": "36.6",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Protected spring",
+     "measure": "per cent",
+     "value": 36.4,
+     "printed": "36.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Unprotected spring",
+     "measure": "per cent",
+     "value": 9.4,
+     "printed": "9.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Protected well",
+     "measure": "per cent",
+     "value": 3.9,
+     "printed": "3.9",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Unprotected well",
+     "measure": "per cent",
+     "value": 1.2,
+     "printed": "1.2",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Borehole/Tube well",
+     "measure": "per cent",
+     "value": 1,
+     "printed": "1.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Piped into dwelling",
+     "measure": "per cent",
+     "value": 0.9,
+     "printed": "0.9",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Piped to yard/plot",
+     "measure": "per cent",
+     "value": 1,
+     "printed": "1.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Bottled water",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Rain/Harvested water",
+     "measure": "per cent",
+     "value": 7.4,
+     "printed": "7.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Water vendor",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Public tap/Standpipe",
+     "measure": "per cent",
+     "value": 0.6,
+     "printed": "0.6",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 19404,
+     "printed": "19,404",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Pond",
+     "measure": "per cent",
+     "value": 0.9,
+     "printed": "0.9",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Dam/Lake",
+     "measure": "per cent",
+     "value": 2.3,
+     "printed": "2.3",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Stream/River",
+     "measure": "per cent",
+     "value": 31,
+     "printed": "31.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Protected spring",
+     "measure": "per cent",
+     "value": 12.4,
+     "printed": "12.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Unprotected spring",
+     "measure": "per cent",
+     "value": 8.3,
+     "printed": "8.3",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Protected well",
+     "measure": "per cent",
+     "value": 3,
+     "printed": "3.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Unprotected well",
+     "measure": "per cent",
+     "value": 0.7,
+     "printed": "0.7",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Borehole/Tube well",
+     "measure": "per cent",
+     "value": 1.2,
+     "printed": "1.2",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Piped into dwelling",
+     "measure": "per cent",
+     "value": 2.7,
+     "printed": "2.7",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Piped to yard/plot",
+     "measure": "per cent",
+     "value": 3.6,
+     "printed": "3.6",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Bottled water",
+     "measure": "per cent",
+     "value": 0.5,
+     "printed": "0.5",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Rain/Harvested water",
+     "measure": "per cent",
+     "value": 30.3,
+     "printed": "30.3",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Water vendor",
+     "measure": "per cent",
+     "value": 0.9,
+     "printed": "0.9",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Public tap/Standpipe",
+     "measure": "per cent",
+     "value": 2.2,
+     "printed": "2.2",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Borabu",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 23836,
+     "printed": "23,836",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Pond",
+     "measure": "per cent",
+     "value": 0.9,
+     "printed": "0.9",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Dam/Lake",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Stream/River",
+     "measure": "per cent",
+     "value": 43.9,
+     "printed": "43.9",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Protected spring",
+     "measure": "per cent",
+     "value": 41.5,
+     "printed": "41.5",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Unprotected spring",
+     "measure": "per cent",
+     "value": 6,
+     "printed": "6.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Protected well",
+     "measure": "per cent",
+     "value": 2.7,
+     "printed": "2.7",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Unprotected well",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Borehole/Tube well",
+     "measure": "per cent",
+     "value": 0.5,
+     "printed": "0.5",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Piped into dwelling",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Piped to yard/plot",
+     "measure": "per cent",
+     "value": 0.6,
+     "printed": "0.6",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Bottled water",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Rain/Harvested water",
+     "measure": "per cent",
+     "value": 2.7,
+     "printed": "2.7",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Water vendor",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Public tap/Standpipe",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Manga",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 27904,
+     "printed": "27,904",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Pond",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Dam/Lake",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Stream/River",
+     "measure": "per cent",
+     "value": 27,
+     "printed": "27.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Protected spring",
+     "measure": "per cent",
+     "value": 47.5,
+     "printed": "47.5",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Unprotected spring",
+     "measure": "per cent",
+     "value": 8.6,
+     "printed": "8.6",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Protected well",
+     "measure": "per cent",
+     "value": 4.7,
+     "printed": "4.7",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Unprotected well",
+     "measure": "per cent",
+     "value": 1.3,
+     "printed": "1.3",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Borehole/Tube well",
+     "measure": "per cent",
+     "value": 1.4,
+     "printed": "1.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Piped into dwelling",
+     "measure": "per cent",
+     "value": 0.7,
+     "printed": "0.7",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Piped to yard/plot",
+     "measure": "per cent",
+     "value": 1,
+     "printed": "1.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Bottled water",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Rain/Harvested water",
+     "measure": "per cent",
+     "value": 6.6,
+     "printed": "6.6",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Water vendor",
+     "measure": "per cent",
+     "value": 0.2,
+     "printed": "0.2",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Public tap/Standpipe",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Masaba North",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 40396,
+     "printed": "40,396",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Pond",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Dam/Lake",
+     "measure": "per cent",
+     "value": 0.2,
+     "printed": "0.2",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Stream/River",
+     "measure": "per cent",
+     "value": 42.4,
+     "printed": "42.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Protected spring",
+     "measure": "per cent",
+     "value": 33,
+     "printed": "33.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Unprotected spring",
+     "measure": "per cent",
+     "value": 12.2,
+     "printed": "12.2",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Protected well",
+     "measure": "per cent",
+     "value": 5.4,
+     "printed": "5.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Unprotected well",
+     "measure": "per cent",
+     "value": 1.6,
+     "printed": "1.6",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Borehole/Tube well",
+     "measure": "per cent",
+     "value": 1.2,
+     "printed": "1.2",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Piped into dwelling",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Piped to yard/plot",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Bottled water",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Rain/Harvested water",
+     "measure": "per cent",
+     "value": 2.8,
+     "printed": "2.8",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Water vendor",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Public tap/Standpipe",
+     "measure": "per cent",
+     "value": 0.2,
+     "printed": "0.2",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 38959,
+     "printed": "38,959",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Pond",
+     "measure": "per cent",
+     "value": 0.7,
+     "printed": "0.7",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Dam/Lake",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Stream/River",
+     "measure": "per cent",
+     "value": 35.9,
+     "printed": "35.9",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Protected spring",
+     "measure": "per cent",
+     "value": 40.8,
+     "printed": "40.8",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Unprotected spring",
+     "measure": "per cent",
+     "value": 9.7,
+     "printed": "9.7",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Protected well",
+     "measure": "per cent",
+     "value": 3.1,
+     "printed": "3.1",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Unprotected well",
+     "measure": "per cent",
+     "value": 1.3,
+     "printed": "1.3",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Borehole/Tube well",
+     "measure": "per cent",
+     "value": 0.7,
+     "printed": "0.7",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Piped into dwelling",
+     "measure": "per cent",
+     "value": 1.5,
+     "printed": "1.5",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Piped to yard/plot",
+     "measure": "per cent",
+     "value": 0.8,
+     "printed": "0.8",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Bottled water",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Rain/Harvested water",
+     "measure": "per cent",
+     "value": 4,
+     "printed": "4.0",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Water vendor",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Public tap/Standpipe",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 309
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 309
+    }
+   ]
+  },
+  {
+   "id": "human-waste",
+   "table": "Table 2.16",
+   "title": "Percentage Distribution of Conventional Households by Main Mode of Human Waste Disposal, Area of Residence, County and Sub-County",
+   "base": "Conventional households",
+   "unit": "per cent of conventional households (first column is a count)",
+   "pagePrinted": "316",
+   "columns": [
+    "Conventional households",
+    "Main sewer",
+    "Septic tank",
+    "Cess pool",
+    "VIP latrine",
+    "Pit latrine covered",
+    "Pit latrine uncovered",
+    "Bucket latrine",
+    "Open/Bush",
+    "Bio-septic tank/Biodigester",
+    "Not stated"
+   ],
+   "rows": [
+    {
+     "area": "Nyamira County",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 150499,
+     "printed": "150,499",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Main sewer",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Septic tank",
+     "measure": "per cent",
+     "value": 1.7,
+     "printed": "1.7",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Cess pool",
+     "measure": "per cent",
+     "value": 0.2,
+     "printed": "0.2",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira County",
+     "category": "VIP latrine",
+     "measure": "per cent",
+     "value": 13.3,
+     "printed": "13.3",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Pit latrine covered",
+     "measure": "per cent",
+     "value": 60.4,
+     "printed": "60.4",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Pit latrine uncovered",
+     "measure": "per cent",
+     "value": 22.6,
+     "printed": "22.6",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Bucket latrine",
+     "measure": "per cent",
+     "value": 0.5,
+     "printed": "0.5",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Open/Bush",
+     "measure": "per cent",
+     "value": 1,
+     "printed": "1.0",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Bio-septic tank/Biodigester",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Borabu",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 19404,
+     "printed": "19,404",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Borabu",
+     "category": "Main sewer",
+     "measure": "per cent",
+     "value": 0.8,
+     "printed": "0.8",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Borabu",
+     "category": "Septic tank",
+     "measure": "per cent",
+     "value": 3.6,
+     "printed": "3.6",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Borabu",
+     "category": "Cess pool",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Borabu",
+     "category": "VIP latrine",
+     "measure": "per cent",
+     "value": 14.8,
+     "printed": "14.8",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Borabu",
+     "category": "Pit latrine covered",
+     "measure": "per cent",
+     "value": 66.3,
+     "printed": "66.3",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Borabu",
+     "category": "Pit latrine uncovered",
+     "measure": "per cent",
+     "value": 12.7,
+     "printed": "12.7",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Borabu",
+     "category": "Bucket latrine",
+     "measure": "per cent",
+     "value": 0.5,
+     "printed": "0.5",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Borabu",
+     "category": "Open/Bush",
+     "measure": "per cent",
+     "value": 1.1,
+     "printed": "1.1",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Borabu",
+     "category": "Bio-septic tank/Biodigester",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Borabu",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Manga",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 23836,
+     "printed": "23,836",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Manga",
+     "category": "Main sewer",
+     "measure": "per cent",
+     "value": 0.6,
+     "printed": "0.6",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Manga",
+     "category": "Septic tank",
+     "measure": "per cent",
+     "value": 1.3,
+     "printed": "1.3",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Manga",
+     "category": "Cess pool",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Manga",
+     "category": "VIP latrine",
+     "measure": "per cent",
+     "value": 14.1,
+     "printed": "14.1",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Manga",
+     "category": "Pit latrine covered",
+     "measure": "per cent",
+     "value": 62.6,
+     "printed": "62.6",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Manga",
+     "category": "Pit latrine uncovered",
+     "measure": "per cent",
+     "value": 18.7,
+     "printed": "18.7",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Manga",
+     "category": "Bucket latrine",
+     "measure": "per cent",
+     "value": 0.7,
+     "printed": "0.7",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Manga",
+     "category": "Open/Bush",
+     "measure": "per cent",
+     "value": 1.8,
+     "printed": "1.8",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Manga",
+     "category": "Bio-septic tank/Biodigester",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Manga",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Masaba North",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 27904,
+     "printed": "27,904",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Masaba North",
+     "category": "Main sewer",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Masaba North",
+     "category": "Septic tank",
+     "measure": "per cent",
+     "value": 1.2,
+     "printed": "1.2",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Masaba North",
+     "category": "Cess pool",
+     "measure": "per cent",
+     "value": 0.2,
+     "printed": "0.2",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Masaba North",
+     "category": "VIP latrine",
+     "measure": "per cent",
+     "value": 15.4,
+     "printed": "15.4",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Masaba North",
+     "category": "Pit latrine covered",
+     "measure": "per cent",
+     "value": 63,
+     "printed": "63.0",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Masaba North",
+     "category": "Pit latrine uncovered",
+     "measure": "per cent",
+     "value": 18.7,
+     "printed": "18.7",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Masaba North",
+     "category": "Bucket latrine",
+     "measure": "per cent",
+     "value": 0.7,
+     "printed": "0.7",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Masaba North",
+     "category": "Open/Bush",
+     "measure": "per cent",
+     "value": 0.6,
+     "printed": "0.6",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Masaba North",
+     "category": "Bio-septic tank/Biodigester",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Masaba North",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 40396,
+     "printed": "40,396",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Main sewer",
+     "measure": "per cent",
+     "value": 0.2,
+     "printed": "0.2",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Septic tank",
+     "measure": "per cent",
+     "value": 0.9,
+     "printed": "0.9",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Cess pool",
+     "measure": "per cent",
+     "value": 0.2,
+     "printed": "0.2",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira North",
+     "category": "VIP latrine",
+     "measure": "per cent",
+     "value": 12.1,
+     "printed": "12.1",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Pit latrine covered",
+     "measure": "per cent",
+     "value": 54.5,
+     "printed": "54.5",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Pit latrine uncovered",
+     "measure": "per cent",
+     "value": 30.3,
+     "printed": "30.3",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Bucket latrine",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Open/Bush",
+     "measure": "per cent",
+     "value": 1.3,
+     "printed": "1.3",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Bio-septic tank/Biodigester",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 38959,
+     "printed": "38,959",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Main sewer",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Septic tank",
+     "measure": "per cent",
+     "value": 2.1,
+     "printed": "2.1",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Cess pool",
+     "measure": "per cent",
+     "value": 0.2,
+     "printed": "0.2",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira South",
+     "category": "VIP latrine",
+     "measure": "per cent",
+     "value": 11.6,
+     "printed": "11.6",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Pit latrine covered",
+     "measure": "per cent",
+     "value": 60.2,
+     "printed": "60.2",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Pit latrine uncovered",
+     "measure": "per cent",
+     "value": 24.8,
+     "printed": "24.8",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Bucket latrine",
+     "measure": "per cent",
+     "value": 0.5,
+     "printed": "0.5",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Open/Bush",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Bio-septic tank/Biodigester",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 316
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 316
+    }
+   ]
+  },
+  {
+   "id": "cooking-fuel",
+   "table": "Table 2.18",
+   "title": "Percentage Distribution of Conventional Households by Main Type of Cooking Fuel, Area of Residence, County and Sub-County",
+   "base": "Conventional households",
+   "unit": "per cent of conventional households (first column is a count)",
+   "pagePrinted": "337",
+   "columns": [
+    "Conventional households",
+    "Electricity",
+    "Paraffin",
+    "Gas (LPG)",
+    "Biogas",
+    "Firewood",
+    "Charcoal",
+    "Solar",
+    "Not stated"
+   ],
+   "rows": [
+    {
+     "area": "Nyamira County",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 150499,
+     "printed": "150,499",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Electricity",
+     "measure": "per cent",
+     "value": 1.2,
+     "printed": "1.2",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Paraffin",
+     "measure": "per cent",
+     "value": 1.9,
+     "printed": "1.9",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Gas (LPG)",
+     "measure": "per cent",
+     "value": 8.6,
+     "printed": "8.6",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Firewood",
+     "measure": "per cent",
+     "value": 84.3,
+     "printed": "84.3",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Charcoal",
+     "measure": "per cent",
+     "value": 3.5,
+     "printed": "3.5",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Borabu",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 19404,
+     "printed": "19,404",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Borabu",
+     "category": "Electricity",
+     "measure": "per cent",
+     "value": 1.3,
+     "printed": "1.3",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Borabu",
+     "category": "Paraffin",
+     "measure": "per cent",
+     "value": 2.4,
+     "printed": "2.4",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Borabu",
+     "category": "Gas (LPG)",
+     "measure": "per cent",
+     "value": 10.5,
+     "printed": "10.5",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Borabu",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Borabu",
+     "category": "Firewood",
+     "measure": "per cent",
+     "value": 80,
+     "printed": "80.0",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Borabu",
+     "category": "Charcoal",
+     "measure": "per cent",
+     "value": 5.2,
+     "printed": "5.2",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Borabu",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Borabu",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Manga",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 23836,
+     "printed": "23,836",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Manga",
+     "category": "Electricity",
+     "measure": "per cent",
+     "value": 1.2,
+     "printed": "1.2",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Manga",
+     "category": "Paraffin",
+     "measure": "per cent",
+     "value": 1.5,
+     "printed": "1.5",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Manga",
+     "category": "Gas (LPG)",
+     "measure": "per cent",
+     "value": 9.4,
+     "printed": "9.4",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Manga",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Manga",
+     "category": "Firewood",
+     "measure": "per cent",
+     "value": 83.9,
+     "printed": "83.9",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Manga",
+     "category": "Charcoal",
+     "measure": "per cent",
+     "value": 3.5,
+     "printed": "3.5",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Manga",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 0.2,
+     "printed": "0.2",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Manga",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Masaba North",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 27904,
+     "printed": "27,904",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Masaba North",
+     "category": "Electricity",
+     "measure": "per cent",
+     "value": 1.2,
+     "printed": "1.2",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Masaba North",
+     "category": "Paraffin",
+     "measure": "per cent",
+     "value": 1.5,
+     "printed": "1.5",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Masaba North",
+     "category": "Gas (LPG)",
+     "measure": "per cent",
+     "value": 8.3,
+     "printed": "8.3",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Masaba North",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Masaba North",
+     "category": "Firewood",
+     "measure": "per cent",
+     "value": 84.5,
+     "printed": "84.5",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Masaba North",
+     "category": "Charcoal",
+     "measure": "per cent",
+     "value": 4.2,
+     "printed": "4.2",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Masaba North",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Masaba North",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 40396,
+     "printed": "40,396",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Electricity",
+     "measure": "per cent",
+     "value": 0.8,
+     "printed": "0.8",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Paraffin",
+     "measure": "per cent",
+     "value": 1.5,
+     "printed": "1.5",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Gas (LPG)",
+     "measure": "per cent",
+     "value": 5.6,
+     "printed": "5.6",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": 0.2,
+     "printed": "0.2",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Firewood",
+     "measure": "per cent",
+     "value": 89.5,
+     "printed": "89.5",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Charcoal",
+     "measure": "per cent",
+     "value": 2.2,
+     "printed": "2.2",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 38959,
+     "printed": "38,959",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Electricity",
+     "measure": "per cent",
+     "value": 1.5,
+     "printed": "1.5",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Paraffin",
+     "measure": "per cent",
+     "value": 2.4,
+     "printed": "2.4",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Gas (LPG)",
+     "measure": "per cent",
+     "value": 10.7,
+     "printed": "10.7",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Firewood",
+     "measure": "per cent",
+     "value": 81.2,
+     "printed": "81.2",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Charcoal",
+     "measure": "per cent",
+     "value": 3.6,
+     "printed": "3.6",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 337
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 337
+    }
+   ]
+  },
+  {
+   "id": "lighting",
+   "table": "Table 2.19",
+   "title": "Percentage Distribution of Conventional Households by Main Type of Lighting Fuel, Area of Residence, County and Sub-County",
+   "base": "Conventional households",
+   "unit": "per cent of conventional households (first column is a count)",
+   "pagePrinted": "349",
+   "columns": [
+    "Conventional households",
+    "Mains electricity",
+    "Paraffin pressure lamp",
+    "Paraffin lantern",
+    "Paraffin tin lamp",
+    "Gas lamp",
+    "Wood",
+    "Solar",
+    "Torch/Spotlight-Solar charged",
+    "Torch/Spotlight-Dry cells",
+    "Candle",
+    "Battery (Car/Charged)",
+    "Generator (Diesel/Petrol)",
+    "Biogas",
+    "Not stated"
+   ],
+   "rows": [
+    {
+     "area": "Nyamira County",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 150499,
+     "printed": "150,499",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Mains electricity",
+     "measure": "per cent",
+     "value": 42.9,
+     "printed": "42.9",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Paraffin pressure lamp",
+     "measure": "per cent",
+     "value": 0.5,
+     "printed": "0.5",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Paraffin lantern",
+     "measure": "per cent",
+     "value": 16.1,
+     "printed": "16.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Paraffin tin lamp",
+     "measure": "per cent",
+     "value": 19.5,
+     "printed": "19.5",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Gas lamp",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Wood",
+     "measure": "per cent",
+     "value": 0.9,
+     "printed": "0.9",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 15.5,
+     "printed": "15.5",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Torch/Spotlight-Solar charged",
+     "measure": "per cent",
+     "value": 2.7,
+     "printed": "2.7",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Torch/Spotlight-Dry cells",
+     "measure": "per cent",
+     "value": 0.6,
+     "printed": "0.6",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Candle",
+     "measure": "per cent",
+     "value": 0.7,
+     "printed": "0.7",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Battery (Car/Charged)",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Generator (Diesel/Petrol)",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 19404,
+     "printed": "19,404",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Mains electricity",
+     "measure": "per cent",
+     "value": 44.1,
+     "printed": "44.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Paraffin pressure lamp",
+     "measure": "per cent",
+     "value": 0.9,
+     "printed": "0.9",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Paraffin lantern",
+     "measure": "per cent",
+     "value": 15.6,
+     "printed": "15.6",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Paraffin tin lamp",
+     "measure": "per cent",
+     "value": 16.1,
+     "printed": "16.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Gas lamp",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Wood",
+     "measure": "per cent",
+     "value": 0.8,
+     "printed": "0.8",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 17,
+     "printed": "17.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Torch/Spotlight-Solar charged",
+     "measure": "per cent",
+     "value": 2.9,
+     "printed": "2.9",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Torch/Spotlight-Dry cells",
+     "measure": "per cent",
+     "value": 1,
+     "printed": "1.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Candle",
+     "measure": "per cent",
+     "value": 1,
+     "printed": "1.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Battery (Car/Charged)",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Generator (Diesel/Petrol)",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Borabu",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 23836,
+     "printed": "23,836",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Mains electricity",
+     "measure": "per cent",
+     "value": 44.2,
+     "printed": "44.2",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Paraffin pressure lamp",
+     "measure": "per cent",
+     "value": 0.7,
+     "printed": "0.7",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Paraffin lantern",
+     "measure": "per cent",
+     "value": 17.5,
+     "printed": "17.5",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Paraffin tin lamp",
+     "measure": "per cent",
+     "value": 15.8,
+     "printed": "15.8",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Gas lamp",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Wood",
+     "measure": "per cent",
+     "value": 0.6,
+     "printed": "0.6",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 17.2,
+     "printed": "17.2",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Torch/Spotlight-Solar charged",
+     "measure": "per cent",
+     "value": 2.6,
+     "printed": "2.6",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Torch/Spotlight-Dry cells",
+     "measure": "per cent",
+     "value": 0.5,
+     "printed": "0.5",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Candle",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Battery (Car/Charged)",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Generator (Diesel/Petrol)",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": null,
+     "printed": "-",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Manga",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 27904,
+     "printed": "27,904",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Mains electricity",
+     "measure": "per cent",
+     "value": 39.6,
+     "printed": "39.6",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Paraffin pressure lamp",
+     "measure": "per cent",
+     "value": 0.5,
+     "printed": "0.5",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Paraffin lantern",
+     "measure": "per cent",
+     "value": 17.1,
+     "printed": "17.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Paraffin tin lamp",
+     "measure": "per cent",
+     "value": 21.5,
+     "printed": "21.5",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Gas lamp",
+     "measure": "per cent",
+     "value": 0.2,
+     "printed": "0.2",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Wood",
+     "measure": "per cent",
+     "value": 0.8,
+     "printed": "0.8",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 15.3,
+     "printed": "15.3",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Torch/Spotlight-Solar charged",
+     "measure": "per cent",
+     "value": 3.1,
+     "printed": "3.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Torch/Spotlight-Dry cells",
+     "measure": "per cent",
+     "value": 0.5,
+     "printed": "0.5",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Candle",
+     "measure": "per cent",
+     "value": 0.7,
+     "printed": "0.7",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Battery (Car/Charged)",
+     "measure": "per cent",
+     "value": 0.6,
+     "printed": "0.6",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Generator (Diesel/Petrol)",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Masaba North",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 40396,
+     "printed": "40,396",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Mains electricity",
+     "measure": "per cent",
+     "value": 37.7,
+     "printed": "37.7",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Paraffin pressure lamp",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Paraffin lantern",
+     "measure": "per cent",
+     "value": 16.2,
+     "printed": "16.2",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Paraffin tin lamp",
+     "measure": "per cent",
+     "value": 22.1,
+     "printed": "22.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Gas lamp",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Wood",
+     "measure": "per cent",
+     "value": 1.2,
+     "printed": "1.2",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 18,
+     "printed": "18.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Torch/Spotlight-Solar charged",
+     "measure": "per cent",
+     "value": 2.7,
+     "printed": "2.7",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Torch/Spotlight-Dry cells",
+     "measure": "per cent",
+     "value": 0.6,
+     "printed": "0.6",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Candle",
+     "measure": "per cent",
+     "value": 0.8,
+     "printed": "0.8",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Battery (Car/Charged)",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Generator (Diesel/Petrol)",
+     "measure": "per cent",
+     "value": null,
+     "printed": "-",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Conventional households",
+     "measure": "number",
+     "value": 38959,
+     "printed": "38,959",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Mains electricity",
+     "measure": "per cent",
+     "value": 49.4,
+     "printed": "49.4",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Paraffin pressure lamp",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Paraffin lantern",
+     "measure": "per cent",
+     "value": 14.9,
+     "printed": "14.9",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Paraffin tin lamp",
+     "measure": "per cent",
+     "value": 19.5,
+     "printed": "19.5",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Gas lamp",
+     "measure": "per cent",
+     "value": 0.1,
+     "printed": "0.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Wood",
+     "measure": "per cent",
+     "value": 0.9,
+     "printed": "0.9",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Solar",
+     "measure": "per cent",
+     "value": 11.1,
+     "printed": "11.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Torch/Spotlight-Solar charged",
+     "measure": "per cent",
+     "value": 2.1,
+     "printed": "2.1",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Torch/Spotlight-Dry cells",
+     "measure": "per cent",
+     "value": 0.4,
+     "printed": "0.4",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Candle",
+     "measure": "per cent",
+     "value": 0.8,
+     "printed": "0.8",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Battery (Car/Charged)",
+     "measure": "per cent",
+     "value": 0.3,
+     "printed": "0.3",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Generator (Diesel/Petrol)",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Biogas",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Not stated",
+     "measure": "per cent",
+     "value": 0,
+     "printed": "0.0",
+     "pagePrinted": 349
+    }
+   ]
+  },
+  {
+   "id": "disability-status",
+   "table": "Table 2.26",
+   "title": "Distribution of Population aged 5 years and above by Disability Status, Sex, Area of Residence, County and Sub-County",
+   "base": "Population aged 5 years and above (intersex excluded per footnote)",
+   "unit": "persons; last column per cent with disability",
+   "pagePrinted": "404",
+   "columns": [
+    "Population 5+: Total*",
+    "Population 5+: Male",
+    "Population 5+: Female",
+    "With disability: Total*",
+    "With disability: Male",
+    "With disability: Female",
+    "Without disability: Total*",
+    "Without disability: Male",
+    "Without disability: Female",
+    "Not stated: Total*",
+    "Not stated: Male",
+    "Not stated: Female",
+    "Per cent with disability"
+   ],
+   "rows": [
+    {
+     "area": "Nyamira County",
+     "category": "Population 5+: Total*",
+     "measure": "number",
+     "value": 538716,
+     "printed": "538,716",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Population 5+: Male",
+     "measure": "number",
+     "value": 257306,
+     "printed": "257,306",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Population 5+: Female",
+     "measure": "number",
+     "value": 281399,
+     "printed": "281,399",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "With disability: Total*",
+     "measure": "number",
+     "value": 17549,
+     "printed": "17,549",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "With disability: Male",
+     "measure": "number",
+     "value": 7360,
+     "printed": "7,360",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "With disability: Female",
+     "measure": "number",
+     "value": 10189,
+     "printed": "10,189",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Without disability: Total*",
+     "measure": "number",
+     "value": 521084,
+     "printed": "521,084",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Without disability: Male",
+     "measure": "number",
+     "value": 249906,
+     "printed": "249,906",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Without disability: Female",
+     "measure": "number",
+     "value": 271167,
+     "printed": "271,167",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Not stated: Total*",
+     "measure": "number",
+     "value": 48,
+     "printed": "48",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Not stated: Male",
+     "measure": "number",
+     "value": 19,
+     "printed": "19",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Not stated: Female",
+     "measure": "number",
+     "value": 29,
+     "printed": "29",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira County",
+     "category": "Per cent with disability",
+     "measure": "per cent",
+     "value": 3.3,
+     "printed": "3.3",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "Population 5+: Total*",
+     "measure": "number",
+     "value": 65594,
+     "printed": "65,594",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "Population 5+: Male",
+     "measure": "number",
+     "value": 32823,
+     "printed": "32,823",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "Population 5+: Female",
+     "measure": "number",
+     "value": 32771,
+     "printed": "32,771",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "With disability: Total*",
+     "measure": "number",
+     "value": 1743,
+     "printed": "1,743",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "With disability: Male",
+     "measure": "number",
+     "value": 745,
+     "printed": "745",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "With disability: Female",
+     "measure": "number",
+     "value": 998,
+     "printed": "998",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "Without disability: Total*",
+     "measure": "number",
+     "value": 63843,
+     "printed": "63,843",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "Without disability: Male",
+     "measure": "number",
+     "value": 32075,
+     "printed": "32,075",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "Without disability: Female",
+     "measure": "number",
+     "value": 31768,
+     "printed": "31,768",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "Not stated: Total*",
+     "measure": "number",
+     "value": 6,
+     "printed": "6",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "Not stated: Male",
+     "measure": "number",
+     "value": 2,
+     "printed": "2",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "Not stated: Female",
+     "measure": "number",
+     "value": 4,
+     "printed": "4",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Borabu",
+     "category": "Per cent with disability",
+     "measure": "per cent",
+     "value": 2.7,
+     "printed": "2.7",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "Population 5+: Total*",
+     "measure": "number",
+     "value": 84191,
+     "printed": "84,191",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "Population 5+: Male",
+     "measure": "number",
+     "value": 39838,
+     "printed": "39,838",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "Population 5+: Female",
+     "measure": "number",
+     "value": 44352,
+     "printed": "44,352",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "With disability: Total*",
+     "measure": "number",
+     "value": 2886,
+     "printed": "2,886",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "With disability: Male",
+     "measure": "number",
+     "value": 1176,
+     "printed": "1,176",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "With disability: Female",
+     "measure": "number",
+     "value": 1710,
+     "printed": "1,710",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "Without disability: Total*",
+     "measure": "number",
+     "value": 81291,
+     "printed": "81,291",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "Without disability: Male",
+     "measure": "number",
+     "value": 38656,
+     "printed": "38,656",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "Without disability: Female",
+     "measure": "number",
+     "value": 42634,
+     "printed": "42,634",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "Not stated: Total*",
+     "measure": "number",
+     "value": 10,
+     "printed": "10",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "Not stated: Male",
+     "measure": "number",
+     "value": 4,
+     "printed": "4",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "Not stated: Female",
+     "measure": "number",
+     "value": 6,
+     "printed": "6",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Manga",
+     "category": "Per cent with disability",
+     "measure": "per cent",
+     "value": 3.4,
+     "printed": "3.4",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "Population 5+: Total*",
+     "measure": "number",
+     "value": 99317,
+     "printed": "99,317",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "Population 5+: Male",
+     "measure": "number",
+     "value": 46643,
+     "printed": "46,643",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "Population 5+: Female",
+     "measure": "number",
+     "value": 52672,
+     "printed": "52,672",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "With disability: Total*",
+     "measure": "number",
+     "value": 3464,
+     "printed": "3,464",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "With disability: Male",
+     "measure": "number",
+     "value": 1404,
+     "printed": "1,404",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "With disability: Female",
+     "measure": "number",
+     "value": 2060,
+     "printed": "2,060",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "Without disability: Total*",
+     "measure": "number",
+     "value": 95843,
+     "printed": "95,843",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "Without disability: Male",
+     "measure": "number",
+     "value": 45235,
+     "printed": "45,235",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "Without disability: Female",
+     "measure": "number",
+     "value": 50606,
+     "printed": "50,606",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "Not stated: Total*",
+     "measure": "number",
+     "value": 7,
+     "printed": "7",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "Not stated: Male",
+     "measure": "number",
+     "value": 3,
+     "printed": "3",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "Not stated: Female",
+     "measure": "number",
+     "value": 4,
+     "printed": "4",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Masaba North",
+     "category": "Per cent with disability",
+     "measure": "per cent",
+     "value": 3.5,
+     "printed": "3.5",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Population 5+: Total*",
+     "measure": "number",
+     "value": 148863,
+     "printed": "148,863",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Population 5+: Male",
+     "measure": "number",
+     "value": 71075,
+     "printed": "71,075",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Population 5+: Female",
+     "measure": "number",
+     "value": 77783,
+     "printed": "77,783",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "With disability: Total*",
+     "measure": "number",
+     "value": 4998,
+     "printed": "4,998",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "With disability: Male",
+     "measure": "number",
+     "value": 2155,
+     "printed": "2,155",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "With disability: Female",
+     "measure": "number",
+     "value": 2843,
+     "printed": "2,843",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Without disability: Total*",
+     "measure": "number",
+     "value": 143853,
+     "printed": "143,853",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Without disability: Male",
+     "measure": "number",
+     "value": 68914,
+     "printed": "68,914",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Without disability: Female",
+     "measure": "number",
+     "value": 74934,
+     "printed": "74,934",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Not stated: Total*",
+     "measure": "number",
+     "value": 3,
+     "printed": "3",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Not stated: Male",
+     "measure": "number",
+     "value": 2,
+     "printed": "2",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Not stated: Female",
+     "measure": "number",
+     "value": 1,
+     "printed": "1",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira North",
+     "category": "Per cent with disability",
+     "measure": "per cent",
+     "value": 3.4,
+     "printed": "3.4",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Population 5+: Total*",
+     "measure": "number",
+     "value": 140751,
+     "printed": "140,751",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Population 5+: Male",
+     "measure": "number",
+     "value": 66927,
+     "printed": "66,927",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Population 5+: Female",
+     "measure": "number",
+     "value": 73821,
+     "printed": "73,821",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "With disability: Total*",
+     "measure": "number",
+     "value": 4458,
+     "printed": "4,458",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "With disability: Male",
+     "measure": "number",
+     "value": 1880,
+     "printed": "1,880",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "With disability: Female",
+     "measure": "number",
+     "value": 2578,
+     "printed": "2,578",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Without disability: Total*",
+     "measure": "number",
+     "value": 136254,
+     "printed": "136,254",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Without disability: Male",
+     "measure": "number",
+     "value": 65026,
+     "printed": "65,026",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Without disability: Female",
+     "measure": "number",
+     "value": 71225,
+     "printed": "71,225",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Not stated: Total*",
+     "measure": "number",
+     "value": 22,
+     "printed": "22",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Not stated: Male",
+     "measure": "number",
+     "value": 8,
+     "printed": "8",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Not stated: Female",
+     "measure": "number",
+     "value": 14,
+     "printed": "14",
+     "pagePrinted": 404
+    },
+    {
+     "area": "Nyamira South",
+     "category": "Per cent with disability",
+     "measure": "per cent",
+     "value": 3.2,
+     "printed": "3.2",
+     "pagePrinted": 404
+    }
+   ]
+  }
+ ]
+}

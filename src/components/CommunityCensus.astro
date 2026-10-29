@@ -1,0 +1,86 @@
+---
+// Life at home in Nyamira (decision #58): KNBS 2019 census, Volume IV, exactly as printed
+// (src/data/census-social.json, checked value by value against the PDF). First layer: six county figures.
+// Second layer: each topic by KNBS sub-county, in toggles. KNBS sub-counties are not constituencies.
+import EvidenceLabel from './EvidenceLabel.astro';
+import Icon from './Icon.astro';
+import Toggle from './Toggle.astro';
+import census from '../data/census-social.json';
+
+const COUNTY = 'Nyamira County';
+const table = (id) => census.tables.find((t) => t.id === id);
+const cell = (id, area, category) => {
+  const row = table(id).rows.find((r) => r.area === area && r.category === category);
+  if (!row) throw new Error(`census-social.json has no ${id} / ${area} / ${category}`);
+  if (row.printed === '-') return '–'; // KNBS prints a dash where there is nothing to report
+  return row.measure === 'per cent' ? `${row.printed}%` : row.printed;
+};
+const cite = (id) => `${table(id).table}, p.${table(id).pagePrinted}`;
+const headlines = [
+  { id: 'drinking-water', icon: 'water', cat: 'Stream/River', text: 'of households get their drinking water mainly from a stream or river' },
+  { id: 'cooking-fuel', icon: 'agriculture', cat: 'Firewood', text: 'of households cook mainly with firewood' },
+  { id: 'lighting', icon: 'today', cat: 'Mains electricity', text: 'of households light their homes mainly with mains electricity' },
+  { id: 'mobile-phone', icon: 'phone', cat: 'Owned mobile phone: per cent', text: 'of people aged 3 and over owned a mobile phone in the 3 months before the census' },
+  { id: 'internet-computer', icon: 'search', cat: 'Used internet: per cent', text: 'of people aged 3 and over used the internet in those 3 months' },
+  { id: 'disability-status', icon: 'people', cat: 'Per cent with disability', text: 'of people aged 5 and over have a disability' },
+];
+const topics = [
+  { id: 'mobile-phone-internet', title: 'Phones and the internet', meta: 'People aged 3 and over, last 3 months', tables: [
+    ['mobile-phone', [['Owned mobile phone: per cent', 'Owned a phone'], ['Owned mobile phone: Female per cent', 'Women'], ['Owned mobile phone: Male per cent', 'Men']]],
+    ['internet-computer', [['Used internet: per cent', 'Used the internet'], ['Used internet: Female per cent', 'Women'], ['Used internet: Male per cent', 'Men'], ['Used desktop/laptop/tablet: per cent', 'Used a computer or tablet']]],
+  ] },
+  { id: 'water', title: 'Drinking water', meta: 'Main source, share of households', tables: [
+    ['drinking-water', [['Stream/River', 'Stream or river'], ['Protected spring', 'Protected spring'], ['Unprotected spring', 'Unprotected spring'], ['Rain/Harvested water', 'Rain'], ['Protected well', 'Protected well'], ['Piped into dwelling', 'Piped into home'], ['Piped to yard/plot', 'Piped to yard'], ['Public tap/Standpipe', 'Public tap']]],
+  ] },
+  { id: 'sanitation', title: 'Toilets', meta: 'Main way of disposing of human waste, share of households', tables: [
+    ['human-waste', [['Pit latrine covered', 'Covered pit latrine'], ['Pit latrine uncovered', 'Uncovered pit latrine'], ['VIP latrine', 'VIP latrine'], ['Septic tank', 'Septic tank'], ['Open/Bush', 'Open or bush']]],
+  ] },
+  { id: 'cooking', title: 'Cooking fuel', meta: 'Main fuel, share of households', tables: [
+    ['cooking-fuel', [['Firewood', 'Firewood'], ['Gas (LPG)', 'Gas'], ['Charcoal', 'Charcoal'], ['Paraffin', 'Paraffin'], ['Electricity', 'Electricity']]],
+  ] },
+  { id: 'lighting', title: 'Lighting', meta: 'Main source, share of households', tables: [
+    ['lighting', [['Mains electricity', 'Mains electricity'], ['Solar', 'Solar'], ['Paraffin tin lamp', 'Tin lamp'], ['Paraffin lantern', 'Lantern'], ['Torch/Spotlight-Solar charged', 'Solar torch']]],
+  ] },
+  { id: 'disability', title: 'Disability', meta: 'People aged 5 and over', tables: [
+    ['disability-status', [['Population 5+: Total*', 'People aged 5+'], ['With disability: Total*', 'With a disability'], ['Per cent with disability', 'Share']]],
+  ] },
+];
+---
+<section class="stack" aria-labelledby="life-at-home">
+  <h2 id="life-at-home">Life at home</h2>
+  <p class="muted">From the 2019 census, the latest count of how Nyamira's households live.</p>
+  <div class="tiles">
+    {headlines.map((h) => (
+      <div class="tile">
+        <Icon name={h.icon} size={22} badge />
+        <b>{cell(h.id, COUNTY, h.cat)}</b>
+        <span>{h.text}.</span>
+        <span class="small muted"><EvidenceLabel kind="official" /> KNBS 2019 census, Vol. IV, {cite(h.id)}</span>
+      </div>
+    ))}
+  </div>
+  <div class="stack" style="margin-top:8px">
+    {topics.map((topic) => (
+      <Toggle id={topic.id} title={topic.title} meta={`${topic.meta}, by KNBS sub-county`} level={3}>
+        {topic.tables.map(([id, columns]) => (
+          <div class="stack">
+            <div class="table-box">
+              <table class="cards">
+                <thead><tr><th>Area</th>{columns.map(([, label]) => <th class="num">{label}</th>)}</tr></thead>
+                <tbody>{census.areas.map((area) => (
+                  <tr>
+                    <td>{area}</td>
+                    {columns.map(([category, label]) => <td class="num" data-label={label}>{cell(id, area, category)}</td>)}
+                  </tr>
+                ))}</tbody>
+              </table>
+            </div>
+            <p class="source"><EvidenceLabel kind="official" /> <a href={census.source.url} rel="noopener">KNBS 2019 Kenya Population and Housing Census, Volume IV</a>, {cite(id)}. {table(id).base.split('(')[0].trim()}.</p>
+          </div>
+        ))}
+        <p class="small muted">The figures are as KNBS printed them, rounded, so a row may not add to 100. Other categories are in the KNBS table.</p>
+      </Toggle>
+    ))}
+  </div>
+  <p class="small muted">{census.areasNote}</p>
+</section>

@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import EvidenceLabel from '../../components/EvidenceLabel.astro';
 import Icon from '../../components/Icon.astro';
+import CommunityCensus from '../../components/CommunityCensus.astro';
 import census from '../../data/census.json';
 import { sections } from '../../nav.js';
 import { peopleAndPlaces } from '../../data/topics.js';
@@ -22,13 +23,17 @@ const about = {
 <Base title="Community" description="The people of Nyamira: who lives here, what is working, the county's heritage and how it has changed since 2013.">
   <div class="sec-bloom">
     <PageHead eyebrow="Community" title="The people of Nyamira" lead="Who lives here, what is working, the county's heritage and how it has changed, alongside the numbers." tone="bloom" />
-    <section class="card stack" style="margin-top:16px" aria-labelledby="community-count">
+    <div class="stack-lg" style="margin-top:16px">
+    <section class="card stack" aria-labelledby="community-count">
       <h2 id="community-count" class="vh">Nyamira's population</h2>
       <span class="figure"><span class="num">{num(c.population)}</span></span>
       <p class="say">people lived in Nyamira at the 2019 census, in {num(c.households)} households of about {c.avgHouseholdSize} people each.</p>
       <p class="source"><EvidenceLabel kind="official" /> <a href={c.url} rel="noopener">KNBS 2019 Kenya Population and Housing Census</a>, Volume I, {c.page.split(';')[0]}</p>
     </section>
-    <div class="sector-tiles" style="margin-top:16px">
+    <CommunityCensus />
+    <section class="stack" aria-labelledby="community-pages">
+    <h2 id="community-pages">Explore Community</h2>
+    <div class="sector-tiles">
       {community.pages.map((p) => (
         <a class={`sector-tile sec-${about[p.href]?.tone ?? 'bloom'}`} href={p.href}>
           <Icon name={p.icon} size={28} badge />
@@ -38,6 +43,8 @@ const about = {
           <span class="go" aria-hidden="true">→</span>
         </a>
       ))}
+    </div>
+    </section>
     </div>
   </div>
 </Base>
