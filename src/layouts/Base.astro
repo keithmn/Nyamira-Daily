@@ -2,11 +2,11 @@
 import '../styles/global.css';
 import { toneFor } from '../nav.js';
 import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import SectionTabs from '../components/SectionTabs.astro';
 
 import PageTools from '../components/PageTools.astro';
 import AlertBanner from '../components/AlertBanner.astro';
-import { hasContact } from '../config.js';
 interface Props { title: string; description?: string; tools?: boolean; image?: string; imageAlt?: string; alertWard?: string; showDisruptions?: boolean; noindex?: boolean }
 const {
   title,
@@ -85,7 +85,7 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
   <meta name="twitter:image" content={shareImage} />
   <meta name="twitter:image:alt" content={imageAlt} />
 </head>
-<body>
+<body id="top">
   <a class="skip" href="#main">Skip to content</a>
   <SiteHeader path={path} />
   <SectionTabs path={path} />
@@ -100,30 +100,7 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
   </main>
 
   <!-- Footer: always Ink. Who we are, one action, one row of links, then the labels and credits. -->
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="foot-top">
-        <div class="foot-id">
-          <img class="footer-logo" src="/brand/Nyamira-Daily_horizontal_reverse.svg" alt="Nyamira Daily" width="1197" height="228" loading="lazy" />
-          <p><strong>Independent.</strong> Not affiliated with the County Government of Nyamira.</p>
-        </div>
-        <a class="pill-btn" href="/how-we-work/#corrections">Spotted a mistake? Tell us <span aria-hidden="true">→</span></a>
-      </div>
-      <nav class="foot-links" aria-label="Footer">
-        <a href="/about/">About us</a>
-        <a href="/how-we-work/">How we work</a>
-        <a href="/how-we-work/#corrections">Corrections</a>
-        <a href="/data/open-data/">Download the data</a>
-        {hasContact && <a href="/subscribe/">WhatsApp and SMS updates</a>}
-        {hasContact && <a href="/tell-us/">Report a project or problem</a>}
-        <a href="/search/">Search</a>
-      </nav>
-      <div class="foot-fine">
-        <p class="foot-labels"><span>Every figure carries a label:</span> <span class="label verified">Verified</span> <span class="label audit">Audit finding</span> <span class="label official">Official claim</span> <span class="label unverified">Unverified</span> <a href="/how-we-work/">What they mean</a></p>
-        <p>© {new Date().getFullYear()} Nyamira Daily · Maps: geoBoundaries (CC BY 4.0), © OpenStreetMap contributors</p>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
   <script is:inline>
   (function () {
     var KEY = 'nd-ward', ward = '';
