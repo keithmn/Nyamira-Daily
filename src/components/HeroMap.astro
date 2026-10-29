@@ -2,14 +2,16 @@
 // Home page opening panel: the whole county as a live map.
 // - Every ward is a link to its page (works without JavaScript).
 // - A pulsing dot marks each ward with a question to ask (src/lib/projects.js `questions`).
-// - With JavaScript, the panel beside the map steps through the questions (with pause, previous and next),
-//   and pointing at a ward (or tapping it once on a touch screen) shows that ward's figures instead.
+// - The map runs the full width of the page, with the neighbouring counties around Nyamira.
+// - With JavaScript, a floating card beside the highlighted ward steps through the questions (with pause,
+//   previous and next), and pointing at a ward (or tapping it once on a touch screen) shows that ward's figures.
+//   On phones the card docks under the map.
 // - Motion stops for readers who ask their phone for reduced motion.
 import geo from '../data/geo.json';
 import TownMarks from './TownMarks.astro';
 import nb from '../data/neighbours.json';
 // Neighbouring counties, for context only (not links): where each name sits inside the frame.
-const nbLabels = [['Kisumu', 250, -72], ['Homa Bay', -95, 40], ['Kericho', 640, -40], ['Bomet', 655, 600], ['Kisii', -80, 600], ['Narok', 330, 1040]];
+const nbLabels = [['Kisumu', 230, -95], ['Homa Bay', -330, 170], ['Kericho', 830, 40], ['Bomet', 940, 560], ['Kisii', -170, 640], ['Narok', 1040, 1010], ['Migori', -700, 780]];
 import wards from '../data/wards.js';
 import { budget2526, questions } from '../lib/projects.js';
 import { ksh } from '../lib/fmt.js';
@@ -60,44 +62,12 @@ const q0 = qs[0];
       <a class="pill-btn line" href="/ward/">See all 20 wards</a>
     </div>
 
-    <div class="hero-card" aria-live="polite">
-      <!-- Without JavaScript: the first question, and a link to the rest -->
-      <div class="hc-q" data-hc="q">
-        <div class="hc-top">
-          <span class="eyebrow"><span class="live" aria-hidden="true"></span>Question to ask</span>
-          <span class="hc-ctl">
-            <span class="hc-count" data-f="count">1 of {qs.length}</span>
-            <button type="button" class="hc-btn" data-act="prev" aria-label="Previous question" hidden>‹</button>
-            <button type="button" class="hc-btn" data-act="pause" aria-label="Pause" aria-pressed="false" hidden><span class="i-pause" aria-hidden="true"></span></button>
-            <button type="button" class="hc-btn" data-act="next" aria-label="Next question" hidden>›</button>
-          </span>
-        </div>
-        <span class="hc-ward" data-f="name">{q0.name} ward</span>
-        <h2 class="hc-title" data-f="title">{q0.title}</h2>
-        <p data-f="text">{q0.text}</p>
-        <p class="source"><span class="label official">Official claim</span> <span data-f="src">{q0.src.map((s, i) => <>{i > 0 && '; '}<a href={s.url} rel="noopener">{s.title}</a>{s.page && ` ${s.page}`}</>)}</span></p>
-        <p class="hc-note">A question, not an accusation. <a href="/data/money/#projects">All ward projects and questions</a></p>
-      </div>
-      <div class="hc-w" data-hc="w" hidden>
-        <div class="hc-top"><span class="eyebrow" data-f="sub"></span><span class="hc-count">Ward</span></div>
-        <h2 class="hc-title big" data-f="wname"></h2>
-        <div class="hc-figs">
-          <div><b data-f="services"></b><span>services listed</span><span class="label unverified">Unverified</span></div>
-          <div><b data-f="budget"></b><span data-f="bnote">ward projects, 2025/26 budget</span><span class="label official">Official claim</span></div>
-        </div>
-        <p class="hc-flag" data-f="flag"></p>
-        <a class="pill-btn" data-f="open" href="/ward/">Open ward</a>
-      </div>
-    </div>
+  </div>
 
+  <div class="hero-stage">
     <figure class="hero-map">
-      <svg viewBox="-170 -110 940 1170" aria-label="Map of Nyamira County's 20 wards, with the neighbouring counties around it. Each ward links to its page; pulsing dots mark wards with a question to ask.">
-        <defs>
-          <clipPath id="hm-frame"><rect x="-170" y="-110" width="940" height="1170" rx="28" /></clipPath>
-          <radialGradient id="hm-fade-g" cx="50%" cy="48%" r="62%"><stop offset="0.55" stop-color="#fff" /><stop offset="1" stop-color="#fff" stop-opacity="0" /></radialGradient>
-          <mask id="hm-fade" maskUnits="userSpaceOnUse" x="-170" y="-110" width="940" height="1170"><rect x="-170" y="-110" width="940" height="1170" fill="url(#hm-fade-g)" /></mask>
-        </defs>
-        <g class="hm-nb" clip-path="url(#hm-frame)" mask="url(#hm-fade)" aria-hidden="true">
+      <svg viewBox="-450 -80 1500 1110" preserveAspectRatio="xMidYMid meet" aria-label="Map of Nyamira County's 20 wards, with the neighbouring counties around it. Each ward links to its page; pulsing dots mark wards with a question to ask.">
+        <g class="hm-nb" aria-hidden="true">
           {Object.entries(nb.counties).filter(([n]) => n !== 'Nyamira').map(([n, c]) => <path d={c.d} data-county={n} />)}
         </g>
         <g class="hm-nbl" aria-hidden="true">
@@ -128,6 +98,37 @@ const q0 = qs[0];
         <span class="key nb-key">Around it: Kisii, Bomet, Kericho, Kisumu, Homa Bay and Narok counties</span>
       </figcaption>
     </figure>
+    <span class="hc-link" aria-hidden="true" hidden></span>
+    <div class="hero-card" aria-live="polite">
+      <!-- Without JavaScript: the first question, and a link to the rest -->
+      <div class="hc-q" data-hc="q">
+        <div class="hc-top">
+          <span class="eyebrow"><span class="live" aria-hidden="true"></span>Question to ask</span>
+          <span class="hc-ctl">
+            <span class="hc-count" data-f="count">1 of {qs.length}</span>
+            <button type="button" class="hc-btn" data-act="prev" aria-label="Previous question" hidden>‹</button>
+            <button type="button" class="hc-btn" data-act="pause" aria-label="Pause" aria-pressed="false" hidden><span class="i-pause" aria-hidden="true"></span></button>
+            <button type="button" class="hc-btn" data-act="next" aria-label="Next question" hidden>›</button>
+          </span>
+        </div>
+        <span class="hc-ward" data-f="name">{q0.name} ward</span>
+        <h2 class="hc-title" data-f="title">{q0.title}</h2>
+        <p data-f="text">{q0.text}</p>
+        <p class="source"><span class="label official">Official claim</span> <span data-f="src">{q0.src.map((s, i) => <>{i > 0 && '; '}<a href={s.url} rel="noopener">{s.title}</a>{s.page && ` ${s.page}`}</>)}</span></p>
+        <p class="hc-note">A question, not an accusation. <a href="/data/money/#projects">All ward projects and questions</a></p>
+      </div>
+      <div class="hc-w" data-hc="w" hidden>
+        <div class="hc-top"><span class="eyebrow" data-f="sub"></span><span class="hc-count">Ward</span></div>
+        <h2 class="hc-title big" data-f="wname"></h2>
+        <div class="hc-figs">
+          <div><b data-f="services"></b><span>services listed</span><span class="label unverified">Unverified</span></div>
+          <div><b data-f="budget"></b><span data-f="bnote">ward projects, 2025/26 budget</span><span class="label official">Official claim</span></div>
+        </div>
+        <p class="hc-flag" data-f="flag"></p>
+        <a class="pill-btn" data-f="open" href="/ward/">Open ward</a>
+      </div>
+    </div>
+
   </div>
   <script is:inline type="application/json" id="hm-data" set:html={data}></script>
 </section>
@@ -147,6 +148,34 @@ const q0 = qs[0];
   function f(card, k) { return card.querySelector('[data-f="' + k + '"]'); }
   function each(sel, fn) { Array.prototype.forEach.call(root.querySelectorAll(sel), fn); }
   root.classList.add('live-on');
+  var stage = root.querySelector('.hero-stage'), card = root.querySelector('.hero-card'), link = root.querySelector('.hc-link');
+  var wide = window.matchMedia('(min-width: 900px)');
+  // Fit the camera to the stage: the county fills most of the height, centred; neighbours fill the sides
+  function fit() {
+    var r = svg.getBoundingClientRect(); if (!r.width || !r.height) return;
+    var a = r.width / r.height, h = wide.matches ? 1080 : 1120, w = h * a;
+    if (!wide.matches && w < 700) { w = 700; h = w / a; }
+    svg.setAttribute('viewBox', [300 - w / 2, (wide.matches ? 470 : 480) - h / 2, w, h].map(function (n) { return n.toFixed(1); }).join(' '));
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+  }
+  // Float the card beside the highlighted ward (desktop); on phones it docks under the map
+  function place(slug) {
+    if (!wide.matches) { card.style.transform = ''; link.hidden = true; return; }
+    var c = C[slug], m = svg.getScreenCTM(); if (!c || !m) return;
+    var sr = stage.getBoundingClientRect(), px = m.a * c[0] + m.e - sr.left, py = m.d * c[1] + m.f - sr.top;
+    var cw = card.offsetWidth, ch = card.offsetHeight, gap = 40;
+    // Beside the county, never on top of it: right of its east edge if there is room, else left of its west edge
+    var east = m.a * 640 + m.e - sr.left, west = m.a * -40 + m.e - sr.left;
+    var right = east + gap + cw < sr.width - 16 || west - gap - cw < 16, x = right ? east + gap : west - gap - cw;
+    x = Math.max(16, Math.min(x, sr.width - cw - 16));
+    var y = Math.max(16, Math.min(py - ch / 2, sr.height - ch - 16));
+    card.style.transform = 'translate(' + x.toFixed(0) + 'px,' + y.toFixed(0) + 'px)';
+    var ex = right ? x : x + cw, ey = y + Math.min(Math.max(py - y, 24), ch - 24);
+    var dx = ex - px, dy = ey - py, len = Math.hypot(dx, dy);
+    link.hidden = false;
+    link.style.width = Math.max(0, len - 12).toFixed(0) + 'px';
+    link.style.transform = 'translate(' + px.toFixed(0) + 'px,' + py.toFixed(0) + 'px) rotate(' + Math.atan2(dy, dx) + 'rad) translateX(12px)';
+  }
   each('.hc-btn', function (b) { b.hidden = false; });
   var pauseBtn = root.querySelector('[data-act="pause"]');
   function setPause(p) { paused = p; pauseBtn.setAttribute('aria-pressed', p ? 'true' : 'false'); pauseBtn.setAttribute('aria-label', p ? 'Play' : 'Pause'); pauseBtn.classList.toggle('is-paused', p); }
@@ -168,6 +197,7 @@ const q0 = qs[0];
     });
     each('[data-p]', function (g) { g.classList.toggle('hot', g.getAttribute('data-p') === focus); });
     showLabel(focus);
+    requestAnimationFrame(function () { place(focus); });
   }
   function renderQ() {
     var q = Q[i];
@@ -215,7 +245,13 @@ const q0 = qs[0];
     a.addEventListener('click', function (e) { if (lastTouch && hover !== s) { e.preventDefault(); hover = s; draw(); } });
   });
   document.addEventListener('keydown', function () { lastTouch = false; });
-  svg.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { hover = null; draw(); } });
+  // Moving from a ward onto its floating card keeps the ward's card open (so "Open ward" can be clicked)
+  svg.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && !card.contains(e.relatedTarget)) { hover = null; draw(); } });
+  card.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && hover && !svg.contains(e.relatedTarget)) { hover = null; draw(); } });
+  function refit() { fit(); mark(); }
+  window.addEventListener('resize', refit);
+  if (wide.addEventListener) wide.addEventListener('change', refit);
+  fit();
   svg.addEventListener('focusout', function (e) { if (!svg.contains(e.relatedTarget)) { hover = null; draw(); } });
 
   // The reader's own ward (from the picker) is outlined on the map

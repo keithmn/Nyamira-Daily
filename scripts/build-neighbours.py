@@ -11,7 +11,7 @@ root = os.path.join(os.path.dirname(__file__), '..')
 d = json.load(open(sys.argv[1]))
 P = json.load(open(os.path.join(root, 'src', 'data', 'geo.json')))['proj']
 def xy(lon, lat): return ((lon - P['minx']) * P['k'] * P['sc'], (P['maxy'] - lat) * P['sc'])
-X0, Y0, X1, Y1 = -320, -260, 920, 1210
+X0, Y0, X1, Y1 = -1150, -200, 1350, 1200  # wide enough for the full-width home map
 
 def clip(poly):
     def cl(pts, inside, inter):
