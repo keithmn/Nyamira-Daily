@@ -11,6 +11,8 @@ import { getNumbers } from '../lib/numbers.js';
 const [numberNow] = await getNumbers();
 import wards from '../data/wards.js';
 import { topics } from '../data/topics.js';
+import Icon from '../components/Icon.astro';
+import { topicIcon } from '../lib/icons.js';
 import money from '../data/money.json';
 import leaders from '../data/leaders.json';
 
@@ -21,13 +23,13 @@ const bn = (m) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
 const spentPct = Math.round((last.spent / last.budget) * 100);
 const gov = leaders.county.find((l) => l.office === 'Governor');
 const more = [
-  { href: '/government/leaders/', t: 'Who represents you', d: `The Governor (${gov?.name}), Senator, MPs and all 20 ward MCAs, with sources.` },
-  { href: '/government/whos-in-charge/', t: 'Who fixes what', d: "A road, a dispensary, a market: is it the county's job or the national government's?" },
-  { href: '/data/money/#projects', t: 'What your ward was promised', d: "Every ward's project budget for 2025/26, and projects that need answers." },
-  { href: '/constitution/fourth-schedule/', t: 'What the county must provide', d: 'The 14 jobs the Constitution gives every county government, in plain words.' },
-  { href: '/opportunities/', t: 'Jobs, tenders and bursaries', d: 'Opportunities, deadlines and last-build status, plus how to register for youth and women tenders (AGPO).' },
-  { href: '/learn/fees/', t: 'What the county can charge', d: 'Business permits, market fees, parking and more, from the Finance Act 2025.' },
-  { href: '/learn/taking-part/', t: 'Have your say', d: 'How to speak at a budget forum, petition the Assembly or request information.' },
+  { i: 'people', href: '/government/leaders/', t: 'Who represents you', d: `The Governor (${gov?.name}), Senator, MPs and all 20 ward MCAs, with sources.` },
+  { i: 'government', href: '/government/whos-in-charge/', t: 'Who fixes what', d: "A road, a dispensary, a market: is it the county's job or the national government's?" },
+  { i: 'pin', href: '/data/money/#projects', t: 'What your ward was promised', d: "Every ward's project budget for 2025/26, and projects that need answers." },
+  { i: 'source', href: '/constitution/fourth-schedule/', t: 'What the county must provide', d: 'The 14 jobs the Constitution gives every county government, in plain words.' },
+  { i: 'calendar', href: '/opportunities/', t: 'Jobs, tenders and bursaries', d: 'Opportunities, deadlines and last-build status, plus how to register for youth and women tenders (AGPO).' },
+  { i: 'money', href: '/learn/fees/', t: 'What the county can charge', d: 'Business permits, market fees, parking and more, from the Finance Act 2025.' },
+  { i: 'takepart', href: '/learn/taking-part/', t: 'Have your say', d: 'How to speak at a budget forum, petition the Assembly or request information.' },
 ];
 ---
 <Base title="Today" tools={false}>
@@ -47,9 +49,9 @@ const more = [
       </div>
       <div class="stack">
         <div class="tiles three">
-          <a class="tile graphic-tile" href="/ward/"><b>20</b><span>wards, each with an elected MCA</span><EvidenceLabel kind="verified" /></a>
-          <a class="tile graphic-tile" href="/data/people/#services"><b>{facilities}</b><span>public places and services listed</span><EvidenceLabel kind="unverified" /></a>
-          <a class="tile graphic-tile" href="/data/health/#facilities"><b>{health}</b><span>health facilities listed</span><EvidenceLabel kind="official" /></a>
+          <a class="tile graphic-tile" href="/ward/"><Icon name="ward" size={22} badge /><b>20</b><span>wards, each with an elected MCA</span><EvidenceLabel kind="verified" /></a>
+          <a class="tile graphic-tile" href="/data/people/#services"><Icon name="market" size={22} badge /><b>{facilities}</b><span>public places and services listed</span><EvidenceLabel kind="unverified" /></a>
+          <a class="tile graphic-tile" href="/data/health/#facilities"><Icon name="health" size={22} badge /><b>{health}</b><span>health facilities listed</span><EvidenceLabel kind="official" /></a>
         </div>
         <p class="small muted">Sources: IEBC ward list and geoBoundaries (wards); the Nyamira Daily list, mostly not yet checked on site (services); Kenya Master Health Facility List, 2017 export (health). <span class="updated">Figures last updated 22 Oct 2026.</span></p>
         <MyWard topic="home" />
@@ -60,7 +62,7 @@ const more = [
       <h2 id="explore">Explore the data</h2>
       <div class="sector-tiles compact">
         {topics.map((t) => (
-          <a class={`sector-tile sec-${t.tone}`} href={`/data/${t.slug}/`}><h3>{t.title}</h3><p>{t.question}</p><span class="go" aria-hidden="true">→</span></a>
+          <a class={`sector-tile sec-${t.tone}`} href={`/data/${t.slug}/`}><Icon name={topicIcon[t.slug] ?? 'chart'} size={24} badge /><h3>{t.title}</h3><p>{t.question}</p><span class="go" aria-hidden="true">→</span></a>
         ))}
       </div>
     </section>
@@ -70,7 +72,7 @@ const more = [
         <h2>Find out more</h2>
         <ul class="rows">
           {more.map((m) => (
-            <li><a class="row-link" href={m.href}><span><span class="t">{m.t}</span><span class="d">{m.d}</span></span><span class="go" aria-hidden="true">→</span></a></li>
+            <li><a class="row-link has-ico" href={m.href}><Icon name={m.i} size={22} badge /><span><span class="t">{m.t}</span><span class="d">{m.d}</span></span><span class="go" aria-hidden="true">→</span></a></li>
           ))}
         </ul>
       </div>

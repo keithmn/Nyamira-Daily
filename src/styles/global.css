@@ -1110,3 +1110,140 @@ main .tile { border-top: 4px solid var(--sec); }
 .sec-bloom .on-ink, .on-ink.sec-bloom { --sec-deep: #F2C4B4; }
 .sec-mist .on-ink, .on-ink.sec-mist { --sec-deep: #8fd8ae; }
 main .receipt { border-top: 6px solid var(--sec); }
+
+/* ===== Facelift (decision #55): neon numbers, the icon set, heading marks, photo cards, map surround ===== */
+
+/* Large numbers glow in their section colour. The glow is light only: the digits keep their own colour,
+   so contrast is unchanged. Light mode gets a soft halo; dark mode and Ink panels get a true neon. */
+:root { --glow-a: 40%; --glow-b: 22%; }
+:root[data-theme="dark"] { --glow-a: 75%; --glow-b: 45%; }
+.on-ink, .panel-ink { --glow-a: 80%; --glow-b: 48%; }
+main :is(.figure .num, .tile b, .card .big, .callout b, .hc-title.big, .pc-text b, .coins-key b) {
+  --glow: var(--sec, var(--nd-green));
+  text-shadow: 0 0 2px color-mix(in srgb, var(--glow) var(--glow-b), transparent), 0 0 14px color-mix(in srgb, var(--glow) var(--glow-a), transparent), 0 0 34px color-mix(in srgb, var(--glow) var(--glow-b), transparent);
+  font-variant-numeric: tabular-nums;
+}
+main :is(.figure .num, .tile b, .card .big, .callout b).hot, main .hot :is(b) { --glow: var(--nd-red); }
+main :is(.on-ink, .panel-ink) :is(.figure .num, .tile b, .big, b) { --glow: var(--nd-green); }
+:root[data-theme="dark"] main .figure .num:not(.hot), :root[data-theme="dark"] main .tile b:not(.hot) { color: var(--sec-deep); }
+/* On solid colour panels (Number of the week) the number stays Ink with a white bloom */
+main .panel.sec-harvest .figure .num:not(.hot) { text-shadow: 0 0 18px rgb(255 255 255 / 0.75), 0 0 2px rgb(255 255 255 / 0.6); }
+.figure .num { font-size: clamp(40px, 8vw, 60px); }
+.tile b { font-size: 34px; }
+@media print { main * { text-shadow: none !important; } }
+
+/* Icons: stroke in the text colour, one accent shape in the section colour */
+.ico { display: inline-grid; place-items: center; flex: none; line-height: 0; color: var(--ico-ink, currentColor); }
+.ico svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.ico svg .ac { fill: var(--ico-acc, var(--sec, var(--nd-green))); stroke: none; }
+.ico svg .acs { stroke: var(--ico-acc, var(--sec, var(--nd-green))); }
+.ico-badge { padding: 9px; border-radius: 14px; background: var(--ico-bg, var(--sec-soft, var(--surface))); color: var(--sec-deep, var(--ink)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sec, var(--nd-green)) 30%, transparent); align-self: flex-start; }
+/* Light accents (Harvest, Mist, Bloom, Avocado) on their own tint need the deep tone to show */
+.sec-mist .ico svg .ac, .sec-mist .ico svg .acs { fill: var(--hl-tea); stroke: var(--hl-tea); }
+.sec-mist .ico svg .ac { stroke: none; }
+/* Badges on solid tiles invert: Ink or White square, accent in the tile colour */
+.sector-tile .ico-badge { background: var(--sec-ink); color: var(--sec); box-shadow: none; --ico-acc: var(--sec); }
+.sector-tile.sec-mist .ico-badge { background: var(--hl-tea); color: #fff; --ico-acc: var(--hl-mist); }
+.sector-tile.sec-mist .ico svg .ac { fill: var(--hl-mist); }
+.sector-tile.sec-harvest .ico-badge, .sector-tile.sec-avocado .ico-badge, .sector-tile.sec-bloom .ico-badge { --ico-acc: var(--sec); }
+main .tile .ico-badge { padding: 6px; border-radius: 10px; margin-bottom: 2px; }
+main .grid > .card .ico-badge { background: var(--bg); }
+.row-link.has-ico { gap: 14px; }
+.row-link.has-ico > .ico-badge { padding: 7px; border-radius: 12px; align-self: center; }
+details > summary .ico { color: var(--sec-deep, var(--ink)); }
+.pictos .pc-icons .ico { color: var(--sec-deep, var(--ink)); }
+:root[data-theme="dark"] .ico-badge { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sec, var(--nd-green)) 45%, transparent); }
+
+/* Page heads: a large outline of the section's icon sits in the band's corner */
+.page-head.band.has-mark { position: relative; overflow: hidden; }
+.page-head.band.has-mark > :not(.ph-mark) { position: relative; }
+.page-head .ph-mark { position: absolute; right: -14px; bottom: -22px; color: var(--sec-ink); opacity: 0.16; --ico-acc: var(--sec-ink); pointer-events: none; }
+.page-head .ph-mark svg { stroke-width: 1.4; }
+@media (max-width: 520px) { .page-head .ph-mark svg { width: 96px; height: 96px; } .page-head .ph-mark { right: -18px; bottom: -18px; opacity: 0.12; } }
+:root[data-theme="dark"] .page-head.band.sec-mist .ph-mark { color: var(--ink); }
+
+/* Headings: Varela Round has one weight, so emphasis comes from colour and marks, not bold.
+   h2: a highlighter underline in the section tint. h3: the section's deep tone. */
+main h2 {
+  text-decoration-line: underline; text-decoration-thickness: 0.34em; text-underline-offset: -0.14em;
+  text-decoration-color: color-mix(in srgb, var(--sec-deep, var(--nd-green)) 24%, transparent); text-decoration-skip-ink: none;
+}
+:root[data-theme="dark"] main h2 { text-decoration-color: color-mix(in srgb, var(--sec-deep, var(--nd-green)) 38%, transparent); }
+main :is(.sector-tile, .card, .band > h2:first-child, .nyw, .hc, .page-head, .tg-title, summary, .photo-slot) h2,
+main .sector-tile h2, main .grid > .card h2, main .band > h2:first-child, main .nyw h2 { text-decoration: none; }
+main h3:not(.sector-tile h3):not(.tg-title) { color: var(--sec-deep, var(--ink)); }
+main .on-ink h2, main .on-ink h3 { color: inherit; text-decoration: none; }
+main .receipt h2 { text-decoration: none; }
+
+/* Photo placeholder cards: a frame waiting for a verified photo, never a stock picture */
+.photo-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; }
+@media (max-width: 700px) { .photo-grid { grid-template-columns: 1fr 1fr; } .photo-grid > .photo-slot.wide { grid-column: 1 / -1; } }
+.photo-slot { margin: 0; display: flex; flex-direction: column; border-radius: var(--radius); overflow: hidden; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.photo-slot .ps-frame { position: relative; aspect-ratio: 16 / 9; display: grid; place-items: center;
+  background: linear-gradient(160deg, var(--sec-soft, var(--surface)) 0%, color-mix(in srgb, var(--sec, var(--nd-green)) 22%, var(--bg)) 100%); }
+.photo-slot.square .ps-frame { aspect-ratio: 4 / 3; }
+.photo-slot .ps-hills { position: absolute; inset: auto 0 0 0; width: 100%; height: 55%; }
+.photo-slot .ps-hills path { fill: color-mix(in srgb, var(--sec, var(--nd-green)) 18%, transparent); }
+.photo-slot .ps-icons { position: relative; display: inline-flex; align-items: flex-end; gap: 2px; padding: 14px; border-radius: 50%; background: var(--bg);
+  border: 2px dashed color-mix(in srgb, var(--sec-deep, var(--ink)) 45%, transparent); color: var(--sec-deep, var(--ink)); }
+.photo-slot .ps-cam { margin-left: -10px; margin-bottom: -6px; background: var(--bg); border-radius: 50%; padding: 2px; }
+.photo-slot figcaption { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 1.4; }
+.photo-slot figcaption span { color: var(--muted); }
+.photo-slot.square .ps-icons { padding: 10px; }
+
+/* Hero map: the neighbouring counties as quiet context around Nyamira */
+.hero-map svg { width: 94%; max-width: 480px; }
+@media (min-width: 900px) { .hero-map svg { width: 100%; max-width: 560px; } }
+.hm-nb path { fill: rgb(255 255 255 / 0.035); stroke: rgb(255 255 255 / 0.26); stroke-width: 2; stroke-dasharray: 7 7; stroke-linejoin: round; }
+.hm-nbl text { font-family: var(--title-font); font-size: 30px; letter-spacing: 0.14em; text-transform: uppercase; fill: rgb(255 255 255 / 0.42); }
+.hm-county { filter: drop-shadow(0 0 14px rgb(31 208 122 / 0.32)); }
+.nb-key { color: var(--muted); }
+@media (max-width: 520px) { .hm-nbl text { font-size: 38px; } }
+
+/* Purpose maps (/maps/): one frame, three colour systems */
+.pmaps { display: flex; flex-direction: column; gap: 20px; margin-top: 16px; }
+@media (min-width: 900px) {
+  .pmap { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); grid-auto-rows: min-content; column-gap: 28px; padding: 24px !important; }
+  .pmap > :not(svg) { grid-column: 1; }
+  .pmap > svg { grid-column: 2; grid-row: 1 / span 6; max-height: 720px; }
+}
+.pmap { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--radius); background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); scroll-margin-top: 16px; }
+.pmap .pm-head { display: flex; gap: 12px; align-items: flex-start; }
+.pmap .pm-head h2 { text-decoration: none; font-size: 20px; }
+.pmap svg { width: 100%; height: auto; display: block; border-radius: 14px; }
+.pm-navigate { --sec: var(--hl-tea); --sec-soft: #dcefe4; --sec-deep: #0B5D3B; }
+.pm-facilities { --sec: var(--hl-rain); --sec-soft: #e1ecf4; --sec-deep: #1F5F8B; }
+.pm-alerts { --sec: var(--hl-mist); --sec-soft: #eef1ef; --sec-deep: #3d3d3a; }
+:root[data-theme="dark"] .pm-navigate { --sec-soft: #11261b; --sec-deep: #5fd39a; }
+:root[data-theme="dark"] .pm-facilities { --sec-soft: #142330; --sec-deep: #7fb6dd; }
+:root[data-theme="dark"] .pm-alerts { --sec-soft: #1e1e1c; --sec-deep: #d6d6d2; }
+.pmap svg { background: var(--sec-soft); }
+.pm-nb path { fill: none; stroke: color-mix(in srgb, var(--ink) 22%, transparent); stroke-width: 2; stroke-dasharray: 6 6; }
+.pm-w { stroke: var(--bg); stroke-width: 2.4; stroke-linejoin: round; cursor: pointer; transition: opacity 0.15s; }
+.pmap a:hover .pm-w, .pmap a:focus-visible .pm-w { opacity: 0.8; stroke: var(--ink); stroke-width: 4; }
+.pmap a:focus-visible { outline: none; }
+/* Navigate: four greens for the four sub-counties */
+.pm-w.sc1, .pm-sw.sc1 { fill: #0B5D3B; } .pm-w.sc2, .pm-sw.sc2 { fill: #2f8a5c; } .pm-w.sc3, .pm-sw.sc3 { fill: #5cb383; } .pm-w.sc4, .pm-sw.sc4 { fill: #9bd2b2; }
+.pm-navigate .pm-lab text { fill: #fff; }
+.pm-navigate .pm-lab text, .pm-facilities .pm-lab text { font-size: 17px; font-weight: 700; text-anchor: middle; paint-order: stroke; stroke-width: 3.5px; stroke-linejoin: round; }
+.pm-navigate .pm-lab text { stroke: rgb(0 0 0 / 0.45); }
+/* Facilities: Rain, pale to dark; 0 is grey so "none listed" never looks like a low count */
+.pm-w.f0, .pm-sw.f0 { fill: #ececea; } .pm-w.f1, .pm-sw.f1 { fill: #cfe0ed; } .pm-w.f2, .pm-sw.f2 { fill: #9cc1dc; }
+.pm-w.f3, .pm-sw.f3 { fill: #5f97c2; } .pm-w.f4, .pm-sw.f4 { fill: #2f6f9e; } .pm-w.f5, .pm-sw.f5 { fill: #173f5f; }
+:root[data-theme="dark"] .pm-w.f0, :root[data-theme="dark"] .pm-sw.f0 { fill: #2a2a28; }
+.pm-facilities .pm-lab text { fill: #111; stroke: rgb(255 255 255 / 0.8); }
+.pm-facilities .pm-lab text.pm-n { font-size: 22px; }
+/* Alerts: grey map, colour only on alert marks */
+.pm-alerts .pm-w { fill: #d6d6d2; }
+:root[data-theme="dark"] .pm-alerts .pm-w { fill: #3a3a37; }
+.pm-key { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; color: var(--muted); }
+.pm-key .key { display: inline-flex; align-items: center; gap: 6px; }
+.pm-sw { display: inline-block; width: 16px; height: 16px; background: var(--swatch); border-radius: 4px; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.12); }
+.pm-cats .chip { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font: inherit; font-size: 14px; color: var(--ink); }
+.pm-cats .chip[aria-pressed="true"] { background: var(--hl-rain); color: #fff; border-color: var(--hl-rain); --ico-acc: #fff; }
+.pm-jump .chip { text-decoration: none; color: var(--ink); }
+
+.pm-sw.sc1 { --swatch: #0B5D3B; } .pm-sw.sc2 { --swatch: #2f8a5c; } .pm-sw.sc3 { --swatch: #5cb383; } .pm-sw.sc4 { --swatch: #9bd2b2; }
+.pm-sw.f0 { --swatch: #ececea; } .pm-sw.f1 { --swatch: #cfe0ed; } .pm-sw.f2 { --swatch: #9cc1dc; } .pm-sw.f3 { --swatch: #5f97c2; } .pm-sw.f4 { --swatch: #2f6f9e; } .pm-sw.f5 { --swatch: #173f5f; }
+:root[data-theme="dark"] .pm-sw.f0 { --swatch: #2a2a28; }
+.pm-navigate .pm-lab text { font-size: 19px; }

@@ -1,0 +1,23 @@
+---
+// A placeholder card where a verified photo will go (facility and project pages).
+// It is a frame, not an image: no stock or generic pictures are ever put here (decision #55).
+// A real photo needs a capture date, a photographer or source, a matching facility/project ID and
+// permission (docs/STATUS.md, facility ledger item 6) before it can replace this card.
+import Icon from './Icon.astro';
+interface Props { icon?: string; title?: string; note?: string; ratio?: 'wide' | 'square'; tone?: string }
+const {
+  icon = 'camera', title = 'No verified photo yet',
+  note = 'A photo appears here only once we know when it was taken, who took it, that it shows this place, and that we may publish it.',
+  ratio = 'wide', tone,
+} = Astro.props;
+---
+<figure class={`photo-slot ${ratio}${tone ? ` sec-${tone}` : ''}`}>
+  <div class="ps-frame" aria-hidden="true">
+    <svg class="ps-hills" viewBox="0 0 320 180" preserveAspectRatio="none" focusable="false">
+      <path d="M0 132C48 104 92 118 140 98S236 70 320 92V180H0z" />
+      <path d="M0 152C60 128 120 146 176 128S268 112 320 124V180H0z" />
+    </svg>
+    <span class="ps-icons"><Icon name={icon} size={34} /><Icon name="camera" size={22} class="ps-cam" /></span>
+  </div>
+  <figcaption><strong>{title}</strong><span>{note}</span></figcaption>
+</figure>

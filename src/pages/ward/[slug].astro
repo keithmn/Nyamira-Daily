@@ -1,4 +1,6 @@
 ---
+import Icon from '../../components/Icon.astro';
+import { categoryIcon } from '../../lib/icons.js';
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import EvidenceLabel from '../../components/EvidenceLabel.astro';
@@ -107,12 +109,12 @@ const budgets = wards.map((x) => {
     </div>
 
     <section class="stack">
-      <h2>Services in {w.name}</h2>
+      <h2 id="services">Services in {w.name}</h2>
       <p class="muted small">Listed from public sources. "Unverified" means our correspondents have not yet visited. <span class="updated">Last updated 22 Oct 2026.</span></p>
       <Pictos counts={order.filter((c) => byCat[c]).map((c) => ({ cat: c, n: byCat[c].length, href: `#svc-${c.toLowerCase().split(' ').join('-')}` }))} />
       {order.filter((c) => byCat[c]).map((c) => (
         <details id={`svc-${c.toLowerCase().split(' ').join('-')}`}>
-          <summary>{c} ({byCat[c].length})</summary>
+          <summary><Icon name={categoryIcon[c] ?? 'source'} size={20} />{c} ({byCat[c].length})</summary>
           <div class="table-box">
             <table class="cards">
               <thead><tr><th>Name</th><th>Type</th><th>Evidence</th><th>Source</th></tr></thead>

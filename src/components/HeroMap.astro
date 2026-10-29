@@ -6,6 +6,9 @@
 //   and pointing at a ward (or tapping it once on a touch screen) shows that ward's figures instead.
 // - Motion stops for readers who ask their phone for reduced motion.
 import geo from '../data/geo.json';
+import nb from '../data/neighbours.json';
+// Neighbouring counties, for context only (not links): where each name sits inside the frame.
+const nbLabels = [['Kisumu', 250, -72], ['Homa Bay', -95, 40], ['Kericho', 640, -40], ['Bomet', 655, 600], ['Kisii', -80, 600], ['Narok', 330, 1040]];
 import wards from '../data/wards.js';
 import { budget2526, questions } from '../lib/projects.js';
 import { ksh } from '../lib/fmt.js';
@@ -87,12 +90,25 @@ const q0 = qs[0];
     </div>
 
     <figure class="hero-map">
-      <svg viewBox="0 0 600 950" aria-label="Map of Nyamira County's 20 wards. Each ward links to its page; pulsing dots mark wards with a question to ask.">
+      <svg viewBox="-170 -110 940 1170" aria-label="Map of Nyamira County's 20 wards, with the neighbouring counties around it. Each ward links to its page; pulsing dots mark wards with a question to ask.">
+        <defs>
+          <clipPath id="hm-frame"><rect x="-170" y="-110" width="940" height="1170" rx="28" /></clipPath>
+          <radialGradient id="hm-fade-g" cx="50%" cy="48%" r="62%"><stop offset="0.55" stop-color="#fff" /><stop offset="1" stop-color="#fff" stop-opacity="0" /></radialGradient>
+          <mask id="hm-fade" maskUnits="userSpaceOnUse" x="-170" y="-110" width="940" height="1170"><rect x="-170" y="-110" width="940" height="1170" fill="url(#hm-fade-g)" /></mask>
+        </defs>
+        <g class="hm-nb" clip-path="url(#hm-frame)" mask="url(#hm-fade)" aria-hidden="true">
+          {Object.entries(nb.counties).filter(([n]) => n !== 'Nyamira').map(([n, c]) => <path d={c.d} data-county={n} />)}
+        </g>
+        <g class="hm-nbl" aria-hidden="true">
+          {nbLabels.map(([n, x, y]) => <text x={x} y={y} text-anchor="middle">{n}</text>)}
+        </g>
+        <g class="hm-county">
         {Object.entries(geo.wards).map(([s, w]) => (
           <a href={`/ward/${s}/`} data-w={s} aria-label={`${w.name} ward${flagged.includes(s) ? ', has a question to ask' : ''}`}>
             <path class={`hm-w ${subClass[info[s].sub]}`} d={w.d} />
           </a>
         ))}
+        </g>
         {flagged.map((s, i) => (
           <g class="hm-ping" data-p={s} aria-hidden="true">
             <circle class="ring" cx={geo.wards[s].cx} cy={geo.wards[s].cy} r="9" style={`animation-delay:${(i * 0.37).toFixed(2)}s`} />
@@ -106,6 +122,7 @@ const q0 = qs[0];
         <span class="key"><span class="live" aria-hidden="true"></span>Question to ask</span>
         <span class="key"><i class="hm-key"></i><span class="hint-hover">Point at a ward</span><span class="hint-touch">Tap a ward</span></span>
         {liveAlerts.length > 0 && <AlertKey />}
+        <span class="key nb-key">Around it: Kisii, Bomet, Kericho, Kisumu, Homa Bay and Narok counties</span>
       </figcaption>
     </figure>
   </div>

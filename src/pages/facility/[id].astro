@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import EvidenceLabel from '../../components/EvidenceLabel.astro';
 import FacilityObservationForm from '../../components/FacilityObservationForm.astro';
+import PhotoSlot from '../../components/PhotoSlot.astro';
+import { categoryIcon } from '../../lib/icons.js';
 import wards, { facilities } from '../../data/wards.js';
 import observationRecords from '../../data/facility-observations.json';
 import { latestFacilityCapabilities, observationsForFacility, validateFacilityObservations } from '../../lib/facility-observations.js';
@@ -31,6 +33,7 @@ const facilityHistory = observationsForFacility(reviewedObservations, facility.i
   <PageHead
     eyebrow={`Facility profile · ${facility.id}`}
     title={facility.name}
+    icon={categoryIcon[facility.category]}
     lead={`${facility.category} · ${facility.subtype} · ${ward.name} Ward, ${ward.subCounty}`}
     crumbs={[
       { href: '/ward/', label: 'Wards' },
@@ -67,7 +70,11 @@ const facilityHistory = observationsForFacility(reviewedObservations, facility.i
 
     <section class="stack" aria-labelledby="facility-photo-heading">
       <h2 id="facility-photo-heading">Photographs</h2>
-      <p class="muted"><strong>No verified photo yet.</strong> Photos are shown only when facility identity, capture date, photographer/source and applicable permissions are recorded.</p>
+      <div class="photo-grid">
+        <PhotoSlot icon={categoryIcon[facility.category]} title="No verified photo yet" note="A photo appears here only once we know when it was taken, who took it, that it shows this facility, and that we may publish it." />
+        <PhotoSlot icon="camera" ratio="square" title="Inside or services" note="Space for a dated photo of the services, if one is verified." />
+        <PhotoSlot icon="map" ratio="square" title="Location" note="A map point appears once the location is reviewed. The ward is known; the exact spot is not yet." />
+      </div>
     </section>
 
     <section class="stack" aria-labelledby="facility-history-heading">

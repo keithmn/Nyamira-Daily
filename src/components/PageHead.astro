@@ -1,17 +1,22 @@
 ---
 interface Crumb { href: string; label: string }
-interface Props { eyebrow?: string; title: string; lead?: string; crumbs?: Crumb[]; tools?: boolean; tone?: string }
-import { toneFor } from '../nav.js';
+interface Props { eyebrow?: string; title: string; lead?: string; crumbs?: Crumb[]; tools?: boolean; tone?: string; icon?: string }
+import { toneFor, sectionFor } from '../nav.js';
+import { sectionIcon } from '../lib/icons.js';
+import Icon from './Icon.astro';
 // Every page head is a coloured band in its section's Highlands colour; pass tone="none" for a plain one.
 const { eyebrow, title, lead, crumbs = [], tools = true } = Astro.props;
 const tone = Astro.props.tone ?? toneFor(Astro.url.pathname);
+const icon = Astro.props.icon ?? sectionIcon[sectionFor(Astro.url.pathname)?.label] ?? null;
+const banded = tone && tone !== 'none';
 ---
 {crumbs.length > 0 && (
   <nav class="breadcrumb" aria-label="Breadcrumb">
     {crumbs.map((c, i) => (<><a href={c.href}>{c.label}</a>{i < crumbs.length - 1 ? ' / ' : ''}</>))}
   </nav>
 )}
-<header class={`stack page-head${tone && tone !== 'none' ? ` band sec-${tone}` : ''}`} style="padding: 24px 0 8px">
+<header class={`stack page-head${banded ? ` band sec-${tone}` : ''}${banded && icon ? ' has-mark' : ''}`} style="padding: 24px 0 8px">
+  {banded && icon && <Icon name={icon} size={132} class="ph-mark" />}
   {eyebrow && <span class="eyebrow">{eyebrow}</span>}
   <h1>{title}</h1>
   {lead && <p class="lead">{lead}</p>}
