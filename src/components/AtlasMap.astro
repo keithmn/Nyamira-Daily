@@ -1,0 +1,268 @@
+---
+// The county map (decision #55, revised): one map, several views, like layers in a map app.
+// - Views: Wards (find your ward), Facilities (what our list holds, by type), Ward money (2025/26 ward
+//   project budgets) and Alerts. Each view has its own colours and key; red appears only on emergency
+//   alerts (decision #25). Facilities have no points until locations are reviewed (ledger item 6).
+// - With JavaScript: switch views, zoom (buttons, Ctrl/⌘ + scroll, pinch), drag to pan, and tap a ward
+//   to zoom to it and see its card. The chosen view is kept in the address (#facilities, #money, #alerts).
+// - Without JavaScript: the Wards view, and every ward is a plain link to its page.
+import geo from '../data/geo.json';
+import nb from '../data/neighbours.json';
+import wards from '../data/wards.js';
+import leaders from '../data/leaders.json';
+import Icon from './Icon.astro';
+import AlertMarks from './AlertMarks.astro';
+import AlertKey from './AlertKey.astro';
+import { subCounties } from '../nav.js';
+import { categoryIcon } from '../lib/icons.js';
+import { budget2526 } from '../lib/projects.js';
+import { ksh } from '../lib/fmt.js';
+interface Props { alerts?: any[] }
+const { alerts = [] } = Astro.props;
+
+const subIdx = Object.fromEntries(subCounties.map((s, i) => [s, i + 1]));
+const cats = Object.keys(categoryIcon).filter((c) => wards.some((w) => w.counts[c]));
+const step = (n, max) => (n == null ? 'u' : n === 0 ? 0 : max <= 5 ? n : Math.min(5, Math.ceil((n / max) * 5)));
+const facMax = Math.max(...wards.map((w) => w.facilities.length));
+const money = Object.fromEntries(wards.map((w) => [w.slug, budget2526(w.slug)]));
+const moneyMax = Math.max(...Object.values(money).filter((v) => v != null));
+const bounds = (max) => [1, 2, 3, 4, 5].map((k) => Math.ceil((k / 5) * max));
+const fb = bounds(facMax), mb = bounds(moneyMax);
+const short = (v) => (v >= 1e6 ? `${parseFloat((v / 1e6).toFixed(1))}M` : v >= 1e3 ? `${Math.round(v / 1e3)}K` : String(v));
+const alertCount = Object.fromEntries(wards.map((w) => [w.slug, alerts.filter((a) => (a.wards ?? []).includes(w.slug)).length]));
+const info = Object.fromEntries(wards.map((w) => {
+  const m = leaders.mcas?.[w.slug];
+  return [w.slug, {
+    name: w.name, sub: w.subCounty, mca: m ? m.name + (m.party ? ` (${m.party})` : '') : null,
+    fac: { all: w.facilities.length, ...w.counts },
+    money: money[w.slug] == null ? null : ksh(money[w.slug]),
+    alerts: alertCount[w.slug],
+    vb: geo.wards[w.slug].vb,
+  }];
+}));
+const data = JSON.stringify({ info, cats }).split('<').join('\\u003c');
+const views = [
+  ['wards', 'map', 'Wards'], ['facilities', 'health', 'Facilities'], ['money', 'money', 'Ward money'], ['alerts', 'alert', 'Alerts'],
+];
+const VB = '-60 -40 720 1030';
+---
+<section class="atlas" data-view="wards" aria-label="Map of Nyamira County">
+  <div class="at-stage">
+    <svg class="at-map" viewBox={VB} data-home={VB} role="img" aria-label="Map of Nyamira County's 20 wards. Each ward links to its page.">
+      <defs><clipPath id="at-clip"><rect x="-400" y="-400" width="1400" height="1800" /></clipPath></defs>
+      <g class="at-nb" aria-hidden="true">
+        {Object.entries(nb.counties).filter(([n]) => n !== 'Nyamira').map(([n, c]) => <path d={c.d} />)}
+        {[['Kisumu', 250, -72], ['Homa Bay', -10, 40], ['Kericho', 600, -10], ['Bomet', 640, 620], ['Kisii', -20, 620], ['Narok', 330, 975]].map(([n, x, y]) => <text x={x} y={y}>{n}</text>)}
+      </g>
+      <g class="at-wards">
+        {Object.entries(geo.wards).map(([s, g]) => (
+          <a href={`/ward/${s}/`} data-w={s}>
+            <title>{info[s].name}</title>
+            <path class={`at-w sc${subIdx[info[s].sub]}`} d={g.d} data-f={step(info[s].fac.all, facMax)} data-m={step(money[s], moneyMax)} data-a={alertCount[s] ? 1 : 0} />
+          </a>
+        ))}
+      </g>
+      <g class="at-labels" aria-hidden="true">
+        {Object.entries(geo.wards).map(([s, g]) => (
+          <g data-l={s}>
+            <text class="at-name" x={g.cx} y={g.cy}>{info[s].name}</text>
+            <text class="at-val v-facilities" x={g.cx} y={Number(g.cy) + 24} data-n={s}>{info[s].fac.all}</text>
+            <text class="at-val v-money" x={g.cx} y={Number(g.cy) + 24}>{money[s] == null ? '?' : short(money[s])}</text>
+          </g>
+        ))}
+      </g>
+      <g class="at-alerts"><AlertMarks alerts={alerts} r={16} /></g>
+    </svg>
+
+    <div class="at-views" role="group" aria-label="Map view" hidden>
+      {views.map(([v, i, l]) => <button type="button" class="at-chip" data-view={v} aria-pressed={v === 'wards' ? 'true' : 'false'}><Icon name={i} size={18} />{l}</button>)}
+    </div>
+    <div class="at-zoom" role="group" aria-label="Zoom" hidden>
+      <button type="button" data-z="in" aria-label="Zoom in">+</button>
+      <button type="button" data-z="out" aria-label="Zoom out">−</button>
+      <button type="button" data-z="home" aria-label="Show the whole county"><Icon name="ward" size={18} /></button>
+    </div>
+    <div class="at-card" hidden aria-live="polite">
+      <button type="button" class="at-x" aria-label="Close">×</button>
+      <span class="eyebrow" data-c="sub"></span>
+      <h3 data-c="name"></h3>
+      <dl>
+        <div><dt>MCA</dt><dd data-c="mca"></dd></div>
+        <div><dt>Facilities listed</dt><dd data-c="fac"></dd></div>
+        <div><dt>Ward projects, 2025/26</dt><dd data-c="money"></dd></div>
+        <div><dt>Current alerts</dt><dd data-c="alerts"></dd></div>
+      </dl>
+      <a class="pill-btn" data-c="open" href="/ward/">Open ward page <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <div class="at-panel">
+    <div class="at-key v-wards">
+      <p class="small"><strong>Find your ward.</strong> Tap a ward to zoom in and see its details; open its page for the MCA, money, projects and services.</p>
+      <div class="pm-key small">{subCounties.map((s) => <span class="key"><i class={`pm-sw sc${subIdx[s]}`}></i>{s}</span>)}</div>
+    </div>
+    <div class="at-key v-facilities">
+      <p class="small"><strong>What our facility list holds.</strong> Darker wards have more facilities in our list. The list is incomplete (247 records, mostly unverified), so a pale ward may just be less documented. Facilities get map points only once their locations are checked.</p>
+      <div class="pm-cats chips" role="group" aria-label="Show one kind of facility" data-cats>
+        <button type="button" class="chip" aria-pressed="true" data-cat="all">All</button>
+        {cats.map((c) => <button type="button" class="chip" aria-pressed="false" data-cat={c}><Icon name={categoryIcon[c]} size={16} />{c}</button>)}
+      </div>
+      <div class="pm-key small" data-fkey>
+        <span class="key"><i class="pm-sw f0"></i>0</span>
+        {fb.map((b, i) => <span class="key"><i class={`pm-sw f${i + 1}`}></i>{i === 0 ? `1–${b}` : `${fb[i - 1] + 1}–${b}`}</span>)}
+        <span class="key" data-fscale>Facilities listed per ward</span>
+      </div>
+      <p class="source small">Source: the Nyamira Daily facility list; see <a href="/data/open-data/">Open data</a>.</p>
+    </div>
+    <div class="at-key v-money">
+      <p class="small"><strong>Ward money.</strong> What the county budgeted for each ward's own projects in 2025/26. Some lines are printed as KSh 0 in the budget; see each ward page.</p>
+      <div class="pm-key small">
+        {mb.map((b, i) => <span class="key"><i class={`pm-sw m${i + 1}`}></i>{i === 0 ? `up to KSh ${short(b)}` : `KSh ${short(mb[i - 1])}–${short(b)}`}</span>)}
+        <span class="key"><i class="pm-sw mu"></i>Not found</span>
+      </div>
+      <p class="source small"><span class="label official">Official claim</span> Source: County Programme Based Budget 2025/26 (Table 18).</p>
+    </div>
+    <div class="at-key v-alerts">
+      <p class="small"><strong>Civic alerts.</strong> Confirmed emergencies, disruptions and notices, placed where they happen. Red means an emergency and nothing else.</p>
+      <div class="pm-key small">{alerts.length ? <AlertKey /> : <span class="key"><Icon name="check" size={18} />No current alerts.</span>} <a href="/alerts/">See the alerts record</a></div>
+    </div>
+    <p class="source small">Ward boundaries: geoBoundaries (CC BY 4.0). Neighbouring county lines are approximate.</p>
+  </div>
+  <script is:inline type="application/json" data-at set:html={data}></script>
+</section>
+
+<script is:inline>
+(function () {
+  var root = document.querySelector('.atlas');
+  if (!root) return;
+  var D = JSON.parse(root.querySelector('[data-at]').textContent);
+  var svg = root.querySelector('.at-map'), card = root.querySelector('.at-card');
+  var home = svg.dataset.home.split(' ').map(Number), vb = home.slice(), sel = null;
+  root.querySelector('.at-views').hidden = false;
+  root.querySelector('.at-zoom').hidden = false;
+  root.classList.add('js');
+
+  // Views
+  var VIEWS = ['wards', 'facilities', 'money', 'alerts'];
+  function setView(v, push) {
+    if (VIEWS.indexOf(v) < 0) v = 'wards';
+    root.dataset.view = v;
+    root.querySelectorAll('.at-chip').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.view === v)); });
+    if (push) history.replaceState(null, '', v === 'wards' ? location.pathname : '#' + v);
+  }
+  root.querySelector('.at-views').addEventListener('click', function (e) { var b = e.target.closest('.at-chip'); if (b) setView(b.dataset.view, true); });
+  setView(location.hash.slice(1));
+  window.addEventListener('hashchange', function () { setView(location.hash.slice(1)); });
+
+  // Facility types
+  var cats = root.querySelector('[data-cats]');
+  function stepOf(n, max) { return n === 0 ? 0 : max <= 5 ? n : Math.min(5, Math.ceil((n / max) * 5)); }
+  cats.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-cat]'); if (!b) return;
+    var key = b.dataset.cat, max = 1, s;
+    for (s in D.info) max = Math.max(max, D.info[s].fac[key] || 0);
+    root.querySelectorAll('[data-w]').forEach(function (a) {
+      var n = D.info[a.dataset.w].fac[key] || 0;
+      a.querySelector('path').dataset.f = stepOf(n, max);
+      root.querySelector('[data-n="' + a.dataset.w + '"]').textContent = n;
+    });
+    var keys = root.querySelectorAll('[data-fkey] .key');
+    for (var k = 1; k <= 5; k++) {
+      if (max <= 5) { keys[k].hidden = k > max; keys[k].lastChild.textContent = String(k); continue; }
+      keys[k].hidden = false;
+      var lo = k === 1 ? 1 : Math.ceil(((k - 1) / 5) * max) + 1, hi = Math.ceil((k / 5) * max);
+      keys[k].lastChild.textContent = lo >= hi ? String(hi) : lo + '–' + hi;
+    }
+    root.querySelector('[data-fscale]').textContent = (key === 'all' ? 'Facilities' : key + ' facilities') + ' listed per ward';
+    cats.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+  });
+
+  // Zoom and pan (the viewBox is the camera)
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches, anim = null;
+  function apply(v) { vb = v; svg.setAttribute('viewBox', v.map(function (n) { return n.toFixed(1); }).join(' ')); var z = v[2] < home[2] * 0.97; root.classList.toggle('zoomed', z); svg.style.touchAction = z ? 'none' : 'pan-y'; }
+  function fly(to) {
+    cancelAnimationFrame(anim);
+    if (still) return apply(to);
+    var from = vb.slice(), t0 = performance.now();
+    (function tick(t) {
+      var p = Math.min(1, (t - t0) / 380), e = 1 - Math.pow(1 - p, 3);
+      apply(from.map(function (f, i) { return f + (to[i] - f) * e; }));
+      if (p < 1) anim = requestAnimationFrame(tick);
+    })(t0);
+  }
+  function fit(box) { // keep the map's aspect ratio
+    var r = home[2] / home[3], w = box[2], h = box[3];
+    if (w / h > r) h = w / r; else w = h * r;
+    return [box[0] + box[2] / 2 - w / 2, box[1] + box[3] / 2 - h / 2, w, h];
+  }
+  function zoomAt(f, cx, cy) {
+    var w = Math.min(home[2] * 1.2, Math.max(home[2] / 8, vb[2] * f)), h = w * home[3] / home[2];
+    if (cx == null) { cx = vb[0] + vb[2] / 2; cy = vb[1] + vb[3] / 2; }
+    var kx = (cx - vb[0]) / vb[2], ky = (cy - vb[1]) / vb[3];
+    return [cx - kx * w, cy - ky * h, w, h];
+  }
+  function toSvg(x, y) { var r = svg.getBoundingClientRect(); return [vb[0] + (x - r.left) / r.width * vb[2], vb[1] + (y - r.top) / r.height * vb[3]]; }
+  root.querySelector('.at-zoom').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.z === 'home') { closeCard(); fly(home.slice()); }
+    else fly(zoomAt(b.dataset.z === 'in' ? 0.6 : 1 / 0.6));
+  });
+  svg.addEventListener('wheel', function (e) {
+    if (!e.ctrlKey && !e.metaKey) return;
+    e.preventDefault(); var p = toSvg(e.clientX, e.clientY);
+    apply(zoomAt(e.deltaY > 0 ? 1.12 : 1 / 1.12, p[0], p[1]));
+  }, { passive: false });
+  var pts = {}, drag = null, moved = false;
+  svg.addEventListener('pointerdown', function (e) {
+    pts[e.pointerId] = [e.clientX, e.clientY]; moved = false;
+    drag = { vb: vb.slice(), pts: JSON.parse(JSON.stringify(pts)) };
+  });
+  svg.addEventListener('pointermove', function (e) {
+    if (!pts[e.pointerId] || !drag) return;
+    pts[e.pointerId] = [e.clientX, e.clientY];
+    var ids = Object.keys(pts), r = svg.getBoundingClientRect(), s = drag.vb[2] / r.width;
+    if (ids.length === 1) {
+      var a = drag.pts[ids[0]], dx = e.clientX - a[0], dy = e.clientY - a[1];
+      if (Math.abs(dx) + Math.abs(dy) > 6) moved = true;
+      if (moved && root.classList.contains('zoomed')) { svg.setPointerCapture(e.pointerId); apply([drag.vb[0] - dx * s, drag.vb[1] - dy * s, drag.vb[2], drag.vb[3]]); }
+    } else if (ids.length === 2 && drag.pts[ids[0]] && drag.pts[ids[1]]) {
+      moved = true;
+      var d0 = Math.hypot(drag.pts[ids[0]][0] - drag.pts[ids[1]][0], drag.pts[ids[0]][1] - drag.pts[ids[1]][1]);
+      var d1 = Math.hypot(pts[ids[0]][0] - pts[ids[1]][0], pts[ids[0]][1] - pts[ids[1]][1]);
+      var mx = (pts[ids[0]][0] + pts[ids[1]][0]) / 2, my = (pts[ids[0]][1] + pts[ids[1]][1]) / 2;
+      vb = drag.vb; var p = toSvg(mx, my);
+      apply(zoomAt(d0 / Math.max(d1, 1), p[0], p[1]));
+    }
+  });
+  function up(e) { delete pts[e.pointerId]; drag = Object.keys(pts).length ? { vb: vb.slice(), pts: JSON.parse(JSON.stringify(pts)) } : null; }
+  svg.addEventListener('pointerup', up); svg.addEventListener('pointercancel', up);
+  svg.style.touchAction = 'pan-y';
+
+  // Tap a ward: zoom to it and show its card; the card links to the ward page
+  function f(k) { return card.querySelector('[data-c="' + k + '"]'); }
+  function openCard(s) {
+    var w = D.info[s]; sel = s;
+    root.querySelectorAll('[data-w]').forEach(function (a) { a.classList.toggle('is-sel', a.dataset.w === s); });
+    f('sub').textContent = w.sub + ' sub-county';
+    f('name').textContent = w.name + ' Ward';
+    f('mca').textContent = w.mca || 'Not confirmed';
+    f('fac').textContent = String(w.fac.all);
+    f('money').textContent = w.money || 'Not found in the budget';
+    f('alerts').textContent = w.alerts ? String(w.alerts) : 'None';
+    f('open').href = '/ward/' + s + '/';
+    card.hidden = false;
+    var b = w.vb.split(' ').map(Number);
+    fly(fit([b[0] - b[2] * 0.35, b[1] - b[3] * 0.35, b[2] * 1.7, b[3] * 1.7]));
+  }
+  function closeCard() { card.hidden = true; sel = null; root.querySelectorAll('.is-sel').forEach(function (a) { a.classList.remove('is-sel'); }); }
+  card.querySelector('.at-x').addEventListener('click', function () { closeCard(); fly(home.slice()); });
+  root.querySelector('.at-wards').addEventListener('click', function (e) {
+    var a = e.target.closest('[data-w]'); if (!a) return;
+    e.preventDefault();
+    if (moved) return;
+    if (sel === a.dataset.w) { location.href = a.getAttribute('href'); return; }
+    openCard(a.dataset.w);
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !card.hidden) { closeCard(); fly(home.slice()); } });
+})();
+</script>

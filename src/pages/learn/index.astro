@@ -1,19 +1,20 @@
 ---
+import Icon from '../../components/Icon.astro';
 import Base from '../../layouts/Base.astro';
 import { planned } from '../../config.js';
 import PageHead from '../../components/PageHead.astro';
 const lessons = [
-  { href: '/learn/how-it-works/', title: 'How the county works', text: 'The county government in five minutes.' },
-  { href: '/learn/budget-calendar/', title: 'The budget calendar', text: 'When the county plans, approves and reports its budget each year.' },
-  { href: '/learn/taking-part/', title: 'Taking part', text: 'How to give your views, petition the Assembly, or request information.' },
-  { href: '/learn/fees/', title: 'Fees you pay', text: 'What residents and traders legally pay the county.' },
-  { href: '/learn/glossary/', title: 'Glossary', text: 'Plain meanings of county words.' },
-  { href: '/learn/episodes/', title: 'Show episodes', text: 'Past episodes of NY Watch, the nightly show.' },
+  { i: 'government', href: '/learn/how-it-works/', title: 'How the county works', text: 'The county government in five minutes.' },
+  { i: 'calendar', href: '/learn/budget-calendar/', title: 'The budget calendar', text: 'When the county plans, approves and reports its budget each year.' },
+  { i: 'takepart', href: '/learn/taking-part/', title: 'Taking part', text: 'How to give your views, petition the Assembly, or request information.' },
+  { i: 'money', href: '/learn/fees/', title: 'Fees you pay', text: 'What residents and traders legally pay the county.' },
+  { i: 'source', href: '/learn/glossary/', title: 'Glossary', text: 'Plain meanings of county words.' },
+  { i: 'stories', href: '/learn/episodes/', title: 'Show episodes', text: 'Past episodes of NY Watch, the nightly show.' },
 ];
 ---
 <Base title="Learn">
   <PageHead eyebrow="Learn" title="Learn how Nyamira works" lead="Short lessons, one idea at a time. Each can be printed for notice boards and barazas." tools={false} />
   <div class="grid" style="margin-top:16px">
-    {lessons.map((l) => (<a class={`card${planned.has(l.href) ? ' is-planned' : ''}`} href={l.href}><h2 style="font-size:18px">{l.title} {planned.has(l.href) && <span class="tag-planned">Planned</span>}</h2><p class="muted">{l.text}</p></a>))}
+    {lessons.map((l) => (<a class={`card${planned.has(l.href) ? ' is-planned' : ''}`} href={l.href}><Icon name={l.i ?? 'source'} size={26} badge /><h2 style="font-size:18px">{l.title} {planned.has(l.href) && <span class="tag-planned">Planned</span>}</h2><p class="muted">{l.text}</p></a>))}
   </div>
 </Base>

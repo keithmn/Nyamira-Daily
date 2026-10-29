@@ -1,0 +1,17 @@
+---
+// One icon from the Nyamira Daily set (src/lib/icons.js). Decorative by default (aria-hidden);
+// pass `label` when the icon carries meaning on its own. `badge` puts it on a tinted rounded square.
+import { icons } from '../lib/icons.js';
+interface Props { name: string; size?: number; label?: string; badge?: boolean; class?: string }
+const { name, size = 24, label, badge = false, class: cls = '' } = Astro.props;
+const parts = icons[name] ?? icons.source;
+---
+<span class={`ico${badge ? ' ico-badge' : ''}${cls ? ' ' + cls : ''}`} role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'}>
+  <svg viewBox="0 0 24 24" width={size} height={size} focusable="false">
+    {parts.map(([t, a]) => {
+      const { ac, acs, ...attrs } = a;
+      const El = t;
+      return <El {...attrs} class={ac ? 'ac' : acs ? 'acs' : undefined} />;
+    })}
+  </svg>
+</span>

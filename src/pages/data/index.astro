@@ -1,4 +1,6 @@
 ---
+import Icon from '../../components/Icon.astro';
+import { topicIcon } from '../../lib/icons.js';
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import { topics } from '../../data/topics.js';
@@ -8,12 +10,13 @@ import { topics } from '../../data/topics.js';
   <div class="sector-tiles" style="margin-top:16px">
     {topics.map((t) => (
       <a class={`sector-tile sec-${t.tone}`} href={`/data/${t.slug}/`}>
+        <Icon name={topicIcon[t.slug] ?? 'chart'} size={28} badge />
         <h2>{t.title}</h2>
         <p>{t.question}</p>
         <span class="go" aria-hidden="true">→</span>
       </a>
     ))}
-    <a class="sector-tile sec-dusk" href="/government/elections/"><h2>Elections</h2><p>Who was elected in each ward in 2013, 2017 and 2022, and where people vote.</p><span class="go" aria-hidden="true">→</span></a>
-    <a class="sector-tile sec-earth" href="/stories/nyamira-since-2013/"><h2>Nyamira since 2013</h2><p>What has changed since devolution began, in one feature.</p><span class="go" aria-hidden="true">→</span></a>
+    <a class="sector-tile sec-dusk" href="/government/elections/"><Icon name="government" size={28} badge /><h2>Elections</h2><p>Who was elected in each ward in 2013, 2017 and 2022, and where people vote.</p><span class="go" aria-hidden="true">→</span></a>
+    <a class="sector-tile sec-earth" href="/stories/nyamira-since-2013/"><Icon name="stories" size={28} badge /><h2>Nyamira since 2013</h2><p>What has changed since devolution began, in one feature.</p><span class="go" aria-hidden="true">→</span></a>
   </div>
 </Base>

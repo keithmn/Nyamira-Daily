@@ -1110,3 +1110,214 @@ main .tile { border-top: 4px solid var(--sec); }
 .sec-bloom .on-ink, .on-ink.sec-bloom { --sec-deep: #F2C4B4; }
 .sec-mist .on-ink, .on-ink.sec-mist { --sec-deep: #8fd8ae; }
 main .receipt { border-top: 6px solid var(--sec); }
+
+/* ===== Facelift (decision #55): neon numbers, the icon set, heading marks, photo cards, map surround ===== */
+
+/* Large numbers glow in their section colour. The glow is light only: the digits keep their own colour,
+   so contrast is unchanged. Light mode gets a soft halo; dark mode and Ink panels get a true neon. */
+:root { --glow-a: 40%; --glow-b: 22%; }
+:root[data-theme="dark"] { --glow-a: 75%; --glow-b: 45%; }
+.on-ink, .panel-ink { --glow-a: 80%; --glow-b: 48%; }
+main :is(.figure .num, .tile b, .card .big, .callout b, .hc-title.big, .pc-text b, .coins-key b) {
+  --glow: var(--sec, var(--nd-green));
+  text-shadow: 0 0 2px color-mix(in srgb, var(--glow) var(--glow-b), transparent), 0 0 14px color-mix(in srgb, var(--glow) var(--glow-a), transparent), 0 0 34px color-mix(in srgb, var(--glow) var(--glow-b), transparent);
+  font-variant-numeric: tabular-nums;
+}
+main :is(.figure .num, .tile b, .card .big, .callout b).hot, main .hot :is(b) { --glow: var(--nd-red); }
+main :is(.on-ink, .panel-ink) :is(.figure .num, .tile b, .big, b) { --glow: var(--nd-green); }
+:root[data-theme="dark"] main .figure .num:not(.hot), :root[data-theme="dark"] main .tile b:not(.hot) { color: var(--sec-deep); }
+/* On solid colour panels (Number of the week) the number stays Ink with a white bloom */
+main .panel.sec-harvest .figure .num:not(.hot) { text-shadow: 0 0 18px rgb(255 255 255 / 0.75), 0 0 2px rgb(255 255 255 / 0.6); }
+.figure .num { font-size: clamp(40px, 8vw, 60px); }
+.tile b { font-size: 34px; }
+@media print { main * { text-shadow: none !important; } }
+
+/* Icons: stroke in the text colour, one accent shape in the section colour */
+.ico { display: inline-grid; place-items: center; flex: none; line-height: 0; color: var(--ico-ink, currentColor); }
+.ico svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.ico svg .ac { fill: var(--ico-acc, var(--sec, var(--nd-green))); stroke: none; }
+.ico svg .acs { stroke: var(--ico-acc, var(--sec, var(--nd-green))); }
+.ico-badge { padding: 9px; border-radius: 14px; background: var(--ico-bg, var(--sec-soft, var(--surface))); color: var(--sec-deep, var(--ink)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sec, var(--nd-green)) 30%, transparent); align-self: flex-start; }
+/* Light accents (Harvest, Mist, Bloom, Avocado) on their own tint need the deep tone to show */
+.sec-mist .ico svg .ac, .sec-mist .ico svg .acs { fill: var(--hl-tea); stroke: var(--hl-tea); }
+.sec-mist .ico svg .ac { stroke: none; }
+/* Badges on solid tiles invert: Ink or White square, accent in the tile colour */
+.sector-tile .ico-badge { background: var(--sec-ink); color: var(--sec); box-shadow: none; --ico-acc: var(--sec); }
+.sector-tile.sec-mist .ico-badge { background: var(--hl-tea); color: #fff; --ico-acc: var(--hl-mist); }
+.sector-tile.sec-mist .ico svg .ac { fill: var(--hl-mist); }
+.sector-tile.sec-harvest .ico-badge, .sector-tile.sec-avocado .ico-badge, .sector-tile.sec-bloom .ico-badge { --ico-acc: var(--sec); }
+main .tile .ico-badge { padding: 6px; border-radius: 10px; margin-bottom: 2px; }
+main .grid > .card .ico-badge { background: var(--bg); }
+.row-link.has-ico { gap: 14px; }
+.row-link.has-ico > .ico-badge { padding: 7px; border-radius: 12px; align-self: center; }
+details > summary .ico { color: var(--sec-deep, var(--ink)); }
+.pictos .pc-icons .ico { color: var(--sec-deep, var(--ink)); }
+:root[data-theme="dark"] .ico-badge { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sec, var(--nd-green)) 45%, transparent); }
+
+/* Page heads: a large outline of the section's icon sits in the band's corner */
+.page-head.band.has-mark { position: relative; overflow: hidden; }
+.page-head.band.has-mark > :not(.ph-mark) { position: relative; }
+.page-head .ph-mark { position: absolute; right: -14px; bottom: -22px; color: var(--sec-ink); opacity: 0.16; --ico-acc: var(--sec-ink); pointer-events: none; }
+.page-head .ph-mark svg { stroke-width: 1.4; }
+@media (max-width: 520px) { .page-head .ph-mark svg { width: 96px; height: 96px; } .page-head .ph-mark { right: -18px; bottom: -18px; opacity: 0.12; } }
+:root[data-theme="dark"] .page-head.band.sec-mist .ph-mark { color: var(--ink); }
+
+/* Headings: Varela Round has one weight, so emphasis comes from colour and marks, not bold.
+   h2: a highlighter underline in the section tint. h3: the section's deep tone. */
+main h2 {
+  text-decoration-line: underline; text-decoration-thickness: 0.34em; text-underline-offset: -0.14em;
+  text-decoration-color: color-mix(in srgb, var(--sec-deep, var(--nd-green)) 24%, transparent); text-decoration-skip-ink: none;
+}
+:root[data-theme="dark"] main h2 { text-decoration-color: color-mix(in srgb, var(--sec-deep, var(--nd-green)) 38%, transparent); }
+main :is(.sector-tile, .card, .band > h2:first-child, .nyw, .hc, .page-head, .tg-title, summary, .photo-slot) h2,
+main .sector-tile h2, main .grid > .card h2, main .band > h2:first-child, main .nyw h2 { text-decoration: none; }
+main h3:not(.sector-tile h3):not(.tg-title) { color: var(--sec-deep, var(--ink)); }
+main .on-ink h2, main .on-ink h3 { color: inherit; text-decoration: none; }
+main .receipt h2 { text-decoration: none; }
+
+/* Photo placeholder cards: a frame waiting for a verified photo, never a stock picture */
+.photo-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; }
+@media (max-width: 700px) { .photo-grid { grid-template-columns: 1fr 1fr; } .photo-grid > .photo-slot.wide { grid-column: 1 / -1; } }
+.photo-slot { margin: 0; display: flex; flex-direction: column; border-radius: var(--radius); overflow: hidden; background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.photo-slot .ps-frame { position: relative; aspect-ratio: 16 / 9; display: grid; place-items: center;
+  background: linear-gradient(160deg, var(--sec-soft, var(--surface)) 0%, color-mix(in srgb, var(--sec, var(--nd-green)) 22%, var(--bg)) 100%); }
+.photo-slot.square .ps-frame { aspect-ratio: 4 / 3; }
+.photo-slot .ps-hills { position: absolute; inset: auto 0 0 0; width: 100%; height: 55%; }
+.photo-slot .ps-hills path { fill: color-mix(in srgb, var(--sec, var(--nd-green)) 18%, transparent); }
+.photo-slot .ps-icons { position: relative; display: inline-flex; align-items: flex-end; gap: 2px; padding: 14px; border-radius: 50%; background: var(--bg);
+  border: 2px dashed color-mix(in srgb, var(--sec-deep, var(--ink)) 45%, transparent); color: var(--sec-deep, var(--ink)); }
+.photo-slot .ps-cam { margin-left: -10px; margin-bottom: -6px; background: var(--bg); border-radius: 50%; padding: 2px; }
+.photo-slot figcaption { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 1.4; }
+.photo-slot figcaption span { color: var(--muted); }
+.photo-slot.square .ps-icons { padding: 10px; }
+
+/* Hero map: the neighbouring counties as quiet context around Nyamira */
+.hero-map svg { width: 94%; max-width: 480px; }
+@media (min-width: 900px) { .hero-map svg { width: 100%; max-width: 560px; } }
+.hm-nb path { fill: rgb(255 255 255 / 0.035); stroke: rgb(255 255 255 / 0.26); stroke-width: 2; stroke-dasharray: 7 7; stroke-linejoin: round; }
+.hm-nbl text { font-family: var(--title-font); font-size: 30px; letter-spacing: 0.14em; text-transform: uppercase; fill: rgb(255 255 255 / 0.42); }
+.hm-county { filter: drop-shadow(0 0 14px rgb(31 208 122 / 0.32)); }
+.nb-key { color: var(--muted); }
+@media (max-width: 520px) { .hm-nbl text { font-size: 38px; } }
+
+/* The county map (/maps/): one map, four views. Each view sets the ward fills and shows its own labels and key. */
+.atlas { display: grid; gap: 16px; }
+@media (min-width: 960px) { .atlas { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; } .at-panel { position: sticky; top: 16px; } }
+.at-stage { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--at-bg); box-shadow: inset 0 0 0 1px var(--line); }
+.atlas { --at-bg: #e9f0ec; --at-line: #ffffff; }
+:root[data-theme="dark"] .atlas { --at-bg: #171a18; --at-line: #111111; }
+.at-map { display: block; width: 100%; height: auto; max-height: 78vh; user-select: none; -webkit-user-select: none; }
+.atlas.zoomed .at-map { cursor: grab; }
+.at-nb path { fill: none; stroke: color-mix(in srgb, var(--ink) 24%, transparent); stroke-width: 2; stroke-dasharray: 6 6; vector-effect: non-scaling-stroke; }
+.at-nb text { font-family: var(--title-font); font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; fill: color-mix(in srgb, var(--ink) 38%, transparent); text-anchor: middle; }
+.at-w { stroke: var(--at-line); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill 0.25s; }
+.atlas a:hover .at-w, .atlas a:focus-visible .at-w { stroke: var(--ink); stroke-width: 3; }
+.atlas a.is-sel .at-w { stroke: var(--nd-green); stroke-width: 4; }
+.atlas a:focus-visible { outline: none; }
+.at-labels text { text-anchor: middle; font-weight: 700; paint-order: stroke; stroke-linejoin: round; pointer-events: none; }
+.at-name { font-size: 16px; fill: #111; stroke: rgb(255 255 255 / 0.85); stroke-width: 3.5px; }
+.at-val { font-size: 21px; fill: #111; stroke: rgb(255 255 255 / 0.85); stroke-width: 3.5px; display: none; }
+.at-alerts { display: none; }
+/* Wards view: four greens by sub-county */
+.atlas[data-view="wards"] .at-w.sc1 { fill: #0B5D3B; } .atlas[data-view="wards"] .at-w.sc2 { fill: #2f8a5c; }
+.atlas[data-view="wards"] .at-w.sc3 { fill: #5cb383; } .atlas[data-view="wards"] .at-w.sc4 { fill: #9bd2b2; }
+.atlas[data-view="wards"] .at-name { fill: #fff; stroke: rgb(0 0 0 / 0.45); }
+/* Facilities view: Rain, pale to dark; 0 is grey */
+.atlas[data-view="facilities"] .at-w[data-f="0"] { fill: #e3e3e0; } .atlas[data-view="facilities"] .at-w[data-f="1"] { fill: #cfe0ed; }
+.atlas[data-view="facilities"] .at-w[data-f="2"] { fill: #9cc1dc; } .atlas[data-view="facilities"] .at-w[data-f="3"] { fill: #5f97c2; }
+.atlas[data-view="facilities"] .at-w[data-f="4"] { fill: #2f6f9e; } .atlas[data-view="facilities"] .at-w[data-f="5"] { fill: #173f5f; }
+.atlas[data-view="facilities"] .v-facilities { display: inline; }
+/* Ward money view: Harvest, pale to deep; not found is hatched grey */
+.atlas[data-view="money"] .at-w[data-m="1"] { fill: #fdf1cc; } .atlas[data-view="money"] .at-w[data-m="2"] { fill: #f9dc80; }
+.atlas[data-view="money"] .at-w[data-m="3"] { fill: #F4B400; } .atlas[data-view="money"] .at-w[data-m="4"] { fill: #c98f00; }
+.atlas[data-view="money"] .at-w[data-m="5"] { fill: #8a5a00; } .atlas[data-view="money"] .at-w[data-m="u"], .atlas[data-view="money"] .at-w[data-m="0"] { fill: #d6d6d2; }
+.atlas[data-view="money"] .v-money { display: inline; }
+/* Alerts view: a grey map; only alert marks carry colour */
+.atlas[data-view="alerts"] .at-w { fill: #d6d6d2; }
+:root[data-theme="dark"] .atlas[data-view="alerts"] .at-w { fill: #3a3a37; }
+.atlas[data-view="alerts"] .at-alerts { display: inline; }
+.atlas[data-view="alerts"] .at-name { fill: #333; }
+/* Key swatches */
+.pm-key { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; color: var(--muted); }
+.pm-key .key { display: inline-flex; align-items: center; gap: 6px; }
+.pm-sw { display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: var(--swatch); box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.12); }
+.pm-sw.sc1 { --swatch: #0B5D3B; } .pm-sw.sc2 { --swatch: #2f8a5c; } .pm-sw.sc3 { --swatch: #5cb383; } .pm-sw.sc4 { --swatch: #9bd2b2; }
+.pm-sw.f0 { --swatch: #e3e3e0; } .pm-sw.f1 { --swatch: #cfe0ed; } .pm-sw.f2 { --swatch: #9cc1dc; } .pm-sw.f3 { --swatch: #5f97c2; } .pm-sw.f4 { --swatch: #2f6f9e; } .pm-sw.f5 { --swatch: #173f5f; }
+.pm-sw.m1 { --swatch: #fdf1cc; } .pm-sw.m2 { --swatch: #f9dc80; } .pm-sw.m3 { --swatch: #F4B400; } .pm-sw.m4 { --swatch: #c98f00; } .pm-sw.m5 { --swatch: #8a5a00; } .pm-sw.mu { --swatch: #d6d6d2; }
+.pm-cats .chip { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font: inherit; font-size: 14px; color: var(--ink); }
+.pm-cats .chip[aria-pressed="true"] { background: var(--hl-rain); color: #fff; border-color: var(--hl-rain); --ico-acc: #fff; }
+/* Floating controls, like a map app */
+.at-views { position: absolute; top: 10px; left: 10px; right: 64px; display: flex; flex-wrap: wrap; gap: 6px; }
+.at-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 12px; border-radius: 999px; border: 0; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+  background: var(--bg); color: var(--ink); box-shadow: 0 2px 8px rgb(0 0 0 / 0.16), inset 0 0 0 1px var(--line); }
+.at-chip[aria-pressed="true"] { background: var(--nd-ink); color: #fff; --ico-acc: var(--nd-green); }
+:root[data-theme="dark"] .at-chip[aria-pressed="true"] { background: var(--nd-white); color: var(--nd-ink); }
+.at-zoom { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; border-radius: 12px; overflow: hidden; background: var(--bg); box-shadow: 0 2px 8px rgb(0 0 0 / 0.16), inset 0 0 0 1px var(--line); }
+.at-zoom button { width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 24px; font-weight: 700; cursor: pointer; display: grid; place-items: center; }
+.at-zoom button + button { border-top: 1px solid var(--line); }
+.at-zoom button:hover { background: var(--surface); }
+.at-card { position: absolute; left: 10px; bottom: 10px; width: min(320px, calc(100% - 20px)); padding: 16px; border-radius: 16px; background: var(--bg); color: var(--ink);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.2), inset 0 0 0 1px var(--line); display: flex; flex-direction: column; gap: 8px; }
+.at-card h3 { font-size: 22px; color: var(--ink); }
+.at-card dl { margin: 0; display: grid; gap: 4px; font-size: 14px; }
+.at-card dl div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed var(--line); padding-bottom: 4px; }
+.at-card dt { color: var(--muted); } .at-card dd { margin: 0; font-weight: 700; text-align: right; }
+.at-card .pill-btn { align-self: flex-start; margin-top: 4px; }
+.at-x { position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--surface); color: var(--ink); font-size: 22px; cursor: pointer; }
+@media (max-width: 600px) { .at-card { position: static; width: auto; margin: 0; border-radius: 0 0 var(--radius) var(--radius); box-shadow: none; border-top: 1px solid var(--line); } .at-views { right: 62px; } .at-chip { min-height: 34px; padding: 0 10px; font-size: 13px; } }
+.at-panel { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--radius); background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.at-key { display: none; flex-direction: column; gap: 10px; }
+.atlas[data-view="wards"] .at-key.v-wards, .atlas[data-view="facilities"] .at-key.v-facilities, .atlas[data-view="money"] .at-key.v-money, .atlas[data-view="alerts"] .at-key.v-alerts { display: flex; }
+.atlas:not(.js) .at-key.v-facilities [data-cats] { display: none; }
+@media (prefers-reduced-motion: reduce) { .at-w { transition: none; } }
+
+/* ===== Glass and colour on every page (decision #56) =====
+   The home page's colour bands now run through every page: each top-level section of a page is a tinted glass
+   band, in the page's own colour first, then rotating through the Highlands colours. Cards, panels, tables and
+   toggles are frosted glass with a top sheen. Real blur (backdrop-filter) is used only on bands and big panels,
+   so cheap phones are not asked to blur every card. Map, evidence, alert and critical-data colours are unchanged. */
+:root { --glass: rgb(255 255 255 / 0.72); --glass-low: rgb(255 255 255 / 0.5); --glass-edge: rgb(255 255 255 / 0.85); --glass-line: rgb(17 17 17 / 0.07); --glass-shadow: rgb(16 40 28 / 0.16); --sheen: rgb(255 255 255 / 0.7); }
+:root[data-theme="dark"] { --glass: rgb(38 40 38 / 0.66); --glass-low: rgb(26 28 26 / 0.5); --glass-edge: rgb(255 255 255 / 0.09); --glass-line: rgb(255 255 255 / 0.06); --glass-shadow: rgb(0 0 0 / 0.45); --sheen: rgb(255 255 255 / 0.07); }
+/* The page behind the glass: soft washes of the page colour and two Highlands neighbours */
+main { position: relative; isolation: isolate; }
+main::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(55% 380px at 8% 0%, color-mix(in srgb, var(--sec, var(--nd-green)) 20%, transparent), transparent 70%),
+    radial-gradient(45% 420px at 96% 12%, color-mix(in srgb, var(--hl-rain) 13%, transparent), transparent 70%),
+    radial-gradient(50% 520px at 0% 55%, color-mix(in srgb, var(--hl-harvest) 11%, transparent), transparent 70%),
+    radial-gradient(45% 520px at 100% 85%, color-mix(in srgb, var(--hl-mist) 40%, transparent), transparent 70%); }
+:root[data-theme="dark"] main::before { opacity: 0.75; }
+/* Glass surfaces */
+main :is(.card, .panel:not(.sec-harvest), details:not(.menu-group), .table-box, .tile, .callout:not(.gap), .at-panel, .photo-slot, .receipt) {
+  background: linear-gradient(180deg, var(--sheen) 0, transparent 46%), linear-gradient(160deg, var(--glass), var(--glass-low));
+  border-color: var(--glass-edge); box-shadow: inset 0 1px 0 var(--sheen), 0 1px 0 var(--glass-line), 0 10px 28px -14px var(--glass-shadow); }
+main .grid > .card, main .tile { background: linear-gradient(180deg, var(--sheen) 0, transparent 46%), linear-gradient(160deg, color-mix(in srgb, var(--sec-soft) 82%, transparent), color-mix(in srgb, var(--sec-soft) 55%, transparent)); }
+main .graphic-panel, main .graphic-tile { background: linear-gradient(180deg, var(--sheen) 0, transparent 42%), linear-gradient(160deg, var(--glass), var(--glass-low)); border-color: var(--glass-edge); box-shadow: inset 0 1px 0 var(--sheen), 0 12px 32px -16px var(--glass-shadow); }
+@supports (backdrop-filter: blur(1px)) { main :is(.band, .graphic-panel, .at-panel, .receipt), main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) { -webkit-backdrop-filter: blur(14px) saturate(150%); backdrop-filter: blur(14px) saturate(150%); } }
+/* Bands on every page, like the home page */
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) { padding: clamp(18px, 4vw, 32px); border-radius: var(--radius); border: 1px solid var(--glass-edge);
+  background: linear-gradient(180deg, var(--sheen) 0, transparent 30%), linear-gradient(155deg, color-mix(in srgb, var(--sec-soft) 92%, transparent), color-mix(in srgb, var(--sec-soft) 55%, transparent));
+  box-shadow: inset 0 1px 0 var(--sheen), 0 14px 36px -20px var(--glass-shadow); }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+2) { --sec: var(--hl-rain); --sec-ink: #FFFFFF; --sec-soft: #e1ecf4; --sec-deep: #1F5F8B; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+2) { --sec-soft: #142330; --sec-deep: #7fb6dd; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+3) { --sec: var(--hl-harvest); --sec-ink: #111111; --sec-soft: #fdf1cc; --sec-deep: #8a5a00; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+3) { --sec-soft: #2b2410; --sec-deep: #F4B400; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+4) { --sec: var(--hl-earth); --sec-ink: #FFFFFF; --sec-soft: #f6e1dc; --sec-deep: #A63D2A; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+4) { --sec-soft: #2c1915; --sec-deep: #f0957f; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+5) { --sec: var(--hl-avocado); --sec-ink: #111111; --sec-soft: #eef5dd; --sec-deep: #4a6a12; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+5) { --sec-soft: #1d2612; --sec-deep: #a9cf5a; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+6) { --sec: var(--hl-dusk); --sec-ink: #FFFFFF; --sec-soft: #e7e2f3; --sec-deep: #3B2A6B; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+6) { --sec-soft: #201b31; --sec-deep: #b9a6ee; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+7) { --sec: var(--hl-tea); --sec-ink: #FFFFFF; --sec-soft: #dcefe4; --sec-deep: #0B5D3B; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+7) { --sec-soft: #11261b; --sec-deep: #5fd39a; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+8) { --sec: var(--hl-bloom); --sec-ink: #111111; --sec-soft: #fbece6; --sec-deep: #9a4630; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+8) { --sec-soft: #2d211d; --sec-deep: #F2C4B4; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) > h2:first-child { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) > h2:first-child::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 3px; background: var(--sec-deep); }
+/* Glossy page heads and sector tiles: a light sheen over the solid colour */
+.page-head.band, .sector-tile, .panel.sec-harvest { background-image: linear-gradient(165deg, rgb(255 255 255 / 0.22) 0%, rgb(255 255 255 / 0) 42%), linear-gradient(0deg, rgb(0 0 0 / 0.06), transparent 60%); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.35), 0 16px 34px -20px var(--glass-shadow); }
+.band { box-shadow: inset 0 1px 0 var(--sheen), 0 14px 36px -20px var(--glass-shadow); border: 1px solid var(--glass-edge); background-image: linear-gradient(180deg, var(--sheen) 0, transparent 30%); }
+/* Large numbers are titles: Varela Round, like the headings */
+main :is(.figure .num, .tile b, .card .big, .callout b, .hc-title.big, .pc-text b, .coins-key b), .atlas-hero :is(.hc-title.big, b) { font-family: var(--title-font); font-weight: 400; letter-spacing: -0.015em; }
+@media print { main::before { display: none; } main * { backdrop-filter: none !important; } }
+/* Map card on phones sits under the map, so its close button belongs to it */
+@media (max-width: 600px) { .at-card { position: relative; } }

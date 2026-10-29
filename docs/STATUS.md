@@ -1,4 +1,4 @@
-# Status and handover (29 Oct 2026)
+# Status and handover (29 Oct 2026, facelift branch)
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md` / `CLAUDE.md`, then this, then `docs/`.
 
@@ -7,6 +7,20 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Live on `main`:** the Atlas redesign (live county map hero, pill navigation, Highlands palette), Phases 1–4 of `docs/EXPANSION_SPEC.md`, Auditor-General findings, Have your say, and the restructure into six Data sectors with toggles, constituency pages and NG-CDF.
 - **Content model:** data in `src/data/*.json` (sources in each file and in `docs/DATA.md`); text in `src/content/` collections (`draft: true` = EXAMPLE, hidden unless `ND_DRAFTS=1`).
 - **Decisions:** `docs/DECISIONS.md` #1–#30 explain every structural choice. Read #3 (two layers), #14 (questions not accusations), #24–#25 (colour roles; red on maps = emergencies only), #27 (no invented data), #30 (sectors).
+
+## Facelift (29 Oct 2026, branch `feat/facelift`, not merged or pushed)
+
+- **Starting point:** `main` at `ea05311` (the branch chain described below is already on `main`; the "waiting for go-ahead" note there is historical).
+- **Done (decision #55):**
+  1. Large numbers glow in their section colour: soft halo in light mode, neon in dark mode and on Ink panels; red gap figures glow red. Digit colours and contrast are unchanged; print has no glow.
+  2. Own icon set: `src/lib/icons.js` (31 icons) and `src/components/Icon.astro`. On page heads (a large outline mark per section, or the facility's category), sector tiles, home stat tiles and "Find out more", Government and Learn cards, ward service lists and the `Pictos` pictograms.
+  3. Headings: h2 has a highlighter underline in the section's deep tone, h3 takes that tone as its colour (Varela Round has no bold). Not applied inside tiles, cards, receipts or Ink panels.
+  4. `src/components/PhotoSlot.astro`: placeholder cards for verified photos. Facility profiles now show three (main photo, services, location) with the rules for when a photo can go in.
+  5. Hero map: the six neighbouring counties as dashed context (`src/data/neighbours.json`, built by `scripts/build-neighbours.py` from geoBoundaries ADM1). The county still links ward by ward.
+  6. `/maps/` ("Map" in the Wards menu): one map with four views (Wards, Facilities, Ward money, Alerts), zoom/pan/pinch and a ward card on tap (`src/components/AtlasMap.astro`). No facility points until locations are reviewed. `id="services"` added on ward pages.
+  7. Decision #56: glass bands and frosted surfaces on every page (colour rotation like the home page), glossy heads and tiles, and large numbers in Varela Round. This covers facility ledger item 7 (icy/glass surfaces).
+- **Checks:** `npm test` 104 pass; Python tests pass; `node scripts/build-facilities-csv.js --check` passes; `ND_SITE_URL=https://nyamiradaily.org npm run build` 754 pages; Playwright at 390×844 and 1280 px, light and dark, on home, Data, Government, Esise, a facility profile and `/maps/`: no sideways scroll, no console errors; the facility map's category buttons update shading, counts and key.
+- **Not done / next:** owner visual review; the icons are not yet on every page (Take part, Stories, Constitution, Opportunities lists); exporting the icons as SVG files for social cards; facility ledger item 6 (sourced map points, photo viewer) remains next; item 7 is done here pending review. The photo cards are the frames item 6 will fill.
 
 ## Before launch (needs a person)
 
