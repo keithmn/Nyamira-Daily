@@ -1200,50 +1200,124 @@ main .receipt h2 { text-decoration: none; }
 .nb-key { color: var(--muted); }
 @media (max-width: 520px) { .hm-nbl text { font-size: 38px; } }
 
-/* Purpose maps (/maps/): one frame, three colour systems */
-.pmaps { display: flex; flex-direction: column; gap: 20px; margin-top: 16px; }
-@media (min-width: 900px) {
-  .pmap { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); grid-auto-rows: min-content; column-gap: 28px; padding: 24px !important; }
-  .pmap > :not(svg) { grid-column: 1; }
-  .pmap > svg { grid-column: 2; grid-row: 1 / span 6; max-height: 720px; }
-}
-.pmap { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--radius); background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); scroll-margin-top: 16px; }
-.pmap .pm-head { display: flex; gap: 12px; align-items: flex-start; }
-.pmap .pm-head h2 { text-decoration: none; font-size: 20px; }
-.pmap svg { width: 100%; height: auto; display: block; border-radius: 14px; }
-.pm-navigate { --sec: var(--hl-tea); --sec-soft: #dcefe4; --sec-deep: #0B5D3B; }
-.pm-facilities { --sec: var(--hl-rain); --sec-soft: #e1ecf4; --sec-deep: #1F5F8B; }
-.pm-alerts { --sec: var(--hl-mist); --sec-soft: #eef1ef; --sec-deep: #3d3d3a; }
-:root[data-theme="dark"] .pm-navigate { --sec-soft: #11261b; --sec-deep: #5fd39a; }
-:root[data-theme="dark"] .pm-facilities { --sec-soft: #142330; --sec-deep: #7fb6dd; }
-:root[data-theme="dark"] .pm-alerts { --sec-soft: #1e1e1c; --sec-deep: #d6d6d2; }
-.pmap svg { background: var(--sec-soft); }
-.pm-nb path { fill: none; stroke: color-mix(in srgb, var(--ink) 22%, transparent); stroke-width: 2; stroke-dasharray: 6 6; }
-.pm-w { stroke: var(--bg); stroke-width: 2.4; stroke-linejoin: round; cursor: pointer; transition: opacity 0.15s; }
-.pmap a:hover .pm-w, .pmap a:focus-visible .pm-w { opacity: 0.8; stroke: var(--ink); stroke-width: 4; }
-.pmap a:focus-visible { outline: none; }
-/* Navigate: four greens for the four sub-counties */
-.pm-w.sc1, .pm-sw.sc1 { fill: #0B5D3B; } .pm-w.sc2, .pm-sw.sc2 { fill: #2f8a5c; } .pm-w.sc3, .pm-sw.sc3 { fill: #5cb383; } .pm-w.sc4, .pm-sw.sc4 { fill: #9bd2b2; }
-.pm-navigate .pm-lab text { fill: #fff; }
-.pm-navigate .pm-lab text, .pm-facilities .pm-lab text { font-size: 17px; font-weight: 700; text-anchor: middle; paint-order: stroke; stroke-width: 3.5px; stroke-linejoin: round; }
-.pm-navigate .pm-lab text { stroke: rgb(0 0 0 / 0.45); }
-/* Facilities: Rain, pale to dark; 0 is grey so "none listed" never looks like a low count */
-.pm-w.f0, .pm-sw.f0 { fill: #ececea; } .pm-w.f1, .pm-sw.f1 { fill: #cfe0ed; } .pm-w.f2, .pm-sw.f2 { fill: #9cc1dc; }
-.pm-w.f3, .pm-sw.f3 { fill: #5f97c2; } .pm-w.f4, .pm-sw.f4 { fill: #2f6f9e; } .pm-w.f5, .pm-sw.f5 { fill: #173f5f; }
-:root[data-theme="dark"] .pm-w.f0, :root[data-theme="dark"] .pm-sw.f0 { fill: #2a2a28; }
-.pm-facilities .pm-lab text { fill: #111; stroke: rgb(255 255 255 / 0.8); }
-.pm-facilities .pm-lab text.pm-n { font-size: 22px; }
-/* Alerts: grey map, colour only on alert marks */
-.pm-alerts .pm-w { fill: #d6d6d2; }
-:root[data-theme="dark"] .pm-alerts .pm-w { fill: #3a3a37; }
+/* The county map (/maps/): one map, four views. Each view sets the ward fills and shows its own labels and key. */
+.atlas { display: grid; gap: 16px; }
+@media (min-width: 960px) { .atlas { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; } .at-panel { position: sticky; top: 16px; } }
+.at-stage { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--at-bg); box-shadow: inset 0 0 0 1px var(--line); }
+.atlas { --at-bg: #e9f0ec; --at-line: #ffffff; }
+:root[data-theme="dark"] .atlas { --at-bg: #171a18; --at-line: #111111; }
+.at-map { display: block; width: 100%; height: auto; max-height: 78vh; user-select: none; -webkit-user-select: none; }
+.atlas.zoomed .at-map { cursor: grab; }
+.at-nb path { fill: none; stroke: color-mix(in srgb, var(--ink) 24%, transparent); stroke-width: 2; stroke-dasharray: 6 6; vector-effect: non-scaling-stroke; }
+.at-nb text { font-family: var(--title-font); font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; fill: color-mix(in srgb, var(--ink) 38%, transparent); text-anchor: middle; }
+.at-w { stroke: var(--at-line); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill 0.25s; }
+.atlas a:hover .at-w, .atlas a:focus-visible .at-w { stroke: var(--ink); stroke-width: 3; }
+.atlas a.is-sel .at-w { stroke: var(--nd-green); stroke-width: 4; }
+.atlas a:focus-visible { outline: none; }
+.at-labels text { text-anchor: middle; font-weight: 700; paint-order: stroke; stroke-linejoin: round; pointer-events: none; }
+.at-name { font-size: 16px; fill: #111; stroke: rgb(255 255 255 / 0.85); stroke-width: 3.5px; }
+.at-val { font-size: 21px; fill: #111; stroke: rgb(255 255 255 / 0.85); stroke-width: 3.5px; display: none; }
+.at-alerts { display: none; }
+/* Wards view: four greens by sub-county */
+.atlas[data-view="wards"] .at-w.sc1 { fill: #0B5D3B; } .atlas[data-view="wards"] .at-w.sc2 { fill: #2f8a5c; }
+.atlas[data-view="wards"] .at-w.sc3 { fill: #5cb383; } .atlas[data-view="wards"] .at-w.sc4 { fill: #9bd2b2; }
+.atlas[data-view="wards"] .at-name { fill: #fff; stroke: rgb(0 0 0 / 0.45); }
+/* Facilities view: Rain, pale to dark; 0 is grey */
+.atlas[data-view="facilities"] .at-w[data-f="0"] { fill: #e3e3e0; } .atlas[data-view="facilities"] .at-w[data-f="1"] { fill: #cfe0ed; }
+.atlas[data-view="facilities"] .at-w[data-f="2"] { fill: #9cc1dc; } .atlas[data-view="facilities"] .at-w[data-f="3"] { fill: #5f97c2; }
+.atlas[data-view="facilities"] .at-w[data-f="4"] { fill: #2f6f9e; } .atlas[data-view="facilities"] .at-w[data-f="5"] { fill: #173f5f; }
+.atlas[data-view="facilities"] .v-facilities { display: inline; }
+/* Ward money view: Harvest, pale to deep; not found is hatched grey */
+.atlas[data-view="money"] .at-w[data-m="1"] { fill: #fdf1cc; } .atlas[data-view="money"] .at-w[data-m="2"] { fill: #f9dc80; }
+.atlas[data-view="money"] .at-w[data-m="3"] { fill: #F4B400; } .atlas[data-view="money"] .at-w[data-m="4"] { fill: #c98f00; }
+.atlas[data-view="money"] .at-w[data-m="5"] { fill: #8a5a00; } .atlas[data-view="money"] .at-w[data-m="u"], .atlas[data-view="money"] .at-w[data-m="0"] { fill: #d6d6d2; }
+.atlas[data-view="money"] .v-money { display: inline; }
+/* Alerts view: a grey map; only alert marks carry colour */
+.atlas[data-view="alerts"] .at-w { fill: #d6d6d2; }
+:root[data-theme="dark"] .atlas[data-view="alerts"] .at-w { fill: #3a3a37; }
+.atlas[data-view="alerts"] .at-alerts { display: inline; }
+.atlas[data-view="alerts"] .at-name { fill: #333; }
+/* Key swatches */
 .pm-key { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; color: var(--muted); }
 .pm-key .key { display: inline-flex; align-items: center; gap: 6px; }
-.pm-sw { display: inline-block; width: 16px; height: 16px; background: var(--swatch); border-radius: 4px; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.12); }
+.pm-sw { display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: var(--swatch); box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.12); }
+.pm-sw.sc1 { --swatch: #0B5D3B; } .pm-sw.sc2 { --swatch: #2f8a5c; } .pm-sw.sc3 { --swatch: #5cb383; } .pm-sw.sc4 { --swatch: #9bd2b2; }
+.pm-sw.f0 { --swatch: #e3e3e0; } .pm-sw.f1 { --swatch: #cfe0ed; } .pm-sw.f2 { --swatch: #9cc1dc; } .pm-sw.f3 { --swatch: #5f97c2; } .pm-sw.f4 { --swatch: #2f6f9e; } .pm-sw.f5 { --swatch: #173f5f; }
+.pm-sw.m1 { --swatch: #fdf1cc; } .pm-sw.m2 { --swatch: #f9dc80; } .pm-sw.m3 { --swatch: #F4B400; } .pm-sw.m4 { --swatch: #c98f00; } .pm-sw.m5 { --swatch: #8a5a00; } .pm-sw.mu { --swatch: #d6d6d2; }
 .pm-cats .chip { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font: inherit; font-size: 14px; color: var(--ink); }
 .pm-cats .chip[aria-pressed="true"] { background: var(--hl-rain); color: #fff; border-color: var(--hl-rain); --ico-acc: #fff; }
-.pm-jump .chip { text-decoration: none; color: var(--ink); }
+/* Floating controls, like a map app */
+.at-views { position: absolute; top: 10px; left: 10px; right: 64px; display: flex; flex-wrap: wrap; gap: 6px; }
+.at-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 12px; border-radius: 999px; border: 0; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+  background: var(--bg); color: var(--ink); box-shadow: 0 2px 8px rgb(0 0 0 / 0.16), inset 0 0 0 1px var(--line); }
+.at-chip[aria-pressed="true"] { background: var(--nd-ink); color: #fff; --ico-acc: var(--nd-green); }
+:root[data-theme="dark"] .at-chip[aria-pressed="true"] { background: var(--nd-white); color: var(--nd-ink); }
+.at-zoom { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; border-radius: 12px; overflow: hidden; background: var(--bg); box-shadow: 0 2px 8px rgb(0 0 0 / 0.16), inset 0 0 0 1px var(--line); }
+.at-zoom button { width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 24px; font-weight: 700; cursor: pointer; display: grid; place-items: center; }
+.at-zoom button + button { border-top: 1px solid var(--line); }
+.at-zoom button:hover { background: var(--surface); }
+.at-card { position: absolute; left: 10px; bottom: 10px; width: min(320px, calc(100% - 20px)); padding: 16px; border-radius: 16px; background: var(--bg); color: var(--ink);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.2), inset 0 0 0 1px var(--line); display: flex; flex-direction: column; gap: 8px; }
+.at-card h3 { font-size: 22px; color: var(--ink); }
+.at-card dl { margin: 0; display: grid; gap: 4px; font-size: 14px; }
+.at-card dl div { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px dashed var(--line); padding-bottom: 4px; }
+.at-card dt { color: var(--muted); } .at-card dd { margin: 0; font-weight: 700; text-align: right; }
+.at-card .pill-btn { align-self: flex-start; margin-top: 4px; }
+.at-x { position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--surface); color: var(--ink); font-size: 22px; cursor: pointer; }
+@media (max-width: 600px) { .at-card { position: static; width: auto; margin: 0; border-radius: 0 0 var(--radius) var(--radius); box-shadow: none; border-top: 1px solid var(--line); } .at-views { right: 62px; } .at-chip { min-height: 34px; padding: 0 10px; font-size: 13px; } }
+.at-panel { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--radius); background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
+.at-key { display: none; flex-direction: column; gap: 10px; }
+.atlas[data-view="wards"] .at-key.v-wards, .atlas[data-view="facilities"] .at-key.v-facilities, .atlas[data-view="money"] .at-key.v-money, .atlas[data-view="alerts"] .at-key.v-alerts { display: flex; }
+.atlas:not(.js) .at-key.v-facilities [data-cats] { display: none; }
+@media (prefers-reduced-motion: reduce) { .at-w { transition: none; } }
 
-.pm-sw.sc1 { --swatch: #0B5D3B; } .pm-sw.sc2 { --swatch: #2f8a5c; } .pm-sw.sc3 { --swatch: #5cb383; } .pm-sw.sc4 { --swatch: #9bd2b2; }
-.pm-sw.f0 { --swatch: #ececea; } .pm-sw.f1 { --swatch: #cfe0ed; } .pm-sw.f2 { --swatch: #9cc1dc; } .pm-sw.f3 { --swatch: #5f97c2; } .pm-sw.f4 { --swatch: #2f6f9e; } .pm-sw.f5 { --swatch: #173f5f; }
-:root[data-theme="dark"] .pm-sw.f0 { --swatch: #2a2a28; }
-.pm-navigate .pm-lab text { font-size: 19px; }
+/* ===== Glass and colour on every page (decision #56) =====
+   The home page's colour bands now run through every page: each top-level section of a page is a tinted glass
+   band, in the page's own colour first, then rotating through the Highlands colours. Cards, panels, tables and
+   toggles are frosted glass with a top sheen. Real blur (backdrop-filter) is used only on bands and big panels,
+   so cheap phones are not asked to blur every card. Map, evidence, alert and critical-data colours are unchanged. */
+:root { --glass: rgb(255 255 255 / 0.72); --glass-low: rgb(255 255 255 / 0.5); --glass-edge: rgb(255 255 255 / 0.85); --glass-line: rgb(17 17 17 / 0.07); --glass-shadow: rgb(16 40 28 / 0.16); --sheen: rgb(255 255 255 / 0.7); }
+:root[data-theme="dark"] { --glass: rgb(38 40 38 / 0.66); --glass-low: rgb(26 28 26 / 0.5); --glass-edge: rgb(255 255 255 / 0.09); --glass-line: rgb(255 255 255 / 0.06); --glass-shadow: rgb(0 0 0 / 0.45); --sheen: rgb(255 255 255 / 0.07); }
+/* The page behind the glass: soft washes of the page colour and two Highlands neighbours */
+main { position: relative; isolation: isolate; }
+main::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(55% 380px at 8% 0%, color-mix(in srgb, var(--sec, var(--nd-green)) 20%, transparent), transparent 70%),
+    radial-gradient(45% 420px at 96% 12%, color-mix(in srgb, var(--hl-rain) 13%, transparent), transparent 70%),
+    radial-gradient(50% 520px at 0% 55%, color-mix(in srgb, var(--hl-harvest) 11%, transparent), transparent 70%),
+    radial-gradient(45% 520px at 100% 85%, color-mix(in srgb, var(--hl-mist) 40%, transparent), transparent 70%); }
+:root[data-theme="dark"] main::before { opacity: 0.75; }
+/* Glass surfaces */
+main :is(.card, .panel:not(.sec-harvest), details:not(.menu-group), .table-box, .tile, .callout:not(.gap), .at-panel, .photo-slot, .receipt) {
+  background: linear-gradient(180deg, var(--sheen) 0, transparent 46%), linear-gradient(160deg, var(--glass), var(--glass-low));
+  border-color: var(--glass-edge); box-shadow: inset 0 1px 0 var(--sheen), 0 1px 0 var(--glass-line), 0 10px 28px -14px var(--glass-shadow); }
+main .grid > .card, main .tile { background: linear-gradient(180deg, var(--sheen) 0, transparent 46%), linear-gradient(160deg, color-mix(in srgb, var(--sec-soft) 82%, transparent), color-mix(in srgb, var(--sec-soft) 55%, transparent)); }
+main .graphic-panel, main .graphic-tile { background: linear-gradient(180deg, var(--sheen) 0, transparent 42%), linear-gradient(160deg, var(--glass), var(--glass-low)); border-color: var(--glass-edge); box-shadow: inset 0 1px 0 var(--sheen), 0 12px 32px -16px var(--glass-shadow); }
+@supports (backdrop-filter: blur(1px)) { main :is(.band, .graphic-panel, .at-panel, .receipt), main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) { -webkit-backdrop-filter: blur(14px) saturate(150%); backdrop-filter: blur(14px) saturate(150%); } }
+/* Bands on every page, like the home page */
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) { padding: clamp(18px, 4vw, 32px); border-radius: var(--radius); border: 1px solid var(--glass-edge);
+  background: linear-gradient(180deg, var(--sheen) 0, transparent 30%), linear-gradient(155deg, color-mix(in srgb, var(--sec-soft) 92%, transparent), color-mix(in srgb, var(--sec-soft) 55%, transparent));
+  box-shadow: inset 0 1px 0 var(--sheen), 0 14px 36px -20px var(--glass-shadow); }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+2) { --sec: var(--hl-rain); --sec-ink: #FFFFFF; --sec-soft: #e1ecf4; --sec-deep: #1F5F8B; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+2) { --sec-soft: #142330; --sec-deep: #7fb6dd; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+3) { --sec: var(--hl-harvest); --sec-ink: #111111; --sec-soft: #fdf1cc; --sec-deep: #8a5a00; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+3) { --sec-soft: #2b2410; --sec-deep: #F4B400; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+4) { --sec: var(--hl-earth); --sec-ink: #FFFFFF; --sec-soft: #f6e1dc; --sec-deep: #A63D2A; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+4) { --sec-soft: #2c1915; --sec-deep: #f0957f; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+5) { --sec: var(--hl-avocado); --sec-ink: #111111; --sec-soft: #eef5dd; --sec-deep: #4a6a12; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+5) { --sec-soft: #1d2612; --sec-deep: #a9cf5a; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+6) { --sec: var(--hl-dusk); --sec-ink: #FFFFFF; --sec-soft: #e7e2f3; --sec-deep: #3B2A6B; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+6) { --sec-soft: #201b31; --sec-deep: #b9a6ee; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+7) { --sec: var(--hl-tea); --sec-ink: #FFFFFF; --sec-soft: #dcefe4; --sec-deep: #0B5D3B; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+7) { --sec-soft: #11261b; --sec-deep: #5fd39a; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+8) { --sec: var(--hl-bloom); --sec-ink: #111111; --sec-soft: #fbece6; --sec-deep: #9a4630; }
+:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+8) { --sec-soft: #2d211d; --sec-deep: #F2C4B4; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) > h2:first-child { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) > h2:first-child::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 3px; background: var(--sec-deep); }
+/* Glossy page heads and sector tiles: a light sheen over the solid colour */
+.page-head.band, .sector-tile, .panel.sec-harvest { background-image: linear-gradient(165deg, rgb(255 255 255 / 0.22) 0%, rgb(255 255 255 / 0) 42%), linear-gradient(0deg, rgb(0 0 0 / 0.06), transparent 60%); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.35), 0 16px 34px -20px var(--glass-shadow); }
+.band { box-shadow: inset 0 1px 0 var(--sheen), 0 14px 36px -20px var(--glass-shadow); border: 1px solid var(--glass-edge); background-image: linear-gradient(180deg, var(--sheen) 0, transparent 30%); }
+/* Large numbers are titles: Varela Round, like the headings */
+main :is(.figure .num, .tile b, .card .big, .callout b, .hc-title.big, .pc-text b, .coins-key b), .atlas-hero :is(.hc-title.big, b) { font-family: var(--title-font); font-weight: 400; letter-spacing: -0.015em; }
+@media print { main::before { display: none; } main * { backdrop-filter: none !important; } }
+/* Map card on phones sits under the map, so its close button belongs to it */
+@media (max-width: 600px) { .at-card { position: relative; } }

@@ -20,7 +20,7 @@ export const sections = [
     { href: '/opportunities/', label: 'Opportunities' },
   ] },
   // Wards: the four constituencies; each opens to show its wards (decision #30)
-  { href: '/ward/', label: 'Wards', overview: 'All 20 wards', pages: [{ href: '/maps/', label: 'Maps' }, ...subCounties.map((s) => ({
+  { href: '/ward/', label: 'Wards', overview: 'All 20 wards', pages: [{ href: '/maps/', label: 'Map' }, ...subCounties.map((s) => ({
     href: `/constituency/${anchorFor(s)}/`, label: `${s} Constituency`,
     pages: wards.filter((w) => w.subCounty === s).map((w) => ({ href: `/ward/${w.slug}/`, label: w.name })),
   }))] },

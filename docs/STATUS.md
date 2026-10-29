@@ -17,9 +17,10 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
   3. Headings: h2 has a highlighter underline in the section's deep tone, h3 takes that tone as its colour (Varela Round has no bold). Not applied inside tiles, cards, receipts or Ink panels.
   4. `src/components/PhotoSlot.astro`: placeholder cards for verified photos. Facility profiles now show three (main photo, services, location) with the rules for when a photo can go in.
   5. Hero map: the six neighbouring counties as dashed context (`src/data/neighbours.json`, built by `scripts/build-neighbours.py` from geoBoundaries ADM1). The county still links ward by ward.
-  6. `/maps/` (in the Wards menu): three purpose maps with their own colours and keys: find your ward, the facility list (shading per ward, category buttons; no facility points until locations are reviewed), civic alerts. `id="services"` added on ward pages for the facility map links.
+  6. `/maps/` ("Map" in the Wards menu): one map with four views (Wards, Facilities, Ward money, Alerts), zoom/pan/pinch and a ward card on tap (`src/components/AtlasMap.astro`). No facility points until locations are reviewed. `id="services"` added on ward pages.
+  7. Decision #56: glass bands and frosted surfaces on every page (colour rotation like the home page), glossy heads and tiles, and large numbers in Varela Round. This covers facility ledger item 7 (icy/glass surfaces).
 - **Checks:** `npm test` 104 pass; Python tests pass; `node scripts/build-facilities-csv.js --check` passes; `ND_SITE_URL=https://nyamiradaily.org npm run build` 754 pages; Playwright at 390×844 and 1280 px, light and dark, on home, Data, Government, Esise, a facility profile and `/maps/`: no sideways scroll, no console errors; the facility map's category buttons update shading, counts and key.
-- **Not done / next:** owner visual review; the icons are not yet on every page (Take part, Stories, Constitution, Opportunities lists); exporting the icons as SVG files for social cards; facility ledger items 6 (sourced map points, photo viewer) and 7 (icy surfaces) remain next. The photo cards are the frames item 6 will fill.
+- **Not done / next:** owner visual review; the icons are not yet on every page (Take part, Stories, Constitution, Opportunities lists); exporting the icons as SVG files for social cards; facility ledger item 6 (sourced map points, photo viewer) remains next; item 7 is done here pending review. The photo cards are the frames item 6 will fill.
 
 ## Before launch (needs a person)
 

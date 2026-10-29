@@ -1,54 +1,12 @@
 ---
-// Maps hub (decision #55): one county, drawn for three different jobs.
+// The county map (decision #55): one map with several views, like layers in a map app.
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
-import PurposeMap from '../../components/PurposeMap.astro';
+import AtlasMap from '../../components/AtlasMap.astro';
 import { getAlerts, isLive } from '../../lib/alerts-data.js';
 const liveAlerts = (await getAlerts()).filter(isLive);
 ---
-<Base title="Maps" description="Nyamira County maps for finding your ward, seeing what our facility list holds, and following civic alerts.">
-  <PageHead eyebrow="Wards" title="Maps of Nyamira" lead="One county, three maps, each with its own job and its own colours: find your ward, see what our facility list holds, and follow civic alerts." icon="map" crumbs={[{ href: '/ward/', label: 'Wards' }, { href: '/maps/', label: 'Maps' }]} />
-  <nav class="chips pm-jump" aria-label="Jump to a map" style="margin-top:16px">
-    <a class="chip" href="#pm-navigate">Find your ward</a>
-    <a class="chip" href="#pm-facilities">Facility list</a>
-    <a class="chip" href="#pm-alerts">Alerts</a>
-  </nav>
-  <div class="pmaps">
-    <PurposeMap mode="navigate" />
-    <PurposeMap mode="facilities" />
-    <PurposeMap mode="alerts" alerts={liveAlerts} />
-  </div>
-  <p class="small muted" style="margin-top:24px">Facility points are not on these maps yet. A facility gets its own point only once its location has been checked against a source; until then each facility page says that its exact spot is not yet known.</p>
+<Base title="Map" description="One map of Nyamira County with views for finding your ward, our facility list, ward project money and civic alerts.">
+  <PageHead eyebrow="Wards" title="Map of Nyamira" lead="One map, four views. Switch between wards, facilities, ward money and alerts; zoom in, and tap a ward to see its details." icon="map" crumbs={[{ href: '/ward/', label: 'Wards' }, { href: '/maps/', label: 'Map' }]} />
+  <div style="margin-top:16px"><AtlasMap alerts={liveAlerts} /></div>
 </Base>
-
-<script is:inline>
-(function () {
-  var sec = document.getElementById('pm-facilities');
-  if (!sec) return;
-  var data = JSON.parse(sec.querySelector('[data-pm-fac]').textContent);
-  var bar = sec.querySelector('[data-pm-cats]');
-  bar.hidden = false;
-  function step(n, max) { return n === 0 ? 0 : max <= 5 ? n : Math.min(5, Math.ceil((n / max) * 5)); }
-  function show(cat) {
-    var key = cat === 'all' ? 'all' : cat, max = 1, s;
-    for (s in data) max = Math.max(max, data[s][key] || 0);
-    Array.prototype.forEach.call(sec.querySelectorAll('[data-w]'), function (a) {
-      var n = data[a.dataset.w][key] || 0, p = a.querySelector('path');
-      p.setAttribute('class', 'pm-w f' + step(n, max));
-      a.querySelector('title').textContent = a.querySelector('title').textContent.split(':')[0] + ': ' + n + ' listed';
-      var t = sec.querySelector('[data-n="' + a.dataset.w + '"]'); if (t) t.textContent = n;
-    });
-    var keys = sec.querySelectorAll('.pm-key .key');
-    for (var k = 1; k <= 5; k++) {
-      // Small counts get one step per number, so no two steps share a label
-      if (max <= 5) { keys[k].hidden = k > max; keys[k].lastChild.textContent = String(k); continue; }
-      keys[k].hidden = false;
-      var lo = k === 1 ? 1 : Math.ceil(((k - 1) / 5) * max) + 1, hi = Math.ceil((k / 5) * max);
-      keys[k].lastChild.textContent = lo >= hi ? String(hi) : lo + '–' + hi;
-    }
-    sec.querySelector('[data-pm-scale]').textContent = (cat === 'all' ? 'Facilities' : cat + ' facilities') + ' listed per ward';
-    Array.prototype.forEach.call(bar.querySelectorAll('button'), function (b) { b.setAttribute('aria-pressed', String(b.dataset.cat === cat)); });
-  }
-  bar.addEventListener('click', function (e) { var b = e.target.closest('button[data-cat]'); if (b) show(b.dataset.cat); });
-})();
-</script>
