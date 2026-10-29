@@ -10,6 +10,18 @@ export const show = { status: 'scheduled', start: 22, end: 23, liveUrl: '', conf
 // episodes live in src/content/episodes/.
 export const media = { showChannelUrl: '', podcastUrl: '' };
 
+// Social accounts for the footer (decision #68). Full https links to the real, owned accounts only;
+// an empty value hides that icon. Order here is the order in the footer.
+export const social = {
+  whatsapp: '',   // WhatsApp Channel link, e.g. https://whatsapp.com/channel/...
+  youtube: '',
+  facebook: '',
+  x: '',
+  instagram: '',
+  tiktok: '',
+};
+export const socialLinks = Object.entries(social).filter(([, url]) => /^https:\/\//.test(url));
+
 export const hasContact = Boolean(contact.whatsapp || contact.email);
 
 // Community reporting stays disabled until both a monitored channel and a response owner are configured.

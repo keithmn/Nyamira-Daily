@@ -33,6 +33,13 @@ export const icons = {
   today: [['circle', { cx: 12, cy: 12, r: 4, ac: 1 }], ['path', { d: 'M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M5.6 18.4l1.6-1.6M16.8 7.2l1.6-1.6' }]],
   check: [['circle', { cx: 12, cy: 12, r: 8.5 }], ['path', { d: 'M8.3 12.3l2.5 2.5 5-5.3', acs: 1 }]],
   phone: [['rect', { x: 6.5, y: 2.8, width: 11, height: 18.4, rx: 2.6 }], ['path', { d: 'M10.4 5.6h3.2' }], ['circle', { cx: 12, cy: 17.4, r: 1.3, ac: 1 }]],
+  // Social platforms: simplified marks in the same stroke style, used only to link to our own accounts
+  whatsapp: [['path', { d: 'M4.2 19.8l1.1-3.6A8.3 8.3 0 1 1 8.4 19z' }], ['path', { d: 'M9.2 8.6c.3 2.9 2.4 5.3 5.6 5.9l1.1-1.3-1.8-1-1 .8c-1-.4-1.9-1.3-2.3-2.3l.8-1-1-1.8z', ac: 1 }]],
+  youtube: [['rect', { x: 2.8, y: 5.8, width: 18.4, height: 12.4, rx: 4 }], ['path', { d: 'M10.2 9.4v5.2l4.6-2.6z', ac: 1 }]],
+  facebook: [['rect', { x: 3.5, y: 3.5, width: 17, height: 17, rx: 4.5 }], ['path', { d: 'M15.6 8.2h-1.5c-1.2 0-1.9.7-1.9 1.9v10.4M9.6 13.2h5.4', acs: 1 }]],
+  x: [['path', { d: 'M4.5 4.5h4.2l10.8 15h-4.2z' }], ['path', { d: 'M19.2 4.5l-5.8 6.4M10.6 13.1l-5.8 6.4', acs: 1 }]],
+  instagram: [['rect', { x: 3.5, y: 3.5, width: 17, height: 17, rx: 5 }], ['circle', { cx: 12, cy: 12, r: 3.8 }], ['circle', { cx: 16.9, cy: 7.1, r: 1.2, ac: 1 }]],
+  tiktok: [['path', { d: 'M13 3.8v11.4a3.4 3.4 0 1 1-3.4-3.4' }], ['path', { d: 'M13 3.8c.4 2.6 2.2 4.4 4.8 4.6', acs: 1 }]],
   search: [['circle', { cx: 10.5, cy: 10.5, r: 6 }], ['path', { d: 'M15 15l5 5', acs: 1 }]],
 };
 

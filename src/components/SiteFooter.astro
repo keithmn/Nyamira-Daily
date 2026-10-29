@@ -1,78 +1,23 @@
 ---
-// Site footer (decision #67): always Ink. Arranged like an atlas index:
-// 1. who we are, the one-line promise, and a small glowing county map that opens the Map;
-// 2. a directory of every section in its own colour, with its icon and its main pages (planned pages left out);
-// 3. three action cards: report a mistake, use the data, get updates (only when a real channel is configured);
-// 4. the evidence-label key, credits and a way back to the top.
-import geo from '../data/geo.json';
+// Site footer (decision #68): minimal, and it does not repeat the site's navigation. Always Ink, under the
+// palette strip: the logo, our social accounts (only those set in src/config.js `social`), and one line naming
+// the publisher with the credits the map licences require.
 import Icon from './Icon.astro';
-import { sections, sectionTone } from '../nav.js';
-import { planned, hasContact } from '../config.js';
-const groups = sections.map((s) => ({
-  ...s,
-  tone: sectionTone[s.label] ?? 'mist',
-  links: (s.pages ?? []).filter((p) => !planned.has(p.href)).slice(0, 4),
-}));
+import { socialLinks } from '../config.js';
+const names = { whatsapp: 'WhatsApp Channel', youtube: 'YouTube', facebook: 'Facebook', x: 'X', instagram: 'Instagram', tiktok: 'TikTok' };
 ---
 <footer class="site-footer">
-  <div class="wrap">
-    <div class="ft-hero">
-      <div class="ft-id">
-        <img class="footer-logo" src="/brand/Nyamira-Daily_horizontal_reverse.svg" alt="Nyamira Daily" width="1197" height="228" loading="lazy" />
-        <p class="ft-promise">Every number has a source, a date and a label that says how solid it is.</p>
-        <p class="ft-indep"><strong>Independent.</strong> Not affiliated with the County Government of Nyamira.</p>
-      </div>
-      <a class="ft-map" href="/maps/" aria-label="Open the map of Nyamira's 20 wards">
-        <svg viewBox="-20 -20 640 990" aria-hidden="true" focusable="false">
-          {Object.values(geo.wards).map((w) => <path d={w.d} />)}
-        </svg>
-        <span class="ft-map-cap"><b>20 wards</b><span>Open the map</span><span aria-hidden="true">→</span></span>
-      </a>
-    </div>
-
-    <nav class="ft-dir" aria-label="All sections">
-      {groups.map((g) => (
-        <div class={`ft-sec sec-${g.tone}`}>
-          <a class="ft-sec-h" href={g.href}><Icon name={g.icon ?? 'source'} size={18} badge />{g.label}</a>
-          {g.links.length > 0 && (
-            <ul>{g.links.map((p) => <li><a href={p.href}>{p.label}</a></li>)}</ul>
-          )}
-        </div>
-      ))}
-    </nav>
-
-    <div class="ft-actions">
-      <a class="ft-act is-main" href="/how-we-work/#corrections">
-        <Icon name="question" size={22} />
-        <span><b>Spotted a mistake?</b><span>Tell us. We check it and publish every correction.</span></span>
-        <span class="ft-go" aria-hidden="true">→</span>
-      </a>
-      <a class="ft-act" href="/data/open-data/">
-        <Icon name="data" size={22} />
-        <span><b>Use our data</b><span>Free to reuse, with credit to Nyamira Daily.</span></span>
-        <span class="ft-go" aria-hidden="true">→</span>
-      </a>
-      {hasContact ? (
-        <a class="ft-act" href="/subscribe/">
-          <Icon name="phone" size={22} />
-          <span><b>Get updates</b><span>Alerts and the number of the week on WhatsApp and SMS.</span></span>
-          <span class="ft-go" aria-hidden="true">→</span>
-        </a>
-      ) : (
-        <a class="ft-act" href="/search/">
-          <Icon name="search" size={22} />
-          <span><b>Search the site</b><span>Wards, facilities, projects, leaders and more.</span></span>
-          <span class="ft-go" aria-hidden="true">→</span>
-        </a>
+  <div class="wrap ft-min">
+    <div class="ft-row">
+      <img class="footer-logo" src="/brand/Nyamira-Daily_horizontal_reverse.svg" alt="Nyamira Daily" width="1197" height="228" loading="lazy" />
+      {socialLinks.length > 0 && (
+        <ul class="ft-social" aria-label="Nyamira Daily on social media">
+          {socialLinks.map(([k, url]) => (
+            <li><a href={url} rel="noopener me" aria-label={`Nyamira Daily on ${names[k] ?? k}`}><Icon name={k} size={22} /></a></li>
+          ))}
+        </ul>
       )}
     </div>
-
-    <div class="ft-base">
-      <p class="foot-labels"><span>Every figure carries a label:</span> <span class="label verified">Verified</span> <span class="label audit">Audit finding</span> <span class="label official">Official claim</span> <span class="label unverified">Unverified</span> <a href="/how-we-work/#evidence">What they mean</a></p>
-      <div class="ft-fine">
-        <p>© {new Date().getFullYear()} Nyamira Daily · Maps: geoBoundaries (CC BY 4.0), © OpenStreetMap contributors</p>
-        <a class="ft-top" href="#top"><span>Back to top</span><span aria-hidden="true">↑</span></a>
-      </div>
-    </div>
+    <p class="ft-fine">© {new Date().getFullYear()} Nyamira Daily, published by <strong>Underdawgs Rising Group Ltd.</strong> Independent of the County Government of Nyamira. Maps: geoBoundaries (CC BY 4.0), © OpenStreetMap contributors.</p>
   </div>
 </footer>

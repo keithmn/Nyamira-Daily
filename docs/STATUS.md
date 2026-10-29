@@ -8,7 +8,13 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Content model:** data in `src/data/*.json` (sources in each file and in `docs/DATA.md`); text in `src/content/` collections (`draft: true` = EXAMPLE, hidden unless `ND_DRAFTS=1`).
 - **Decisions:** `docs/DECISIONS.md` #1–#30 explain every structural choice. Read #3 (two layers), #14 (questions not accusations), #24–#25 (colour roles; red on maps = emergencies only), #27 (no invented data), #30 (sectors).
 
-## Full-width home map and footer (29 Oct 2026, branch `feat/hero-fullwidth` from `21b325a`)
+## Minimal footer (30 Oct 2026, branch `fix/minimal-footer` from `d37f7bb`)
+
+- Decision #68 replaces #67: logo, social icons (from `social` in `src/config.js`; all empty for now, so no icons show), and one line naming the publisher, Underdawgs Rising Group Ltd., with independence and map credits.
+- To switch socials on: paste the full https links of the real accounts into `social` and rebuild.
+- Checks: `npm test` pass; build 850 pages; footer checked at 1280 and 390 px with and without sample links (sample links only in a throwaway preview build).
+
+## Full-width home map and footer (29 Oct 2026, branch `feat/hero-fullwidth` from `21b325a`, pushed to `main`)
 
 - Decision #66: the hero map spans the page with the neighbouring counties; the question/ward card floats beside the county as a glass widget with a line to the ward; phones dock the card under the map. Files: `src/components/HeroMap.astro`, `src/styles/global.css` (end), `src/data/neighbours.json` and `scripts/build-neighbours.py` (wider frame).
 - Checks: `npm test` 128 pass; Python tests pass; `ND_SITE_URL=https://nyamiradaily.org npm run build` 850 pages; Playwright at 1280×900 and 1600×950 (light/dark) and 390×844: no sideways scroll, no script errors, hovering a ward moves the card beside the county and moving onto the card keeps it open.
