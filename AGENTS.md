@@ -18,7 +18,7 @@ This repo is **Nyamira Daily**, an independent, non-partisan civic information w
 - **Never estimate, interpolate or invent data.** If a value is unknown, show it as unknown.
 - **Questions, not accusations.** Repeat budgeting, stalled works or conflicting figures are presented as "questions to ask" with their source documents. Never write "corruption", "stole", "looted" or "ghost project" unless a court or competent authority has established it. Full rules: `docs/EDITORIAL_RULES.md`.
 - **Non-partisan.** No content supporting or opposing any party, candidate or official.
-- **Readers are on cheap phones and expensive data.** Keep pages light: self-host League Spartan 500/700 for body and figures plus the Latin-subset Varela Round title font (about 33 KB; see `docs/DECISIONS.md` #46), no big libraries, no client-side frameworks. Test at 390px width with no horizontal scroll.
+- **Readers are on cheap phones and expensive data.** Keep pages light: self-host League Spartan 500/700 for body and figures plus Google Fonts' Latin woff2 of the Varela Round title font (about 16 KB; see `docs/DECISIONS.md` #46), no big libraries, no client-side frameworks. Test at 390px width with no horizontal scroll.
 - **Plain language.** Short sentences, explain terms, lead with the number.
 
 ## Conventions

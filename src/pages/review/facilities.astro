@@ -2,14 +2,14 @@
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 ---
-<Base title="Facility report review" noindex>
+<Base title="Facility report review" noindex tools={false}>
   <PageHead title="Facility report review" lead="Private review inbox for site editors." tools={false} />
   <div class="stack" style="margin-top:16px">
     <section class="card stack">
       <p>These are reader reports about facilities, not verified facts. Accepting one records your reviewed wording; it reaches the public site only after you add the export to <code>src/data/facility-observations.json</code> and the site is rebuilt.</p>
       <p>Public attribution is the source category and date. Never put a reporter's name, phone number or other personal details in the public fields.</p>
       <p id="review-status" class="muted" role="status" aria-live="polite">Checking reviewer access…</p>
-      <div class="row">
+      <div class="page-tools">
         <button class="btn quiet" id="reload-review" type="button">Reload inbox</button>
         <a class="btn quiet" href="/api/review-facilities-export">Download accepted-observations export</a>
         <a class="btn quiet" href="/review/corrections/">Correction inbox</a>
@@ -104,7 +104,7 @@ import PageHead from '../../components/PageHead.astro';
     }, ''));
     form.append(field('Internal review note (required)', 'note', ''));
     const actions = document.createElement('div');
-    actions.className = 'row';
+    actions.className = 'page-tools';
     for (const [label, decision] of [['Accept', 'accepted'], ['Reject', 'rejected']]) {
       const button = document.createElement('button');
       button.className = decision === 'accepted' ? 'btn' : 'btn quiet';

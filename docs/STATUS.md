@@ -160,18 +160,18 @@ No entry in this table is an owner approval, production deployment, or independe
 
 ## Branch chain and visual review (29 Oct 2026)
 
-- **How it reaches `main`:** every branch in the chain (`codex-setup` → `fix/nd-01-project-status` → `feat/corrections-review-workflow` and `feat/public-graphics-foundation` → `feat/facility-profile-foundation`) is contained in `feat/facility-review-intake`. `main` can fast-forward to it: 17 commits, no conflicts. Waiting for the owner's go-ahead. Pushing `main` publishes all of it, and deploys it if hosting rebuilds on pushes to `main`.
+- **How it reaches `main`:** every branch in the chain (`codex-setup` → `fix/nd-01-project-status` → `feat/corrections-review-workflow` and `feat/public-graphics-foundation` → `feat/facility-profile-foundation`) is contained in `feat/facility-review-intake`. `main` can fast-forward to it: 18 commits, no conflicts. Waiting for the owner's go-ahead. Pushing `main` publishes all of it, and deploys it if hosting rebuilds on pushes to `main`.
 - **First real browser check:** Playwright with true 390×844 and 1280×900 viewports, light and dark, on the merged build (home, Money, Health, Education, projects, Esise ward, two facility profiles, Opportunities, How we work, correction review). The command-line Chrome used before can't go narrower than 500px, so earlier "390px" checks were not real. No page scrolls sideways at 390. Fonts load. No red or amber on map points, no red on evidence labels. No console errors.
-- **Problems introduced by the chain; fix before fast-forwarding:**
-  1. Facility profiles at 390 show every record label twice: the `<th>` row header plus the `data-label` that `table.cards` prints.
-  2. Home "Open data" tile (graphic surfaces) is the same colour as its band in light mode, and at 1280 the six tiles leave two empty cells in a four-column grid.
-  3. `/opportunities/`: the build-time deadline note touches the page head (no gap).
-  4. `/review/corrections/`: the action buttons touch; the private page shows the public Share/Print bar.
-  5. "1 project have no supported completion percentage" on 7 ward pages.
-  6. The Varela Round subset has no ASCII apostrophe, so it falls back to League Spartan in headings such as "county's". It is also a 32 KB TTF; a woff2 would be smaller.
-- **Problems already on `main`; separate follow-up:**
-  1. **Most visible:** home Number of the Week in dark mode. "37%" is amber on the same amber panel (`.panel.sec-harvest`), so it is invisible, and the source link is about 1.9:1.
+- **Problems introduced by the chain: fixed on 29 Oct 2026 and checked in a 390px browser.**
+  1. Facility profiles printed each record label twice on phones. The `th[scope="row"]` is now hidden in the card layout (`global.css`); the `td` prints the label once.
+  2. `/opportunities/`: the build-time note touched the page head. `.page-head + .updated` now adds a 12px gap, and this also covers other pages with that pattern.
+  3. Review pages: button rows use `page-tools` (8px gap), and `tools={false}` removes the public Share/Print bar.
+  4. "1 project have…" and "1 status record lack…" now agree in number (`ProjectsPage.astro`, `ward/[slug].astro`).
+  5. Heading font: switched to Google Fonts' standard Latin woff2 for Varela Round (`VarelaRound-Latin.woff2`, 15,884 bytes, 230 characters, including the straight apostrophe and quotes) instead of the 32,808-byte TTF text subset (81 characters). Chrome now draws "What the county's own plan says" entirely in Varela Round. Using Google's own file avoids making a modified version under the font's Reserved Font Name. The old `VarelaRound-Latin-Title.ttf` is no longer referenced. It stays in `public/brand/fonts/` until the owner approves deleting it.
+- **Problems already on `main`; separate follow-up branch from `main`:**
+  1. **Most visible:** home Number of the Week in dark mode. "37%" is amber `rgb(244,180,0)` on the same amber panel (`.panel.sec-harvest`), so it is invisible, and the source link is about 1.9:1.
   2. Money toggles at 390: `.tg-meta` squeezes titles to a word or two per line.
   3. "Every ward, side by side": bar track width depends on the width of the value label, so bars aren't comparable.
   4. Source lines split at the comma before page numbers (Number of the Week, Education, Health).
   5. Esise ward map plots one school twice at the same point.
+  6. Home "Explore the data": the Open data tile (`--hl-mist` #DDEFE3) matches its `sec-tea` band (#DCEFE4) in light mode, and at 1280 six tiles leave two empty cells. First listed as introduced by the chain; neither its markup nor its colours changed there.

@@ -8,10 +8,10 @@ import { statusCounts } from '../lib/projects.js';
 import { amountLabel, amountStatus } from '../lib/project-amounts.js';
 const sc = statusCounts();
 const statusCaveats = [
-  sc.undated && `${sc.undated} project${sc.undated === 1 ? '' : 's'} have undated percentage observations`,
-  sc.conflicts && `${sc.conflicts} project${sc.conflicts === 1 ? '' : 's'} have conflicting observations on the latest date`,
-  sc.unreported && `${sc.unreported} project${sc.unreported === 1 ? '' : 's'} have no supported completion percentage`,
-  sc.unidentified && `${sc.unidentified} status record${sc.unidentified === 1 ? '' : 's'} lack a project ID`,
+  sc.undated && `${sc.undated} project${sc.undated === 1 ? ' has' : 's have'} undated percentage observations`,
+  sc.conflicts && `${sc.conflicts} project${sc.conflicts === 1 ? ' has' : 's have'} conflicting observations on the latest date`,
+  sc.unreported && `${sc.unreported} project${sc.unreported === 1 ? ' has' : 's have'} no supported completion percentage`,
+  sc.unidentified && `${sc.unidentified} status record${sc.unidentified === 1 ? ' lacks' : 's lack'} a project ID`,
 ].filter(Boolean);
 const rows = wards.map((w) => {
   const l = lines2526(w.slug);

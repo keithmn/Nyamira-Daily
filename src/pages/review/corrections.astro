@@ -2,13 +2,13 @@
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 ---
-<Base title="Correction review" noindex>
+<Base title="Correction review" noindex tools={false}>
   <PageHead title="Correction review" lead="Private review inbox for site editors." tools={false} />
   <div class="stack" style="margin-top:16px">
     <section class="card stack">
       <p>This page contains reader-submitted claims, not verified facts. Do not publish a report until you have checked its source and followed the editorial rules.</p>
       <p id="review-status" class="muted" role="status" aria-live="polite">Checking reviewer access…</p>
-      <div class="row">
+      <div class="page-tools">
         <button class="btn quiet" id="reload-review" type="button">Reload inbox</button>
         <a class="btn quiet" href="/api/review-export">Download accepted-corrections export</a>
         <a class="btn quiet" href="/review/facilities/">Facility report inbox</a>
@@ -69,7 +69,7 @@ import PageHead from '../../components/PageHead.astro';
     form.append(field('Source date', 'sourceDate', '', 'date'));
     form.append(field('Internal review note (required)', 'note', '', 'textarea'));
     const actions = document.createElement('div');
-    actions.className = 'row';
+    actions.className = 'page-tools';
     for (const [label, statusValue] of [['Accept', 'accepted'], ['Reject', 'rejected']]) {
       const button = document.createElement('button');
       button.className = statusValue === 'accepted' ? 'btn' : 'btn quiet';

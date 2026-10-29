@@ -79,4 +79,4 @@ Green is for shapes and fills only. Body text stays in dark ink, because light g
 ## Applying it to the website (for developers)
 - Brand colours become tokens in `src/styles/global.css`, with a dark-mode set.
 - The four evidence-label colours stay separate from brand colours. They must never be confused with them.
-- Self-host fonts and keep them small. League Spartan serves body text and figures; the owner-approved Varela Round Latin subset serves headings (about 33 KB, SIL Open Font License). Both are local assets; body text remains League Spartan for consistency and predictable fallback.
+- Self-host fonts and keep them small. League Spartan serves body text and figures; the owner-approved Varela Round (Google Fonts' Latin woff2) serves headings (about 16 KB, SIL Open Font License). Both are local assets; body text remains League Spartan for consistency and predictable fallback.
