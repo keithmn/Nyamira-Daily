@@ -157,3 +157,21 @@ No entry in this table is an owner approval, production deployment, or independe
 - **Not tested:** real Turnstile, a real Access application, and production D1. Nothing was provisioned or deployed.
 - **Before switching on:** everything already listed for corrections (D1, Turnstile, Access, retention, a named reviewer and how often they check), plus `npm run db:migrate:remote` for 0002. Then set `FACILITY_INTAKE_ENABLED` and `PUBLIC_FACILITY_INTAKE_ENABLED`. The owner may want to change the 10-per-hour limit (`facilitySubmissionsPerHour`).
 - **Next:** item 6 (map/photo experience) or item 7 (icy surfaces), once the branch chain is reviewed and merged (see below).
+
+## Branch chain and visual review (29 Oct 2026)
+
+- **How it reaches `main`:** every branch in the chain (`codex-setup` → `fix/nd-01-project-status` → `feat/corrections-review-workflow` and `feat/public-graphics-foundation` → `feat/facility-profile-foundation`) is contained in `feat/facility-review-intake`. `main` can fast-forward to it: 17 commits, no conflicts. Waiting for the owner's go-ahead. Pushing `main` publishes all of it, and deploys it if hosting rebuilds on pushes to `main`.
+- **First real browser check:** Playwright with true 390×844 and 1280×900 viewports, light and dark, on the merged build (home, Money, Health, Education, projects, Esise ward, two facility profiles, Opportunities, How we work, correction review). The command-line Chrome used before can't go narrower than 500px, so earlier "390px" checks were not real. No page scrolls sideways at 390. Fonts load. No red or amber on map points, no red on evidence labels. No console errors.
+- **Problems introduced by the chain; fix before fast-forwarding:**
+  1. Facility profiles at 390 show every record label twice: the `<th>` row header plus the `data-label` that `table.cards` prints.
+  2. Home "Open data" tile (graphic surfaces) is the same colour as its band in light mode, and at 1280 the six tiles leave two empty cells in a four-column grid.
+  3. `/opportunities/`: the build-time deadline note touches the page head (no gap).
+  4. `/review/corrections/`: the action buttons touch; the private page shows the public Share/Print bar.
+  5. "1 project have no supported completion percentage" on 7 ward pages.
+  6. The Varela Round subset has no ASCII apostrophe, so it falls back to League Spartan in headings such as "county's". It is also a 32 KB TTF; a woff2 would be smaller.
+- **Problems already on `main`; separate follow-up:**
+  1. **Most visible:** home Number of the Week in dark mode. "37%" is amber on the same amber panel (`.panel.sec-harvest`), so it is invisible, and the source link is about 1.9:1.
+  2. Money toggles at 390: `.tg-meta` squeezes titles to a word or two per line.
+  3. "Every ward, side by side": bar track width depends on the width of the value label, so bars aren't comparable.
+  4. Source lines split at the comma before page numbers (Number of the Week, Education, Health).
+  5. Esise ward map plots one school twice at the same point.
