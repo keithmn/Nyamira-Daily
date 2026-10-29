@@ -6,7 +6,7 @@ import { date } from '../../lib/fmt.js';
 const list = (await entries('factchecks')).sort((a, b) => b.data.checkedOn - a.data.checkedOn);
 ---
 <Base title="Myth or fact">
-  <PageHead eyebrow="Stories" title="Myth or fact" lead="Claims that circulate about Nyamira, checked against the records. We check claims about every side the same way." crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/fact-check/', label: 'Myth or fact' }]} />
+  <PageHead eyebrow="Learn" title="Myth or fact" lead="Claims that circulate about Nyamira, checked against the records. We check claims about every side the same way." crumbs={[{ href: '/learn/', label: 'Learn' }, { href: '/fact-check/', label: 'Myth or fact' }]} />
   {list.length === 0 && <p class="muted">No fact-checks published yet.</p>}
   <ul class="rows" style="margin-top:16px">
     {list.map((e) => <li><a class="row-link" href={`/fact-check/${e.id}/`}><span><span class="t">{e.data.claim}</span><span class="d"><span class={`rating r-${e.data.rating.replace(' ', '-')}`}>{e.data.rating}</span> · checked {date(e.data.checkedOn.toISOString())}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}

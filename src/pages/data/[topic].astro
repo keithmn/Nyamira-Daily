@@ -8,14 +8,11 @@ import { topics } from '../../data/topics.js';
 import MyWard from '../../components/MyWard.astro';
 import MoneyPage from '../../components/MoneyPage.astro';
 import ProjectsPage from '../../components/ProjectsPage.astro';
-import PeoplePage from '../../components/PeoplePage.astro';
 import ComparePage from '../../components/data/ComparePage.astro';
 import TeaMilkPage from '../../components/data/TeaMilkPage.astro';
 import HealthPage from '../../components/data/HealthPage.astro';
 import SchoolsPage from '../../components/data/SchoolsPage.astro';
-import SubLocationsPage from '../../components/data/SubLocationsPage.astro';
 import AuditPage from '../../components/data/AuditPage.astro';
-import ServicesBlock from '../../components/ServicesBlock.astro';
 import SectorProjects from '../../components/SectorProjects.astro';
 import CommunityReports from '../../components/CommunityReports.astro';
 import OpenData from '../../components/OpenData.astro';
@@ -81,16 +78,6 @@ const healthCount = wards.reduce((n, w) => n + (w.counts.Health ?? 0), 0);
         <TeaMilkPage />
         <div class="stack" style="margin-top:32px">
           <Toggle id="farming-projects" title="Crop and livestock projects in the wards"><SectorProjects match="crop|livestock|agri|fisher|dairy|tea buying" /></Toggle>
-        </div>
-      </>
-    )}
-
-    {t.slug === 'people' && (
-      <>
-        <PeoplePage />
-        <div class="stack" style="margin-top:32px">
-          <Toggle id="sub-locations" title="Find your sub-location" meta="2019 census, all 113"><SubLocationsPage /></Toggle>
-          <Toggle id="services" title="Public places and services in each ward"><ServicesBlock /></Toggle>
         </div>
       </>
     )}

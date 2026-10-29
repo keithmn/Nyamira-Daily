@@ -276,7 +276,7 @@ test('a facility report round-trips from intake to review, retention cleanup, ex
 
     const exported = await exportAcceptedFacilityObservations(db);
     assert.equal(exported.items.length, 1);
-    const { added } = mergeFacilityObservations([], exported, '2026-10-29T08:00:00Z');
+    const { added } = mergeFacilityObservations([], exported, new Date(Date.now() + 60_000).toISOString().replace(/\.\d{3}Z$/, 'Z'));
     assert.equal(added[0].id, `fo-${reference}`);
     assert.equal(added[0].source, 'Resident report');
   } finally {

@@ -13,7 +13,7 @@ const { Content } = await render(e);
 const ratingClass = 'r-' + e.data.rating.split(' ').join('-');
 ---
 <Base title={`Myth or fact: ${e.data.claim}`} description={e.data.summary}>
-  <PageHead eyebrow="Myth or fact" title={e.data.claim} crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/fact-check/', label: 'Myth or fact' }]} />
+  <PageHead eyebrow="Myth or fact" title={e.data.claim} crumbs={[{ href: '/learn/', label: 'Learn' }, { href: '/fact-check/', label: 'Myth or fact' }]} />
   <section class="figure">
     <span class={`rating big ${ratingClass}`}>{e.data.rating}</span>
     <p class="say">{e.data.summary}</p>

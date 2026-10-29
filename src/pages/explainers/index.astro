@@ -6,7 +6,7 @@ import { date } from '../../lib/fmt.js';
 const list = (await entries('explainers')).sort((a, b) => b.data.updated - a.data.updated);
 ---
 <Base title="Explainers">
-  <PageHead eyebrow="Stories" title="Explainers" lead="How the county works, in plain words. Each one lists its sources." crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/explainers/', label: 'Explainers' }]} />
+  <PageHead eyebrow="Learn" title="Explainers" lead="How the county works, in plain words. Each one lists its sources." crumbs={[{ href: '/learn/', label: 'Learn' }, { href: '/explainers/', label: 'Explainers' }]} />
   {list.length === 0 && <p class="muted">No explainers published yet.</p>}
   <ul class="rows" style="margin-top:16px">
     {list.map((e) => <li><a class="row-link" href={`/explainers/${e.id}/`}><span><span class="t">{e.data.title}</span><span class="d">{e.data.summary} · {e.data.topic} · updated {date(e.data.updated.toISOString())}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}

@@ -7,7 +7,7 @@ const wn = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
 const list = await entries('stories');
 ---
 <Base title="What's working">
-  <PageHead eyebrow="Stories" title="What's working" lead="Projects and services that do what they promised, with the evidence. Reporting what works is part of being fair (editorial rule 7)." crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/whats-working/', label: "What's working" }]} />
+  <PageHead eyebrow="Community" title="What's working" lead="Projects and services that do what they promised, with the evidence. Reporting what works is part of being fair (editorial rule 7)." crumbs={[{ href: '/community/', label: 'Community' }, { href: '/whats-working/', label: "What's working" }]} />
   {list.length === 0 && <p class="muted">Nothing published here yet.</p>}
   <ul class="rows" style="margin-top:16px">
     {list.map((e) => <li><a class="row-link" href={`/whats-working/${e.id}/`}><span><span class="t">{e.data.title}</span><span class="d">{e.data.summary + " · " + (wn[e.data.ward] ?? "County-wide") + " · " + e.data.sector}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}

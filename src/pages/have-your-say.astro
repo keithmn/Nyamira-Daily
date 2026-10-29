@@ -21,9 +21,9 @@ const memo = H.channels[0], petition = H.channels[1], assembly = H.channels[2];
       <div class="figure on-ink panel-ink">
         <span class="eyebrow">Next public forum</span>
         {upcoming.length ? upcoming.map((f) => (
-          <><span class="num" style="font-size:34px">{date(f.dates[0].date)}</span><p class="say">{f.title}</p></>
+          <><span class="num" style="font-size:24px">{date(f.dates[0].date)}</span><p class="say">{f.title}</p></>
         )) : (
-          <><span class="num" style="font-size:34px">None announced</span><p class="say">No forum notice was posted on the county's website when we last checked ({date(H.checked)}). In 2026 the forums were held on 24 February, 23 April and 17 September (below).</p></>
+          <><span class="num" style="font-size:24px">None announced</span><p class="say">No forum notice was posted on the county's website when we last checked ({date(H.checked)}). In 2026 the forums were held on 24 February, 23 April and 17 September (below).</p></>
         )}
       </div>
       <div class="stack">

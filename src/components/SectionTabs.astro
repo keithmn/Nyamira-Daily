@@ -1,0 +1,24 @@
+---
+// The secondary bar (decision #60): on every page inside a section, that section's pages as tabs in its
+// colour, the current one filled. It scrolls sideways on phones; the script in Base.astro centres the
+// current tab. Not on the home page, which is the Today overview, or on pages outside the sections.
+import Icon from './Icon.astro';
+import { sectionFor, sectionTone, stateFor } from '../nav.js';
+import { planned } from '../config.js';
+interface Props { path: string }
+const { path } = Astro.props;
+const section = path === '/' ? null : sectionFor(path);
+const tabs = section ? section.pages.filter((p) => !planned.has(p.href)) : [];
+---
+{section && (
+  <nav class={`sec-tabs sec-${sectionTone[section.label] ?? 'mist'}`} aria-label={`${section.label} pages`}>
+    <div class="wrap">
+      <div class="tabs-scroll">
+        <a class="tab tab-home" href={section.href} aria-current={section.href === path ? 'page' : undefined}><Icon name={section.icon} size={18} /><span>{section.label}</span></a>
+        {tabs.map((p) => (
+          <a class="tab" href={p.href} aria-current={stateFor(p, path)}><Icon name={p.icon ?? 'source'} size={18} /><span>{p.label.replace(' Constituency', '')}</span></a>
+        ))}
+      </div>
+    </div>
+  </nav>
+)}

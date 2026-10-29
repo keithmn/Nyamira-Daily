@@ -37,7 +37,7 @@ export async function GET() {
     ['Petitions and motions', '/government/assembly/petitions/'],
     ['Take part', '/take-part/'], ['Ask Nyamira', '/ask/', 'access to information request letter article 35 right to information'],
     ['Submission helper', '/take-part/submission/', 'budget forum petition public participation write'],
-    ['Stories', '/stories/'], ['Explainers', '/explainers/'], ['Number of the week', '/number-of-the-week/', 'radio'],
+    ['Community', '/community/', 'people census households heritage stories what is working'], ['People and places', '/community/people-and-places/', 'population census 2019 sub-location households'], ['Nyamira since 2013', '/community/nyamira-since-2013/', 'devolution then and now change'], ['Explainers', '/explainers/'], ['Number of the week', '/number-of-the-week/', 'radio'],
     ['Is it working?', '/report/', 'report water point borehole dispensary streetlight road bridge market broken'], ['Clinic check', '/report/clinic/', 'health centre dispensary medicines waiting'],
     ['Adopt a project', '/adopt/', 'volunteer school club photo monitor'],
     ['Budget simulator: you run the county', '/tools/budget-simulator/', 'budget allocate departments health roads water wage bill'], ['What could it build?', '/tools/what-it-builds/', 'unit cost classroom borehole road km dispensary billion'],

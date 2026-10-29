@@ -1,12 +1,12 @@
 ---
 import '../styles/global.css';
-import wards from '../data/wards.json';
-import { sections, sectionFor, stateFor, subCounties, anchorFor, toneFor, sectionTone } from '../nav.js';
-const dotStyle = (label) => { const t = sectionTone[label] ?? 'mist'; return t === 'mist' ? '--dot: var(--hl-mist); --dot-ring: var(--hl-tea)' : `--dot: var(--hl-${t})`; };
+import { toneFor } from '../nav.js';
+import SiteHeader from '../components/SiteHeader.astro';
+import SectionTabs from '../components/SectionTabs.astro';
 
 import PageTools from '../components/PageTools.astro';
 import AlertBanner from '../components/AlertBanner.astro';
-import { hasContact, planned } from '../config.js';
+import { hasContact } from '../config.js';
 interface Props { title: string; description?: string; tools?: boolean; image?: string; imageAlt?: string; alertWard?: string; showDisruptions?: boolean; noindex?: boolean }
 const {
   title,
@@ -19,11 +19,8 @@ const {
   noindex = false,
 } = Astro.props;
 
-// Navigation (src/nav.js): the section this page is in. aria-current is "page" on the exact page
-// and "true" on the section or entry that contains it.
+// Navigation (src/nav.js, SiteHeader.astro, SectionTabs.astro) works from this page's address.
 const path = Astro.url.pathname;
-const section = sectionFor(path);
-const sectionState = (s: (typeof sections)[number]) => (s === section ? (s.href === path ? 'page' : 'true') : undefined);
 const isHome = path === '/';
 const pageTitle = title === 'Today' ? 'Nyamira Daily' : `${title} · Nyamira Daily`;
 
@@ -90,110 +87,8 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="wrap">
-      <div class="bar">
-        <div class="brand-slot">
-          <a class="brand" href="/">
-            <!-- Horizontal logo; the symbol alone when this slot is under 160px wide. Reverse versions in dark mode. -->
-            <span class="logo-h">
-              <img class="for-light" src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Nyamira Daily" width="1197" height="228" loading="lazy" />
-              <img class="for-dark" src="/brand/Nyamira-Daily_horizontal_reverse.svg" alt="Nyamira Daily" width="1197" height="228" loading="lazy" />
-            </span>
-            <span class="logo-s">
-              <img class="for-light" src="/brand/Nyamira-Daily_symbol_full-colour.svg" alt="Nyamira Daily" width="216" height="256" loading="lazy" />
-              <img class="for-dark" src="/brand/Nyamira-Daily_symbol_reverse.svg" alt="Nyamira Daily" width="216" height="256" loading="lazy" />
-            </span>
-          </a>
-        </div>
-        <!-- Your ward: one picker for the whole site (see the script at the bottom). On phones it gets its own row. -->
-        <div class={`ward-pick${isHome ? ' on-home' : ''}`}>
-          <label class="ward-pill">
-            <svg class="pin" viewBox="0 0 200 240" width="14" height="17" aria-hidden="true" focusable="false"><path d="M100 226C62 182 30 150 30 104 30 58 63 24 100 24s70 34 70 80c0 46-32 78-70 122z" fill="var(--nd-green)" /><circle cx="100" cy="102" r="34" fill="var(--nd-ink)" /></svg>
-            <span>Your ward</span>
-            <select id="ward-pick" data-ward-pick>
-              <option value="">Whole county</option>
-              {subCounties.map((s) => (
-                <optgroup label={s}>
-                  {wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}
-                </optgroup>
-              ))}
-            </select>
-          </label>
-          {wards.map((w) => <a class="ward-open" data-ward-only={w.slug} hidden href={`/ward/${w.slug}/`}>Open {w.name}</a>)}
-        </div>
-        <div class="tools">
-          <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Dark mode">
-            <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></svg>
-            <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
-          </button>
-          <a class="icon-btn" href="/search/" aria-label="Search">
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2" /><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></svg>
-          </a>
-          <details class="menu">
-            <summary class="icon-btn ink"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></svg><span class="vh">Menu</span></summary>
-            <div class="menu-panel stack">
-              <label class="small" for="lang">Language</label>
-              <select id="lang" class="lang" aria-label="Choose language">
-                <option>English</option>
-                <option disabled>Kiswahili (coming soon)</option>
-                <option disabled>Ekegusii (coming soon)</option>
-              </select>
-              {hasContact && <a href="/tell-us/">Tell us about a project or problem</a>}
-              {hasContact && <a href="/subscribe/">Get updates on WhatsApp</a>}
-              <a href="/data/open-data/">Download the data</a>
-              <a href="/about/">About Nyamira Daily</a>
-              <a href="/how-we-work/">How we work</a>
-            </div>
-          </details>
-        </div>
-      </div>
-    </div>
-    <!-- Section bar: pills. With JavaScript each section is a button that opens a list of everything in it;
-         without, each is a plain link to the section's page, which lists the same pages. -->
-    <nav class="primary-nav" aria-label="Main sections">
-      <div class="wrap">
-        <div class="nav">
-          {sections.map((s) => (
-            <>
-              <a class="nav-link" style={dotStyle(s.label)} href={s.href} aria-current={sectionState(s)}>{s.label}</a>
-              <button class="nav-toggle" style={dotStyle(s.label)} type="button" aria-expanded="false" aria-controls={`menu-${anchorFor(s.label)}`} aria-current={sectionState(s)}>
-                {s.label}<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
-              </button>
-            </>
-          ))}
-        </div>
-      </div>
-      <div class="nav-panels">
-        {sections.map((s) => (
-          <div class={`nav-panel sec-${sectionTone[s.label] ?? 'mist'}`} id={`menu-${anchorFor(s.label)}`} hidden>
-            <div class="wrap">
-              <ul class="menu-grid">
-                <li class="menu-overview"><a href={s.href} aria-current={s.href === path ? 'page' : undefined}>{s.overview}</a></li>
-                {s.pages.map((p) => (
-                  <li>
-                    {p.pages ? (
-                      <details class="menu-group" open={stateFor(p, path) ? true : undefined}>
-                        <summary aria-current={stateFor(p, path)}>{p.label}</summary>
-                        <ul class="menu-sub">
-                          <li><a href={p.href} aria-current={p.href === path ? 'page' : undefined}>About {p.label.replace(' Constituency', '')}</a></li>
-                          {p.pages.map((c) => (
-                            <li><a href={c.href} aria-current={stateFor(c, path)}>{c.label}{planned.has(c.href) && <span class="tag-planned">Planned</span>}</a></li>
-                          ))}
-                        </ul>
-                      </details>
-                    ) : (
-                      <a href={p.href} aria-current={stateFor(p, path)}>{p.label}{planned.has(p.href) && <span class="tag-planned">Planned</span>}</a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
-      </div>
-    </nav>
-  </header>
+  <SiteHeader path={path} isHome={isHome} />
+  <SectionTabs path={path} />
   <AlertBanner ward={alertWard} disruptions={showDisruptions} />
 
   <main id="main" class={`sec-${toneFor(path)}`}>
@@ -256,41 +151,43 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
     }
     openTo(); window.addEventListener('hashchange', openTo);
 
-    // On phones the primary bar scrolls sideways: centre the current section if it starts off screen
-    all('.nav').forEach(function (bar) {
-      var cur = all('.nav [aria-current]').filter(function (el) { return el.offsetParent !== null; })[0];
+    // Secondary bar: on phones it scrolls sideways; centre the current tab if it starts off screen
+    all('.tabs-scroll').forEach(function (bar) {
+      var cur = bar.querySelector('[aria-current]');
       if (cur && cur.offsetLeft + cur.offsetWidth > bar.clientWidth) bar.scrollLeft = cur.offsetLeft - (bar.clientWidth - cur.offsetWidth) / 2;
     });
 
-    // Section menus: tapping a section opens the list of its pages below the bar; tapping it again,
-    // tapping elsewhere or pressing Escape closes it. Only one is open at a time.
-    var toggles = all('.nav-toggle');
-    var siteMenu = document.querySelector('details.menu');
-    function panelOf(t) { return document.getElementById(t.getAttribute('aria-controls')); }
-    function closeMenus(except) {
-      toggles.forEach(function (t) {
-        if (t === except) return;
-        t.setAttribute('aria-expanded', 'false');
-        panelOf(t).hidden = true;
+    // Desktop mega menus: a section button opens its panel under the bar; clicking it again, clicking
+    // elsewhere or pressing Escape closes it. Only one is open at a time.
+    var items = all('.desk-item');
+    function megaOf(b) { return document.getElementById(b.getAttribute('aria-controls')); }
+    function closeMegas(except) {
+      items.forEach(function (b) {
+        if (b === except) return;
+        b.setAttribute('aria-expanded', 'false');
+        megaOf(b).hidden = true;
       });
     }
-    toggles.forEach(function (t) {
-      t.addEventListener('click', function () {
-        var open = t.getAttribute('aria-expanded') === 'true';
-        closeMenus(t);
-        t.setAttribute('aria-expanded', open ? 'false' : 'true');
-        panelOf(t).hidden = open;
-        if (!open && siteMenu) siteMenu.open = false;
+    items.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var open = b.getAttribute('aria-expanded') === 'true';
+        closeMegas(b);
+        b.setAttribute('aria-expanded', open ? 'false' : 'true');
+        megaOf(b).hidden = open;
       });
     });
-    if (siteMenu) siteMenu.addEventListener('toggle', function () { if (siteMenu.open) closeMenus(); });
     document.addEventListener('click', function (e) {
-      if (e.target.closest('.nav-panel a') || (!e.target.closest('.nav-toggle') && !e.target.closest('.nav-panel'))) closeMenus();
+      if (e.target.closest('.mega a') || (!e.target.closest('.desk-item') && !e.target.closest('.mega'))) closeMegas();
     });
+
+    // Phones: the menu sheet holds the page still behind it while it is open
+    var sheet = document.querySelector('details.sheet');
+    if (sheet) sheet.addEventListener('toggle', function () { document.documentElement.classList.toggle('sheet-open', sheet.open); });
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
-      var open = toggles.filter(function (t) { return t.getAttribute('aria-expanded') === 'true'; })[0];
-      if (open) { closeMenus(); open.focus(); }
+      var open = items.filter(function (b) { return b.getAttribute('aria-expanded') === 'true'; })[0];
+      if (open) { closeMegas(); open.focus(); }
+      if (sheet && sheet.open) { sheet.open = false; sheet.querySelector('summary').focus(); }
     });
   })();
   </script>

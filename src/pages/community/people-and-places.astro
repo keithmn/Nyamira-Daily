@@ -1,0 +1,21 @@
+---
+// People and places (moved from Data to Community, decision #58): the 2019 census, every sub-location,
+// and the public places listed in each ward.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Toggle from '../../components/Toggle.astro';
+import PeoplePage from '../../components/PeoplePage.astro';
+import SubLocationsPage from '../../components/data/SubLocationsPage.astro';
+import ServicesBlock from '../../components/ServicesBlock.astro';
+import { peopleAndPlaces as t } from '../../data/topics.js';
+---
+<Base title={t.title}>
+  <div class={`sec-${t.tone}`}>
+    <PageHead eyebrow="Community" title={t.title} lead={t.question} tone={t.tone} crumbs={[{ href: '/community/', label: 'Community' }, { href: '/community/people-and-places/', label: t.title }]} />
+    <PeoplePage />
+    <div class="stack" style="margin-top:32px">
+      <Toggle id="sub-locations" title="Find your sub-location" meta="2019 census, all 113"><SubLocationsPage /></Toggle>
+      <Toggle id="services" title="Public places and services in each ward"><ServicesBlock /></Toggle>
+    </div>
+  </div>
+</Base>

@@ -177,7 +177,7 @@ test('a road report round-trips from intake to review, retention cleanup, export
 
     const exported = await exportAcceptedRoadConditions(db);
     assert.deepEqual(exported.items[0].checks, [{ label: 'Passable by car after rain', status: 'reported-no' }]);
-    const { added } = mergeRoadConditions([], exported, '2026-10-29T08:00:00Z');
+    const { added } = mergeRoadConditions([], exported, new Date(Date.now() + 60_000).toISOString().replace(/\.\d{3}Z$/, 'Z'));
     assert.equal(added[0].id, `rc-${reference}`);
     assert.equal(added[0].source, 'Resident report');
   } finally {

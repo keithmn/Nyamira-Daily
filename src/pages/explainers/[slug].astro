@@ -12,7 +12,7 @@ const { e } = Astro.props;
 const { Content } = await render(e);
 ---
 <Base title={e.data.title} description={e.data.summary}>
-  <PageHead eyebrow={`Explainer · ${e.data.topic}`} title={e.data.title} lead={e.data.summary} crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/explainers/', label: 'Explainers' }]} />
+  <PageHead eyebrow={`Explainer · ${e.data.topic}`} title={e.data.title} lead={e.data.summary} crumbs={[{ href: '/learn/', label: 'Learn' }, { href: '/explainers/', label: 'Explainers' }]} />
   <article class="stack prose"><Content /></article>
   {e.data.swSummary && <div class="sw" lang="sw" style="margin-top:24px"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>{e.data.swSummary}</p></div>}
   <Sources list={e.data.sources} updated={date(e.data.updated.toISOString())} />

@@ -50,7 +50,7 @@ const more = [
       <div class="stack">
         <div class="tiles three">
           <a class="tile graphic-tile" href="/ward/"><Icon name="ward" size={22} badge /><b>20</b><span>wards, each with an elected MCA</span><EvidenceLabel kind="verified" /></a>
-          <a class="tile graphic-tile" href="/data/people/#services"><Icon name="market" size={22} badge /><b>{facilities}</b><span>public places and services listed</span><EvidenceLabel kind="unverified" /></a>
+          <a class="tile graphic-tile" href="/community/people-and-places/#services"><Icon name="market" size={22} badge /><b>{facilities}</b><span>public places and services listed</span><EvidenceLabel kind="unverified" /></a>
           <a class="tile graphic-tile" href="/data/health/#facilities"><Icon name="health" size={22} badge /><b>{health}</b><span>health facilities listed</span><EvidenceLabel kind="official" /></a>
         </div>
         <p class="small muted">Sources: IEBC ward list and geoBoundaries (wards); the Nyamira Daily list, mostly not yet checked on site (services); Kenya Master Health Facility List, 2017 export (health). <span class="updated">Figures last updated 22 Oct 2026.</span></p>
@@ -64,6 +64,7 @@ const more = [
         {topics.map((t) => (
           <a class={`sector-tile sec-${t.tone}`} href={`/data/${t.slug}/`}><Icon name={topicIcon[t.slug] ?? 'chart'} size={24} badge /><h3>{t.title}</h3><p>{t.question}</p><span class="go" aria-hidden="true">→</span></a>
         ))}
+        <a class="sector-tile sec-bloom" href="/community/"><Icon name="community" size={24} badge /><h3>Community</h3><p>Who lives in Nyamira, what is working, and the county's heritage.</p><span class="go" aria-hidden="true">→</span></a>
       </div>
     </section>
 

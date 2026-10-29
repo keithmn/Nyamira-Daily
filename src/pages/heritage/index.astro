@@ -7,7 +7,7 @@ const wn = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
 const list = await entries('heritage');
 ---
 <Base title="Heritage">
-  <PageHead eyebrow="Stories" title="Heritage" lead="Places, history and traditions of Nyamira, with sources and the name of whoever shared them." crumbs={[{ href: '/stories/', label: 'Stories' }, { href: '/heritage/', label: 'Heritage' }]} />
+  <PageHead eyebrow="Community" title="Heritage" lead="Places, history and traditions of Nyamira, with sources and the name of whoever shared them." crumbs={[{ href: '/community/', label: 'Community' }, { href: '/heritage/', label: 'Heritage' }]} />
   {list.length === 0 && <p class="muted">Nothing published here yet.</p>}
   <ul class="rows" style="margin-top:16px">
     {list.map((e) => <li><a class="row-link" href={`/heritage/${e.id}/`}><span><span class="t">{e.data.title}</span><span class="d">{e.data.place + " · " + (wn[e.data.ward] ?? "")}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
