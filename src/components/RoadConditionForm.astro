@@ -1,0 +1,79 @@
+---
+// Public road condition form (decisions #55 and #57). Renders nothing until intake is configured,
+// so road pages never show a "coming soon" box.
+import { gradeLabel, gradeMeaning, checkStatusLabel } from '../lib/road-conditions.js';
+interface Props { roadId: string; roadName: string }
+const { roadId, roadName } = Astro.props;
+const intakeEnabled = import.meta.env.PUBLIC_ROAD_INTAKE_ENABLED === 'true';
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
+const retentionDays = Number(import.meta.env.PUBLIC_CORRECTION_RETENTION_DAYS);
+const hasRetention = Number.isSafeInteger(retentionDays) && retentionDays >= 1 && retentionDays <= 3650;
+const enabled = intakeEnabled && turnstileSiteKey && hasRetention;
+const reporters = [['resident', 'I live or work nearby'], ['field-reporter', 'I am a Nyamira Daily field reporter']];
+---
+{enabled && (
+  <section class="card stack" aria-labelledby="road-report-heading">
+    <h2 id="road-report-heading">Report this road's condition</h2>
+    <form class="builder" data-road-report action="/api/road-conditions" method="post">
+      <p class="small muted">An editor checks every report before anything is published here. Your report alone does not change this page. Do not include names, phone numbers or other personal details, about yourself or anyone else. Reports are kept for up to {retentionDays} days; deletion may happen on the next service request after that period. You will not receive a reply.</p>
+      <input type="hidden" name="road" value={roadId} />
+      <fieldset class="choice"><legend>How was {roadName} when you saw it?</legend>
+        {Object.entries(gradeLabel).map(([value, label]) => <label><input type="radio" name="grade" value={value} required /> {label}</label>)}
+      </fieldset>
+      <ul class="small muted" style="margin:0; padding-left:20px">
+        {Object.entries(gradeLabel).map(([value, label]) => <li><strong>{label}:</strong>{' '}{gradeMeaning[value]}</li>)}
+      </ul>
+      <label>When did you see this?<input name="observedOn" type="date" required data-max-today /></label>
+      <fieldset class="choice"><legend>Who is reporting?</legend>{reporters.map(([value, label]) => <label><input type="radio" name="sourceCategory" value={value} required /> {label}</label>)}</fieldset>
+      {[1, 2, 3].map((n) => (
+        <div class="stack">
+          <label>Check {n}: something specific you checked (optional)<span class="hint">In your own words.</span><input name={`check${n}`} type="text" maxlength="120" /></label>
+          <fieldset class="choice"><legend class="small">Check {n}: what did you find?</legend>
+            {Object.entries(checkStatusLabel).map(([value, label]) => <label><input type="radio" name={`check${n}Status`} value={value} /> {label}</label>)}
+          </fieldset>
+        </div>
+      ))}
+      <label>Anything else? (optional)<span class="hint">About the road, not about any person: please don't name anyone.</span><textarea name="details" maxlength="2000"></textarea></label>
+      <label>Public source link (optional)<input name="source" type="url" maxlength="2048" placeholder="https://…" /></label>
+      <label hidden aria-hidden="true">Leave this field empty<input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+      <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
+      <button class="btn" type="submit">Send for review</button>
+      <p class="muted" data-road-report-status role="status" aria-live="polite"></p>
+    </form>
+  </section>
+)}
+
+{enabled && (
+  <>
+    <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script>
+      const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Africa/Nairobi' });
+      document.querySelectorAll('[data-max-today]').forEach((input) => { input.setAttribute('max', today); });
+      const form = document.querySelector('[data-road-report]');
+      const status = form?.querySelector('[data-road-report-status]');
+      form?.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!(form instanceof HTMLFormElement) || !status) return;
+        status.textContent = 'Sending for review…';
+        const button = form.querySelector('button[type="submit"]');
+        if (button instanceof HTMLButtonElement) button.disabled = true;
+        try {
+          const response = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+          const result = await response.json();
+          if (!response.ok) {
+            status.textContent = result.error || 'The report could not be saved.';
+            return;
+          }
+          form.reset();
+          const turnstile = Reflect.get(window, 'turnstile');
+          if (typeof turnstile?.reset === 'function') turnstile.reset();
+          status.textContent = `Saved for review. Reference: ${result.reference}. It has not changed this page.`;
+        } catch {
+          status.textContent = 'The report could not be confirmed as saved. Please try again later.';
+        } finally {
+          if (button instanceof HTMLButtonElement) button.disabled = false;
+        }
+      });
+    </script>
+  </>
+)}

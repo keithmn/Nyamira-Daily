@@ -4,6 +4,7 @@ import PageHead from '../../components/PageHead.astro';
 import EvidenceLabel from '../../components/EvidenceLabel.astro';
 import { roads, roadDetail, roadPath, roadsForWard, subtypeLabel } from '../../lib/roads.js';
 import { amountLabel } from '../../lib/project-amounts.js';
+import { gradeLabel } from '../../lib/road-conditions.js';
 import wards from '../../data/wards.json';
 import identities from '../../../data-src/road-identities.json';
 
@@ -14,6 +15,7 @@ const groups = [
 const detailById = new Map(roads.map((r) => [r.id, roadDetail(r)]));
 const siteVisits = [...detailById.values()].filter((d) => d.questions.some((q) => q.siteVisit)).length;
 const excluded = Object.keys(identities.notRoads).length;
+const reported = [...detailById.values()].filter((d) => d.condition).length;
 ---
 <Base title="Roads" description="Every road and road structure named in Nyamira County's road-works records and Auditor-General reports, with the money and the questions to ask.">
   <PageHead title="Roads" lead="Roads and bridges named in the county's own records and in Auditor-General reports: the money, who paid, and what to ask." />
@@ -22,7 +24,7 @@ const excluded = Object.keys(identities.notRoads).length;
       <span class="figure"><span class="num">{roads.length}</span></span>
       <p class="say">roads and road structures are named in the county's road-works records (FY2023/24 to FY2025/26) and in Auditor-General findings. {siteVisits} of them have a question that needs a site visit.</p>
       <p class="source"><EvidenceLabel kind="official" /> County budgets, development plans and Controller of Budget reports; Auditor-General reports</p>
-      <p class="muted small">Condition is <strong>unknown</strong> for every road: no dated, editor-reviewed condition report is recorded yet. Road class and the responsible road authority are not yet confirmed from the official classification.</p>
+      <p class="muted small">{reported === 0 ? 'Condition is unknown for every road: no dated, editor-reviewed condition report is recorded yet.' : `${reported} of ${roads.length} roads have a dated, editor-reviewed condition report; the rest are unknown.`} Road class and the responsible road authority are not yet confirmed from the official classification.</p>
     </section>
 
     {groups.map((g) => (
@@ -30,13 +32,14 @@ const excluded = Object.keys(identities.notRoads).length;
         <h2>{g.href ? <a href={g.href}>{g.title}</a> : g.title}</h2>
         <div class="table-box">
           <table class="cards">
-            <thead><tr><th>Road</th><th>Latest record</th><th>Questions</th></tr></thead>
+            <thead><tr><th>Road</th><th>Latest record</th><th>Condition</th><th>Questions</th></tr></thead>
             <tbody>{g.list.map((road) => {
               const d = detailById.get(road.id);
               return (
                 <tr>
                   <td><a href={roadPath(road.id)}>{road.name}</a>{road.subtype !== 'road' && <span class="small muted"> · {subtypeLabel[road.subtype]}</span>}</td>
                   <td data-label="Latest record">{d.latest ? `${amountLabel(d.latest.amount)} · ${d.latest.kind}, FY${d.latest.fy}${d.latest.status ? ` · ${d.latest.status}` : ''}` : 'Auditor-General finding only'}</td>
+                  <td data-label="Condition">{d.condition ? `${gradeLabel[d.condition.grade]} (${d.condition.observedOn})` : 'Unknown'}</td>
                   <td data-label="Questions">{d.questions.length}</td>
                 </tr>
               );

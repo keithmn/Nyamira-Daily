@@ -3,13 +3,13 @@ import { nairobiDate, validIsoDate, validSourceUrl } from './corrections.js';
 
 const STATUSES = new Set(['reported-available', 'reported-unavailable', 'unknown']);
 // Public attribution is the source category, never the reporter's name (decision #47).
-const SOURCE_CATEGORIES = new Map([
+export const SOURCE_CATEGORIES = new Map([
   ['resident', 'Resident report'],
   ['field-reporter', 'Nyamira Daily field reporter'],
 ]);
 // A reader report is either checked by an editor (verified) or not (unverified);
 // "official" and "audit" describe government and Auditor-General sources instead.
-const INTAKE_EVIDENCE = new Set(['verified', 'unverified']);
+export const INTAKE_EVIDENCE = new Set(['verified', 'unverified']);
 const facilityById = new Map(facilityRecords.map((facility) => [facility.id, facility]));
 
 export const facilitySubmissionsPerHour = 10;
@@ -18,7 +18,7 @@ export const facilityFormFields = [
   'details', 'source', 'website', 'cf-turnstile-response',
 ];
 
-function clean(value) {
+export function clean(value) {
   return typeof value === 'string' ? value.trim().replace(/\s+/g, ' ') : '';
 }
 

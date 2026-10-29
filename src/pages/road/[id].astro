@@ -6,6 +6,8 @@ import { docOf, roads, retiredRoads, roadDetail, roadPath, subtypeLabel, wardNam
 import { amountLabel } from '../../lib/project-amounts.js';
 import { contractorOf, statusText } from '../../lib/road-questions.js';
 import { kindLabel } from '../../lib/projects.js';
+import { checkStatusLabel, gradeLabel } from '../../lib/road-conditions.js';
+import RoadConditionForm from '../../components/RoadConditionForm.astro';
 
 export function getStaticPaths() {
   return [
@@ -47,7 +49,11 @@ const fromAudit = road.projectIds.length === 0;
           <p class="source"><EvidenceLabel kind="audit" /> Auditor-General reports on the County Executive</p>
         </>
       )}
-      <p class="muted small">Condition: <strong>unknown</strong>. No dated, editor-reviewed report of this road's condition is recorded here. Money spent or a reported completion is not evidence of condition.</p>
+      {detail.condition ? (
+        <p>Condition: <strong>{gradeLabel[detail.condition.grade]}</strong>, seen on {detail.condition.observedOn}{detail.condition.conflict && ' (reports from that date disagree, so it shows as not sure)'}. {detail.condition.reports.map((r) => <><EvidenceLabel kind={r.evidence} /> {r.source}. </>)}</p>
+      ) : (
+        <p class="muted small">Condition: <strong>unknown</strong>. No dated, editor-reviewed report of this road's condition is recorded here. Money spent or a reported completion is not evidence of condition.</p>
+      )}
     </section>
 
     <section class="stack" aria-labelledby="road-questions">
@@ -75,6 +81,29 @@ const fromAudit = road.projectIds.length === 0;
       {detail.contractors.length > 0 && <p>Contractor{detail.contractors.length === 1 ? '' : 's'} named in the county's documents: {detail.contractors.join('; ')}.</p>}
       <p class="muted small">Road class and road authority: <strong>not yet confirmed</strong>. The documents name who paid for the works, not who the road belongs to: the county, or a national body (Kenya Rural Roads Authority, Kenya Urban Roads Authority or Kenya National Highways Authority).</p>
     </section>
+
+    <RoadConditionForm roadId={road.id} roadName={road.name} />
+
+    {detail.conditionHistory.length > 0 && (
+      <details>
+        <summary>Condition reports ({detail.conditionHistory.length})</summary>
+        <div class="table-box">
+          <table class="cards">
+            <thead><tr><th>Seen on</th><th>Condition</th><th>Checks</th><th>Source</th><th>Scope</th></tr></thead>
+            <tbody>{detail.conditionHistory.map((r) => (
+              <tr>
+                <td>{r.observedOn}</td>
+                <td data-label="Condition">{gradeLabel[r.grade]}</td>
+                <td data-label="Checks">{r.checks.length ? r.checks.map((c) => `${c.label}: ${checkStatusLabel[c.status]}`).join('; ') : 'None'}</td>
+                <td data-label="Source"><EvidenceLabel kind={r.evidence} /> {r.source} · {r.sourceRef}</td>
+                <td data-label="Scope">{r.scope}</td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
+        <p class="small muted">Reviewed by an editor before publication. Each report describes the road on the date it was seen.</p>
+      </details>
+    )}
 
     {detail.records.length > 0 && (
       <details>

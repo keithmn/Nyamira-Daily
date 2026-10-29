@@ -150,7 +150,7 @@ async function hmacHex(secret, value) {
 }
 
 // Table names cannot be bound as SQL parameters, so only these are accepted.
-const RATE_LIMIT_TABLES = new Set(['correction_rate_limits', 'facility_observation_rate_limits']);
+const RATE_LIMIT_TABLES = new Set(['correction_rate_limits', 'facility_observation_rate_limits', 'road_condition_rate_limits']);
 
 export async function consumeSubmissionLimit(db, clientIp, secret, {
   table = 'correction_rate_limits',

@@ -92,3 +92,18 @@ Facility reports use the same service, database, Turnstile check, salt, retentio
 1. From `/review/facilities/`, download the accepted-observations export.
 2. Preview it: `node scripts/import-facility-observations.js <export.json>`. Then add it: `node scripts/import-facility-observations.js <export.json> --write`. The script copies public fields only, stamps `publishedAt` with the current UTC time, skips records already published, refuses a changed duplicate, and validates the result against the facility registry.
 3. Review the diff of `src/data/facility-observations.json`, run the tests and the build, and submit the change for the normal review and deployment. Observations appear on profiles and in `/api/facilities.json` only after that deploy.
+
+## Road condition reports
+
+Road reports use the same service, Turnstile check, salt, retention period and Access reviewers, with their own tables (`migrations/0003_road_conditions.sql`), endpoints, inbox and switch (decisions #55, #57). They are **disabled by default**; switching on corrections or facility reports does not switch them on.
+
+- **Public form:** on each road page (`src/components/RoadConditionForm.astro`), rendered only when the build has `PUBLIC_ROAD_INTAKE_ENABLED=true`, `PUBLIC_TURNSTILE_SITE_KEY` and `PUBLIC_CORRECTION_RETENTION_DAYS`. A report gives one grade (Good, Fair, Poor, Impassable or Not sure, each defined on the form), the date seen, the reporter's category and up to three optional checks in the reporter's own words (Yes, No or Not sure). Nothing is preselected.
+- **Intake API:** `POST /api/road-conditions`, needing `ROAD_INTAKE_ENABLED=true` plus every server-side setting listed for corrections. It rejects road IDs not in `src/data/roads.json` (a retired ID resolves to the road that replaced it) and future dates. Its limiter is separate: 10 reports per IP per hour.
+- **Review:** `/review/roads/`, with `GET`/`PATCH /api/review-roads` and `GET /api/review-roads-export`, covered by the existing Access paths. To accept, the editor sets the grade, scope, observation date, source category, a public source reference without personal names, and the evidence label (`unverified`, or `verified` only if an editor checked it on site or against official records). Each check can be reworded or dropped by leaving its public label empty. The check wording and the decision are saved in one batch, and only while the report is pending.
+- **Retention:** as for facility reports. After `CORRECTION_RETENTION_DAYS`, pending and rejected reports and their checks are deleted; accepted reports lose the reporter's own words and link but keep the reviewed fields.
+
+### Publishing accepted road reports
+
+1. From `/review/roads/`, download the accepted-reports export.
+2. Preview with `node scripts/import-road-conditions.js <export.json>`, then add with `--write`. The script copies public fields only, stamps `publishedAt`, skips reports already published, refuses a changed duplicate and validates against the road registry.
+3. Review the diff of `src/data/road-conditions.json`, run the tests and build, and submit the change. The condition appears on road pages after that deploy. A road reported complete in the county's records but graded Poor or Impassable then shows that gap as its first question to ask.

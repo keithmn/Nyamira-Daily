@@ -5,6 +5,8 @@ import wards from '../data/wards.json';
 import { byProject, fyOrder, kindLabel, shortTitle, sources } from './projects.js';
 import { audit, sources as auditSources } from './audit.js';
 import { contractorOf, roadQuestions, statusText } from './road-questions.js';
+import conditionRecords from '../data/road-conditions.json';
+import { conditionsForRoad, latestRoadCondition, validateRoadConditions } from './road-conditions.js';
 
 export const roads = data.roads;
 export const retiredRoads = data.retired;
@@ -19,6 +21,7 @@ export const subtypeLabel = {
 };
 
 const recordsByProject = byProject();
+const reviewedConditions = validateRoadConditions(conditionRecords, data.roads);
 const findingsById = new Map(audit.findings.map((f) => [f.id, f]));
 
 export const docOf = (record) => ({
@@ -40,12 +43,15 @@ export function roadDetail(road) {
     .sort((a, b) => fyOrder.indexOf(a.fy) - fyOrder.indexOf(b.fy));
   const findings = road.auditIds.map((id) => findingsById.get(id));
   const latest = records.find((r) => r.status) ?? records[0] ?? null;
+  const condition = latestRoadCondition(reviewedConditions, road.id);
   return {
+    condition,
+    conditionHistory: conditionsForRoad(reviewedConditions, road.id),
     records,
     findings,
     latest: latest && { fy: latest.fy, kind: kindLabel[latest.kind] ?? latest.kind, amount: latest.amount, status: statusText(latest.status) },
     departments: [...new Set(records.map((r) => department(r.department)))],
     contractors: [...new Set(records.map((r) => contractorOf(r.status)).filter(Boolean))],
-    questions: roadQuestions({ road, records, findings, docOf, findingDoc }),
+    questions: roadQuestions({ road, records, findings, docOf, findingDoc, condition }),
   };
 }

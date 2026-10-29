@@ -1,0 +1,172 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+---
+<Base title="Road report review" noindex tools={false}>
+  <PageHead title="Road report review" lead="Private review inbox for site editors." tools={false} />
+  <div class="stack" style="margin-top:16px">
+    <section class="card stack">
+      <p>These are reader reports about road conditions, not verified facts. Accepting one records your reviewed wording; it reaches the public site only after you add the export to <code>src/data/road-conditions.json</code> and the site is rebuilt.</p>
+      <p>Public attribution is the source category and date. Never put a reporter's name, phone number or other personal details in the public fields. Leave a check's public label empty to drop it.</p>
+      <p id="review-status" class="muted" role="status" aria-live="polite">Checking reviewer access…</p>
+      <div class="page-tools">
+        <button class="btn quiet" id="reload-review" type="button">Reload inbox</button>
+        <a class="btn quiet" href="/api/review-roads-export">Download accepted-reports export</a>
+        <a class="btn quiet" href="/review/facilities/">Facility report inbox</a>
+        <a class="btn quiet" href="/review/corrections/">Correction inbox</a>
+      </div>
+    </section>
+    <section id="review-items" class="stack" aria-label="Road condition reports"></section>
+  </div>
+</Base>
+
+<script>
+  const status = document.querySelector('#review-status');
+  const container = document.querySelector('#review-items');
+  const reload = document.querySelector('#reload-review');
+  const grades = { good: 'Good', fair: 'Fair', poor: 'Poor', impassable: 'Impassable', unknown: 'Not sure' };
+  const checkStatuses = { 'reported-yes': 'Yes', 'reported-no': 'No', unknown: 'Not sure' };
+  const sourceLabels = { resident: 'Resident', 'field-reporter': 'Field reporter' };
+
+  function text(tag, value) {
+    const element = document.createElement(tag);
+    element.textContent = value || '';
+    return element;
+  }
+
+  function field(labelText, name, value, type = 'textarea', required = true) {
+    const label = text('label', labelText);
+    const input = type === 'textarea' ? document.createElement('textarea') : document.createElement('input');
+    input.name = name;
+    input.value = value || '';
+    input.required = required;
+    if (type !== 'textarea') input.type = type;
+    label.append(input);
+    return label;
+  }
+
+  function choice(labelText, name, labels, value, required = true) {
+    const label = text('label', labelText);
+    const select = document.createElement('select');
+    select.name = name;
+    select.required = required;
+    select.append(new Option('Choose…', ''));
+    for (const [optionValue, optionLabel] of Object.entries(labels)) {
+      select.append(new Option(optionLabel, optionValue, false, optionValue === value));
+    }
+    label.append(select);
+    return label;
+  }
+
+  function makeCard(item) {
+    const article = document.createElement('article');
+    article.className = 'card stack';
+    const roadName = item.road ? item.road.name : 'Road not in current registry';
+    article.append(text('h2', `${item.status.toUpperCase()} · ${roadName} (${item.road_id})`));
+    if (item.road) {
+      const link = document.createElement('a');
+      link.href = `/road/${item.road.id.toLowerCase()}/`;
+      link.textContent = 'Open road page';
+      article.append(link);
+    }
+    article.append(text('p', `Submitted ${item.created_at} UTC · Reference ${item.id}`));
+    article.append(text('p', `Reporter says (${sourceLabels[item.source_category] || item.source_category}): ${grades[item.grade] || item.grade} on ${item.observed_on}`));
+    for (const check of item.checks || []) {
+      article.append(text('p', `Check ${check.position}: ${check.label}: ${checkStatuses[check.reported_status] || check.reported_status}`));
+    }
+    if (item.details) article.append(text('p', item.details));
+    if (item.source_url) {
+      const source = document.createElement('a');
+      source.href = item.source_url;
+      source.rel = 'noopener noreferrer';
+      source.textContent = 'Open reporter’s source link';
+      article.append(source);
+    }
+    if (item.status === 'accepted') {
+      article.append(text('p', `Published: ${grades[item.public_grade]} on ${item.public_observed_on} · ${item.public_evidence} · ${item.public_scope} · ${item.public_source_ref}`));
+    }
+    if (item.review_note) article.append(text('p', `Reviewer note: ${item.review_note}`));
+    for (const event of item.events || []) {
+      article.append(text('p', `${event.created_at} UTC · ${event.actor} · ${event.event_type}: ${event.note}`));
+    }
+    if (item.status !== 'pending') return article;
+
+    const form = document.createElement('form');
+    form.className = 'builder';
+    form.append(choice('Grade to publish', 'grade', grades, item.grade));
+    form.append(field('Scope: what this report covers and does not cover', 'scope', ''));
+    form.append(field('Date observed', 'observedOn', item.observed_on, 'date'));
+    form.append(choice('Public source category', 'sourceCategory', sourceLabels, item.source_category));
+    form.append(field('Public source reference (no personal names)', 'sourceRef', '', 'text'));
+    form.append(choice('Evidence label', 'evidence', {
+      unverified: 'Unverified: not checked by an editor',
+      verified: 'Verified: an editor checked it on site or against official records',
+    }, ''));
+    for (const check of item.checks || []) {
+      form.append(field(`Check ${check.position}: public label (empty to drop)`, `check${check.position}`, check.label, 'text', false));
+      form.append(choice(`Check ${check.position}: status to publish`, `check${check.position}Status`, checkStatuses, check.reported_status, false));
+    }
+    form.append(field('Internal review note (required)', 'note', ''));
+    const actions = document.createElement('div');
+    actions.className = 'page-tools';
+    for (const [label, decision] of [['Accept', 'accepted'], ['Reject', 'rejected']]) {
+      const button = document.createElement('button');
+      button.className = decision === 'accepted' ? 'btn' : 'btn quiet';
+      button.type = 'submit';
+      button.value = decision;
+      button.formNoValidate = decision === 'rejected';
+      button.textContent = label;
+      actions.append(button);
+    }
+    form.append(actions);
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const decision = event.submitter?.value;
+      const values = Object.fromEntries(new FormData(form));
+      status.textContent = 'Saving the review decision…';
+      const buttons = [...form.querySelectorAll('button')];
+      buttons.forEach((button) => { button.disabled = true; });
+      try {
+        const response = await fetch('/api/review-roads', {
+          method: 'PATCH',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ ...values, id: item.id, decision }),
+        });
+        const result = await response.json();
+        if (!response.ok) {
+          status.textContent = result.error || 'The review decision could not be saved.';
+          return;
+        }
+        status.textContent = `Saved as ${result.status}.`;
+        await loadInbox();
+      } catch {
+        status.textContent = 'The review decision could not be confirmed as saved. Reload the inbox before trying again.';
+      } finally {
+        buttons.forEach((button) => { button.disabled = false; });
+      }
+    });
+    article.append(form);
+    return article;
+  }
+
+  async function loadInbox() {
+    status.textContent = 'Loading road report inbox…';
+    container.replaceChildren();
+    try {
+      const response = await fetch('/api/review-roads', { headers: { accept: 'application/json' } });
+      const result = await response.json();
+      if (!response.ok) {
+        status.textContent = result.error || 'Reviewer access is required.';
+        return;
+      }
+      status.textContent = `${result.items.length} recent report(s). Signed in as ${result.reviewer}.`;
+      if (!result.items.length) container.append(text('p', 'No road reports are currently in the inbox.'));
+      for (const item of result.items) container.append(makeCard(item));
+    } catch {
+      status.textContent = 'The review inbox could not be reached. Check the connection and try again.';
+    }
+  }
+
+  reload.addEventListener('click', loadInbox);
+  loadInbox();
+</script>

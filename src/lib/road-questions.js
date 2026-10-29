@@ -3,6 +3,7 @@
 // to look at the road are marked siteVisit ("Needs a site visit").
 import { pct } from './project-status.js';
 import { amountStatus, amountLabel } from './project-amounts.js';
+import { gradeLabel } from './road-conditions.js';
 
 const fyLabel = (fy) => (fy.startsWith('as at') ? fy : `FY${fy}`);
 const money = (amount) => (amountStatus(amount) === 'unavailable' ? 'an amount the document does not state' : amountLabel(amount));
@@ -24,9 +25,10 @@ export function expenditureOf(status) {
 }
 
 // records: the road's project records, newest first. docOf(record) and findingDoc(finding)
-// return { title, url, page } for citing.
-export function roadQuestions({ road, records, findings = [], docOf, findingDoc }) {
+// return { title, url, page } for citing. condition: the latest reviewed condition, or null.
+export function roadQuestions({ road, records, findings = [], docOf, findingDoc, condition = null }) {
   const questions = [];
+  let completedIn = null;
   const groups = new Map();
   for (const record of records) {
     // One contract reported in several documents (same sum to the shilling) is one question citing
@@ -51,6 +53,7 @@ export function roadQuestions({ road, records, findings = [], docOf, findingDoc 
       questions.push({ docs, siteVisit: false,
         text: `The contract for ${when} (${money(primary.amount)}) is reported as "${shown}". Ask who holds the contract now, and what was paid under the first one.` });
     } else if (progress === 100) {
+      completedIn ??= { when, docs };
       const awaiting = /await(ing)? payment/i.test(status) ? ', with payment still awaited' : '';
       questions.push({ docs, siteVisit: true,
         text: `Reported complete in the ${when} records (${money(primary.amount)})${awaiting}. The document gives no inspection date. Is the work in good condition today?` });
@@ -65,6 +68,17 @@ export function roadQuestions({ road, records, findings = [], docOf, findingDoc 
       questions.push({ docs, siteVisit: false,
         text: `${money(primary.amount)} is recorded for this in ${when}. Ask what work it paid for and whether it is finished.` });
     }
+  }
+
+  // A reviewed report of a poor or impassable road: the gap between the records and the road.
+  if (condition && ['poor', 'impassable'].includes(condition.grade)) {
+    const seen = { title: condition.reports[0].source, page: `report of ${condition.observedOn}` };
+    const grade = gradeLabel[condition.grade];
+    questions.unshift(completedIn
+      ? { docs: [...completedIn.docs, seen], siteVisit: false,
+        text: `Reported complete in the ${completedIn.when} records, but a reviewed report from ${condition.observedOn} grades it ${grade}. Ask whether the contractor must repair defects, or when the county will repair it.` }
+      : { docs: [seen], siteVisit: false,
+        text: `A reviewed report from ${condition.observedOn} grades it ${grade}. Ask the county's Roads department when it will be repaired, and from which budget.` });
   }
 
   for (const finding of findings) {
