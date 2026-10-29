@@ -1,0 +1,105 @@
+{
+  "reviewed": "2026-10-29",
+  "note": "Which county road-works records describe one road or road structure. Every road-works project ID (scripts/build-roads.js decides which records are road works) must be either a road or listed in notRoads. Records are grouped into one road only through sameRoad, each entry recording who confirmed it and why; candidateSameRoad lists likely matches that are not yet confirmed and stay separate roads.",
+  "notRoads": {
+    "P-dfe6015": "Ward-wide works; no single road named",
+    "P-551b324": "Ward-wide works; no single road named",
+    "P-d4c7668": "Ward-wide works; no single road named",
+    "P-5e0f381": "Ward-wide works; no single road named",
+    "P-d70ff7b": "Ward-wide works; no single road named",
+    "P-e17fb9d": "Ward-wide works; no single road named",
+    "P-3ad83f9": "Ward-wide works; no single road named",
+    "P-7633113": "Ward-wide works; no single road named",
+    "P-d75f043": "Ward-wide works; no single road named",
+    "P-840a044": "Ward-wide works; no single road named",
+    "P-edf816b": "Ward-wide works; no single road named",
+    "P-241be93": "Ward-wide works; no single road named",
+    "P-c9361b6": "Ward-wide works; no single road named",
+    "P-50db552": "Ward-wide works; no single road named",
+    "P-81a0c9b": "No single bridge named",
+    "P-842c786": "No single bridge named",
+    "P-ae8b716": "Materials, not a road",
+    "P-808c34f": "Materials, not a road",
+    "P-4b89b0c": "Materials, not a road",
+    "P-d69a547": "Equipment, not a road",
+    "P-1e1dbfc": "Equipment, not a road",
+    "P-6c495ff": "Survey work, no single road named",
+    "P-0c4e67c": "Murram supply for two wards, not a road",
+    "P-b4ab104": "Murram supply for two wards, not a road",
+    "P-94291f6": "Murram supply for two wards, not a road",
+    "P-36caad8": "Murram supply for two wards, not a road",
+    "P-0560eaf": "Murram supply for two wards, not a road",
+    "P-dd9300f": "Murram supply for two wards, not a road",
+    "P-6c544b8": "Murram supply for two wards, not a road",
+    "P-cae1fca": "Murram supply for two wards, not a road",
+    "P-7c2f835": "Murram supply for two wards, not a road",
+    "P-2a4aeaa": "Murram supply for two wards, not a road",
+    "P-ee27122": "Market-area works at Kebirigo; no single road named",
+    "P-a6c525b": "Market stalls, not road works",
+    "P-acce0a7": "County workshop building, not road works"
+  },
+  "subtypes": {
+    "P-021bef7": "bridge",
+    "P-743eca2": "bridge",
+    "P-4593de6": "box culvert",
+    "P-c796210": "box culvert",
+    "P-6603cca": "box culvert",
+    "P-8bf1fab": "box culvert",
+    "P-5af22db": "several roads in one budget line"
+  },
+  "sameRoad": [
+    {
+      "projectIds": [
+        "P-941cc00",
+        "P-80c4d87"
+      ],
+      "evidence": "Same route (Nyaramba Junction – Kebabe Girls – Ikonge, Bwarani Junction) and contract sum (KSh 4,955,300) in the ADP 2025/26 list of 2023/24 contracts (p.76) and the CoB 2024/25 report (Table 3.416).",
+      "confirmed": "Owner, 29 Oct 2026"
+    },
+    {
+      "projectIds": [
+        "P-5d93fb6",
+        "P-99ca598"
+      ],
+      "evidence": "Same route (Outreach Church – Riokerio – Riamogere – Mogumo – Bwonchuru) and contract sum (KSh 3,862,742) in the ADP 2025/26 list of 2023/24 contracts (p.73) and the CoB 2024/25 report (Table 3.416).",
+      "confirmed": "Owner, 29 Oct 2026"
+    },
+    {
+      "projectIds": [
+        "P-14eb4e7",
+        "P-ac86f56"
+      ],
+      "evidence": "Same route (Nyamatimbo – Egetare – Kiamogake) and contract sum (KSh 4,111,478) in the ADP 2025/26 list of 2023/24 contracts (p.74) and the CoB 2024/25 report (Table 3.416).",
+      "confirmed": "Owner, 29 Oct 2026"
+    }
+  ],
+  "candidateSameRoad": [],
+  "auditRoads": [
+    {
+      "key": "audit:bokimo-masare",
+      "name": "Bokimo – Masare road",
+      "ward": "bonyamatuta",
+      "auditIds": [
+        "exec-201617-13"
+      ]
+    },
+    {
+      "key": "audit:borabu-inn-nyabite",
+      "name": "Borabu Inn – Nyabite road",
+      "ward": null,
+      "auditIds": [
+        "exec-201920-14",
+        "exec-202122-10"
+      ]
+    },
+    {
+      "key": "audit:public-works-cdf-nyamira-hospital",
+      "name": "Public Works – CDF – Nyamira Hospital road",
+      "ward": null,
+      "auditIds": [
+        "exec-202122-13",
+        "exec-202223-29"
+      ]
+    }
+  ]
+}

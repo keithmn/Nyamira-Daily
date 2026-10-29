@@ -24,7 +24,7 @@ export const sections = [
     href: `/constituency/${anchorFor(s)}/`, label: `${s} Constituency`,
     pages: wards.filter((w) => w.subCounty === s).map((w) => ({ href: `/ward/${w.slug}/`, label: w.name })),
   })) },
-  { href: '/data/', label: 'Data', overview: 'Nyamira in numbers', pages: [...dataPages, { href: '/state-of-nyamira/', label: 'State of Nyamira' }] },
+  { href: '/data/', label: 'Data', overview: 'Nyamira in numbers', pages: [...dataPages, { href: '/road/', label: 'Roads' }, { href: '/state-of-nyamira/', label: 'State of Nyamira' }] },
   { href: '/take-part/', label: 'Take part', overview: 'Take part', pages: [
     { href: '/ask/', label: 'Ask Nyamira' },
     { href: '/report/', label: 'Is it working?', pages: [{ href: '/report/clinic/', label: 'Clinic check' }] },

@@ -1,0 +1,1357 @@
+{
+  "generated": "scripts/build-roads.js from data-src/road-identities.json; do not edit by hand",
+  "roads": [
+    {
+      "id": "NYM-R0001",
+      "key": "P-804a040",
+      "name": "Kiabonyoru Girls - Ndurumo - Legio Maria",
+      "subtype": "road",
+      "wards": [
+        "kiabonyoru"
+      ],
+      "projectIds": [
+        "P-804a040"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0002",
+      "key": "P-89853e5",
+      "name": "Nyainogu - Omogute - Mariba",
+      "subtype": "road",
+      "wards": [
+        "kiabonyoru"
+      ],
+      "projectIds": [
+        "P-89853e5"
+      ],
+      "auditIds": [],
+      "lengthKm": 4,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0003",
+      "key": "P-cb05d05",
+      "name": "Mwongori Pri Sch - Bwayiera",
+      "subtype": "road",
+      "wards": [
+        "mekenene"
+      ],
+      "projectIds": [
+        "P-cb05d05"
+      ],
+      "auditIds": [],
+      "lengthKm": 3,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0004",
+      "key": "P-5d93fb6+P-99ca598",
+      "name": "Outreach Church-Riokerio-Riamogere-Mogumo-Bwonchuru road",
+      "subtype": "road",
+      "wards": [
+        "mekenene"
+      ],
+      "projectIds": [
+        "P-5d93fb6",
+        "P-99ca598"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.3,
+      "confirmedGroup": true
+    },
+    {
+      "id": "NYM-R0005",
+      "key": "P-8bf1fab",
+      "name": "Box culvert at Rianyaanga / Tinderet bridge",
+      "subtype": "box culvert",
+      "wards": [
+        "nyansiongo"
+      ],
+      "projectIds": [
+        "P-8bf1fab"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0006",
+      "key": "P-49add58",
+      "name": "Nyabiemba Junct - Kenyerere TBC - Bwaosa - Keginga Pri Sch – Bw'akama",
+      "subtype": "road",
+      "wards": [
+        "nyansiongo"
+      ],
+      "projectIds": [
+        "P-49add58"
+      ],
+      "auditIds": [],
+      "lengthKm": 5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0007",
+      "key": "P-0f5d811",
+      "name": "Nyaronde Mkt - Nyaronde Pri Sch - Milimani - Ribaita",
+      "subtype": "road",
+      "wards": [
+        "nyansiongo"
+      ],
+      "projectIds": [
+        "P-0f5d811"
+      ],
+      "auditIds": [],
+      "lengthKm": 6,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0008",
+      "key": "P-a292d4f",
+      "name": "(E1065) Sengereri Junct – Nyamasebe TBC – Nyamasebe Junct",
+      "subtype": "road",
+      "wards": [
+        "gachuba"
+      ],
+      "projectIds": [
+        "P-a292d4f"
+      ],
+      "auditIds": [],
+      "lengthKm": 4.1,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0009",
+      "key": "P-b440cce",
+      "name": "Nyaibasa – Moturumesi (Okeraro)",
+      "subtype": "road",
+      "wards": [
+        "gachuba"
+      ],
+      "projectIds": [
+        "P-b440cce"
+      ],
+      "auditIds": [],
+      "lengthKm": 2,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0010",
+      "key": "P-7b1b69d",
+      "name": "Mosobeti-Entorobo-Nyaronge",
+      "subtype": "road",
+      "wards": [
+        "gesima"
+      ],
+      "projectIds": [
+        "P-7b1b69d"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0011",
+      "key": "P-54d6de1",
+      "name": "Nyaboraire Junct - Nyaboraire SDA Church - Nyaboraire (Dip)",
+      "subtype": "road",
+      "wards": [
+        "gesima"
+      ],
+      "projectIds": [
+        "P-54d6de1"
+      ],
+      "auditIds": [],
+      "lengthKm": 5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0012",
+      "key": "P-d50283b",
+      "name": "Ritongo-Nyabiosi-Mochenwa Road",
+      "subtype": "road",
+      "wards": [
+        "gesima"
+      ],
+      "projectIds": [
+        "P-d50283b"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0013",
+      "key": "P-2d35818",
+      "name": "Sokobe – Kiamitengi Junct – Karantini Junct – Matunwa",
+      "subtype": "road",
+      "wards": [
+        "gesima"
+      ],
+      "projectIds": [
+        "P-2d35818"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.7,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0014",
+      "key": "P-78f4603",
+      "name": "Kemera rooche - Eriasibu road",
+      "subtype": "road",
+      "wards": [
+        "kemera"
+      ],
+      "projectIds": [
+        "P-78f4603"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0015",
+      "key": "P-5eb976d",
+      "name": "Nyagechenche - Charara - Momoma road",
+      "subtype": "road",
+      "wards": [
+        "kemera"
+      ],
+      "projectIds": [
+        "P-5eb976d"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0016",
+      "key": "P-6603cca",
+      "name": "Nyamarambe box culvert",
+      "subtype": "box culvert",
+      "wards": [
+        "kemera"
+      ],
+      "projectIds": [
+        "P-6603cca"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0017",
+      "key": "P-2fb60f8",
+      "name": "Omogonchoro - Kiendege road",
+      "subtype": "road",
+      "wards": [
+        "kemera"
+      ],
+      "projectIds": [
+        "P-2fb60f8"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0018",
+      "key": "P-9cf585a",
+      "name": "Omogonchoro - Ri'Orwoba",
+      "subtype": "road",
+      "wards": [
+        "kemera"
+      ],
+      "projectIds": [
+        "P-9cf585a"
+      ],
+      "auditIds": [],
+      "lengthKm": 1.5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0019",
+      "key": "P-506ffe4",
+      "name": "Omotanganyekania - Momoma – Magogo",
+      "subtype": "road",
+      "wards": [
+        "kemera"
+      ],
+      "projectIds": [
+        "P-506ffe4"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.2,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0020",
+      "key": "P-71b4214",
+      "name": "Riakiabuso - Riontita",
+      "subtype": "road",
+      "wards": [
+        "kemera"
+      ],
+      "projectIds": [
+        "P-71b4214"
+      ],
+      "auditIds": [],
+      "lengthKm": 1.5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0021",
+      "key": "P-c3fe1fb",
+      "name": "Gekano Pri Sch Junct - St. Thomas Gekano - St. Pauls Gekano High Sch - St. Pauls Gekano High Sch Signpost - Riogeto Junct",
+      "subtype": "road",
+      "wards": [
+        "magombo"
+      ],
+      "projectIds": [
+        "P-c3fe1fb"
+      ],
+      "auditIds": [],
+      "lengthKm": 3,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0022",
+      "key": "P-a52d0b2",
+      "name": "Ribwago Junct - Nyaguku Junct - Nyamanagu Poly - Getare South SDA",
+      "subtype": "road",
+      "wards": [
+        "magombo"
+      ],
+      "projectIds": [
+        "P-a52d0b2"
+      ],
+      "auditIds": [],
+      "lengthKm": 3,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0023",
+      "key": "P-0723a15",
+      "name": "Ritongo-Matunwa-Nyabira IV-Kambini-Kabosi road",
+      "subtype": "road",
+      "wards": [
+        "magombo"
+      ],
+      "projectIds": [
+        "P-0723a15"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0024",
+      "key": "P-f354bc6",
+      "name": "Emonga - Monsore Chief's Camp",
+      "subtype": "road",
+      "wards": [
+        "manga"
+      ],
+      "projectIds": [
+        "P-f354bc6"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.7,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0025",
+      "key": "P-57343a2",
+      "name": "Enamba Borecho – Omobondo (CID)",
+      "subtype": "road",
+      "wards": [
+        "manga"
+      ],
+      "projectIds": [
+        "P-57343a2"
+      ],
+      "auditIds": [],
+      "lengthKm": 4.8,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0026",
+      "key": "P-ff9cefc",
+      "name": "Ikobe Primary School-Riakuma-Bigogo Primary-Riamangaa",
+      "subtype": "road",
+      "wards": [
+        "manga"
+      ],
+      "projectIds": [
+        "P-ff9cefc"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0027",
+      "key": "P-68b1cb8",
+      "name": "Nyaikuro - Etanki - Ogango SDA - Kirwanda - Ogango Dip",
+      "subtype": "road",
+      "wards": [
+        "manga"
+      ],
+      "projectIds": [
+        "P-68b1cb8"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.1,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0028",
+      "key": "P-818bd50",
+      "name": "Nyaikuro-Gesure-Bokondo-Nyabioto",
+      "subtype": "road",
+      "wards": [
+        "manga"
+      ],
+      "projectIds": [
+        "P-818bd50"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0029",
+      "key": "P-260f804",
+      "name": "Omogwa – Omosocho – Riamaranga - Gesonso FCS - Riamaranga Bridge - St. Marys Ekerubo",
+      "subtype": "road",
+      "wards": [
+        "manga"
+      ],
+      "projectIds": [
+        "P-260f804"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.7,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0030",
+      "key": "P-1d8d44a",
+      "name": "Riamaranga – Nyamwoga – Riantiana - Riomwamba",
+      "subtype": "road",
+      "wards": [
+        "manga"
+      ],
+      "projectIds": [
+        "P-1d8d44a"
+      ],
+      "auditIds": [],
+      "lengthKm": 4,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0031",
+      "key": "P-4ee97e5",
+      "name": "Riorina-Ogesanda-Riaguto-Gatuta Dispensary-Riamosoti road",
+      "subtype": "road",
+      "wards": [
+        "manga"
+      ],
+      "projectIds": [
+        "P-4ee97e5"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0032",
+      "key": "P-c7fc6e3",
+      "name": "Ritibo - Esamba SDA – Rioroti - Nyamare Pri - Riamotari",
+      "subtype": "road",
+      "wards": [
+        "manga"
+      ],
+      "projectIds": [
+        "P-c7fc6e3"
+      ],
+      "auditIds": [],
+      "lengthKm": 4.5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0033",
+      "key": "P-5851664",
+      "name": "Kenyerere South SDA Junct - Riyabe TBC - Abisai Junct - Kenyerere TBC - Siara Disp",
+      "subtype": "road",
+      "wards": [
+        "rigoma"
+      ],
+      "projectIds": [
+        "P-5851664"
+      ],
+      "auditIds": [],
+      "lengthKm": 4,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0034",
+      "key": "P-f53b4d2",
+      "name": "Matangi Erora - Riomanga Tonya - Rikenye Dip - Riyabe",
+      "subtype": "road",
+      "wards": [
+        "rigoma"
+      ],
+      "projectIds": [
+        "P-f53b4d2"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.3,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0035",
+      "key": "P-5af22db",
+      "name": "Rikenye, Bocharia and Botana roads",
+      "subtype": "several roads in one budget line",
+      "wards": [
+        "rigoma"
+      ],
+      "projectIds": [
+        "P-5af22db"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0036",
+      "key": "P-e8c3d34",
+      "name": "Kiomanga Pri Sch - Gekonge Junct - Gekonge Sec Sch",
+      "subtype": "road",
+      "wards": [
+        "bokeira"
+      ],
+      "projectIds": [
+        "P-e8c3d34"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0037",
+      "key": "P-4ed8f22",
+      "name": "Matongo Dip - Enchoro Pri Sch",
+      "subtype": "road",
+      "wards": [
+        "bokeira"
+      ],
+      "projectIds": [
+        "P-4ed8f22"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.2,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0038",
+      "key": "P-a09ee5e",
+      "name": "Matongo Dip - Nyakaranga TBC - Nyakaranga Pri Sch",
+      "subtype": "road",
+      "wards": [
+        "bokeira"
+      ],
+      "projectIds": [
+        "P-a09ee5e"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.3,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0039",
+      "key": "P-fc595c8",
+      "name": "Nyagekoboko-Mokarate-Moteomokamba-Boitabai Nyamao Road",
+      "subtype": "road",
+      "wards": [
+        "bokeira"
+      ],
+      "projectIds": [
+        "P-fc595c8"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0040",
+      "key": "P-021bef7",
+      "name": "Nyaobe bridge",
+      "subtype": "bridge",
+      "wards": [
+        "bokeira"
+      ],
+      "projectIds": [
+        "P-021bef7"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0041",
+      "key": "P-4593de6",
+      "name": "Box Culvert at Riondiba",
+      "subtype": "box culvert",
+      "wards": [
+        "bomwagamo"
+      ],
+      "projectIds": [
+        "P-4593de6"
+      ],
+      "auditIds": [],
+      "lengthKm": 1,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0042",
+      "key": "P-743eca2",
+      "name": "Nyageita bridge",
+      "subtype": "bridge",
+      "wards": [
+        "bomwagamo"
+      ],
+      "projectIds": [
+        "P-743eca2"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0043",
+      "key": "P-d51efb7",
+      "name": "Nyamiacho - Omokonge Pri Sch",
+      "subtype": "road",
+      "wards": [
+        "bomwagamo"
+      ],
+      "projectIds": [
+        "P-d51efb7"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0044",
+      "key": "P-a5d0a6d",
+      "name": "Nyangoso - Kioge",
+      "subtype": "road",
+      "wards": [
+        "bomwagamo"
+      ],
+      "projectIds": [
+        "P-a5d0a6d"
+      ],
+      "auditIds": [],
+      "lengthKm": 3,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0045",
+      "key": "P-6679fe0",
+      "name": "(R31) Riechieri–Nyabigena–Bogisero–(U19) Bisembe",
+      "subtype": "road",
+      "wards": [
+        "ekerenyo"
+      ],
+      "projectIds": [
+        "P-6679fe0"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.7,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0046",
+      "key": "P-c796210",
+      "name": "Box Culvert at Riagetugi",
+      "subtype": "box culvert",
+      "wards": [
+        "ekerenyo"
+      ],
+      "projectIds": [
+        "P-c796210"
+      ],
+      "auditIds": [],
+      "lengthKm": 1,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0047",
+      "key": "P-c620a82",
+      "name": "Gesura TBC - Ensoko TBC – Maranatha",
+      "subtype": "road",
+      "wards": [
+        "ekerenyo"
+      ],
+      "projectIds": [
+        "P-c620a82"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.2,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0048",
+      "key": "P-0573189",
+      "name": "Ikonge Primary-Nyaora-Bogisero",
+      "subtype": "road",
+      "wards": [
+        "ekerenyo"
+      ],
+      "projectIds": [
+        "P-0573189"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0049",
+      "key": "P-07b1d81",
+      "name": "Itibonge-Chichuma-Nyamaruma",
+      "subtype": "road",
+      "wards": [
+        "ekerenyo"
+      ],
+      "projectIds": [
+        "P-07b1d81"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0050",
+      "key": "P-14eb4e7+P-ac86f56",
+      "name": "Nyamatimbo-Egetare-Kiamogake",
+      "subtype": "road",
+      "wards": [
+        "ekerenyo"
+      ],
+      "projectIds": [
+        "P-14eb4e7",
+        "P-ac86f56"
+      ],
+      "auditIds": [],
+      "lengthKm": 4.2,
+      "confirmedGroup": true
+    },
+    {
+      "id": "NYM-R0051",
+      "key": "P-5b3ba63",
+      "name": "Obwari-Riagetugi-Kiamogake road",
+      "subtype": "road",
+      "wards": [
+        "ekerenyo"
+      ],
+      "projectIds": [
+        "P-5b3ba63"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0052",
+      "key": "P-f30b79f",
+      "name": "Riechieri-Nyangundi-Ekegogi",
+      "subtype": "road",
+      "wards": [
+        "ekerenyo"
+      ],
+      "projectIds": [
+        "P-f30b79f"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0053",
+      "key": "P-47163c5",
+      "name": "Sere-Rianyamweno-Kea",
+      "subtype": "road",
+      "wards": [
+        "ekerenyo"
+      ],
+      "projectIds": [
+        "P-47163c5"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0054",
+      "key": "P-5ca5545",
+      "name": "St Clare-Sere-Egesero",
+      "subtype": "road",
+      "wards": [
+        "ekerenyo"
+      ],
+      "projectIds": [
+        "P-5ca5545"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0055",
+      "key": "P-e8ee7c3",
+      "name": "Bonyunyu Mkt - Motorora Junct - Keburunga - China Junct",
+      "subtype": "road",
+      "wards": [
+        "itibo"
+      ],
+      "projectIds": [
+        "P-e8ee7c3"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.7,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0056",
+      "key": "P-01bc908",
+      "name": "Enkinda Catholic Junct - Riamorubi - Getengereri",
+      "subtype": "road",
+      "wards": [
+        "itibo"
+      ],
+      "projectIds": [
+        "P-01bc908"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0057",
+      "key": "P-96d2c4c",
+      "name": "Itibo Junction-Nyasore-Kiabonyoru road",
+      "subtype": "road",
+      "wards": [
+        "itibo"
+      ],
+      "projectIds": [
+        "P-96d2c4c"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0058",
+      "key": "P-80c4d87+P-941cc00",
+      "name": "Nyaramba Junction-Kebabe Girls-Ikonge (Bwarani Junction) road",
+      "subtype": "road",
+      "wards": [
+        "itibo"
+      ],
+      "projectIds": [
+        "P-80c4d87",
+        "P-941cc00"
+      ],
+      "auditIds": [],
+      "lengthKm": 4.2,
+      "confirmedGroup": true
+    },
+    {
+      "id": "NYM-R0059",
+      "key": "P-f113ead",
+      "name": "Sanganyi Tea Factory - Enkinda Pri Sch - Nasari Polytechnic - Riamorubi Junct",
+      "subtype": "road",
+      "wards": [
+        "itibo"
+      ],
+      "projectIds": [
+        "P-f113ead"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.2,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0060",
+      "key": "P-3f578ab",
+      "name": "ACK Samaritan-Kisumu ndogo-misambi SDA church-Misambi junction-Nyambambo road",
+      "subtype": "road",
+      "wards": [
+        "magwagwa"
+      ],
+      "projectIds": [
+        "P-3f578ab"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0061",
+      "key": "P-3cd9e67",
+      "name": "Bisembe - Nyamage - Kebuye - Kenyerere - Ngong",
+      "subtype": "road",
+      "wards": [
+        "magwagwa"
+      ],
+      "projectIds": [
+        "P-3cd9e67"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.4,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0062",
+      "key": "P-9d8c45d",
+      "name": "Borioba - Kiomanga SDA - Esamba Market",
+      "subtype": "road",
+      "wards": [
+        "magwagwa"
+      ],
+      "projectIds": [
+        "P-9d8c45d"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.7,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0063",
+      "key": "P-ac17e58",
+      "name": "Rikuruma - Gitwebe - Morembe",
+      "subtype": "road",
+      "wards": [
+        "magwagwa"
+      ],
+      "projectIds": [
+        "P-ac17e58"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0064",
+      "key": "P-63c1502",
+      "name": "(B3) Sironga Stage – Kebacha – Ramba TBC",
+      "subtype": "road",
+      "wards": [
+        "bogichora"
+      ],
+      "projectIds": [
+        "P-63c1502"
+      ],
+      "auditIds": [],
+      "lengthKm": 2,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0065",
+      "key": "P-856ec99",
+      "name": "Bonyunyu-Omosasa-Rioyako-Riatengeya",
+      "subtype": "road",
+      "wards": [
+        "bogichora"
+      ],
+      "projectIds": [
+        "P-856ec99"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0066",
+      "key": "P-3c72cd7",
+      "name": "Bosiango Primary-Makairo bridge",
+      "subtype": "road",
+      "wards": [
+        "bogichora"
+      ],
+      "projectIds": [
+        "P-3c72cd7"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0067",
+      "key": "P-24851ee",
+      "name": "Kenyambi OPD - Rianyatigo",
+      "subtype": "road",
+      "wards": [
+        "bogichora"
+      ],
+      "projectIds": [
+        "P-24851ee"
+      ],
+      "auditIds": [],
+      "lengthKm": 1.6,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0068",
+      "key": "P-ad08ccb",
+      "name": "Kenyenya- Nyabiosi SDA-Geta junction-Nyairasa Tea Buying Center-Mensire junction",
+      "subtype": "road",
+      "wards": [
+        "bogichora"
+      ],
+      "projectIds": [
+        "P-ad08ccb"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0069",
+      "key": "P-ec0e8e5",
+      "name": "Kioge Coffee Factory-Rionyangi junction",
+      "subtype": "road",
+      "wards": [
+        "bogichora"
+      ],
+      "projectIds": [
+        "P-ec0e8e5"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0070",
+      "key": "P-588e0ad",
+      "name": "Mabundu SDA - Nyabomite - Bonyagwoka - Bundo - Marindi",
+      "subtype": "road",
+      "wards": [
+        "bogichora"
+      ],
+      "projectIds": [
+        "P-588e0ad"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.3,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0071",
+      "key": "P-2592531",
+      "name": "Nyabirorwe bridge-Nyabirorwe catholic-Sironga society-Bosose Junction",
+      "subtype": "road",
+      "wards": [
+        "bogichora"
+      ],
+      "projectIds": [
+        "P-2592531"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0072",
+      "key": "P-02c37a2",
+      "name": "Nyaisa junction-Eronge-Kereri junction-Eronge health center Nyaramba",
+      "subtype": "road",
+      "wards": [
+        "bogichora"
+      ],
+      "projectIds": [
+        "P-02c37a2"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0073",
+      "key": "P-57262a3",
+      "name": "Nyamatoki – Nyamasembe – Nyaramba – Nyaisa",
+      "subtype": "road",
+      "wards": [
+        "bogichora"
+      ],
+      "projectIds": [
+        "P-57262a3"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.1,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0074",
+      "key": "P-4cbfae0",
+      "name": "Rionyambu-Nyamokeri Rianyaribari-Nyamokeri Bwa Aori-Salama Academy",
+      "subtype": "road",
+      "wards": [
+        "bogichora"
+      ],
+      "projectIds": [
+        "P-4cbfae0"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0075",
+      "key": "audit:bokimo-masare",
+      "name": "Bokimo – Masare road",
+      "subtype": "road",
+      "wards": [
+        "bonyamatuta"
+      ],
+      "projectIds": [],
+      "auditIds": [
+        "exec-201617-13"
+      ],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0076",
+      "key": "P-660d0de",
+      "name": "Kabatia - Nyangweta - Kiambere",
+      "subtype": "road",
+      "wards": [
+        "bonyamatuta"
+      ],
+      "projectIds": [
+        "P-660d0de"
+      ],
+      "auditIds": [],
+      "lengthKm": 4,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0077",
+      "key": "P-619e454",
+      "name": "Mobamba Pri Sch Junct - Nyamonyo - Nyakemincha TBC",
+      "subtype": "road",
+      "wards": [
+        "bonyamatuta"
+      ],
+      "projectIds": [
+        "P-619e454"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.6,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0078",
+      "key": "P-4b50202",
+      "name": "Nyakeore TBC-Riatunga TBC",
+      "subtype": "road",
+      "wards": [
+        "bonyamatuta"
+      ],
+      "projectIds": [
+        "P-4b50202"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0079",
+      "key": "P-5507c15",
+      "name": "Turning Point-Miringa- Kianyabongere-Migingo Road",
+      "subtype": "road",
+      "wards": [
+        "bonyamatuta"
+      ],
+      "projectIds": [
+        "P-5507c15"
+      ],
+      "auditIds": [],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0080",
+      "key": "P-6abe2f4",
+      "name": "(B3) Ikobe - Gesicha",
+      "subtype": "road",
+      "wards": [
+        "bosamaro"
+      ],
+      "projectIds": [
+        "P-6abe2f4"
+      ],
+      "auditIds": [],
+      "lengthKm": 2,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0081",
+      "key": "P-c6eeadf",
+      "name": "Gesero - Sirate",
+      "subtype": "road",
+      "wards": [
+        "bosamaro"
+      ],
+      "projectIds": [
+        "P-c6eeadf"
+      ],
+      "auditIds": [],
+      "lengthKm": 4,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0082",
+      "key": "P-8d5079c",
+      "name": "Gesero (Makutano) - Ndurumo – Riamoti",
+      "subtype": "road",
+      "wards": [
+        "bosamaro"
+      ],
+      "projectIds": [
+        "P-8d5079c"
+      ],
+      "auditIds": [],
+      "lengthKm": 4.5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0083",
+      "key": "P-2377ff7",
+      "name": "Motagara - Omaraburi - Kipkebe",
+      "subtype": "road",
+      "wards": [
+        "bosamaro"
+      ],
+      "projectIds": [
+        "P-2377ff7"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.7,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0084",
+      "key": "P-1d85768",
+      "name": "Mang'ong'o - Masosa – Nyarombe",
+      "subtype": "road",
+      "wards": [
+        "nyamaiya"
+      ],
+      "projectIds": [
+        "P-1d85768"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.7,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0085",
+      "key": "P-5509ddb",
+      "name": "Tonga DEB Pri Sch Junct - Omonuri River - Tonga Omonuri Boarding - Monga",
+      "subtype": "road",
+      "wards": [
+        "nyamaiya"
+      ],
+      "projectIds": [
+        "P-5509ddb"
+      ],
+      "auditIds": [],
+      "lengthKm": 2.5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0086",
+      "key": "P-b71a2ce",
+      "name": "Bwombuya Junct - Kisii University (Okeno) - Borabu - Ombane - Nyansanda – Gesore (Fire station)",
+      "subtype": "road",
+      "wards": [
+        "township"
+      ],
+      "projectIds": [
+        "P-b71a2ce"
+      ],
+      "auditIds": [],
+      "lengthKm": 3,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0087",
+      "key": "P-843d7d9",
+      "name": "Gesonso Junct - Mwamoturi - Nyabite - Egesieri Junct",
+      "subtype": "road",
+      "wards": [
+        "township"
+      ],
+      "projectIds": [
+        "P-843d7d9"
+      ],
+      "auditIds": [],
+      "lengthKm": 2,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0088",
+      "key": "P-fa6757d",
+      "name": "Gesore TBC - Bomondo Bridge – Rienchogu – Nyairicha - Nyamache Mange",
+      "subtype": "road",
+      "wards": [
+        "township"
+      ],
+      "projectIds": [
+        "P-fa6757d"
+      ],
+      "auditIds": [],
+      "lengthKm": 3.5,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0089",
+      "key": "audit:borabu-inn-nyabite",
+      "name": "Borabu Inn – Nyabite road",
+      "subtype": "road",
+      "wards": [],
+      "projectIds": [],
+      "auditIds": [
+        "exec-201920-14",
+        "exec-202122-10"
+      ],
+      "lengthKm": null,
+      "confirmedGroup": false
+    },
+    {
+      "id": "NYM-R0090",
+      "key": "audit:public-works-cdf-nyamira-hospital",
+      "name": "Public Works – CDF – Nyamira Hospital road",
+      "subtype": "road",
+      "wards": [],
+      "projectIds": [],
+      "auditIds": [
+        "exec-202122-13",
+        "exec-202223-29"
+      ],
+      "lengthKm": null,
+      "confirmedGroup": false
+    }
+  ],
+  "retired": {}
+}

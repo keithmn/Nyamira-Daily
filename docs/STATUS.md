@@ -175,3 +175,18 @@ No entry in this table is an owner approval, production deployment, or independe
   4. Source lines: `.source` is now ordinary text flow instead of flex, so text after a link no longer becomes its own item. This applies to all 40 `<p class="source">` lines; none contains block content.
   5. Ward maps draw each OpenStreetMap place once (21 duplicate pairs in 12 wards; see `docs/DATA.md`). The caption count follows, for example Esise "1 named place" instead of "2". **For the corrections log:** these mapped-place counts change on 12 ward pages.
   6. Home "Explore the data": the Open data tile has a 1px outline in its own deep tone, and the six tiles sit in three columns from 700px.
+
+## Roads in the facility network (29 Oct 2026)
+
+Owner direction: roads are facilities too. Poor roads should be shown, the responsible body named, and past allocations examined, for complete roads as well. Decisions are recorded in #55. Owner choices: start from county records while researching the official classification; condition reports use a grade plus specific checks; name the body and office, with contractors only as county documents name them.
+
+| Step | State |
+|---|---|
+| R1 Road registry | **Done** on `feat/roads`. 90 roads and road structures (permanent IDs `NYM-R0001`–`NYM-R0090`): road-works records FY2023/24–FY2025/26 plus 3 roads named in audit findings. 35 ward-wide lines are excluded with reasons. The owner confirmed 3 records reported in two documents (ADP 2025/26 and CoB 2024/25, same contract sums) as the same road; they show as one contract, not two allocations. |
+| R2 Profiles and links | **Done.** `/road/` index and `/road/<id>/` profiles: latest record, questions to ask (with sources and "Needs a site visit"), responsible body and office, contractors as named, condition unknown, money trail and audit findings in collapsible sections. Roads block on ward pages (19 of 20; Esise's road lines are all ward-wide), Data menu and search. Checked at 390px and 1280px, light and dark: no sideways scroll, no console errors. |
+| R3 Condition reports | Next. Grade (Good, Fair, Poor, Impassable, Not sure) plus optional specific checks, in the existing review service, with separate tables and switched off like facility reports. |
+| R4 Road class and authority | Background research into the official classification (KeNHA, KeRRA, KURA, county) is in progress; nothing is published until a primary source is found. The county roads office holder is not in `leaders.json`. |
+| R5 Older money | Project data starts at FY2023/24; earlier road money appears only through audit findings. Adding earlier budgets needs the older documents. |
+| R6 Map and photos | Road lines on the map and dated photos, with facility ledger item 6. |
+
+Also requested by the owner on 29 Oct 2026, not started: turn the Stories section into a **Community** section for the social life of Nyamira's people (datasets and story formats) and a place where social information can be shared. It needs owner decisions on scope, URLs and how submissions are reviewed.

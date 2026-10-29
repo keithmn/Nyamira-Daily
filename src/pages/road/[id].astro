@@ -1,0 +1,114 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import { docOf, roads, retiredRoads, roadDetail, roadPath, subtypeLabel, wardName } from '../../lib/roads.js';
+import { amountLabel } from '../../lib/project-amounts.js';
+import { contractorOf, statusText } from '../../lib/road-questions.js';
+import { kindLabel } from '../../lib/projects.js';
+
+export function getStaticPaths() {
+  return [
+    ...roads.map((road) => ({ params: { id: road.id.toLowerCase() }, props: { road } })),
+    ...Object.entries(retiredRoads).map(([old, current]) => ({ params: { id: old.toLowerCase() }, props: { redirectTo: current } })),
+  ];
+}
+
+const { road, redirectTo } = Astro.props;
+if (redirectTo) return Astro.redirect(roadPath(redirectTo));
+const detail = roadDetail(road);
+const where = road.wards.length ? road.wards.map(wardName).join(' and ') + (road.wards.length > 1 ? ' wards' : ' Ward') : 'Ward not stated in the documents';
+const length = road.lengthKm != null ? ` · ${road.lengthKm} km, as stated in the county's document` : '';
+const fromAudit = road.projectIds.length === 0;
+---
+<Base
+  title={road.name}
+  description={`${subtypeLabel[road.subtype]} in ${where}: what the county's documents and the Auditor-General say, and the questions to ask.`}
+>
+  <PageHead
+    eyebrow={`${subtypeLabel[road.subtype]} · ${road.id}`}
+    title={road.name}
+    lead={`${where}${length}`}
+    crumbs={[{ href: '/road/', label: 'Roads' }, ...road.wards.map((slug) => ({ href: `/ward/${slug}/#svc-roads`, label: `${wardName(slug)} Ward` }))]}
+  />
+
+  <div class="stack-lg" style="margin-top:8px">
+    <section class="card stack" aria-labelledby="road-latest">
+      <h2 id="road-latest" class="vh">Latest record</h2>
+      {detail.latest ? (
+        <>
+          <span class="figure"><span class="num">{amountLabel(detail.latest.amount)}</span></span>
+          <p class="say">{detail.latest.kind}, FY{detail.latest.fy}{detail.latest.status ? `. Reported: ${detail.latest.status}` : '. No progress reported in this record'}.</p>
+          <p class="source"><EvidenceLabel kind="official" /> <a href={docOf(detail.records[0]).url} rel="noopener">{docOf(detail.records[0]).title}</a> {detail.records[0].page}</p>
+        </>
+      ) : (
+        <>
+          <p class="say">Named in {detail.findings.length} Auditor-General finding{detail.findings.length === 1 ? '' : 's'}. No county budget or progress record for it is in our data since FY2023/24.</p>
+          <p class="source"><EvidenceLabel kind="audit" /> Auditor-General reports on the County Executive</p>
+        </>
+      )}
+      <p class="muted small">Condition: <strong>unknown</strong>. No dated, editor-reviewed report of this road's condition is recorded here. Money spent or a reported completion is not evidence of condition.</p>
+    </section>
+
+    <section class="stack" aria-labelledby="road-questions">
+      <h2 id="road-questions">Questions to ask</h2>
+      <ul class="stack" style="padding-left:20px; margin:0">
+        {detail.questions.map((q) => (
+          <li>
+            {q.siteVisit && <><span class="label unverified">Needs a site visit</span>{' '}</>}
+            {q.text}
+            <span class="small muted"> Source: {q.docs.map((d, i) => <>{i > 0 && '; '}{d.url ? <a href={d.url} rel="noopener">{d.title}</a> : d.title}{d.page && `, ${d.page}`}</>)}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="small"><a href="/ask/">Ask the county formally with an information request</a></p>
+    </section>
+
+    <section class="card stack" aria-labelledby="road-responsible">
+      <h2 id="road-responsible">Who is responsible</h2>
+      {fromAudit ? (
+        <p>Named in the Auditor-General's reports on the <strong>Nyamira County Executive</strong>.</p>
+      ) : (
+        <p>The works were paid for by <strong>Nyamira County Government</strong>, {detail.departments.map((d, i) => <>{i > 0 && '; '}department of {d}</>)}, as named in the county's documents.</p>
+      )}
+      <p>Each county department is led by a County Executive Committee Member. See <a href="/government/executive/">The Executive</a>; the office holder for roads is not yet listed on our Leaders page.</p>
+      {detail.contractors.length > 0 && <p>Contractor{detail.contractors.length === 1 ? '' : 's'} named in the county's documents: {detail.contractors.join('; ')}.</p>}
+      <p class="muted small">Road class and road authority: <strong>not yet confirmed</strong>. The documents name who paid for the works, not who the road belongs to: the county, or a national body (Kenya Rural Roads Authority, Kenya Urban Roads Authority or Kenya National Highways Authority).</p>
+    </section>
+
+    {detail.records.length > 0 && (
+      <details>
+        <summary>Money trail: every record ({detail.records.length})</summary>
+        <div class="table-box">
+          <table class="cards">
+            <thead><tr><th>Record</th><th>Amount</th><th>Reported progress</th><th>Document</th></tr></thead>
+            <tbody>{detail.records.map((r) => (
+              <tr>
+                <td>FY{r.fy} · {kindLabel[r.kind] ?? r.kind}</td>
+                <td data-label="Amount">{amountLabel(r.amount)}</td>
+                <td data-label="Reported progress">{statusText(r.status) ?? 'Not reported'}{contractorOf(r.status) && <span class="small muted"> · {contractorOf(r.status)}</span>}</td>
+                <td data-label="Document"><a href={docOf(r).url} rel="noopener">{docOf(r).title}</a> {r.page}</td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
+        <p class="small muted">Amounts of different kinds (budgeted, contract sum, spent) are not added together. Progress figures are as the document reports them; most give no date for the figure.</p>
+      </details>
+    )}
+
+    {detail.findings.length > 0 && (
+      <details open={fromAudit}>
+        <summary>Auditor-General findings ({detail.findings.length})</summary>
+        <div class="stack">{detail.findings.map((f) => (
+          <div class="stack">
+            <p><EvidenceLabel kind="audit" /> <strong>{f.title}</strong> (FY{f.fy})</p>
+            <p>{f.summary}</p>
+            {f.statusLater && <p class="small muted">Later status (FY{f.statusLater.fy}): {f.statusLater.status}</p>}
+          </div>
+        ))}</div>
+      </details>
+    )}
+
+    <p class="small muted">This record is built from the documents listed above, with the road named as the document names it. Records are grouped into one road only when an editor confirms they describe the same road.</p>
+  </div>
+</Base>

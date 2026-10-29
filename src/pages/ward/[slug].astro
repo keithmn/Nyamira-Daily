@@ -9,6 +9,7 @@ import money from '../../data/money.json';
 import census from '../../data/census.json';
 import { budget2526, forWard, total, kindLabel, fyOrder, sources, watch, pct, statusShort, shortTitle, statusCounts } from '../../lib/projects.js';
 import Pictos from '../../components/viz/Pictos.astro';
+import { roadsForWard, roadPath, subtypeLabel } from '../../lib/roads.js';
 import SplitBar from '../../components/viz/SplitBar.astro';
 import HBars from '../../components/viz/HBars.astro';
 import EmbedCode from '../../components/EmbedCode.astro';
@@ -51,6 +52,7 @@ const shareText = [
 ].join('\n');
 const wa = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
 const sc = statusCounts(w.slug);
+const roadsHere = roadsForWard(w.slug);
 const statusCaveats = [
   sc.undated && `${sc.undated} project${sc.undated === 1 ? ' has' : 's have'} undated percentage observations`,
   sc.conflicts && `${sc.conflicts} project${sc.conflicts === 1 ? ' has' : 's have'} conflicting observations on the latest date`,
@@ -130,6 +132,26 @@ const budgets = wards.map((x) => {
           </div>
         </details>
       ))}
+      {roadsHere.length > 0 && (
+        <details id="svc-roads">
+          <summary>Roads ({roadsHere.length})</summary>
+          <div class="table-box">
+            <table class="cards">
+              <thead><tr><th>Road</th><th>Type</th><th>Evidence</th></tr></thead>
+              <tbody>
+                {roadsHere.map((road) => (
+                  <tr>
+                    <td><a href={roadPath(road.id)}>{road.name}</a></td>
+                    <td data-label="Type">{subtypeLabel[road.subtype]}{road.lengthKm != null ? ` · ${road.lengthKm} km` : ''}</td>
+                    <td data-label="Evidence"><EvidenceLabel kind={road.projectIds.length ? 'official' : 'audit'} /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="small"><a href="/road/">All roads in Nyamira</a></p>
+        </details>
+      )}
     </section>
 
     <CommunityReports ward={w.slug} wardName={w.name} />
