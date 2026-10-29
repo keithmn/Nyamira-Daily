@@ -30,7 +30,6 @@ const healthCount = wards.reduce((n, w) => n + (w.counts.Health ?? 0), 0);
 
     {t.slug === 'money' && (
       <>
-        <div style="margin-top:16px"><MyWard topic="projects" /></div>
         <MoneyPage />
         <div class="stack" style="margin-top:32px">
           <Toggle id="projects" title="Ward projects: what each ward was promised" meta="FY2025/26 budget lines, progress, questions to ask"><ProjectsPage /></Toggle>

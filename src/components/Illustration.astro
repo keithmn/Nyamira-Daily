@@ -1,0 +1,75 @@
+---
+// An illustration slot (decision #70). Shows an approved image from src/data/illustrations.json when one is set,
+// otherwise the built-in flat SVG illustration in the Highlands palette. Every illustration is captioned as one,
+// and an AI-generated image says so. Illustrations decorate and explain; they are never evidence of a real
+// place, project, person or event (facility and project photos follow their own rules, see PhotoSlot.astro).
+import reg from '../data/illustrations.json';
+interface Props { id: string; tone?: string; ratio?: 'wide' | 'square'; caption?: boolean }
+const { id, tone, ratio = 'wide', caption = true } = Astro.props;
+const slot = reg.slots.find((s) => s.id === id);
+if (!slot) throw new Error(`No illustration slot "${id}" in src/data/illustrations.json`);
+const usable = slot.file && slot.approvedBy && slot.created && (slot.kind !== 'ai' || (slot.tool && slot.prompt));
+const label = usable && slot.kind === 'ai' ? 'Illustration (AI-generated)' : 'Illustration';
+---
+<figure class={`ill ill-${ratio}${tone ? ` sec-${tone}` : ''}`} data-ill={id}>
+  {usable ? (
+    <img src={`/illustrations/${slot.file}`} alt={slot.alt} loading="lazy" decoding="async" />
+  ) : (
+    <svg viewBox="0 0 480 300" role="img" aria-label={slot.alt} preserveAspectRatio="xMidYMid slice">
+      <rect class="il-sky" width="480" height="300" />
+      <circle class="il-sun" cx="390" cy="70" r="34" />
+      <path class="il-hill3" d="M0 168C70 128 140 150 214 126S360 96 480 118V300H0z" />
+      <path class="il-hill2" d="M0 206C80 172 170 196 252 170S392 150 480 166V300H0z" />
+      <g class="il-rows"><path d="M0 232C96 206 190 226 288 204S420 188 480 196" /><path d="M0 250C96 224 190 244 288 222S420 206 480 214" /><path d="M0 268C96 242 190 262 288 240S420 224 480 232" /></g>
+      <path class="il-hill1" d="M0 262C90 240 180 258 270 240S410 228 480 236V300H0z" />
+      {id === 'money' && (
+        <g class="il-obj" transform="translate(120 112)">
+          <rect class="il-paper" x="150" y="-6" width="96" height="124" rx="8" />
+          <path class="il-line" d="M166 18h64M166 38h64M166 58h44M166 78h56M166 98h36" />
+          <g transform="rotate(-8 70 70)">
+            <rect class="il-note b" x="-6" y="62" width="160" height="78" rx="10" />
+            <rect class="il-note" x="4" y="44" width="160" height="78" rx="10" />
+            <circle class="il-seal" cx="84" cy="83" r="22" />
+            <text class="il-ksh" x="84" y="89" text-anchor="middle">KSh</text>
+            <path class="il-line" d="M22 62h26M120 104h26" />
+          </g>
+        </g>
+      )}
+      {id === 'health' && (
+        <g class="il-obj" transform="translate(150 96)">
+          <path class="il-roof" d="M-10 64 90 10l100 54z" />
+          <rect class="il-paper" x="6" y="62" width="168" height="98" rx="4" />
+          <rect class="il-door" x="74" y="102" width="32" height="58" rx="3" />
+          <rect class="il-win" x="24" y="88" width="34" height="28" rx="3" /><rect class="il-win" x="122" y="88" width="34" height="28" rx="3" />
+          <path class="il-cross" d="M80 22h20v14h14v20h-14v14H80V56H66V36h14z" />
+        </g>
+      )}
+      {id === 'education' && (
+        <g class="il-obj" transform="translate(130 104)">
+          <path class="il-paper" d="M10 30c40-12 80-12 110 6v116c-30-18-70-18-110-6z" />
+          <path class="il-paper" d="M230 30c-40-12-80-12-110 6v116c30-18 70-18 110-6z" />
+          <path class="il-line" d="M30 60c26-6 50-6 72 4M30 84c26-6 50-6 72 4M138 64c22-10 46-10 72-4M138 88c22-10 46-10 72-4" />
+          <g transform="rotate(32 236 40)"><rect class="il-pencil" x="226" y="-10" width="18" height="110" rx="3" /><path class="il-tip" d="M226 100h18l-9 20z" /></g>
+        </g>
+      )}
+      {id === 'farming' && (
+        <g class="il-obj" transform="translate(150 120)">
+          <path class="il-basket" d="M10 60h170l-18 84H28z" />
+          <path class="il-line" d="M22 84h146M30 108h130" />
+          <path class="il-leaf" d="M40 60c-6-44 26-70 64-66-2 38-26 66-64 66z" /><path class="il-leaf" d="M96 60c4-40 36-58 70-48-8 34-34 54-70 48z" />
+          <path class="il-line" d="M44 58c12-22 30-38 54-50M100 58c16-18 34-30 58-38" />
+        </g>
+      )}
+      {id === 'community' && (
+        <g class="il-obj" transform="translate(110 104)">
+          <path class="il-roof" d="M0 66 70 18l70 48z" />
+          <rect class="il-paper" x="14" y="64" width="112" height="86" rx="4" />
+          <rect class="il-door" x="56" y="98" width="28" height="52" rx="3" />
+          <rect class="il-tank" x="166" y="70" width="58" height="80" rx="12" />
+          <path class="il-line" d="M166 92h58M166 116h58M120 160c40 10 120 6 200 22" />
+        </g>
+      )}
+    </svg>
+  )}
+  {caption && <figcaption class="ill-cap">{label}</figcaption>}
+</figure>

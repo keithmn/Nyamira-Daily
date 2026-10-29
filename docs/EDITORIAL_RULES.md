@@ -100,3 +100,15 @@ Alerts (`src/content/alerts/`, spec item 1.8) are a calm record of what happened
 - **The daily show** tells stories of daily life in Nyamira. Figures said on air come from this site, with their labels; people filmed give consent, and children only with a guardian's consent.
 - **NY Watch** is one-on-one with decision makers and others with a stake, about the data on this site. Every office is offered the same time and the same questions, and the page for each series lists the offices that have appeared. In an election period, candidates get equal offers or none appear.
 - Claims a guest makes about figures are checked against the data, and the check is shown on the episode page with a link to the data. A guest's opinion is labelled as theirs, never as a finding.
+
+## 15. Illustrations and AI-generated images
+
+Decision #70. Illustrations make pages inviting; they never carry facts.
+
+- **Where:** illustration slots only (`src/components/Illustration.astro`, registered in `src/data/illustrations.json`): page and sector headers, the lead money card, explainers. Never on facility, project, alert, people or news pages as if they showed the real thing; those use verified photos only (`PhotoSlot.astro`), or "No verified photo yet".
+- **Label:** every illustration is captioned "Illustration"; an AI-generated one is captioned "Illustration (AI-generated)". The caption is added by the component and must not be removed.
+- **Never depict:** real, identifiable people (including leaders and officials); a real facility, project, building, office or event as if it were that place or event; logos, party colours or symbols, flags of parties, or readable text and numbers (figures belong in charts, with sources); suffering, disasters or victims; children as the subject.
+- **Do depict:** generic scenes from Nyamira's landscape and daily life in the Highlands palette: tea and avocado hills, a generic clinic or classroom, market produce, water, paperwork and money as objects.
+- **Record before publishing** (the component will not show a file without them): `file`, `kind` (`ai` or `drawn`), `tool` and the exact `prompt` for AI images, `created` date, and `approvedBy` (the editor). Check the tool's licence allows commercial use; keep the original file.
+- **No uploads of anything private:** never put source documents, photos of people or unpublished material into an image tool.
+- Prompts for the current slots are in `docs/ILLUSTRATION_PROMPTS.md`.

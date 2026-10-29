@@ -84,6 +84,10 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={shareImage} />
   <meta name="twitter:image:alt" content={imageAlt} />
+  <script is:inline>
+  // Kiswahili summaries (decision #69): hidden behind one switch when JavaScript runs; the choice is remembered.
+  (function () { var r = document.documentElement; r.classList.add('sw-js'); try { if (localStorage.getItem('nd-sw') === '1') r.classList.add('sw-on'); } catch (e) {} })();
+  </script>
 </head>
 <body id="top">
   <a class="skip" href="#main">Skip to content</a>
@@ -101,6 +105,16 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
 
   <!-- Footer: always Ink. Who we are, one action, one row of links, then the labels and credits. -->
   <SiteFooter />
+  <script is:inline>
+  (function () {
+    var r = document.documentElement, has = document.querySelector('main .sw');
+    var btns = Array.prototype.slice.call(document.querySelectorAll('[data-sw-switch]'));
+    function show() { var on = r.classList.contains('sw-on'); btns.forEach(function (b) { b.setAttribute('aria-pressed', String(on)); b.textContent = on ? 'Hide Kiswahili' : 'Soma kwa Kiswahili'; }); }
+    if (!has) return;
+    btns.forEach(function (b) { b.hidden = false; b.addEventListener('click', function () { r.classList.toggle('sw-on'); try { localStorage.setItem('nd-sw', r.classList.contains('sw-on') ? '1' : '0'); } catch (e) {} show(); }); });
+    show();
+  })();
+  </script>
   <script is:inline>
   (function () {
     var KEY = 'nd-ward', ward = '';

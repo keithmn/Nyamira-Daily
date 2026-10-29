@@ -1,0 +1,36 @@
+---
+// Chart frame (decision #69), after the FT and The Economist: a short Ink rule, a title that states the
+// finding, one subtitle line with units and period, the chart, then the evidence label and source.
+// The same numbers are always one tap away as a table, and downloadable as CSV.
+import EvidenceLabel from '../EvidenceLabel.astro';
+interface Props {
+  title: string; sub?: string; evidence?: 'verified' | 'audit' | 'official' | 'unverified';
+  source?: string; sourceUrl?: string; note?: string;
+  table?: { columns: string[]; rows: (string | number | null)[][] }; csvName?: string; id?: string;
+}
+const { title, sub, evidence, source, sourceUrl, note, table, csvName, id } = Astro.props;
+const cell = (v) => (v == null ? '' : String(v));
+const csv = table ? [table.columns, ...table.rows].map((r) => r.map((v) => `"${cell(v).split('"').join('""')}"`).join(',')).join('\n') : null;
+const csvHref = csv ? `data:text/csv;charset=utf-8,${encodeURIComponent(csv)}` : null;
+---
+<figure class="cf" id={id}>
+  <h3 class="cf-title">{title}</h3>
+  {sub && <p class="cf-sub">{sub}</p>}
+  <div class="cf-body"><slot /></div>
+  <figcaption class="cf-foot">
+    {(evidence || source) && (
+      <p class="source">{evidence && <EvidenceLabel kind={evidence} />} {source && <>Source: {sourceUrl ? <a href={sourceUrl} rel="noopener">{source}</a> : source}</>}</p>
+    )}
+    {note && <p class="cf-note">{note}</p>}
+  </figcaption>
+  {table && (
+    <details class="cf-table">
+      <summary>Show as a table</summary>
+      <div class="table-box"><table>
+        <thead><tr>{table.columns.map((c, i) => <th class={i ? 'num' : undefined}>{c}</th>)}</tr></thead>
+        <tbody>{table.rows.map((r) => <tr>{r.map((v, i) => <td class={i ? 'num' : undefined}>{v == null ? '—' : v}</td>)}</tr>)}</tbody>
+      </table></div>
+      {csvHref && <a class="cf-csv" href={csvHref} download={`${csvName ?? 'nyamira-daily-chart'}.csv`}>Download these figures (CSV)</a>}
+    </details>
+  )}
+</figure>

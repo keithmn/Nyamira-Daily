@@ -1013,14 +1013,14 @@ main .receipt { border-top: 6px solid var(--sec); }
 :root { --glow-a: 40%; --glow-b: 22%; }
 :root[data-theme="dark"] { --glow-a: 75%; --glow-b: 45%; }
 .on-ink, .panel-ink { --glow-a: 80%; --glow-b: 48%; }
-main :is(.figure .num, .tile b, .card .big, .callout b, .hc-title.big, .pc-text b, .coins-key b) {
+/* Decision #69: the glow is kept only for a page's lead figure (.is-lead) and for figures on Ink panels */
+main :is(.num.is-lead, .on-ink .figure .num, .panel-ink .num) {
   --glow: var(--sec, var(--nd-green));
   text-shadow: 0 0 2px color-mix(in srgb, var(--glow) var(--glow-b), transparent), 0 0 14px color-mix(in srgb, var(--glow) var(--glow-a), transparent), 0 0 34px color-mix(in srgb, var(--glow) var(--glow-b), transparent);
   font-variant-numeric: tabular-nums;
 }
 main :is(.figure .num, .tile b, .card .big, .callout b).hot, main .hot :is(b) { --glow: var(--nd-red); }
 main :is(.on-ink, .panel-ink) :is(.figure .num, .tile b, .big, b) { --glow: var(--nd-green); }
-:root[data-theme="dark"] main .figure .num:not(.hot), :root[data-theme="dark"] main .tile b:not(.hot) { color: var(--sec-deep); }
 /* …except on the solid amber Number of the week panel, where the number stays Ink in both modes */
 :root[data-theme="dark"] main .panel.sec-harvest .figure .num:not(.hot) { color: #111111; }
 /* On solid colour panels (Number of the week) the number stays Ink with a white bloom */
@@ -1069,7 +1069,7 @@ main h2 {
 :root[data-theme="dark"] main h2 { text-decoration-color: color-mix(in srgb, var(--sec-deep, var(--nd-green)) 38%, transparent); }
 main :is(.sector-tile, .card, .band > h2:first-child, .nyw, .hc, .page-head, .tg-title, summary, .photo-slot) h2,
 main .sector-tile h2, main .grid > .card h2, main .band > h2:first-child, main .nyw h2 { text-decoration: none; }
-main h3:not(.sector-tile h3):not(.tg-title) { color: var(--sec-deep, var(--ink)); }
+main h3:not(.sector-tile h3):not(.tg-title) { color: var(--ink); } /* decision #69: headings in Ink; colour is for wayfinding */
 main .on-ink h2, main .on-ink h3 { color: inherit; text-decoration: none; }
 main .receipt h2 { text-decoration: none; }
 
@@ -1169,55 +1169,8 @@ main .receipt h2 { text-decoration: none; }
 .atlas:not(.js) .at-key.v-facilities [data-cats] { display: none; }
 @media (prefers-reduced-motion: reduce) { .at-w { transition: none; } }
 
-/* ===== Glass and colour on every page (decision #56) =====
-   The home page's colour bands now run through every page: each top-level section of a page is a tinted glass
-   band, in the page's own colour first, then rotating through the Highlands colours. Cards, panels, tables and
-   toggles are frosted glass with a top sheen. Real blur (backdrop-filter) is used only on bands and big panels,
-   so cheap phones are not asked to blur every card. Map, evidence, alert and critical-data colours are unchanged. */
-:root { --glass: rgb(255 255 255 / 0.72); --glass-low: rgb(255 255 255 / 0.5); --glass-edge: rgb(255 255 255 / 0.85); --glass-line: rgb(17 17 17 / 0.07); --glass-shadow: rgb(16 40 28 / 0.16); --sheen: rgb(255 255 255 / 0.7); }
-:root[data-theme="dark"] { --glass: rgb(38 40 38 / 0.66); --glass-low: rgb(26 28 26 / 0.5); --glass-edge: rgb(255 255 255 / 0.09); --glass-line: rgb(255 255 255 / 0.06); --glass-shadow: rgb(0 0 0 / 0.45); --sheen: rgb(255 255 255 / 0.07); }
-/* The page behind the glass: soft washes of the page colour and two Highlands neighbours */
-main { position: relative; isolation: isolate; }
-main::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: radial-gradient(55% 380px at 8% 0%, color-mix(in srgb, var(--sec, var(--nd-green)) 20%, transparent), transparent 70%),
-    radial-gradient(45% 420px at 96% 12%, color-mix(in srgb, var(--hl-rain) 13%, transparent), transparent 70%),
-    radial-gradient(50% 520px at 0% 55%, color-mix(in srgb, var(--hl-harvest) 11%, transparent), transparent 70%),
-    radial-gradient(45% 520px at 100% 85%, color-mix(in srgb, var(--hl-mist) 40%, transparent), transparent 70%); }
-:root[data-theme="dark"] main::before { opacity: 0.75; }
-/* Glass surfaces */
-main :is(.card, .panel:not(.sec-harvest), details:not(.menu-group), .table-box, .tile, .callout:not(.gap), .at-panel, .photo-slot, .receipt) {
-  background: linear-gradient(180deg, var(--sheen) 0, transparent 46%), linear-gradient(160deg, var(--glass), var(--glass-low));
-  border-color: var(--glass-edge); box-shadow: inset 0 1px 0 var(--sheen), 0 1px 0 var(--glass-line), 0 10px 28px -14px var(--glass-shadow); }
-main .grid > .card, main .tile { background: linear-gradient(180deg, var(--sheen) 0, transparent 46%), linear-gradient(160deg, color-mix(in srgb, var(--sec-soft) 82%, transparent), color-mix(in srgb, var(--sec-soft) 55%, transparent)); }
-main .graphic-panel, main .graphic-tile { background: linear-gradient(180deg, var(--sheen) 0, transparent 42%), linear-gradient(160deg, var(--glass), var(--glass-low)); border-color: var(--glass-edge); box-shadow: inset 0 1px 0 var(--sheen), 0 12px 32px -16px var(--glass-shadow); }
-@supports (backdrop-filter: blur(1px)) { main :is(.band, .graphic-panel, .at-panel, .receipt), main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) { -webkit-backdrop-filter: blur(14px) saturate(150%); backdrop-filter: blur(14px) saturate(150%); } }
-/* Bands on every page, like the home page */
-main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) { padding: clamp(18px, 4vw, 32px); border-radius: var(--radius); border: 1px solid var(--glass-edge);
-  background: linear-gradient(180deg, var(--sheen) 0, transparent 30%), linear-gradient(155deg, color-mix(in srgb, var(--sec-soft) 92%, transparent), color-mix(in srgb, var(--sec-soft) 55%, transparent));
-  box-shadow: inset 0 1px 0 var(--sheen), 0 14px 36px -20px var(--glass-shadow); }
-main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+2) { --sec: var(--hl-rain); --sec-ink: #FFFFFF; --sec-soft: #e1ecf4; --sec-deep: #1F5F8B; }
-:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+2) { --sec-soft: #142330; --sec-deep: #7fb6dd; }
-main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+3) { --sec: var(--hl-harvest); --sec-ink: #111111; --sec-soft: #fdf1cc; --sec-deep: #8a5a00; }
-:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+3) { --sec-soft: #2b2410; --sec-deep: #F4B400; }
-main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+4) { --sec: var(--hl-earth); --sec-ink: #FFFFFF; --sec-soft: #f6e1dc; --sec-deep: #A63D2A; }
-:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+4) { --sec-soft: #2c1915; --sec-deep: #f0957f; }
-main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+5) { --sec: var(--hl-avocado); --sec-ink: #111111; --sec-soft: #eef5dd; --sec-deep: #4a6a12; }
-:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+5) { --sec-soft: #1d2612; --sec-deep: #a9cf5a; }
-main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+6) { --sec: var(--hl-dusk); --sec-ink: #FFFFFF; --sec-soft: #e7e2f3; --sec-deep: #3B2A6B; }
-:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+6) { --sec-soft: #201b31; --sec-deep: #b9a6ee; }
-main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+7) { --sec: var(--hl-tea); --sec-ink: #FFFFFF; --sec-soft: #dcefe4; --sec-deep: #0B5D3B; }
-:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+7) { --sec-soft: #11261b; --sec-deep: #5fd39a; }
-main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+8) { --sec: var(--hl-bloom); --sec-ink: #111111; --sec-soft: #fbece6; --sec-deep: #9a4630; }
-:root[data-theme="dark"] main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card):nth-child(7n+8) { --sec-soft: #2d211d; --sec-deep: #F2C4B4; }
-main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) > h2:first-child { text-decoration: none; display: flex; align-items: center; gap: 10px; }
-main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) > h2:first-child::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 3px; background: var(--sec-deep); }
-/* Glossy page heads and sector tiles: a light sheen over the solid colour */
-.page-head.band, .sector-tile, .panel.sec-harvest { background-image: linear-gradient(165deg, rgb(255 255 255 / 0.22) 0%, rgb(255 255 255 / 0) 42%), linear-gradient(0deg, rgb(0 0 0 / 0.06), transparent 60%); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.35), 0 16px 34px -20px var(--glass-shadow); }
-.band { box-shadow: inset 0 1px 0 var(--sheen), 0 14px 36px -20px var(--glass-shadow); border: 1px solid var(--glass-edge); background-image: linear-gradient(180deg, var(--sheen) 0, transparent 30%); }
-/* Large numbers are titles: Varela Round, like the headings */
+/* (decision #56 glass bands removed by decision #69; kept: big numbers in Varela Round, map card on phones) */
 main :is(.figure .num, .tile b, .card .big, .callout b, .hc-title.big, .pc-text b, .coins-key b), .atlas-hero :is(.hc-title.big, b) { font-family: var(--title-font); font-weight: 400; letter-spacing: -0.015em; }
-@media print { main::before { display: none; } main * { backdrop-filter: none !important; } }
-/* Map card on phones sits under the map, so its close button belongs to it */
 @media (max-width: 600px) { .at-card { position: relative; } }
 
 /* ===== Header and navigation (decision #60) =====
@@ -1423,64 +1376,7 @@ details.sheet-sec[open] > summary .chev { transform: rotate(180deg); opacity: 1;
 }
 @media (prefers-reduced-motion: reduce) { .mcard, .desk-link, .desk-item, .tab, .chev { transition: none; } }
 
-/* ===== Pigment, neon edges and sheen on every page (decision #61) =====
-   The home page's pigmented cards now carry through the site: cards take their section's pastel colour
-   (white again inside a coloured band, so they still stand out), and section bands are fully pigmented.
-   Tables and form fields get a defined edge in the section colour with a soft neon glow; backgrounds get
-   a brighter top sheen and a diagonal light sweep. Evidence, alert, map and critical-data colours are unchanged. */
-:root { --sheen: rgb(255 255 255 / 0.85); --glass-edge: rgb(255 255 255 / 0.95); --sweep: rgb(255 255 255 / 0.4); --edge-a: 42%; --halo-a: 45%; }
-:root[data-theme="dark"] { --sheen: rgb(255 255 255 / 0.1); --glass-edge: rgb(255 255 255 / 0.13); --sweep: rgb(255 255 255 / 0.06); --edge-a: 55%; --halo-a: 70%; }
-
-/* Cards: pigmented, with sheen and a light sweep */
-main .card:not(.band .card):not(.panel-ink):not(.on-ink) {
-  background:
-    linear-gradient(115deg, var(--sweep) 0%, transparent 32%),
-    linear-gradient(180deg, var(--sheen) 0, transparent 38%),
-    linear-gradient(155deg, var(--sec-soft, var(--surface)) 0%, color-mix(in srgb, var(--sec-soft, var(--surface)) 62%, var(--bg)) 100%);
-  border: 1px solid color-mix(in srgb, var(--sec-deep, var(--ink)) 14%, var(--glass-edge));
-  box-shadow: inset 0 1px 0 var(--sheen), 0 1px 0 var(--glass-line), 0 14px 32px -18px var(--glass-shadow);
-}
-main .band .card { background: linear-gradient(115deg, var(--sweep) 0%, transparent 32%), linear-gradient(180deg, var(--sheen) 0, transparent 46%), var(--glass); }
-/* Section bands: full pigment like the home page */
-main .stack-lg > :is(section.stack, section.cols-2, section.graphic-panel):not(.band):not(.card) {
-  background:
-    linear-gradient(115deg, var(--sweep) 0%, transparent 30%),
-    linear-gradient(180deg, var(--sheen) 0, transparent 28%),
-    linear-gradient(155deg, var(--sec-soft) 0%, color-mix(in srgb, var(--sec-soft) 78%, var(--bg)) 100%);
-  border-color: color-mix(in srgb, var(--sec-deep, var(--ink)) 12%, var(--glass-edge));
-}
-.band { background-image: linear-gradient(115deg, var(--sweep) 0%, transparent 30%), linear-gradient(180deg, var(--sheen) 0, transparent 30%); }
-
-/* Tables: a defined edge in the section colour, a soft neon glow, crisper rows */
-main .table-box, main table:not(.cards):not(.table-box table) {
-  border: 1px solid color-mix(in srgb, var(--sec-deep, var(--nd-green)) var(--edge-a), transparent); border-radius: 14px;
-  box-shadow: inset 0 1px 0 var(--sheen), 0 0 0 1px color-mix(in srgb, var(--sec, var(--nd-green)) 14%, transparent), 0 0 20px -6px color-mix(in srgb, var(--sec, var(--nd-green)) var(--halo-a), transparent);
-}
-main :is(th, td) { border-top-color: color-mix(in srgb, var(--sec-deep, var(--ink)) 16%, transparent); }
-main thead th { background: linear-gradient(180deg, var(--sheen), transparent), color-mix(in srgb, var(--sec-soft, var(--surface)) 85%, transparent); color: var(--ink); }
-@media (max-width: 640px) {
-  main table.cards tr { border-top-color: color-mix(in srgb, var(--sec-deep, var(--ink)) 22%, transparent); }
-}
-
-/* Form fields: a defined edge and a neon focus ring */
-main :is(.builder input:not([type="radio"]):not([type="checkbox"]), .builder select, .builder textarea, input.field, select.field, textarea.field),
-.sheet-search {
-  border: 1px solid color-mix(in srgb, var(--sec-deep, var(--nd-green)) var(--edge-a), transparent);
-  background: linear-gradient(180deg, var(--sheen), transparent 70%), var(--bg);
-  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.04), 0 0 14px -8px color-mix(in srgb, var(--sec, var(--nd-green)) var(--halo-a), transparent);
-}
-main :is(.builder input:not([type="radio"]):not([type="checkbox"]), .builder select, .builder textarea, input.field, select.field, textarea.field):focus {
-  outline: none; border-color: var(--sec-deep, var(--nd-green));
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sec, var(--nd-green)) 55%, transparent), 0 0 20px -2px color-mix(in srgb, var(--sec, var(--nd-green)) 70%, transparent);
-}
-main .builder fieldset.choice label { border-color: color-mix(in srgb, var(--sec-deep, var(--nd-green)) var(--edge-a), transparent); box-shadow: 0 0 12px -8px color-mix(in srgb, var(--sec, var(--nd-green)) var(--halo-a), transparent); }
-main .builder fieldset.choice label:has(input:checked) { box-shadow: 0 0 16px -4px color-mix(in srgb, var(--brand) 70%, transparent); }
-
-/* The page behind: a brighter wash with a top light */
-main::after { content: ""; position: absolute; inset: 0 0 auto; height: 520px; z-index: -1; pointer-events: none;
-  background: radial-gradient(70% 100% at 50% 0%, var(--sheen), transparent 70%); opacity: 0.6; }
-:root[data-theme="dark"] main::after { opacity: 0.5; }
-@media print { main::after { display: none; } }
+/* (decision #61 pigment, neon edges and sheen removed by decision #69) */
 
 /* Home hero: one centred column, the map between the title and the question card (owner, 29 Oct 2026) */
 @media (min-width: 900px) {
@@ -1581,3 +1477,137 @@ main::after { content: ""; position: absolute; inset: 0 0 auto; height: 520px; z
 .ft-social a:hover, .ft-social a:focus-visible { background: var(--nd-green); color: var(--nd-ink); --ico-acc: var(--nd-ink); box-shadow: 0 0 18px rgb(31 208 122 / 0.5); }
 .ft-fine { margin: 0; max-width: none; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
 .ft-fine strong { color: var(--ink); }
+
+/* ===== Calm system (decision #69) =====
+   One quiet canvas: white (or Ink in dark mode) behind everything; one level of container with a hairline edge;
+   numbers in Ink, with red only for gaps; section colour only for wayfinding (page head, top edges, icons,
+   chart accents); one soft shadow, only on things you can tap. Type: six sizes. Rhythm: 8-point steps. */
+:root { --fs-xs: 12px; --fs-s: 14px; --fs-m: 16px; --fs-l: 20px; --fs-xl: 28px; --fs-num: clamp(36px, 6vw, 52px);
+  --sp-1: 8px; --sp-2: 16px; --sp-3: 24px; --sp-4: 48px; --sp-5: 64px;
+  --edge: 1px solid var(--line); --lift: 0 6px 18px -10px rgb(17 17 17 / 0.28); }
+:root[data-theme="dark"] { --lift: 0 6px 18px -8px rgb(0 0 0 / 0.7); }
+main .stack-lg { gap: var(--sp-4); }
+/* Bands are space, not boxes */
+main .band:not(.page-head) { background: none; border: 0; box-shadow: none; padding: 0; }
+main .band > h2:first-child::before { display: none; }
+/* One container level */
+main :is(.card, .panel:not(.sec-harvest):not(.panel-ink), .graphic-panel, .graphic-tile, .tile, .callout:not(.gap), .receipt, .photo-slot, .at-panel, .table-box) {
+  background: var(--bg); border: var(--edge); box-shadow: none; }
+main .card :is(.card, .graphic-panel, .tile), main .graphic-panel :is(.graphic-panel, .card) { border: 0; padding: 0; }
+main details:not(.menu-group):not(.toggle) { background: var(--bg); border: var(--edge); box-shadow: none; }
+main :is(a.card, a.tile, a.sector-tile):hover { box-shadow: var(--lift); }
+main .grid > .card, main .tile { border-top: 3px solid var(--sec); }
+main .grid > .card::after, main .sector-tile::after { display: none; }
+main .table-box, main table { box-shadow: none; }
+main thead th { background: var(--surface); }
+/* Numbers: Ink by default, red only for gaps */
+main :is(.figure .num, .tile b, .card .big, .callout b, .pc-text b, .coins-key b):not(.hot) { color: var(--ink); }
+main :is(.on-ink, .panel-ink) .figure .num:not(.hot) { color: var(--nd-white); }
+main .panel.sec-harvest .figure .num:not(.hot) { color: #111111; text-shadow: none; }
+main .figure .num { font-size: var(--fs-num); }
+main .figure .num.is-lead { font-size: clamp(44px, 8vw, 68px); }
+main .tile b { font-size: var(--fs-xl); }
+main .grid > .card :is(h2, h3), main h3 { color: var(--ink); }
+/* Data tiles: white with a coloured top edge and a coloured icon */
+.sector-tile { background: var(--bg); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); border-top: 4px solid var(--sec); background-image: none; }
+.sector-tile.sec-mist { border-top-color: var(--hl-tea); }
+.sector-tile p { color: var(--muted); opacity: 1; }
+.sector-tile .go { background: var(--ink); color: var(--bg); }
+.sector-tile .ico-badge { background: var(--sec); color: var(--sec-ink); }
+.sector-tile.sec-mist .ico-badge { background: var(--hl-tea); color: #fff; }
+.sector-tile:hover { box-shadow: inset 0 0 0 1px var(--line), var(--lift); }
+.page-head.band { box-shadow: none; }
+.page-head .ph-mark { opacity: 0.1; }
+main .ico-badge { box-shadow: none; }
+/* Quiet sources: one compact line under a figure */
+main .source { font-size: var(--fs-xs); line-height: 1.5; color: var(--muted); }
+main .source .label { font-size: 11px; padding: 1px 8px; }
+main .source a { color: var(--muted); }
+
+/* ===== Chart kit (decision #69), after the FT and The Economist ===== */
+.cf { margin: 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.cf::before { content: ""; width: 40px; height: 5px; background: var(--ink); margin-bottom: 6px; }
+.cf-title { font-size: var(--fs-l); line-height: 1.2; color: var(--ink); text-decoration: none; max-width: 36em; }
+main .cf-title { color: var(--ink); text-decoration: none; }
+.cf-sub { font-size: var(--fs-s); color: var(--muted); margin: 0; }
+.cf-body { margin-top: 8px; min-width: 0; }
+.cf-foot { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; }
+.cf-note { font-size: var(--fs-xs); color: var(--muted); margin: 0; max-width: none; }
+.cf-table { border: 0 !important; padding: 0 !important; background: none !important; margin-top: 4px; }
+main details.cf-table > summary { min-height: 36px; font-size: var(--fs-s); font-weight: 700; color: var(--ink); }
+main details.cf-table > summary::before { width: 20px; height: 20px; font-size: 14px; }
+.cf-csv { display: inline-block; margin-top: 8px; font-size: var(--fs-s); font-weight: 700; color: var(--ink); }
+.kc { width: 100%; height: auto; display: block; overflow: visible; }
+.kc text { font-family: var(--font); font-size: 13px; fill: var(--muted); }
+.kc .kc-grid { stroke: var(--line); stroke-width: 1; }
+.kc .kc-zero { stroke: var(--ink); stroke-width: 1.5; }
+.kc .kc-gap { fill: color-mix(in srgb, var(--accent) 14%, transparent); }
+.kc .kc-ann { fill: var(--accent-ink); font-weight: 700; }
+.kc .kc-ln { fill: none; stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round; }
+.kc .kc-ln.t-main { stroke: var(--ink); } .kc .kc-ln.t-good { stroke: var(--nd-green); }
+.kc .kc-ln.t-context { stroke: var(--bar-quiet); stroke-width: 2.5; stroke-dasharray: 6 5; } .kc .kc-ln.t-gap { stroke: var(--accent); }
+.kc .kc-pt.t-main { fill: var(--ink); } .kc .kc-pt.t-good { fill: var(--nd-green); } .kc .kc-pt.t-context { fill: var(--bar-quiet); } .kc .kc-pt.t-gap { fill: var(--accent); }
+.kc .kc-end { font-size: 14px; font-weight: 700; } .kc .kc-end.t-main { fill: var(--ink); } .kc .kc-end.t-good { fill: var(--brand-ink, var(--ink)); }
+.kc .kc-c { fill: var(--bar-quiet); } .kc .kc-c.mid { fill: color-mix(in srgb, var(--ink) 45%, var(--bar-quiet)); }
+.kc .kc-c.on.t-main { fill: var(--ink); } .kc .kc-c.on.t-gap { fill: var(--accent); } .kc .kc-c.on.t-good { fill: var(--nd-green); }
+.kc .kc-val { font-size: 14px; font-weight: 700; fill: var(--muted); } .kc .kc-val.t-gap { fill: var(--accent-ink); } .kc .kc-val.t-main { fill: var(--ink); }
+.kc .kc-na { font-size: 11px; }
+@media (max-width: 560px) { .kc text { font-size: 22px; } .kc .kc-end, .kc .kc-val { font-size: 22px; } .kc .kc-na { font-size: 18px; } }
+/* Shares out of 100 */
+.kc-share { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.kc-share li { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "label val" "track track"; gap: 6px 12px; max-width: none; align-items: end; }
+.ks-label { grid-area: label; display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-s); color: var(--ink); line-height: 1.3; }
+.ks-label .ico { color: var(--muted); --ico-acc: var(--sec, var(--nd-green)); }
+.ks-val { grid-area: val; font-family: var(--title-font); font-weight: 400; font-size: var(--fs-l); font-variant-numeric: tabular-nums; }
+.ks-track { grid-area: track; height: 12px; border-radius: 999px; background: var(--meter-track, var(--surface)); overflow: hidden; }
+.ks-track i { display: block; height: 100%; border-radius: 999px; background: var(--ink); }
+.ks-track i.t-gap { background: var(--accent); } .ks-track i.t-good { background: var(--nd-green); }
+:root[data-theme="dark"] .ks-track i.t-main { background: var(--nd-white); }
+
+/* Money page and home layouts (decision #69) */
+.money-lead { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-3); }
+@media (min-width: 900px) { .money-lead { grid-template-columns: minmax(260px, 1fr) minmax(0, 1.7fr); align-items: start; gap: var(--sp-4); } }
+.lead-fig { padding: 0; }
+.fig-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--sp-3) var(--sp-4); padding-top: var(--sp-3); border-top: var(--edge); }
+.fig-row .figure .num { font-size: clamp(30px, 4vw, 40px); }
+main .glance { gap: var(--sp-4); }
+.week-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: var(--sp-3); align-items: stretch; }
+
+/* Illustrations (decision #70): a framed, captioned picture; never evidence */
+.ill { margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.ill svg, .ill img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 14px; }
+.ill-square svg, .ill-square img { aspect-ratio: 1; }
+.ill-cap { font-size: var(--fs-xs); color: var(--muted); }
+.ill .il-sky { fill: var(--sec-soft, #eef7f1); }
+.ill .il-sun { fill: var(--hl-harvest); opacity: 0.85; }
+.ill .il-hill3 { fill: color-mix(in srgb, var(--hl-avocado) 55%, var(--sec-soft, #eef7f1)); }
+.ill .il-hill2 { fill: var(--hl-avocado); }
+.ill .il-hill1 { fill: var(--hl-tea); }
+.ill .il-rows path { fill: none; stroke: color-mix(in srgb, var(--hl-tea) 55%, transparent); stroke-width: 3; }
+.ill .il-paper { fill: #FFFFFF; stroke: #111; stroke-width: 3; stroke-linejoin: round; }
+.ill .il-line { fill: none; stroke: #111; stroke-width: 3; stroke-linecap: round; opacity: 0.7; }
+.ill .il-note { fill: #CDEFD9; stroke: #111; stroke-width: 3; } .ill .il-note.b { fill: #9FDDB7; }
+.ill .il-seal { fill: var(--nd-green); stroke: #111; stroke-width: 3; }
+.ill .il-ksh { font-family: var(--font); font-weight: 700; font-size: 16px; fill: #111; }
+.ill .il-roof { fill: var(--hl-earth); stroke: #111; stroke-width: 3; stroke-linejoin: round; }
+.ill .il-door { fill: var(--hl-tea); stroke: #111; stroke-width: 3; } .ill .il-win { fill: #CFE6F5; stroke: #111; stroke-width: 3; }
+.ill .il-cross { fill: var(--nd-green); stroke: #111; stroke-width: 3; stroke-linejoin: round; }
+.ill .il-pencil { fill: var(--hl-harvest); stroke: #111; stroke-width: 3; } .ill .il-tip { fill: #F2C4B4; stroke: #111; stroke-width: 3; stroke-linejoin: round; }
+.ill .il-basket { fill: #E7B98A; stroke: #111; stroke-width: 3; stroke-linejoin: round; } .ill .il-leaf { fill: var(--nd-green); stroke: #111; stroke-width: 3; }
+.ill .il-tank { fill: #CFE6F5; stroke: #111; stroke-width: 3; }
+:root[data-theme="dark"] .ill .il-sky { fill: #1c2a22; } :root[data-theme="dark"] .ill .il-hill3 { fill: #3c5a24; }
+
+/* Kiswahili summaries: hidden behind one language switch when JavaScript runs (decision #69) */
+.sw-switch { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 14px; border-radius: 999px;
+  border: 1px solid currentColor; background: transparent; color: inherit; font: inherit; font-size: var(--fs-s); font-weight: 700; cursor: pointer; }
+.sw-switch[aria-pressed="true"] { background: var(--sec-ink, var(--ink)); color: var(--sec, var(--bg)); }
+html.sw-js:not(.sw-on) main .sw { display: none; }
+.row-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.page-head .sw-switch { margin-top: 4px; }
+/* Ward pages (decision #69): four figures and the map first; the rest in toggles */
+.ward-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ward-figs .tile-text b { font-family: var(--font); font-weight: 700; font-size: var(--fs-l); line-height: 1.2; }
+main .ward-figs .tile { border-top-color: var(--sec); }
+@media (min-width: 900px) { .ward-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--sp-4); align-items: start; } }
+.cf { max-width: 760px; }
+.money-lead .cf { max-width: none; }

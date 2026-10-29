@@ -1,4 +1,5 @@
 ---
+import Toggle from '../../components/Toggle.astro';
 import Icon from '../../components/Icon.astro';
 import { categoryIcon } from '../../lib/icons.js';
 import Base from '../../layouts/Base.astro';
@@ -72,46 +73,35 @@ const budgets = wards.map((x) => {
   <div class="stack-lg" style="margin-top:8px">
     <div class="ward-top">
       <div class="stack">
-    <section class="receipt" aria-label={`${w.name} ward summary`}>
-      <span class="eyebrow">Ward receipt · {w.subCounty}</span>
-      <h2>{w.name} Ward</h2>
-      {wardAlerts.length > 0 && <div class="row"><span>Active alerts</span><span>{wardAlerts.map((a, i) => <>{i > 0 && ', '}<a href={`/alerts/${a.id.toLowerCase()}/`}>{levelLabel[a.level]}: {a.title}</a></>)}</span></div>}
-      <div class="row"><span>MCA</span><span>{mca ? mcaLine : 'Not confirmed'}</span></div>
-      {mp && <div class="row"><span>MP ({w.subCounty})</span><span>{mp.name}</span></div>}
-      <div class="row"><span>Services listed</span><span>{w.facilities.length}</span></div>
-      {order.filter((c) => byCat[c]).map((c) => <div class="row sub"><span>{c}</span><span>{byCat[c].length}</span></div>)}
-      {b2526 != null && <div class="row"><span>Ward projects budgeted, 2025/26</span><span>{amountLabel(b2526)}</span></div>}
-      {roads && <div class="row"><span>Road maintenance contracts, 2023/24</span><span>{amountLabel(roads.amount)}</span></div>}
-      {reg22 && <div class="row"><span>Registered voters (IEBC 2022) · <a href={`/government/elections/#ward-${w.slug}`}>results</a></span><span>{num(reg22.registered)}</span></div>}
-      {cw?.votersRegisteredEarlier && <div class="row"><span>Registered voters (IEBC 2018 register)</span><span>{num(cw.votersRegisteredEarlier)}</span></div>}
-      <div class="row"><span>Whole county spent, {last.fy}</span><span>{bn(last.spent)}</span></div>
-      <div class="row"><span>Development budget used</span><span>{last.devAbs}%</span></div>
-      <p class="small muted">Sources: MCA from IEBC 2022 results and later by-elections. Ward budget from the county's Programme Based Budget 2025/26 (Table 18); road contracts from the Annual Development Plan 2025/26. Services from the Nyamira Daily list, mostly not yet checked on site. County spending from the Controller of Budget.</p>
-      <div class="page-tools">
-        <a class="btn" href={wa} rel="noopener">Share this receipt on WhatsApp</a>
-        <button class="btn quiet" type="button" data-set-ward={w.slug}>Make {w.name} my ward</button>
-        <a class="btn quiet" href={`/ward/${w.slug}/sheet/`}>Print a ward sheet</a>
-        <span class="small" data-ward-only={w.slug} hidden><strong>This is your ward.</strong></span>
+        {wardAlerts.length > 0 && <p class="callout gap"><span><strong>Active alerts:</strong> {wardAlerts.map((a, i) => <>{i > 0 && ', '}<a href={`/alerts/${a.id.toLowerCase()}/`}>{levelLabel[a.level]}: {a.title}</a></>)}</span></p>}
+        <div class="tiles ward-figs">
+          <a class="tile" href="#services"><b>{w.facilities.length}</b><span>services listed</span><span class="label unverified">Mostly unverified</span></a>
+          <a class="tile" href="#projects"><b>{b2526 != null ? amountLabel(b2526) : 'Not found'}</b><span>ward projects budgeted, 2025/26</span><span class="label official">Official claim</span></a>
+          {reg22 && <a class="tile" href={`/government/elections/#ward-${w.slug}`}><b>{num(reg22.registered)}</b><span>registered voters, IEBC 2022</span><span class="label official">Official claim</span></a>}
+          <div class="tile tile-text"><b>{mca ? mca.name : 'Not confirmed'}</b><span>MCA{mca?.party ? ` (${mca.party})` : ''}{mp ? `; MP: ${mp.name}` : ''}</span></div>
+        </div>
+        <p class="source">Sources: MCA from IEBC 2022 results and later by-elections; ward budget from the county's Programme Based Budget 2025/26 (Table 18); services from the Nyamira Daily list, mostly not yet checked on site.</p>
+        <div class="page-tools">
+          <a class="btn" href={wa} rel="noopener">Share this receipt on WhatsApp</a>
+          <button class="btn quiet" type="button" data-set-ward={w.slug}>Make {w.name} my ward</button>
+          <a class="btn quiet" href={`/ward/${w.slug}/sheet/`}>Print a ward sheet</a>
+          <span class="small" data-ward-only={w.slug} hidden><strong>This is your ward.</strong></span>
+        </div>
+        {mca?.note && <p class="small"><strong>Note on the MCA seat:</strong> {mca.note} {mca.src && <a href={mca.src} rel="noopener">Source</a>}</p>}
       </div>
-    </section>
-
-    <EmbedCode path={`/embed/ward/${w.slug}/`} title={`${w.name} Ward receipt`} height={520} />
-    {mca?.note && <p class="small"><strong>Note on the MCA seat:</strong> {mca.note} {mca.src && <a href={mca.src} rel="noopener">Source</a>}</p>}
+      <section class="stack ward-map">
+        <h2 class="vh">Ward map</h2>
+        <WardMap mode="ward" slug={w.slug} />
+      </section>
+    </div>
 
     <div class="sw" lang="sw">
       <span class="eyebrow">Muhtasari kwa Kiswahili</span>
       <p>Wadi ya {w.name} iko katika kaunti ndogo ya {w.subCounty}. Mwakilishi wa wadi (MCA) ni {mca?.name ?? 'bado hajathibitishwa'}. Tumeorodhesha huduma {w.facilities.length} katika wadi hii; nyingi bado hazijakaguliwa ana kwa ana.</p>
     </div>
 
-      </div>
-    <section class="stack ward-map">
-      <h2>Ward map</h2>
-      <WardMap mode="ward" slug={w.slug} />
-    </section>
-    </div>
-
+    <Toggle id="services" title={`Services in ${w.name}`} meta={`${w.facilities.length} listed, by type`}>
     <section class="stack">
-      <h2 id="services">Services in {w.name}</h2>
       <p class="muted small">Listed from public sources. "Unverified" means our correspondents have not yet visited. <span class="updated">Last updated 22 Oct 2026.</span></p>
       <Pictos counts={order.filter((c) => byCat[c]).map((c) => ({ cat: c, n: byCat[c].length, href: `#svc-${c.toLowerCase().split(' ').join('-')}` }))} />
       {order.filter((c) => byCat[c]).map((c) => (
@@ -155,19 +145,21 @@ const budgets = wards.map((x) => {
         </details>
       )}
     </section>
+    </Toggle>
 
     <CommunityReports ward={w.slug} wardName={w.name} />
 
     {auditHere.length > 0 && (
-      <section class="stack" id="audit">
-        <h2>What the Auditor-General said about places in {w.name}</h2>
+    <Toggle id="audit" title={`What the Auditor-General said about ${w.name}`} meta={'Audit findings, not court rulings'}>
+      <section class="stack">
         <p class="muted small">From the Auditor-General's reports on the county. These are the auditor's findings, not court rulings. <a href="/data/money/#audit">All audit findings</a></p>
         <ul class="alist">{auditHere.map((f) => <li><AuditFinding f={f} /></li>)}</ul>
       </section>
+    </Toggle>
     )}
 
-    <section class="stack" id="projects">
-      <h2>County projects in {w.name}</h2>
+    <Toggle id="projects" title={`County projects in ${w.name}`} meta={'Budget lines, contracts and reported progress'}>
+    <section class="stack">
       <p class="muted small">What the county's plans and budgets list for this ward. "Budgeted" is planned money; "Contract sum" is what was signed; "Spent" is what was reported paid. A budget line is not proof that work was done. Read from the county's own documents; we have not visited these sites yet.</p>
       {flags.map((x) => (
         <div class="ask on-ink">
@@ -221,6 +213,7 @@ const budgets = wards.map((x) => {
       ))}
       <a class="small" href="/data/money/#projects">Compare all wards</a>
     </section>
+    </Toggle>
 
     {w.places.length > 0 && (
       <section class="stack">
@@ -228,5 +221,24 @@ const budgets = wards.map((x) => {
         <p>{w.places.map((p) => p.name).join(' · ')}</p>
       </section>
     )}
+    <Toggle id="receipt" title={`${w.name} Ward receipt`} meta="Everything on one card, to share, print or embed">
+    <section class="receipt" aria-label={`${w.name} ward summary`}>
+      <span class="eyebrow">Ward receipt · {w.subCounty}</span>
+      <h3>{w.name} Ward</h3>
+      {wardAlerts.length > 0 && <div class="row"><span>Active alerts</span><span>{wardAlerts.map((a, i) => <>{i > 0 && ', '}<a href={`/alerts/${a.id.toLowerCase()}/`}>{levelLabel[a.level]}: {a.title}</a></>)}</span></div>}
+      <div class="row"><span>MCA</span><span>{mca ? mcaLine : 'Not confirmed'}</span></div>
+      {mp && <div class="row"><span>MP ({w.subCounty})</span><span>{mp.name}</span></div>}
+      <div class="row"><span>Services listed</span><span>{w.facilities.length}</span></div>
+      {order.filter((c) => byCat[c]).map((c) => <div class="row sub"><span>{c}</span><span>{byCat[c].length}</span></div>)}
+      {b2526 != null && <div class="row"><span>Ward projects budgeted, 2025/26</span><span>{amountLabel(b2526)}</span></div>}
+      {roads && <div class="row"><span>Road maintenance contracts, 2023/24</span><span>{amountLabel(roads.amount)}</span></div>}
+      {reg22 && <div class="row"><span>Registered voters (IEBC 2022) · <a href={`/government/elections/#ward-${w.slug}`}>results</a></span><span>{num(reg22.registered)}</span></div>}
+      {cw?.votersRegisteredEarlier && <div class="row"><span>Registered voters (IEBC 2018 register)</span><span>{num(cw.votersRegisteredEarlier)}</span></div>}
+      <div class="row"><span>Whole county spent, {last.fy}</span><span>{bn(last.spent)}</span></div>
+      <div class="row"><span>Development budget used</span><span>{last.devAbs}%</span></div>
+      <p class="small muted">Sources: MCA from IEBC 2022 results and later by-elections. Ward budget from the county's Programme Based Budget 2025/26 (Table 18); road contracts from the Annual Development Plan 2025/26. Services from the Nyamira Daily list, mostly not yet checked on site. County spending from the Controller of Budget.</p>
+    </section>
+    <EmbedCode path={`/embed/ward/${w.slug}/`} title={`${w.name} Ward receipt`} height={520} />
+    </Toggle>
   </div>
 </Base>

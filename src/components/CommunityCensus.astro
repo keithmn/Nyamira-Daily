@@ -4,6 +4,8 @@
 // Second layer: each topic by KNBS sub-county, in toggles. KNBS sub-counties are not constituencies.
 import EvidenceLabel from './EvidenceLabel.astro';
 import Icon from './Icon.astro';
+import ChartFrame from './charts/ChartFrame.astro';
+import ShareBars from './charts/ShareBars.astro';
 import Toggle from './Toggle.astro';
 import census from '../data/census-social.json';
 
@@ -17,12 +19,12 @@ const cell = (id, area, category) => {
 };
 const cite = (id) => `${table(id).table}, p.${table(id).pagePrinted}`;
 const headlines = [
-  { id: 'drinking-water', icon: 'water', cat: 'Stream/River', text: 'of households get their drinking water mainly from a stream or river' },
-  { id: 'cooking-fuel', icon: 'agriculture', cat: 'Firewood', text: 'of households cook mainly with firewood' },
-  { id: 'lighting', icon: 'today', cat: 'Mains electricity', text: 'of households light their homes mainly with mains electricity' },
-  { id: 'mobile-phone', icon: 'phone', cat: 'Owned mobile phone: per cent', text: 'of people aged 3 and over owned a mobile phone in the 3 months before the census' },
-  { id: 'internet-computer', icon: 'search', cat: 'Used internet: per cent', text: 'of people aged 3 and over used the internet in those 3 months' },
-  { id: 'disability-status', icon: 'people', cat: 'Per cent with disability', text: 'of people aged 5 and over have a disability' },
+  { id: 'drinking-water', short: 'Households drinking mainly from a stream or river', icon: 'water', cat: 'Stream/River', text: 'of households get their drinking water mainly from a stream or river' },
+  { id: 'cooking-fuel', short: 'Households cooking mainly with firewood', icon: 'agriculture', cat: 'Firewood', text: 'of households cook mainly with firewood' },
+  { id: 'lighting', short: 'Households lit mainly by mains electricity', icon: 'today', cat: 'Mains electricity', text: 'of households light their homes mainly with mains electricity' },
+  { id: 'mobile-phone', short: 'People 3+ who owned a mobile phone', icon: 'phone', cat: 'Owned mobile phone: per cent', text: 'of people aged 3 and over owned a mobile phone in the 3 months before the census' },
+  { id: 'internet-computer', short: 'People 3+ who used the internet', icon: 'search', cat: 'Used internet: per cent', text: 'of people aged 3 and over used the internet in those 3 months' },
+  { id: 'disability-status', short: 'People 5+ with a disability', icon: 'people', cat: 'Per cent with disability', text: 'of people aged 5 and over have a disability' },
 ];
 const topics = [
   { id: 'mobile-phone-internet', title: 'Phones and the internet', meta: 'People aged 3 and over, last 3 months', tables: [
@@ -49,16 +51,17 @@ const topics = [
 <section class="stack" aria-labelledby="life-at-home">
   <h2 id="life-at-home">Life at home</h2>
   <p class="muted">From the 2019 census, the latest count of how Nyamira's households live.</p>
-  <div class="tiles">
-    {headlines.map((h) => (
-      <div class="tile">
-        <Icon name={h.icon} size={22} badge />
-        <b>{cell(h.id, COUNTY, h.cat)}</b>
-        <span>{h.text}.</span>
-        <span class="small muted"><EvidenceLabel kind="official" /> KNBS 2019 census, Vol. IV, {cite(h.id)}</span>
-      </div>
-    ))}
-  </div>
+  <ChartFrame title="Most homes cook with firewood, and more than a third draw water from a stream or river"
+    sub="Nyamira County, 2019 census: share of households, or of people where marked"
+    evidence="official" source="KNBS 2019 Kenya Population and Housing Census, Volume IV"
+    note={`Tables: ${headlines.map((h) => cite(h.id)).join('; ')}.`}
+    table={{ columns: ['Figure', 'Share'], rows: headlines.map((h) => [h.short, cell(h.id, COUNTY, h.cat)]) }} csvName="nyamira-life-at-home-2019">
+    <ShareBars label="Life at home in Nyamira, 2019 census" rows={headlines.map((h) => {
+      const v = cell(h.id, COUNTY, h.cat);
+      const n = parseFloat(v);
+      return { label: h.short, icon: h.icon, value: Number.isFinite(n) ? n : null, display: v };
+    })} />
+  </ChartFrame>
   <div class="stack" style="margin-top:8px">
     {topics.map((topic) => (
       <Toggle id={topic.id} title={topic.title} meta={`${topic.meta}, by KNBS sub-county`} level={3}>

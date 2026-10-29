@@ -1,0 +1,10 @@
+{
+  "_about": "Illustration slots (decision #70). Each slot shows the built-in Nyamira Daily SVG illustration until an approved image is added: put the file in public/illustrations/, set `file`, and fill in every provenance field. AI-generated images are allowed only as illustrations (never as evidence of a real place, project, person or event) and are always captioned as such. See docs/EDITORIAL_RULES.md, section on illustrations, and docs/ILLUSTRATION_PROMPTS.md for the prompts.",
+  "slots": [
+    { "id": "money", "alt": "Illustration: shilling notes and a budget ledger in front of tea-covered hills", "file": null, "kind": null, "tool": null, "prompt": null, "created": null, "approvedBy": null },
+    { "id": "health", "alt": "Illustration: a small rural clinic with a green cross under a hillside", "file": null, "kind": null, "tool": null, "prompt": null, "created": null, "approvedBy": null },
+    { "id": "education", "alt": "Illustration: an open exercise book and pencil in front of a simple school building", "file": null, "kind": null, "tool": null, "prompt": null, "created": null, "approvedBy": null },
+    { "id": "farming", "alt": "Illustration: rows of tea bushes and a basket of plucked leaves", "file": null, "kind": null, "tool": null, "prompt": null, "created": null, "approvedBy": null },
+    { "id": "community", "alt": "Illustration: a home compound with a water tank and a footpath between the hills", "file": null, "kind": null, "tool": null, "prompt": null, "created": null, "approvedBy": null }
+  ]
+}

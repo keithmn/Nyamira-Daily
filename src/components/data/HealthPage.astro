@@ -2,7 +2,8 @@
 // 3.5 Health outcomes. KHIS facility data needs official access (Planned); meanwhile the county figures
 // from the 2022 Kenya Demographic and Health Survey, and what the county's own plan says.
 import H from '../../data/health.json';
-import Coins from '../viz/Coins.astro';
+import ChartFrame from '../charts/ChartFrame.astro';
+import ShareBars from '../charts/ShareBars.astro';
 import EvidenceLabel from '../EvidenceLabel.astro';
 const srcs = Object.fromEntries(H.sources.map((s) => [s.id, s]));
 const k = H.items.filter((i) => i.sourceId === 'KDHS-2022');
@@ -12,26 +13,24 @@ const births = get('Live births in past 2 years delivered by a skilled provider'
 const anc4 = get('Women with a live birth in past 2 years with 4+ ANC visits');
 const vacc = get('Children 12-23 months fully vaccinated (basic antigens)');
 const kdhs = srcs['KDHS-2022'];
+const firstAnc = get('Women whose first ANC visit was before 4 months');
+const rows = [
+  { item: births, label: 'Recent births with a skilled health worker', icon: 'health' },
+  { item: vacc, label: 'Children 12–23 months with all basic vaccines*', icon: 'check' },
+  { item: anc4, label: 'Mothers with 4 or more antenatal visits', icon: 'people' },
+  { item: firstAnc, label: 'Mothers whose first antenatal visit was before 4 months', icon: 'calendar' },
+].filter((r) => r.item);
 ---
 <div class="stack-lg" style="margin-top:24px">
   <p class="lead">Figures for Nyamira from the 2022 Kenya Demographic and Health Survey, a national household survey. They come from small samples in the county (about 55 to 57 recent births), so treat them as a rough guide.</p>
   <section class="cols-2">
-    <div class="figure">
-      <span class="eyebrow">Births with a skilled health worker · 2022</span>
-      <Coins part={births.value} title="Out of every 100 recent births in Nyamira" goodLabel="had a skilled health worker" gapLabel="did not" />
-      <p class="source"><EvidenceLabel kind="official" /> <a href={kdhs.url} rel="noopener">KDHS 2022</a>, {births.page}</p>
-    </div>
-    <div class="figure">
-      <span class="eyebrow">Antenatal visits · 2022</span>
-      <Coins part={anc4.value} title="Out of every 100 mothers of recent births" goodLabel="had 4 or more antenatal visits" gapLabel="had fewer" />
-      <p class="source"><EvidenceLabel kind="official" /> <a href={kdhs.url} rel="noopener">KDHS 2022</a>, {anc4.page}</p>
-    </div>
-    <div class="figure">
-      <span class="eyebrow">Vaccination · 2022</span>
-      <Coins part={vacc.value} title="Out of every 100 children aged 12–23 months" goodLabel="had all basic vaccines" gapLabel="did not" />
-      <p class="small muted">Based on a very small sample (25–49 children), marked as such in the survey report.</p>
-      <p class="source"><EvidenceLabel kind="official" /> <a href={kdhs.url} rel="noopener">KDHS 2022</a>, {vacc.page}</p>
-    </div>
+    <ChartFrame title={`Most births now have a skilled health worker, but only ${Math.round(firstAnc?.value ?? 0)}% of mothers start antenatal care early`}
+      sub="Nyamira County, Kenya Demographic and Health Survey 2022, %"
+      evidence="official" source="KDHS 2022" sourceUrl={kdhs.url}
+      note={`${rows.map((r) => r.item.page).join('; ')}. *Based on a very small sample (25–49 children), marked as such in the survey report.`}
+      table={{ columns: ['Figure', 'Share'], rows: rows.map((r) => [r.label, `${r.item.value}%`]) }} csvName="nyamira-health-kdhs-2022">
+      <ShareBars label="Mother and child health in Nyamira, KDHS 2022" rows={rows.map((r) => ({ label: r.label, icon: r.icon, value: r.item.value, display: `${r.item.value}%` }))} />
+    </ChartFrame>
     <div class="stack">
       <h3 class="mini">What the county's own plan says</h3>
       <ul>{county.map((i) => <li><strong>{i.value}%</strong> {i.indicator.replace(' (county-reported)', '').replace(' (county-reported, end of CIDP 2018-22 period)', '')}. <span class="small muted">{i.note}</span></li>)}</ul>

@@ -1,8 +1,10 @@
 ---
 import money from '../data/money.json';
-import BarChart from './BarChart.astro';
+import ChartFrame from './charts/ChartFrame.astro';
+import LineChart from './charts/LineChart.astro';
+import ColumnChart from './charts/ColumnChart.astro';
+import Illustration from './Illustration.astro';
 import EvidenceLabel from './EvidenceLabel.astro';
-import Coins from './viz/Coins.astro';
 import SplitBar from './viz/SplitBar.astro';
 import EmbedCode from './EmbedCode.astro';
 import Toggle from './Toggle.astro';
@@ -13,99 +15,109 @@ const mn = (m: number) => m >= 1000 ? bn(m) : `KSh ${m.toLocaleString('en-KE', {
 const totalSpent = ys.reduce((n, y) => n + y.spent, 0);
 const labels = ys.map((y) => y.fy);
 const fmtB = (v: number) => (v / 1000).toLocaleString('en-KE', { maximumFractionDigits: 1 });
+// Titles that state the finding (decision #69), worked out from the figures so they stay true when data changes.
+const pct = (y) => (y.spent / y.budget) * 100;
+const sinceWhen = (vals) => {
+  const cur = vals[vals.length - 1];
+  for (let i = vals.length - 2; i >= 0; i--) if (vals[i] != null && vals[i] <= cur) return i === vals.length - 2 ? null : labels[i];
+  return 'start';
+};
+const spendShare = Math.round(pct(last));
+const spendSince = sinceWhen(ys.map(pct));
+const leadTitle = `In ${last.fy} the county spent ${spendShare}% of its budget` + (spendSince === 'start' ? `, the lowest share since our records begin in ${labels[0]}` : spendSince ? `, the lowest share since ${spendSince}` : '');
+const devSince = sinceWhen(ys.map((y) => y.devAbs));
+const devTitle = `Only ${last.devAbs}% of the development budget was used in ${last.fy}` + (devSince === 'start' ? `, the lowest since ${labels[0]}` : devSince ? `, the lowest since ${devSince}` : '');
+const devLowIdx = devSince && devSince !== 'start' ? [labels.indexOf(devSince)] : [];
+const notSpent = ys.map((y) => y.budget - y.spent);
+const yearsTable = (cols, f) => ({ columns: ['Financial year', ...cols], rows: ys.map((y) => [y.fy, ...f(y)]) });
+const tLead = yearsTable(['Budget (KSh M)', 'Spent (KSh M)', 'Share spent'], (y) => [y.budget, y.spent, pct(y).toFixed(1) + '%']);
+const tDev = yearsTable(['Development budget used'], (y) => [y.devAbs + '%']);
+const tNot = yearsTable(['Not spent (KSh M)'], (y) => [y.budget - y.spent]);
+const tPend = yearsTable(['Pending bills (KSh M)'], (y) => [y.pending]);
+const tOsr = yearsTable(['Target (KSh M)', 'Collected (KSh M)'], (y) => [y.osrTarget, y.osr]);
+const fmtBn = (v) => fmtB(v * 1000);
+const fmtPct = (v) => v + '%';
+const sLead = [{ name: 'Budget', tone: 'context', values: ys.map((y) => y.budget / 1000), end: 'Budget ' + parseFloat((last.budget / 1000).toFixed(2)) }, { name: 'Spent', tone: 'main', values: ys.map((y) => y.spent / 1000), end: 'Spent ' + parseFloat((last.spent / 1000).toFixed(2)) }];
+const sOsr = [{ name: 'Target', tone: 'context', values: ys.map((y) => y.osrTarget), end: 'Target ' + Math.round(last.osrTarget) }, { name: 'Collected', tone: 'good', values: ys.map((y) => y.osr), end: 'Collected ' + Math.round(last.osr) }];
+const notSpentBn = notSpent.map((v) => v / 1000);
+const devVals = ys.map((y) => y.devAbs);
+const pendVals = ys.map((y) => y.pending);
+const gapLabel = bn(last.budget - last.spent) + ' not spent';
+const notTitle = 'KSh ' + fmtB(notSpent[notSpent.length - 1]) + ' billion of the ' + last.fy + ' budget was not spent';
 const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 ---
 <div class="stack-lg" style="margin-top:24px">
-  <section class="figure on-ink panel-ink" aria-label="Since devolution began">
-    <span class="eyebrow">Since devolution began</span>
-    <span class="num">{bn(totalSpent)}</span>
-    <p class="say">spent by the county over 12 years, FY2013/14 to FY2024/25 (adding each year's actual spending).</p>
-    <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget annual reports</p>
-  </section>
-
-  <section class="cols-2">
-    <div class="figure graphic-panel">
+  <section class="money-lead">
+    <div class="figure lead-fig">
       <span class="eyebrow">Last full year · {last.fy}</span>
-      <span class="num">{bn(last.spent)}</span>
+      <span class="num is-lead">{bn(last.spent)}</span>
       <p class="say">spent by the county, out of its final approved/revised budget of <strong>{bn(last.budget)}</strong>. The difference was <strong class="hot">{bn(last.budget - last.spent)}</strong>; this is not a measure of cash releases or proof that all budgeted funds were available to spend.</p>
-      <Coins part={(last.spent / last.budget) * 100} unit="KSh " title="Out of every KSh 100 in the budget" goodLabel="was spent" gapLabel="was not spent" />
+      <Illustration id="money" tone="harvest" />
       <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{last.fy} report</p>
     </div>
-    <div class="figure graphic-panel">
-      <span class="eyebrow">Development · {last.fy}</span>
-      <span class="num">{last.devAbs}%</span>
-      <p class="say">of the development budget (roads, buildings, water) was spent ({bn(last.dev)}). Most county money goes on salaries and running costs.</p>
-      <SplitBar title={`Development budget ${last.fy}`} parts={[{ value: last.devAbs, label: 'used', tone: 'good' }, { value: 100 - last.devAbs, label: 'not used', tone: 'gap' }]} />
-      <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{last.fy} report</p>
-    </div>
+    <ChartFrame title={leadTitle} sub={`Final approved/revised budget and actual spending, KSh billion, ${labels[0]} to ${last.fy}`}
+      evidence="official" source="Controller of Budget, County Budget Implementation Review Reports" note="The shaded gap is budget minus spending. It is not a measure of the cash the county received."
+      table={tLead} csvName="nyamira-budget-and-spending">
+      <LineChart label={`Budget and spending, ${labels[0]} to ${last.fy}, KSh billion`} labels={labels} format={fmtBn} gap={gapLabel} series={sLead} />
+    </ChartFrame>
   </section>
 
-  <section class="cols-2">
-    <div class="figure graphic-panel">
+  <section class="fig-row" aria-label="Other key figures">
+    <div class="figure">
+      <span class="eyebrow">Since devolution began</span>
+      <span class="num">{bn(totalSpent)}</span>
+      <p class="say">spent over 12 years, {labels[0]} to {last.fy} (each year's actual spending added up).</p>
+      <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget annual reports</p>
+    </div>
+    <div class="figure">
       <span class="eyebrow">Unpaid bills · {last.fy}</span>
       <span class="num hot">{mn(last.pending)}</span>
-      <p class="say">in pending bills (money the county owes suppliers and contractors) reported at the end of the year.</p>
+      <p class="say">owed to suppliers and contractors at the end of the year.</p>
       <p class="small muted">{last.pendingNote}</p>
       <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{last.fy} report</p>
     </div>
-    <div class="figure graphic-panel">
-      <span class="eyebrow">Money raised locally · {last.fy}</span>
+    <div class="figure">
+      <span class="eyebrow">Raised locally · {last.fy}</span>
       <span class="num">{mn(last.osr)}</span>
-      <p class="say">collected from fees, rates and permits, against a target of <strong>{mn(last.osrTarget)}</strong>.</p>
+      <p class="say">from fees, rates and permits, against a target of <strong>{mn(last.osrTarget)}</strong>.</p>
       <SplitBar title={`Own-source revenue ${last.fy}`} parts={[{ value: last.osr, label: 'collected', tone: 'good', show: mn(last.osr) }, { value: Math.max(0, last.osrTarget - last.osr), label: 'short of target', tone: 'gap', show: mn(last.osrTarget - last.osr) }]} />
       <p class="small muted">{last.osrNote}</p>
       <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{last.fy} report</p>
     </div>
   </section>
 
-  <p class="callout"><span><strong>What did the Auditor-General find?</strong> See the audit opinion on the county's accounts for every year, and the findings behind it: <a href="#audit">What the Auditor-General found</a>.</span></p>
+  <ChartFrame title={devTitle} sub={`Share of the development budget (roads, buildings, water) spent each year, %, ${labels[0]} to ${last.fy}`}
+    evidence="official" source="Controller of Budget, County Budget Implementation Review Reports" note={`Most county money goes on salaries and running costs. Development spending in ${last.fy}: ${bn(last.dev)}.`}
+    table={tDev} csvName="nyamira-development-budget-used">
+    <ColumnChart label={`Share of the development budget used each year, ${labels[0]} to ${last.fy}`} labels={labels} values={devVals} max={100} format={fmtPct} tone="gap" also={devLowIdx} />
+  </ChartFrame>
 
-  <EmbedCode path="/embed/money/" title="Nyamira County money" height={640} />
+  <p class="callout"><span><strong>What did the Auditor-General find?</strong> See the audit opinion on the county's accounts for every year, and the findings behind it: <a href="#audit">What the Auditor-General found</a>.</span></p>
 
   <div class="sw" lang="sw">
     <span class="eyebrow">Muhtasari kwa Kiswahili</span>
     <p>Mwaka wa fedha {last.fy}, kaunti ya Nyamira ilitumia {bn(last.spent)} kati ya bajeti ya {bn(last.budget)}. Ni asilimia {last.devAbs} tu ya bajeti ya maendeleo iliyotumika. Takwimu hizi ni kutoka kwa Msimamizi wa Bajeti (Controller of Budget).</p>
   </div>
 
-  <Toggle id="charts" title="Twelve years in charts" meta="Budget, spending, unpaid bills, local revenue">
-  <section class="stack graphic-panel">
-    <h3>Budget and spending, every year</h3>
-    <p class="muted">The county's reported actual expenditure is often below its final approved/revised budget. The difference is budget less expenditure; these data do not show how much cash was released.</p>
-    <BarChart title="Nyamira County final approved/revised budget and actual expenditure by financial year" labels={labels} unit="KSh billion" format={fmtB}
-      colors={['var(--bar-quiet)', 'var(--brand)']}
-      series={[{ name: 'Approved/revised budget', values: ys.map((y) => y.budget) }, { name: 'Actual expenditure', values: ys.map((y) => y.spent) }]} />
-  </section>
-
-  <section class="stack graphic-panel">
-    <h3>Money budgeted but not spent, every year</h3>
-    <p class="muted">Final approved/revised budget minus reported actual expenditure, worked out by Nyamira Daily from the Controller of Budget's figures. This difference is not a cash-release figure.</p>
-    <BarChart title="Budget not spent each year, KSh billion" labels={labels} unit="KSh billion not spent" format={fmtB} colors={['var(--accent)']}
-      series={[{ name: 'Not spent', values: ys.map((y) => y.budget - y.spent) }]} />
-  </section>
-
-  <section class="stack graphic-panel">
-    <h3>Unpaid bills at the end of each year</h3>
-    <p class="muted">Pending bills as reported by the Controller of Budget. Reports count them differently from year to year, and some years were not reported; see the table below.</p>
-    <BarChart title="Pending bills reported at year end, KSh million" labels={labels} unit="KSh million in pending bills" colors={['var(--accent)']}
-      series={[{ name: 'Pending bills', values: ys.map((y) => y.pending) }]} />
-  </section>
-
-  <section class="stack graphic-panel">
-    <h3>How much of the development budget was used</h3>
-    <p class="muted">Development money pays for things that last: roads, buildings, water. A low share means projects were planned and funded but not paid for that year.</p>
-    <BarChart title="Share of development budget spent each year, per cent" labels={labels} unit="Per cent of development budget spent" max={100} format={(v) => `${v}%`}
-      colors={['var(--brand)']}
-      series={[{ name: 'Development budget used', values: ys.map((y) => y.devAbs) }]} />
-  </section>
-
-  <section class="stack graphic-panel">
-    <h3>Money the county raised itself</h3>
-    <p class="muted">Fees, rates and permits collected locally ("own-source revenue"), against the county's own target. From FY2022/23 this includes hospital fees, so later years are not directly comparable with earlier ones.</p>
-    <BarChart title="Own-source revenue target and amount collected, KSh million" labels={labels} unit="KSh million"
-      colors={['var(--bar-quiet)', 'var(--brand)']}
-      series={[{ name: 'Target', values: ys.map((y) => y.osrTarget) }, { name: 'Collected', values: ys.map((y) => y.osr) }]} />
-  </section>
-
+  <Toggle id="charts" title="Twelve years in charts" meta="Money not spent, unpaid bills, local revenue">
+  <div class="stack-lg">
+    <ChartFrame title={notTitle} sub="Final approved/revised budget minus reported actual spending, KSh billion, by financial year"
+      evidence="official" source="Nyamira Daily, from the Controller of Budget's figures" note="Worked out by Nyamira Daily. This difference is not a cash-release figure."
+      table={tNot} csvName="nyamira-budget-not-spent">
+      <ColumnChart label="Budget not spent each year, KSh billion" labels={labels} values={notSpentBn} format={fmtBn} tone="gap" />
+    </ChartFrame>
+    <ChartFrame title="Unpaid bills at the end of each year" sub="Pending bills reported by the Controller of Budget, KSh million. Years marked n/a were not reported."
+      evidence="official" source="Controller of Budget, County Budget Implementation Review Reports" note="Reports count pending bills differently from year to year; see the notes in the table below."
+      table={tPend} csvName="nyamira-pending-bills">
+      <ColumnChart label="Pending bills reported at year end, KSh million" labels={labels} values={pendVals} tone="gap" />
+    </ChartFrame>
+    <ChartFrame title="Money the county raised itself, against its own target" sub="Own-source revenue target and amount collected, KSh million, by financial year"
+      evidence="official" source="Controller of Budget, County Budget Implementation Review Reports" note="From FY2022/23 this includes hospital fees, so later years are not directly comparable with earlier ones."
+      table={tOsr} csvName="nyamira-own-source-revenue">
+      <LineChart label="Own-source revenue target and collected, KSh million" labels={labels}
+        series={sOsr} />
+    </ChartFrame>
+  </div>
   </Toggle>
 
   <details>
@@ -143,4 +155,6 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
     <ul>{money.caveats.map((c) => <li>{c}</li>)}</ul>
     <p class="updated">Last updated {date}. Spotted an error? See <a href="/how-we-work/#corrections">corrections</a>.</p>
   </section>
+
+  <EmbedCode path="/embed/money/" title="Nyamira County money" height={640} />
 </div>

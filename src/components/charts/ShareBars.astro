@@ -1,0 +1,18 @@
+---
+// Shares out of 100 as one small-multiple chart (decision #69): each row is a full grey track with the share in
+// Ink (or red for a gap, green for "good"), the value at the end, and an optional icon. Replaces rows of
+// separate cards. A row with no value says "not reported", never 0.
+import Icon from '../Icon.astro';
+interface Row { label: string; value: number | null; display?: string; icon?: string; tone?: 'main' | 'gap' | 'good' }
+interface Props { rows: Row[]; label: string }
+const { rows, label } = Astro.props;
+---
+<ul class="kc-share" aria-label={label}>
+  {rows.map((r) => (
+    <li>
+      <span class="ks-label">{r.icon && <Icon name={r.icon} size={18} />}{r.label}</span>
+      <span class="ks-track">{r.value != null && <i class={`t-${r.tone ?? 'main'}`} style={`width:${Math.max(0.6, Math.min(100, r.value))}%`}></i>}</span>
+      <b class="ks-val">{r.value == null ? 'not reported' : r.display ?? `${r.value}%`}</b>
+    </li>
+  ))}
+</ul>

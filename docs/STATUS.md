@@ -8,6 +8,13 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Content model:** data in `src/data/*.json` (sources in each file and in `docs/DATA.md`); text in `src/content/` collections (`draft: true` = EXAMPLE, hidden unless `ND_DRAFTS=1`).
 - **Decisions:** `docs/DECISIONS.md` #1–#30 explain every structural choice. Read #3 (two layers), #14 (questions not accusations), #24–#25 (colour roles; red on maps = emergencies only), #27 (no invented data), #30 (sectors).
 
+## Calm pages, chart kit and illustrations (30 Oct 2026, branch `feat/calm-charts` from `b23b862`, not pushed)
+
+- Decisions #69 and #70 (owner asked to implement the whole design review, and to replace the dot grid under KSh 5.65B with a picture and explore AI images).
+- New: `src/components/charts/` (ChartFrame, LineChart, ColumnChart, ShareBars), `src/components/Illustration.astro` with `src/data/illustrations.json`, `docs/ILLUSTRATION_PROMPTS.md`, editorial rules §15. Rebuilt: Money (`MoneyPage.astro`), Health (`HealthPage.astro`), Community census (`CommunityCensus.astro`), Home (`index.astro`), ward pages (`ward/[slug].astro`). Removed the #56 and #61 CSS blocks; calm system, chart kit and layout rules at the end of `global.css`.
+- Measured (Playwright, 390 and 1280 px): Money shadows 72 → 0, glowing figures 15 → 1; ward page on a phone 6.6 → 3 screens; Health 4.1 → 3.1; Community text colours 14 → 5. No sideways scroll, no script errors; hash links still open the right toggle; the Kiswahili switch remembers the choice; five CSV downloads on Money.
+- Next: generate and approve AI illustrations for the five slots (prompts ready), then add slots to Health, Education, Farming and Community heads; carry the chart kit to Education, Farming and the constituency pages.
+
 ## Minimal footer (30 Oct 2026, branch `fix/minimal-footer` from `d37f7bb`)
 
 - Decision #68 replaces #67: logo, social icons (from `social` in `src/config.js`; all empty for now, so no icons show), and one line naming the publisher, Underdawgs Rising Group, "A bipartisan public information site" (owner wording) and the map credits.
