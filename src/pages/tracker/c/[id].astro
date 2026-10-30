@@ -1,0 +1,65 @@
+---
+// One tracker record (decision #71): every field exactly as the source prints it, with the source and page.
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import EvidenceLabel from '../../../components/EvidenceLabel.astro';
+import ContractRow from '../../../components/ContractRow.astro';
+import { contracts, groups, sources, periodState, contractorSlug, constituencyName } from '../../../lib/contracts.js';
+import { ksh, date } from '../../../lib/fmt.js';
+import wards from '../../../data/wards.json';
+export function getStaticPaths() {
+  return contracts.map((c) => ({ params: { id: c.id.toLowerCase() }, props: { c } }));
+}
+const { c } = Astro.props;
+const g = groups[c.group];
+const src = sources[c.source];
+const st = periodState(c);
+const wardList = c.wards.map((s) => wards.find((w) => w.slug === s)).filter(Boolean);
+const same = c.contractor ? contracts.filter((x) => x.contractor === c.contractor && x.id !== c.id).slice(0, 6) : [];
+const rows = [
+  ['Paid for by', `${g.label} (${g.who.toLowerCase()})`],
+  ['Procuring entity', c.agency],
+  ['Tender or contract no.', c.tenderNo],
+  ['Contractor', c.contractor ?? (c.contractorWithheld ? 'Not shown: the record names a private person' : 'Not named in the source')],
+  [c.amountLabel, c.amount != null ? `${ksh(c.amount)} (printed: ${c.amountPrinted ?? c.amount})` : 'Not printed'],
+  ['Financial year', c.fy ? `FY${c.fy}` : null],
+  ['Award date', c.awardDate ? date(c.awardDate) : null],
+  ['Contract period', c.startDate && c.endDate ? `${date(c.startDate)} to ${date(c.endDate)}` : c.durationPrinted],
+  ['Amount paid', c.paid != null ? `${ksh(c.paid)}${c.paidAsAt ? ` (as at ${c.paidAsAt})` : ''}` : null],
+  ['Progress reported', c.progress ? `${c.progress}${c.progressAsAt ? ` (as at ${c.progressAsAt})` : ''}` : null],
+  ['Road', c.road],
+  ['Location', c.location],
+  ['Department', c.department],
+];
+---
+<Base title={c.title} description={`${g.label} record: ${c.title}. Contractor, amount, dates and source.`}>
+  <PageHead eyebrow={`Project tracker · ${g.label}`} title={c.title} icon={g.icon} lead={[c.contractor, c.amount != null ? ksh(c.amount) : null, c.fy ? `FY${c.fy}` : null].filter(Boolean).join(' · ')}
+    crumbs={[{ href: '/tracker/', label: 'Project tracker' }, { href: `/tracker/${c.group}/`, label: g.label }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    {c.terminated && <p class="callout gap"><span><strong>Terminated on {date(c.terminated.date)}.</strong> {c.terminated.reason && <>Reason as printed in the record: "{c.terminated.reason}".</>}</span></p>}
+    {st && !c.terminated && <p class={`ct-st st-${st.key}`} style="align-self:flex-start">{st.label}{st.key === 'ended' && ' (by its dates; this does not tell us whether the work was finished)'}</p>}
+    <section class="stack">
+      <h2 class="vh">The record</h2>
+      <dl class="dl-rows">
+        {rows.filter(([, v]) => v).map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+        {wardList.length > 0 && <div><dt>Ward</dt><dd>{wardList.map((w, i) => <>{i > 0 && ', '}<a href={`/ward/${w.slug}/`}>{w.name}</a></>)}</dd></div>}
+        {c.constituency && <div><dt>Constituency</dt><dd><a href={`/constituency/${c.constituency}/`}>{constituencyName[c.constituency]}</a></dd></div>}
+      </dl>
+      <p class="source"><EvidenceLabel kind="official" /> Source: {src.url ? <a href={src.url} rel="noopener">{src.title}</a> : src.title}{src.publisher && `, ${src.publisher}`}{c.page && `. ${c.page}`}</p>
+    </section>
+    {c.notes && (
+      <details>
+        <summary>Source details and notes</summary>
+        <p class="small" style="margin-bottom:12px">{c.notes}</p>
+      </details>
+    )}
+    {c.contractor && (
+      <section class="stack">
+        <h2>Other contracts won by {c.contractor}</h2>
+        {same.length ? <ul class="ct-list">{same.map((x) => <ContractRow c={x} />)}</ul> : <p class="muted">None in these records.</p>}
+        <a href={`/tracker/contractor/${contractorSlug(c.contractor)}/`}>All contracts for this company</a>
+      </section>
+    )}
+    <p class="small muted">Something wrong or missing, such as progress, payments or photos? <a href="/how-we-work/#corrections">Tell us</a> with a source. Record ID {c.id}.</p>
+  </div>
+</Base>

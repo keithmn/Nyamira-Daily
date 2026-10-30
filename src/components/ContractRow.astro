@@ -1,0 +1,24 @@
+---
+// One line in the project tracker (decision #71). Filter data lives in data-* attributes for the list script.
+import { ksh, date } from '../lib/fmt.js';
+import { periodState, constituencyName } from '../lib/contracts.js';
+import wards from '../data/wards.json';
+interface Props { c: any; showGroup?: boolean }
+const { c } = Astro.props;
+const wardNames = c.wards.map((s) => wards.find((w) => w.slug === s)?.name ?? s);
+const where = wardNames.length ? wardNames.join(', ') + (wardNames.length === 1 ? ' Ward' : ' wards') : c.constituency ? `${constituencyName[c.constituency]} Constituency` : null;
+const st = periodState(c);
+const q = [c.title, c.contractor, c.tenderNo, c.road, c.location, ...wardNames].filter(Boolean).join(' ').toLowerCase();
+---
+<li class="ct-row" data-fy={c.fy ?? ''} data-ward={c.wards.join(' ')} data-const={c.constituency ?? ''} data-q={q}>
+  <a class="ct-title" href={`/tracker/c/${c.id.toLowerCase()}/`}>{c.title}</a>
+  <span class="ct-who">{c.contractor ? c.contractor : c.kind === 'allocation' ? c.agency : c.contractorWithheld ? 'Contractor not shown (private person)' : 'Contractor not named in the source'}</span>
+  <span class="ct-amt"><span class="ct-al">{c.amountLabel}</span> <b>{c.amount != null ? ksh(c.amount) : 'Not printed'}</b></span>
+  <span class="ct-meta">
+    {c.fy && <span>FY{c.fy}</span>}
+    {c.startDate && c.endDate && <span>{date(c.startDate)} – {date(c.endDate)}</span>}
+    {where && <span>{where}</span>}
+    {st && <span class={`ct-st st-${st.key}`}>{st.label}</span>}
+    {!st && c.progress && <span class="ct-st">{c.progress.length > 40 ? c.progress.slice(0, 40) + '…' : c.progress}</span>}
+  </span>
+</li>

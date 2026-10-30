@@ -1,0 +1,119 @@
+{
+  "searched": [
+    "education.go.ke Lot 06 bid document (fetched OK via WebFetch, first fetch only)",
+    "education.go.ke Lot 07, Lot 20, Lot 3, Lot 8 docs, node/543, node/548, node/557, node/558, node/560 (Invitation to Tender Lots 1-21), tenders-0 page -- blocked (robots_disallowed for WebFetch; TLS chain failure via curl; built-in browser navigation failed)",
+    "WebSearch: Nyamira DSINCP MoE tender award; Nyamira schools lots notification of award; Kuwait Fund Nyamira schools 2026",
+    "breakingkenyanews.com 2026-03-03 re-advertisement article (secondary, used only for context)",
+    "standardmedia.co.ke 2026-02-10 'Nyamira leaders demand audit of Sh2.7b schools projects' (paywalled; context only)",
+    "gaa.go.ke MyGov 3 March 2026 PDF -- robots_disallowed",
+    "lvswwda.go.ke: completed-projects, Igena Itambe project page, tenders-adverts p1, TD-47 Nyamira Water Supply Lot II download page, Isoge WSP tender doc page, TD.10 Simbauti page (search result), T/25 Nyamor borehole page",
+    "tenders.go.ke: LVSWWDA advert 8 Nov 2024 (T/8-T/10), LVSWWDA/T/1/2025-2026 Lot 16 Omoenga & Nyangemi, T/20 Lot 25 (Bomet, not relevant), T/32 (Bomet, not relevant), /tenders/275882 (empty JS page)",
+    "nyamira.go.ke news 75 (Nyamira Water Project, 20-Mar-2026) -- county publication, contractor not named",
+    "tenderyetu.com LVSWWDA 9-project tender 2026 (aggregator; context only)",
+    "OAG LVSWWDA 2019-2020 report (no Nyamira mentions); parliament library OAG LVSWWDA 2022/2023 PDFs -- download failed",
+    "rerec.co.ke REREC_DETAILS_OF_TENDER_AWARDS.pdf -- robots_disallowed; the-star.co.ke CS Wandayi 580 households (no contractor/cost)",
+    "eru.ecitizen.go.ke AHP Pipeline 25 Aug 2023 (fetched); bomayangu.go.ke/project/185 Manga estate (no contractor); bomayangu.go.ke/projects -- robots_disallowed; kenyanews.go.ke Sh1.9bn Nyamira housing -- robots_disallowed; the-star.co.ke Nyanza housing big read (no contractor)",
+    "housingandurban.go.ke Keroka Market tender document (2023) -- fetch failed (client_error); the-star.co.ke Ikonge modern market (no contractor)",
+    "Health: no nationally funded Nyamira health works contract found in searches"
+  ],
+  "sources": [
+    {"id": "S1", "title": "Request for Bids (Works): School Infrastructure Improvement (Construction and Rehabilitation of Facilities in Targeted Schools in Nyamira County - Lot 6), RFB No. MOE/DSINCP/NCB/01/2023-2024/06", "publisher": "Ministry of Education (State Department for Basic Education)", "url": "https://education.go.ke/index.php/sites/default/files/2024-01/NYAMIRA%20%20BID%20DOCUMENT%20LOT%2006%20Revised%20011223.pdf", "date": "file name 'Revised 011223' (1 Dec 2023); closing 7 February 2024"},
+    {"id": "S2", "title": "Igena Itambe Borehole Water Supply Project in Nyamira County", "publisher": "Lake Victoria South Water Works Development Agency", "url": "https://www.lvswwda.go.ke/igena-itambe-borehole-water-supply-project-in-nyamira-county/", "date": "2021-07-11"},
+    {"id": "S3", "title": "LVSWWDA tender advert (Tender Nos. LVSWWDA/T/8, T/9, T/10/2024-2025)", "publisher": "Lake Victoria South Water Works Development Agency (via PPIP tenders.go.ke)", "url": "https://tenders.go.ke/storage/Documents/1731058318537-advert.pdf", "date": "2024-11-08"},
+    {"id": "S4", "title": "Bidding document: LOT 16 - Procurement of Works for Omoenga Borehole (Kisii) & Nyangemi Primary School (Nyamira), LVSWWDA/T/1/2025-2026 LOT 16", "publisher": "Lake Victoria South Water Works Development Agency (via PPIP tenders.go.ke)", "url": "https://tenders.go.ke/storage/Documents/1763759045023-lot-16-td-omoenga-nyangemi-boreholes.pdf", "date": "2025-11-21"},
+    {"id": "S5", "title": "REVISED-TD-47-Nyamira Water Supply LOT II-Solarisation (download listing)", "publisher": "Lake Victoria South Water Works Development Agency", "url": "https://www.lvswwda.go.ke/download/revised-td-47-nyamira-water-supply-lot-ii-solarisation/", "date": "2026-07-13 (create date)"},
+    {"id": "S6", "title": "Tender Document - Construction of Isoge Water Supply Project in Borabu Sub-county, Nyamira County (download listing)", "publisher": "Lake Victoria South Water Works Development Agency", "url": "https://www.lvswwda.go.ke/download/tender-document-construction-of-isoge-water-supply-project-in-borabu-sub-county-nyamira-county/", "date": "2023-02-02 (create date)"},
+    {"id": "S7", "title": "Summary of Projects Pipeline - Affordable Housing Program & Police Housing", "publisher": "State Department for Housing and Urban Development", "url": "https://eru.ecitizen.go.ke/assets/bomayangu/20230825_AHP_Pipeline.pdf", "date": "2023-08-25"},
+    {"id": "S8", "title": "Nyamira Water Project Set for Presidential Commissioning", "publisher": "County Government of Nyamira", "url": "https://www.nyamira.go.ke/templates/details?newsId=75", "date": "2026-03-20"}
+  ],
+  "contracts": [
+    {
+      "title": "Igena Itambe Borehole Water Supply Project in Nyamira County",
+      "procuringEntity": "Lake Victoria South Water Works Development Agency",
+      "funder": "water",
+      "tenderNo": null,
+      "contractor": "Donix Enterprises Limited",
+      "contractSum": 5954045.00,
+      "contractSumPrinted": "KES. 5,954,045.00",
+      "awardDate": null,
+      "startDate": null,
+      "endDate": null,
+      "durationPrinted": null,
+      "ward": null,
+      "location": "West Mugirango Constituency, Nyamira County",
+      "site": "Igena Itambe Dispensary",
+      "amountPaid": null,
+      "amountPaidAsAt": null,
+      "progressPrinted": "Listed under 'Completed Projects'",
+      "progressAsAt": "2021-07-11",
+      "sourceId": "S2",
+      "page": "Project web page (single page); also listed on https://www.lvswwda.go.ke/completed-projects/",
+      "notes": "Page states the project was financed by 'the Government of Kenya' and the printed figure is described as the total project cost; it is not explicitly labelled 'contract sum'. Ward not stated."
+    }
+  ],
+  "advertisedOnly": [
+    {
+      "title": "School Infrastructure Improvement (Construction and Rehabilitation of Facilities in Targeted Schools in Nyamira County - Lot 6), Development of Schools Infrastructure in Nyamira County Project (DSINCP), Ministry of Education (2023/24 round)",
+      "tenderNo": "MOE/DSINCP/NCB/01/2023-2024/06",
+      "closing": "7 February 2024, 11.00 a.m.",
+      "sites": ["Ryabe Mixed School (Kitutu Masaba Constituency)", "Kenyerere TTC (Kitutu Masaba Constituency)", "Sungututa DEB Secondary School (Kitutu Masaba Constituency)", "Nyantaro DEB Primary (Kitutu Masaba Constituency)"],
+      "url": "https://education.go.ke/index.php/sites/default/files/2024-01/NYAMIRA%20%20BID%20DOCUMENT%20LOT%2006%20Revised%20011223.pdf"
+    },
+    {
+      "title": "Other Nyamira DSINCP school lots (Lots 1-21; documents seen in search results for Lots 3, 7, 8, 11, 20, 21) -- contents NOT read (site blocked); a re-advertisement of the Kuwait-funded Nyamira schools tenders was reported in March 2026",
+      "tenderNo": null,
+      "closing": null,
+      "sites": null,
+      "url": "https://www.education.go.ke/index.php/node/560"
+    },
+    {
+      "title": "Construction of Tindereti Water Pan and Associated Civil Works in Borabu Constituency, Nyamira County",
+      "tenderNo": "LVSWWDA/T/9/2024-2025",
+      "closing": "22nd November 2024, 10:00am",
+      "sites": ["Tindereti Water Pan, Borabu Constituency"],
+      "url": "https://tenders.go.ke/storage/Documents/1731058318537-advert.pdf"
+    },
+    {
+      "title": "Rehabilitation and Expansion of Simbauti Water Pan and Associated Civil Works in Borabu Constituency, Nyamira County",
+      "tenderNo": "LVSWWDA/T/10/2024-2025",
+      "closing": "22nd November 2024, 10:00am",
+      "sites": ["Simbauti Water Pan, Borabu Constituency"],
+      "url": "https://tenders.go.ke/storage/Documents/1731058318537-advert.pdf"
+    },
+    {
+      "title": "LOT 16 - Procurement of Works for Omoenga Borehole (Kisii) & Nyangemi Primary School (Nyamira)",
+      "tenderNo": "LVSWWDA/T/1/2025-2026 LOT 16",
+      "closing": "2nd DECEMBER, 2025, 10:00 A.M",
+      "sites": ["Nyangemi Primary School (Nyamira)", "Omoenga Borehole (Kisii) -- not in Nyamira"],
+      "url": "https://tenders.go.ke/storage/Documents/1763759045023-lot-16-td-omoenga-nyangemi-boreholes.pdf"
+    },
+    {
+      "title": "REVISED-TD-47-Nyamira Water Supply LOT II-Solarisation (Nyamira Water Supply Last Mile Connectivity and Improvement Project, Lot II)",
+      "tenderNo": "TD-47 (as in file title; full number not shown)",
+      "closing": null,
+      "sites": ["Nyamira Water Supply"],
+      "url": "https://www.lvswwda.go.ke/download/revised-td-47-nyamira-water-supply-lot-ii-solarisation/"
+    },
+    {
+      "title": "Construction of Isoge Water Supply Project in Borabu Sub-county, Nyamira County",
+      "tenderNo": null,
+      "closing": null,
+      "sites": ["Isoge, Borabu Sub-county"],
+      "url": "https://www.lvswwda.go.ke/download/tender-document-construction-of-isoge-water-supply-project-in-borabu-sub-county-nyamira-county/"
+    },
+    {
+      "title": "Affordable Housing Programme - County AHP Projects Bid Round 2 and Police Housing Bid Round 3, Nyamira sites marked 'Advertised for Procurement' (pipeline as at 25 Aug 2023)",
+      "tenderNo": null,
+      "closing": null,
+      "sites": ["S/No 342 Proposed AHP Manga, Nyamira County (1,557 units)", "S/No 343 Proposed AHP Nyamira Township, Nyamira County (159 units)", "S/No 344 Proposed AHP West Mugirango/Siamani-Ogango Village (750 units)", "S/No 345 Proposed AHP West Mugirango/Bogichora-Sironga (1,500 units)", "S/No 346 Proposed AHP Manga (previously NHC site) (3,000 units)", "S/No 347 Proposed AHP Nyansiongo, Nyamira County (300 units)", "S/No 567 Nyamira Police Station (100 units)"],
+      "url": "https://eru.ecitizen.go.ke/assets/bomayangu/20230825_AHP_Pipeline.pdf"
+    },
+    {
+      "title": "Proposed Construction of Keroka Market and Supporting Facilities in Nyamira County (tender document; contents not read -- fetch failed)",
+      "tenderNo": null,
+      "closing": null,
+      "sites": ["Keroka Market"],
+      "url": "https://housingandurban.go.ke/wp-content/uploads/2023/08/Tender-Document-for-Proposed-Construction-of-Keroka-Market-and-Supporting-Facilities-in-Nyamira-County.pdf"
+    }
+  ]
+}

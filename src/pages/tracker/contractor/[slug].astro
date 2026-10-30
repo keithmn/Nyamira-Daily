@@ -1,0 +1,26 @@
+---
+// Every contract one company won in the tracker's records (decision #71). Companies only, as printed.
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import EvidenceLabel from '../../../components/EvidenceLabel.astro';
+import TrackerList from '../../../components/TrackerList.astro';
+import { contractors, groups } from '../../../lib/contracts.js';
+import { ksh, num } from '../../../lib/fmt.js';
+export function getStaticPaths() {
+  return contractors().map((k) => ({ params: { slug: k.slug }, props: { k } }));
+}
+const { k } = Astro.props;
+const by = [...new Set(k.items.map((c) => groups[c.group].label))];
+---
+<Base title={k.name} description={`Contracts awarded to ${k.name} in Nyamira, from official procurement records.`}>
+  <PageHead eyebrow="Project tracker · Contractor" title={k.name} icon="people" lead={`${num(k.items.length)} contract${k.items.length === 1 ? '' : 's'} in these records, from ${by.join(', ')}.`}
+    crumbs={[{ href: '/tracker/', label: 'Project tracker' }, { href: '/tracker/contractors/', label: 'Contractors' }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    <section class="fig-row">
+      <div class="figure"><span class="eyebrow">Contract sums</span><span class="num">{ksh(k.total)}</span><p class="say">added up across these records, all years.</p></div>
+    </section>
+    {k.names.length > 1 && <p class="small muted">Printed as: {k.names.join('; ')}.</p>}
+    <TrackerList list={k.items} id="tk-contractor" place="none" />
+    <p class="source"><EvidenceLabel kind="official" /> From the Public Procurement Information Portal and the other sources linked on each record. A company's total is not a finding of wrongdoing.</p>
+  </div>
+</Base>

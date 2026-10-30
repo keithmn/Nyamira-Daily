@@ -49,7 +49,7 @@ export const sections = [
   ] },
   { href: '/data/', label: 'Data', icon: 'data', overview: 'Nyamira in numbers',
     desc: 'The county in numbers: money, health, schools and farming, with every source.',
-    pages: [...dataPages, { href: '/state-of-nyamira/', label: 'State of Nyamira', icon: 'chart', desc: 'The yearly report card' }] },
+    pages: [...dataPages, { href: '/tracker/', label: 'Project tracker', icon: 'source', desc: 'Every contract: who, how much, when', also: ['/tracker/'] }, { href: '/state-of-nyamira/', label: 'State of Nyamira', icon: 'chart', desc: 'The yearly report card' }] },
   { href: '/community/', label: 'Community', icon: 'community', overview: 'The people of Nyamira',
     desc: "Who lives here, what's working, heritage and stories from across the county.", pages: [
     { href: '/community/people-and-places/', label: 'People and places', icon: 'people', desc: '2019 census and every sub-location' },

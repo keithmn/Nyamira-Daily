@@ -1,0 +1,53 @@
+---
+// A filterable list of tracker records (decision #71), grouped by financial year, newest first.
+// Without JavaScript every record shows (years in toggles, the newest open). With it: search, year and
+// ward/constituency filters, and a live count.
+import ContractRow from './ContractRow.astro';
+import wards from '../data/wards.json';
+import { constituencyName } from '../lib/contracts.js';
+interface Props { list: any[]; id: string; place?: 'ward' | 'constituency' | 'none' }
+const { list, id, place = 'ward' } = Astro.props;
+const years = [...new Set(list.map((c) => c.fy ?? 'Year not printed'))].sort().reverse();
+const byYear = years.map((y) => ({ y, items: list.filter((c) => (c.fy ?? 'Year not printed') === y) }));
+const usedWards = wards.filter((w) => list.some((c) => c.wards.includes(w.slug)));
+const usedConst = Object.keys(constituencyName).filter((k) => list.some((c) => c.constituency === k));
+---
+<div class="tracker" id={id}>
+  <form class="tk-filters" role="search" data-tk-filters hidden onsubmit="return false">
+    <label class="tk-f"><span>Search</span><input type="search" data-f="q" placeholder="Project, contractor, tender no." /></label>
+    <label class="tk-f"><span>Year</span><select data-f="fy"><option value="">All years</option>{years.map((y) => <option value={y}>{y === 'Year not printed' ? y : `FY${y}`}</option>)}</select></label>
+    {place === 'ward' && usedWards.length > 0 && <label class="tk-f"><span>Ward</span><select data-f="ward"><option value="">All wards</option>{usedWards.map((w) => <option value={w.slug}>{w.name}</option>)}</select></label>}
+    {place !== 'none' && usedConst.length > 1 && <label class="tk-f"><span>Constituency</span><select data-f="const"><option value="">All</option>{usedConst.map((k) => <option value={k}>{constituencyName[k]}</option>)}</select></label>}
+    <p class="tk-count small muted" aria-live="polite" data-count></p>
+  </form>
+  {byYear.map((g, i) => (
+    <details class="tk-year" open={i === 0} data-year={g.y}>
+      <summary>{g.y === 'Year not printed' ? g.y : `FY${g.y}`} <span class="muted">({g.items.length})</span></summary>
+      <ul class="ct-list">{g.items.map((c) => <ContractRow c={c} />)}</ul>
+    </details>
+  ))}
+</div>
+<script is:inline define:vars={{ id }}>
+(function () {
+  var root = document.getElementById(id); if (!root) return;
+  var form = root.querySelector('[data-tk-filters]'); form.hidden = false;
+  var rows = Array.prototype.slice.call(root.querySelectorAll('.ct-row'));
+  var years = Array.prototype.slice.call(root.querySelectorAll('.tk-year'));
+  var count = root.querySelector('[data-count]');
+  function v(k) { var el = form.querySelector('[data-f="' + k + '"]'); return el ? el.value : ''; }
+  function run() {
+    var q = v('q').trim().toLowerCase(), fy = v('fy'), ward = v('ward'), cn = v('const'), n = 0, any = q || fy || ward || cn;
+    rows.forEach(function (r) {
+      var ok = (!q || r.dataset.q.indexOf(q) >= 0) && (!fy || r.dataset.fy === fy || (fy === 'Year not printed' && !r.dataset.fy))
+        && (!ward || (' ' + r.dataset.ward + ' ').indexOf(' ' + ward + ' ') >= 0) && (!cn || r.dataset.const === cn);
+      r.hidden = !ok; if (ok) n++;
+    });
+    years.forEach(function (d, i) { var vis = d.querySelectorAll('.ct-row:not([hidden])').length; d.hidden = !vis; if (any) d.open = vis > 0; else d.open = i === 0; });
+    count.textContent = n === rows.length ? rows.length + ' records' : n + ' of ' + rows.length + ' records';
+  }
+  form.addEventListener('input', run); run();
+  var p = new URLSearchParams(location.search);
+  ['q', 'fy', 'ward', 'const'].forEach(function (k) { var el = form.querySelector('[data-f="' + k + '"]'); if (el && p.get(k)) el.value = p.get(k); });
+  run();
+})();
+</script>

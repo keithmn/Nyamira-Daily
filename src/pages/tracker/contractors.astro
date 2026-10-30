@@ -1,0 +1,24 @@
+---
+// All contractors in the tracker's records (decision #71), largest total first.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { contractors } from '../../lib/contracts.js';
+import { ksh, num } from '../../lib/fmt.js';
+const list = contractors();
+---
+<Base title="Contractors" description="Companies that won county and national contracts in Nyamira, from official procurement records.">
+  <PageHead eyebrow="Project tracker" title="Contractors" icon="people" lead={`${num(list.length)} companies named in the records, with every contract each one won. Companies only, exactly as printed.`}
+    crumbs={[{ href: '/tracker/', label: 'Project tracker' }, { href: '/tracker/contractors/', label: 'Contractors' }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    <form class="tk-filters" role="search" data-k-filter hidden onsubmit="return false"><label class="tk-f"><span>Find a company</span><input type="search" data-k-q placeholder="Company name" /></label></form>
+    <ol class="rank-list" data-k-list>{list.map((k) => <li data-q={k.name.toLowerCase()}><a href={`/tracker/contractor/${k.slug}/`}>{k.name}</a><span>{k.items.length} contract{k.items.length === 1 ? '' : 's'} · <b>{ksh(k.total)}</b></span></li>)}</ol>
+    <p class="small muted">A large total is not a finding of wrongdoing; it shows who has done the most public work here.</p>
+  </div>
+</Base>
+<script is:inline>
+(function () {
+  var f = document.querySelector('[data-k-filter]'); if (!f) return; f.hidden = false;
+  var q = f.querySelector('[data-k-q]'), items = document.querySelectorAll('[data-k-list] li');
+  q.addEventListener('input', function () { var s = q.value.trim().toLowerCase(); items.forEach(function (li) { li.hidden = s && li.dataset.q.indexOf(s) < 0; }); });
+})();
+</script>

@@ -112,3 +112,14 @@ Decision #70. Illustrations make pages inviting; they never carry facts.
 - **Record before publishing** (the component will not show a file without them): `file`, `kind` (`ai` or `drawn`), `tool` and the exact `prompt` for AI images, `created` date, and `approvedBy` (the editor). Check the tool's licence allows commercial use; keep the original file.
 - **No uploads of anything private:** never put source documents, photos of people or unpublished material into an image tool.
 - Prompts for the current slots are in `docs/ILLUSTRATION_PROMPTS.md`.
+
+## 16. Contracts and contractors (project tracker)
+
+Decision #71.
+
+- Publish what an official record prints: the company name, tender number, amounts and dates exactly as printed, with the source and page. If it is not printed, say so; never fill a gap from memory, news or a similar contract.
+- Companies only. If a record names a private person as the contractor, show "not shown (private person)". Never publish directors, owners, ID numbers, phone numbers or emails, even when the portal shows them.
+- A contract's dates are not progress. "Contract period ended" only means the end date has passed. Report progress, payment or completion only from a dated source, and say who reported it.
+- No ranking language. A company's total is "the most public work in these records", never "the biggest beneficiary" or similar. Terminations and audit findings are quoted, not characterised.
+- County and national money are separate sets and are never added together.
+- Corrections: a company named in the tracker may ask for a correction with a document; handle it like any other (`/how-we-work/#corrections`).

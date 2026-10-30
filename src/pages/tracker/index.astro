@@ -1,0 +1,80 @@
+---
+// Project tracker (decision #71): every commissioned project we can find in official records, county and national,
+// with the contractor, amounts and dates exactly as the sources print them.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Icon from '../../components/Icon.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import ContractRow from '../../components/ContractRow.astro';
+import ChartFrame from '../../components/charts/ChartFrame.astro';
+import ShareBars from '../../components/charts/ShareBars.astro';
+import { contracts, groups, groupOrder, byGroup, totals, contractors, pctOf } from '../../lib/contracts.js';
+import { ksh, num, date } from '../../lib/fmt.js';
+const all = totals(contracts);
+const per = groupOrder.map((g) => { const t = totals(byGroup(g)); const g2 = groups[g]; return { g, ...g2, t, line: num(t.count) + ' records · ' + g2.who + (t.value ? ' · ' + ksh(t.value) + (g === 'ng-cdf' ? ' in allocations' : ' in contract sums') : '') }; });
+const covTitle = 'The procurement portal names the contractor; the NG-CDF documents almost never do';
+const nK = contractors().length;
+const latest = contracts.filter((c) => c.awardDate && c.contractor).slice(0, 8);
+const top = contractors().slice(0, 8);
+const named = contracts.filter((c) => c.kind === 'contract');
+const namedShare = pctOf(named.filter((c) => c.contractor).length, named.length);
+const shareRows = per.filter((p) => p.t.count).map((p) => ({ label: p.label + ' (' + num(p.t.count) + ')', icon: p.icon, value: pctOf(p.t.withContractor, p.t.count), display: pctOf(p.t.withContractor, p.t.count) + '%' }));
+const shareTable = { columns: ['Set', 'Records', 'Contractor named'], rows: per.map((p) => [p.label, p.t.count, p.t.withContractor]) };
+---
+<Base title="Project tracker" description="Every county and national project in Nyamira we can find in official records: contractor, contract sum, dates and source.">
+  <PageHead eyebrow="Data" title="Project tracker" lead="Every project commissioned in Nyamira that we can find in official records, county and national: who got the contract, for how much, for which dates, and where it says so." icon="source" crumbs={[{ href: '/data/', label: 'Data' }, { href: '/tracker/', label: 'Project tracker' }]} />
+
+  <div class="stack-lg" style="margin-top:16px">
+    <section class="fig-row" aria-label="The tracker in numbers">
+      <div class="figure"><span class="eyebrow">Records</span><span class="num is-lead">{num(all.count)}</span><p class="say">contracts and project allocations, from {Object.keys(groups).length} sets of official records.</p></div>
+      <div class="figure"><span class="eyebrow">Contractors named</span><span class="num">{num(all.withContractor)}</span><p class="say">records name the company that won the contract ({namedShare}% of awarded contracts).</p></div>
+      <div class="figure"><span class="eyebrow">Latest award</span><span class="num">{date(all.latestAward)}</span><p class="say">the most recent award date in the records we hold.</p></div>
+    </section>
+    <p class="source"><EvidenceLabel kind="official" /> Sources: Public Procurement Information Portal (tenders.go.ke), KeNHA award lists, NG-CDF constituency project proposals and implementation reports, Auditor-General reports, LVSWWDA. Every record links to its source and page. County and national money are kept apart and never added together.</p>
+
+    <section class="stack" aria-labelledby="sets">
+      <h2 id="sets">Browse by who paid</h2>
+      <div class="sector-tiles compact">
+        {per.map((p) => (
+          <a class={`sector-tile sec-${p.tone}`} href={`/tracker/${p.g}/`}>
+            <Icon name={p.icon} size={24} badge />
+            <h3>{p.label}</h3>
+            <p>{p.line}</p>
+            <span class="go" aria-hidden="true">→</span>
+          </a>
+        ))}
+        <a class="sector-tile sec-earth" href="/tracker/contractors/"><Icon name="people" size={24} badge /><h3>Contractors</h3><p>{num(nK)} companies, with every contract each one won in these records.</p><span class="go" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <ChartFrame title={covTitle}
+      sub="Share of records in each set that name a contractor, %" evidence="official" source="The tracker's own records (see each set)"
+      note="NG-CDF sources are approved project proposals and implementation reports: they list allocations and progress, not the firms paid."
+      table={shareTable} csvName="nyamira-tracker-coverage">
+      <ShareBars label="Share of records naming a contractor" rows={shareRows} />
+    </ChartFrame>
+
+    <section class="stack" aria-labelledby="latest">
+      <h2 id="latest">Latest awards</h2>
+      <ul class="ct-list">{latest.map((c) => <ContractRow c={c} />)}</ul>
+    </section>
+
+    <section class="stack" aria-labelledby="top">
+      <h2 id="top">Largest contract totals by company</h2>
+      <p class="small muted">Total of contract sums in these records, all years. A large total is not a finding of wrongdoing; it shows who has done the most public work here.</p>
+      <ol class="rank-list">{top.map((k) => <li><a href={`/tracker/contractor/${k.slug}/`}>{k.name}</a><span>{k.items.length} contract{k.items.length === 1 ? '' : 's'} · <b>{ksh(k.total)}</b></span></li>)}</ol>
+    </section>
+
+    <section class="stack" aria-labelledby="how">
+      <h2 id="how">How this tracker works</h2>
+      <ul>
+        <li><strong>Exactly as printed.</strong> Contractor names, tender numbers, amounts and dates are copied from the source. Anything the source does not print is shown as not printed; nothing is estimated.</li>
+        <li><strong>Contract period is not progress.</strong> "Contract period ended" comes only from the contract's own dates. It does not mean the work was finished, or that it was not. Progress is shown only where a source reports it, with its date.</li>
+        <li><strong>Companies, not people.</strong> We publish company names as the procurement records show them. Where a record names a private person, we do not show the name. We never publish directors, ID numbers or phone numbers, even when the portal does.</li>
+        <li><strong>Questions, not accusations.</strong> A terminated contract or an audit finding is reported in the source's own words, with a link.</li>
+        <li><strong>Not complete.</strong> The portal holds almost nothing before 2019 and is missing some county contracts; KeRRA publishes adverts but not award lists; NG-CDF documents rarely name contractors. <a href="/how-we-work/#corrections">Tell us</a> about a contract we have missed or got wrong.</li>
+      </ul>
+      <p><a class="btn quiet" href="/files/contracts.csv" download>Download all records (CSV)</a> <a class="btn quiet" href="/api/contracts.json">JSON</a></p>
+    </section>
+  </div>
+</Base>

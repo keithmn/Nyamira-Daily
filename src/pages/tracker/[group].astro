@@ -1,0 +1,34 @@
+---
+// One set of tracker records (decision #71): county, assembly, national roads, NG-CDF or other national.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import TrackerList from '../../components/TrackerList.astro';
+import { groups, groupOrder, byGroup, totals, sources } from '../../lib/contracts.js';
+import { ksh, num } from '../../lib/fmt.js';
+export function getStaticPaths() {
+  return groupOrder.map((g) => ({ params: { group: g } }));
+}
+const { group } = Astro.params;
+const meta = groups[group];
+const list = byGroup(group);
+const t = totals(list);
+const srcs = [...new Set(list.map((c) => c.source))].map((k) => sources[k]);
+const place = group === 'ng-cdf' || group === 'roads' ? 'constituency' : 'ward';
+---
+<Base title={meta.title} description={meta.blurb}>
+  <PageHead eyebrow="Project tracker" title={meta.title} lead={meta.blurb} icon={meta.icon} crumbs={[{ href: '/tracker/', label: 'Project tracker' }, { href: `/tracker/${group}/`, label: meta.label }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    <section class="fig-row" aria-label="This set in numbers">
+      <div class="figure"><span class="eyebrow">Records</span><span class="num">{num(t.count)}</span><p class="say">{t.years.length ? `from FY${t.years[t.years.length - 1]} to FY${t.years[0]}` : ''}</p></div>
+      <div class="figure"><span class="eyebrow">{group === 'ng-cdf' ? 'Allocations' : 'Contract sums'}</span><span class="num">{ksh(t.value)}</span><p class="say">added up across {num(t.withAmount)} records that print an amount. {meta.who}.</p></div>
+      <div class="figure"><span class="eyebrow">Contractor named</span><span class="num">{num(t.withContractor)}</span><p class="say">of {num(t.count)} records.</p></div>
+    </section>
+    <TrackerList list={list} id={`tk-${group}`} place={place} />
+    <section class="stack">
+      <h2>Sources</h2>
+      <ul class="small">{srcs.map((s) => <li>{s.url ? <a href={s.url} rel="noopener">{s.title}</a> : s.title}{s.publisher && ` · ${s.publisher}`}{s.date && ` · ${s.date}`}</li>)}</ul>
+      <p class="source"><EvidenceLabel kind="official" /> Each record shows its exact source and page.</p>
+    </section>
+  </div>
+</Base>
