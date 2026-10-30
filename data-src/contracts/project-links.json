@@ -1,0 +1,410 @@
+[
+ {
+  "contractId": "C-0225e3f5",
+  "projectIds": [
+   "P-978d3de"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-978d3de",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 1599964.8,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-037ab7cd",
+  "projectIds": [
+   "P-5ab2897"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-5ab2897",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 998760.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-08ccfa80",
+  "projectIds": [
+   "P-4ef004b"
+  ],
+  "basis": "same ward, closely matching name, same or next financial year",
+  "lines": [
+   {
+    "projectId": "P-4ef004b",
+    "fy": "2024/25",
+    "kind": "budgeted",
+    "amount": 1500000,
+    "sourceId": "cadp2627",
+    "page": "p.60-61 (s.2.3.2 Water, Sanitation & Irrigation)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-0912c715",
+  "projectIds": [
+   "P-2353e2d"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-2353e2d",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 997600.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-0e2a3501",
+  "projectIds": [
+   "P-28ade86"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-28ade86",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 1599964.8,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-15518591",
+  "projectIds": [
+   "P-f97a422"
+  ],
+  "basis": "closely matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-f97a422",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 9040205,
+    "sourceId": "cob2324",
+    "page": "Table 3.234 (report p.438-439)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-1ad255af",
+  "projectIds": [
+   "P-30b9a4b"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-30b9a4b",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 4895200.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-2217a5dc",
+  "projectIds": [
+   "P-98569a5"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-98569a5",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 999873.6,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-25acda71",
+  "projectIds": [
+   "P-9f67ca1"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-9f67ca1",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 3199709.2,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-2d22f30a",
+  "projectIds": [
+   "P-d8ce843"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-d8ce843",
+    "fy": "2022/23",
+    "kind": "budgeted",
+    "amount": 2849772,
+    "sourceId": "adp2526",
+    "page": "p.57-58 (s.2.4.3 a)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-3c7b959f",
+  "projectIds": [
+   "P-63679ba"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-63679ba",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 2999963.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-3f427290",
+  "projectIds": [
+   "P-e812772"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-e812772",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 2997788.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-47c6a6ea",
+  "projectIds": [
+   "P-10e4e59",
+   "P-beff907"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-10e4e59",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 4999600.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   },
+   {
+    "projectId": "P-beff907",
+    "fy": "2024/25",
+    "kind": "contract",
+    "amount": 4999600,
+    "sourceId": "cob2425",
+    "page": "Table 3.416 (report p.395-396)"
+   },
+   {
+    "projectId": "P-beff907",
+    "fy": "2024/25",
+    "kind": "spent",
+    "amount": 4999600,
+    "sourceId": "cob2425",
+    "page": "Table 3.416 (report p.395-396)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-5eb4b780",
+  "projectIds": [
+   "P-28ade86"
+  ],
+  "basis": "same ward, closely matching name, same or next financial year",
+  "lines": [
+   {
+    "projectId": "P-28ade86",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 1599964.8,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-701e9c79",
+  "projectIds": [
+   "P-e47b056"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-e47b056",
+    "fy": "2022/23",
+    "kind": "budgeted",
+    "amount": 2848960,
+    "sourceId": "adp2526",
+    "page": "p.57-58 (s.2.4.3 a)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-7a64e31c",
+  "projectIds": [
+   "P-dcad5cd"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-dcad5cd",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 2999992.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-8a76a3da",
+  "projectIds": [
+   "P-1ae278b"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-1ae278b",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 3000050.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-9076d8d0",
+  "projectIds": [
+   "P-3e3c26b"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-3e3c26b",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 1999840.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-96ab5273",
+  "projectIds": [
+   "P-fb42a96"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-fb42a96",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 2999992.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-9d857a5e",
+  "projectIds": [
+   "P-a954ad2"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-a954ad2",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 1995026.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-a1eb4cdf",
+  "projectIds": [
+   "P-2eb752c"
+  ],
+  "basis": "same ward, closely matching name, same or next financial year",
+  "lines": [
+   {
+    "projectId": "P-2eb752c",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 3499720.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-af902bb5",
+  "projectIds": [
+   "P-5ab2897"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-5ab2897",
+    "fy": "2023/24",
+    "kind": "contract",
+    "amount": 998760.0,
+    "sourceId": "adp2526",
+    "page": "p.58-60 (s.2.4.3 b)"
+   }
+  ]
+ },
+ {
+  "contractId": "C-be82045d",
+  "projectIds": [
+   "P-230bd5f"
+  ],
+  "basis": "same ward, matching name, same amount",
+  "lines": [
+   {
+    "projectId": "P-230bd5f",
+    "fy": "2022/23",
+    "kind": "budgeted",
+    "amount": 2847800,
+    "sourceId": "adp2526",
+    "page": "p.57-58 (s.2.4.3 a)"
+   }
+  ]
+ }
+]

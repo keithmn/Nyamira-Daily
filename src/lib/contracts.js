@@ -30,6 +30,7 @@ export function periodState(c, today = new Date().toISOString().slice(0, 10)) {
 
 export function byGroup(g) { return contracts.filter((c) => c.group === g); }
 export function forWard(slug) { return contracts.filter((c) => c.wards.includes(slug)); }
+export function forProject(pid) { return contracts.filter((c) => (c.projectIds ?? []).includes(pid)); }
 export function forConstituency(slug) { return contracts.filter((c) => c.constituency === slug); }
 
 export function contractors() {
@@ -56,3 +57,13 @@ export function totals(list) {
 }
 // Percentage helper (kept out of .astro frontmatter: the Astro compiler can misread "/" there, decision #16)
 export const pctOf = (part, whole) => (whole ? Math.round((part / whole) * 100) : 0);
+
+// Reconciliation summary (decision #72): county contracts against the county's own ward project lines.
+export function reconcileSummary(projectIds) {
+  const county = contracts.filter((c) => c.group === 'county');
+  const linked = county.filter((c) => c.projectIds?.length);
+  const pids = new Set(linked.flatMap((c) => c.projectIds));
+  const totalP = projectIds.length;
+  return { county: county.length, linked: linked.length, projects: pids.size, totalProjects: totalP,
+    linkedPct: pctOf(linked.length, county.length), projectsPct: pctOf(pids.size, totalP) };
+}

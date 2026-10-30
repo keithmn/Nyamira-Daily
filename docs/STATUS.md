@@ -8,11 +8,12 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Content model:** data in `src/data/*.json` (sources in each file and in `docs/DATA.md`); text in `src/content/` collections (`draft: true` = EXAMPLE, hidden unless `ND_DRAFTS=1`).
 - **Decisions:** `docs/DECISIONS.md` #1–#30 explain every structural choice. Read #3 (two layers), #14 (questions not accusations), #24–#25 (colour roles; red on maps = emergencies only), #27 (no invented data), #30 (sectors).
 
-## Project tracker (30 Oct 2026, branch `feat/project-tracker` from `43f79b0`, not pushed)
+## Project tracker (30 Oct 2026, on `main` at `2b5757c`; reconciliation on branch `feat/tracker-reconcile`)
 
 - Decision #71, editorial rules §16, DATA.md entry. Pages: `/tracker/`, `/tracker/<set>/`, `/tracker/c/<id>/`, `/tracker/contractors/`, `/tracker/contractor/<slug>/`; ward pages get a "Contracts" toggle; menu: Data → Project tracker. Files: `src/lib/contracts.js`, `src/components/ContractRow.astro`, `TrackerList.astro`, `src/pages/tracker/**`, `src/pages/api/contracts.json.js`, `scripts/build-contracts.py`, `data-src/contracts/*`, `src/data/contracts.json`, `public/files/contracts.csv`, `src/lib/contracts-data.test.js`.
 - 1,628 records, 494 naming a contractor, 326 companies; 2 terminations flagged by the portal. Build: 2,808 pages (NG-CDF list page is 616 KB uncompressed).
-- Next: match tracker records to existing project IDs (`wardspend.json`) so budget lines, contracts and progress sit on one page; add amounts paid and progress from county Annual Progress Reports and Budget Implementation Reports (nyamira.go.ke document list id=2) and Auditor-General reports; download the Ministry of Education lots and REREC award PDFs by hand (blocked to automated fetch); refresh from the portal quarterly.
+- Reconciliation (decision #72): 23 of 166 county contracts linked to 22 of 349 ward projects; record pages show the budget lines, project pages show the contract, `/tracker/` shows the counts. 176 close pairs wait in `data-src/contracts/reconcile-review.json` for a person to confirm or reject (`reconcile-overrides.json`). The Marara–Mangongo pipeline appears twice on the portal (same contractor and sum, end dates a day apart); both are shown as published.
+- Next: work through the review pairs; add amounts paid and progress from county Annual Progress Reports and Budget Implementation Reports (nyamira.go.ke document list id=2) and Auditor-General reports; download the Ministry of Education lots and REREC award PDFs by hand (blocked to automated fetch); refresh from the portal quarterly.
 
 ## Calm pages, chart kit and illustrations (30 Oct 2026, branch `feat/calm-charts` from `b23b862`, not pushed)
 

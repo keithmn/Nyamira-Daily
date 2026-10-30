@@ -1,0 +1,2908 @@
+[
+ {
+  "contractId": "C-09cadd53",
+  "contract": "REPAIR & MAINTENANCE OF NYARONDE MKT\u2013NYARONDE PRI SCH\u2013MILIMANI\u2013RIBAITA ROAD",
+  "contractFy": "2019/20",
+  "contractAmount": 4198678.0,
+  "contractWards": [],
+  "projectId": "P-0f5d811",
+  "project": "Road routine maintenance: Nyaronde Mkt - Nyaronde Pri Sch - Milimani - Ribaita (6.0 km)",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 5506520.0,
+  "projectWard": "nyansiongo",
+  "similarity": 1.0
+ },
+ {
+  "contractId": "C-09cadd53",
+  "contract": "REPAIR & MAINTENANCE OF NYARONDE MKT\u2013NYARONDE PRI SCH\u2013MILIMANI\u2013RIBAITA ROAD",
+  "contractFy": "2019/20",
+  "contractAmount": 4198678.0,
+  "contractWards": [],
+  "projectId": "P-0f5d811",
+  "project": "Road routine maintenance: Nyaronde Mkt - Nyaronde Pri Sch - Milimani - Ribaita (6.0 km)",
+  "projectFy": "2023/24",
+  "projectKind": "spent",
+  "projectAmount": 5506520.0,
+  "projectWard": "nyansiongo",
+  "similarity": 1.0
+ },
+ {
+  "contractId": "C-5eb4b780",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF BOKEIRA WARD WATER SPRINGS",
+  "contractFy": "2024/25",
+  "contractAmount": 3955858.4,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-5eb4b780",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF BOKEIRA WARD WATER SPRINGS",
+  "contractFy": "2024/25",
+  "contractAmount": 3955858.4,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-5eb4b780",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF BOKEIRA WARD WATER SPRINGS",
+  "contractFy": "2024/25",
+  "contractAmount": 3955858.4,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-5eb4b780",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF BOKEIRA WARD WATER SPRINGS",
+  "contractFy": "2024/25",
+  "contractAmount": 3955858.4,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-5eb4b780",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF BOKEIRA WARD WATER SPRINGS",
+  "contractFy": "2024/25",
+  "contractAmount": 3955858.4,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-5eb4b780",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF BOKEIRA WARD WATER SPRINGS",
+  "contractFy": "2024/25",
+  "contractAmount": 3955858.4,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0225e3f5",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYANSIONGO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "nyansiongo"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0225e3f5",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYANSIONGO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "nyansiongo"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0225e3f5",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYANSIONGO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "nyansiongo"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0225e3f5",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYANSIONGO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "nyansiongo"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0225e3f5",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYANSIONGO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "nyansiongo"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0225e3f5",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYANSIONGO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "nyansiongo"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-2217a5dc",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 999873.6,
+  "contractWards": [
+   "ekerenyo"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-2217a5dc",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 999873.6,
+  "contractWards": [
+   "ekerenyo"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-2217a5dc",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 999873.6,
+  "contractWards": [
+   "ekerenyo"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-2217a5dc",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 999873.6,
+  "contractWards": [
+   "ekerenyo"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-2217a5dc",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 999873.6,
+  "contractWards": [
+   "ekerenyo"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-2217a5dc",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 999873.6,
+  "contractWards": [
+   "ekerenyo"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0e2a3501",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOKEIRA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0e2a3501",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOKEIRA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0e2a3501",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOKEIRA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0e2a3501",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOKEIRA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0e2a3501",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOKEIRA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-0e2a3501",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOKEIRA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-a1eb4cdf",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MEKENENE WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 3500000.0,
+  "contractWards": [
+   "mekenene"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-a1eb4cdf",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MEKENENE WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 3500000.0,
+  "contractWards": [
+   "mekenene"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-a1eb4cdf",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MEKENENE WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 3500000.0,
+  "contractWards": [
+   "mekenene"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-a1eb4cdf",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MEKENENE WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 3500000.0,
+  "contractWards": [
+   "mekenene"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-a1eb4cdf",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MEKENENE WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 3500000.0,
+  "contractWards": [
+   "mekenene"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-a1eb4cdf",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MEKENENE WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 3500000.0,
+  "contractWards": [
+   "mekenene"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-b9ee6f18",
+  "contract": "PROPOSED EQUIPPING AND DISTRIBUTION OF GESIMA BOREHOLE IN GESIMA WARD",
+  "contractFy": "2022/23",
+  "contractAmount": 2847800.0,
+  "contractWards": [
+   "gesima"
+  ],
+  "projectId": "P-6eea4c4",
+  "project": "Water distribution at Gesima water borehole",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 500000,
+  "projectWard": "gesima",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-86bf6a6e",
+  "contract": "CONSTRUCTION AND COMPLETION OF A PSYCHIATRIC HOSPITAL AT RIOMEGO (MAGWAGWA)",
+  "contractFy": "2021/22",
+  "contractAmount": 106495410.2,
+  "contractWards": [],
+  "projectId": "P-d116175",
+  "project": "Equipping of Magwagwa Psychiatric hospital",
+  "projectFy": "2024/25",
+  "projectKind": "budgeted",
+  "projectAmount": 2500000,
+  "projectWard": "magwagwa",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-f5cc5b71",
+  "contract": "REPAIR & MAINTENANCE OF MOSOBETI\u2013ENTOROBO TBC \u2013 NYARONGE TBC ROAD",
+  "contractFy": "2019/20",
+  "contractAmount": 3067806.7,
+  "contractWards": [],
+  "projectId": "P-7b1b69d",
+  "project": "Mosobeti-Entorobo-Nyaronge",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1500000,
+  "projectWard": "gesima",
+  "similarity": 0.75
+ },
+ {
+  "contractId": "C-9d857a5e",
+  "contract": "REHABILITATION AND WATER DISTRIBUTION OF BOGWENDO BOREHOLE IN MAGOMBO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1995026.0,
+  "contractWards": [
+   "magombo"
+  ],
+  "projectId": "P-f860931",
+  "project": "Pipping and water distribution at Bogwendo borehole",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "magombo",
+  "similarity": 0.67
+ },
+ {
+  "contractId": "C-9d857a5e",
+  "contract": "REHABILITATION AND WATER DISTRIBUTION OF BOGWENDO BOREHOLE IN MAGOMBO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1995026.0,
+  "contractWards": [
+   "magombo"
+  ],
+  "projectId": "P-69aab24",
+  "project": "Pipping and water distribution at Magombo borehole",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 2000000,
+  "projectWard": "magombo",
+  "similarity": 0.67
+ },
+ {
+  "contractId": "C-15518591",
+  "contract": "PROPOSED RENOVATION OF MORTUARY AND INSTALLATION OF A NEW COOLING SYSTEM AT NYAMIRA COUNTY REFERRAL HOSPITAL.",
+  "contractFy": "2021/22",
+  "contractAmount": 9040205.0,
+  "contractWards": [],
+  "projectId": "P-1cc28de",
+  "project": "Proposed Renovation and installation of new cooling system at NCRH Mortuary",
+  "projectFy": "as at 30 Jun 2025",
+  "projectKind": "contract",
+  "projectAmount": 9040205,
+  "projectWard": "township",
+  "similarity": 0.62
+ },
+ {
+  "contractId": "C-15518591",
+  "contract": "PROPOSED RENOVATION OF MORTUARY AND INSTALLATION OF A NEW COOLING SYSTEM AT NYAMIRA COUNTY REFERRAL HOSPITAL.",
+  "contractFy": "2021/22",
+  "contractAmount": 9040205.0,
+  "contractWards": [],
+  "projectId": "P-1cc28de",
+  "project": "Proposed Renovation and installation of new cooling system at NCRH Mortuary",
+  "projectFy": "as at 30 Jun 2025",
+  "projectKind": "spent",
+  "projectAmount": 5992481,
+  "projectWard": "township",
+  "similarity": 0.62
+ },
+ {
+  "contractId": "C-b5a5fa4d",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MAGWAGWA AND BOKEIRA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734371.68,
+  "contractWards": [
+   "bokeira",
+   "magwagwa"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-b5a5fa4d",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MAGWAGWA AND BOKEIRA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734371.68,
+  "contractWards": [
+   "bokeira",
+   "magwagwa"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-b5a5fa4d",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MAGWAGWA AND BOKEIRA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734371.68,
+  "contractWards": [
+   "bokeira",
+   "magwagwa"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-b5a5fa4d",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MAGWAGWA AND BOKEIRA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734371.68,
+  "contractWards": [
+   "bokeira",
+   "magwagwa"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-b5a5fa4d",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MAGWAGWA AND BOKEIRA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734371.68,
+  "contractWards": [
+   "bokeira",
+   "magwagwa"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-b5a5fa4d",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MAGWAGWA AND BOKEIRA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734371.68,
+  "contractWards": [
+   "bokeira",
+   "magwagwa"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-b5a5fa4d",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MAGWAGWA AND BOKEIRA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734371.68,
+  "contractWards": [
+   "bokeira",
+   "magwagwa"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-7fa9cf46",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOSAMARO AND BOGICHORA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739872.21,
+  "contractWards": [
+   "bogichora",
+   "bosamaro"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-7fa9cf46",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOSAMARO AND BOGICHORA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739872.21,
+  "contractWards": [
+   "bogichora",
+   "bosamaro"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-7fa9cf46",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOSAMARO AND BOGICHORA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739872.21,
+  "contractWards": [
+   "bogichora",
+   "bosamaro"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-7fa9cf46",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOSAMARO AND BOGICHORA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739872.21,
+  "contractWards": [
+   "bogichora",
+   "bosamaro"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-7fa9cf46",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOSAMARO AND BOGICHORA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739872.21,
+  "contractWards": [
+   "bogichora",
+   "bosamaro"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-7fa9cf46",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOSAMARO AND BOGICHORA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739872.21,
+  "contractWards": [
+   "bogichora",
+   "bosamaro"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-7fa9cf46",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOSAMARO AND BOGICHORA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739872.21,
+  "contractWards": [
+   "bogichora",
+   "bosamaro"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-40e0224b",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN KIABONYORU AND MEKENENE WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739965.3,
+  "contractWards": [
+   "mekenene",
+   "kiabonyoru"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-40e0224b",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN KIABONYORU AND MEKENENE WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739965.3,
+  "contractWards": [
+   "mekenene",
+   "kiabonyoru"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-40e0224b",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN KIABONYORU AND MEKENENE WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739965.3,
+  "contractWards": [
+   "mekenene",
+   "kiabonyoru"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-40e0224b",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN KIABONYORU AND MEKENENE WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739965.3,
+  "contractWards": [
+   "mekenene",
+   "kiabonyoru"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-40e0224b",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN KIABONYORU AND MEKENENE WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739965.3,
+  "contractWards": [
+   "mekenene",
+   "kiabonyoru"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-40e0224b",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN KIABONYORU AND MEKENENE WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739965.3,
+  "contractWards": [
+   "mekenene",
+   "kiabonyoru"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-40e0224b",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN KIABONYORU AND MEKENENE WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739965.3,
+  "contractWards": [
+   "mekenene",
+   "kiabonyoru"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8cd0e787",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYAMAIYA AND BOMWAGAMO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1735230.8,
+  "contractWards": [
+   "bomwagamo",
+   "nyamaiya"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8cd0e787",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYAMAIYA AND BOMWAGAMO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1735230.8,
+  "contractWards": [
+   "bomwagamo",
+   "nyamaiya"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8cd0e787",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYAMAIYA AND BOMWAGAMO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1735230.8,
+  "contractWards": [
+   "bomwagamo",
+   "nyamaiya"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8cd0e787",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYAMAIYA AND BOMWAGAMO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1735230.8,
+  "contractWards": [
+   "bomwagamo",
+   "nyamaiya"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8cd0e787",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYAMAIYA AND BOMWAGAMO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1735230.8,
+  "contractWards": [
+   "bomwagamo",
+   "nyamaiya"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8cd0e787",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYAMAIYA AND BOMWAGAMO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1735230.8,
+  "contractWards": [
+   "bomwagamo",
+   "nyamaiya"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8cd0e787",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYAMAIYA AND BOMWAGAMO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1735230.8,
+  "contractWards": [
+   "bomwagamo",
+   "nyamaiya"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-e06a6fee",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO AND ITIBO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739593.84,
+  "contractWards": [
+   "itibo",
+   "ekerenyo"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-e06a6fee",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO AND ITIBO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739593.84,
+  "contractWards": [
+   "itibo",
+   "ekerenyo"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-e06a6fee",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO AND ITIBO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739593.84,
+  "contractWards": [
+   "itibo",
+   "ekerenyo"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-e06a6fee",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO AND ITIBO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739593.84,
+  "contractWards": [
+   "itibo",
+   "ekerenyo"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-e06a6fee",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO AND ITIBO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739593.84,
+  "contractWards": [
+   "itibo",
+   "ekerenyo"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-e06a6fee",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO AND ITIBO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739593.84,
+  "contractWards": [
+   "itibo",
+   "ekerenyo"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-e06a6fee",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO AND ITIBO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1739593.84,
+  "contractWards": [
+   "itibo",
+   "ekerenyo"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8aaf0c23",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN ESISE AND NYANSIONGO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1736520.08,
+  "contractWards": [
+   "nyansiongo",
+   "esise"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8aaf0c23",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN ESISE AND NYANSIONGO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1736520.08,
+  "contractWards": [
+   "nyansiongo",
+   "esise"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8aaf0c23",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN ESISE AND NYANSIONGO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1736520.08,
+  "contractWards": [
+   "nyansiongo",
+   "esise"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8aaf0c23",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN ESISE AND NYANSIONGO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1736520.08,
+  "contractWards": [
+   "nyansiongo",
+   "esise"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8aaf0c23",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN ESISE AND NYANSIONGO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1736520.08,
+  "contractWards": [
+   "nyansiongo",
+   "esise"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8aaf0c23",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN ESISE AND NYANSIONGO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1736520.08,
+  "contractWards": [
+   "nyansiongo",
+   "esise"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-8aaf0c23",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN ESISE AND NYANSIONGO WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1736520.08,
+  "contractWards": [
+   "nyansiongo",
+   "esise"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-c0b061f2",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN TOWNSHIP AND BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1723812.96,
+  "contractWards": [
+   "township",
+   "bonyamatuta"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-c0b061f2",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN TOWNSHIP AND BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1723812.96,
+  "contractWards": [
+   "township",
+   "bonyamatuta"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-c0b061f2",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN TOWNSHIP AND BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1723812.96,
+  "contractWards": [
+   "township",
+   "bonyamatuta"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-c0b061f2",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN TOWNSHIP AND BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1723812.96,
+  "contractWards": [
+   "township",
+   "bonyamatuta"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-c0b061f2",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN TOWNSHIP AND BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1723812.96,
+  "contractWards": [
+   "township",
+   "bonyamatuta"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-c0b061f2",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN TOWNSHIP AND BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1723812.96,
+  "contractWards": [
+   "township",
+   "bonyamatuta"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-c0b061f2",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN TOWNSHIP AND BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1723812.96,
+  "contractWards": [
+   "township",
+   "bonyamatuta"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2b2a25f3",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN RIGOMA AND GACHUBA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1738665.44,
+  "contractWards": [
+   "gachuba",
+   "rigoma"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2b2a25f3",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN RIGOMA AND GACHUBA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1738665.44,
+  "contractWards": [
+   "gachuba",
+   "rigoma"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2b2a25f3",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN RIGOMA AND GACHUBA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1738665.44,
+  "contractWards": [
+   "gachuba",
+   "rigoma"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2b2a25f3",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN RIGOMA AND GACHUBA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1738665.44,
+  "contractWards": [
+   "gachuba",
+   "rigoma"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2b2a25f3",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN RIGOMA AND GACHUBA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1738665.44,
+  "contractWards": [
+   "gachuba",
+   "rigoma"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2b2a25f3",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN RIGOMA AND GACHUBA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1738665.44,
+  "contractWards": [
+   "gachuba",
+   "rigoma"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2b2a25f3",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN RIGOMA AND GACHUBA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1738665.44,
+  "contractWards": [
+   "gachuba",
+   "rigoma"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-d7f6504c",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MANGA AND KEMERA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734849.6,
+  "contractWards": [
+   "kemera",
+   "manga"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-d7f6504c",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MANGA AND KEMERA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734849.6,
+  "contractWards": [
+   "kemera",
+   "manga"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-d7f6504c",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MANGA AND KEMERA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734849.6,
+  "contractWards": [
+   "kemera",
+   "manga"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-d7f6504c",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MANGA AND KEMERA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734849.6,
+  "contractWards": [
+   "kemera",
+   "manga"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-d7f6504c",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MANGA AND KEMERA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734849.6,
+  "contractWards": [
+   "kemera",
+   "manga"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-d7f6504c",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MANGA AND KEMERA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734849.6,
+  "contractWards": [
+   "kemera",
+   "manga"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-d7f6504c",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MANGA AND KEMERA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1734849.6,
+  "contractWards": [
+   "kemera",
+   "manga"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2305fd8a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOMWAGAMO & ITIBO WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 1749981.8,
+  "contractWards": [
+   "itibo",
+   "bomwagamo"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2305fd8a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOMWAGAMO & ITIBO WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 1749981.8,
+  "contractWards": [
+   "itibo",
+   "bomwagamo"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2305fd8a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOMWAGAMO & ITIBO WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 1749981.8,
+  "contractWards": [
+   "itibo",
+   "bomwagamo"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2305fd8a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOMWAGAMO & ITIBO WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 1749981.8,
+  "contractWards": [
+   "itibo",
+   "bomwagamo"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2305fd8a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOMWAGAMO & ITIBO WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 1749981.8,
+  "contractWards": [
+   "itibo",
+   "bomwagamo"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2305fd8a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOMWAGAMO & ITIBO WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 1749981.8,
+  "contractWards": [
+   "itibo",
+   "bomwagamo"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-2305fd8a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOMWAGAMO & ITIBO WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 1749981.8,
+  "contractWards": [
+   "itibo",
+   "bomwagamo"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.6
+ },
+ {
+  "contractId": "C-24f41f4d",
+  "contract": "SUPPLY, DELIVERY AND INSTALLATION OF SOLAR STREET LIGHTS WITHIN NYAMIRA COUNTY",
+  "contractFy": "2024/25",
+  "contractAmount": 2701200.0,
+  "contractWards": [],
+  "projectId": "P-a7340cb",
+  "project": "Installation of solar lights ( 12)",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 2000000,
+  "projectWard": "esise",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-24f41f4d",
+  "contract": "SUPPLY, DELIVERY AND INSTALLATION OF SOLAR STREET LIGHTS WITHIN NYAMIRA COUNTY",
+  "contractFy": "2024/25",
+  "contractAmount": 2701200.0,
+  "contractWards": [],
+  "projectId": "P-559f102",
+  "project": "Street lights",
+  "projectFy": "2024/25",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "bokeira",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-5eddbe53",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOSAMARO, BOGICHORA & BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249500.0,
+  "contractWards": [
+   "bogichora",
+   "bosamaro",
+   "bonyamatuta"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-5eddbe53",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOSAMARO, BOGICHORA & BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249500.0,
+  "contractWards": [
+   "bogichora",
+   "bosamaro",
+   "bonyamatuta"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-5eddbe53",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOSAMARO, BOGICHORA & BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249500.0,
+  "contractWards": [
+   "bogichora",
+   "bosamaro",
+   "bonyamatuta"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-5eddbe53",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOSAMARO, BOGICHORA & BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249500.0,
+  "contractWards": [
+   "bogichora",
+   "bosamaro",
+   "bonyamatuta"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-5eddbe53",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOSAMARO, BOGICHORA & BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249500.0,
+  "contractWards": [
+   "bogichora",
+   "bosamaro",
+   "bonyamatuta"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-5eddbe53",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOSAMARO, BOGICHORA & BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249500.0,
+  "contractWards": [
+   "bogichora",
+   "bosamaro",
+   "bonyamatuta"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-5eddbe53",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOSAMARO, BOGICHORA & BONYAMATUTA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249500.0,
+  "contractWards": [
+   "bogichora",
+   "bosamaro",
+   "bonyamatuta"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-6dcadd99",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOKEIRA, NYAMAIYA & MAGWAGWA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249694.8,
+  "contractWards": [
+   "bokeira",
+   "magwagwa",
+   "nyamaiya"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-6dcadd99",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOKEIRA, NYAMAIYA & MAGWAGWA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249694.8,
+  "contractWards": [
+   "bokeira",
+   "magwagwa",
+   "nyamaiya"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-6dcadd99",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOKEIRA, NYAMAIYA & MAGWAGWA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249694.8,
+  "contractWards": [
+   "bokeira",
+   "magwagwa",
+   "nyamaiya"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-6dcadd99",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOKEIRA, NYAMAIYA & MAGWAGWA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249694.8,
+  "contractWards": [
+   "bokeira",
+   "magwagwa",
+   "nyamaiya"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-6dcadd99",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOKEIRA, NYAMAIYA & MAGWAGWA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249694.8,
+  "contractWards": [
+   "bokeira",
+   "magwagwa",
+   "nyamaiya"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-6dcadd99",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOKEIRA, NYAMAIYA & MAGWAGWA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249694.8,
+  "contractWards": [
+   "bokeira",
+   "magwagwa",
+   "nyamaiya"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-6dcadd99",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR BOKEIRA, NYAMAIYA & MAGWAGWA WARDS",
+  "contractFy": "2024/25",
+  "contractAmount": 1249694.8,
+  "contractWards": [
+   "bokeira",
+   "magwagwa",
+   "nyamaiya"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-5568d826",
+  "contract": "PROPOSED EQUIPPING AND DISTRIBUTION OF TONGA OMONURI BOREHOLE IN NYAMAIYA WARD",
+  "contractFy": "2024/25",
+  "contractAmount": 3644966.42,
+  "contractWards": [
+   "nyamaiya"
+  ],
+  "projectId": "P-df975db",
+  "project": "Proposed Drilling of Tonga Omonuri Borehole",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 2929248.0,
+  "projectWard": "nyamaiya",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-5eb4b780",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF BOKEIRA WARD WATER SPRINGS",
+  "contractFy": "2024/25",
+  "contractAmount": 3955858.4,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-98b76ff",
+  "project": "Springs protection ( 4 )",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "gachuba",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-5eb4b780",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF BOKEIRA WARD WATER SPRINGS",
+  "contractFy": "2024/25",
+  "contractAmount": 3955858.4,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-63fd29e",
+  "project": "Protection of Springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "manga",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-4264c082",
+  "contract": "PROPOSED REHABILITATION OF GESURE BOREHOLE IN MANGA WARD",
+  "contractFy": "2024/25",
+  "contractAmount": 1499995.0,
+  "contractWards": [
+   "manga"
+  ],
+  "projectId": "P-fb42a96",
+  "project": "Equipping and Distribution of Gesure Borehole",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 2999992.0,
+  "projectWard": "manga",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-7a1d0f20",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF ITIBO WARD WATER SPRING",
+  "contractFy": "2024/25",
+  "contractAmount": 4944823.0,
+  "contractWards": [
+   "itibo"
+  ],
+  "projectId": "P-aaa383a",
+  "project": "Spring Protection",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "bokeira",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-7a1d0f20",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF ITIBO WARD WATER SPRING",
+  "contractFy": "2024/25",
+  "contractAmount": 4944823.0,
+  "contractWards": [
+   "itibo"
+  ],
+  "projectId": "P-416b1e2",
+  "project": "Spring Protection",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "bonyamatuta",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-7a1d0f20",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF ITIBO WARD WATER SPRING",
+  "contractFy": "2024/25",
+  "contractAmount": 4944823.0,
+  "contractWards": [
+   "itibo"
+  ],
+  "projectId": "P-5fa67c4",
+  "project": "Spring protection",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "itibo",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-7a1d0f20",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF ITIBO WARD WATER SPRING",
+  "contractFy": "2024/25",
+  "contractAmount": 4944823.0,
+  "contractWards": [
+   "itibo"
+  ],
+  "projectId": "P-e0c9338",
+  "project": "Spring protection",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "magwagwa",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-7a1d0f20",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF ITIBO WARD WATER SPRING",
+  "contractFy": "2024/25",
+  "contractAmount": 4944823.0,
+  "contractWards": [
+   "itibo"
+  ],
+  "projectId": "P-6842e83",
+  "project": "Spring protection (5)",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "rigoma",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-7a1d0f20",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF ITIBO WARD WATER SPRING",
+  "contractFy": "2024/25",
+  "contractAmount": 4944823.0,
+  "contractWards": [
+   "itibo"
+  ],
+  "projectId": "P-5e5aca7",
+  "project": "Spring protection",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "township",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-7a1d0f20",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF ITIBO WARD WATER SPRING",
+  "contractFy": "2024/25",
+  "contractAmount": 4944823.0,
+  "contractWards": [
+   "itibo"
+  ],
+  "projectId": "P-5e5aca7",
+  "project": "Spring protection",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 2000000,
+  "projectWard": "township",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-1adc4cfb",
+  "contract": "PROPOSED EQUIPPING AND DISTRIBUTION OF EKEGORO BOREHOLE IN MAGWAGWA WARD",
+  "contractFy": "2024/25",
+  "contractAmount": 3999680.0,
+  "contractWards": [
+   "magwagwa"
+  ],
+  "projectId": "P-e1db09c",
+  "project": "Ekegoro Borehole",
+  "projectFy": "2024/25",
+  "projectKind": "budgeted",
+  "projectAmount": 6405000,
+  "projectWard": "magwagwa",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-1adc4cfb",
+  "contract": "PROPOSED EQUIPPING AND DISTRIBUTION OF EKEGORO BOREHOLE IN MAGWAGWA WARD",
+  "contractFy": "2024/25",
+  "contractAmount": 3999680.0,
+  "contractWards": [
+   "magwagwa"
+  ],
+  "projectId": "P-e1db09c",
+  "project": "Ekegoro Borehole",
+  "projectFy": "2024/25",
+  "projectKind": "spent",
+  "projectAmount": 6398000.8,
+  "projectWard": "magwagwa",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-3333acd4",
+  "contract": "SUPPLY, DELIVERY AND INSTALLATION OF SOLAR STREET LIGHTS IN KEMERA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 989200.0,
+  "contractWards": [
+   "kemera"
+  ],
+  "projectId": "P-a7340cb",
+  "project": "Installation of solar lights ( 12)",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 2000000,
+  "projectWard": "esise",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-3333acd4",
+  "contract": "SUPPLY, DELIVERY AND INSTALLATION OF SOLAR STREET LIGHTS IN KEMERA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 989200.0,
+  "contractWards": [
+   "kemera"
+  ],
+  "projectId": "P-559f102",
+  "project": "Street lights",
+  "projectFy": "2024/25",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "bokeira",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-7a64e31c",
+  "contract": "PROPOSED DRILLING OF KIAMOGAKE BOREHOLE IN EKERENYO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 2999992.0,
+  "contractWards": [
+   "ekerenyo"
+  ],
+  "projectId": "P-a1d2282",
+  "project": "Equipping of Kiamogake borehole",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1500000,
+  "projectWard": "ekerenyo",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-7a64e31c",
+  "contract": "PROPOSED DRILLING OF KIAMOGAKE BOREHOLE IN EKERENYO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 2999992.0,
+  "contractWards": [
+   "ekerenyo"
+  ],
+  "projectId": "P-5b1557f",
+  "project": "Drilling of a borehole",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 0,
+  "projectWard": "nyamaiya",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-0225e3f5",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYANSIONGO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "nyansiongo"
+  ],
+  "projectId": "P-98b76ff",
+  "project": "Springs protection ( 4 )",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "gachuba",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-0225e3f5",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN NYANSIONGO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "nyansiongo"
+  ],
+  "projectId": "P-63fd29e",
+  "project": "Protection of Springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "manga",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-2217a5dc",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 999873.6,
+  "contractWards": [
+   "ekerenyo"
+  ],
+  "projectId": "P-98b76ff",
+  "project": "Springs protection ( 4 )",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "gachuba",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-2217a5dc",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN EKERENYO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 999873.6,
+  "contractWards": [
+   "ekerenyo"
+  ],
+  "projectId": "P-63fd29e",
+  "project": "Protection of Springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "manga",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-3c7b959f",
+  "contract": "PROPOSED DRILLING AND EQUIPPING OF NYANKONGO BOREHOLE IN KIABONYORU WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 2999963.0,
+  "contractWards": [
+   "kiabonyoru"
+  ],
+  "projectId": "P-5b1557f",
+  "project": "Drilling of a borehole",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 0,
+  "projectWard": "nyamaiya",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-0e2a3501",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOKEIRA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-98b76ff",
+  "project": "Springs protection ( 4 )",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "gachuba",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-0e2a3501",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN BOKEIRA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1599964.8,
+  "contractWards": [
+   "bokeira"
+  ],
+  "projectId": "P-63fd29e",
+  "project": "Protection of Springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "manga",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-4319405a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR GACHUBA, MAGOMBO & RIGOMA WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 3599920.8,
+  "contractWards": [
+   "gachuba",
+   "magombo",
+   "rigoma"
+  ],
+  "projectId": "P-133e9be",
+  "project": "Protection of water springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 600000,
+  "projectWard": "gesima",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-4319405a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR GACHUBA, MAGOMBO & RIGOMA WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 3599920.8,
+  "contractWards": [
+   "gachuba",
+   "magombo",
+   "rigoma"
+  ],
+  "projectId": "P-2eb752c",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3499720.0,
+  "projectWard": "mekenene",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-4319405a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR GACHUBA, MAGOMBO & RIGOMA WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 3599920.8,
+  "contractWards": [
+   "gachuba",
+   "magombo",
+   "rigoma"
+  ],
+  "projectId": "P-98569a5",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 999873.6,
+  "projectWard": "ekerenyo",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-4319405a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR GACHUBA, MAGOMBO & RIGOMA WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 3599920.8,
+  "contractWards": [
+   "gachuba",
+   "magombo",
+   "rigoma"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 3599920.8,
+  "projectWard": null,
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-4319405a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR GACHUBA, MAGOMBO & RIGOMA WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 3599920.8,
+  "contractWards": [
+   "gachuba",
+   "magombo",
+   "rigoma"
+  ],
+  "projectId": "P-28ade86",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "bokeira",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-4319405a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR GACHUBA, MAGOMBO & RIGOMA WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 3599920.8,
+  "contractWards": [
+   "gachuba",
+   "magombo",
+   "rigoma"
+  ],
+  "projectId": "P-978d3de",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1599964.8,
+  "projectWard": "nyansiongo",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-4319405a",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS FOR GACHUBA, MAGOMBO & RIGOMA WARDS",
+  "contractFy": "2023/24",
+  "contractAmount": 3599920.8,
+  "contractWards": [
+   "gachuba",
+   "magombo",
+   "rigoma"
+  ],
+  "projectId": "P-f393229",
+  "project": "Proposed Construction and Protection of Water Springs",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1749981.8,
+  "projectWard": null,
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-a1eb4cdf",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MEKENENE WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 3500000.0,
+  "contractWards": [
+   "mekenene"
+  ],
+  "projectId": "P-98b76ff",
+  "project": "Springs protection ( 4 )",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "gachuba",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-a1eb4cdf",
+  "contract": "PROPOSED CONSTRUCTION AND PROTECTION OF WATER SPRINGS IN MEKENENE WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 3500000.0,
+  "contractWards": [
+   "mekenene"
+  ],
+  "projectId": "P-63fd29e",
+  "project": "Protection of Springs",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "manga",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-8a76a3da",
+  "contract": "PROPOSED REHABILITATION AND DISTRIBUTION OF ENTANDA WATER PROJECT IN KEMERA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 3000050.0,
+  "contractWards": [
+   "kemera"
+  ],
+  "projectId": "P-3570522",
+  "project": "Water distribution",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 2000000,
+  "projectWard": "gachuba",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-8a76a3da",
+  "contract": "PROPOSED REHABILITATION AND DISTRIBUTION OF ENTANDA WATER PROJECT IN KEMERA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 3000050.0,
+  "contractWards": [
+   "kemera"
+  ],
+  "projectId": "P-8763be8",
+  "project": "Water projects distribution",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 7500000,
+  "projectWard": "magwagwa",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-8a76a3da",
+  "contract": "PROPOSED REHABILITATION AND DISTRIBUTION OF ENTANDA WATER PROJECT IN KEMERA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 3000050.0,
+  "contractWards": [
+   "kemera"
+  ],
+  "projectId": "P-7bd3f5a",
+  "project": "Water distribution",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 1000000,
+  "projectWard": "rigoma",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-9d857a5e",
+  "contract": "REHABILITATION AND WATER DISTRIBUTION OF BOGWENDO BOREHOLE IN MAGOMBO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1995026.0,
+  "contractWards": [
+   "magombo"
+  ],
+  "projectId": "P-6eea4c4",
+  "project": "Water distribution at Gesima water borehole",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 500000,
+  "projectWard": "gesima",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-9d857a5e",
+  "contract": "REHABILITATION AND WATER DISTRIBUTION OF BOGWENDO BOREHOLE IN MAGOMBO WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 1995026.0,
+  "contractWards": [
+   "magombo"
+  ],
+  "projectId": "P-e8e06b7",
+  "project": "Equipping of borehole and water distribution at Nyankongo",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 4500000,
+  "projectWard": "kiabonyoru",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-96ab5273",
+  "contract": "EQUIPPING AND DISTRIBUTION OF GESURE BOREHOLE IN MANGA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 2999992.0,
+  "contractWards": [
+   "manga"
+  ],
+  "projectId": "P-beff907",
+  "project": "Drilling, equipping and distribution of the Sengera borehole in Manga Ward",
+  "projectFy": "2024/25",
+  "projectKind": "contract",
+  "projectAmount": 4999600,
+  "projectWard": "manga",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-96ab5273",
+  "contract": "EQUIPPING AND DISTRIBUTION OF GESURE BOREHOLE IN MANGA WARD",
+  "contractFy": "2023/24",
+  "contractAmount": 2999992.0,
+  "contractWards": [
+   "manga"
+  ],
+  "projectId": "P-beff907",
+  "project": "Drilling, equipping and distribution of the Sengera borehole in Manga Ward",
+  "projectFy": "2024/25",
+  "projectKind": "spent",
+  "projectAmount": 4999600,
+  "projectWard": "manga",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-4266fde1",
+  "contract": "PROPOSED PIPELINE EXTENSION AND CONSTRUCTION OF KIOSKS FROM MARARA BOREHOLE IN NYAMAIYA WARD",
+  "contractFy": "2022/23",
+  "contractAmount": 1993750.0,
+  "contractWards": [
+   "nyamaiya"
+  ],
+  "projectId": "P-5ab2897",
+  "project": "Pipeline Extension from Marara to Mangongo",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 998760.0,
+  "projectWard": "nyamaiya",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-4266fde1",
+  "contract": "PROPOSED PIPELINE EXTENSION AND CONSTRUCTION OF KIOSKS FROM MARARA BOREHOLE IN NYAMAIYA WARD",
+  "contractFy": "2022/23",
+  "contractAmount": 1993750.0,
+  "contractWards": [
+   "nyamaiya"
+  ],
+  "projectId": "P-95b28c4",
+  "project": "Proposed Construction of Water Kiosks and Pipeline Extension From Ramba Borehole Phase III",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 2989969.6,
+  "projectWard": "bogichora",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-b9ee6f18",
+  "contract": "PROPOSED EQUIPPING AND DISTRIBUTION OF GESIMA BOREHOLE IN GESIMA WARD",
+  "contractFy": "2022/23",
+  "contractAmount": 2847800.0,
+  "contractWards": [
+   "gesima"
+  ],
+  "projectId": "P-230bd5f",
+  "project": "Equipping and Distribution of Gesore Borehole",
+  "projectFy": "2022/23",
+  "projectKind": "budgeted",
+  "projectAmount": 2847800,
+  "projectWard": "township",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-b9ee6f18",
+  "contract": "PROPOSED EQUIPPING AND DISTRIBUTION OF GESIMA BOREHOLE IN GESIMA WARD",
+  "contractFy": "2022/23",
+  "contractAmount": 2847800.0,
+  "contractWards": [
+   "gesima"
+  ],
+  "projectId": "P-e47b056",
+  "project": "Equipping and Distribution of Isoge Borehole",
+  "projectFy": "2022/23",
+  "projectKind": "budgeted",
+  "projectAmount": 2848960,
+  "projectWard": "esise",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-b9ee6f18",
+  "contract": "PROPOSED EQUIPPING AND DISTRIBUTION OF GESIMA BOREHOLE IN GESIMA WARD",
+  "contractFy": "2022/23",
+  "contractAmount": 2847800.0,
+  "contractWards": [
+   "gesima"
+  ],
+  "projectId": "P-3f995fb",
+  "project": "Equipping and Distribution of Nyangongo Borehole",
+  "projectFy": "2022/23",
+  "projectKind": "budgeted",
+  "projectAmount": 2847800,
+  "projectWard": "bogichora",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-b9ee6f18",
+  "contract": "PROPOSED EQUIPPING AND DISTRIBUTION OF GESIMA BOREHOLE IN GESIMA WARD",
+  "contractFy": "2022/23",
+  "contractAmount": 2847800.0,
+  "contractWards": [
+   "gesima"
+  ],
+  "projectId": "P-d8ce843",
+  "project": "Equipping and Distribution of Kiangombe Borehole",
+  "projectFy": "2022/23",
+  "projectKind": "budgeted",
+  "projectAmount": 2849772,
+  "projectWard": "itibo",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-b9ee6f18",
+  "contract": "PROPOSED EQUIPPING AND DISTRIBUTION OF GESIMA BOREHOLE IN GESIMA WARD",
+  "contractFy": "2022/23",
+  "contractAmount": 2847800.0,
+  "contractWards": [
+   "gesima"
+  ],
+  "projectId": "P-fb42a96",
+  "project": "Equipping and Distribution of Gesure Borehole",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 2999992.0,
+  "projectWard": "manga",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-b9ee6f18",
+  "contract": "PROPOSED EQUIPPING AND DISTRIBUTION OF GESIMA BOREHOLE IN GESIMA WARD",
+  "contractFy": "2022/23",
+  "contractAmount": 2847800.0,
+  "contractWards": [
+   "gesima"
+  ],
+  "projectId": "P-30082f6",
+  "project": "Equipping and Distribution of Kiamogoke Borehole",
+  "projectFy": "2024/25",
+  "projectKind": "budgeted",
+  "projectAmount": 2000000,
+  "projectWard": "ekerenyo",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-e85f47be",
+  "contract": "WATER DISTRIBUTION FROM MASOSA BOREHOLE",
+  "contractFy": "2019/20",
+  "contractAmount": 1496638.96,
+  "contractWards": [],
+  "projectId": "P-6eea4c4",
+  "project": "Water distribution at Gesima water borehole",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 500000,
+  "projectWard": "gesima",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-e85f47be",
+  "contract": "WATER DISTRIBUTION FROM MASOSA BOREHOLE",
+  "contractFy": "2019/20",
+  "contractAmount": 1496638.96,
+  "contractWards": [],
+  "projectId": "P-e8e06b7",
+  "project": "Equipping of borehole and water distribution at Nyankongo",
+  "projectFy": "2025/26",
+  "projectKind": "budgeted",
+  "projectAmount": 4500000,
+  "projectWard": "kiabonyoru",
+  "similarity": 0.5
+ },
+ {
+  "contractId": "C-e85f47be",
+  "contract": "WATER DISTRIBUTION FROM MASOSA BOREHOLE",
+  "contractFy": "2019/20",
+  "contractAmount": 1496638.96,
+  "contractWards": [],
+  "projectId": "P-a954ad2",
+  "project": "Rehabilitation and Water Distribution of Bogwendo Borehole",
+  "projectFy": "2023/24",
+  "projectKind": "contract",
+  "projectAmount": 1995026.0,
+  "projectWard": "magombo",
+  "similarity": 0.5
+ }
+]

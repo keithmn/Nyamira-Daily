@@ -8,7 +8,8 @@ import EvidenceLabel from '../../components/EvidenceLabel.astro';
 import ContractRow from '../../components/ContractRow.astro';
 import ChartFrame from '../../components/charts/ChartFrame.astro';
 import ShareBars from '../../components/charts/ShareBars.astro';
-import { contracts, groups, groupOrder, byGroup, totals, contractors, pctOf } from '../../lib/contracts.js';
+import { contracts, groups, groupOrder, byGroup, totals, contractors, pctOf, reconcileSummary } from '../../lib/contracts.js';
+import { byProject } from '../../lib/projects.js';
 import { ksh, num, date } from '../../lib/fmt.js';
 const all = totals(contracts);
 const per = groupOrder.map((g) => { const t = totals(byGroup(g)); const g2 = groups[g]; return { g, ...g2, t, line: num(t.count) + ' records · ' + g2.who + (t.value ? ' · ' + ksh(t.value) + (g === 'ng-cdf' ? ' in allocations' : ' in contract sums') : '') }; });
@@ -19,6 +20,8 @@ const top = contractors().slice(0, 8);
 const named = contracts.filter((c) => c.kind === 'contract');
 const namedShare = pctOf(named.filter((c) => c.contractor).length, named.length);
 const shareRows = per.filter((p) => p.t.count).map((p) => ({ label: p.label + ' (' + num(p.t.count) + ')', icon: p.icon, value: pctOf(p.t.withContractor, p.t.count), display: pctOf(p.t.withContractor, p.t.count) + '%' }));
+const rc = reconcileSummary([...byProject().keys()]);
+const rcLinked = contracts.filter((c) => c.projectIds?.length).slice(0, 6);
 const shareTable = { columns: ['Set', 'Records', 'Contractor named'], rows: per.map((p) => [p.label, p.t.count, p.t.withContractor]) };
 ---
 <Base title="Project tracker" description="Every county and national project in Nyamira we can find in official records: contractor, contract sum, dates and source.">
@@ -53,6 +56,17 @@ const shareTable = { columns: ['Set', 'Records', 'Contractor named'], rows: per.
       table={shareTable} csvName="nyamira-tracker-coverage">
       <ShareBars label="Share of records naming a contractor" rows={shareRows} />
     </ChartFrame>
+
+    <section class="stack" aria-labelledby="recon">
+      <h2 id="recon">Budget, contract and progress together</h2>
+      <p>We match county contracts to the county's own ward project lines, so a project's budget, its contract and any reported progress sit on one page. A match needs the same ward, closely matching names and, in most cases, the same amount to the shilling.</p>
+      <div class="fig-row">
+        <div class="figure"><span class="eyebrow">County contracts matched</span><span class="num">{num(rc.linked)} of {num(rc.county)}</span><p class="say">have a matching line in the county's budgets or development plans ({rc.linkedPct}%).</p></div>
+        <div class="figure"><span class="eyebrow">Ward projects with a contract</span><span class="num">{num(rc.projects)} of {num(rc.totalProjects)}</span><p class="say">ward projects have a published contract we could match ({rc.projectsPct}%).</p></div>
+      </div>
+      <p class="small muted">Low numbers are mostly a timing and records gap, not a finding: most ward project lines are in the 2025/26 budget, and the portal so far shows only a couple of county awards for that year; many lines are small purchases with no tender of their own; and names often differ between the budget and the tender. Unmatched pairs that looked close are kept for a person to check.</p>
+      <ul class="ct-list">{rcLinked.map((c) => <ContractRow c={c} />)}</ul>
+    </section>
 
     <section class="stack" aria-labelledby="latest">
       <h2 id="latest">Latest awards</h2>

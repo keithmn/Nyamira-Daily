@@ -43,3 +43,19 @@ test('no phone numbers, emails or ID numbers in published fields', () => {
     assert.ok(!email.test(text), `email on ${c.id}`);
   }
 });
+
+test('budget-line links (decision #72) point at real ward projects, county contracts only, with a stated basis', () => {
+  const W = require('../data/wardspend.json');
+  const pids = new Set(W.projects.map((p) => p.projectId));
+  for (const c of D.contracts) {
+    assert.ok(Array.isArray(c.projectIds), `projectIds missing on ${c.id}`);
+    if (!c.projectIds.length) continue;
+    assert.equal(c.group, 'county', `non-county contract linked: ${c.id}`);
+    assert.ok(c.linkBasis, `no basis on ${c.id}`);
+    for (const p of c.projectIds) {
+      assert.ok(pids.has(p), `unknown project ${p} on ${c.id}`);
+      const wardsOfP = new Set(W.projects.filter((x) => x.projectId === p).map((x) => x.ward));
+      if (c.wards.length) assert.ok(c.wards.some((w) => wardsOfP.has(w)), `ward mismatch ${c.id} ↔ ${p}`);
+    }
+  }
+});

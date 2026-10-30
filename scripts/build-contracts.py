@@ -95,14 +95,23 @@ ids = [r['id'] for r in rows]
 dupes = {i for i in ids if ids.count(i) > 1}
 assert not dupes, f'duplicate ids: {sorted(dupes)[:5]}'
 for r in rows: assert r['source'] in sources, r['source']
+# Links to the county's own budget lines (decision #72), made by scripts/reconcile-contracts.py
+lp = os.path.join(ROOT, 'data-src', 'contracts', 'project-links.json')
+LINKS = {l['contractId']: l for l in (json.load(open(lp)) if os.path.exists(lp) else [])}
+for r in rows:
+    l = LINKS.get(r['id'])
+    r['projectIds'] = l['projectIds'] if l else []
+    r['linkBasis'] = l['basis'] if l else None
+stale = set(LINKS) - set(ids)
+assert not stale, f'project-links.json names contracts that no longer exist: {sorted(stale)[:5]} (re-run reconcile-contracts.py)'
 rows.sort(key=lambda r: (r['awardDate'] or '', r['fy'] or ''), reverse=True)
 out = {'built': 'scripts/build-contracts.py', 'groups': {k: {'label': v[0], 'national': v[1]} for k, v in GROUPS.items()}, 'sources': sources, 'contracts': rows}
 json.dump(out, open(os.path.join(ROOT, 'src', 'data', 'contracts.json'), 'w'), ensure_ascii=False, separators=(',', ':'))
-cols = ['id', 'group', 'title', 'agency', 'tenderNo', 'contractor', 'amountLabel', 'amount', 'awardDate', 'startDate', 'endDate', 'fy', 'wards', 'constituency', 'location', 'progress', 'progressAsAt', 'terminated', 'source_title', 'source_url', 'page']
+cols = ['id', 'group', 'title', 'projectIds', 'agency', 'tenderNo', 'contractor', 'amountLabel', 'amount', 'awardDate', 'startDate', 'endDate', 'fy', 'wards', 'constituency', 'location', 'progress', 'progressAsAt', 'terminated', 'source_title', 'source_url', 'page']
 with open(os.path.join(ROOT, 'public', 'files', 'contracts.csv'), 'w', newline='', encoding='utf-8') as fh:
     w = csv.writer(fh); w.writerow(cols)
     for r in rows:
         s = sources[r['source']]
-        w.writerow([r['id'], r['group'], r['title'], r['agency'], r['tenderNo'], r['contractor'], r['amountLabel'], r['amount'], r['awardDate'], r['startDate'], r['endDate'], r['fy'], ' '.join(r['wards']), r['constituency'], r['location'], r['progress'], r['progressAsAt'], (r['terminated'] or {}).get('date'), s['title'], s['url'], r['page']])
+        w.writerow([r['id'], r['group'], r['title'], ' '.join(r['projectIds']), r['agency'], r['tenderNo'], r['contractor'], r['amountLabel'], r['amount'], r['awardDate'], r['startDate'], r['endDate'], r['fy'], ' '.join(r['wards']), r['constituency'], r['location'], r['progress'], r['progressAsAt'], (r['terminated'] or {}).get('date'), s['title'], s['url'], r['page']])
 from collections import Counter
-print(len(rows), 'records;', Counter(r['group'] for r in rows), '; with contractor:', sum(1 for r in rows if r['contractor']), '; with a ward:', sum(1 for r in rows if r['wards']))
+print(len(rows), 'records;', Counter(r['group'] for r in rows), '; with contractor:', sum(1 for r in rows if r['contractor']), '; with a ward:', sum(1 for r in rows if r['wards']), '; linked to budget lines:', sum(1 for r in rows if r['projectIds']))

@@ -9,6 +9,8 @@ import { ksh, date } from '../../lib/fmt.js';
 import { amountLabel } from '../../lib/project-amounts.js';
 import { adoptSignupUrl } from '../../config.js';
 import wards from '../../data/wards.json';
+import ContractRow from '../../components/ContractRow.astro';
+import { forProject } from '../../lib/contracts.js';
 export function getStaticPaths() {
   return [...byProject().entries()].map(([id, list]) => ({ params: { id: id.toLowerCase() }, props: { id, list } }));
 }
@@ -17,6 +19,7 @@ const first = list[0];
 const w = wards.find((x) => x.slug === first.ward);
 const logs = (await entries('projectlogs')).filter((e) => e.data.projectId === id && e.data.consent).sort((a, b) => b.data.date - a.data.date);
 const qs = questions.filter((q) => q.ward === first.ward && list.some((p) => p.name.includes(q.title) || q.title.includes(p.name)));
+const linked = forProject(id);
 const title = first.name.length > 110 ? first.name.slice(0, 108) + '…' : first.name;
 ---
 <Base title={title} description={`A county project in ${w ? w.name + ' ward' : 'Nyamira County'}: what the county's documents say, with sources.`}>
@@ -42,6 +45,15 @@ const title = first.name.length > 110 ? first.name.slice(0, 108) + '…' : first
       <p class="source"><span class="label official">Official claim</span> From the county's own plans and budgets and the Controller of Budget. A budget line is planned money, not proof that work was done.</p>
       {qs.map((q) => <div class="ask on-ink"><span class="eyebrow">Question to ask</span><p><strong>{q.title}:</strong> {q.text}</p></div>)}
     </section>
+
+    {linked.length > 0 && (
+      <section class="stack">
+        <h2>The contract</h2>
+        <p class="small muted">From the national procurement portal, matched to this project by ward, name and amount. Contractor, sum and dates are as the portal prints them.</p>
+        <ul class="ct-list">{linked.map((c) => <ContractRow c={c} />)}</ul>
+        <a href="/tracker/county/">All county contracts in the project tracker</a>
+      </section>
+    )}
 
     <section class="stack">
       <h2>Photo log</h2>

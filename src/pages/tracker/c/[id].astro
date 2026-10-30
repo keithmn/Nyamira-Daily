@@ -7,6 +7,7 @@ import ContractRow from '../../../components/ContractRow.astro';
 import { contracts, groups, sources, periodState, contractorSlug, constituencyName } from '../../../lib/contracts.js';
 import { ksh, date } from '../../../lib/fmt.js';
 import wards from '../../../data/wards.json';
+import { byProject, kindLabel, sources as pSources, shortTitle, statusShort } from '../../../lib/projects.js';
 export function getStaticPaths() {
   return contracts.map((c) => ({ params: { id: c.id.toLowerCase() }, props: { c } }));
 }
@@ -16,6 +17,8 @@ const src = sources[c.source];
 const st = periodState(c);
 const wardList = c.wards.map((s) => wards.find((w) => w.slug === s)).filter(Boolean);
 const same = c.contractor ? contracts.filter((x) => x.contractor === c.contractor && x.id !== c.id).slice(0, 6) : [];
+const pmap = byProject();
+const budget = (c.projectIds ?? []).map((pid) => ({ pid, lines: pmap.get(pid) ?? [] })).filter((b) => b.lines.length);
 const rows = [
   ['Paid for by', `${g.label} (${g.who.toLowerCase()})`],
   ['Procuring entity', c.agency],
@@ -47,6 +50,25 @@ const rows = [
       </dl>
       <p class="source"><EvidenceLabel kind="official" /> Source: {src.url ? <a href={src.url} rel="noopener">{src.title}</a> : src.title}{src.publisher && `, ${src.publisher}`}{c.page && `. ${c.page}`}</p>
     </section>
+    {budget.length > 0 && (
+      <section class="stack" aria-labelledby="budget">
+        <h2 id="budget">In the county's budget</h2>
+        <p class="small muted">We matched this contract to the county's own project lines: {c.linkBasis}. Budget lines are planned money; the contract sum is what was awarded; neither proves the work was done.</p>
+        {budget.map((b) => (
+          <div class="stack">
+            <ul class="prows">{b.lines.map((p) => (
+              <li>
+                <span class="pn">FY{p.fy} · {kindLabel[p.kind] ?? p.kind}</span>
+                <span class="pa">{p.amount != null ? ksh(p.amount) : 'Not printed'}</span>
+                <span class="pm">{statusShort(p.status) && <span class="st">{statusShort(p.status)}</span>}<span><a href={pSources[p.sourceId].url} rel="noopener">{shortTitle(pSources[p.sourceId].title)}</a> {p.page}</span></span>
+              </li>
+            ))}</ul>
+            <a href={`/projects/${b.pid.toLowerCase()}/`}>Project page {b.pid}: every record and the photo log</a>
+          </div>
+        ))}
+      </section>
+    )}
+    {c.group === 'county' && budget.length === 0 && <p class="small muted">Not matched to a line in the county's ward project lists. That can mean a county-wide item, a different name in the budget, or a gap; <a href="/how-we-work/#corrections">tell us</a> if you know the matching line.</p>}
     {c.notes && (
       <details>
         <summary>Source details and notes</summary>
