@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kenya Budget Explained</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +36,7 @@
   --hero-bg: #0a0a0a; --hero-fg: #FFFFFF; --hero-2: #b9b9b3; --hero-line: #2a2a28; color-scheme: dark; }
 
 * { box-sizing: border-box; }
-body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 17px; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 17px; line-height: 1.5; -webkit-text-size-adjust: 100%; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--hero-bg); }
 .wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.12; text-wrap: balance; margin: 0; }
@@ -183,10 +188,10 @@ select { font: inherit; font-size: 16px; padding: 10px 40px 10px 14px; border-ra
 
 /* shilling chain */
 .chain { display: grid; gap: 0; }
-.link { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 0; position: relative; }
+.link { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 14px 0; position: relative; }
 .link .dot { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--chip); font-family: var(--display); font-size: 15px; }
 .link:not(:last-child)::after { content: ""; position: absolute; left: 23px; top: 62px; bottom: -14px; width: 2px; background: var(--line-2); }
-.link .amt { font-family: var(--display); font-size: 26px; text-align: right; font-variant-numeric: tabular-nums; }
+.link .amt { font-family: var(--display); font-size: 26px; text-align: right; font-variant-numeric: tabular-nums; align-self: center; }
 .link .ratio { font-size: 14.5px; color: var(--fg-2); }
 .link.last .dot { background: var(--green); color: #111; }
 .wardgrid .hb-row { grid-template-columns: minmax(100px, 140px) minmax(0, 1fr) 76px; }
@@ -251,11 +256,20 @@ footer b { color: var(--hero-fg); font-weight: 500; }
 @media (max-width: 560px) {
   body { font-size: 16px; }
   .brand span { display: none; }
+  .hb { gap: 14px; }
+  .hb-row { gap: 3px 12px; }
   .hb-row, .hb-axis { grid-template-columns: minmax(0, 1fr) 84px; }
+  .cscroll { display: grid; gap: 14px; }
+  .cscroll .hb-row, .wardgrid .hb-row { grid-template-columns: minmax(0, 1fr) 64px; gap: 3px 10px; }
   .hb-row .lb { grid-column: 1 / -1; }
   .hb-axis > :first-child { display: none; }
   .stackbar { height: 52px; }
-  .seg { font-size: 15px; padding: 0 5px; }
+  .seg { font-size: 13px; padding: 0 4px; }
+  table.cards thead { display: none; }
+  table.cards, table.cards tbody, table.cards tr, table.cards td { display: block; width: 100%; }
+  table.cards tr { padding: 10px 0; border-bottom: 1px solid var(--line); }
+  table.cards td, table.cards td.r { border: 0; padding: 3px 0; text-align: left; }
+  table.cards td[data-label]::before { content: attr(data-label); display: block; font-size: 12.5px; color: var(--muted); }
   .link { grid-template-columns: 40px minmax(0, 1fr); }
   .link .dot { width: 40px; height: 40px; font-size: 13px; }
   .link .amt { grid-column: 2; text-align: left; }
@@ -266,6 +280,8 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   .hb-fill, .yr .s, .seg { transition: filter .15s; }
 }
 </style>
+</head>
+<body>
 
 <header class="top">
   <div class="wrap">
@@ -500,7 +516,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
       </div>
       <div class="stack">
         <div class="row" id="labels"></div>
-        <details open><summary>All figures on this page</summary><div class="tscroll" id="figtable"></div></details>
+        <details><summary>All figures on this page</summary><div class="tscroll" id="figtable"></div></details>
         <details><summary>Sources</summary><ul id="srclist" class="small" style="display:grid;gap:8px;padding-left:18px"></ul></details>
         <div class="row"><button class="btn" id="copyjson" type="button">Copy all data (JSON)</button><button class="btn" id="copycsv" type="button">Copy county table (CSV)</button><span class="small muted">Data is free to reuse under CC BY 4.0, credit "Kenya Budget Explained".</span></div>
         <p class="small muted" id="checknote"></p>
@@ -512,7 +528,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
 <footer>
   <div class="wrap">
     <p><b>Kenya Budget Explained</b> (working name) · prototype, built 1 November 2026 on the Nyamira Daily data engine by Underdogs Rising Group Limited. Non-partisan: we explain public money and ask questions; we do not support or oppose any party, candidate or official.</p>
-    <p>Found a wrong figure? Every correction is logged publicly with what changed and why. A correction channel will be listed here before public launch.</p>
+    <p>Found a wrong figure? Before public launch this page will list a correction channel and a public log of what changed and why.</p>
   </div>
 </footer>
 
@@ -1945,7 +1961,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   $('tiles').innerHTML = [
     ['', `<em>${nf2.format(H.revenue.v / 1000)}</em> trillion`, `raised from taxes, fees and other income (${nf1.format(H.revenueGdp.v)}% of GDP)`, srcLine(H.revenue)],
     ['debt', `<em>${nf2.format(H.deficit.v / 1000)}</em> trillion`, `to be borrowed, net of repayments (${nf1.format(H.deficitGdp.v)}% of GDP)`, srcLine(H.deficit)],
-    ['debt', `<em>${nf0.format(share)}</em> of 100`, `shillings of tax and other ordinary revenue go to interest on public debt`, `<p class="src">${chips({ label: 'official', calc: 1, stage: 'estimates' })} KSh ${nf1.format(interest)}bn interest ÷ KSh ${nf1.format(D.cfs.ordinaryRevenue.v)}bn ordinary revenue</p>`],
+    ['debt', `<em>${nf0.format(share)}</em> of 100`, `shillings of tax and other ordinary revenue go to interest on public debt`, `<p class="src">${chips({ label: 'official', calc: 1, stage: 'estimates' })} KSh ${nf1.format(interest)}bn interest ÷ KSh ${nf1.format(D.cfs.ordinaryRevenue.v)}bn ordinary revenue, both as printed in the April Budget Summary (para 66 and Table 2)</p>`],
   ].map(([c, n, t, s]) => `<div class="tile ${c}"><span class="num">${n}</span><p>${t}</p>${s}</div>`).join('');
 
   /* KSh 100 notes */
@@ -2006,7 +2022,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
 
   /* sectors */
   const secRows = D.sectors.map((s) => ({ label: esc(s.name), v: s.v, vl: nf1.format(s.v), btn: s.items.length > 0, s,
-    after: s.items.length ? `<div class="items" hidden>${s.items.map((it) => `<div><span>${esc(it.name)}</span><span>${nf1.format(it.v)}</span></div>`).join('')}<div class="muted"><span>Not listed by item in the guide</span><span>${nf1.format(s.v - s.items.reduce((a, b) => a + b.v, 0))}</span></div></div>` : '' }));
+    after: s.items.length ? `<div class="items" hidden>${s.items.map((it) => `<div><span>${esc(it.name)}</span><span>${nf1.format(it.v)}</span></div>`).join('')}<div class="muted"><span>Everything else in this sector</span><span>${nf1.format(s.v - s.items.reduce((a, b) => a + b.v, 0))}</span></div></div>` : '' }));
   hbars($('sector-bars'), secRows, { max: 800, ticks: [0, 200, 400, 600, 800] });
   $('sector-bars').querySelectorAll('button.hb-row').forEach((b) => b.addEventListener('click', () => { const box = b.nextElementSibling; const open = box.hidden; box.hidden = !open; b.setAttribute('aria-expanded', String(open)); }));
   $('sector-src').innerHTML = srcLine(D.sectors[0], 'KSh billion; tap a sector with a list to open it');
@@ -2041,7 +2057,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
         <dt>Development budget spent</dt><dd style="color:${c.cob.devAbs < n.devAbsorptionPct ? 'var(--accent-ink)' : 'inherit'}">${c.cob.devAbs}%</dd><dt>All 47 counties</dt><dd>${n.devAbsorptionPct}%</dd></dl>
         <p class="src">${chips({ label: 'official', stage: 'spent' })} <a href="${S.cob2425.url}" target="_blank" rel="noopener">Controller of Budget, County BIRR FY2024/25</a>, Table 2.5</p>`;
     } else {
-      cob = `<p class="small muted">Spending figures from the Controller of Budget are loaded so far for Nyamira and its five neighbours. More counties are on the list.</p>`;
+      cob = `<p class="small muted">Spending figures from the Controller of Budget are loaded so far for Nyamira, Kisii, Bomet, Kericho, Homa Bay and Migori. More counties are on the list.</p>`;
     }
     $('ccard').innerHTML = `<span class="cname">${esc(c.name)}</span>
       <dl><dt>Share in FY2025/26</dt><dd>${bn(c.prev / 1000)}</dd><dt>CRA recommended for FY2026/27</dt><dd>${bn(c.rec / 1000)}</dd><dt>Change recommended</dt><dd>${ch >= 0 ? '+' : ''}${nf1.format(ch)}%</dd><dt>Rank among 47 (recommendation)</dt><dd>${rank}</dd><dt>Final amount in the 2026 Act</dt><dd class="small" style="font-family:var(--font)">not yet loaded</dd></dl>
@@ -2074,7 +2090,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   $('years').querySelectorAll('.yr').forEach((el) => { const y = ys.find((v) => v.fy === el.dataset.fy); bindTip(el, `<b>${y.fy}</b>Budget ${bn(y.budget / 1000)}<br>Spent ${bn(y.spent / 1000)}<br>Development budget spent: ${y.devAbs}%`); });
   $('years-src').innerHTML = `<p class="src">${chips({ label: 'official', stage: 'spent' })} <a href="${S.cobyears.url}" target="_blank" rel="noopener">Controller of Budget annual county reports</a>, Nyamira section, one report per year (pages on Nyamira Daily) · % is our calculation</p>`;
   const six = D.counties.filter((c) => c.cob).sort((a, b) => b.cob.devAbs - a.cob.devAbs);
-  $('cmp6').innerHTML = `<h3>Development budget spent, FY2024/25</h3><p class="small muted">Nyamira and its neighbours, against all 47 counties (${D.countiesMeta.national2425.devAbsorptionPct}%).</p><div class="hb" id="six"></div>${`<p class="src">${chips({ label: 'official', stage: 'spent' })} <a href="${S.cob2425.url}" target="_blank" rel="noopener">Controller of Budget, County BIRR FY2024/25</a>, Table 2.5</p>`}`;
+  $('cmp6').innerHTML = `<h3>Development budget spent, FY2024/25</h3><p class="small muted">Nyamira and five other counties in the region, against all 47 counties (${D.countiesMeta.national2425.devAbsorptionPct}%).</p><div class="hb" id="six"></div>${`<p class="src">${chips({ label: 'official', stage: 'spent' })} <a href="${S.cob2425.url}" target="_blank" rel="noopener">Controller of Budget, County BIRR FY2024/25</a>, Table 2.5</p>`}`;
   hbars($('six'), six.map((c) => ({ label: esc(c.name), v: c.cob.devAbs, vl: c.cob.devAbs + '%', cls: c.name === 'Nyamira' ? 'hi' : '', tick: D.countiesMeta.national2425.devAbsorptionPct, c })), { max: 100, tips: (r) => `<b>${r.v}% spent</b>${bn(r.c.cob.devSpent / 1e9)} of ${bn(r.c.cob.devBudget / 1e9)}` });
 
   /* calendar */
@@ -2117,11 +2133,11 @@ footer b { color: var(--hero-fg); font-weight: 500; }
 
   /* guardrails */
   const guards = [
-    ['Stale data', 'Kenya’s open data portal "ran before it could walk" and went stale when ministries stopped publishing.', 'Every figure shows the date it was checked. The calendar says which document comes next, and a figure older than its next release is flagged.'],
+    ['Stale data', 'Kenya’s open data portal "ran before it could walk" and went stale when ministries stopped publishing.', 'The page says when its figures were read, and the calendar says which document comes next.'],
     ['Numbers people misread', 'Budget charts often mix stages, groupings, or net and gross figures, and readers draw the wrong conclusion.', 'Stage tags, the "same budget, three numbers" card, and the six traps above. No chart mixes stages without a note.'],
-    ['Errors that spread', 'One wrong figure, shared widely, damages trust for years.', 'Source and page for every figure; our arithmetic is tagged and re-run on every build; public corrections log; an editor checks each new figure against the PDF page.'],
+    ['Errors that spread', 'One wrong figure, shared widely, damages trust for years.', 'Source and page for every figure; our arithmetic is tagged and re-run on every build. Before launch: a public corrections log, and an editor’s check of each figure against the PDF page.'],
     ['Only the already-online', 'Civic tools in Nigeria and elsewhere mostly reached educated, connected users.', 'Phone-first and light. Copyable questions for WhatsApp. Kiswahili summaries. Built to feed radio scripts and printed sheets.'],
-    ['Voice without response', 'Platforms that collect complaints but get no reply from officials lose users fast.', 'Questions go to named bodies with a public duty to answer (Parliament, the Controller of Budget). We log replies in the impact log.'],
+    ['Voice without response', 'Platforms that collect complaints but get no reply from officials lose users fast.', 'Questions go to named bodies with a public duty to answer (Parliament, the Controller of Budget). We plan to log the replies publicly.'],
     ['Donor dependence and drift', 'Most African civic tech relies on donors; when funding ends, sites go dark.', 'Static pages that cost almost nothing to host. Open data and code, so the work survives any one funder.'],
     ['Taking sides', 'A budget tool seen as partisan loses half its audience, especially in an election year.', 'Questions, not accusations. No ratings of politicians. Same treatment for every county and every party.'],
     ['Guessing the gaps', 'Tools that fill missing data with estimates end up wrong in public.', 'Missing figures stay missing. Final county amounts show "not yet loaded" instead of a scaled guess.'],
@@ -2138,7 +2154,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   D.sectors.forEach((s) => add(s.name, s)); D.education3.forEach((e) => add(e.name, e));
   add('Counties’ share, law', M.law); add('Counties’ share, estimates', M.estimates); add('Counties’ share, CRA', M.rec); add('County governments, all transfers', M.countyTotal); add('Equalization Fund', M.equalisation); add('NG-CDF', M.ngcdf);
   D.shilling.steps.forEach((s) => add(s.name + ' (FY2025/26)', s));
-  $('figtable').innerHTML = `<table><thead><tr><th>Figure</th><th class="r">Value</th><th>Tags</th><th>Source and place</th></tr></thead><tbody>${figs.map(([n, f]) => `<tr><td>${esc(n)}</td><td class="r">${f.unit === 'KSh m' ? nf0.format(f.v) + ' m' : f.unit.startsWith('%') ? nf1.format(f.v) + '%' : nf1.format(f.v) + (f.v < 10 ? '' : '')}</td><td>${chips(f)}</td><td class="small"><a href="${esc(S[f.src].url)}" target="_blank" rel="noopener">${esc(S[f.src].title.split(' (')[0])}</a>, ${esc(f.where)}${f.note ? `. ${esc(f.note)}` : ''}</td></tr>`).join('')}</tbody></table><p class="small muted">Values in KSh billion unless marked m (million) or %.</p>`;
+  $('figtable').innerHTML = `<table class="cards"><thead><tr><th>Figure</th><th class="r">Value</th><th>Tags</th><th>Source and place</th></tr></thead><tbody>${figs.map(([n, f]) => `<tr><td>${esc(n)}</td><td class="r" data-label="Value">${f.unit === 'KSh m' ? nf0.format(f.v) + ' m' : f.unit.startsWith('%') ? nf1.format(f.v) + '%' : nf1.format(f.v) + (f.v < 10 ? '' : '')}</td><td>${chips(f)}</td><td class="small" data-label="Source and place"><a href="${esc(S[f.src].url)}" target="_blank" rel="noopener">${esc(S[f.src].title.split(' (')[0])}</a>, ${esc(f.where)}${f.note ? `. ${esc(f.note)}` : ''}</td></tr>`).join('')}</tbody></table><p class="small muted">Values in KSh billion unless marked m (million) or %.</p>`;
   $('srclist').innerHTML = Object.values(S).filter(Boolean).map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('');
   $('checknote').textContent = `Built ${D.built}. National figures were read from the Treasury and CRA documents on 1 November 2026; before public launch an editor checks each against its printed page and marks it Verified. County spending figures come from Nyamira Daily's checked records.`;
   $('copyjson').addEventListener('click', () => copy(JSON.stringify(D, null, 1), 'Data copied'));
@@ -2152,3 +2168,5 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   }
 })();
 </script>
+</body>
+</html>
