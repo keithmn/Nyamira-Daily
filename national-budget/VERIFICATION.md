@@ -53,7 +53,7 @@ Items the source check confirmed unchanged, after first looking wrong: PAYE 706.
 | Income tax | 1383.6 | Estimates of Revenue | Summary II, p.vi | 7, 10 | Found |
 | VAT | 829.2 | Estimates of Revenue | Summary II, p.vi | 7, 10 | Found |
 | Excise duty | 383.4 | Estimates of Revenue | Summary II, p.vi | 7 | Found |
-| Import duty | 186.2 | Estimates of Revenue | Summary II, p.vi |  | Rounded from a printed line: 186,179,602,951 on PDF p.7 and 186,419,602,951 less refunds on p.11 |
+| Import duty | 186.2 | Estimates of Revenue | Summary II, p.vi |  | Rounded from a printed line: 186,179,602,951 on PDF p.7, which rounds to 186.2 |
 | Other taxes | 79.9 | Estimates of Revenue | Summary II, p.vi |  | Our sum: 51,860,915,462 + 24,566,020,473 + 2,270,250,731 + 1,191,780,388 = 79.9bn. Now tagged as our calculation. |
 | Non-tax income | 123.4 | Estimates of Revenue | Summary II, p.vii |  | Our sum: 123,133,486,672 + 263,554,110 = 123.4bn. Now tagged as our calculation. |
 | Fees kept by agencies (A-I-A) | 644.8 | Estimates of Revenue | Summary III, p.viii (excluding grants) | 9, 35 | Found |
