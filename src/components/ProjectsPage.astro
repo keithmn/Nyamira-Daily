@@ -79,9 +79,9 @@ const wname = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
       <summary>See the detail: every ward in a table</summary>
     <div class="table-box">
       <table class="cards">
-        <thead><tr><th>Ward</th><th>Sub-county</th><th class="num">FY2025/26 ward budget</th><th class="num">Budget lines</th><th class="num">FY2023/24 road contracts</th></tr></thead>
+        <thead><tr><th>Ward</th><th>Constituency</th><th class="num">FY2025/26 ward budget</th><th class="num">Budget lines</th><th class="num">FY2023/24 road contracts</th></tr></thead>
         <tbody>{rows.map((r) => (
-          <tr data-ward-row={r.w.slug}><td><a href={`/ward/${r.w.slug}/#projects`}>{r.w.name}</a></td><td data-label="Sub-county">{r.w.subCounty}</td><td class="num" data-label="FY2025/26 budget">{amountLabel(r.b)}</td><td class="num" data-label="Budget lines">{r.n}{r.zero ? ` (${r.zero} reported as KSh 0)` : ''}{r.amountUnavailable ? ` (${r.amountUnavailable} amount not reported)` : ''}</td><td class="num" data-label="FY2023/24 roads">{r.roads === undefined ? "None listed" : amountLabel(r.roads)}</td></tr>
+          <tr data-ward-row={r.w.slug}><td><a href={`/ward/${r.w.slug}/#projects`}>{r.w.name}</a></td><td data-label="Constituency">{r.w.subCounty}</td><td class="num" data-label="FY2025/26 budget">{amountLabel(r.b)}</td><td class="num" data-label="Budget lines">{r.n}{r.zero ? ` (${r.zero} reported as KSh 0)` : ''}{r.amountUnavailable ? ` (${r.amountUnavailable} amount not reported)` : ''}</td><td class="num" data-label="FY2023/24 roads">{r.roads === undefined ? "None listed" : amountLabel(r.roads)}</td></tr>
         ))}</tbody>
       </table>
     </div>

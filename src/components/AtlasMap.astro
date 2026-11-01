@@ -246,7 +246,7 @@ const VB = '-60 -40 720 1030';
   function openCard(s) {
     var w = D.info[s]; sel = s;
     root.querySelectorAll('[data-w]').forEach(function (a) { a.classList.toggle('is-sel', a.dataset.w === s); });
-    f('sub').textContent = w.sub + ' sub-county';
+    f('sub').textContent = w.sub + ' Constituency';
     f('name').textContent = w.name + ' Ward';
     f('mca').textContent = w.mca || 'Not confirmed';
     f('fac').textContent = String(w.fac.all);

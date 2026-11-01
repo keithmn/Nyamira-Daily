@@ -1,9 +1,20 @@
 // Site-wide switches. Fill these in before launch.
+import impact from './data/impact.json';
 export const contact = {
   whatsapp: '',  // e.g. '2547XXXXXXXX' — turns on "Tell us" and "Get updates"
   email: '',
 };
-// NY Watch. A scheduled hour alone is not evidence that a broadcast is live.
+// Election period (decision #77). The 2027 General Election is on 10 Aug 2027; the IEBC's campaign expenditure
+// period starts six months before. Between `from` and `to` (inclusive, YYYY-MM-DD) the election notice shows on
+// Government, Elections, Leaders and NY Watch pages: no paid political content, equal treatment of candidates.
+// Check the dates against the IEBC's gazetted timetable before relying on them.
+export const electionPeriod = { from: '2027-02-10', to: '2027-08-24', electionDate: '2027-08-10' };
+export function inElectionPeriod(today = new Date().toISOString().slice(0, 10)) {
+  return Boolean(electionPeriod.from && electionPeriod.to && today >= electionPeriod.from && today <= electionPeriod.to);
+}
+
+// NY Watch (decision #63, recast by #79): the data review podcast hosted by the founder. A scheduled hour alone
+// is not evidence that a broadcast is live.
 // Status values: planned, scheduled, confirmed_live, or recorded.
 export const show = { status: 'scheduled', start: 22, end: 23, liveUrl: '', confirmedAt: '', recordingUrl: '' };
 // Media (decision #63): the daily show's YouTube channel and the NY Watch podcast. Leave empty until they exist;
@@ -44,4 +55,6 @@ export const planned = new Set([
   // Phase 2: planned until a channel is set above
   ...(canReport ? [] : ['/report/', '/report/clinic/']),
   ...(adoptSignupUrl ? [] : ['/adopt/']),
+  // Impact log (decision #76): planned until the first entry is logged
+  ...(impact.entries.length > 0 ? [] : ['/impact/']),
 ]);

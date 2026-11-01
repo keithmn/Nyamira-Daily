@@ -1,6 +1,6 @@
 # Nyamira Daily
 
-An independent, non-partisan information service about Nyamira County, Kenya: its money, projects, services, laws and leaders, in plain language, with a source behind every fact.
+A non-partisan, editorially independent information service about Nyamira County, Kenya, built and published by Underdogs Rising Group Limited (see `docs/DECISIONS.md` #73): its money, projects, services, laws and leaders, in plain language, with a source behind every fact.
 
 **New here? Read [`docs/PROJECT_BRIEF.md`](docs/PROJECT_BRIEF.md) first.** It explains what the site is for, who it serves and what we are trying to achieve.
 
@@ -41,15 +41,15 @@ The Astro site requires Node.js 18.20.8 or later. The optional Cloudflare Pages/
 | Pages (one file = one URL) | `src/pages/` |
 | All site data (JSON) | `src/data/` (see `docs/DATA.md`) |
 | Formatting helpers, project helpers | `src/lib/` |
-| Site switches: contact channel, planned pages | `src/config.js` |
+| Site switches: contact channel, planned pages, election period | `src/config.js` |
+| County names and publisher details (the county kit) | `src/county.js` |
+| Ward share images for WhatsApp previews | `public/brand/share/`, `scripts/build-share-cards.mjs` |
 | Downloadable CSVs for readers | `public/files/` |
 | Map source data and generator | `data-src/`, `scripts/build-geo.py` |
 
 ## Sections
 
-Today · Wards · Data · Government · Constitution · Learn, plus Opportunities, Search, About and How we work.
-
-The six sections form the navigation bar. Tapping a section opens a menu listing everything in it: the section's own page first, then its pages (for Data: Money, Projects, Services, People, Open data…). The Assembly's pages appear under The Assembly, and My Ward lists all 20 wards by sub-county. Opportunities and Have your say sit under Today. Without JavaScript the sections are plain links to their pages. The menus are defined in `src/nav.js`.
+Eight sections form the navigation bar: Today · Wards · Data · Community · Government · Take part · Learn · About. Tapping a section opens a menu listing everything in it: the section's own page first, then its pages. The Constitution pages sit under Learn; Opportunities, Alerts and the NY Watch podcast under Today; the trust pages (Who runs us, Right of reply, Privacy, Terms) under About. Without JavaScript the sections are plain links to their pages. The menus are defined in `src/nav.js`.
 
 ## Maps and the ward filter
 

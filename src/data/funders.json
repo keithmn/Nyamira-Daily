@@ -1,0 +1,20 @@
+{
+  "updated": "2026-10-31",
+  "note": "Every funder giving more than KSh 50,000 in a year, plus annual totals (decision #73). Underdogs Rising Group Limited's own contribution counts as funding and is listed. Amounts are published as bands once the year's accounts are drawn up; never estimate an amount. No money from political parties, candidates, aspirants, sitting officials, the County Government of Nyamira or county contractors.",
+  "rules": {
+    "threshold": 50000,
+    "maxShare": "No outside funder above about a third of our income. While Nyamira Daily is incubated, Underdogs Rising Group Limited is the largest source, and we say so.",
+    "excluded": ["political parties", "candidates and aspirants", "sitting public officials", "the County Government of Nyamira", "county contractors"]
+  },
+  "funders": [
+    {
+      "name": "Underdogs Rising Group Limited",
+      "kind": "Publisher (in-kind and cash)",
+      "year": "2026",
+      "amountBand": null,
+      "purpose": "Building and hosting the website; developers and data journalists; running costs.",
+      "editorialSay": false
+    }
+  ],
+  "totals": []
+}

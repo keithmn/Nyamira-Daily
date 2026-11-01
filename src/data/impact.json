@@ -1,0 +1,6 @@
+{
+  "updated": "2026-10-31",
+  "note": "Impact log (decision #76): a dated record of what changed after we published. Only things with a record we can link or show: an official reply, a correction by the county, a question raised in the Assembly (with the Hansard page), a meeting attended, or a resident's account given with consent. Never claim credit for a change we cannot connect to our work; say 'after we published', not 'because of us', unless the record says so.",
+  "kinds": ["Official response", "Correction by a public body", "Raised in the County Assembly", "Public meeting", "Media pick-up", "Resident's account (with consent)", "Data reused"],
+  "entries": []
+}

@@ -51,6 +51,7 @@ const about = cdf.about.filter((a) => !legal.includes(a));
       <section class="stack">
         <h2>NG-CDF: the Constituencies Development Fund</h2>
         <p class="callout"><span><strong>National money, not county money.</strong> The NG-CDF comes from the national government's share of revenue and is run by a constituency committee, with the MP in an oversight role. It mostly pays for school projects, bursaries and security. It is not part of Nyamira County's budget.</span></p>
+        <p><a href={`/tracker/ng-cdf/${anchorFor(c)}/`}><strong>Every NG-CDF project in {c} in our project tracker</strong></a></p>
         {latestAudited && (
           <div class="cols-2">
             <div class="figure">

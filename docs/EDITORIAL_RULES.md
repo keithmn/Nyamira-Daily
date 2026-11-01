@@ -62,6 +62,10 @@ Successes, improvements and well-run projects get the same care and prominence a
 
 The site does not support or oppose any party, candidate or official. Contributors with a political role or ambition must not edit or approve content about the people they would compete with, or about themselves.
 
+- **The founder recuses** from deciding coverage of politicians, parties and county leadership. If the founder ever seeks political office, they leave all editorial and management roles first, on a published date.
+- **Commercial firewall (decision #73).** The site is published by Underdogs Rising Group Limited. The company's clients, sponsors and funders get no say over content and no preview. Neither the site nor the company takes money or paid work from parties, candidates, aspirants, sitting officials, the County Government of Nyamira or its contractors; if a story touches any client of the company, the link is disclosed on the page and the editor decides whether the founder steps back.
+- **No paid political content**, ever, and above all in an election period (decision #77).
+
 ## 10. Privacy and safety
 
 - No personal data of private individuals.
@@ -98,8 +102,10 @@ Alerts (`src/content/alerts/`, spec item 1.8) are a calm record of what happened
 ## 14. The daily show and NY Watch
 
 - **The daily show** tells stories of daily life in Nyamira. Figures said on air come from this site, with their labels; people filmed give consent, and children only with a guardian's consent.
-- **NY Watch** is one-on-one with decision makers and others with a stake, about the data on this site. Every office is offered the same time and the same questions, and the page for each series lists the offices that have appeared. In an election period, candidates get equal offers or none appear.
-- Claims a guest makes about figures are checked against the data, and the check is shown on the episode page with a link to the data. A guest's opinion is labelled as theirs, never as a finding.
+- **NY Watch** is the data review podcast, hosted by the founder (decision #79). Each episode reviews one set of figures on this site: what the records say, what they leave out, and the questions to ask. Every figure said on air comes from the site with its source and label, and the episode page links the data it reviews (the schema requires it).
+- **It reviews records, not politicians.** Because the founder hosts and recuses from coverage of politicians and county leadership (section 9), an episode never assesses a named politician's conduct, record or fitness for office, and never discusses a candidacy or campaign. Where records raise a question about a named office or project, it is put as a question, with right of reply offered before the episode is released (section 4). Episodes that need to go further are presented by another host chosen by the editor.
+- **Guests are optional.** When office holders appear, every office is offered the same time and the same questions, and the series page lists the offices that have appeared. In an election period, candidates for the same seat get equal offers or none appear (decision #77).
+- Claims a guest or listener makes about figures are checked against the data, and the check is shown on the episode page with a link to the data. A guest's opinion is labelled as theirs, never as a finding.
 
 ## 15. Illustrations and AI-generated images
 

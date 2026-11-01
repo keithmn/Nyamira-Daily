@@ -7,7 +7,10 @@ import { topics } from './data/topics.js';
 import wards from './data/wards.json';
 import { planned } from './config.js';
 
-export const subCounties = ['Borabu', 'Kitutu Masaba', 'North Mugirango', 'West Mugirango'];
+import { county } from './county.js';
+
+// The county's constituencies (its sub-county units), from the county kit (decision #74).
+export const subCounties = county.constituencies;
 export const anchorFor = (name) => name.toLowerCase().split(' ').join('-');
 
 // Data sectors in their usual order (People and places moved to Community, decision #58)
@@ -26,10 +29,10 @@ const dataPages = topics.map((t) => ({ href: `/data/${t.slug}/`, label: t.title,
 // src/lib/icons.js. Each page has a short `desc` for the menu cards; pages can hold pages of their own.
 export const sections = [
   { href: '/', label: 'Today', icon: 'today', overview: 'Nyamira at a glance',
-    desc: "What's new in Nyamira: short news, the daily show, NY Watch, alerts, the number of the week and opportunities.", pages: [
+    desc: "What's new in Nyamira: short news, the daily show, the NY Watch data review podcast, alerts, the number of the week and opportunities.", pages: [
     { href: '/news/', label: 'News', icon: 'stories', desc: 'Short, sourced, tied to the data' },
     { href: '/show/', label: 'The daily show', icon: 'camera', desc: 'Daily life in Nyamira, on YouTube' },
-    { href: '/ny-watch/', label: 'NY Watch', icon: 'question', desc: 'Decision makers on the data' },
+    { href: '/ny-watch/', label: 'NY Watch', icon: 'question', desc: 'The data review podcast' },
     { href: '/alerts/', label: 'Alerts', icon: 'alert', desc: 'Emergencies and disruptions by ward' },
     { href: '/number-of-the-week/', label: 'Number of the week', icon: 'chart', desc: 'One figure, explained' },
     { href: '/opportunities/', label: 'Opportunities', icon: 'calendar', desc: 'Jobs, tenders and bursaries' },
@@ -108,10 +111,15 @@ export const sections = [
   // About: who we are, how we work and how to reach us (decision #62; it took the header's ward picker's place)
   { href: '/about/', label: 'About', icon: 'source', overview: 'About Nyamira Daily',
     desc: 'Who we are, how we check facts, how corrections work and how to reach us.', pages: [
+    { href: '/who-runs-us/', label: 'Who runs us', icon: 'people', desc: 'Our publisher, independence and funders' },
     { href: '/how-we-work/', label: 'How we work', icon: 'check', desc: 'Our rules for facts and fairness' },
     { href: '/how-we-work/#evidence', label: 'Evidence labels', icon: 'source', desc: 'What each label on a figure means' },
     { href: '/how-we-work/#corrections', label: 'Corrections', icon: 'question', desc: 'What we corrected, and how to tell us' },
+    { href: '/right-of-reply/', label: 'Right of reply', icon: 'question', desc: 'How anyone named can respond' },
+    { href: '/impact/', label: 'Impact log', icon: 'chart', desc: 'What changed because of our work' },
     { href: '/data/open-data/', label: 'Use our data', icon: 'data', desc: 'Free to reuse, with credit' },
+    { href: '/terms/', label: 'Terms and reuse', icon: 'source', desc: 'Our data licence and its limits' },
+    { href: '/privacy/', label: 'Privacy', icon: 'check', desc: 'What we keep, and what we never do' },
     { href: '/tell-us/', label: 'Contact us', icon: 'phone', desc: 'Tell us about a project or problem' },
     { href: '/subscribe/', label: 'Get updates', icon: 'phone', desc: 'Updates on WhatsApp and SMS' },
   ] },

@@ -1,0 +1,36 @@
+---
+// Right of reply (decision #73; EDITORIAL_RULES section 4): how anyone named or questioned on the site can respond.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { county } from '../../county.js';
+import { contact, hasContact } from '../../config.js';
+---
+<Base title="Right of reply" description={`How a person, office or company named on ${county.siteName} can respond or ask for a correction.`}>
+  <PageHead eyebrow="About" title="Right of reply" lead="If we raise a question about you, your office, your company or your project, you get to answer it." crumbs={[{ href: '/about/', label: 'About' }, { href: '/right-of-reply/', label: 'Right of reply' }]} />
+  <div class="stack" style="margin-top:16px; max-width:720px">
+    <h2>Before we publish</h2>
+    <ul>
+      <li>When a page raises a question about a named person, public office, company or project, we contact them first, tell them what we plan to publish and the records it rests on, and give them a fair time to reply. That is usually at least three working days, and longer for complicated records.</li>
+      <li>We publish their reply, or a fair summary of it, next to the question. If they decline, we say so.</li>
+      <li>If they show us a record that answers the question, we change or drop the question.</li>
+    </ul>
+
+    <h2>After we publish</h2>
+    <ul>
+      <li>Anyone named on the site can send a reply, a document or a correction at any time. A company in the project tracker can ask us to correct a record by sending the document that shows it.</li>
+      <li>We add replies to the page with the date we received them. Accepted corrections go in our <a href="/how-we-work/#corrections">public corrections log</a>, saying what changed and why.</li>
+      <li>When an allegation is cleared, a case is dropped or a project is finished, we report it as prominently as the original question.</li>
+    </ul>
+
+    <h2>How to reply</h2>
+    {hasContact
+      ? <p>Write to the editor: {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}{contact.email && contact.whatsapp && ' or '}{contact.whatsapp && <a href={`https://wa.me/${contact.whatsapp}`} rel="noopener">WhatsApp</a>}. Say which page you mean and attach any record that supports your reply.</p>
+      : <p class="muted">Our public contact channel is being set up and will be listed here. Until then, we contact people directly before publishing anything that raises a question about them.</p>}
+
+    <div class="sw" lang="sw">
+      <span class="eyebrow">Muhtasari kwa Kiswahili</span>
+      <p>Tukiuliza swali kukuhusu wewe, ofisi yako, kampuni yako au mradi wako, tutakuandikia kwanza na kukupa muda wa kujibu. Jibu lako litachapishwa pamoja na swali.</p>
+    </div>
+    <!-- Kiswahili summary added 31 Oct 2026: needs native-speaker review. -->
+  </div>
+</Base>
