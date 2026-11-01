@@ -44,6 +44,12 @@
    "stage": "estimates",
    "date": "2025-07"
   },
+  "parl": {
+   "title": "National Assembly approves Revenue Allocation Bill, unlocking Ksh428 billion for counties (Parliament of Kenya, 26 June 2026)",
+   "url": "https://parliament.go.ke/node/26037",
+   "stage": "law",
+   "date": "2026-06-26"
+  },
   "pd": {
    "title": "Parliament approves 2026/27 Budget as health and education take lion’s share (People Daily)",
    "url": "https://peopledaily.digital/business/parliament-approves-2026-27-budget-as-health-and-education-take-lions-share",
@@ -62,7 +68,7 @@
    "v": 4820.4,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, total expenditure and net lending",
+   "where": "p.3, Overall Budget and Financing (also p.2)",
    "label": "official",
    "note": "Excludes KSh 32.7bn of securitised Road Maintenance Levy; with it the guide gives 4,853.1 (p.15)."
   },
@@ -70,56 +76,56 @@
    "v": 23.2,
    "unit": "% of GDP",
    "src": "mwananchi",
-   "where": "pp.3–4",
+   "where": "p.3, Overall Budget and Financing",
    "label": "official"
   },
   "revenue": {
    "v": 3630.5,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, total revenue including A-I-A",
+   "where": "p.3, Overall Budget and Financing: total revenue including A-I-A",
    "label": "official"
   },
   "revenueGdp": {
    "v": 17.4,
    "unit": "% of GDP",
    "src": "mwananchi",
-   "where": "pp.3–4",
+   "where": "p.3, Overall Budget and Financing",
    "label": "official"
   },
   "grants": {
    "v": 43.6,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4",
+   "where": "p.3, Overall Budget and Financing",
    "label": "official"
   },
   "deficit": {
    "v": 1146.2,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, fiscal deficit",
+   "where": "p.3, Overall Budget and Financing: fiscal deficit",
    "label": "official"
   },
   "deficitGdp": {
    "v": 5.5,
    "unit": "% of GDP",
    "src": "mwananchi",
-   "where": "pp.3–4",
+   "where": "p.3, Overall Budget and Financing",
    "label": "official"
   },
   "netForeign": {
    "v": 116.2,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, net foreign financing",
+   "where": "p.3, Deficit Financing: net foreign financing",
    "label": "official"
   },
   "netDomestic": {
    "v": 1030,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, net domestic financing",
+   "where": "p.3, Deficit Financing: net domestic financing",
    "label": "official"
   },
   "gdp": {
@@ -227,12 +233,13 @@
   {
    "id": "othertax",
    "name": "Other taxes",
-   "desc": "Import declaration fees, financial transactions and others",
+   "desc": "Other import taxes 51.9, capital gains 24.6 and small taxes 3.5",
    "v": 79.9,
    "unit": "KSh bn",
    "src": "revenue",
    "where": "Summary II, p.vi",
-   "label": "official"
+   "label": "official",
+   "calc": "Our sum of four printed lines: 51.861 + 24.566 + 2.270 + 1.192. It equals total tax less the four main heads."
   },
   {
    "id": "nontax",
@@ -241,8 +248,9 @@
    "v": 123.4,
    "unit": "KSh bn",
    "src": "revenue",
-   "where": "Summary II, pp.vi–vii (non-tax 123.1 + social contributions 0.3)",
-   "label": "official"
+   "where": "Summary II, p.vii",
+   "label": "official",
+   "calc": "Our sum of two printed lines: other revenue 123.133 + employee social security 0.264."
   },
   {
    "id": "aia",
@@ -261,7 +269,7 @@
    "v": 43.6,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4",
+   "where": "p.3, Overall Budget and Financing",
    "label": "official"
   },
   {
@@ -271,7 +279,7 @@
    "v": 1146.2,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, fiscal deficit",
+   "where": "p.3, Overall Budget and Financing: fiscal deficit",
    "label": "official"
   }
  ],
@@ -707,7 +715,8 @@
   {
    "name": "Baringo",
    "prev": 7084,
-   "rec": 7845
+   "rec": 7845,
+   "guide": 7.3
   },
   {
    "name": "Bomet",
@@ -721,32 +730,38 @@
     "devAbs": 61,
     "overallAbs": 80,
     "pop2019": 875689
-   }
+   },
+   "guide": 7.7
   },
   {
    "name": "Bungoma",
    "prev": 11838,
-   "rec": 13110
+   "rec": 13110,
+   "guide": 12.2
   },
   {
    "name": "Busia",
    "prev": 7957,
-   "rec": 8798
+   "rec": 8798,
+   "guide": 8.2
   },
   {
    "name": "Elgeyo/Marakwet",
    "prev": 5515,
-   "rec": 6118
+   "rec": 6118,
+   "guide": 5.7
   },
   {
    "name": "Embu",
    "prev": 6077,
-   "rec": 6717
+   "rec": 6717,
+   "guide": 6.3
   },
   {
    "name": "Garissa",
    "prev": 8878,
-   "rec": 9996
+   "rec": 9996,
+   "guide": 9.2
   },
   {
    "name": "Homa Bay",
@@ -760,22 +775,26 @@
     "devAbs": 69,
     "overallAbs": 82,
     "pop2019": 1131950
-   }
+   },
+   "guide": 8.9
   },
   {
    "name": "Isiolo",
    "prev": 5631,
-   "rec": 6271
+   "rec": 6271,
+   "guide": 5.8
   },
   {
    "name": "Kajiado",
    "prev": 8894,
-   "rec": 9941
+   "rec": 9941,
+   "guide": 9.2
   },
   {
    "name": "Kakamega",
    "prev": 13675,
-   "rec": 14999
+   "rec": 14999,
+   "guide": 14.1
   },
   {
    "name": "Kericho",
@@ -789,22 +808,26 @@
     "devAbs": 72,
     "overallAbs": 82,
     "pop2019": 901777
-   }
+   },
+   "guide": 7.4
   },
   {
    "name": "Kiambu",
    "prev": 13072,
-   "rec": 14556
+   "rec": 14556,
+   "guide": 13.5
   },
   {
    "name": "Kilifi",
    "prev": 12813,
-   "rec": 14040
+   "rec": 14040,
+   "guide": 13.2
   },
   {
    "name": "Kirinyaga",
    "prev": 6152,
-   "rec": 6782
+   "rec": 6782,
+   "guide": 6.3
   },
   {
    "name": "Kisii",
@@ -818,57 +841,68 @@
     "devAbs": 40,
     "overallAbs": 66,
     "pop2019": 1266860
-   }
+   },
+   "guide": 10.1
   },
   {
    "name": "Kisumu",
    "prev": 8902,
-   "rec": 9849
+   "rec": 9849,
+   "guide": 9.2
   },
   {
    "name": "Kitui",
    "prev": 11504,
-   "rec": 12681
+   "rec": 12681,
+   "guide": 11.9
   },
   {
    "name": "Kwale",
    "prev": 9079,
-   "rec": 9942
+   "rec": 9942,
+   "guide": 9.3
   },
   {
    "name": "Laikipia",
    "prev": 6104,
-   "rec": 6762
+   "rec": 6762,
+   "guide": 6.3
   },
   {
    "name": "Lamu",
    "prev": 3858,
-   "rec": 4298
+   "rec": 4298,
+   "guide": 4
   },
   {
    "name": "Machakos",
    "prev": 10179,
-   "rec": 11288
+   "rec": 11288,
+   "guide": 10.5
   },
   {
    "name": "Makueni",
    "prev": 8976,
-   "rec": 9889
+   "rec": 9889,
+   "guide": 9.2
   },
   {
    "name": "Mandera",
    "prev": 12265,
-   "rec": 13259
+   "rec": 13259,
+   "guide": 12.6
   },
   {
    "name": "Marsabit",
    "prev": 8106,
-   "rec": 9073
+   "rec": 9073,
+   "guide": 8.4
   },
   {
    "name": "Meru",
    "prev": 10554,
-   "rec": 11716
+   "rec": 11716,
+   "guide": 10.9
   },
   {
    "name": "Migori",
@@ -882,37 +916,44 @@
     "devAbs": 62,
     "overallAbs": 83,
     "pop2019": 1116436
-   }
+   },
+   "guide": 9.2
   },
   {
    "name": "Mombasa",
    "prev": 8383,
-   "rec": 9305
+   "rec": 9305,
+   "guide": 8.7
   },
   {
    "name": "Murang'a",
    "prev": 7969,
-   "rec": 8842
+   "rec": 8842,
+   "guide": 8.2
   },
   {
    "name": "Nairobi City",
    "prev": 21417,
-   "rec": 23781
+   "rec": 23781,
+   "guide": 22.1
   },
   {
    "name": "Nakuru",
    "prev": 14455,
-   "rec": 15958
+   "rec": 15958,
+   "guide": 14.9
   },
   {
    "name": "Nandi",
    "prev": 7772,
-   "rec": 8583
+   "rec": 8583,
+   "guide": 8
   },
   {
    "name": "Narok",
    "prev": 9770,
-   "rec": 10777
+   "rec": 10777,
+   "guide": 10.1
   },
   {
    "name": "Nyamira",
@@ -926,72 +967,86 @@
     "devAbs": 37,
     "overallAbs": 70,
     "pop2019": 605576
-   }
+   },
+   "guide": 6.3
   },
   {
    "name": "Nyandarua",
    "prev": 6663,
-   "rec": 7338
+   "rec": 7338,
+   "guide": 6.9
   },
   {
    "name": "Nyeri",
    "prev": 6896,
-   "rec": 7615
+   "rec": 7615,
+   "guide": 7.1
   },
   {
    "name": "Samburu",
    "prev": 6337,
-   "rec": 6988
+   "rec": 6988,
+   "guide": 6.5
   },
   {
    "name": "Siaya",
    "prev": 7754,
-   "rec": 8618
+   "rec": 8618,
+   "guide": 8
   },
   {
    "name": "Taita Taveta",
    "prev": 5760,
-   "rec": 6374
+   "rec": 6374,
+   "guide": 5.9
   },
   {
    "name": "Tana River",
    "prev": 7222,
-   "rec": 7979
+   "rec": 7979,
+   "guide": 7.4
   },
   {
    "name": "Tharaka Nithi",
    "prev": 5058,
-   "rec": 5605
+   "rec": 5605,
+   "guide": 5.2
   },
   {
    "name": "Trans Nzoia",
    "prev": 7991,
-   "rec": 8850
+   "rec": 8850,
+   "guide": 8.2
   },
   {
    "name": "Turkana",
    "prev": 13893,
-   "rec": 15186
+   "rec": 15186,
+   "guide": 14.3
   },
   {
    "name": "Uasin Gishu",
    "prev": 8977,
-   "rec": 9939
+   "rec": 9939,
+   "guide": 9.3
   },
   {
    "name": "Vihiga",
    "prev": 6009,
-   "rec": 6664
+   "rec": 6664,
+   "guide": 6.2
   },
   {
    "name": "Wajir",
    "prev": 10508,
-   "rec": 11659
+   "rec": 11659,
+   "guide": 10.8
   },
   {
    "name": "West Pokot",
    "prev": 7002,
-   "rec": 7750
+   "rec": 7750,
+   "guide": 7.2
   }
  ],
  "countiesMeta": {
@@ -1000,7 +1055,7 @@
    "v": 415000,
    "unit": "KSh m",
    "src": "cra",
-   "where": "Table 6.2, column FY2025/26",
+   "where": "Table 6.2, pp.44–45, column FY2025/26",
    "label": "official",
    "note": "The 2025/26 equitable share per county as given by CRA; the total equals the 2025/26 Division of Revenue Act figure of KSh 415bn."
   },
@@ -1008,17 +1063,57 @@
    "v": 458940,
    "unit": "KSh m",
    "src": "cra",
-   "where": "Table 6.2, total FY2026/27",
+   "where": "Table 6.2, pp.44–45, total FY2026/27",
    "label": "official",
    "stage": "recommendation"
   },
   "law": {
    "v": 428,
    "unit": "KSh bn",
-   "src": "mwananchi",
-   "where": "p.14; Division of Revenue Act signed 15 June 2026",
+   "src": "parl",
+   "where": "National Assembly report on the County Allocation of Revenue Bill as passed",
    "label": "official",
    "stage": "law"
+  },
+  "guide": {
+   "v": 428,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.14, each county, rounded to KSh 0.1 billion",
+   "label": "official",
+   "stage": "statement"
+  },
+  "splitBaseline": {
+   "v": 387.43,
+   "unit": "KSh bn",
+   "src": "parl",
+   "where": "National Assembly report: Baseline Allocation",
+   "label": "official",
+   "stage": "law"
+  },
+  "splitAffirmative": {
+   "v": 4.46,
+   "unit": "KSh bn",
+   "src": "parl",
+   "where": "National Assembly report: Affirmative Action Allocation, 12 counties",
+   "label": "official",
+   "stage": "law"
+  },
+  "splitFormula": {
+   "v": 36.1,
+   "unit": "KSh bn",
+   "src": "parl",
+   "where": "National Assembly report: weighted formula",
+   "label": "official",
+   "stage": "law"
+  },
+  "weightsSource": {
+   "v": 100,
+   "unit": "%",
+   "src": "cra",
+   "where": "Table 6.1, p.44",
+   "label": "official",
+   "stage": "recommendation"
   },
   "estimates": {
    "v": 420,
@@ -1170,10 +1265,10 @@
     "v": 4638.4,
     "unit": "KSh bn",
     "src": "summary",
-    "where": "Table 2, FY2025/26 column",
+    "where": "Table 2, FY2025/26 Supplementary I column, p.14",
     "label": "official",
     "stage": "estimates",
-    "note": "The 2025/26 figure as printed in the April 2026 Budget Summary."
+    "note": "FY2025/26 after the first supplementary budget; the original budget was 4,269.9."
    },
    {
     "name": "All 47 counties’ equitable share",
@@ -1189,7 +1284,7 @@
     "v": 6.073,
     "unit": "KSh bn",
     "src": "cra",
-    "where": "Table 6.2, column FY2025/26",
+    "where": "Table 6.2, p.45, column FY2025/26",
     "label": "official",
     "stage": "law"
    },

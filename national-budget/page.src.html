@@ -410,7 +410,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
       <div class="ch-head">
         <span class="eyebrow">Chapter 4 · Counties</span>
         <h2 id="h-counties">How the 47 counties' share is decided, and what yours gets</h2>
-        <p>Counties' share is set in three steps: the Commission on Revenue Allocation recommends, the Treasury proposes, and Parliament decides in the Division of Revenue Act. Then a formula splits it among counties.</p>
+        <p>Counties' share is set in three steps: the Commission on Revenue Allocation recommends, the Treasury proposes, and Parliament decides in the Division of Revenue Act. A second law then shares it among counties, mostly by last year's baseline and partly by a formula.</p>
       </div>
       <div class="stack" style="gap:24px">
         <div class="moved" id="moved"></div>
@@ -420,16 +420,17 @@ footer b { color: var(--hero-fg); font-weight: 500; }
             <div class="card ccard" id="ccard" aria-live="polite"></div>
             <div class="card">
               <h3>The formula</h3>
-              <p class="small">How CRA's recommended share is split between counties for FY2026/27 (the fourth basis).</p>
+              <p class="small" id="split-txt"></p>
               <div class="weights" id="weights"></div>
-              <p class="small muted">Every county gets the same basic share; the rest follows population, poverty and land area. Some money is also held as a baseline from the previous year, so a county's total is not the formula alone.</p>
+              <div id="weights-src"></div>
+              <p class="small muted">These are CRA's recommended weights for the fourth basis. We have not yet checked that the 2026 Act uses the same weights.</p>
             </div>
           </div>
           <div class="stack">
             <div class="key"><span><i style="background:var(--bar)"></i>CRA recommendation, FY2026/27</span><span><i style="background:var(--fg);width:3px;border-radius:1px"></i>Share in FY2025/26</span></div>
             <div class="cscroll" id="cbars" tabindex="0" aria-label="All 47 counties, CRA recommended share in KSh billion"></div>
             <div id="c-src"></div>
-            <p class="small muted">Parliament set the final total at KSh 428 billion, KSh 30.9 billion below CRA's recommendation. Each county's amount in the final County Allocation of Revenue Act will be added when we have checked the Act itself; we do not scale the recommendation down to guess it.</p>
+            <p class="small muted">Parliament set the final total at KSh 428 billion, KSh 30.9 billion below CRA's recommendation. The Treasury's June guide gives each county's share of that total, rounded to KSh 0.1 billion; pick a county to see it. The exact amount in the County Allocation of Revenue Act 2026 will be added when we have read the Act itself; we do not scale the recommendation down to guess it.</p>
           </div>
         </div>
       </div>
@@ -658,6 +659,8 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   ].map(([t, v, f]) => `<div><span class="small muted">${t}</span><span class="num">${nf1.format(v)} <small style="font-size:16px">billion</small></span>${srcLine(f)}</div>`).join('');
   const wcol = { 'Population': 'var(--c-blue)', 'Basic share (equal for all)': 'var(--c-aqua)', 'Poverty': 'var(--c-orange)', 'Land area': 'var(--c-yellow)' };
   $('weights').innerHTML = Object.entries(M.weights).map(([k, v]) => `<div style="flex:${v} 1 0;background:${wcol[k]}" title="${esc(k)}: ${v}%">${v >= 20 ? v + '%' : ''}</div>`).join('');
+  $('split-txt').textContent = `The formula shares only part of the money. Of the KSh 428 billion, KSh ${nf2.format(M.splitBaseline.v)} billion goes out as a baseline, KSh ${nf2.format(M.splitAffirmative.v)} billion as affirmative action for 12 counties, and KSh ${nf1.format(M.splitFormula.v)} billion by a weighted formula.`;
+  $('weights-src').innerHTML = srcLine(M.weightsSource) + srcLine(M.splitFormula, 'all three amounts');
   $('weights').insertAdjacentHTML('afterend', `<ul class="legend" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">${Object.entries(M.weights).map(([k, v]) => `<li><span class="sq" style="background:${wcol[k]}"></span><span class="nm">${esc(k)}</span><span class="per">${v}%</span></li>`).join('')}</ul>`);
   const C = D.counties.slice().sort((a, b) => b.rec - a.rec);
   const sel = $('county');
@@ -680,8 +683,8 @@ footer b { color: var(--hero-fg); font-weight: 500; }
       cob = `<p class="small muted">Spending figures from the Controller of Budget are loaded so far for Nyamira, Kisii, Bomet, Kericho, Homa Bay and Migori. More counties are on the list.</p>`;
     }
     $('ccard').innerHTML = `<span class="cname">${esc(c.name)}</span>
-      <dl><dt>Share in FY2025/26</dt><dd>${bn(c.prev / 1000)}</dd><dt>CRA recommended for FY2026/27</dt><dd>${bn(c.rec / 1000)}</dd><dt>Change recommended</dt><dd>${ch >= 0 ? '+' : ''}${nf1.format(ch)}%</dd><dt>Rank among 47 (recommendation)</dt><dd>${rank}</dd><dt>Final amount in the 2026 Act</dt><dd class="small" style="font-family:var(--font)">not yet loaded</dd></dl>
-      ${srcLine(M.rec, 'Table 6.2')}${cob}
+      <dl><dt>Share in FY2025/26</dt><dd>${bn(c.prev / 1000)}</dd><dt>CRA recommended for FY2026/27</dt><dd>${bn(c.rec / 1000)}</dd><dt>Change recommended</dt><dd>${ch >= 0 ? '+' : ''}${nf1.format(ch)}%</dd><dt>Rank among 47 (recommendation)</dt><dd>${rank}</dd><dt>Treasury guide, June 2026 (rounded)</dt><dd>${bn(c.guide)}</dd><dt>Exact amount in the 2026 Act</dt><dd class="small" style="font-family:var(--font)">not yet loaded</dd></dl>
+      ${srcLine(M.rec)}${srcLine(M.guide)}${cob}
       ${c.name === 'Nyamira' ? '<p class="small"><b>Nyamira Daily</b> has ward-by-ward budgets, projects and services for this county.</p>' : ''}`;
     hbars($('cbars'), C.map((x) => ({ label: esc(x.name), v: x.rec / 1000, vl: nf1.format(x.rec / 1000), tick: x.prev / 1000, cls: x.name === chosen ? 'hi' : '', x })), { max: 24, tips: (r) => `<b>${esc(r.x.name)}</b>Recommended ${bn(r.x.rec / 1000)}<br>FY2025/26 ${bn(r.x.prev / 1000)}` });
     const hiRow = $('cbars').querySelector('.hi');
@@ -689,7 +692,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   }
   sel.addEventListener('change', () => { chosen = sel.value; try { localStorage.setItem('kbe-county', chosen); } catch (e) {} renderCounty(); });
   renderCounty();
-  $('c-src').innerHTML = srcLine(M.rec, 'Table 6.2; bar = recommendation, line = FY2025/26 share; KSh billion');
+  $('c-src').innerHTML = srcLine(M.rec, 'bar = recommendation, line = FY2025/26 share; KSh billion');
 
   /* shilling chain */
   const st = D.shilling.steps;
@@ -760,7 +763,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
     ['Voice without response', 'Platforms that collect complaints but get no reply from officials lose users fast.', 'Questions go to named bodies with a public duty to answer (Parliament, the Controller of Budget). We plan to log the replies publicly.'],
     ['Donor dependence and drift', 'Most African civic tech relies on donors; when funding ends, sites go dark.', 'Static pages that cost almost nothing to host. Open data and code, so the work survives any one funder.'],
     ['Taking sides', 'A budget tool seen as partisan loses half its audience, especially in an election year.', 'Questions, not accusations. No ratings of politicians. Same treatment for every county and every party.'],
-    ['Guessing the gaps', 'Tools that fill missing data with estimates end up wrong in public.', 'Missing figures stay missing. Final county amounts show "not yet loaded" instead of a scaled guess.'],
+    ['Guessing the gaps', 'Tools that fill missing data with estimates end up wrong in public.', 'Missing figures stay missing. Exact county amounts show "not yet loaded" instead of a scaled guess.'],
   ];
   $('guards').innerHTML = guards.map(([h, w, r]) => `<div class="card"><h3>${esc(h)}</h3><p class="was"><b>How tools fail:</b> ${esc(w)}</p><p class="small rule"><b>Our guardrail:</b> ${esc(r)}</p></div>`).join('');
 
@@ -772,13 +775,13 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   D.goes.forEach((g) => add(g.name, g)); D.comes.forEach((g) => add(g.name, g));
   Object.entries(D.cfs).forEach(([k, f]) => add({ domesticInterest: 'Interest, domestic', foreignInterest: 'Interest, foreign', pensions: 'Pensions and salaries (CFS)', total: 'Consolidated Fund Services', foreignRepayments: 'Foreign loan repayments', ordinaryRevenue: 'Ordinary revenue' }[k], f));
   D.sectors.forEach((s) => add(s.name, s)); D.education3.forEach((e) => add(e.name, e));
-  add('Counties’ share, law', M.law); add('Counties’ share, estimates', M.estimates); add('Counties’ share, CRA', M.rec); add('County governments, all transfers', M.countyTotal); add('Equalization Fund', M.equalisation); add('NG-CDF', M.ngcdf);
+  add('Counties’ share, law', M.law); add('Counties’ share, estimates', M.estimates); add('Counties’ share, CRA', M.rec); add('Counties’ share, baseline', M.splitBaseline); add('Counties’ share, affirmative action', M.splitAffirmative); add('Counties’ share, weighted formula', M.splitFormula); add('County governments, all transfers', M.countyTotal); add('Equalization Fund', M.equalisation); add('NG-CDF', M.ngcdf);
   D.shilling.steps.forEach((s) => add(s.name + ' (FY2025/26)', s));
   $('figtable').innerHTML = `<table class="cards"><thead><tr><th>Figure</th><th class="r">Value</th><th>Tags</th><th>Source and place</th></tr></thead><tbody>${figs.map(([n, f]) => `<tr><td>${esc(n)}</td><td class="r" data-label="Value">${f.unit === 'KSh m' ? nf0.format(f.v) + ' m' : f.unit.startsWith('%') ? nf1.format(f.v) + '%' : nf1.format(f.v) + (f.v < 10 ? '' : '')}</td><td>${chips(f)}</td><td class="small" data-label="Source and place"><a href="${esc(S[f.src].url)}" target="_blank" rel="noopener">${esc(S[f.src].title.split(' (')[0])}</a>, ${esc(f.where)}${f.note ? `. ${esc(f.note)}` : ''}</td></tr>`).join('')}</tbody></table><p class="small muted">Values in KSh billion unless marked m (million) or %.</p>`;
   $('srclist').innerHTML = Object.values(S).filter(Boolean).map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('');
-  $('checknote').textContent = `Built ${D.built}. National figures were read from the Treasury and CRA documents on 1 November 2026; before public launch an editor checks each against its printed page and marks it Verified. County spending figures come from Nyamira Daily's checked records.`;
+  $('checknote').textContent = `Built ${D.built}. National figures were checked against the Treasury and CRA documents on 1 November 2026, by software and not yet by a person; before public launch an editor checks each against its printed page and marks it Verified. County spending figures come from Nyamira Daily's checked records.`;
   $('copyjson').addEventListener('click', () => copy(JSON.stringify(D, null, 1), 'Data copied'));
-  $('copycsv').addEventListener('click', () => copy(['county,share_2025_26_ksh_m,cra_recommended_2026_27_ksh_m'].concat(D.counties.map((c) => `"${c.name}",${c.prev},${c.rec}`)).join('\n'), 'County table copied'));
+  $('copycsv').addEventListener('click', () => copy(['county,share_2025_26_ksh_m,cra_recommended_2026_27_ksh_m,treasury_guide_june_2026_ksh_bn_rounded'].concat(D.counties.map((c) => `"${c.name}",${c.prev},${c.rec},${c.guide}`)).join('\n'), 'County table copied'));
 
   /* active chapter in nav */
   const links = [...document.querySelectorAll('.nav a')];

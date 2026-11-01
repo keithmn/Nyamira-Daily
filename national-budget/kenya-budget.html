@@ -410,7 +410,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
       <div class="ch-head">
         <span class="eyebrow">Chapter 4 · Counties</span>
         <h2 id="h-counties">How the 47 counties' share is decided, and what yours gets</h2>
-        <p>Counties' share is set in three steps: the Commission on Revenue Allocation recommends, the Treasury proposes, and Parliament decides in the Division of Revenue Act. Then a formula splits it among counties.</p>
+        <p>Counties' share is set in three steps: the Commission on Revenue Allocation recommends, the Treasury proposes, and Parliament decides in the Division of Revenue Act. A second law then shares it among counties, mostly by last year's baseline and partly by a formula.</p>
       </div>
       <div class="stack" style="gap:24px">
         <div class="moved" id="moved"></div>
@@ -420,16 +420,17 @@ footer b { color: var(--hero-fg); font-weight: 500; }
             <div class="card ccard" id="ccard" aria-live="polite"></div>
             <div class="card">
               <h3>The formula</h3>
-              <p class="small">How CRA's recommended share is split between counties for FY2026/27 (the fourth basis).</p>
+              <p class="small" id="split-txt"></p>
               <div class="weights" id="weights"></div>
-              <p class="small muted">Every county gets the same basic share; the rest follows population, poverty and land area. Some money is also held as a baseline from the previous year, so a county's total is not the formula alone.</p>
+              <div id="weights-src"></div>
+              <p class="small muted">These are CRA's recommended weights for the fourth basis. We have not yet checked that the 2026 Act uses the same weights.</p>
             </div>
           </div>
           <div class="stack">
             <div class="key"><span><i style="background:var(--bar)"></i>CRA recommendation, FY2026/27</span><span><i style="background:var(--fg);width:3px;border-radius:1px"></i>Share in FY2025/26</span></div>
             <div class="cscroll" id="cbars" tabindex="0" aria-label="All 47 counties, CRA recommended share in KSh billion"></div>
             <div id="c-src"></div>
-            <p class="small muted">Parliament set the final total at KSh 428 billion, KSh 30.9 billion below CRA's recommendation. Each county's amount in the final County Allocation of Revenue Act will be added when we have checked the Act itself; we do not scale the recommendation down to guess it.</p>
+            <p class="small muted">Parliament set the final total at KSh 428 billion, KSh 30.9 billion below CRA's recommendation. The Treasury's June guide gives each county's share of that total, rounded to KSh 0.1 billion; pick a county to see it. The exact amount in the County Allocation of Revenue Act 2026 will be added when we have read the Act itself; we do not scale the recommendation down to guess it.</p>
           </div>
         </div>
       </div>
@@ -581,6 +582,12 @@ footer b { color: var(--hero-fg); font-weight: 500; }
    "stage": "estimates",
    "date": "2025-07"
   },
+  "parl": {
+   "title": "National Assembly approves Revenue Allocation Bill, unlocking Ksh428 billion for counties (Parliament of Kenya, 26 June 2026)",
+   "url": "https://parliament.go.ke/node/26037",
+   "stage": "law",
+   "date": "2026-06-26"
+  },
   "pd": {
    "title": "Parliament approves 2026/27 Budget as health and education take lion’s share (People Daily)",
    "url": "https://peopledaily.digital/business/parliament-approves-2026-27-budget-as-health-and-education-take-lions-share",
@@ -599,7 +606,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
    "v": 4820.4,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, total expenditure and net lending",
+   "where": "p.3, Overall Budget and Financing (also p.2)",
    "label": "official",
    "note": "Excludes KSh 32.7bn of securitised Road Maintenance Levy; with it the guide gives 4,853.1 (p.15)."
   },
@@ -607,56 +614,56 @@ footer b { color: var(--hero-fg); font-weight: 500; }
    "v": 23.2,
    "unit": "% of GDP",
    "src": "mwananchi",
-   "where": "pp.3–4",
+   "where": "p.3, Overall Budget and Financing",
    "label": "official"
   },
   "revenue": {
    "v": 3630.5,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, total revenue including A-I-A",
+   "where": "p.3, Overall Budget and Financing: total revenue including A-I-A",
    "label": "official"
   },
   "revenueGdp": {
    "v": 17.4,
    "unit": "% of GDP",
    "src": "mwananchi",
-   "where": "pp.3–4",
+   "where": "p.3, Overall Budget and Financing",
    "label": "official"
   },
   "grants": {
    "v": 43.6,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4",
+   "where": "p.3, Overall Budget and Financing",
    "label": "official"
   },
   "deficit": {
    "v": 1146.2,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, fiscal deficit",
+   "where": "p.3, Overall Budget and Financing: fiscal deficit",
    "label": "official"
   },
   "deficitGdp": {
    "v": 5.5,
    "unit": "% of GDP",
    "src": "mwananchi",
-   "where": "pp.3–4",
+   "where": "p.3, Overall Budget and Financing",
    "label": "official"
   },
   "netForeign": {
    "v": 116.2,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, net foreign financing",
+   "where": "p.3, Deficit Financing: net foreign financing",
    "label": "official"
   },
   "netDomestic": {
    "v": 1030,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, net domestic financing",
+   "where": "p.3, Deficit Financing: net domestic financing",
    "label": "official"
   },
   "gdp": {
@@ -764,12 +771,13 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   {
    "id": "othertax",
    "name": "Other taxes",
-   "desc": "Import declaration fees, financial transactions and others",
+   "desc": "Other import taxes 51.9, capital gains 24.6 and small taxes 3.5",
    "v": 79.9,
    "unit": "KSh bn",
    "src": "revenue",
    "where": "Summary II, p.vi",
-   "label": "official"
+   "label": "official",
+   "calc": "Our sum of four printed lines: 51.861 + 24.566 + 2.270 + 1.192. It equals total tax less the four main heads."
   },
   {
    "id": "nontax",
@@ -778,8 +786,9 @@ footer b { color: var(--hero-fg); font-weight: 500; }
    "v": 123.4,
    "unit": "KSh bn",
    "src": "revenue",
-   "where": "Summary II, pp.vi–vii (non-tax 123.1 + social contributions 0.3)",
-   "label": "official"
+   "where": "Summary II, p.vii",
+   "label": "official",
+   "calc": "Our sum of two printed lines: other revenue 123.133 + employee social security 0.264."
   },
   {
    "id": "aia",
@@ -798,7 +807,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
    "v": 43.6,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4",
+   "where": "p.3, Overall Budget and Financing",
    "label": "official"
   },
   {
@@ -808,7 +817,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
    "v": 1146.2,
    "unit": "KSh bn",
    "src": "mwananchi",
-   "where": "pp.3–4, fiscal deficit",
+   "where": "p.3, Overall Budget and Financing: fiscal deficit",
    "label": "official"
   }
  ],
@@ -1244,7 +1253,8 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   {
    "name": "Baringo",
    "prev": 7084,
-   "rec": 7845
+   "rec": 7845,
+   "guide": 7.3
   },
   {
    "name": "Bomet",
@@ -1258,32 +1268,38 @@ footer b { color: var(--hero-fg); font-weight: 500; }
     "devAbs": 61,
     "overallAbs": 80,
     "pop2019": 875689
-   }
+   },
+   "guide": 7.7
   },
   {
    "name": "Bungoma",
    "prev": 11838,
-   "rec": 13110
+   "rec": 13110,
+   "guide": 12.2
   },
   {
    "name": "Busia",
    "prev": 7957,
-   "rec": 8798
+   "rec": 8798,
+   "guide": 8.2
   },
   {
    "name": "Elgeyo/Marakwet",
    "prev": 5515,
-   "rec": 6118
+   "rec": 6118,
+   "guide": 5.7
   },
   {
    "name": "Embu",
    "prev": 6077,
-   "rec": 6717
+   "rec": 6717,
+   "guide": 6.3
   },
   {
    "name": "Garissa",
    "prev": 8878,
-   "rec": 9996
+   "rec": 9996,
+   "guide": 9.2
   },
   {
    "name": "Homa Bay",
@@ -1297,22 +1313,26 @@ footer b { color: var(--hero-fg); font-weight: 500; }
     "devAbs": 69,
     "overallAbs": 82,
     "pop2019": 1131950
-   }
+   },
+   "guide": 8.9
   },
   {
    "name": "Isiolo",
    "prev": 5631,
-   "rec": 6271
+   "rec": 6271,
+   "guide": 5.8
   },
   {
    "name": "Kajiado",
    "prev": 8894,
-   "rec": 9941
+   "rec": 9941,
+   "guide": 9.2
   },
   {
    "name": "Kakamega",
    "prev": 13675,
-   "rec": 14999
+   "rec": 14999,
+   "guide": 14.1
   },
   {
    "name": "Kericho",
@@ -1326,22 +1346,26 @@ footer b { color: var(--hero-fg); font-weight: 500; }
     "devAbs": 72,
     "overallAbs": 82,
     "pop2019": 901777
-   }
+   },
+   "guide": 7.4
   },
   {
    "name": "Kiambu",
    "prev": 13072,
-   "rec": 14556
+   "rec": 14556,
+   "guide": 13.5
   },
   {
    "name": "Kilifi",
    "prev": 12813,
-   "rec": 14040
+   "rec": 14040,
+   "guide": 13.2
   },
   {
    "name": "Kirinyaga",
    "prev": 6152,
-   "rec": 6782
+   "rec": 6782,
+   "guide": 6.3
   },
   {
    "name": "Kisii",
@@ -1355,57 +1379,68 @@ footer b { color: var(--hero-fg); font-weight: 500; }
     "devAbs": 40,
     "overallAbs": 66,
     "pop2019": 1266860
-   }
+   },
+   "guide": 10.1
   },
   {
    "name": "Kisumu",
    "prev": 8902,
-   "rec": 9849
+   "rec": 9849,
+   "guide": 9.2
   },
   {
    "name": "Kitui",
    "prev": 11504,
-   "rec": 12681
+   "rec": 12681,
+   "guide": 11.9
   },
   {
    "name": "Kwale",
    "prev": 9079,
-   "rec": 9942
+   "rec": 9942,
+   "guide": 9.3
   },
   {
    "name": "Laikipia",
    "prev": 6104,
-   "rec": 6762
+   "rec": 6762,
+   "guide": 6.3
   },
   {
    "name": "Lamu",
    "prev": 3858,
-   "rec": 4298
+   "rec": 4298,
+   "guide": 4
   },
   {
    "name": "Machakos",
    "prev": 10179,
-   "rec": 11288
+   "rec": 11288,
+   "guide": 10.5
   },
   {
    "name": "Makueni",
    "prev": 8976,
-   "rec": 9889
+   "rec": 9889,
+   "guide": 9.2
   },
   {
    "name": "Mandera",
    "prev": 12265,
-   "rec": 13259
+   "rec": 13259,
+   "guide": 12.6
   },
   {
    "name": "Marsabit",
    "prev": 8106,
-   "rec": 9073
+   "rec": 9073,
+   "guide": 8.4
   },
   {
    "name": "Meru",
    "prev": 10554,
-   "rec": 11716
+   "rec": 11716,
+   "guide": 10.9
   },
   {
    "name": "Migori",
@@ -1419,37 +1454,44 @@ footer b { color: var(--hero-fg); font-weight: 500; }
     "devAbs": 62,
     "overallAbs": 83,
     "pop2019": 1116436
-   }
+   },
+   "guide": 9.2
   },
   {
    "name": "Mombasa",
    "prev": 8383,
-   "rec": 9305
+   "rec": 9305,
+   "guide": 8.7
   },
   {
    "name": "Murang'a",
    "prev": 7969,
-   "rec": 8842
+   "rec": 8842,
+   "guide": 8.2
   },
   {
    "name": "Nairobi City",
    "prev": 21417,
-   "rec": 23781
+   "rec": 23781,
+   "guide": 22.1
   },
   {
    "name": "Nakuru",
    "prev": 14455,
-   "rec": 15958
+   "rec": 15958,
+   "guide": 14.9
   },
   {
    "name": "Nandi",
    "prev": 7772,
-   "rec": 8583
+   "rec": 8583,
+   "guide": 8
   },
   {
    "name": "Narok",
    "prev": 9770,
-   "rec": 10777
+   "rec": 10777,
+   "guide": 10.1
   },
   {
    "name": "Nyamira",
@@ -1463,72 +1505,86 @@ footer b { color: var(--hero-fg); font-weight: 500; }
     "devAbs": 37,
     "overallAbs": 70,
     "pop2019": 605576
-   }
+   },
+   "guide": 6.3
   },
   {
    "name": "Nyandarua",
    "prev": 6663,
-   "rec": 7338
+   "rec": 7338,
+   "guide": 6.9
   },
   {
    "name": "Nyeri",
    "prev": 6896,
-   "rec": 7615
+   "rec": 7615,
+   "guide": 7.1
   },
   {
    "name": "Samburu",
    "prev": 6337,
-   "rec": 6988
+   "rec": 6988,
+   "guide": 6.5
   },
   {
    "name": "Siaya",
    "prev": 7754,
-   "rec": 8618
+   "rec": 8618,
+   "guide": 8
   },
   {
    "name": "Taita Taveta",
    "prev": 5760,
-   "rec": 6374
+   "rec": 6374,
+   "guide": 5.9
   },
   {
    "name": "Tana River",
    "prev": 7222,
-   "rec": 7979
+   "rec": 7979,
+   "guide": 7.4
   },
   {
    "name": "Tharaka Nithi",
    "prev": 5058,
-   "rec": 5605
+   "rec": 5605,
+   "guide": 5.2
   },
   {
    "name": "Trans Nzoia",
    "prev": 7991,
-   "rec": 8850
+   "rec": 8850,
+   "guide": 8.2
   },
   {
    "name": "Turkana",
    "prev": 13893,
-   "rec": 15186
+   "rec": 15186,
+   "guide": 14.3
   },
   {
    "name": "Uasin Gishu",
    "prev": 8977,
-   "rec": 9939
+   "rec": 9939,
+   "guide": 9.3
   },
   {
    "name": "Vihiga",
    "prev": 6009,
-   "rec": 6664
+   "rec": 6664,
+   "guide": 6.2
   },
   {
    "name": "Wajir",
    "prev": 10508,
-   "rec": 11659
+   "rec": 11659,
+   "guide": 10.8
   },
   {
    "name": "West Pokot",
    "prev": 7002,
-   "rec": 7750
+   "rec": 7750,
+   "guide": 7.2
   }
  ],
  "countiesMeta": {
@@ -1537,7 +1593,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
    "v": 415000,
    "unit": "KSh m",
    "src": "cra",
-   "where": "Table 6.2, column FY2025/26",
+   "where": "Table 6.2, pp.44–45, column FY2025/26",
    "label": "official",
    "note": "The 2025/26 equitable share per county as given by CRA; the total equals the 2025/26 Division of Revenue Act figure of KSh 415bn."
   },
@@ -1545,17 +1601,57 @@ footer b { color: var(--hero-fg); font-weight: 500; }
    "v": 458940,
    "unit": "KSh m",
    "src": "cra",
-   "where": "Table 6.2, total FY2026/27",
+   "where": "Table 6.2, pp.44–45, total FY2026/27",
    "label": "official",
    "stage": "recommendation"
   },
   "law": {
    "v": 428,
    "unit": "KSh bn",
-   "src": "mwananchi",
-   "where": "p.14; Division of Revenue Act signed 15 June 2026",
+   "src": "parl",
+   "where": "National Assembly report on the County Allocation of Revenue Bill as passed",
    "label": "official",
    "stage": "law"
+  },
+  "guide": {
+   "v": 428,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.14, each county, rounded to KSh 0.1 billion",
+   "label": "official",
+   "stage": "statement"
+  },
+  "splitBaseline": {
+   "v": 387.43,
+   "unit": "KSh bn",
+   "src": "parl",
+   "where": "National Assembly report: Baseline Allocation",
+   "label": "official",
+   "stage": "law"
+  },
+  "splitAffirmative": {
+   "v": 4.46,
+   "unit": "KSh bn",
+   "src": "parl",
+   "where": "National Assembly report: Affirmative Action Allocation, 12 counties",
+   "label": "official",
+   "stage": "law"
+  },
+  "splitFormula": {
+   "v": 36.1,
+   "unit": "KSh bn",
+   "src": "parl",
+   "where": "National Assembly report: weighted formula",
+   "label": "official",
+   "stage": "law"
+  },
+  "weightsSource": {
+   "v": 100,
+   "unit": "%",
+   "src": "cra",
+   "where": "Table 6.1, p.44",
+   "label": "official",
+   "stage": "recommendation"
   },
   "estimates": {
    "v": 420,
@@ -1707,10 +1803,10 @@ footer b { color: var(--hero-fg); font-weight: 500; }
     "v": 4638.4,
     "unit": "KSh bn",
     "src": "summary",
-    "where": "Table 2, FY2025/26 column",
+    "where": "Table 2, FY2025/26 Supplementary I column, p.14",
     "label": "official",
     "stage": "estimates",
-    "note": "The 2025/26 figure as printed in the April 2026 Budget Summary."
+    "note": "FY2025/26 after the first supplementary budget; the original budget was 4,269.9."
    },
    {
     "name": "All 47 counties’ equitable share",
@@ -1726,7 +1822,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
     "v": 6.073,
     "unit": "KSh bn",
     "src": "cra",
-    "where": "Table 6.2, column FY2025/26",
+    "where": "Table 6.2, p.45, column FY2025/26",
     "label": "official",
     "stage": "law"
    },
@@ -2038,6 +2134,8 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   ].map(([t, v, f]) => `<div><span class="small muted">${t}</span><span class="num">${nf1.format(v)} <small style="font-size:16px">billion</small></span>${srcLine(f)}</div>`).join('');
   const wcol = { 'Population': 'var(--c-blue)', 'Basic share (equal for all)': 'var(--c-aqua)', 'Poverty': 'var(--c-orange)', 'Land area': 'var(--c-yellow)' };
   $('weights').innerHTML = Object.entries(M.weights).map(([k, v]) => `<div style="flex:${v} 1 0;background:${wcol[k]}" title="${esc(k)}: ${v}%">${v >= 20 ? v + '%' : ''}</div>`).join('');
+  $('split-txt').textContent = `The formula shares only part of the money. Of the KSh 428 billion, KSh ${nf2.format(M.splitBaseline.v)} billion goes out as a baseline, KSh ${nf2.format(M.splitAffirmative.v)} billion as affirmative action for 12 counties, and KSh ${nf1.format(M.splitFormula.v)} billion by a weighted formula.`;
+  $('weights-src').innerHTML = srcLine(M.weightsSource) + srcLine(M.splitFormula, 'all three amounts');
   $('weights').insertAdjacentHTML('afterend', `<ul class="legend" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">${Object.entries(M.weights).map(([k, v]) => `<li><span class="sq" style="background:${wcol[k]}"></span><span class="nm">${esc(k)}</span><span class="per">${v}%</span></li>`).join('')}</ul>`);
   const C = D.counties.slice().sort((a, b) => b.rec - a.rec);
   const sel = $('county');
@@ -2060,8 +2158,8 @@ footer b { color: var(--hero-fg); font-weight: 500; }
       cob = `<p class="small muted">Spending figures from the Controller of Budget are loaded so far for Nyamira, Kisii, Bomet, Kericho, Homa Bay and Migori. More counties are on the list.</p>`;
     }
     $('ccard').innerHTML = `<span class="cname">${esc(c.name)}</span>
-      <dl><dt>Share in FY2025/26</dt><dd>${bn(c.prev / 1000)}</dd><dt>CRA recommended for FY2026/27</dt><dd>${bn(c.rec / 1000)}</dd><dt>Change recommended</dt><dd>${ch >= 0 ? '+' : ''}${nf1.format(ch)}%</dd><dt>Rank among 47 (recommendation)</dt><dd>${rank}</dd><dt>Final amount in the 2026 Act</dt><dd class="small" style="font-family:var(--font)">not yet loaded</dd></dl>
-      ${srcLine(M.rec, 'Table 6.2')}${cob}
+      <dl><dt>Share in FY2025/26</dt><dd>${bn(c.prev / 1000)}</dd><dt>CRA recommended for FY2026/27</dt><dd>${bn(c.rec / 1000)}</dd><dt>Change recommended</dt><dd>${ch >= 0 ? '+' : ''}${nf1.format(ch)}%</dd><dt>Rank among 47 (recommendation)</dt><dd>${rank}</dd><dt>Treasury guide, June 2026 (rounded)</dt><dd>${bn(c.guide)}</dd><dt>Exact amount in the 2026 Act</dt><dd class="small" style="font-family:var(--font)">not yet loaded</dd></dl>
+      ${srcLine(M.rec)}${srcLine(M.guide)}${cob}
       ${c.name === 'Nyamira' ? '<p class="small"><b>Nyamira Daily</b> has ward-by-ward budgets, projects and services for this county.</p>' : ''}`;
     hbars($('cbars'), C.map((x) => ({ label: esc(x.name), v: x.rec / 1000, vl: nf1.format(x.rec / 1000), tick: x.prev / 1000, cls: x.name === chosen ? 'hi' : '', x })), { max: 24, tips: (r) => `<b>${esc(r.x.name)}</b>Recommended ${bn(r.x.rec / 1000)}<br>FY2025/26 ${bn(r.x.prev / 1000)}` });
     const hiRow = $('cbars').querySelector('.hi');
@@ -2069,7 +2167,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   }
   sel.addEventListener('change', () => { chosen = sel.value; try { localStorage.setItem('kbe-county', chosen); } catch (e) {} renderCounty(); });
   renderCounty();
-  $('c-src').innerHTML = srcLine(M.rec, 'Table 6.2; bar = recommendation, line = FY2025/26 share; KSh billion');
+  $('c-src').innerHTML = srcLine(M.rec, 'bar = recommendation, line = FY2025/26 share; KSh billion');
 
   /* shilling chain */
   const st = D.shilling.steps;
@@ -2140,7 +2238,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
     ['Voice without response', 'Platforms that collect complaints but get no reply from officials lose users fast.', 'Questions go to named bodies with a public duty to answer (Parliament, the Controller of Budget). We plan to log the replies publicly.'],
     ['Donor dependence and drift', 'Most African civic tech relies on donors; when funding ends, sites go dark.', 'Static pages that cost almost nothing to host. Open data and code, so the work survives any one funder.'],
     ['Taking sides', 'A budget tool seen as partisan loses half its audience, especially in an election year.', 'Questions, not accusations. No ratings of politicians. Same treatment for every county and every party.'],
-    ['Guessing the gaps', 'Tools that fill missing data with estimates end up wrong in public.', 'Missing figures stay missing. Final county amounts show "not yet loaded" instead of a scaled guess.'],
+    ['Guessing the gaps', 'Tools that fill missing data with estimates end up wrong in public.', 'Missing figures stay missing. Exact county amounts show "not yet loaded" instead of a scaled guess.'],
   ];
   $('guards').innerHTML = guards.map(([h, w, r]) => `<div class="card"><h3>${esc(h)}</h3><p class="was"><b>How tools fail:</b> ${esc(w)}</p><p class="small rule"><b>Our guardrail:</b> ${esc(r)}</p></div>`).join('');
 
@@ -2152,13 +2250,13 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   D.goes.forEach((g) => add(g.name, g)); D.comes.forEach((g) => add(g.name, g));
   Object.entries(D.cfs).forEach(([k, f]) => add({ domesticInterest: 'Interest, domestic', foreignInterest: 'Interest, foreign', pensions: 'Pensions and salaries (CFS)', total: 'Consolidated Fund Services', foreignRepayments: 'Foreign loan repayments', ordinaryRevenue: 'Ordinary revenue' }[k], f));
   D.sectors.forEach((s) => add(s.name, s)); D.education3.forEach((e) => add(e.name, e));
-  add('Counties’ share, law', M.law); add('Counties’ share, estimates', M.estimates); add('Counties’ share, CRA', M.rec); add('County governments, all transfers', M.countyTotal); add('Equalization Fund', M.equalisation); add('NG-CDF', M.ngcdf);
+  add('Counties’ share, law', M.law); add('Counties’ share, estimates', M.estimates); add('Counties’ share, CRA', M.rec); add('Counties’ share, baseline', M.splitBaseline); add('Counties’ share, affirmative action', M.splitAffirmative); add('Counties’ share, weighted formula', M.splitFormula); add('County governments, all transfers', M.countyTotal); add('Equalization Fund', M.equalisation); add('NG-CDF', M.ngcdf);
   D.shilling.steps.forEach((s) => add(s.name + ' (FY2025/26)', s));
   $('figtable').innerHTML = `<table class="cards"><thead><tr><th>Figure</th><th class="r">Value</th><th>Tags</th><th>Source and place</th></tr></thead><tbody>${figs.map(([n, f]) => `<tr><td>${esc(n)}</td><td class="r" data-label="Value">${f.unit === 'KSh m' ? nf0.format(f.v) + ' m' : f.unit.startsWith('%') ? nf1.format(f.v) + '%' : nf1.format(f.v) + (f.v < 10 ? '' : '')}</td><td>${chips(f)}</td><td class="small" data-label="Source and place"><a href="${esc(S[f.src].url)}" target="_blank" rel="noopener">${esc(S[f.src].title.split(' (')[0])}</a>, ${esc(f.where)}${f.note ? `. ${esc(f.note)}` : ''}</td></tr>`).join('')}</tbody></table><p class="small muted">Values in KSh billion unless marked m (million) or %.</p>`;
   $('srclist').innerHTML = Object.values(S).filter(Boolean).map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('');
-  $('checknote').textContent = `Built ${D.built}. National figures were read from the Treasury and CRA documents on 1 November 2026; before public launch an editor checks each against its printed page and marks it Verified. County spending figures come from Nyamira Daily's checked records.`;
+  $('checknote').textContent = `Built ${D.built}. National figures were checked against the Treasury and CRA documents on 1 November 2026, by software and not yet by a person; before public launch an editor checks each against its printed page and marks it Verified. County spending figures come from Nyamira Daily's checked records.`;
   $('copyjson').addEventListener('click', () => copy(JSON.stringify(D, null, 1), 'Data copied'));
-  $('copycsv').addEventListener('click', () => copy(['county,share_2025_26_ksh_m,cra_recommended_2026_27_ksh_m'].concat(D.counties.map((c) => `"${c.name}",${c.prev},${c.rec}`)).join('\n'), 'County table copied'));
+  $('copycsv').addEventListener('click', () => copy(['county,share_2025_26_ksh_m,cra_recommended_2026_27_ksh_m,treasury_guide_june_2026_ksh_bn_rounded'].concat(D.counties.map((c) => `"${c.name}",${c.prev},${c.rec},${c.guide}`)).join('\n'), 'County table copied'));
 
   /* active chapter in nav */
   const links = [...document.querySelectorAll('.nav a')];

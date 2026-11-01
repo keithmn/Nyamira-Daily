@@ -21,6 +21,9 @@ function fig(value, unit, src, where, { label = 'official', stage, calc, note } 
 
 const CRA = `Baringo 7084 7845|Bomet 7447 8270|Bungoma 11838 13110|Busia 7957 8798|Elgeyo/Marakwet 5515 6118|Embu 6077 6717|Garissa 8878 9996|Homa Bay 8646 9554|Isiolo 5631 6271|Kajiado 8894 9941|Kakamega 13675 14999|Kericho 7179 8017|Kiambu 13072 14556|Kilifi 12813 14040|Kirinyaga 6152 6782|Kisii 9820 10799|Kisumu 8902 9849|Kitui 11504 12681|Kwale 9079 9942|Laikipia 6104 6762|Lamu 3858 4298|Machakos 10179 11288|Makueni 8976 9889|Mandera 12265 13259|Marsabit 8106 9073|Meru 10554 11716|Migori 8884 9835|Mombasa 8383 9305|Murang'a 7969 8842|Nairobi City 21417 23781|Nakuru 14455 15958|Nandi 7772 8583|Narok 9770 10777|Nyamira 6073 6724|Nyandarua 6663 7338|Nyeri 6896 7615|Samburu 6337 6988|Siaya 7754 8618|Taita Taveta 5760 6374|Tana River 7222 7979|Tharaka Nithi 5058 5605|Trans Nzoia 7991 8850|Turkana 13893 15186|Uasin Gishu 8977 9939|Vihiga 6009 6664|Wajir 10508 11659|West Pokot 7002 7750`;
 
+// Mwananchi Guide p.14, printed as a picture, so typed by hand. KSh billion, rounded to one decimal place by the Treasury.
+const GUIDE_P14 = `Baringo 7.3|Bomet 7.7|Bungoma 12.2|Busia 8.2|Elgeyo/Marakwet 5.7|Embu 6.3|Garissa 9.2|Homa Bay 8.9|Isiolo 5.8|Kajiado 9.2|Kakamega 14.1|Kericho 7.4|Kiambu 13.5|Kilifi 13.2|Kirinyaga 6.3|Kisii 10.1|Kisumu 9.2|Kitui 11.9|Kwale 9.3|Laikipia 6.3|Lamu 4.0|Machakos 10.5|Makueni 9.2|Mandera 12.6|Marsabit 8.4|Meru 10.9|Migori 9.2|Mombasa 8.7|Murang'a 8.2|Nairobi City 22.1|Nakuru 14.9|Nandi 8.0|Narok 10.1|Nyamira 6.3|Nyandarua 6.9|Nyeri 7.1|Samburu 6.5|Siaya 8.0|Taita Taveta 5.9|Tana River 7.4|Tharaka Nithi 5.2|Trans Nzoia 8.2|Turkana 14.3|Uasin Gishu 9.3|Vihiga 6.2|Wajir 10.8|West Pokot 7.2`;
+
 export function buildData(repoData) {
   const readJson = (f) => JSON.parse(readFileSync(join(repoData, f), 'utf8'));
 
@@ -53,15 +56,15 @@ export function buildData(repoData) {
 
   // ---- Headline fiscal framework (budget statement stage) ----
   data.headline = {
-    total: fig(4820.4, B, 'mwananchi', 'pp.3–4, total expenditure and net lending', { note: 'Excludes KSh 32.7bn of securitised Road Maintenance Levy; with it the guide gives 4,853.1 (p.15).' }),
-    totalGdp: fig(23.2, '% of GDP', 'mwananchi', 'pp.3–4'),
-    revenue: fig(3630.5, B, 'mwananchi', 'pp.3–4, total revenue including A-I-A'),
-    revenueGdp: fig(17.4, '% of GDP', 'mwananchi', 'pp.3–4'),
-    grants: fig(43.6, B, 'mwananchi', 'pp.3–4'),
-    deficit: fig(1146.2, B, 'mwananchi', 'pp.3–4, fiscal deficit'),
-    deficitGdp: fig(5.5, '% of GDP', 'mwananchi', 'pp.3–4'),
-    netForeign: fig(116.2, B, 'mwananchi', 'pp.3–4, net foreign financing'),
-    netDomestic: fig(1030.0, B, 'mwananchi', 'pp.3–4, net domestic financing'),
+    total: fig(4820.4, B, 'mwananchi', 'p.3, Overall Budget and Financing (also p.2)', { note: 'Excludes KSh 32.7bn of securitised Road Maintenance Levy; with it the guide gives 4,853.1 (p.15).' }),
+    totalGdp: fig(23.2, '% of GDP', 'mwananchi', 'p.3, Overall Budget and Financing'),
+    revenue: fig(3630.5, B, 'mwananchi', 'p.3, Overall Budget and Financing: total revenue including A-I-A'),
+    revenueGdp: fig(17.4, '% of GDP', 'mwananchi', 'p.3, Overall Budget and Financing'),
+    grants: fig(43.6, B, 'mwananchi', 'p.3, Overall Budget and Financing'),
+    deficit: fig(1146.2, B, 'mwananchi', 'p.3, Overall Budget and Financing: fiscal deficit'),
+    deficitGdp: fig(5.5, '% of GDP', 'mwananchi', 'p.3, Overall Budget and Financing'),
+    netForeign: fig(116.2, B, 'mwananchi', 'p.3, Deficit Financing: net foreign financing'),
+    netDomestic: fig(1030.0, B, 'mwananchi', 'p.3, Deficit Financing: net domestic financing'),
     gdp: fig(20816.8, B, 'summary', 'Table 2, nominal GDP FY2026/27', { stage: 'estimates' }),
   };
 
@@ -81,13 +84,13 @@ export function buildData(repoData) {
     ['vat', 'VAT', 'Domestic VAT (net of refunds) + VAT on imports', 829.2, 'Summary II, p.vi'],
     ['excise', 'Excise duty', 'Alcohol, tobacco, fuel, airtime, betting and other excisable goods', 383.4, 'Summary II, p.vi'],
     ['import', 'Import duty', 'Customs duty on imports, net', 186.2, 'Summary II, p.vi'],
-    ['othertax', 'Other taxes', 'Import declaration fees, financial transactions and others', 79.9, 'Summary II, p.vi'],
-    ['nontax', 'Non-tax income', 'Dividends, rents, fines, sales of goods and services', 123.4, 'Summary II, pp.vi–vii (non-tax 123.1 + social contributions 0.3)'],
+    ['othertax', 'Other taxes', 'Other import taxes 51.9, capital gains 24.6 and small taxes 3.5', 79.9, 'Summary II, p.vi', 'Our sum of four printed lines: 51.861 + 24.566 + 2.270 + 1.192. It equals total tax less the four main heads.'],
+    ['nontax', 'Non-tax income', 'Dividends, rents, fines, sales of goods and services', 123.4, 'Summary II, p.vii', 'Our sum of two printed lines: other revenue 123.133 + employee social security 0.264.'],
     ['aia', 'Fees kept by agencies (A-I-A)', 'Appropriations-in-Aid: money agencies collect and spend directly', 644.8, 'Summary III, p.viii (excluding grants)'],
   ];
-  data.comes = rev.map(([id, name, desc, v, where]) => ({ id, name, desc, ...fig(v, B, 'revenue', where) }));
-  data.comes.push({ id: 'grants', name: 'Grants', desc: 'Gifts from foreign governments and international organisations', ...fig(43.6, B, 'mwananchi', 'pp.3–4') });
-  data.comes.push({ id: 'borrow', name: 'Borrowing (net)', desc: 'The deficit: new loans after repaying old ones. Gross borrowing is larger.', ...fig(1146.2, B, 'mwananchi', 'pp.3–4, fiscal deficit') });
+  data.comes = rev.map(([id, name, desc, v, where, calc]) => ({ id, name, desc, ...fig(v, B, 'revenue', where, { calc }) }));
+  data.comes.push({ id: 'grants', name: 'Grants', desc: 'Gifts from foreign governments and international organisations', ...fig(43.6, B, 'mwananchi', 'p.3, Overall Budget and Financing') });
+  data.comes.push({ id: 'borrow', name: 'Borrowing (net)', desc: 'The deficit: new loans after repaying old ones. Gross borrowing is larger.', ...fig(1146.2, B, 'mwananchi', 'p.3, Overall Budget and Financing: fiscal deficit') });
 
   // ---- Debt detail (estimates stage, April) ----
   data.cfs = {
@@ -121,6 +124,8 @@ export function buildData(repoData) {
     { name: 'Education thematic area', ...fig(668.3, B, 'summary', 'Table 5, p.25', { stage: 'estimates' }), why: 'A different grouping, at the April estimates stage.' },
     { name: 'Education as approved by MPs', ...fig(781.4, B, 'pd', 'reported', { label: 'unverified', stage: 'approved' }), why: 'As reported in the press after Parliament approved the estimates; we have not seen the Act.' },
   ];
+  SOURCES.parl = { title: 'National Assembly approves Revenue Allocation Bill, unlocking Ksh428 billion for counties (Parliament of Kenya, 26 June 2026)',
+    url: 'https://parliament.go.ke/node/26037', stage: 'law', date: '2026-06-26' };
   SOURCES.pd = { title: 'Parliament approves 2026/27 Budget as health and education take lion’s share (People Daily)',
     url: 'https://peopledaily.digital/business/parliament-approves-2026-27-budget-as-health-and-education-take-lions-share', stage: 'approved', date: '2026-06' };
 
@@ -143,12 +148,26 @@ export function buildData(repoData) {
     const p = pop[c.name];
     if (p) c.cob = { budget: p.budget, spent: p.spent, devBudget: p.devBudget, devSpent: p.devSpent, devAbs: p.devAbsorptionPct, overallAbs: p.overallAbsorptionPct, pop2019: p.population2019 };
   }
+  for (const row of GUIDE_P14.split('|')) {
+    const i = row.lastIndexOf(' ');
+    const c = counties.find((x) => x.name === row.slice(0, i));
+    assert.ok(c, row);
+    c.guide = Number(row.slice(i + 1));
+  }
+  const guideSum = counties.reduce((a, c) => a + c.guide, 0);
+  // Rounded to 0.1 each, so the 47 can differ from the printed 428.0 by a little; a typing slip would show here.
+  assert.ok(Math.abs(guideSum - 428) <= 0.5, `Guide p.14 sums to ${guideSum}`);
   data.counties = counties;
   data.countiesMeta = {
     unit: 'KSh million',
-    prev: fig(415000, 'KSh m', 'cra', 'Table 6.2, column FY2025/26', { note: 'The 2025/26 equitable share per county as given by CRA; the total equals the 2025/26 Division of Revenue Act figure of KSh 415bn.' }),
-    rec: fig(458940, 'KSh m', 'cra', 'Table 6.2, total FY2026/27', { stage: 'recommendation' }),
-    law: fig(428.0, B, 'mwananchi', 'p.14; Division of Revenue Act signed 15 June 2026', { stage: 'law' }),
+    prev: fig(415000, 'KSh m', 'cra', 'Table 6.2, pp.44–45, column FY2025/26', { note: 'The 2025/26 equitable share per county as given by CRA; the total equals the 2025/26 Division of Revenue Act figure of KSh 415bn.' }),
+    rec: fig(458940, 'KSh m', 'cra', 'Table 6.2, pp.44–45, total FY2026/27', { stage: 'recommendation' }),
+    law: fig(428.0, B, 'parl', 'National Assembly report on the County Allocation of Revenue Bill as passed', { stage: 'law' }),
+    guide: fig(428.0, B, 'mwananchi', 'p.14, each county, rounded to KSh 0.1 billion', { stage: 'statement' }),
+    splitBaseline: fig(387.43, B, 'parl', 'National Assembly report: Baseline Allocation', { stage: 'law' }),
+    splitAffirmative: fig(4.46, B, 'parl', 'National Assembly report: Affirmative Action Allocation, 12 counties', { stage: 'law' }),
+    splitFormula: fig(36.1, B, 'parl', 'National Assembly report: weighted formula', { stage: 'law' }),
+    weightsSource: fig(100, '%', 'cra', 'Table 6.1, p.44', { stage: 'recommendation' }),
     estimates: fig(420.0, B, 'summary', 'para 67', { stage: 'estimates' }),
     countyTotal: fig(502.0, B, 'mwananchi', 'p.14: equitable share 428.0 + conditional allocations from national government 16.6 + from development partners 57.4'),
     equalisation: fig(10.3, B, 'mwananchi', 'p.13, Equalization Fund'),
@@ -179,9 +198,9 @@ export function buildData(repoData) {
   data.shilling = {
     fy: '2025/26',
     steps: [
-      { name: 'National budget', ...fig(4638.4, B, 'summary', 'Table 2, FY2025/26 column', { stage: 'estimates', note: 'The 2025/26 figure as printed in the April 2026 Budget Summary.' }) },
+      { name: 'National budget', ...fig(4638.4, B, 'summary', 'Table 2, FY2025/26 Supplementary I column, p.14', { stage: 'estimates', note: 'FY2025/26 after the first supplementary budget; the original budget was 4,269.9.' }) },
       { name: 'All 47 counties’ equitable share', ...fig(415.0, B, 'summary', 'Table 2, FY2025/26: of which equitable share', { stage: 'law' }) },
-      { name: 'Nyamira’s equitable share', ...fig(6.073, B, 'cra', 'Table 6.2, column FY2025/26', { stage: 'law' }) },
+      { name: 'Nyamira’s equitable share', ...fig(6.073, B, 'cra', 'Table 6.2, p.45, column FY2025/26', { stage: 'law' }) },
       { name: 'Nyamira’s whole county budget', ...fig(round(bs.countyTotal.total / 1e9, 3), B, 'nyapbb', 'Table 8 total, p.20', { stage: 'estimates', note: 'Equitable share plus conditional grants, own revenue and other sources.' }) },
       { name: 'Ward-coded projects in 20 wards', ...fig(round(wardSum / 1e9, 4), B, 'nyapbb', 'Table 18, pp.43–50: sum of ward-coded lines', { stage: 'estimates', calc: 'Sum of ward-coded budget lines by Nyamira Daily; countywide and flagship lines are not counted.' }) },
     ],
