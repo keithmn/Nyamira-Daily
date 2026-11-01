@@ -1,0 +1,1381 @@
+{
+ "built": "2026-11-01",
+ "fy": "2026/27",
+ "sources": {
+  "mwananchi": {
+   "title": "Budget Highlights: The Mwananchi Guide for the FY 2026/27 Budget (National Treasury, June 2026)",
+   "url": "https://treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
+   "stage": "statement",
+   "date": "2026-06-11"
+  },
+  "summary": {
+   "title": "Budget Summary for the FY 2026/27 Budget (National Treasury, 30 April 2026)",
+   "url": "https://treasury.go.ke/sites/default/files/Budget%20summary/Budget%20Summary%20for%20the%20FY%202026_27%20Budget.pdf",
+   "stage": "estimates",
+   "date": "2026-04-30"
+  },
+  "revenue": {
+   "title": "Estimates of Revenue, Grants and Loans for the FY 2026/27 Budget (National Treasury, June 2026)",
+   "url": "https://newsite.treasury.go.ke/sites/default/files/Estimates/Estimates%20of%20Revenue%2C%20Grants%20and%20Loans%20for%20the%20FY%202026-27%20Budget.pdf",
+   "stage": "statement",
+   "date": "2026-06"
+  },
+  "cra": {
+   "title": "CRA Recommendation on the Basis for Equitable Sharing of Revenue, FY 2026/27 (Commission on Revenue Allocation, February 2026), Table 6.2",
+   "url": "https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf",
+   "stage": "recommendation",
+   "date": "2026-02-03"
+  },
+  "dora": {
+   "title": "Ruto signs Division of Revenue Act, securing Sh428bn equitable share for counties (Capital FM, June 2026)",
+   "url": "https://www.capitalfm.co.ke/news/2026/06/ruto-signs-division-of-revenue-act-securing-sh428bn-equitable-share-for-counties/",
+   "stage": "law",
+   "date": "2026-06-15"
+  },
+  "cob2425": {
+   "title": "County Governments Budget Implementation Review Report FY 2024/25 (Office of the Controller of Budget, August 2025)",
+   "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/",
+   "stage": "spent",
+   "date": "2025-08"
+  },
+  "nyapbb": {
+   "title": "County Government of Nyamira, The Programme Based Budget 2025/2026 (July 2025)",
+   "url": "https://nyamira.go.ke/static/documents/13_10_2025_09_51_47_am_PBB_2025-2026.pdf",
+   "stage": "estimates",
+   "date": "2025-07"
+  },
+  "pd": {
+   "title": "Parliament approves 2026/27 Budget as health and education take lion’s share (People Daily)",
+   "url": "https://peopledaily.digital/business/parliament-approves-2026-27-budget-as-health-and-education-take-lions-share",
+   "stage": "approved",
+   "date": "2026-06"
+  },
+  "cobyears": {
+   "title": "Controller of Budget, County Governments Budget Implementation Review Reports, FY2013/14 to FY2024/25 (Nyamira section)",
+   "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/",
+   "stage": "spent",
+   "date": "2014–2025"
+  }
+ },
+ "headline": {
+  "total": {
+   "v": 4820.4,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, total expenditure and net lending",
+   "label": "official",
+   "note": "Excludes KSh 32.7bn of securitised Road Maintenance Levy; with it the guide gives 4,853.1 (p.15)."
+  },
+  "totalGdp": {
+   "v": 23.2,
+   "unit": "% of GDP",
+   "src": "mwananchi",
+   "where": "pp.3–4",
+   "label": "official"
+  },
+  "revenue": {
+   "v": 3630.5,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, total revenue including A-I-A",
+   "label": "official"
+  },
+  "revenueGdp": {
+   "v": 17.4,
+   "unit": "% of GDP",
+   "src": "mwananchi",
+   "where": "pp.3–4",
+   "label": "official"
+  },
+  "grants": {
+   "v": 43.6,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4",
+   "label": "official"
+  },
+  "deficit": {
+   "v": 1146.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, fiscal deficit",
+   "label": "official"
+  },
+  "deficitGdp": {
+   "v": 5.5,
+   "unit": "% of GDP",
+   "src": "mwananchi",
+   "where": "pp.3–4",
+   "label": "official"
+  },
+  "netForeign": {
+   "v": 116.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, net foreign financing",
+   "label": "official"
+  },
+  "netDomestic": {
+   "v": 1030.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, net domestic financing",
+   "label": "official"
+  },
+  "gdp": {
+   "v": 20816.8,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "Table 2, nominal GDP FY2026/27",
+   "label": "official",
+   "stage": "estimates"
+  }
+ },
+ "goes": [
+  {
+   "id": "recurrent",
+   "name": "Running national government",
+   "desc": "Salaries, operations and transfers of ministries, departments and agencies",
+   "v": 2081.1,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.2, where the money goes",
+   "label": "official"
+  },
+  {
+   "id": "cfs",
+   "name": "Interest and pensions",
+   "desc": "Consolidated Fund Services: paid before anything else, without a vote",
+   "v": 1501.3,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.2, where the money goes",
+   "label": "official"
+  },
+  {
+   "id": "development",
+   "name": "Building projects",
+   "desc": "Ministerial development spending: roads, dams, buildings, equipment",
+   "v": 809.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.2, where the money goes",
+   "label": "official"
+  },
+  {
+   "id": "counties",
+   "name": "Counties (equitable share)",
+   "desc": "The 47 counties’ unconditional share",
+   "v": 428.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.2, where the money goes",
+   "label": "official"
+  },
+  {
+   "id": "contingency",
+   "name": "Emergencies fund",
+   "desc": "Contingency Fund",
+   "v": 1.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.2, where the money goes",
+   "label": "official"
+  }
+ ],
+ "comes": [
+  {
+   "id": "income",
+   "name": "Income tax",
+   "desc": "PAYE 706.6 + company and other income tax 677.9, less refunds",
+   "v": 1383.6,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vi",
+   "label": "official"
+  },
+  {
+   "id": "vat",
+   "name": "VAT",
+   "desc": "Domestic VAT (net of refunds) + VAT on imports",
+   "v": 829.2,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vi",
+   "label": "official"
+  },
+  {
+   "id": "excise",
+   "name": "Excise duty",
+   "desc": "Alcohol, tobacco, fuel, airtime, betting and other excisable goods",
+   "v": 383.4,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vi",
+   "label": "official"
+  },
+  {
+   "id": "import",
+   "name": "Import duty",
+   "desc": "Customs duty on imports, net",
+   "v": 186.2,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vi",
+   "label": "official"
+  },
+  {
+   "id": "othertax",
+   "name": "Other taxes",
+   "desc": "Import declaration fees, financial transactions and others",
+   "v": 79.9,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vi",
+   "label": "official"
+  },
+  {
+   "id": "nontax",
+   "name": "Non-tax income",
+   "desc": "Dividends, rents, fines, sales of goods and services",
+   "v": 123.4,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, pp.vi–vii (non-tax 123.1 + social contributions 0.3)",
+   "label": "official"
+  },
+  {
+   "id": "aia",
+   "name": "Fees kept by agencies (A-I-A)",
+   "desc": "Appropriations-in-Aid: money agencies collect and spend directly",
+   "v": 644.8,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary III, p.viii (excluding grants)",
+   "label": "official"
+  },
+  {
+   "id": "grants",
+   "name": "Grants",
+   "desc": "Gifts from foreign governments and international organisations",
+   "v": 43.6,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4",
+   "label": "official"
+  },
+  {
+   "id": "borrow",
+   "name": "Borrowing (net)",
+   "desc": "The deficit: new loans after repaying old ones. Gross borrowing is larger.",
+   "v": 1146.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, fiscal deficit",
+   "label": "official"
+  }
+ ],
+ "cfs": {
+  "domesticInterest": {
+   "v": 986.7,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "para 66, Table 3",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "foreignInterest": {
+   "v": 267.5,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "para 66, Table 3",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "pensions": {
+   "v": 247.1,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "para 66, Table 3 (pensions, salaries and allowances of constitutional office holders)",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "total": {
+   "v": 1501.3,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "para 66, Table 3",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "foreignRepayments": {
+   "v": 412.9,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "Table 2, financing: foreign repayments",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "ordinaryRevenue": {
+   "v": 2985.7,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vii, total ordinary revenue",
+   "label": "official"
+  }
+ },
+ "sectors": [
+  {
+   "name": "Education",
+   "v": 784.5,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Teachers Service Commission",
+     "v": 408.5,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "HELB loans and scholarships",
+     "v": 96.4,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Free primary and day secondary",
+     "v": 61.6,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Junior secondary capitation",
+     "v": 30.9,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Intern teachers",
+     "v": 8.2,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "TVET",
+     "v": 7.3,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "School feeding",
+     "v": 3.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Energy, Infrastructure and ICT",
+   "v": 531.3,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Roads: maintenance",
+     "v": 118.1,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Roads: rehabilitation",
+     "v": 58.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Roads and bridges: construction",
+     "v": 44.3,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Railways",
+     "v": 38.1,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Rural electrification",
+     "v": 20.2,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "National grid",
+     "v": 7.5,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Public Administration and Internal Relations",
+   "v": 373.7,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": []
+  },
+  {
+   "name": "Governance, Justice, Law and Order",
+   "v": 363.9,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": []
+  },
+  {
+   "name": "National Security",
+   "v": 316.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Police vehicle leasing",
+     "v": 13.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Police modernisation",
+     "v": 7.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Health",
+   "v": 177.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Primary Healthcare Fund",
+     "v": 19.1,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Global Fund: HIV, TB, malaria",
+     "v": 18.5,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Health interns",
+     "v": 9.3,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Universal Health Coverage",
+     "v": 8.6,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Vaccines",
+     "v": 6.4,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Community health promoters",
+     "v": 3.6,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Emergency, Chronic and Critical Illness Fund",
+     "v": 3.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Environment, Water and Natural Resources",
+   "v": 121.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Clean water access",
+     "v": 70.4,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Wildlife security and conservation",
+     "v": 15.1,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Forests",
+     "v": 13.4,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Agriculture, Rural and Urban Development",
+   "v": 111.7,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Fertiliser subsidy",
+     "v": 18.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Settling the landless",
+     "v": 9.4,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Social Protection, Culture and Recreation",
+   "v": 94.3,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Cash transfers: older persons",
+     "v": 24.6,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Cash transfers: orphans and vulnerable children",
+     "v": 8.9,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Hunger Safety Net",
+     "v": 4.3,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Cash transfers: severe disability",
+     "v": 1.5,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "General Economics and Commercial Affairs",
+   "v": 49.8,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": []
+  }
+ ],
+ "sectorsNote": "The guide lists these as key allocations, not every line. Items can sit in a different sector from where you expect: roads are inside Energy, Infrastructure and ICT.",
+ "education3": [
+  {
+   "name": "Education sector (ministerial)",
+   "v": 784.5,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3",
+   "label": "official",
+   "why": "All education votes: TSC, basic, higher and TVET."
+  },
+  {
+   "name": "Education thematic area",
+   "v": 668.3,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "Table 5, p.25",
+   "label": "official",
+   "stage": "estimates",
+   "why": "A different grouping, at the April estimates stage."
+  },
+  {
+   "name": "Education as approved by MPs",
+   "v": 781.4,
+   "unit": "KSh bn",
+   "src": "pd",
+   "where": "reported",
+   "label": "unverified",
+   "stage": "approved",
+   "why": "As reported in the press after Parliament approved the estimates; we have not seen the Act."
+  }
+ ],
+ "counties": [
+  {
+   "name": "Baringo",
+   "prev": 7084,
+   "rec": 7845
+  },
+  {
+   "name": "Bomet",
+   "prev": 7447,
+   "rec": 8270,
+   "cob": {
+    "budget": 9831700000,
+    "spent": 7876380000,
+    "devBudget": 3364860000,
+    "devSpent": 2054410000,
+    "devAbs": 61,
+    "overallAbs": 80,
+    "pop2019": 875689
+   }
+  },
+  {
+   "name": "Bungoma",
+   "prev": 11838,
+   "rec": 13110
+  },
+  {
+   "name": "Busia",
+   "prev": 7957,
+   "rec": 8798
+  },
+  {
+   "name": "Elgeyo/Marakwet",
+   "prev": 5515,
+   "rec": 6118
+  },
+  {
+   "name": "Embu",
+   "prev": 6077,
+   "rec": 6717
+  },
+  {
+   "name": "Garissa",
+   "prev": 8878,
+   "rec": 9996
+  },
+  {
+   "name": "Homa Bay",
+   "prev": 8646,
+   "rec": 9554,
+   "cob": {
+    "budget": 13130570000,
+    "spent": 10752690000,
+    "devBudget": 5191150000,
+    "devSpent": 3562220000,
+    "devAbs": 69,
+    "overallAbs": 82,
+    "pop2019": 1131950
+   }
+  },
+  {
+   "name": "Isiolo",
+   "prev": 5631,
+   "rec": 6271
+  },
+  {
+   "name": "Kajiado",
+   "prev": 8894,
+   "rec": 9941
+  },
+  {
+   "name": "Kakamega",
+   "prev": 13675,
+   "rec": 14999
+  },
+  {
+   "name": "Kericho",
+   "prev": 7179,
+   "rec": 8017,
+   "cob": {
+    "budget": 9756940000,
+    "spent": 7976040000,
+    "devBudget": 3561280000,
+    "devSpent": 2578830000,
+    "devAbs": 72,
+    "overallAbs": 82,
+    "pop2019": 901777
+   }
+  },
+  {
+   "name": "Kiambu",
+   "prev": 13072,
+   "rec": 14556
+  },
+  {
+   "name": "Kilifi",
+   "prev": 12813,
+   "rec": 14040
+  },
+  {
+   "name": "Kirinyaga",
+   "prev": 6152,
+   "rec": 6782
+  },
+  {
+   "name": "Kisii",
+   "prev": 9820,
+   "rec": 10799,
+   "cob": {
+    "budget": 15155350000,
+    "spent": 9963150000,
+    "devBudget": 6146120000,
+    "devSpent": 2456170000,
+    "devAbs": 40,
+    "overallAbs": 66,
+    "pop2019": 1266860
+   }
+  },
+  {
+   "name": "Kisumu",
+   "prev": 8902,
+   "rec": 9849
+  },
+  {
+   "name": "Kitui",
+   "prev": 11504,
+   "rec": 12681
+  },
+  {
+   "name": "Kwale",
+   "prev": 9079,
+   "rec": 9942
+  },
+  {
+   "name": "Laikipia",
+   "prev": 6104,
+   "rec": 6762
+  },
+  {
+   "name": "Lamu",
+   "prev": 3858,
+   "rec": 4298
+  },
+  {
+   "name": "Machakos",
+   "prev": 10179,
+   "rec": 11288
+  },
+  {
+   "name": "Makueni",
+   "prev": 8976,
+   "rec": 9889
+  },
+  {
+   "name": "Mandera",
+   "prev": 12265,
+   "rec": 13259
+  },
+  {
+   "name": "Marsabit",
+   "prev": 8106,
+   "rec": 9073
+  },
+  {
+   "name": "Meru",
+   "prev": 10554,
+   "rec": 11716
+  },
+  {
+   "name": "Migori",
+   "prev": 8884,
+   "rec": 9835,
+   "cob": {
+    "budget": 12147010000,
+    "spent": 10120430000,
+    "devBudget": 4466410000,
+    "devSpent": 2790610000,
+    "devAbs": 62,
+    "overallAbs": 83,
+    "pop2019": 1116436
+   }
+  },
+  {
+   "name": "Mombasa",
+   "prev": 8383,
+   "rec": 9305
+  },
+  {
+   "name": "Murang'a",
+   "prev": 7969,
+   "rec": 8842
+  },
+  {
+   "name": "Nairobi City",
+   "prev": 21417,
+   "rec": 23781
+  },
+  {
+   "name": "Nakuru",
+   "prev": 14455,
+   "rec": 15958
+  },
+  {
+   "name": "Nandi",
+   "prev": 7772,
+   "rec": 8583
+  },
+  {
+   "name": "Narok",
+   "prev": 9770,
+   "rec": 10777
+  },
+  {
+   "name": "Nyamira",
+   "prev": 6073,
+   "rec": 6724,
+   "cob": {
+    "budget": 8102900000,
+    "spent": 5656740000,
+    "devBudget": 2870610000,
+    "devSpent": 1052120000,
+    "devAbs": 37,
+    "overallAbs": 70,
+    "pop2019": 605576
+   }
+  },
+  {
+   "name": "Nyandarua",
+   "prev": 6663,
+   "rec": 7338
+  },
+  {
+   "name": "Nyeri",
+   "prev": 6896,
+   "rec": 7615
+  },
+  {
+   "name": "Samburu",
+   "prev": 6337,
+   "rec": 6988
+  },
+  {
+   "name": "Siaya",
+   "prev": 7754,
+   "rec": 8618
+  },
+  {
+   "name": "Taita Taveta",
+   "prev": 5760,
+   "rec": 6374
+  },
+  {
+   "name": "Tana River",
+   "prev": 7222,
+   "rec": 7979
+  },
+  {
+   "name": "Tharaka Nithi",
+   "prev": 5058,
+   "rec": 5605
+  },
+  {
+   "name": "Trans Nzoia",
+   "prev": 7991,
+   "rec": 8850
+  },
+  {
+   "name": "Turkana",
+   "prev": 13893,
+   "rec": 15186
+  },
+  {
+   "name": "Uasin Gishu",
+   "prev": 8977,
+   "rec": 9939
+  },
+  {
+   "name": "Vihiga",
+   "prev": 6009,
+   "rec": 6664
+  },
+  {
+   "name": "Wajir",
+   "prev": 10508,
+   "rec": 11659
+  },
+  {
+   "name": "West Pokot",
+   "prev": 7002,
+   "rec": 7750
+  }
+ ],
+ "countiesMeta": {
+  "unit": "KSh million",
+  "prev": {
+   "v": 415000,
+   "unit": "KSh m",
+   "src": "cra",
+   "where": "Table 6.2, column FY2025/26",
+   "label": "official",
+   "note": "The 2025/26 equitable share per county as given by CRA; the total equals the 2025/26 Division of Revenue Act figure of KSh 415bn."
+  },
+  "rec": {
+   "v": 458940,
+   "unit": "KSh m",
+   "src": "cra",
+   "where": "Table 6.2, total FY2026/27",
+   "label": "official",
+   "stage": "recommendation"
+  },
+  "law": {
+   "v": 428.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.14; Division of Revenue Act signed 15 June 2026",
+   "label": "official",
+   "stage": "law"
+  },
+  "estimates": {
+   "v": 420.0,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "para 67",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "countyTotal": {
+   "v": 502.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.14: equitable share 428.0 + conditional allocations from national government 16.6 + from development partners 57.4",
+   "label": "official"
+  },
+  "equalisation": {
+   "v": 10.3,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.13, Equalization Fund",
+   "label": "official"
+  },
+  "ngcdf": {
+   "v": 61.8,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.13, NG-CDF (national money, not county money)",
+   "label": "official"
+  },
+  "weights": {
+   "Population": 45,
+   "Basic share (equal for all)": 35,
+   "Poverty": 12,
+   "Land area": 8
+  },
+  "national2425": {
+   "budget": 601689140000,
+   "spent": 470735360000,
+   "devBudget": 218989610000,
+   "devSpent": 123757220000,
+   "devAbsorptionPct": 57,
+   "overallAbsorptionPct": 78
+  }
+ },
+ "nyamiraYears": [
+  {
+   "fy": "2013/14",
+   "budget": 3400,
+   "spent": 2400,
+   "devAbs": 44,
+   "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-20132014/",
+   "page": "pp.146–148"
+  },
+  {
+   "fy": "2014/15",
+   "budget": 4670,
+   "spent": 3620,
+   "devAbs": 65.2,
+   "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-201415/",
+   "page": "pp.205–207"
+  },
+  {
+   "fy": "2015/16",
+   "budget": 5450,
+   "spent": 4310,
+   "devAbs": 54.5,
+   "src": "https://cob.go.ke/download/annual-county-budget-implementation-review-report-fy-2015-16/",
+   "page": "section 3.34"
+  },
+  {
+   "fy": "2016/17",
+   "budget": 5610,
+   "spent": 4500,
+   "devAbs": 58.6,
+   "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-201617/",
+   "page": "section 3.34"
+  },
+  {
+   "fy": "2017/18",
+   "budget": 6110,
+   "spent": 4230,
+   "devAbs": 27.9,
+   "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-for-fy-2017-18/",
+   "page": "section 3.34, p.223"
+  },
+  {
+   "fy": "2018/19",
+   "budget": 6960,
+   "spent": 5600,
+   "devAbs": 52.6,
+   "src": "https://cob.go.ke/download/county-governments-annual-budget-implementation-review-report-fy-2018-19/",
+   "page": "section 3.34, p.221"
+  },
+  {
+   "fy": "2019/20",
+   "budget": 7000,
+   "spent": 5770,
+   "devAbs": 61.5,
+   "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-fy-2019-20/",
+   "page": "section 3.35, p.288"
+  },
+  {
+   "fy": "2020/21",
+   "budget": 6800,
+   "spent": 5750,
+   "devAbs": 65.3,
+   "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-2020-21/",
+   "page": "section 3.35, p.318"
+  },
+  {
+   "fy": "2021/22",
+   "budget": 6830,
+   "spent": 5850,
+   "devAbs": 64.9,
+   "src": "https://cob.go.ke/download/county-governments-annual-budget-implementation-review-report-for-the-fy-2021-22/",
+   "page": "section 3.34, p.344"
+  },
+  {
+   "fy": "2022/23",
+   "budget": 7090,
+   "spent": 5740,
+   "devAbs": 63.8,
+   "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-fy-2022-23/",
+   "page": "section 3.34, pp.480–481"
+  },
+  {
+   "fy": "2023/24",
+   "budget": 7280,
+   "spent": 6170,
+   "devAbs": 61.2,
+   "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-2023-24/",
+   "page": "section 3.34, p.434"
+  },
+  {
+   "fy": "2024/25",
+   "budget": 8100,
+   "spent": 5650,
+   "devAbs": 37,
+   "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/",
+   "page": "section 3.34, pp.388–391"
+  }
+ ],
+ "shilling": {
+  "fy": "2025/26",
+  "steps": [
+   {
+    "name": "National budget",
+    "v": 4638.4,
+    "unit": "KSh bn",
+    "src": "summary",
+    "where": "Table 2, FY2025/26 column",
+    "label": "official",
+    "stage": "estimates",
+    "note": "The 2025/26 figure as printed in the April 2026 Budget Summary."
+   },
+   {
+    "name": "All 47 counties’ equitable share",
+    "v": 415.0,
+    "unit": "KSh bn",
+    "src": "summary",
+    "where": "Table 2, FY2025/26: of which equitable share",
+    "label": "official",
+    "stage": "law"
+   },
+   {
+    "name": "Nyamira’s equitable share",
+    "v": 6.073,
+    "unit": "KSh bn",
+    "src": "cra",
+    "where": "Table 6.2, column FY2025/26",
+    "label": "official",
+    "stage": "law"
+   },
+   {
+    "name": "Nyamira’s whole county budget",
+    "v": 8.646,
+    "unit": "KSh bn",
+    "src": "nyapbb",
+    "where": "Table 8 total, p.20",
+    "label": "official",
+    "stage": "estimates",
+    "note": "Equitable share plus conditional grants, own revenue and other sources."
+   },
+   {
+    "name": "Ward-coded projects in 20 wards",
+    "v": 0.3726,
+    "unit": "KSh bn",
+    "src": "nyapbb",
+    "where": "Table 18, pp.43–50: sum of ward-coded lines",
+    "label": "official",
+    "stage": "estimates",
+    "calc": "Sum of ward-coded budget lines by Nyamira Daily; countywide and flagship lines are not counted."
+   }
+  ],
+  "wards": [
+   {
+    "slug": "esise",
+    "name": "Esise",
+    "const": "Borabu",
+    "lines": 7,
+    "zero": 0,
+    "amount": 20000000
+   },
+   {
+    "slug": "kiabonyoru",
+    "name": "Kiabonyoru",
+    "const": "Borabu",
+    "lines": 7,
+    "zero": 0,
+    "amount": 20000000
+   },
+   {
+    "slug": "mekenene",
+    "name": "Mekenene",
+    "const": "Borabu",
+    "lines": 7,
+    "zero": 0,
+    "amount": 15000000
+   },
+   {
+    "slug": "nyansiongo",
+    "name": "Nyansiongo",
+    "const": "Borabu",
+    "lines": 9,
+    "zero": 7,
+    "amount": 5000000
+   },
+   {
+    "slug": "gachuba",
+    "name": "Gachuba",
+    "const": "Kitutu Masaba",
+    "lines": 7,
+    "zero": 0,
+    "amount": 19500000
+   },
+   {
+    "slug": "gesima",
+    "name": "Gesima",
+    "const": "Kitutu Masaba",
+    "lines": 11,
+    "zero": 0,
+    "amount": 23700000
+   },
+   {
+    "slug": "kemera",
+    "name": "Kemera",
+    "const": "Kitutu Masaba",
+    "lines": 11,
+    "zero": 0,
+    "amount": 20500000
+   },
+   {
+    "slug": "magombo",
+    "name": "Magombo",
+    "const": "Kitutu Masaba",
+    "lines": 11,
+    "zero": 0,
+    "amount": 20000000
+   },
+   {
+    "slug": "manga",
+    "name": "Manga",
+    "const": "Kitutu Masaba",
+    "lines": 11,
+    "zero": 0,
+    "amount": 18500000
+   },
+   {
+    "slug": "rigoma",
+    "name": "Rigoma",
+    "const": "Kitutu Masaba",
+    "lines": 10,
+    "zero": 0,
+    "amount": 20000000
+   },
+   {
+    "slug": "bokeira",
+    "name": "Bokeira",
+    "const": "North Mugirango",
+    "lines": 6,
+    "zero": 0,
+    "amount": 15000000
+   },
+   {
+    "slug": "bomwagamo",
+    "name": "Bomwagamo",
+    "const": "North Mugirango",
+    "lines": 5,
+    "zero": 0,
+    "amount": 15000000
+   },
+   {
+    "slug": "ekerenyo",
+    "name": "Ekerenyo",
+    "const": "North Mugirango",
+    "lines": 13,
+    "zero": 0,
+    "amount": 19200000
+   },
+   {
+    "slug": "itibo",
+    "name": "Itibo",
+    "const": "North Mugirango",
+    "lines": 8,
+    "zero": 0,
+    "amount": 20000000
+   },
+   {
+    "slug": "magwagwa",
+    "name": "Magwagwa",
+    "const": "North Mugirango",
+    "lines": 8,
+    "zero": 0,
+    "amount": 18500000
+   },
+   {
+    "slug": "bogichora",
+    "name": "Bogichora",
+    "const": "West Mugirango",
+    "lines": 9,
+    "zero": 0,
+    "amount": 23000000
+   },
+   {
+    "slug": "bonyamatuta",
+    "name": "Bonyamatuta",
+    "const": "West Mugirango",
+    "lines": 15,
+    "zero": 0,
+    "amount": 23100000
+   },
+   {
+    "slug": "bosamaro",
+    "name": "Bosamaro",
+    "const": "West Mugirango",
+    "lines": 3,
+    "zero": 0,
+    "amount": 26000000
+   },
+   {
+    "slug": "nyamaiya",
+    "name": "Nyamaiya",
+    "const": "West Mugirango",
+    "lines": 8,
+    "zero": 6,
+    "amount": 5000000
+   },
+   {
+    "slug": "township",
+    "name": "Township",
+    "const": "West Mugirango",
+    "lines": 6,
+    "zero": 0,
+    "amount": 25600000
+   }
+  ],
+  "wardSum": 372600000
+ }
+}

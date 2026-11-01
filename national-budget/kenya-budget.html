@@ -1,0 +1,2154 @@
+<title>Kenya Budget Explained</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&family=Varela+Round&display=swap">
+<style>
+/* Layout: an ink "budget day" masthead, then a paper reading column (max 1080) of chapters that follow the money:
+   where it comes from, where it goes, debt, sectors, counties, one shilling to a ward, the calendar, then how to read and check us. */
+:root {
+  --ink: #111111; --paper: #F5F5F3; --white: #FFFFFF; --green: #1FD07A; --red: #E11D2A;
+  --bg: #FFFFFF; --surface: #F5F5F3; --fg: #111111; --fg-2: #45474a; --muted: #6b6c68; --line: #e1e0d9; --line-2: #c9c8c0;
+  --track: #ecebe6; --chip: #eeeeec; --chip-fg: #45474a;
+  --accent-ink: #b5121d; /* red text: the gap, deadlines (Record Red at text contrast) */
+  --mark: #111111; /* the one highlighted bar */
+  --bar: #1FD07A; --bar-soft: #bdeed4;
+  --c-red: #e34948; --c-blue: #2a78d6; --c-aqua: #1baf7a; --c-orange: #eb6834; --c-violet: #6250d6; --c-magenta: #e87ba4; --c-yellow: #eda100; --c-grey: #a9a8a1;
+  --hero-bg: #111111; --hero-fg: #FFFFFF; --hero-2: #c9c9c4; --hero-line: #2e2e2c;
+  --font: "League Spartan", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --display: "Varela Round", "League Spartan", "Segoe UI", system-ui, sans-serif;
+  --radius: 14px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121211; --surface: #1b1b1a; --fg: #f0efec; --fg-2: #d2d1cb; --muted: #a3a29b; --line: #2e2e2c; --line-2: #45453f;
+  --track: #2a2a28; --chip: #2a2a28; --chip-fg: #d2d1cb; --accent-ink: #ff6b6b; --mark: #f0efec; --bar: #1FD07A; --bar-soft: #1f5a3c;
+  --c-red: #e66767; --c-blue: #3987e5; --c-aqua: #199e70; --c-orange: #d95926; --c-violet: #9085e9; --c-magenta: #d55181; --c-yellow: #c98500; --c-grey: #6f6e68;
+  --hero-bg: #0a0a0a; --hero-fg: #FFFFFF; --hero-2: #b9b9b3; --hero-line: #2a2a28; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #121211; --surface: #1b1b1a; --fg: #f0efec; --fg-2: #d2d1cb; --muted: #a3a29b; --line: #2e2e2c; --line-2: #45453f;
+  --track: #2a2a28; --chip: #2a2a28; --chip-fg: #d2d1cb; --accent-ink: #ff6b6b; --mark: #f0efec; --bar: #1FD07A; --bar-soft: #1f5a3c;
+  --c-red: #e66767; --c-blue: #3987e5; --c-aqua: #199e70; --c-orange: #d95926; --c-violet: #9085e9; --c-magenta: #d55181; --c-yellow: #c98500; --c-grey: #6f6e68;
+  --hero-bg: #0a0a0a; --hero-fg: #FFFFFF; --hero-2: #b9b9b3; --hero-line: #2a2a28; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 17px; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--hero-bg); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.12; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(28px, 4.4vw, 42px); }
+h3 { font-size: 22px; }
+p { margin: 0; max-width: 66ch; }
+a { color: inherit; text-decoration-color: var(--green); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: currentColor; }
+:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; border-radius: 4px; }
+.num { font-family: var(--display); font-variant-numeric: tabular-nums; }
+.tab { font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+.small { font-size: 14.5px; }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-2); display: flex; gap: 8px; align-items: center; }
+.eyebrow::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--green); flex: none; }
+.stack { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+/* chips: evidence label + stage */
+.chips { display: inline-flex; flex-wrap: wrap; gap: 6px; vertical-align: middle; }
+.chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 2px 10px; font-size: 12.5px; font-weight: 500; background: var(--chip); color: var(--chip-fg); white-space: nowrap; line-height: 1.6; }
+.chip.stage { background: transparent; border: 1px solid var(--line-2); }
+.chip.stage::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--fg-2); transform: rotate(45deg); }
+.chip.calc { background: transparent; border: 1px dashed var(--line-2); }
+.chip.unverified { background: transparent; border: 1px solid var(--line-2); font-style: italic; }
+.src { font-size: 13.5px; color: var(--muted); }
+.src a { color: var(--muted); }
+.hero .chip { background: #262624; color: #dcdcd6; }
+.hero .chip.stage { background: transparent; border-color: #4a4a46; }
+.hero .chip.stage::before { background: #dcdcd6; }
+.hero .src, .hero .src a { color: var(--hero-2); }
+
+/* top bar */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--hero-bg); color: var(--hero-fg); border-bottom: 1px solid var(--hero-line); }
+.top .wrap { display: flex; align-items: center; gap: 18px; padding-block: 10px; }
+.brand { font-family: var(--display); font-size: 18px; white-space: nowrap; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.brand i { width: 22px; height: 22px; border-radius: 6px; background: var(--green); display: inline-block; position: relative; }
+.brand i::after { content: ""; position: absolute; left: 5px; right: 5px; bottom: 5px; height: 3px; background: #111; border-radius: 2px; box-shadow: 0 -5px 0 #111, 0 -10px 0 #111; transform-origin: left; }
+.nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; min-width: 0; margin-left: auto; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { text-decoration: none; font-size: 14.5px; padding: 6px 10px; border-radius: 999px; color: var(--hero-2); white-space: nowrap; }
+.nav a:hover, .nav a.on { color: #111; background: var(--green); }
+
+/* hero */
+.hero { background: var(--hero-bg); color: var(--hero-fg); border-bottom: 6px solid var(--green); }
+.hero .wrap { padding-block: 36px 40px; display: grid; gap: 28px; }
+.stages { display: flex; gap: 0; overflow-x: auto; scrollbar-width: thin; padding-bottom: 4px; }
+.stages li { list-style: none; flex: 1 0 118px; position: relative; padding: 18px 10px 0 0; font-size: 13px; color: var(--hero-2); }
+.stages li::before { content: ""; position: absolute; top: 6px; left: 0; right: 0; height: 2px; background: #3a3a37; }
+.stages li::after { content: ""; position: absolute; top: 1px; left: 0; width: 12px; height: 12px; border-radius: 50%; background: #3a3a37; }
+.stages li.done::before, .stages li.done::after { background: var(--green); }
+.stages li.now::after { background: var(--hero-bg); border: 3px solid var(--green); width: 14px; height: 14px; top: 0; }
+.stages li b { display: block; color: var(--hero-fg); font-weight: 500; font-size: 14px; }
+.stages ol, ol.stages { margin: 0; padding: 0; }
+.big { font-family: var(--display); font-size: clamp(54px, 11vw, 112px); line-height: .95; letter-spacing: -.01em; }
+.big small { font-size: .42em; letter-spacing: 0; }
+.lede { font-size: clamp(19px, 2.4vw, 24px); color: var(--hero-fg); max-width: 34ch; line-height: 1.3; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.tile { border: 1px solid var(--hero-line); border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.tile .num { font-size: 34px; line-height: 1; }
+.tile .num em { font-style: normal; color: var(--green); }
+.tile.debt .num em { color: #ff7a7a; }
+.tile p { color: var(--hero-2); font-size: 15px; }
+.scale { font-size: 14px; color: var(--hero-2); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.scale b { color: var(--hero-fg); font-weight: 500; }
+
+/* chapters */
+section.ch { padding-block: 56px; border-bottom: 1px solid var(--line); scroll-margin-top: 64px; }
+section.ch.alt { background: var(--surface); }
+.ch-head { display: grid; gap: 12px; margin-bottom: 28px; }
+.ch-head p { color: var(--fg-2); font-size: 18px; }
+.grid2 { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.alt .card { background: var(--bg); }
+.sw { border-left: 3px solid var(--green); padding-left: 12px; font-size: 15px; color: var(--fg-2); }
+.sw b { display: block; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+
+/* KSh 100 note bars */
+.note { border: 1.5px solid var(--line-2); border-radius: 12px; padding: 14px 14px 12px; display: grid; gap: 10px; background: var(--bg); position: relative; }
+.note-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.note-top .num { font-size: 22px; }
+.note-serial { font-size: 12px; letter-spacing: .12em; color: var(--muted); text-transform: uppercase; font-variant-numeric: tabular-nums; }
+.stackbar { display: flex; gap: 2px; height: 64px; border-radius: 6px; overflow: hidden; }
+.seg { border: 0; padding: 0 8px; margin: 0; min-width: 3px; height: 100%; display: flex; align-items: center; justify-content: flex-start; color: #fff; font: 700 18px/1 var(--display); cursor: pointer; white-space: nowrap; overflow: hidden; }
+.seg.dk { color: #111; }
+.seg:hover, .seg:focus-visible { filter: brightness(1.08); }
+.legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px 18px; margin: 0; padding: 0; }
+.legend li { list-style: none; display: grid; grid-template-columns: 14px minmax(0, 1fr) auto; gap: 4px 10px; align-items: baseline; }
+.legend .sq { width: 14px; height: 14px; border-radius: 4px; transform: translateY(2px); }
+.legend .nm { font-weight: 500; }
+.legend .per { font-family: var(--display); font-variant-numeric: tabular-nums; }
+.legend .ds { grid-column: 2 / -1; font-size: 13.5px; color: var(--muted); }
+
+/* horizontal bars */
+.hb { display: grid; gap: 10px; }
+.hb-row { display: grid; grid-template-columns: minmax(120px, 230px) minmax(0, 1fr) 92px; gap: 12px; align-items: center; }
+.hb-row .lb { font-size: 15px; line-height: 1.2; }
+.hb-row .vl { text-align: right; font-family: var(--display); font-variant-numeric: tabular-nums; font-size: 16px; }
+.hb-track { height: 22px; position: relative; }
+.hb-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 0 4px 4px 0; background: var(--bar); }
+.hb-row.hi .hb-fill { background: var(--mark); }
+.hb-row.debt .hb-fill { background: var(--c-red); }
+.hb-row.debt .lb, .hb-row.debt .vl { color: var(--accent-ink); font-weight: 700; }
+.hb-tick { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--fg); border-radius: 1px; }
+.hb-axis { display: grid; grid-template-columns: minmax(120px, 230px) minmax(0, 1fr) 92px; gap: 12px; font-size: 12.5px; color: var(--muted); }
+.hb-axis .ax { position: relative; height: 16px; border-top: 1px solid var(--line-2); }
+.hb-axis .ax span { position: absolute; top: 2px; transform: translateX(-50%); font-variant-numeric: tabular-nums; }
+.hb-axis .ax span:first-child { transform: none; }
+.hb-axis .ax span:last-child:not(:first-child) { transform: translateX(-50%); }
+button.hb-row .lb::after { content: " +"; color: var(--muted); font-weight: 700; }
+button.hb-row[aria-expanded="true"] .lb::after { content: " \2212"; }
+button.hb-row { background: none; border: 0; padding: 4px 0; font: inherit; color: inherit; text-align: left; cursor: pointer; width: 100%; border-radius: 6px; }
+button.hb-row:hover .lb { text-decoration: underline; text-decoration-color: var(--green); text-decoration-thickness: 2px; }
+.items { margin: 2px 0 10px; padding: 10px 12px; border-left: 2px solid var(--line-2); display: grid; gap: 6px; font-size: 14.5px; }
+.items div { display: flex; justify-content: space-between; gap: 12px; }
+.items div span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* callouts */
+.three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.three .card .num { font-size: 32px; line-height: 1; }
+.flag { border-left: 4px solid var(--c-red); }
+.q { display: grid; gap: 10px; counter-reset: q; padding: 0; margin: 0; }
+.q li { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); }
+.q li p { font-size: 16px; }
+.btn { font: 500 14px/1 var(--font); padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--bg); color: var(--fg); cursor: pointer; white-space: nowrap; }
+.btn:hover { border-color: var(--fg); }
+.btn.solid { background: var(--green); color: #111; border-color: var(--green); }
+
+/* county explorer */
+.picker { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.picker label { font-weight: 500; }
+select { font: inherit; font-size: 16px; padding: 10px 40px 10px 14px; border-radius: 999px; border: 1.5px solid var(--fg); background: var(--bg); color: var(--fg); appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--fg) 50%), linear-gradient(135deg, var(--fg) 50%, transparent 50%); background-position: calc(100% - 20px) 55%, calc(100% - 14px) 55%; background-size: 6px 6px; background-repeat: no-repeat; }
+.cscroll { max-height: 520px; overflow-y: auto; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--bg); }
+.cscroll .hb-row { grid-template-columns: minmax(96px, 150px) minmax(0, 1fr) 70px; gap: 10px; }
+.cscroll .hb-row .lb { font-size: 14px; }
+.cscroll .hb-row .vl { font-size: 14px; }
+.cscroll .hb-track { height: 14px; }
+.cscroll .hb-row.hi .lb { font-weight: 700; }
+.ccard dl { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 16px; margin: 0; }
+.ccard dt { color: var(--fg-2); }
+.ccard dd { margin: 0; text-align: right; font-family: var(--display); font-variant-numeric: tabular-nums; }
+.ccard .cname { font-family: var(--display); font-size: 30px; }
+.weights { display: flex; gap: 2px; height: 34px; border-radius: 6px; overflow: hidden; }
+.weights div { display: flex; align-items: center; padding: 0 8px; font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; color: #111; }
+.moved { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--bg); }
+.moved div { padding: 14px 16px; border-right: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
+.moved div:last-child { border-right: 0; background: var(--surface); }
+.moved .num { font-size: 30px; line-height: 1; }
+
+/* shilling chain */
+.chain { display: grid; gap: 0; }
+.link { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px 0; position: relative; }
+.link .dot { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--chip); font-family: var(--display); font-size: 15px; }
+.link:not(:last-child)::after { content: ""; position: absolute; left: 23px; top: 62px; bottom: -14px; width: 2px; background: var(--line-2); }
+.link .amt { font-family: var(--display); font-size: 26px; text-align: right; font-variant-numeric: tabular-nums; }
+.link .ratio { font-size: 14.5px; color: var(--fg-2); }
+.link.last .dot { background: var(--green); color: #111; }
+.wardgrid .hb-row { grid-template-columns: minmax(100px, 140px) minmax(0, 1fr) 76px; }
+.wardgrid .hb-row .lb small { display: block; color: var(--muted); font-size: 12px; }
+.wardgrid .hb-track { height: 16px; }
+.hb-row.caveat .hb-fill { background: repeating-linear-gradient(135deg, var(--bar) 0 4px, var(--bar-soft) 4px 8px); }
+
+/* years (budget vs spent) */
+.yrs { display: grid; gap: 8px; }
+.yr { display: grid; grid-template-columns: 64px minmax(0, 1fr) 54px; gap: 10px; align-items: center; font-size: 14px; }
+.yr .t { position: relative; height: 20px; }
+.yr .b { position: absolute; left: 0; top: 0; bottom: 0; border: 1.5px solid var(--fg-2); border-radius: 0 4px 4px 0; }
+.yr .s { position: absolute; left: 0; top: 4px; bottom: 4px; background: var(--bar); border-radius: 0 3px 3px 0; }
+.yr .pc { text-align: right; font-family: var(--display); font-variant-numeric: tabular-nums; }
+.key { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13.5px; color: var(--fg-2); }
+.key span { display: inline-flex; align-items: center; gap: 8px; }
+.key i { width: 22px; height: 12px; display: inline-block; border-radius: 0 3px 3px 0; }
+
+/* calendar */
+.cal { position: relative; display: grid; gap: 0; padding-left: 26px; }
+.cal::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line-2); }
+.ev { position: relative; padding: 8px 0 14px; display: grid; gap: 2px; }
+.ev::before { content: ""; position: absolute; left: -24px; top: 13px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--line-2); }
+.ev.done::before { background: var(--green); border-color: var(--green); }
+.ev.today::before { background: var(--fg); border-color: var(--fg); width: 14px; height: 14px; left: -25px; }
+.ev.next::before { border-color: var(--accent-ink); }
+.ev .d { font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ev.next .d { color: var(--accent-ink); }
+.ev .w { font-weight: 500; }
+
+/* tables and details */
+details { border-top: 1px solid var(--line); padding-top: 10px; }
+summary { cursor: pointer; font-weight: 500; font-size: 15px; }
+.tscroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+td.r, th.r { text-align: right; }
+.guard { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.guard .card h3 { font-size: 19px; font-family: var(--font); font-weight: 700; }
+.guard .card .was { font-size: 14.5px; color: var(--fg-2); }
+.guard .card .was b { color: var(--accent-ink); font-weight: 700; }
+.guard .card .rule b { color: var(--fg); }
+.read { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.read .card h3 { font-size: 19px; font-family: var(--font); font-weight: 700; }
+
+footer { background: var(--hero-bg); color: var(--hero-2); border-top: 6px solid var(--green); }
+footer .wrap { padding-block: 32px 40px; display: grid; gap: 12px; font-size: 14.5px; }
+footer b { color: var(--hero-fg); font-weight: 500; }
+
+/* tooltip */
+.tip { position: fixed; z-index: 50; pointer-events: none; background: var(--fg); color: var(--bg); padding: 10px 12px; border-radius: 10px; font-size: 14px; line-height: 1.35; max-width: 260px; box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+.tip b { font-family: var(--display); font-weight: 400; font-size: 18px; display: block; }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 999px; font-size: 14.5px; z-index: 60; }
+
+@media (max-width: 860px) {
+  .grid2, .three, .read, .guard { grid-template-columns: minmax(0, 1fr); }
+  .tiles { grid-template-columns: minmax(0, 1fr); }
+  .moved { grid-template-columns: minmax(0, 1fr); }
+  .moved div { border-right: 0; border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .brand span { display: none; }
+  .hb-row, .hb-axis { grid-template-columns: minmax(0, 1fr) 84px; }
+  .hb-row .lb { grid-column: 1 / -1; }
+  .hb-axis > :first-child { display: none; }
+  .stackbar { height: 52px; }
+  .seg { font-size: 15px; padding: 0 5px; }
+  .link { grid-template-columns: 40px minmax(0, 1fr); }
+  .link .dot { width: 40px; height: 40px; font-size: 13px; }
+  .link .amt { grid-column: 2; text-align: left; }
+  .link:not(:last-child)::after { left: 19px; top: 54px; }
+  section.ch { padding-block: 40px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hb-fill, .yr .s, .seg { transition: filter .15s; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Kenya Budget Explained, back to top"><i aria-hidden="true"></i><span>Kenya Budget Explained</span></a>
+    <nav class="nav" aria-label="Chapters">
+      <a href="#money">KSh 100</a><a href="#debt">Debt</a><a href="#sectors">Sectors</a><a href="#counties">Counties</a><a href="#shilling">To your ward</a><a href="#calendar">Calendar</a><a href="#read">How to read</a><a href="#honest">Our rules</a><a href="#method">Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h-hero">
+    <div class="wrap">
+      <ol class="stages" aria-label="Where the FY2026/27 budget is in its life">
+        <li class="done"><b>Recommendation</b>CRA, Feb 2026</li>
+        <li class="done"><b>Budget Policy Statement</b>MPs, Mar 2026</li>
+        <li class="done"><b>Estimates</b>Treasury, 30 Apr</li>
+        <li class="done"><b>Budget statement</b>11 Jun 2026</li>
+        <li class="done"><b>Law</b>Revenue Acts, Jun</li>
+        <li class="now"><b>Spending</b>Jul 2026 to Jun 2027</li>
+        <li><b>Spent</b>Controller of Budget</li>
+        <li><b>Audited</b>Auditor-General</li>
+      </ol>
+      <div class="stack" style="gap:18px">
+        <span class="eyebrow" style="color:var(--hero-2)">Kenya national budget · FY2026/27</span>
+        <h1 id="h-hero" class="big" data-k="total">KSh 4.82 <small>trillion</small></h1>
+        <p class="lede">is what the national government plans to spend between July 2026 and June 2027. Here is where it comes from, where it goes, and how much reaches your county.</p>
+        <div id="hero-src"></div>
+      </div>
+      <div class="tiles" id="tiles"></div>
+      <div class="scale" aria-label="Scale"><span><b>1 trillion</b> = 1,000 billion</span><span><b>1 billion</b> = 1,000 million</span><span>Figures are in Kenya shillings, not adjusted for inflation; we use shares of GDP to compare years.</span></div>
+      <div class="sw" lang="sw" style="color:var(--hero-2)"><b>Kwa Kiswahili</b>Serikali ya kitaifa inapanga kutumia KSh trilioni 4.82 mwaka wa fedha 2026/27. Hapa utaona pesa inatoka wapi, inaenda wapi, na kiasi gani kinafika kaunti yako.</div>
+    </div>
+  </section>
+
+  <section class="ch" id="money" aria-labelledby="h-money">
+    <div class="wrap">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 1 · The whole budget</span>
+        <h2 id="h-money">Every KSh 100 the government spends</h2>
+        <p>Shrink the budget to a single KSh 100 note. The top note shows where each shilling comes from, the bottom one where it goes. Tap any part for the full amount.</p>
+      </div>
+      <div class="stack" style="gap:22px">
+        <div class="note" id="note-from"></div>
+        <div class="note" id="note-to"></div>
+        <div class="grid2">
+          <div class="card">
+            <h3>Taxes, head by head</h3>
+            <p class="small muted">Of the KSh 2.86 trillion in taxes, income tax brings in almost half.</p>
+            <div class="hb" id="taxes"></div>
+            <div id="taxes-src"></div>
+          </div>
+          <div class="card">
+            <h3>Three things this note does not tell you</h3>
+            <ul class="small" style="margin:0;padding-left:18px;display:grid;gap:8px">
+              <li><b>Borrowing here is net.</b> The KSh 1.15 trillion deficit is new loans after old loans are repaid. Repaying foreign loans alone takes KSh 412.9 billion more (April estimates).</li>
+              <li><b>A plan, not spending.</b> These are budget-day figures. What was actually spent comes later from the Controller of Budget, and is usually less.</li>
+              <li><b>Counties get more than this slice.</b> The equitable share is KSh 428 billion; with conditional grants counties get KSh 502 billion, part of it counted inside ministries.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sw" lang="sw"><b>Kwa Kiswahili</b>Kati ya kila KSh 100 zinazotumiwa, karibu KSh 24 ni mikopo, na karibu KSh 31 zinalipa riba na pensheni.</div>
+        <details><summary>Show the numbers as a table</summary><div class="tscroll" id="money-table"></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch alt" id="debt" aria-labelledby="h-debt">
+    <div class="wrap">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 2 · Debt</span>
+        <h2 id="h-debt">Interest is the biggest single bill</h2>
+        <p id="debt-lede"></p>
+      </div>
+      <div class="grid2">
+        <div class="card">
+          <h3>Interest against the biggest sectors, KSh billion</h3>
+          <div class="hb" id="debt-bars"></div>
+          <div id="debt-src"></div>
+        </div>
+        <div class="stack">
+          <div class="card flag">
+            <span class="eyebrow">Our calculation</span>
+            <p class="num" style="font-size:44px;line-height:1" id="debt-share"></p>
+            <p id="debt-share-txt"></p>
+          </div>
+          <div class="card">
+            <h3>What sits in this line</h3>
+            <p class="small">Consolidated Fund Services are paid straight from the Consolidated Fund without being voted each year, so Parliament cannot cut them in the budget debate. In FY2026/27 they are:</p>
+            <div id="cfs"></div>
+            <p class="small muted">Repayments of the loans themselves (principal) are not in this line. They are paid from new borrowing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch" id="sectors" aria-labelledby="h-sectors">
+    <div class="wrap">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 3 · What ministries get</span>
+        <h2 id="h-sectors">Education gets the most. Tap a sector to see inside it.</h2>
+        <p>Allocations to national ministries, grouped by sector. Interest, pensions and county money are not in these bars.</p>
+      </div>
+      <div class="grid2">
+        <div class="stack">
+          <div class="hb" id="sector-bars"></div>
+          <div id="sector-src"></div>
+          <p class="small muted" id="sector-note"></p>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <span class="eyebrow">Same budget, three numbers</span>
+            <h3>How much does education get?</h3>
+            <p class="small">You will see three different answers in the news. All three can be right: each comes from a different document, a different stage or a different grouping.</p>
+            <div id="edu3"></div>
+            <p class="small"><b>Our rule:</b> we always say which document and which stage a number comes from, and we never compare numbers from different groupings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch alt" id="counties" aria-labelledby="h-counties">
+    <div class="wrap">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 4 · Counties</span>
+        <h2 id="h-counties">How the 47 counties' share is decided, and what yours gets</h2>
+        <p>Counties' share is set in three steps: the Commission on Revenue Allocation recommends, the Treasury proposes, and Parliament decides in the Division of Revenue Act. Then a formula splits it among counties.</p>
+      </div>
+      <div class="stack" style="gap:24px">
+        <div class="moved" id="moved"></div>
+        <div class="grid2">
+          <div class="stack">
+            <div class="picker"><label for="county">Choose a county</label><select id="county"></select></div>
+            <div class="card ccard" id="ccard" aria-live="polite"></div>
+            <div class="card">
+              <h3>The formula</h3>
+              <p class="small">How CRA's recommended share is split between counties for FY2026/27 (the fourth basis).</p>
+              <div class="weights" id="weights"></div>
+              <p class="small muted">Every county gets the same basic share; the rest follows population, poverty and land area. Some money is also held as a baseline from the previous year, so a county's total is not the formula alone.</p>
+            </div>
+          </div>
+          <div class="stack">
+            <div class="key"><span><i style="background:var(--bar)"></i>CRA recommendation, FY2026/27</span><span><i style="background:var(--fg);width:3px;border-radius:1px"></i>Share in FY2025/26</span></div>
+            <div class="cscroll" id="cbars" tabindex="0" aria-label="All 47 counties, CRA recommended share in KSh billion"></div>
+            <div id="c-src"></div>
+            <p class="small muted">Parliament set the final total at KSh 428 billion, KSh 30.9 billion below CRA's recommendation. Each county's amount in the final County Allocation of Revenue Act will be added when we have checked the Act itself; we do not scale the recommendation down to guess it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch" id="shilling" aria-labelledby="h-shilling">
+    <div class="wrap">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 5 · From Treasury to your ward</span>
+        <h2 id="h-shilling">Follow the money to the 20 wards of Nyamira</h2>
+        <p>One county, one year (FY2025/26), followed from the national budget down to projects named for each ward. The county figures come from Nyamira Daily's records, where every ward has its own page.</p>
+      </div>
+      <div class="grid2">
+        <div class="stack">
+          <div class="chain" id="chain"></div>
+          <div class="card">
+            <h3>Budgeted vs spent, Nyamira, every year since devolution</h3>
+            <div class="key"><span><i style="border:1.5px solid var(--fg-2)"></i>Budget</span><span><i style="background:var(--bar)"></i>Spent</span><span>% = share of the budget spent</span></div>
+            <div class="yrs" id="years"></div>
+            <div id="years-src"></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <h3>Ward-coded projects, FY2025/26 budget</h3>
+            <p class="small muted">Striped bars: wards where most budget lines are printed as KSh 0 in the county's own budget. That is what the document says; it may be a printing error, and it is a question to ask.</p>
+            <div class="hb wardgrid" id="wards"></div>
+            <div id="wards-src"></div>
+          </div>
+          <div class="card" id="cmp6"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch alt" id="calendar" aria-labelledby="h-cal">
+    <div class="wrap">
+      <div class="ch-head">
+        <span class="eyebrow">Chapter 6 · The budget year</span>
+        <h2 id="h-cal">When you can still be heard</h2>
+        <p>The budget is made in public, in stages. Each stage has a document you can read and, at several, a hearing you can attend or write to.</p>
+      </div>
+      <div class="grid2">
+        <div class="cal" id="cal"></div>
+        <div class="stack">
+          <div class="card">
+            <h3>Questions to ask your MP, senator or MCA</h3>
+            <p class="small muted">Questions, not accusations. Each one can be answered from a public document.</p>
+            <ol class="q" id="qs"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch" id="read" aria-labelledby="h-read">
+    <div class="wrap">
+      <div class="ch-head">
+        <span class="eyebrow">How to read budget numbers</span>
+        <h2 id="h-read">Six traps, and how this site avoids them</h2>
+      </div>
+      <div class="read" id="readcards"></div>
+    </div>
+  </section>
+
+  <section class="ch alt" id="honest" aria-labelledby="h-honest">
+    <div class="wrap">
+      <div class="ch-head">
+        <span class="eyebrow">Our rules</span>
+        <h2 id="h-honest">How budget tools fail, and the guardrails we built in</h2>
+        <p>Before building this, we studied what went wrong for open-data portals and civic tools in Kenya and across Africa. Each rule below answers a real failure.</p>
+      </div>
+      <div class="guard" id="guards"></div>
+    </div>
+  </section>
+
+  <section class="ch" id="method" aria-labelledby="h-method">
+    <div class="wrap">
+      <div class="ch-head">
+        <span class="eyebrow">Sources and method</span>
+        <h2 id="h-method">Every figure, where it comes from</h2>
+        <p>Each figure on this page carries two tags: what kind of source it is (the evidence label) and which stage of the budget it belongs to. Figures we computed ourselves are tagged "Our calculation".</p>
+      </div>
+      <div class="stack">
+        <div class="row" id="labels"></div>
+        <details open><summary>All figures on this page</summary><div class="tscroll" id="figtable"></div></details>
+        <details><summary>Sources</summary><ul id="srclist" class="small" style="display:grid;gap:8px;padding-left:18px"></ul></details>
+        <div class="row"><button class="btn" id="copyjson" type="button">Copy all data (JSON)</button><button class="btn" id="copycsv" type="button">Copy county table (CSV)</button><span class="small muted">Data is free to reuse under CC BY 4.0, credit "Kenya Budget Explained".</span></div>
+        <p class="small muted" id="checknote"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Kenya Budget Explained</b> (working name) · prototype, built 1 November 2026 on the Nyamira Daily data engine by Underdogs Rising Group Limited. Non-partisan: we explain public money and ask questions; we do not support or oppose any party, candidate or official.</p>
+    <p>Found a wrong figure? Every correction is logged publicly with what changed and why. A correction channel will be listed here before public launch.</p>
+  </div>
+</footer>
+
+<div class="tip" id="tip" hidden></div>
+<div class="toast" id="toast" hidden></div>
+
+<script type="application/json" id="data">{
+ "built": "2026-11-01",
+ "fy": "2026/27",
+ "sources": {
+  "mwananchi": {
+   "title": "Budget Highlights: The Mwananchi Guide for the FY 2026/27 Budget (National Treasury, June 2026)",
+   "url": "https://treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
+   "stage": "statement",
+   "date": "2026-06-11"
+  },
+  "summary": {
+   "title": "Budget Summary for the FY 2026/27 Budget (National Treasury, 30 April 2026)",
+   "url": "https://treasury.go.ke/sites/default/files/Budget%20summary/Budget%20Summary%20for%20the%20FY%202026_27%20Budget.pdf",
+   "stage": "estimates",
+   "date": "2026-04-30"
+  },
+  "revenue": {
+   "title": "Estimates of Revenue, Grants and Loans for the FY 2026/27 Budget (National Treasury, June 2026)",
+   "url": "https://newsite.treasury.go.ke/sites/default/files/Estimates/Estimates%20of%20Revenue%2C%20Grants%20and%20Loans%20for%20the%20FY%202026-27%20Budget.pdf",
+   "stage": "statement",
+   "date": "2026-06"
+  },
+  "cra": {
+   "title": "CRA Recommendation on the Basis for Equitable Sharing of Revenue, FY 2026/27 (Commission on Revenue Allocation, February 2026), Table 6.2",
+   "url": "https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf",
+   "stage": "recommendation",
+   "date": "2026-02-03"
+  },
+  "dora": {
+   "title": "Ruto signs Division of Revenue Act, securing Sh428bn equitable share for counties (Capital FM, June 2026)",
+   "url": "https://www.capitalfm.co.ke/news/2026/06/ruto-signs-division-of-revenue-act-securing-sh428bn-equitable-share-for-counties/",
+   "stage": "law",
+   "date": "2026-06-15"
+  },
+  "cob2425": {
+   "title": "County Governments Budget Implementation Review Report FY 2024/25 (Office of the Controller of Budget, August 2025)",
+   "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/",
+   "stage": "spent",
+   "date": "2025-08"
+  },
+  "nyapbb": {
+   "title": "County Government of Nyamira, The Programme Based Budget 2025/2026 (July 2025)",
+   "url": "https://nyamira.go.ke/static/documents/13_10_2025_09_51_47_am_PBB_2025-2026.pdf",
+   "stage": "estimates",
+   "date": "2025-07"
+  },
+  "pd": {
+   "title": "Parliament approves 2026/27 Budget as health and education take lion’s share (People Daily)",
+   "url": "https://peopledaily.digital/business/parliament-approves-2026-27-budget-as-health-and-education-take-lions-share",
+   "stage": "approved",
+   "date": "2026-06"
+  },
+  "cobyears": {
+   "title": "Controller of Budget, County Governments Budget Implementation Review Reports, FY2013/14 to FY2024/25 (Nyamira section)",
+   "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/",
+   "stage": "spent",
+   "date": "2014–2025"
+  }
+ },
+ "headline": {
+  "total": {
+   "v": 4820.4,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, total expenditure and net lending",
+   "label": "official",
+   "note": "Excludes KSh 32.7bn of securitised Road Maintenance Levy; with it the guide gives 4,853.1 (p.15)."
+  },
+  "totalGdp": {
+   "v": 23.2,
+   "unit": "% of GDP",
+   "src": "mwananchi",
+   "where": "pp.3–4",
+   "label": "official"
+  },
+  "revenue": {
+   "v": 3630.5,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, total revenue including A-I-A",
+   "label": "official"
+  },
+  "revenueGdp": {
+   "v": 17.4,
+   "unit": "% of GDP",
+   "src": "mwananchi",
+   "where": "pp.3–4",
+   "label": "official"
+  },
+  "grants": {
+   "v": 43.6,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4",
+   "label": "official"
+  },
+  "deficit": {
+   "v": 1146.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, fiscal deficit",
+   "label": "official"
+  },
+  "deficitGdp": {
+   "v": 5.5,
+   "unit": "% of GDP",
+   "src": "mwananchi",
+   "where": "pp.3–4",
+   "label": "official"
+  },
+  "netForeign": {
+   "v": 116.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, net foreign financing",
+   "label": "official"
+  },
+  "netDomestic": {
+   "v": 1030.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, net domestic financing",
+   "label": "official"
+  },
+  "gdp": {
+   "v": 20816.8,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "Table 2, nominal GDP FY2026/27",
+   "label": "official",
+   "stage": "estimates"
+  }
+ },
+ "goes": [
+  {
+   "id": "recurrent",
+   "name": "Running national government",
+   "desc": "Salaries, operations and transfers of ministries, departments and agencies",
+   "v": 2081.1,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.2, where the money goes",
+   "label": "official"
+  },
+  {
+   "id": "cfs",
+   "name": "Interest and pensions",
+   "desc": "Consolidated Fund Services: paid before anything else, without a vote",
+   "v": 1501.3,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.2, where the money goes",
+   "label": "official"
+  },
+  {
+   "id": "development",
+   "name": "Building projects",
+   "desc": "Ministerial development spending: roads, dams, buildings, equipment",
+   "v": 809.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.2, where the money goes",
+   "label": "official"
+  },
+  {
+   "id": "counties",
+   "name": "Counties (equitable share)",
+   "desc": "The 47 counties’ unconditional share",
+   "v": 428.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.2, where the money goes",
+   "label": "official"
+  },
+  {
+   "id": "contingency",
+   "name": "Emergencies fund",
+   "desc": "Contingency Fund",
+   "v": 1.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.2, where the money goes",
+   "label": "official"
+  }
+ ],
+ "comes": [
+  {
+   "id": "income",
+   "name": "Income tax",
+   "desc": "PAYE 706.6 + company and other income tax 677.9, less refunds",
+   "v": 1383.6,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vi",
+   "label": "official"
+  },
+  {
+   "id": "vat",
+   "name": "VAT",
+   "desc": "Domestic VAT (net of refunds) + VAT on imports",
+   "v": 829.2,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vi",
+   "label": "official"
+  },
+  {
+   "id": "excise",
+   "name": "Excise duty",
+   "desc": "Alcohol, tobacco, fuel, airtime, betting and other excisable goods",
+   "v": 383.4,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vi",
+   "label": "official"
+  },
+  {
+   "id": "import",
+   "name": "Import duty",
+   "desc": "Customs duty on imports, net",
+   "v": 186.2,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vi",
+   "label": "official"
+  },
+  {
+   "id": "othertax",
+   "name": "Other taxes",
+   "desc": "Import declaration fees, financial transactions and others",
+   "v": 79.9,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vi",
+   "label": "official"
+  },
+  {
+   "id": "nontax",
+   "name": "Non-tax income",
+   "desc": "Dividends, rents, fines, sales of goods and services",
+   "v": 123.4,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, pp.vi–vii (non-tax 123.1 + social contributions 0.3)",
+   "label": "official"
+  },
+  {
+   "id": "aia",
+   "name": "Fees kept by agencies (A-I-A)",
+   "desc": "Appropriations-in-Aid: money agencies collect and spend directly",
+   "v": 644.8,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary III, p.viii (excluding grants)",
+   "label": "official"
+  },
+  {
+   "id": "grants",
+   "name": "Grants",
+   "desc": "Gifts from foreign governments and international organisations",
+   "v": 43.6,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4",
+   "label": "official"
+  },
+  {
+   "id": "borrow",
+   "name": "Borrowing (net)",
+   "desc": "The deficit: new loans after repaying old ones. Gross borrowing is larger.",
+   "v": 1146.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "pp.3–4, fiscal deficit",
+   "label": "official"
+  }
+ ],
+ "cfs": {
+  "domesticInterest": {
+   "v": 986.7,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "para 66, Table 3",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "foreignInterest": {
+   "v": 267.5,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "para 66, Table 3",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "pensions": {
+   "v": 247.1,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "para 66, Table 3 (pensions, salaries and allowances of constitutional office holders)",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "total": {
+   "v": 1501.3,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "para 66, Table 3",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "foreignRepayments": {
+   "v": 412.9,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "Table 2, financing: foreign repayments",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "ordinaryRevenue": {
+   "v": 2985.7,
+   "unit": "KSh bn",
+   "src": "revenue",
+   "where": "Summary II, p.vii, total ordinary revenue",
+   "label": "official"
+  }
+ },
+ "sectors": [
+  {
+   "name": "Education",
+   "v": 784.5,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Teachers Service Commission",
+     "v": 408.5,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "HELB loans and scholarships",
+     "v": 96.4,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Free primary and day secondary",
+     "v": 61.6,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Junior secondary capitation",
+     "v": 30.9,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Intern teachers",
+     "v": 8.2,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "TVET",
+     "v": 7.3,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "School feeding",
+     "v": 3.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Energy, Infrastructure and ICT",
+   "v": 531.3,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Roads: maintenance",
+     "v": 118.1,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Roads: rehabilitation",
+     "v": 58.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Roads and bridges: construction",
+     "v": 44.3,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Railways",
+     "v": 38.1,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Rural electrification",
+     "v": 20.2,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "National grid",
+     "v": 7.5,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Public Administration and Internal Relations",
+   "v": 373.7,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": []
+  },
+  {
+   "name": "Governance, Justice, Law and Order",
+   "v": 363.9,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": []
+  },
+  {
+   "name": "National Security",
+   "v": 316.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Police vehicle leasing",
+     "v": 13.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Police modernisation",
+     "v": 7.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Health",
+   "v": 177.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Primary Healthcare Fund",
+     "v": 19.1,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Global Fund: HIV, TB, malaria",
+     "v": 18.5,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Health interns",
+     "v": 9.3,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Universal Health Coverage",
+     "v": 8.6,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Vaccines",
+     "v": 6.4,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Community health promoters",
+     "v": 3.6,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Emergency, Chronic and Critical Illness Fund",
+     "v": 3.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Environment, Water and Natural Resources",
+   "v": 121.2,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Clean water access",
+     "v": 70.4,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Wildlife security and conservation",
+     "v": 15.1,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Forests",
+     "v": 13.4,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Agriculture, Rural and Urban Development",
+   "v": 111.7,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Fertiliser subsidy",
+     "v": 18.0,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Settling the landless",
+     "v": 9.4,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "Social Protection, Culture and Recreation",
+   "v": 94.3,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": [
+    {
+     "name": "Cash transfers: older persons",
+     "v": 24.6,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Cash transfers: orphans and vulnerable children",
+     "v": 8.9,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Hunger Safety Net",
+     "v": 4.3,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    },
+    {
+     "name": "Cash transfers: severe disability",
+     "v": 1.5,
+     "unit": "KSh bn",
+     "src": "mwananchi",
+     "where": "pp.5–14, key allocations",
+     "label": "official"
+    }
+   ]
+  },
+  {
+   "name": "General Economics and Commercial Affairs",
+   "v": 49.8,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3, ministerial allocations by sector",
+   "label": "official",
+   "items": []
+  }
+ ],
+ "sectorsNote": "The guide lists these as key allocations, not every line. Items can sit in a different sector from where you expect: roads are inside Energy, Infrastructure and ICT.",
+ "education3": [
+  {
+   "name": "Education sector (ministerial)",
+   "v": 784.5,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.3",
+   "label": "official",
+   "why": "All education votes: TSC, basic, higher and TVET."
+  },
+  {
+   "name": "Education thematic area",
+   "v": 668.3,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "Table 5, p.25",
+   "label": "official",
+   "stage": "estimates",
+   "why": "A different grouping, at the April estimates stage."
+  },
+  {
+   "name": "Education as approved by MPs",
+   "v": 781.4,
+   "unit": "KSh bn",
+   "src": "pd",
+   "where": "reported",
+   "label": "unverified",
+   "stage": "approved",
+   "why": "As reported in the press after Parliament approved the estimates; we have not seen the Act."
+  }
+ ],
+ "counties": [
+  {
+   "name": "Baringo",
+   "prev": 7084,
+   "rec": 7845
+  },
+  {
+   "name": "Bomet",
+   "prev": 7447,
+   "rec": 8270,
+   "cob": {
+    "budget": 9831700000,
+    "spent": 7876380000,
+    "devBudget": 3364860000,
+    "devSpent": 2054410000,
+    "devAbs": 61,
+    "overallAbs": 80,
+    "pop2019": 875689
+   }
+  },
+  {
+   "name": "Bungoma",
+   "prev": 11838,
+   "rec": 13110
+  },
+  {
+   "name": "Busia",
+   "prev": 7957,
+   "rec": 8798
+  },
+  {
+   "name": "Elgeyo/Marakwet",
+   "prev": 5515,
+   "rec": 6118
+  },
+  {
+   "name": "Embu",
+   "prev": 6077,
+   "rec": 6717
+  },
+  {
+   "name": "Garissa",
+   "prev": 8878,
+   "rec": 9996
+  },
+  {
+   "name": "Homa Bay",
+   "prev": 8646,
+   "rec": 9554,
+   "cob": {
+    "budget": 13130570000,
+    "spent": 10752690000,
+    "devBudget": 5191150000,
+    "devSpent": 3562220000,
+    "devAbs": 69,
+    "overallAbs": 82,
+    "pop2019": 1131950
+   }
+  },
+  {
+   "name": "Isiolo",
+   "prev": 5631,
+   "rec": 6271
+  },
+  {
+   "name": "Kajiado",
+   "prev": 8894,
+   "rec": 9941
+  },
+  {
+   "name": "Kakamega",
+   "prev": 13675,
+   "rec": 14999
+  },
+  {
+   "name": "Kericho",
+   "prev": 7179,
+   "rec": 8017,
+   "cob": {
+    "budget": 9756940000,
+    "spent": 7976040000,
+    "devBudget": 3561280000,
+    "devSpent": 2578830000,
+    "devAbs": 72,
+    "overallAbs": 82,
+    "pop2019": 901777
+   }
+  },
+  {
+   "name": "Kiambu",
+   "prev": 13072,
+   "rec": 14556
+  },
+  {
+   "name": "Kilifi",
+   "prev": 12813,
+   "rec": 14040
+  },
+  {
+   "name": "Kirinyaga",
+   "prev": 6152,
+   "rec": 6782
+  },
+  {
+   "name": "Kisii",
+   "prev": 9820,
+   "rec": 10799,
+   "cob": {
+    "budget": 15155350000,
+    "spent": 9963150000,
+    "devBudget": 6146120000,
+    "devSpent": 2456170000,
+    "devAbs": 40,
+    "overallAbs": 66,
+    "pop2019": 1266860
+   }
+  },
+  {
+   "name": "Kisumu",
+   "prev": 8902,
+   "rec": 9849
+  },
+  {
+   "name": "Kitui",
+   "prev": 11504,
+   "rec": 12681
+  },
+  {
+   "name": "Kwale",
+   "prev": 9079,
+   "rec": 9942
+  },
+  {
+   "name": "Laikipia",
+   "prev": 6104,
+   "rec": 6762
+  },
+  {
+   "name": "Lamu",
+   "prev": 3858,
+   "rec": 4298
+  },
+  {
+   "name": "Machakos",
+   "prev": 10179,
+   "rec": 11288
+  },
+  {
+   "name": "Makueni",
+   "prev": 8976,
+   "rec": 9889
+  },
+  {
+   "name": "Mandera",
+   "prev": 12265,
+   "rec": 13259
+  },
+  {
+   "name": "Marsabit",
+   "prev": 8106,
+   "rec": 9073
+  },
+  {
+   "name": "Meru",
+   "prev": 10554,
+   "rec": 11716
+  },
+  {
+   "name": "Migori",
+   "prev": 8884,
+   "rec": 9835,
+   "cob": {
+    "budget": 12147010000,
+    "spent": 10120430000,
+    "devBudget": 4466410000,
+    "devSpent": 2790610000,
+    "devAbs": 62,
+    "overallAbs": 83,
+    "pop2019": 1116436
+   }
+  },
+  {
+   "name": "Mombasa",
+   "prev": 8383,
+   "rec": 9305
+  },
+  {
+   "name": "Murang'a",
+   "prev": 7969,
+   "rec": 8842
+  },
+  {
+   "name": "Nairobi City",
+   "prev": 21417,
+   "rec": 23781
+  },
+  {
+   "name": "Nakuru",
+   "prev": 14455,
+   "rec": 15958
+  },
+  {
+   "name": "Nandi",
+   "prev": 7772,
+   "rec": 8583
+  },
+  {
+   "name": "Narok",
+   "prev": 9770,
+   "rec": 10777
+  },
+  {
+   "name": "Nyamira",
+   "prev": 6073,
+   "rec": 6724,
+   "cob": {
+    "budget": 8102900000,
+    "spent": 5656740000,
+    "devBudget": 2870610000,
+    "devSpent": 1052120000,
+    "devAbs": 37,
+    "overallAbs": 70,
+    "pop2019": 605576
+   }
+  },
+  {
+   "name": "Nyandarua",
+   "prev": 6663,
+   "rec": 7338
+  },
+  {
+   "name": "Nyeri",
+   "prev": 6896,
+   "rec": 7615
+  },
+  {
+   "name": "Samburu",
+   "prev": 6337,
+   "rec": 6988
+  },
+  {
+   "name": "Siaya",
+   "prev": 7754,
+   "rec": 8618
+  },
+  {
+   "name": "Taita Taveta",
+   "prev": 5760,
+   "rec": 6374
+  },
+  {
+   "name": "Tana River",
+   "prev": 7222,
+   "rec": 7979
+  },
+  {
+   "name": "Tharaka Nithi",
+   "prev": 5058,
+   "rec": 5605
+  },
+  {
+   "name": "Trans Nzoia",
+   "prev": 7991,
+   "rec": 8850
+  },
+  {
+   "name": "Turkana",
+   "prev": 13893,
+   "rec": 15186
+  },
+  {
+   "name": "Uasin Gishu",
+   "prev": 8977,
+   "rec": 9939
+  },
+  {
+   "name": "Vihiga",
+   "prev": 6009,
+   "rec": 6664
+  },
+  {
+   "name": "Wajir",
+   "prev": 10508,
+   "rec": 11659
+  },
+  {
+   "name": "West Pokot",
+   "prev": 7002,
+   "rec": 7750
+  }
+ ],
+ "countiesMeta": {
+  "unit": "KSh million",
+  "prev": {
+   "v": 415000,
+   "unit": "KSh m",
+   "src": "cra",
+   "where": "Table 6.2, column FY2025/26",
+   "label": "official",
+   "note": "The 2025/26 equitable share per county as given by CRA; the total equals the 2025/26 Division of Revenue Act figure of KSh 415bn."
+  },
+  "rec": {
+   "v": 458940,
+   "unit": "KSh m",
+   "src": "cra",
+   "where": "Table 6.2, total FY2026/27",
+   "label": "official",
+   "stage": "recommendation"
+  },
+  "law": {
+   "v": 428.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.14; Division of Revenue Act signed 15 June 2026",
+   "label": "official",
+   "stage": "law"
+  },
+  "estimates": {
+   "v": 420.0,
+   "unit": "KSh bn",
+   "src": "summary",
+   "where": "para 67",
+   "label": "official",
+   "stage": "estimates"
+  },
+  "countyTotal": {
+   "v": 502.0,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.14: equitable share 428.0 + conditional allocations from national government 16.6 + from development partners 57.4",
+   "label": "official"
+  },
+  "equalisation": {
+   "v": 10.3,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.13, Equalization Fund",
+   "label": "official"
+  },
+  "ngcdf": {
+   "v": 61.8,
+   "unit": "KSh bn",
+   "src": "mwananchi",
+   "where": "p.13, NG-CDF (national money, not county money)",
+   "label": "official"
+  },
+  "weights": {
+   "Population": 45,
+   "Basic share (equal for all)": 35,
+   "Poverty": 12,
+   "Land area": 8
+  },
+  "national2425": {
+   "budget": 601689140000,
+   "spent": 470735360000,
+   "devBudget": 218989610000,
+   "devSpent": 123757220000,
+   "devAbsorptionPct": 57,
+   "overallAbsorptionPct": 78
+  }
+ },
+ "nyamiraYears": [
+  {
+   "fy": "2013/14",
+   "budget": 3400,
+   "spent": 2400,
+   "devAbs": 44,
+   "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-20132014/",
+   "page": "pp.146–148"
+  },
+  {
+   "fy": "2014/15",
+   "budget": 4670,
+   "spent": 3620,
+   "devAbs": 65.2,
+   "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-201415/",
+   "page": "pp.205–207"
+  },
+  {
+   "fy": "2015/16",
+   "budget": 5450,
+   "spent": 4310,
+   "devAbs": 54.5,
+   "src": "https://cob.go.ke/download/annual-county-budget-implementation-review-report-fy-2015-16/",
+   "page": "section 3.34"
+  },
+  {
+   "fy": "2016/17",
+   "budget": 5610,
+   "spent": 4500,
+   "devAbs": 58.6,
+   "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-201617/",
+   "page": "section 3.34"
+  },
+  {
+   "fy": "2017/18",
+   "budget": 6110,
+   "spent": 4230,
+   "devAbs": 27.9,
+   "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-for-fy-2017-18/",
+   "page": "section 3.34, p.223"
+  },
+  {
+   "fy": "2018/19",
+   "budget": 6960,
+   "spent": 5600,
+   "devAbs": 52.6,
+   "src": "https://cob.go.ke/download/county-governments-annual-budget-implementation-review-report-fy-2018-19/",
+   "page": "section 3.34, p.221"
+  },
+  {
+   "fy": "2019/20",
+   "budget": 7000,
+   "spent": 5770,
+   "devAbs": 61.5,
+   "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-fy-2019-20/",
+   "page": "section 3.35, p.288"
+  },
+  {
+   "fy": "2020/21",
+   "budget": 6800,
+   "spent": 5750,
+   "devAbs": 65.3,
+   "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-2020-21/",
+   "page": "section 3.35, p.318"
+  },
+  {
+   "fy": "2021/22",
+   "budget": 6830,
+   "spent": 5850,
+   "devAbs": 64.9,
+   "src": "https://cob.go.ke/download/county-governments-annual-budget-implementation-review-report-for-the-fy-2021-22/",
+   "page": "section 3.34, p.344"
+  },
+  {
+   "fy": "2022/23",
+   "budget": 7090,
+   "spent": 5740,
+   "devAbs": 63.8,
+   "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-fy-2022-23/",
+   "page": "section 3.34, pp.480–481"
+  },
+  {
+   "fy": "2023/24",
+   "budget": 7280,
+   "spent": 6170,
+   "devAbs": 61.2,
+   "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-2023-24/",
+   "page": "section 3.34, p.434"
+  },
+  {
+   "fy": "2024/25",
+   "budget": 8100,
+   "spent": 5650,
+   "devAbs": 37,
+   "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/",
+   "page": "section 3.34, pp.388–391"
+  }
+ ],
+ "shilling": {
+  "fy": "2025/26",
+  "steps": [
+   {
+    "name": "National budget",
+    "v": 4638.4,
+    "unit": "KSh bn",
+    "src": "summary",
+    "where": "Table 2, FY2025/26 column",
+    "label": "official",
+    "stage": "estimates",
+    "note": "The 2025/26 figure as printed in the April 2026 Budget Summary."
+   },
+   {
+    "name": "All 47 counties’ equitable share",
+    "v": 415.0,
+    "unit": "KSh bn",
+    "src": "summary",
+    "where": "Table 2, FY2025/26: of which equitable share",
+    "label": "official",
+    "stage": "law"
+   },
+   {
+    "name": "Nyamira’s equitable share",
+    "v": 6.073,
+    "unit": "KSh bn",
+    "src": "cra",
+    "where": "Table 6.2, column FY2025/26",
+    "label": "official",
+    "stage": "law"
+   },
+   {
+    "name": "Nyamira’s whole county budget",
+    "v": 8.646,
+    "unit": "KSh bn",
+    "src": "nyapbb",
+    "where": "Table 8 total, p.20",
+    "label": "official",
+    "stage": "estimates",
+    "note": "Equitable share plus conditional grants, own revenue and other sources."
+   },
+   {
+    "name": "Ward-coded projects in 20 wards",
+    "v": 0.3726,
+    "unit": "KSh bn",
+    "src": "nyapbb",
+    "where": "Table 18, pp.43–50: sum of ward-coded lines",
+    "label": "official",
+    "stage": "estimates",
+    "calc": "Sum of ward-coded budget lines by Nyamira Daily; countywide and flagship lines are not counted."
+   }
+  ],
+  "wards": [
+   {
+    "slug": "esise",
+    "name": "Esise",
+    "const": "Borabu",
+    "lines": 7,
+    "zero": 0,
+    "amount": 20000000
+   },
+   {
+    "slug": "kiabonyoru",
+    "name": "Kiabonyoru",
+    "const": "Borabu",
+    "lines": 7,
+    "zero": 0,
+    "amount": 20000000
+   },
+   {
+    "slug": "mekenene",
+    "name": "Mekenene",
+    "const": "Borabu",
+    "lines": 7,
+    "zero": 0,
+    "amount": 15000000
+   },
+   {
+    "slug": "nyansiongo",
+    "name": "Nyansiongo",
+    "const": "Borabu",
+    "lines": 9,
+    "zero": 7,
+    "amount": 5000000
+   },
+   {
+    "slug": "gachuba",
+    "name": "Gachuba",
+    "const": "Kitutu Masaba",
+    "lines": 7,
+    "zero": 0,
+    "amount": 19500000
+   },
+   {
+    "slug": "gesima",
+    "name": "Gesima",
+    "const": "Kitutu Masaba",
+    "lines": 11,
+    "zero": 0,
+    "amount": 23700000
+   },
+   {
+    "slug": "kemera",
+    "name": "Kemera",
+    "const": "Kitutu Masaba",
+    "lines": 11,
+    "zero": 0,
+    "amount": 20500000
+   },
+   {
+    "slug": "magombo",
+    "name": "Magombo",
+    "const": "Kitutu Masaba",
+    "lines": 11,
+    "zero": 0,
+    "amount": 20000000
+   },
+   {
+    "slug": "manga",
+    "name": "Manga",
+    "const": "Kitutu Masaba",
+    "lines": 11,
+    "zero": 0,
+    "amount": 18500000
+   },
+   {
+    "slug": "rigoma",
+    "name": "Rigoma",
+    "const": "Kitutu Masaba",
+    "lines": 10,
+    "zero": 0,
+    "amount": 20000000
+   },
+   {
+    "slug": "bokeira",
+    "name": "Bokeira",
+    "const": "North Mugirango",
+    "lines": 6,
+    "zero": 0,
+    "amount": 15000000
+   },
+   {
+    "slug": "bomwagamo",
+    "name": "Bomwagamo",
+    "const": "North Mugirango",
+    "lines": 5,
+    "zero": 0,
+    "amount": 15000000
+   },
+   {
+    "slug": "ekerenyo",
+    "name": "Ekerenyo",
+    "const": "North Mugirango",
+    "lines": 13,
+    "zero": 0,
+    "amount": 19200000
+   },
+   {
+    "slug": "itibo",
+    "name": "Itibo",
+    "const": "North Mugirango",
+    "lines": 8,
+    "zero": 0,
+    "amount": 20000000
+   },
+   {
+    "slug": "magwagwa",
+    "name": "Magwagwa",
+    "const": "North Mugirango",
+    "lines": 8,
+    "zero": 0,
+    "amount": 18500000
+   },
+   {
+    "slug": "bogichora",
+    "name": "Bogichora",
+    "const": "West Mugirango",
+    "lines": 9,
+    "zero": 0,
+    "amount": 23000000
+   },
+   {
+    "slug": "bonyamatuta",
+    "name": "Bonyamatuta",
+    "const": "West Mugirango",
+    "lines": 15,
+    "zero": 0,
+    "amount": 23100000
+   },
+   {
+    "slug": "bosamaro",
+    "name": "Bosamaro",
+    "const": "West Mugirango",
+    "lines": 3,
+    "zero": 0,
+    "amount": 26000000
+   },
+   {
+    "slug": "nyamaiya",
+    "name": "Nyamaiya",
+    "const": "West Mugirango",
+    "lines": 8,
+    "zero": 6,
+    "amount": 5000000
+   },
+   {
+    "slug": "township",
+    "name": "Township",
+    "const": "West Mugirango",
+    "lines": 6,
+    "zero": 0,
+    "amount": 25600000
+   }
+  ],
+  "wardSum": 372600000
+ }
+}</script>
+<script>
+(function () {
+  const D = JSON.parse(document.getElementById('data').textContent);
+  const S = D.sources;
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  const nf1 = new Intl.NumberFormat('en-KE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const nf0 = new Intl.NumberFormat('en-KE', { maximumFractionDigits: 0 });
+  const nf2 = new Intl.NumberFormat('en-KE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const bn = (v) => v >= 1000 ? `KSh ${nf2.format(v / 1000)} trillion` : v >= 1 ? `KSh ${nf1.format(v)} billion` : `KSh ${nf0.format(v * 1000)} million`;
+  const LABEL = { official: 'Official claim', verified: 'Verified', audit: 'Audit finding', unverified: 'Unverified' };
+  const STAGE = { recommendation: 'CRA recommendation', estimates: 'Budget estimates', statement: 'Budget statement', law: 'Law', approved: 'Approved by MPs', spent: 'Spent (Controller of Budget)', audited: 'Audited' };
+  const stageOf = (f) => f.stage || (S[f.src] && S[f.src].stage) || '';
+  const chips = (f) => `<span class="chips"><span class="chip ${f.label === 'unverified' ? 'unverified' : ''}" title="${esc(LABEL[f.label] || '')}">${LABEL[f.label] || ''}</span>${stageOf(f) ? `<span class="chip stage">${esc(STAGE[stageOf(f)] || stageOf(f))}</span>` : ''}${f.calc ? '<span class="chip calc">Our calculation</span>' : ''}</span>`;
+  const srcLine = (f, extra) => { const s = S[f.src]; return `<p class="src">${chips(f)} <a href="${esc(s.url)}" rel="noopener" target="_blank">${esc(s.title.split(' (')[0])}</a>, ${esc(f.where)}${extra ? ` · ${esc(extra)}` : ''}</p>`; };
+  const H = D.headline;
+
+  /* tooltip */
+  const tip = $('tip');
+  function showTip(el, html, ev) {
+    tip.innerHTML = html; tip.hidden = false;
+    const r = el.getBoundingClientRect(); const w = tip.offsetWidth, h = tip.offsetHeight;
+    let x = ev && ev.clientX ? ev.clientX + 14 : r.left + r.width / 2 - w / 2; let y = ev && ev.clientY ? ev.clientY - h - 14 : r.top - h - 10;
+    x = Math.max(8, Math.min(window.innerWidth - w - 8, x)); if (y < 8) y = (ev && ev.clientY ? ev.clientY : r.bottom) + 16;
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  }
+  const hideTip = () => { tip.hidden = true; };
+  function bindTip(el, html) {
+    el.addEventListener('pointermove', (e) => showTip(el, html, e));
+    el.addEventListener('pointerleave', hideTip);
+    el.addEventListener('focus', () => showTip(el, html));
+    el.addEventListener('blur', hideTip);
+    el.addEventListener('click', (e) => showTip(el, html, e));
+  }
+  window.addEventListener('scroll', hideTip, { passive: true });
+  function toast(msg) { const t = $('toast'); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { t.hidden = true; }, 2200); }
+  async function copy(text, done) { try { await navigator.clipboard.writeText(text); toast(done); } catch (e) { const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); toast(done); } catch (_) { toast('Select the text and copy it'); } ta.remove(); } }
+
+  /* hero */
+  $('hero-src').innerHTML = srcLine(H.total, `${nf1.format(H.totalGdp.v)}% of GDP`);
+  const interest = D.cfs.domesticInterest.v + D.cfs.foreignInterest.v;
+  const share = interest / D.cfs.ordinaryRevenue.v * 100;
+  $('tiles').innerHTML = [
+    ['', `<em>${nf2.format(H.revenue.v / 1000)}</em> trillion`, `raised from taxes, fees and other income (${nf1.format(H.revenueGdp.v)}% of GDP)`, srcLine(H.revenue)],
+    ['debt', `<em>${nf2.format(H.deficit.v / 1000)}</em> trillion`, `to be borrowed, net of repayments (${nf1.format(H.deficitGdp.v)}% of GDP)`, srcLine(H.deficit)],
+    ['debt', `<em>${nf0.format(share)}</em> of 100`, `shillings of tax and other ordinary revenue go to interest on public debt`, `<p class="src">${chips({ label: 'official', calc: 1, stage: 'estimates' })} KSh ${nf1.format(interest)}bn interest ÷ KSh ${nf1.format(D.cfs.ordinaryRevenue.v)}bn ordinary revenue</p>`],
+  ].map(([c, n, t, s]) => `<div class="tile ${c}"><span class="num">${n}</span><p>${t}</p>${s}</div>`).join('');
+
+  /* KSh 100 notes */
+  const fromGroups = [
+    { id: 'borrow', name: 'Borrowing (net)', desc: 'New loans after repaying old ones', v: D.comes.find((x) => x.id === 'borrow').v, color: 'var(--c-red)' },
+    { id: 'tax', name: 'Taxes', desc: 'Income tax, VAT, excise, import duty and others', v: D.comes.filter((x) => ['income', 'vat', 'excise', 'import', 'othertax'].includes(x.id)).reduce((a, b) => a + b.v, 0), color: 'var(--c-violet)' },
+    { id: 'own', name: 'Fees and other income', desc: 'Fees kept by agencies (A-I-A), dividends, rents, fines', v: D.comes.filter((x) => ['nontax', 'aia'].includes(x.id)).reduce((a, b) => a + b.v, 0), color: 'var(--c-magenta)', dk: 1 },
+    { id: 'grants', name: 'Grants', desc: 'From foreign governments and international bodies', v: D.comes.find((x) => x.id === 'grants').v, color: 'var(--c-yellow)', dk: 1 },
+  ];
+  const goColors = { cfs: 'var(--c-red)', recurrent: 'var(--c-blue)', development: 'var(--c-aqua)', counties: 'var(--c-orange)', contingency: 'var(--c-grey)' };
+  const goOrder = ['cfs', 'recurrent', 'development', 'counties', 'contingency'];
+  const toGroups = goOrder.map((id) => { const g = D.goes.find((x) => x.id === id); return { id, name: g.name, desc: g.desc, v: g.v, color: goColors[id], dk: id === 'contingency' ? 1 : 0 }; });
+  function note(el, title, serial, groups, srcHtml) {
+    const tot = groups.reduce((a, b) => a + b.v, 0);
+    el.innerHTML = `<div class="note-top"><h3>${title}</h3><span class="note-serial">KSh 100 · FY2026/27 · ${serial}</span></div>
+      <div class="stackbar" role="list">${groups.map((g) => { const p = g.v / tot * 100; return `<button type="button" role="listitem" class="seg ${g.dk ? 'dk' : ''}" style="flex:${g.v} 1 0;background:${g.color}" data-id="${g.id}" aria-label="${esc(g.name)}: KSh ${nf1.format(p)} of every 100, ${bn(g.v)}">${p >= 12 ? 'KSh ' + nf0.format(p) : ''}</button>`; }).join('')}</div>
+      <ul class="legend">${groups.map((g) => { const p = g.v / tot * 100; return `<li><span class="sq" style="background:${g.color}"></span><span class="nm">${esc(g.name)}</span><span class="per">KSh ${p < 0.1 ? '<0.1' : p < 1 ? nf1.format(p) : nf0.format(p)}</span><span class="ds">${esc(g.desc)} · ${bn(g.v)}</span></li>`; }).join('')}</ul>${srcHtml}`;
+    el.querySelectorAll('.seg').forEach((b) => { const g = groups.find((x) => x.id === b.dataset.id); const p = g.v / tot * 100; bindTip(b, `<b>KSh ${nf1.format(p)} of every 100</b>${esc(g.name)}: ${bn(g.v)}`); });
+  }
+  note($('note-from'), 'Where it comes from', 'IN', fromGroups, `<p class="src">${chips({ label: 'official' })} <a href="${S.revenue.url}" target="_blank" rel="noopener">Estimates of Revenue</a> (taxes, fees) and <a href="${S.mwananchi.url}" target="_blank" rel="noopener">Mwananchi Guide</a> (grants, deficit). Shares: our calculation. Adds to KSh 4,820.3bn, KSh 0.1bn short of the spending total because of rounding in the sources.</p>`);
+  note($('note-to'), 'Where it goes', 'OUT', toGroups, srcLine(D.goes[0]));
+
+  function hbars(el, rows, opt = {}) {
+    const max = opt.max || Math.max(...rows.map((r) => r.v));
+    const ticks = opt.ticks || [];
+    el.innerHTML = rows.map((r, i) => {
+      const tag = r.btn ? 'button type="button"' : 'div';
+      const end = r.btn ? 'button' : 'div';
+      return `<${tag} class="hb-row ${r.cls || ''}" data-i="${i}" ${r.btn ? `aria-expanded="false"` : ''}><span class="lb">${r.label}</span><span class="hb-track"><span class="hb-fill" style="width:${r.v == null ? 0 : r.v / max * 100}%"></span>${r.tick != null ? `<span class="hb-tick" style="left:calc(${r.tick / max * 100}% - 1px)"></span>` : ''}</span><span class="vl">${r.vl}</span></${end}>${r.after || ''}`;
+    }).join('') + (ticks.length ? `<div class="hb-axis" aria-hidden="true"><span></span><span class="ax">${ticks.map((t) => `<span style="left:${t / max * 100}%">${nf0.format(t)}</span>`).join('')}</span><span></span></div>` : '');
+    if (opt.tips) el.querySelectorAll('.hb-row').forEach((row) => bindTip(row, opt.tips(rows[+row.dataset.i])));
+  }
+
+  const taxes = D.comes.filter((x) => ['income', 'vat', 'excise', 'import', 'othertax'].includes(x.id));
+  hbars($('taxes'), taxes.map((t) => ({ label: esc(t.name), v: t.v, vl: nf1.format(t.v), t })), { max: 1400, ticks: [0, 500, 1000], tips: (r) => `<b>${bn(r.v)}</b>${esc(r.t.desc)}` });
+  $('taxes-src').innerHTML = srcLine(taxes[0], 'KSh billion');
+
+  /* money table */
+  $('money-table').innerHTML = `<table><thead><tr><th>Where it comes from</th><th class="r">KSh bn</th><th class="r">of 100</th></tr></thead><tbody>${D.comes.map((c) => `<tr><td>${esc(c.name)}</td><td class="r">${nf1.format(c.v)}</td><td class="r">${nf1.format(c.v / 4820.3 * 100)}</td></tr>`).join('')}</tbody></table>
+  <table style="margin-top:14px"><thead><tr><th>Where it goes</th><th class="r">KSh bn</th><th class="r">of 100</th></tr></thead><tbody>${D.goes.map((c) => `<tr><td>${esc(c.name)}</td><td class="r">${nf1.format(c.v)}</td><td class="r">${nf1.format(c.v / H.total.v * 100)}</td></tr>`).join('')}</tbody></table>`;
+
+  /* debt */
+  $('debt-lede').textContent = `In FY2026/27 the government expects to pay ${bn(interest)} in interest on its loans. That is more than all education ministries get, and almost three times what the 47 counties share.`;
+  const edu = D.sectors.find((s) => s.name === 'Education');
+  const health = D.sectors.find((s) => s.name === 'Health');
+  const sec = D.sectors.find((s) => s.name === 'National Security');
+  hbars($('debt-bars'), [
+    { label: 'Interest on public debt', v: interest, vl: nf1.format(interest), cls: 'debt', note: 'April estimates: domestic 986.7 + foreign 267.5' },
+    { label: 'Education (all ministries)', v: edu.v, vl: nf1.format(edu.v), note: 'Mwananchi Guide p.3' },
+    { label: 'Counties’ equitable share', v: 428.0, vl: '428.0', note: 'Division of Revenue Act 2026' },
+    { label: 'National Security', v: sec.v, vl: nf1.format(sec.v), note: 'Mwananchi Guide p.3' },
+    { label: 'Health (national)', v: health.v, vl: nf1.format(health.v), note: 'Mwananchi Guide p.3' },
+  ], { max: 1300, ticks: [0, 400, 800, 1200], tips: (r) => `<b>${bn(r.v)}</b>${esc(r.note)}` });
+  $('debt-src').innerHTML = srcLine(D.cfs.domesticInterest, 'interest') + srcLine(edu, 'sectors');
+  $('debt-share').textContent = `KSh ${nf0.format(share)} of every 100`;
+  $('debt-share-txt').innerHTML = `of the government's ordinary revenue (taxes and other income it collects, KSh ${nf1.format(D.cfs.ordinaryRevenue.v)} billion) is needed just for interest. Ordinary revenue excludes fees agencies keep and grants.`;
+  $('cfs').innerHTML = `<table><tbody>${[['Interest on domestic debt', D.cfs.domesticInterest], ['Interest on foreign debt', D.cfs.foreignInterest], ['Pensions and constitutional salaries', D.cfs.pensions], ['Total', D.cfs.total]].map(([n, f]) => `<tr><td>${n}</td><td class="r num">${nf1.format(f.v)}</td></tr>`).join('')}</tbody></table>${srcLine(D.cfs.total, 'KSh billion')}`;
+
+  /* sectors */
+  const secRows = D.sectors.map((s) => ({ label: esc(s.name), v: s.v, vl: nf1.format(s.v), btn: s.items.length > 0, s,
+    after: s.items.length ? `<div class="items" hidden>${s.items.map((it) => `<div><span>${esc(it.name)}</span><span>${nf1.format(it.v)}</span></div>`).join('')}<div class="muted"><span>Not listed by item in the guide</span><span>${nf1.format(s.v - s.items.reduce((a, b) => a + b.v, 0))}</span></div></div>` : '' }));
+  hbars($('sector-bars'), secRows, { max: 800, ticks: [0, 200, 400, 600, 800] });
+  $('sector-bars').querySelectorAll('button.hb-row').forEach((b) => b.addEventListener('click', () => { const box = b.nextElementSibling; const open = box.hidden; box.hidden = !open; b.setAttribute('aria-expanded', String(open)); }));
+  $('sector-src').innerHTML = srcLine(D.sectors[0], 'KSh billion; tap a sector with a list to open it');
+  $('sector-note').textContent = D.sectorsNote + ' The ten sectors add up to KSh 2,923.8 billion; the guide does not reconcile this exactly with ministerial recurrent plus development spending (KSh 2,890.1 billion).';
+  $('edu3').innerHTML = D.education3.map((e) => `<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;padding:10px 0;border-top:1px solid var(--line)"><b>${esc(e.name)}</b><span class="num" style="font-size:22px">${nf1.format(e.v)}</span><span class="small muted" style="grid-column:1/-1">${esc(e.why)}</span><span style="grid-column:1/-1">${srcLine(e)}</span></div>`).join('');
+
+  /* counties */
+  const M = D.countiesMeta;
+  $('moved').innerHTML = [
+    ['Feb 2026 · CRA recommended', M.rec.v / 1000, M.rec],
+    ['30 Apr 2026 · Treasury estimates', M.estimates.v, M.estimates],
+    ['Jun 2026 · Parliament, the law', M.law.v, M.law],
+  ].map(([t, v, f]) => `<div><span class="small muted">${t}</span><span class="num">${nf1.format(v)} <small style="font-size:16px">billion</small></span>${srcLine(f)}</div>`).join('');
+  const wcol = { 'Population': 'var(--c-blue)', 'Basic share (equal for all)': 'var(--c-aqua)', 'Poverty': 'var(--c-orange)', 'Land area': 'var(--c-yellow)' };
+  $('weights').innerHTML = Object.entries(M.weights).map(([k, v]) => `<div style="flex:${v} 1 0;background:${wcol[k]}" title="${esc(k)}: ${v}%">${v >= 20 ? v + '%' : ''}</div>`).join('');
+  $('weights').insertAdjacentHTML('afterend', `<ul class="legend" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">${Object.entries(M.weights).map(([k, v]) => `<li><span class="sq" style="background:${wcol[k]}"></span><span class="nm">${esc(k)}</span><span class="per">${v}%</span></li>`).join('')}</ul>`);
+  const C = D.counties.slice().sort((a, b) => b.rec - a.rec);
+  const sel = $('county');
+  sel.innerHTML = D.counties.slice().sort((a, b) => a.name.localeCompare(b.name)).map((c) => `<option value="${esc(c.name)}">${esc(c.name)}</option>`).join('');
+  let chosen = 'Nyamira';
+  try { const s = localStorage.getItem('kbe-county'); if (s && D.counties.some((c) => c.name === s)) chosen = s; } catch (e) {}
+  sel.value = chosen;
+  function renderCounty() {
+    const c = D.counties.find((x) => x.name === chosen);
+    const rank = C.findIndex((x) => x.name === chosen) + 1;
+    const ch = (c.rec - c.prev) / c.prev * 100;
+    let cob = '';
+    if (c.cob) {
+      const n = M.national2425;
+      cob = `<h3 style="margin-top:6px">FY2024/25: budget against spending</h3><dl>
+        <dt>Budget</dt><dd>${bn(c.cob.budget / 1e9)}</dd><dt>Spent</dt><dd>${bn(c.cob.spent / 1e9)} (${c.cob.overallAbs}%)</dd>
+        <dt>Development budget spent</dt><dd style="color:${c.cob.devAbs < n.devAbsorptionPct ? 'var(--accent-ink)' : 'inherit'}">${c.cob.devAbs}%</dd><dt>All 47 counties</dt><dd>${n.devAbsorptionPct}%</dd></dl>
+        <p class="src">${chips({ label: 'official', stage: 'spent' })} <a href="${S.cob2425.url}" target="_blank" rel="noopener">Controller of Budget, County BIRR FY2024/25</a>, Table 2.5</p>`;
+    } else {
+      cob = `<p class="small muted">Spending figures from the Controller of Budget are loaded so far for Nyamira and its five neighbours. More counties are on the list.</p>`;
+    }
+    $('ccard').innerHTML = `<span class="cname">${esc(c.name)}</span>
+      <dl><dt>Share in FY2025/26</dt><dd>${bn(c.prev / 1000)}</dd><dt>CRA recommended for FY2026/27</dt><dd>${bn(c.rec / 1000)}</dd><dt>Change recommended</dt><dd>${ch >= 0 ? '+' : ''}${nf1.format(ch)}%</dd><dt>Rank among 47 (recommendation)</dt><dd>${rank}</dd><dt>Final amount in the 2026 Act</dt><dd class="small" style="font-family:var(--font)">not yet loaded</dd></dl>
+      ${srcLine(M.rec, 'Table 6.2')}${cob}
+      ${c.name === 'Nyamira' ? '<p class="small"><b>Nyamira Daily</b> has ward-by-ward budgets, projects and services for this county.</p>' : ''}`;
+    hbars($('cbars'), C.map((x) => ({ label: esc(x.name), v: x.rec / 1000, vl: nf1.format(x.rec / 1000), tick: x.prev / 1000, cls: x.name === chosen ? 'hi' : '', x })), { max: 24, tips: (r) => `<b>${esc(r.x.name)}</b>Recommended ${bn(r.x.rec / 1000)}<br>FY2025/26 ${bn(r.x.prev / 1000)}` });
+    const hiRow = $('cbars').querySelector('.hi');
+    if (hiRow) { const box = $('cbars'); box.scrollTop = hiRow.offsetTop - box.clientHeight / 2; }
+  }
+  sel.addEventListener('change', () => { chosen = sel.value; try { localStorage.setItem('kbe-county', chosen); } catch (e) {} renderCounty(); });
+  renderCounty();
+  $('c-src').innerHTML = srcLine(M.rec, 'Table 6.2; bar = recommendation, line = FY2025/26 share; KSh billion');
+
+  /* shilling chain */
+  const st = D.shilling.steps;
+  const ratios = [
+    '',
+    `${nf1.format(st[1].v / st[0].v * 100)} of every KSh 100 in the national budget`,
+    `${nf2.format(st[2].v * 1000 / D.countiesMeta.prev.v * 100)}% of the 47 counties' share`,
+    `The equitable share pays for ${nf0.format(st[2].v / st[3].v * 100)}% of Nyamira's budget`,
+    `${nf1.format(st[4].v / st[3].v * 100)}% of the county budget is named for a ward`,
+  ];
+  $('chain').innerHTML = st.map((s, i) => `<div class="link ${i === st.length - 1 ? 'last' : ''}"><span class="dot">${i + 1}</span><div class="stack" style="gap:4px"><b>${esc(s.name)}</b>${ratios[i] ? `<span class="ratio">${ratios[i]}</span>` : ''}${srcLine(s)}</div><span class="amt">${bn(s.v)}</span></div>`).join('');
+  const W = D.shilling.wards.slice().sort((a, b) => (b.amount || 0) - (a.amount || 0));
+  hbars($('wards'), W.map((w) => ({ label: `${esc(w.name)}<small>${esc(w.const)}</small>`, v: (w.amount || 0) / 1e6, vl: w.amount == null ? 'n/a' : nf1.format(w.amount / 1e6) + 'm', cls: w.zero > w.lines / 2 ? 'caveat' : '', w })), { max: 30, tips: (r) => `<b>KSh ${nf1.format(r.v)} million</b>${r.w.lines} budget lines${r.w.zero ? `, ${r.w.zero} printed as KSh 0` : ''}` });
+  $('wards-src').innerHTML = srcLine(st[4], 'KSh million');
+  const ys = D.nyamiraYears;
+  const ymax = Math.max(...ys.map((y) => y.budget));
+  $('years').innerHTML = ys.map((y) => `<div class="yr" tabindex="0" data-fy="${y.fy}"><span class="tab">${y.fy}</span><span class="t"><span class="b" style="width:${y.budget / ymax * 100}%"></span><span class="s" style="width:${y.spent / ymax * 100}%"></span></span><span class="pc">${nf0.format(y.spent / y.budget * 100)}%</span></div>`).join('');
+  $('years').querySelectorAll('.yr').forEach((el) => { const y = ys.find((v) => v.fy === el.dataset.fy); bindTip(el, `<b>${y.fy}</b>Budget ${bn(y.budget / 1000)}<br>Spent ${bn(y.spent / 1000)}<br>Development budget spent: ${y.devAbs}%`); });
+  $('years-src').innerHTML = `<p class="src">${chips({ label: 'official', stage: 'spent' })} <a href="${S.cobyears.url}" target="_blank" rel="noopener">Controller of Budget annual county reports</a>, Nyamira section, one report per year (pages on Nyamira Daily) · % is our calculation</p>`;
+  const six = D.counties.filter((c) => c.cob).sort((a, b) => b.cob.devAbs - a.cob.devAbs);
+  $('cmp6').innerHTML = `<h3>Development budget spent, FY2024/25</h3><p class="small muted">Nyamira and its neighbours, against all 47 counties (${D.countiesMeta.national2425.devAbsorptionPct}%).</p><div class="hb" id="six"></div>${`<p class="src">${chips({ label: 'official', stage: 'spent' })} <a href="${S.cob2425.url}" target="_blank" rel="noopener">Controller of Budget, County BIRR FY2024/25</a>, Table 2.5</p>`}`;
+  hbars($('six'), six.map((c) => ({ label: esc(c.name), v: c.cob.devAbs, vl: c.cob.devAbs + '%', cls: c.name === 'Nyamira' ? 'hi' : '', tick: D.countiesMeta.national2425.devAbsorptionPct, c })), { max: 100, tips: (r) => `<b>${r.v}% spent</b>${bn(r.c.cob.devSpent / 1e9)} of ${bn(r.c.cob.devBudget / 1e9)}` });
+
+  /* calendar */
+  const today = '2026-11-01';
+  const cal = [
+    ['2026-02-03', 'CRA sends its revenue-sharing recommendation', 'Recommends KSh 458.9bn for counties.'],
+    ['2026-03', 'MPs approve the Budget Policy Statement', 'Sets the spending ceilings for each sector.'],
+    ['2026-04-30', 'Budget estimates tabled', 'Every ministry’s proposed budget, line by line. Committees hold public hearings in May.'],
+    ['2026-06-11', 'Budget statement read in Parliament', 'KSh 4.82 trillion; tax changes in the Finance Bill.'],
+    ['2026-06-15', 'Division of Revenue Act signed', 'Counties’ share set at KSh 428bn.'],
+    ['2026-07-01', 'FY2026/27 begins', 'Money starts to flow; the Controller of Budget approves every withdrawal.'],
+    ['2026-09', 'Budget Review and Outlook Paper', 'Treasury reviews last year and sets the next year’s path.'],
+    [today, 'Today', 'You are here. First-quarter spending reports are due from the Controller of Budget.'],
+    ['2027-02-15', 'Budget Policy Statement 2027 due in Parliament', 'The best moment to influence next year’s ceilings. Committees invite public views.'],
+    ['2027-04-30', 'FY2027/28 estimates due', 'Read your sector’s lines and write to the committee.'],
+    ['2027-06', 'Budget statement for FY2027/28', 'Two months before the general election on 10 August 2027.'],
+  ];
+  $('cal').innerHTML = cal.map(([d, w, t]) => { const cls = d === today ? 'today' : d < today ? 'done' : (d === '2027-02-15' ? 'next' : ''); const nice = d.length === 10 ? new Date(d + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }) : new Date(d + '-15T12:00:00Z').toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' }); return `<div class="ev ${cls}"><span class="d">${nice}${cls === 'next' ? ' · next' : ''}</span><span class="w">${esc(w)}</span><span class="small muted">${esc(t)}</span></div>`; }).join('');
+
+  const qs = [
+    `Interest will take about KSh ${nf0.format(share)} of every KSh 100 of ordinary revenue in FY2026/27. What is the plan to bring this down, and by when?`,
+    'Parliament set counties’ share at KSh 428 billion, below CRA’s KSh 458.9 billion. Which services will counties scale back, and in which counties?',
+    'How much of our county’s development budget was spent last year, and which projects were not started?',
+    'Which of the projects budgeted for my ward in FY2025/26 have been completed, and where is the record?',
+    'When will the Controller of Budget’s report on national government spending for FY2025/26 be published?',
+  ];
+  $('qs').innerHTML = qs.map((q) => `<li><p>${esc(q)}</p><button class="btn" type="button" data-q="${esc(q)}">Copy</button></li>`).join('');
+  $('qs').querySelectorAll('button').forEach((b) => b.addEventListener('click', () => copy(b.dataset.q + ' (Source: Kenya Budget Explained)', 'Question copied')));
+
+  /* how to read */
+  const reads = [
+    ['A plan is not spending', 'Budget-day numbers are what the government intends. The Controller of Budget later reports what was actually spent, which is usually less, especially for projects.', 'Every figure carries a stage tag: estimates, statement, law, spent or audited.'],
+    ['Numbers change by stage', 'Counties’ share was KSh 458.9bn (CRA), then 420.0bn (estimates), then 428.0bn (law). Each was correct for its stage.', 'We show the stage, and never mix stages in one sum without saying so.'],
+    ['Groupings differ', 'Education can be KSh 784.5bn or 668.3bn depending on whether it is grouped by sector or by "thematic area".', 'We name the grouping and never compare across groupings.'],
+    ['Net is not gross', 'The KSh 1.15 trillion deficit is borrowing after repayments. Total new loans are much larger.', 'We say "net" wherever a number is net.'],
+    ['Big numbers need a ruler', 'Shillings lose value each year, so "the biggest budget ever" is true almost every year.', 'We compare years as shares of GDP or of the whole budget, not in raw shillings.'],
+    ['Not all money for your area is county money', 'NG-CDF (KSh 61.8bn) is national money run by MPs’ constituency committees. Adding it to county budgets double-counts.', 'County and national money are kept apart on every page.'],
+  ];
+  $('readcards').innerHTML = reads.map(([h, p, r]) => `<div class="card"><h3>${esc(h)}</h3><p class="small">${esc(p)}</p><p class="small"><b>Here:</b> ${esc(r)}</p></div>`).join('');
+
+  /* guardrails */
+  const guards = [
+    ['Stale data', 'Kenya’s open data portal "ran before it could walk" and went stale when ministries stopped publishing.', 'Every figure shows the date it was checked. The calendar says which document comes next, and a figure older than its next release is flagged.'],
+    ['Numbers people misread', 'Budget charts often mix stages, groupings, or net and gross figures, and readers draw the wrong conclusion.', 'Stage tags, the "same budget, three numbers" card, and the six traps above. No chart mixes stages without a note.'],
+    ['Errors that spread', 'One wrong figure, shared widely, damages trust for years.', 'Source and page for every figure; our arithmetic is tagged and re-run on every build; public corrections log; an editor checks each new figure against the PDF page.'],
+    ['Only the already-online', 'Civic tools in Nigeria and elsewhere mostly reached educated, connected users.', 'Phone-first and light. Copyable questions for WhatsApp. Kiswahili summaries. Built to feed radio scripts and printed sheets.'],
+    ['Voice without response', 'Platforms that collect complaints but get no reply from officials lose users fast.', 'Questions go to named bodies with a public duty to answer (Parliament, the Controller of Budget). We log replies in the impact log.'],
+    ['Donor dependence and drift', 'Most African civic tech relies on donors; when funding ends, sites go dark.', 'Static pages that cost almost nothing to host. Open data and code, so the work survives any one funder.'],
+    ['Taking sides', 'A budget tool seen as partisan loses half its audience, especially in an election year.', 'Questions, not accusations. No ratings of politicians. Same treatment for every county and every party.'],
+    ['Guessing the gaps', 'Tools that fill missing data with estimates end up wrong in public.', 'Missing figures stay missing. Final county amounts show "not yet loaded" instead of a scaled guess.'],
+  ];
+  $('guards').innerHTML = guards.map(([h, w, r]) => `<div class="card"><h3>${esc(h)}</h3><p class="was"><b>How tools fail:</b> ${esc(w)}</p><p class="small rule"><b>Our guardrail:</b> ${esc(r)}</p></div>`).join('');
+
+  /* method */
+  $('labels').innerHTML = `<span class="chip">Official claim</span><span class="small muted">what an official document states</span><span class="chip unverified">Unverified</span><span class="small muted">reported but not yet seen in the document</span><span class="chip calc">Our calculation</span><span class="small muted">arithmetic on official figures</span>`;
+  const figs = [];
+  const add = (name, f) => figs.push([name, f]);
+  add('Total spending', H.total); add('Total revenue', H.revenue); add('Deficit', H.deficit); add('Net foreign financing', H.netForeign); add('Net domestic financing', H.netDomestic);
+  D.goes.forEach((g) => add(g.name, g)); D.comes.forEach((g) => add(g.name, g));
+  Object.entries(D.cfs).forEach(([k, f]) => add({ domesticInterest: 'Interest, domestic', foreignInterest: 'Interest, foreign', pensions: 'Pensions and salaries (CFS)', total: 'Consolidated Fund Services', foreignRepayments: 'Foreign loan repayments', ordinaryRevenue: 'Ordinary revenue' }[k], f));
+  D.sectors.forEach((s) => add(s.name, s)); D.education3.forEach((e) => add(e.name, e));
+  add('Counties’ share, law', M.law); add('Counties’ share, estimates', M.estimates); add('Counties’ share, CRA', M.rec); add('County governments, all transfers', M.countyTotal); add('Equalization Fund', M.equalisation); add('NG-CDF', M.ngcdf);
+  D.shilling.steps.forEach((s) => add(s.name + ' (FY2025/26)', s));
+  $('figtable').innerHTML = `<table><thead><tr><th>Figure</th><th class="r">Value</th><th>Tags</th><th>Source and place</th></tr></thead><tbody>${figs.map(([n, f]) => `<tr><td>${esc(n)}</td><td class="r">${f.unit === 'KSh m' ? nf0.format(f.v) + ' m' : f.unit.startsWith('%') ? nf1.format(f.v) + '%' : nf1.format(f.v) + (f.v < 10 ? '' : '')}</td><td>${chips(f)}</td><td class="small"><a href="${esc(S[f.src].url)}" target="_blank" rel="noopener">${esc(S[f.src].title.split(' (')[0])}</a>, ${esc(f.where)}${f.note ? `. ${esc(f.note)}` : ''}</td></tr>`).join('')}</tbody></table><p class="small muted">Values in KSh billion unless marked m (million) or %.</p>`;
+  $('srclist').innerHTML = Object.values(S).filter(Boolean).map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('');
+  $('checknote').textContent = `Built ${D.built}. National figures were read from the Treasury and CRA documents on 1 November 2026; before public launch an editor checks each against its printed page and marks it Verified. County spending figures come from Nyamira Daily's checked records.`;
+  $('copyjson').addEventListener('click', () => copy(JSON.stringify(D, null, 1), 'Data copied'));
+  $('copycsv').addEventListener('click', () => copy(['county,share_2025_26_ksh_m,cra_recommended_2026_27_ksh_m'].concat(D.counties.map((c) => `"${c.name}",${c.prev},${c.rec}`)).join('\n'), 'County table copied'));
+
+  /* active chapter in nav */
+  const links = [...document.querySelectorAll('.nav a')];
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) links.forEach((a) => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id)); }), { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('section.ch').forEach((s) => io.observe(s));
+  }
+})();
+</script>
