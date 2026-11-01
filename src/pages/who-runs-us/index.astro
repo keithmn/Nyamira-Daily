@@ -1,0 +1,61 @@
+---
+// Who runs us and who funds us (decision #73). Publisher, editorial independence, the spin-out commitment and the
+// funders table from src/data/funders.json. Plain statements only: never call Nyamira Daily a non-profit, NGO,
+// charity or PBO until that entity is registered.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { county, publisher, spinOut } from '../../county.js';
+import { contact, hasContact } from '../../config.js';
+import funding from '../../data/funders.json';
+import { date } from '../../lib/fmt.js';
+const list = (items) => items.length > 1 ? `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}` : items.join('');
+---
+<Base title="Who runs us" description={`Who builds, publishes and funds ${county.siteName}, and how we keep our reporting independent.`}>
+  <PageHead eyebrow="About" title="Who runs us" lead={`${county.siteName} is built and published by ${publisher.legalName}. Here is how we keep our reporting independent, and where our money comes from.`} crumbs={[{ href: '/about/', label: 'About' }, { href: '/who-runs-us/', label: 'Who runs us' }]} />
+  <div class="stack" style="margin-top:16px; max-width:720px">
+    <h2>The publisher</h2>
+    <p>{publisher.legalName} is {publisher.kind}. It builds and hosts this website and supplies the developers and data journalists who work on it. The site was started by {publisher.founder}, {publisher.founderRole}.</p>
+    <p>{county.siteName} is not affiliated with the {county.government}, the {county.assembly}, or any political party.</p>
+
+    <h2>How we keep it independent</h2>
+    <ul>
+      <li><strong>The editor decides.</strong> What we publish follows our <a href="/how-we-work/">editorial rules</a>. The company's clients, sponsors and funders get no say over what we publish and no preview before it goes out.</li>
+      <li><strong>No political money or clients.</strong> Neither {county.siteName} nor {publisher.shortName} takes money or paid work from political parties, candidates, aspirants, sitting officials, the {county.government} or its contractors. If that ever changes, we will say so here and the editor will decide whether to step back from related stories.</li>
+      <li><strong>The founder steps back from politics coverage.</strong> {publisher.founder} does not decide coverage of politicians, parties or county leadership. If the founder ever seeks political office, they will leave all editorial and management roles here first, on a date we publish.</li>
+      <li><strong>Our money is kept apart.</strong> {county.siteName}'s income and spending are tracked separately from the company's other work and published each year.</li>
+      <li><strong>Open by default.</strong> Our data is published under CC BY 4.0, so the public record we build stays public whoever runs the site.</li>
+    </ul>
+
+    <h2>Our plan to become a non-profit</h2>
+    <p>{county.siteName} starts inside {publisher.legalName}. We have committed to move it into {spinOut.form}. When that happens, {publisher.shortName} will transfer {list(spinOut.transfers)} to the new organisation.</p>
+    {spinOut.targetDate
+      ? <p>Target date: <strong>{spinOut.targetDate}</strong>.</p>
+      : <p class="muted">We are setting the date and the measures that will trigger the move, and will publish them here.</p>}
+    {spinOut.criteria.length > 0 && <ul>{spinOut.criteria.map((c) => <li>{c}</li>)}</ul>}
+    <p class="small muted">Until then {county.siteName} is a project of a company. It is not yet a registered non-profit or public benefit organisation, and gifts to it are not tax-deductible.</p>
+
+    <h2 id="funding">Who funds us</h2>
+    <p>We list every funder that gives more than KSh {funding.rules.threshold.toLocaleString('en-KE')} in a year. {funding.rules.maxShare}</p>
+    <div class="table-box"><table class="cards">
+      <thead><tr><th>Funder</th><th>Type</th><th>Year</th><th>Amount</th><th>For</th></tr></thead>
+      <tbody>
+        {funding.funders.map((f) => (
+          <tr><td><strong>{f.name}</strong></td><td data-label="Type">{f.kind}</td><td data-label="Year">{f.year}</td><td data-label="Amount">{f.amountBand ?? 'Published with the year’s accounts'}</td><td data-label="For">{f.purpose}</td></tr>
+        ))}
+      </tbody>
+    </table></div>
+    <p>We do not accept money from: {list(funding.rules.excluded)}.</p>
+    <p class="small muted">Updated {date(funding.updated)}.</p>
+
+    <h2>Questions</h2>
+    {hasContact
+      ? <p>Questions about who runs us or who funds us: {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}{contact.email && contact.whatsapp && ' or '}{contact.whatsapp && <a href={`https://wa.me/${contact.whatsapp}`} rel="noopener">WhatsApp</a>}.</p>
+      : <p class="muted">Our public contact channel is being set up. It will be listed here.</p>}
+
+    <div class="sw" lang="sw">
+      <span class="eyebrow">Muhtasari kwa Kiswahili</span>
+      <p>Nyamira Daily inaandaliwa na kuchapishwa na {publisher.legalName}. Mhariri ndiye anayeamua kinachochapishwa; wafadhili na wateja wa kampuni hawana usemi. Hatupokei pesa kutoka kwa vyama vya siasa, wagombea, viongozi walio madarakani, serikali ya kaunti wala wanakandarasi wake. Tumejitolea kuhamisha Nyamira Daily kuwa shirika lisilo la faida.</p>
+    </div>
+    <!-- Kiswahili summary added 31 Oct 2026: needs native-speaker review. Legal wording: needs the lawyer's review. -->
+  </div>
+</Base>

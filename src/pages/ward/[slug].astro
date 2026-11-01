@@ -71,8 +71,8 @@ const budgets = wards.map((x) => {
 const wardContracts = contractsFor(w.slug);
 const constSlug = w.subCounty.toLowerCase().split(' ').join('-');
 ---
-<Base title={`${w.name} Ward`} alertWard={w.slug}>
-  <PageHead eyebrow={`${w.subCounty} sub-county`} title={`${w.name} Ward`} crumbs={[{ href: '/ward/', label: 'Wards' }, { href: `/ward/${w.slug}/`, label: w.name }]} />
+<Base title={`${w.name} Ward`} alertWard={w.slug} image={`/brand/share/ward-${w.slug}.png`} imageAlt={`${w.name} Ward, ${w.subCounty} Constituency: ward projects budgeted in 2025/26, from the County Programme Based Budget`}>
+  <PageHead eyebrow={`${w.subCounty} Constituency`} title={`${w.name} Ward`} crumbs={[{ href: '/ward/', label: 'Wards' }, { href: `/ward/${w.slug}/`, label: w.name }]} />
 
   <div class="stack-lg" style="margin-top:8px">
     <div class="ward-top">
@@ -101,7 +101,7 @@ const constSlug = w.subCounty.toLowerCase().split(' ').join('-');
 
     <div class="sw" lang="sw">
       <span class="eyebrow">Muhtasari kwa Kiswahili</span>
-      <p>Wadi ya {w.name} iko katika kaunti ndogo ya {w.subCounty}. Mwakilishi wa wadi (MCA) ni {mca?.name ?? 'bado hajathibitishwa'}. Tumeorodhesha huduma {w.facilities.length} katika wadi hii; nyingi bado hazijakaguliwa ana kwa ana.</p>
+      <p>Wadi ya {w.name} iko katika eneo bunge la {w.subCounty}. Mwakilishi wa wadi (MCA) ni {mca?.name ?? 'bado hajathibitishwa'}. Tumeorodhesha huduma {w.facilities.length} katika wadi hii; nyingi bado hazijakaguliwa ana kwa ana.</p>
     </div>
 
     <Toggle id="services" title={`Services in ${w.name}`} meta={`${w.facilities.length} listed, by type`}>
@@ -227,7 +227,7 @@ const constSlug = w.subCounty.toLowerCase().split(' ').join('-');
     )}
     <Toggle id="contracts" title={`Contracts in ${w.name}`} meta={`${wardContracts.length} in the project tracker`}>
       {wardContracts.length ? <ul class="ct-list">{wardContracts.map((c) => <ContractRow c={c} />)}</ul> : <p class="muted">No contract in the tracker names this ward yet. Many contracts give only a road or a constituency.</p>}
-      <p class="small"><a href={`/tracker/county/?ward=${w.slug}`}>County contracts</a> · <a href={`/tracker/ng-cdf/?const=${constSlug}`}>NG-CDF in {w.subCounty}</a> · <a href={`/tracker/roads/?const=${constSlug}`}>National roads in {w.subCounty}</a></p>
+      <p class="small"><a href={`/tracker/county/?ward=${w.slug}`}>County contracts</a> · <a href={`/tracker/ng-cdf/${constSlug}/`}>NG-CDF in {w.subCounty}</a> · <a href={`/tracker/roads/?const=${constSlug}`}>National roads in {w.subCounty}</a></p>
     </Toggle>
     <Toggle id="receipt" title={`${w.name} Ward receipt`} meta="Everything on one card, to share, print or embed">
     <section class="receipt" aria-label={`${w.name} ward summary`}>

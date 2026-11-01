@@ -1,0 +1,30 @@
+---
+// Impact log (decision #76): what changed after we published, each with its record. Data: src/data/impact.json.
+// Entry shape: { date, kind (one of `kinds`), title, ward?, page (our page, starts with /), what, evidence: { label, url? }, consent? }.
+// Planned in src/config.js until the first entry is logged.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import log from '../../data/impact.json';
+import { date } from '../../lib/fmt.js';
+import { county } from '../../county.js';
+const entries = [...log.entries].sort((a, b) => (a.date < b.date ? 1 : -1));
+---
+<Base title="Impact log" description={`What changed after ${county.siteName} published, with the record for each.`}>
+  <PageHead eyebrow="About" title="Impact log" lead="What changed after we published: replies, corrections, questions in the Assembly and more. Each entry links to its record." crumbs={[{ href: '/about/', label: 'About' }, { href: '/impact/', label: 'Impact log' }]} />
+  <div class="stack" style="margin-top:16px; max-width:720px">
+    {entries.length === 0 && <p class="muted">Nothing logged yet.</p>}
+    {entries.length > 0 && (
+      <ol class="rows">
+        {entries.map((e) => (
+          <li class="card stack">
+            <span class="eyebrow">{e.kind} · {date(e.date)}{e.ward ? ` · ${e.ward}` : ''}</span>
+            <h2 style="margin:0">{e.title}</h2>
+            <p>{e.what}</p>
+            <p class="small">Record: {e.evidence.url ? <a href={e.evidence.url} rel="noopener">{e.evidence.label}</a> : e.evidence.label}{e.page && <> · Our page: <a href={e.page}>{e.page}</a></>}</p>
+          </li>
+        ))}
+      </ol>
+    )}
+    <p class="small muted">We log a change only when there is a record of it, and we write "after we published", not "because of us", unless the record says so. Updated {date(log.updated)}.</p>
+  </div>
+</Base>

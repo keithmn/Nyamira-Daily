@@ -1,6 +1,6 @@
 // Shared wrapper for machine-readable outputs (/api/…), documented on /data/open-data/.
 export const licence = {
-  licence: 'Free to reuse with credit to Nyamira Daily.',
+  licence: 'CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/): free to reuse with credit to Nyamira Daily and a link to the page.',
   credit: 'Source: Nyamira Daily',
   note: 'Data derived from OpenStreetMap is © OpenStreetMap contributors, ODbL. Ward boundaries: geoBoundaries, CC BY 4.0.',
 };

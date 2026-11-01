@@ -4,7 +4,8 @@ import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import EvidenceLabel from '../../components/EvidenceLabel.astro';
 import TrackerList from '../../components/TrackerList.astro';
-import { groups, groupOrder, byGroup, totals, sources } from '../../lib/contracts.js';
+import { groups, groupOrder, byGroup, totals, sources, constituencyName } from '../../lib/contracts.js';
+import Icon from '../../components/Icon.astro';
 import { ksh, num } from '../../lib/fmt.js';
 export function getStaticPaths() {
   return groupOrder.map((g) => ({ params: { group: g } }));
@@ -15,6 +16,9 @@ const list = byGroup(group);
 const t = totals(list);
 const srcs = [...new Set(list.map((c) => c.source))].map((k) => sources[k]);
 const place = group === 'ng-cdf' || group === 'roads' ? 'constituency' : 'ward';
+// NG-CDF is split by constituency (decision #81): this page shows the four, each with its own list page.
+const split = group === 'ng-cdf';
+const perConst = split ? Object.entries(constituencyName).map(([k, name]) => ({ k, name, t: totals(list.filter((c) => c.constituency === k)) })) : [];
 ---
 <Base title={meta.title} description={meta.blurb}>
   <PageHead eyebrow="Project tracker" title={meta.title} lead={meta.blurb} icon={meta.icon} crumbs={[{ href: '/tracker/', label: 'Project tracker' }, { href: `/tracker/${group}/`, label: meta.label }]} />
@@ -24,7 +28,25 @@ const place = group === 'ng-cdf' || group === 'roads' ? 'constituency' : 'ward';
       <div class="figure"><span class="eyebrow">{group === 'ng-cdf' ? 'Allocations' : 'Contract sums'}</span><span class="num">{ksh(t.value)}</span><p class="say">added up across {num(t.withAmount)} records that print an amount. {meta.who}.</p></div>
       <div class="figure"><span class="eyebrow">Contractor named</span><span class="num">{num(t.withContractor)}</span><p class="say">of {num(t.count)} records.</p></div>
     </section>
-    <TrackerList list={list} id={`tk-${group}`} place={place} />
+    {split ? (
+      <section class="stack" aria-labelledby="by-const">
+        <h2 id="by-const">Choose a constituency</h2>
+        <div class="sector-tiles compact">
+          {perConst.map((p) => (
+            <a class="sector-tile sec-dusk" href={`/tracker/ng-cdf/${p.k}/`}>
+              <Icon name="pin" size={24} badge />
+              <h3>{p.name}</h3>
+              <p>{num(p.t.count)} records · {ksh(p.t.value)} in allocations</p>
+              <span class="go" aria-hidden="true">→</span>
+            </a>
+          ))}
+        </div>
+        <script is:inline>
+          // Old links used /tracker/ng-cdf/?const=<constituency>; send them to the constituency's own page.
+          (function () { var k = new URLSearchParams(location.search).get('const'); if (k && /^[a-z-]+$/.test(k)) location.replace('/tracker/ng-cdf/' + k + '/' + location.search.replace(/([?&])const=[^&]*&?/, '$1').replace(/[?&]$/, '')); })();
+        </script>
+      </section>
+    ) : <TrackerList list={list} id={`tk-${group}`} place={place} />}
     <section class="stack">
       <h2>Sources</h2>
       <ul class="small">{srcs.map((s) => <li>{s.url ? <a href={s.url} rel="noopener">{s.title}</a> : s.title}{s.publisher && ` · ${s.publisher}`}{s.date && ` · ${s.date}`}</li>)}</ul>

@@ -2,7 +2,7 @@
 
 This is the one rulebook for every assistant on this repo. Codex reads it directly; Claude Code reads it through `CLAUDE.md`. Edit the rules here.
 
-This repo is **Nyamira Daily**, an independent, non-partisan civic information website about Nyamira County, Kenya. Read `docs/PROJECT_BRIEF.md` for purpose and audience before making changes.
+This repo is **Nyamira Daily**, a non-partisan, editorially independent civic information website about Nyamira County, Kenya, built and published by Underdogs Rising Group Limited, with a public commitment to spin out into its own non-profit (`docs/DECISIONS.md` #73). Never call it a non-profit, NGO, charity or PBO until that entity exists. Read `docs/PROJECT_BRIEF.md` for purpose and audience before making changes.
 
 ## How we work (Codex, Claude Code or a person)
 

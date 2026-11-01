@@ -1,0 +1,9 @@
+# Keep Unix line endings everywhere, also on Windows clones. Some tests compare generated files byte for byte
+# (scripts/build-roads.test.js), and Windows line endings make unchanged data look changed in Git.
+* text=auto eol=lf
+# Published CSV files use Windows line endings on purpose (the CSV standard, and what Excel expects):
+# scripts/build-facilities-csv.js writes \r\n. Leave them exactly as generated.
+*.csv -text
+*.png binary
+*.ico binary
+*.woff2 binary

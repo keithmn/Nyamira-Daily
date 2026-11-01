@@ -1477,6 +1477,11 @@ details.sheet-sec[open] > summary .chev { transform: rotate(180deg); opacity: 1;
 .ft-social a:hover, .ft-social a:focus-visible { background: var(--nd-green); color: var(--nd-ink); --ico-acc: var(--nd-ink); box-shadow: 0 0 18px rgb(31 208 122 / 0.5); }
 .ft-fine { margin: 0; max-width: none; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
 .ft-fine strong { color: var(--ink); }
+/* Trust links under the publisher line (decision #73). Plain text links, 44px tap height on phones. */
+.ft-links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 18px; font-size: 14px; }
+.ft-links li { max-width: none; }
+.ft-links a { display: inline-block; min-height: 44px; line-height: 44px; color: var(--ink); }
+.ft-credits { border-top: 0; padding-top: 0; font-size: 12px; }
 
 /* ===== Calm system (decision #69) =====
    One quiet canvas: white (or Ink in dark mode) behind everything; one level of container with a hairline edge;

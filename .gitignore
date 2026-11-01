@@ -10,3 +10,4 @@ dist/
 dist-drafts/
 *.bundle
 __pycache__/
+check-launch.log

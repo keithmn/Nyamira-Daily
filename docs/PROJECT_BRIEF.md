@@ -4,7 +4,7 @@ Read this first. It explains what the site is, who it is for, and what we are tr
 
 ## In one sentence
 
-Nyamira Daily is an independent, non-partisan information service that explains how Nyamira County, Kenya, is run and what it delivers, in plain language, with a source behind every fact.
+Nyamira Daily is a non-partisan, editorially independent information service that explains how Nyamira County, Kenya, is run and what it delivers, in plain language, with a source behind every fact.
 
 ## Why it exists
 
@@ -40,33 +40,41 @@ Every page leads with one number, one plain sentence and one evidence label. The
 
 ## Structure of the site
 
-Six sections, in the main menu:
+Eight sections, in the main menu (`src/nav.js`):
 
 | Section | What it answers |
 |---|---|
-| Today | What our county has, spends and does: headline figures plus the reader's own ward |
-| Data | Money, projects, services, people (census), prices, plans; plus open data downloads |
-| Wards | A page per ward (20): ward receipt, map, MCA, services, county projects |
-| Government | Who's in charge of what, leaders, the Executive, the County Assembly, watchdogs |
-| Constitution | Devolution (Chapter 11), what the county must provide (Fourth Schedule), your rights, county laws |
-| Learn | How the county works, budget calendar, taking part, fees you pay, glossary |
+| Today | What our county has, spends and does: headline figures, alerts, the number of the week, opportunities, the NY Watch podcast |
+| Wards | A page per ward (20) and per constituency (4): ward receipt, map, MCA, services, county projects, roads |
+| Data | Money, health, education, farming, the project tracker, plus open data downloads |
+| Community | Who lives here (census), what's working, heritage and people |
+| Government | Who's in charge of what, leaders, elections, the Executive, the County Assembly, watchdogs |
+| Take part | Ask Nyamira, reports, submissions, public hearings, the budget simulator |
+| Learn | How the county works, the Constitution, the budget calendar, fees, glossary, explainers |
+| About | Who runs us and funds us, how we work, right of reply, the impact log, terms, privacy |
 
-A **"Your ward" picker** sits under the menu on every page. Readers choose their ward once; the site then shows that ward's figures first. Each ward also keeps its own page so it can be shared on WhatsApp.
+The work follows three pillars: **money** (budgets, spending, audits, contracts), **ground truth** (what is actually there in each ward, checked on site) and **voice** (taking part, and stories of what works).
 
-## A related show
+A **"Your ward" picker** sits on every page. Readers choose their ward once; the site then shows that ward's figures first. Each ward also keeps its own page, with its own share image, so it can be shared on WhatsApp.
 
-"NY Watch" is a nightly live show (10 to 11 pm, also released as a podcast) that discusses the county's facts. The site carries a link to its episodes. The show draws on the site's data; the site does not depend on the show.
+## Who runs it
+
+Nyamira Daily is built and published by Underdogs Rising Group Limited, which supplies the developers and data journalists. It is editorially independent and non-partisan, and the company has committed to spin it out into its own non-profit (a company limited by guarantee, then a registered PBO). Until then, never describe it as a non-profit, NGO, charity or PBO. Details: `/who-runs-us/` and `DECISIONS.md` #73.
+
+## A related podcast
+
+"NY Watch" is the data review podcast, hosted by the founder, Keith Morangwa Nyahach (decision #79). Each episode reviews one set of figures on the site: what the records say, what they leave out, and the questions to ask. It reviews records, not politicians. The podcast draws on the site's data; the site does not depend on it.
 
 ## Languages
 
 English is the written backbone. Key pages carry a short Kiswahili summary ("Muhtasari kwa Kiswahili"). Full Kiswahili and Ekegusii versions are planned. Spoken content (audio, the show) uses the speaker's language with subtitles.
 
-## Current state (October 2026)
+## Current state (31 October 2026)
 
 See `ROADMAP.md` for the full list. In short:
 
 - **Live with real data:** money (12 years), leaders, ward pages with maps and project lists, projects, services, census figures, Assembly sittings and bills, county Acts, fees, opportunities, constitution summaries, search.
-- **Planned:** market prices, plans and promises, have your say, tell us and subscribe (these wait for a contact channel), show episodes, full translations, field verification of projects and services.
+- **Planned:** tell us and subscribe (these wait for a contact channel), NY Watch episodes, the impact log, full Kiswahili and Ekegusii translations, field verification of projects and services, the Ask Nyamira Daily assistant (built on `/api/facts.json`), a Kisii edition (the county kit, `src/county.js`).
 
 ## How to work on it
 

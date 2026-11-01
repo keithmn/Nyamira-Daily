@@ -90,8 +90,10 @@ const episodes = defineCollection({ loader: md('episodes'), schema: z.object({
   claims: z.array(z.object({ claim: z.string(), by: z.string(), check: z.string(), href: z.string().startsWith('/') })).default([]),
   ...publication,
 }).superRefine((episode, context) => {
-  if (episode.series === 'ny-watch' && episode.guests.length === 0) {
-    context.addIssue({ code: z.ZodIssueCode.custom, path: ['guests'], message: 'A NY Watch episode names its guest and the office they hold.' });
+  // NY Watch is a data review podcast (decision #79): every episode reviews at least one dataset on the site.
+  // Guests are optional; when there are guests, each is named with the office they hold.
+  if (episode.series === 'ny-watch' && episode.datasets.length === 0) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['datasets'], message: 'A NY Watch episode links the data it reviews.' });
   }
   if (!episode.draft && !episode.youtubeId && !episode.audioUrl) {
     context.addIssue({ code: z.ZodIssueCode.custom, path: ['youtubeId'], message: 'A published episode needs its video or audio.' });

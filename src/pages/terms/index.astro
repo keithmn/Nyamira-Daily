@@ -1,0 +1,41 @@
+---
+// Terms and reuse (decision #73): the data licence, the code licence and what we can and cannot promise.
+// Needs the lawyer's review before launch.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { county, publisher } from '../../county.js';
+---
+<Base title="Terms and reuse" description={`How you may reuse ${county.siteName}'s data and words, and the limits of what we publish.`}>
+  <PageHead eyebrow="About" title="Terms and reuse" lead="Our data is free to reuse. Credit us and link to the page." crumbs={[{ href: '/about/', label: 'About' }, { href: '/terms/', label: 'Terms and reuse' }]} />
+  <div class="stack" style="margin-top:16px; max-width:720px">
+    <h2>Reusing our data and words</h2>
+    <p>Our tables, downloads (CSV and JSON) and text are published under the <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">Creative Commons Attribution 4.0 licence (CC BY 4.0)</a>. You may copy, share, translate and build on them, including for radio, newspapers, schools and apps, if you:</p>
+    <ul>
+      <li>credit "{county.siteName}" and link to the page or file you used;</li>
+      <li>say if you changed anything;</li>
+      <li>keep the source and the evidence label with any figure you quote.</li>
+    </ul>
+    <p>Logos, the {county.siteName} and NY Watch names, photos and illustrations are not covered by this licence. Ask before using them.</p>
+
+    <h2>Official sources</h2>
+    <p>Most of our figures come from public records: the Controller of Budget, the Auditor-General, the county's own plans and budgets, the County Assembly, the Kenya Gazette and national agencies. Each page links to the record it uses. When those sources disagree, we show both figures.</p>
+
+    <h2>What we can and cannot promise</h2>
+    <ul>
+      <li>We check carefully, but records can be wrong or out of date. Each figure shows its date and evidence label; check the source before making an important decision.</li>
+      <li>A budget line or a contract is planned or agreed money, not proof that work was done. A "question to ask" is not an accusation.</li>
+      <li>Opportunities (jobs, tenders, bursaries) are copied from their official notices. Always apply through the official channel. We never charge for, or handle, applications.</li>
+      <li>We correct mistakes openly. See <a href="/how-we-work/#corrections">corrections</a> and <a href="/right-of-reply/">right of reply</a>.</li>
+    </ul>
+
+    <h2>The website code</h2>
+    <p>The code behind this site belongs to {publisher.legalName}. We plan to publish it under an open-source licence and to transfer it to {county.siteName}'s future non-profit (see <a href="/who-runs-us/">who runs us</a>).</p>
+
+    <p class="small muted">Updated 31 Oct 2026.</p>
+    <div class="sw" lang="sw">
+      <span class="eyebrow">Muhtasari kwa Kiswahili</span>
+      <p>Takwimu na maandishi yetu ni bure kutumia tena chini ya leseni ya CC BY 4.0: taja Nyamira Daily na uweke kiungo cha ukurasa. Nembo na picha haziruhusiwi bila idhini.</p>
+    </div>
+    <!-- Kiswahili summary added 31 Oct 2026: needs native-speaker review. Legal wording: needs the lawyer's review. -->
+  </div>
+</Base>

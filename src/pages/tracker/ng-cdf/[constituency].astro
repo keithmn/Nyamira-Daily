@@ -1,0 +1,38 @@
+---
+// NG-CDF projects for one constituency (decision #81). The full NG-CDF list (1,131 records) was one 616 KB page;
+// it is split by constituency so a phone loads only the part the reader needs. National money: never added to
+// county figures.
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import EvidenceLabel from '../../../components/EvidenceLabel.astro';
+import TrackerList from '../../../components/TrackerList.astro';
+import { groups, byGroup, totals, sources, constituencyName } from '../../../lib/contracts.js';
+import { ksh, num } from '../../../lib/fmt.js';
+export function getStaticPaths() {
+  return Object.keys(constituencyName).map((k) => ({ params: { constituency: k } }));
+}
+const { constituency } = Astro.params;
+const name = constituencyName[constituency];
+const meta = groups['ng-cdf'];
+const list = byGroup('ng-cdf').filter((c) => c.constituency === constituency);
+const t = totals(list);
+const srcs = [...new Set(list.map((c) => c.source))].map((k) => sources[k]);
+const others = Object.entries(constituencyName).filter(([k]) => k !== constituency);
+---
+<Base title={`NG-CDF projects in ${name}`} description={`Projects funded by the National Government Constituencies Development Fund in ${name} Constituency, with allocations and sources.`}>
+  <PageHead eyebrow="Project tracker · NG-CDF" title={`NG-CDF projects in ${name}`} lead={`${meta.blurb.split('.')[0]} in ${name} Constituency. National money, not county money.`} icon={meta.icon}
+    crumbs={[{ href: '/tracker/', label: 'Project tracker' }, { href: '/tracker/ng-cdf/', label: meta.label }, { href: `/tracker/ng-cdf/${constituency}/`, label: name }]} />
+  <div class="stack-lg" style="margin-top:16px">
+    <section class="fig-row" aria-label="This constituency in numbers">
+      <div class="figure"><span class="eyebrow">Records</span><span class="num">{num(t.count)}</span><p class="say">{t.years.length ? `from FY${t.years[t.years.length - 1]} to FY${t.years[0]}` : ''}</p></div>
+      <div class="figure"><span class="eyebrow">Allocations</span><span class="num">{ksh(t.value)}</span><p class="say">added up across {num(t.withAmount)} records that print an amount. National money.</p></div>
+    </section>
+    <TrackerList list={list} id={`tk-ngcdf-${constituency}`} place="none" />
+    <p class="small">Other constituencies: {others.map(([k, n], i) => <>{i > 0 && ' · '}<a href={`/tracker/ng-cdf/${k}/`}>{n}</a></>)}</p>
+    <section class="stack">
+      <h2>Sources</h2>
+      <ul class="small">{srcs.map((s) => <li>{s.url ? <a href={s.url} rel="noopener">{s.title}</a> : s.title}{s.publisher && ` · ${s.publisher}`}{s.date && ` · ${s.date}`}</li>)}</ul>
+      <p class="source"><EvidenceLabel kind="official" /> Each record shows its exact source and page.</p>
+    </section>
+  </div>
+</Base>

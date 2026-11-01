@@ -3,7 +3,7 @@
 Status: delivered as brand kit v1, October 2026 (the avocado pin was chosen) and applied to the site; see `docs/DECISIONS.md` #18–19 and #46. This brief records the thinking behind it. League Spartan is used for body text; Varela Round is now used for headings to match the logo.
 
 ## Project
-Logo and visual identity for **Nyamira Daily**, an independent, non-partisan civic information platform for Nyamira County, Kenya.
+Logo and visual identity for **Nyamira Daily**, a non-partisan, editorially independent civic information platform for Nyamira County, Kenya.
 - It is **not** the county government and must never look official.
 - It explains the county in plain language: where public money goes, what each of the 20 wards has (health centres, schools, markets, water points), who the leaders are, what the Constitution says, and how residents can take part.
 - Every fact carries a source.

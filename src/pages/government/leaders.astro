@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import wards from '../../data/wards.json';
 import L from '../../data/leaders.json';
+import ElectionNotice from '../../components/ElectionNotice.astro';
 const duty = {
   'Governor': "Heads the county executive; leads county services and spending.",
   'Deputy Governor': "Deputises for the Governor and acts in the Governor's absence.",
@@ -15,6 +16,7 @@ const subs = ['Borabu', 'Kitutu Masaba', 'North Mugirango', 'West Mugirango'];
 ---
 <Base title="Leaders">
   <PageHead eyebrow="Government" title="Nyamira's elected leaders" lead="Who holds each office now, what the office does, and where our information comes from." crumbs={[{ href: '/government/', label: 'Government' }, { href: '/government/leaders/', label: 'Leaders' }]} />
+  <ElectionNotice />
   <p class="updated">Last checked 22 Oct 2026. Party shown is the party each person was elected on.</p>
 
   <h2 style="margin-top:24px">County government</h2>
@@ -39,7 +41,7 @@ const subs = ['Borabu', 'Kitutu Masaba', 'North Mugirango', 'West Mugirango'];
   </div>
 
   <h2 style="margin-top:32px" id="mcas">Ward MCAs</h2>
-  <p class="muted small" style="margin-top:8px">From the IEBC's 2022 gazetted results (<a href={L.mcaSource} rel="noopener">list</a>), updated for the November 2025 by-elections.</p>
+  <p class="muted small" style="margin-top:8px">From the IEBC's 2022 results as republished by {L.mcaSourceName ? <a href={L.mcaSource} rel="noopener">{L.mcaSourceName.split(' (')[0]}</a> : <a href={L.mcaSource} rel="noopener">this list</a>}, updated for the November 2025 by-elections. {!L.mcaGazetteChecked && 'We are checking each name against the Kenya Gazette.'}</p>
   {subs.map((s) => (
     <section class="stack" style="margin-top:16px">
       <h3>{s}</h3>
