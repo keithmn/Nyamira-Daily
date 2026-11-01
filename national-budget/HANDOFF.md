@@ -31,11 +31,12 @@ Working name: "Kenya Budget Explained". The founder has not chosen the final nam
 6. Budget calendar and questions to ask.
 7. Six traps for readers, eight guardrails from how similar tools failed, and a table of every figure with its source.
 
-## Open work, in order
-1. **Verify:** Claude Code checked every national figure against its PDF on 1 Nov 2026; see `VERIFICATION.md`. Still to do: a person checks each against the printed page, starting with the 47 hand-typed numbers from Guide p.14, then relabels it `verified`.
-2. **County amounts:** load the exact amount for each county from the County Allocation of Revenue Act, 2026 (Act No. 22 of 2026): https://new.kenyalaw.org/akn/ke/act/2026/22/eng@2026-07-03. Kenya Law blocks scripts, so a person must download it. The bill on libraryir.parliament.go.ke is the Treasury's February proposal at KSh 420bn: do not use it. The page shows the Guide's rounded amounts (p.14) until then. Do not derive amounts from CRA's figures.
-3. **Approved stage:** add the Appropriation Act, 2026 figures (Act No. 20 of 2026): https://new.kenyalaw.org/akn/ke/act/2026/20/eng@2026-06-26. Same Kenya Law download problem.
-4. **National spending:** add the Controller of Budget's national government spending from the FY2025/26 annual report, listed at https://cob.go.ke/reports/national-government-budget-implementation-review-reports/.
-5. **All counties:** extend Controller of Budget spending figures to all 47 counties (today only Nyamira, Kisii, Bomet, Kericho, Homa Bay and Migori are in `compare.json`).
-6. **Into the site:** port the page to Astro, either as its own site or as a section that shares `src/lib` and the components. That is a structural decision, so log it in `docs/DECISIONS.md`.
-7. **Before launch:** choose the name, set up a corrections contact, and get a native speaker to review the Kiswahili lines.
+## Open work
+This prototype is now a reference, not the base for the product. `BUILD_BRIEF.md` is the plan (decision #82): read it first. The product is a new Astro app at `apps/national` (decision #83), and only the data carries over from here.
+
+Phases: 0 audit and decisions (done, 1 Nov 2026); 1 sitemap, design document and component list, which wait for the owner's approval; then the brief's phases, numbered 2 to 7. Branches are `feat/national-phase-<n>`, each from the one before, because this branch is not in `main`.
+
+Carried over from the old list:
+- **Checks by a person:** Claude Code checked every national figure against its PDF on 1 Nov 2026 (`VERIFICATION.md`). The labels stay `official` until a person checks the printed pages, starting with the 47 hand-typed numbers from Guide p.14.
+- **Acts:** the County Allocation of Revenue Act, 2026 (No. 22) and the Appropriation Act, 2026 (No. 20) are downloaded but not loaded; they load in the data engine phase. Kenya Law blocks scripts, so a person must download anything from it. The bill on libraryir.parliament.go.ke is the Treasury's February proposal at KSh 420bn: do not use it.
+- **Before launch:** choose the name, set up a corrections contact, and get a native speaker to review the Kiswahili lines.
