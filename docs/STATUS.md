@@ -1,4 +1,4 @@
-# Status and handover (31 Oct 2026)
+# Status and handover (1 Nov 2026)
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md`, then this page, then `docs/DECISIONS.md`. Older handover notes, with the history of each feature, are in `docs/STATUS_ARCHIVE.md`.
 
@@ -8,9 +8,14 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Who runs it (decision #73):** built and published by Underdogs Rising Group Limited, editorially independent, with a commitment to spin out into a non-profit. Trust pages: `/who-runs-us/`, `/right-of-reply/`, `/privacy/`, `/terms/`.
 - **NY Watch (decision #79):** the founder's data review podcast. No episodes published yet.
 
+## Changes on 1 Nov 2026
+
+- National budget prototype ("Kenya Budget Explained", working name) added in `national-budget/`, on branch `feat/national-budget-prototype`, not pushed. Its open work is in `national-budget/HANDOFF.md`.
+- Its build scripts were ported from Python to Node (`build-data.mjs`, `assemble.mjs`), because Python is not installed on the owner's laptop. `npm test` now checks that `data.json` still matches `src/data`, so a correction there needs a rebuild of the page.
+
 ## Changes on 31 Oct 2026 (review and "implement all")
 
-Made in the working tree on the owner's laptop, not yet committed. Suggested branch: `feat/trust-and-launch-prep`.
+Committed as `b2cb102` on `feat/trust-and-launch-prep` and merged to `main` in PR #1 on 1 Nov 2026.
 
 - Decisions #73–#80 added. Wording fixed: "bipartisan" and the misspelt publisher name in the footer; unqualified "independent" in About, the ward sheet, README, AGENTS and the brief.
 - New pages: `/who-runs-us/`, `/privacy/`, `/terms/`, `/right-of-reply/`, `/impact/` (planned until the first entry). New data: `funders.json`, `impact.json`. Footer links to the trust pages; About menu updated.
@@ -28,7 +33,7 @@ Made in the working tree on the owner's laptop, not yet committed. Suggested bra
 
 ## Next
 
-1. Create the branch `feat/trust-and-launch-prep` in VS Code, run `git add --renormalize .` once (needs Git on the PATH), then `npm test` again: all tests should pass.
+1. Add Git to the Windows command-line PATH; it works today only through Git Bash.
 2. Confirm the exact registered company name against the certificate (`src/county.js`, `publisher.legalName`).
 3. Lawyer review of `/who-runs-us/`, `/privacy/` and `/terms/`; set the spin-out date and criteria in `src/county.js` (`spinOut`).
 4. Editor review and publication of the two money explainers (Sigma Awards deadline mid-January 2027), then the first ward receipts series.

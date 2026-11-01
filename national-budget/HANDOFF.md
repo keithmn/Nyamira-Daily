@@ -9,9 +9,10 @@ Working name: "Kenya Budget Explained". The founder has not chosen the final nam
 
 ## Files (this folder: `national-budget/` in the Nyamira-Daily repo)
 - `page.src.html`: the page (CSS, markup, script). The placeholder `__DATA__` is filled from `data.json`.
-- `build_data.py`: builds `data.json`. National figures are typed in from the Treasury and Commission on Revenue Allocation (CRA) documents in `SOURCES`. County and Nyamira figures are read from `../src/data/` (`money.json`, `compare.json`, `budget-sectors.json`, `wardspend.json`, `wards.json`), so corrections made there flow through. It also runs the arithmetic checks.
-- `assemble.py`: writes `kenya-budget.html`, the finished single page. Open it in a browser to view it.
-- Rebuild: `python national-budget/build_data.py` then `python national-budget/assemble.py`. Set `ND_DATA` to point at another data folder.
+- `build-data.mjs`: builds `data.json`. National figures are typed in from the Treasury and Commission on Revenue Allocation (CRA) documents in `SOURCES`. County and Nyamira figures are read from `../src/data/` (`money.json`, `compare.json`, `budget-sectors.json`, `wardspend.json`, `wards.json`), so corrections made there flow through. It also runs the arithmetic checks.
+- `assemble.mjs`: writes `kenya-budget.html`, the finished single page. Open it in a browser to view it.
+- `build-data.test.mjs`: checks that `data.json` and `kenya-budget.html` match what the scripts produce; it runs with `npm test`. If you correct `src/data`, rebuild or this test fails.
+- Rebuild: `node national-budget/build-data.mjs` then `node national-budget/assemble.mjs`. Set `ND_DATA` to point at another data folder.
 
 ## Rules (same as AGENTS.md)
 - Every figure has a source, a page or table, a stage (recommendation, estimates, statement, law, approved, spent, audited) and an evidence label. Our own arithmetic is tagged with `calc`.

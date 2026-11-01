@@ -116,7 +116,7 @@
    "label": "official"
   },
   "netDomestic": {
-   "v": 1030.0,
+   "v": 1030,
    "unit": "KSh bn",
    "src": "mwananchi",
    "where": "pp.3–4, net domestic financing",
@@ -156,7 +156,7 @@
    "id": "development",
    "name": "Building projects",
    "desc": "Ministerial development spending: roads, dams, buildings, equipment",
-   "v": 809.0,
+   "v": 809,
    "unit": "KSh bn",
    "src": "mwananchi",
    "where": "p.2, where the money goes",
@@ -166,7 +166,7 @@
    "id": "counties",
    "name": "Counties (equitable share)",
    "desc": "The 47 counties’ unconditional share",
-   "v": 428.0,
+   "v": 428,
    "unit": "KSh bn",
    "src": "mwananchi",
    "where": "p.2, where the money goes",
@@ -176,7 +176,7 @@
    "id": "contingency",
    "name": "Emergencies fund",
    "desc": "Contingency Fund",
-   "v": 1.0,
+   "v": 1,
    "unit": "KSh bn",
    "src": "mwananchi",
    "where": "p.2, where the money goes",
@@ -383,7 +383,7 @@
     },
     {
      "name": "School feeding",
-     "v": 3.0,
+     "v": 3,
      "unit": "KSh bn",
      "src": "mwananchi",
      "where": "pp.5–14, key allocations",
@@ -409,7 +409,7 @@
     },
     {
      "name": "Roads: rehabilitation",
-     "v": 58.0,
+     "v": 58,
      "unit": "KSh bn",
      "src": "mwananchi",
      "where": "pp.5–14, key allocations",
@@ -477,7 +477,7 @@
    "items": [
     {
      "name": "Police vehicle leasing",
-     "v": 13.0,
+     "v": 13,
      "unit": "KSh bn",
      "src": "mwananchi",
      "where": "pp.5–14, key allocations",
@@ -485,7 +485,7 @@
     },
     {
      "name": "Police modernisation",
-     "v": 7.0,
+     "v": 7,
      "unit": "KSh bn",
      "src": "mwananchi",
      "where": "pp.5–14, key allocations",
@@ -551,7 +551,7 @@
     },
     {
      "name": "Emergency, Chronic and Critical Illness Fund",
-     "v": 3.0,
+     "v": 3,
      "unit": "KSh bn",
      "src": "mwananchi",
      "where": "pp.5–14, key allocations",
@@ -603,7 +603,7 @@
    "items": [
     {
      "name": "Fertiliser subsidy",
-     "v": 18.0,
+     "v": 18,
      "unit": "KSh bn",
      "src": "mwananchi",
      "where": "pp.5–14, key allocations",
@@ -1013,7 +1013,7 @@
    "stage": "recommendation"
   },
   "law": {
-   "v": 428.0,
+   "v": 428,
    "unit": "KSh bn",
    "src": "mwananchi",
    "where": "p.14; Division of Revenue Act signed 15 June 2026",
@@ -1021,7 +1021,7 @@
    "stage": "law"
   },
   "estimates": {
-   "v": 420.0,
+   "v": 420,
    "unit": "KSh bn",
    "src": "summary",
    "where": "para 67",
@@ -1029,7 +1029,7 @@
    "stage": "estimates"
   },
   "countyTotal": {
-   "v": 502.0,
+   "v": 502,
    "unit": "KSh bn",
    "src": "mwananchi",
    "where": "p.14: equitable share 428.0 + conditional allocations from national government 16.6 + from development partners 57.4",
@@ -1177,7 +1177,7 @@
    },
    {
     "name": "All 47 counties’ equitable share",
-    "v": 415.0,
+    "v": 415,
     "unit": "KSh bn",
     "src": "summary",
     "where": "Table 2, FY2025/26: of which equitable share",
