@@ -4,13 +4,14 @@
  "sources": {
   "mwananchi": {
    "title": "Budget Highlights: The Mwananchi Guide for the FY 2026/27 Budget (National Treasury, June 2026)",
-   "url": "https://treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
+   "url": "https://newsite.treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
+   "archive": "https://web.archive.org/web/20260713024452/https://newsite.treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
    "stage": "statement",
    "date": "2026-06-11"
   },
   "summary": {
    "title": "Budget Summary for the FY 2026/27 Budget (National Treasury, 30 April 2026)",
-   "url": "https://treasury.go.ke/sites/default/files/Budget%20summary/Budget%20Summary%20for%20the%20FY%202026_27%20Budget.pdf",
+   "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20summary/Budget%20Summary%20for%20the%20FY%202026_27%20Budget.pdf",
    "stage": "estimates",
    "date": "2026-04-30"
   },
@@ -23,6 +24,7 @@
   "cra": {
    "title": "CRA Recommendation on the Basis for Equitable Sharing of Revenue, FY 2026/27 (Commission on Revenue Allocation, February 2026), Table 6.2",
    "url": "https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf",
+   "archive": "https://web.archive.org/web/20260408023818/https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf",
    "stage": "recommendation",
    "date": "2026-02-03"
   },
@@ -458,7 +460,7 @@
    ]
   },
   {
-   "name": "Public Administration and Internal Relations",
+   "name": "Public Administration and International Relations",
    "v": 373.7,
    "unit": "KSh bn",
    "src": "mwananchi",
@@ -568,7 +570,7 @@
    ]
   },
   {
-   "name": "Environment, Water and Natural Resources",
+   "name": "Environment Protection, Water and Natural Resources",
    "v": 121.2,
    "unit": "KSh bn",
    "src": "mwananchi",

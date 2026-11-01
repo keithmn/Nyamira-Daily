@@ -30,11 +30,12 @@ export function buildData(repoData) {
   const SOURCES = {
     mwananchi: {
       title: 'Budget Highlights: The Mwananchi Guide for the FY 2026/27 Budget (National Treasury, June 2026)',
-      url: 'https://treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf',
+      url: 'https://newsite.treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf',
+      archive: 'https://web.archive.org/web/20260713024452/https://newsite.treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf',
       stage: 'statement', date: '2026-06-11' },
     summary: {
       title: 'Budget Summary for the FY 2026/27 Budget (National Treasury, 30 April 2026)',
-      url: 'https://treasury.go.ke/sites/default/files/Budget%20summary/Budget%20Summary%20for%20the%20FY%202026_27%20Budget.pdf',
+      url: 'https://newsite.treasury.go.ke/sites/default/files/Budget%20summary/Budget%20Summary%20for%20the%20FY%202026_27%20Budget.pdf',
       stage: 'estimates', date: '2026-04-30' },
     revenue: {
       title: 'Estimates of Revenue, Grants and Loans for the FY 2026/27 Budget (National Treasury, June 2026)',
@@ -43,6 +44,7 @@ export function buildData(repoData) {
     cra: {
       title: 'CRA Recommendation on the Basis for Equitable Sharing of Revenue, FY 2026/27 (Commission on Revenue Allocation, February 2026), Table 6.2',
       url: 'https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf',
+      archive: 'https://web.archive.org/web/20260408023818/https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf',
       stage: 'recommendation', date: '2026-02-03' },
     dora: {
       title: 'Ruto signs Division of Revenue Act, securing Sh428bn equitable share for counties (Capital FM, June 2026)',
@@ -106,11 +108,11 @@ export function buildData(repoData) {
   const sectors = [
     ['Education', 784.5, [['Teachers Service Commission', 408.5], ['HELB loans and scholarships', 96.4], ['Free primary and day secondary', 61.6], ['Junior secondary capitation', 30.9], ['Intern teachers', 8.2], ['TVET', 7.3], ['School feeding', 3.0]]],
     ['Energy, Infrastructure and ICT', 531.3, [['Roads: maintenance', 118.1], ['Roads: rehabilitation', 58.0], ['Roads and bridges: construction', 44.3], ['Railways', 38.1], ['Rural electrification', 20.2], ['National grid', 7.5]]],
-    ['Public Administration and Internal Relations', 373.7, []],
+    ['Public Administration and International Relations', 373.7, []],
     ['Governance, Justice, Law and Order', 363.9, []],
     ['National Security', 316.2, [['Police vehicle leasing', 13.0], ['Police modernisation', 7.0]]],
     ['Health', 177.2, [['Primary Healthcare Fund', 19.1], ['Global Fund: HIV, TB, malaria', 18.5], ['Health interns', 9.3], ['Universal Health Coverage', 8.6], ['Vaccines', 6.4], ['Community health promoters', 3.6], ['Emergency, Chronic and Critical Illness Fund', 3.0]]],
-    ['Environment, Water and Natural Resources', 121.2, [['Clean water access', 70.4], ['Wildlife security and conservation', 15.1], ['Forests', 13.4]]],
+    ['Environment Protection, Water and Natural Resources', 121.2, [['Clean water access', 70.4], ['Wildlife security and conservation', 15.1], ['Forests', 13.4]]],
     ['Agriculture, Rural and Urban Development', 111.7, [['Fertiliser subsidy', 18.0], ['Settling the landless', 9.4]]],
     ['Social Protection, Culture and Recreation', 94.3, [['Cash transfers: older persons', 24.6], ['Cash transfers: orphans and vulnerable children', 8.9], ['Hunger Safety Net', 4.3], ['Cash transfers: severe disability', 1.5]]],
     ['General Economics and Commercial Affairs', 49.8, []],

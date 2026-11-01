@@ -22,12 +22,16 @@ Checked on 1 Nov 2026 by Claude Code, against the PDFs named in `build-data.mjs`
 | Other taxes description | "Import declaration fees, financial transactions and others" | Names the real lines |
 | Formula | "Some money" is held as a baseline | KSh 387.43bn baseline, 4.46bn affirmative action, 36.1bn formula |
 | CRA weights | No source | Table 6.1, p.44 |
+| Sector name | "Public Administration and Internal Relations" (Guide p.3) | "International Relations", as on Guide p.15 and in the Treasury's sector reports. Guide p.3 is a misprint |
+| Sector name | "Environment, Water and Natural Resources" | "Environment Protection, Water and Natural Resources" (Guide pp.3 and 15) |
+| Sector total | "The guide does not reconcile this exactly" | It does: 2,923.8 + 1,501.3 + 428.0 = 4,853.1 (Guide p.15). The 33.7 above ministerial spending matches the securitised road levy (32.7) plus the Contingency Fund (1.0); that match is our arithmetic |
+| How counties share the money | "Last year's baseline" | A baseline from each county's FY2024/25 allocation (County Allocation of Revenue Act, 2026, First Schedule, note *) |
 
 Items the source check confirmed unchanged, after first looking wrong: PAYE 706.6 (the second table's row labels are shifted in extraction), and the 668.3 "thematic area" for education (Table 5 is headed Thematic Areas).
 
 ## Limits
 
-- The `treasury.go.ke` links on the page failed on 1 Nov 2026 with an expired security certificate. The Guide and the Budget Summary were fetched from the same paths on `newsite.treasury.go.ke`. Check that readers can open the links.
+- The `treasury.go.ke` links failed on 1 Nov 2026 with an expired security certificate, so the page now links the same paths on `newsite.treasury.go.ke`, which opened on that date. The Wayback Machine held copies of the Guide (13 Jul 2026) and the CRA report (8 Apr 2026), and the page links those. It held none of the Budget Summary or the Estimates of Revenue on 1 Nov 2026.
 - Nyamira figures come from `src/data` and were not rechecked here.
 - Which sector a key allocation belongs to is our reading: the Guide lists allocations by theme, not always by sector.
 
@@ -80,7 +84,7 @@ Items the source check confirmed unchanged, after first looking wrong: PAYE 706.
 | Railways | 38.1 | Mwananchi Guide | pp.5–14, key allocations | 10 | Found |
 | Rural electrification | 20.2 | Mwananchi Guide | pp.5–14, key allocations | 11 | Found |
 | National grid | 7.5 | Mwananchi Guide | pp.5–14, key allocations | 11 | Found |
-| Public Administration and Internal Relations | 373.7 | Mwananchi Guide | p.3, ministerial allocations by sector | 3, 15 | Found |
+| Public Administration and International Relations | 373.7 | Mwananchi Guide | p.3, ministerial allocations by sector | 3, 15 | Found |
 | Governance, Justice, Law and Order | 363.9 | Mwananchi Guide | p.3, ministerial allocations by sector | 3, 15 | Found |
 | National Security | 316.2 | Mwananchi Guide | p.3, ministerial allocations by sector | 3, 15 | Found |
 | Police vehicle leasing | 13 | Mwananchi Guide | pp.5–14, key allocations | 9, 11, 13 | Found |
@@ -93,7 +97,7 @@ Items the source check confirmed unchanged, after first looking wrong: PAYE 706.
 | Vaccines | 6.4 | Mwananchi Guide | pp.5–14, key allocations | 7 | Found |
 | Community health promoters | 3.6 | Mwananchi Guide | pp.5–14, key allocations | 3, 8 | Found |
 | Emergency, Chronic and Critical Illness Fund | 3 | Mwananchi Guide | pp.5–14, key allocations | 2, 3, 4, 5 and others | Found |
-| Environment, Water and Natural Resources | 121.2 | Mwananchi Guide | p.3, ministerial allocations by sector | 3, 15 | Found |
+| Environment Protection, Water and Natural Resources | 121.2 | Mwananchi Guide | p.3, ministerial allocations by sector | 3, 15 | Found |
 | Clean water access | 70.4 | Mwananchi Guide | pp.5–14, key allocations | 11 | Found |
 | Wildlife security and conservation | 15.1 | Mwananchi Guide | pp.5–14, key allocations | 11 | Found |
 | Forests | 13.4 | Mwananchi Guide | pp.5–14, key allocations | 11 | Found |

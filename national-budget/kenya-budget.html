@@ -410,7 +410,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
       <div class="ch-head">
         <span class="eyebrow">Chapter 4 · Counties</span>
         <h2 id="h-counties">How the 47 counties' share is decided, and what yours gets</h2>
-        <p>Counties' share is set in three steps: the Commission on Revenue Allocation recommends, the Treasury proposes, and Parliament decides in the Division of Revenue Act. A second law then shares it among counties, mostly by last year's baseline and partly by a formula.</p>
+        <p>Counties' share is set in three steps: the Commission on Revenue Allocation recommends, the Treasury proposes, and Parliament decides in the Division of Revenue Act. A second law then shares it among counties, mostly by a baseline taken from each county's FY2024/25 allocation and partly by a formula.</p>
       </div>
       <div class="stack" style="gap:24px">
         <div class="moved" id="moved"></div>
@@ -542,13 +542,14 @@ footer b { color: var(--hero-fg); font-weight: 500; }
  "sources": {
   "mwananchi": {
    "title": "Budget Highlights: The Mwananchi Guide for the FY 2026/27 Budget (National Treasury, June 2026)",
-   "url": "https://treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
+   "url": "https://newsite.treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
+   "archive": "https://web.archive.org/web/20260713024452/https://newsite.treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
    "stage": "statement",
    "date": "2026-06-11"
   },
   "summary": {
    "title": "Budget Summary for the FY 2026/27 Budget (National Treasury, 30 April 2026)",
-   "url": "https://treasury.go.ke/sites/default/files/Budget%20summary/Budget%20Summary%20for%20the%20FY%202026_27%20Budget.pdf",
+   "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20summary/Budget%20Summary%20for%20the%20FY%202026_27%20Budget.pdf",
    "stage": "estimates",
    "date": "2026-04-30"
   },
@@ -561,6 +562,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   "cra": {
    "title": "CRA Recommendation on the Basis for Equitable Sharing of Revenue, FY 2026/27 (Commission on Revenue Allocation, February 2026), Table 6.2",
    "url": "https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf",
+   "archive": "https://web.archive.org/web/20260408023818/https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf",
    "stage": "recommendation",
    "date": "2026-02-03"
   },
@@ -996,7 +998,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
    ]
   },
   {
-   "name": "Public Administration and Internal Relations",
+   "name": "Public Administration and International Relations",
    "v": 373.7,
    "unit": "KSh bn",
    "src": "mwananchi",
@@ -1106,7 +1108,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
    ]
   },
   {
-   "name": "Environment, Water and Natural Resources",
+   "name": "Environment Protection, Water and Natural Resources",
    "v": 121.2,
    "unit": "KSh bn",
    "src": "mwananchi",
@@ -2122,7 +2124,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   hbars($('sector-bars'), secRows, { max: 800, ticks: [0, 200, 400, 600, 800] });
   $('sector-bars').querySelectorAll('button.hb-row').forEach((b) => b.addEventListener('click', () => { const box = b.nextElementSibling; const open = box.hidden; box.hidden = !open; b.setAttribute('aria-expanded', String(open)); }));
   $('sector-src').innerHTML = srcLine(D.sectors[0], 'KSh billion; tap a sector with a list to open it');
-  $('sector-note').textContent = D.sectorsNote + ' The ten sectors add up to KSh 2,923.8 billion; the guide does not reconcile this exactly with ministerial recurrent plus development spending (KSh 2,890.1 billion).';
+  $('sector-note').textContent = D.sectorsNote + ' The ten sectors add up to KSh 2,923.8 billion. With interest and pensions and the counties’ share, that makes the KSh 4,853.1 billion on p.15 of the guide. The sector total is KSh 33.7 billion above ministerial recurrent and development spending (KSh 2,890.1 billion), which matches the securitised road levy (32.7) plus the Contingency Fund (1.0). That match is our arithmetic; the guide does not say so.';
   $('edu3').innerHTML = D.education3.map((e) => `<div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;padding:10px 0;border-top:1px solid var(--line)"><b>${esc(e.name)}</b><span class="num" style="font-size:22px">${nf1.format(e.v)}</span><span class="small muted" style="grid-column:1/-1">${esc(e.why)}</span><span style="grid-column:1/-1">${srcLine(e)}</span></div>`).join('');
 
   /* counties */
@@ -2253,7 +2255,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   add('Counties’ share, law', M.law); add('Counties’ share, estimates', M.estimates); add('Counties’ share, CRA', M.rec); add('Counties’ share, baseline', M.splitBaseline); add('Counties’ share, affirmative action', M.splitAffirmative); add('Counties’ share, weighted formula', M.splitFormula); add('County governments, all transfers', M.countyTotal); add('Equalization Fund', M.equalisation); add('NG-CDF', M.ngcdf);
   D.shilling.steps.forEach((s) => add(s.name + ' (FY2025/26)', s));
   $('figtable').innerHTML = `<table class="cards"><thead><tr><th>Figure</th><th class="r">Value</th><th>Tags</th><th>Source and place</th></tr></thead><tbody>${figs.map(([n, f]) => `<tr><td>${esc(n)}</td><td class="r" data-label="Value">${f.unit === 'KSh m' ? nf0.format(f.v) + ' m' : f.unit.startsWith('%') ? nf1.format(f.v) + '%' : nf1.format(f.v) + (f.v < 10 ? '' : '')}</td><td>${chips(f)}</td><td class="small" data-label="Source and place"><a href="${esc(S[f.src].url)}" target="_blank" rel="noopener">${esc(S[f.src].title.split(' (')[0])}</a>, ${esc(f.where)}${f.note ? `. ${esc(f.note)}` : ''}</td></tr>`).join('')}</tbody></table><p class="small muted">Values in KSh billion unless marked m (million) or %.</p>`;
-  $('srclist').innerHTML = Object.values(S).filter(Boolean).map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('');
+  $('srclist').innerHTML = Object.values(S).filter(Boolean).map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>${s.archive ? ` (<a href="${esc(s.archive)}" target="_blank" rel="noopener">archive copy</a>)` : ''}</li>`).join('');
   $('checknote').textContent = `Built ${D.built}. National figures were checked against the Treasury and CRA documents on 1 November 2026, by software and not yet by a person; before public launch an editor checks each against its printed page and marks it Verified. County spending figures come from Nyamira Daily's checked records.`;
   $('copyjson').addEventListener('click', () => copy(JSON.stringify(D, null, 1), 'Data copied'));
   $('copycsv').addEventListener('click', () => copy(['county,share_2025_26_ksh_m,cra_recommended_2026_27_ksh_m,treasury_guide_june_2026_ksh_bn_rounded'].concat(D.counties.map((c) => `"${c.name}",${c.prev},${c.rec},${c.guide}`)).join('\n'), 'County table copied'));
