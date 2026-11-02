@@ -99,20 +99,20 @@ function pboVoteFigures(file, year, fy, source) {
 const cobSlug = (county) => (county === 'Nairobi' ? 'nairobi-city' : countySlug(county).replaceAll('-', ' ').replaceAll(' ', '-'));
 const COB = [['budget', 'total_budget', 'budget'], ['spent', 'total_spent', 'spending'], ['dev-budget', 'dev_budget', 'development budget'], ['dev-spent', 'dev_spent', 'development spending']];
 
-export function cobCountyFigures() {
-  const rows = csv('cob-county-2024-25/extract.csv');
-  const T = 'ke.fy2024-25.spent.county-total';
-  const page = (r) => ({ page: `Table 2.5, p.${Number(r.pdf_page) - 44}`, pdfPage: Number(r.pdf_page) });
+export function cobCountyFigures(year, source, offset) {
+  const fy = year.replace('-', '/'), rows = csv(`cob-county-${year}/extract.csv`);
+  const T = `ke.fy${year}.spent.county-total`;
+  const page = (r) => ({ page: `Table 2.5, p.${Number(r.pdf_page) + offset}`, pdfPage: Number(r.pdf_page) });
   const figures = [];
   for (const r of rows) {
     const total = r.county === 'Total', slug = total ? null : cobSlug(r.county), who = total ? 'All 47 counties' : r.county === 'Nairobi' ? 'Nairobi City' : r.county;
     if (!total && !COUNTIES.some((c) => c.slug === slug)) throw new Error(`Unknown county in the CoB table: ${r.county}`);
-    const base = total ? T : `ke.fy2024-25.spent.county.${slug}`;
-    for (const [key, column, words] of COB) figures.push({ id: `${base}.${key}`, name: `${who}: ${words}, FY2024/25`, value: Number(r[column]), level: total ? 'total' : 'county', parent: total ? null : `${T}.${key}`, ...page(r) });
-    figures.push({ id: `${base}.dev-absorption`, name: `${who}: share of the development budget spent, FY2024/25`, value: Number(r.dev_pct), unit: '%', level: 'measure', parent: null, ...page(r) });
-    figures.push({ id: `${base}.absorption`, name: `${who}: share of the budget spent, FY2024/25`, value: Number(r.overall_pct), unit: '%', level: 'measure', parent: null, ...page(r) });
+    const base = total ? T : `ke.fy${year}.spent.county.${slug}`;
+    for (const [key, column, words] of COB) figures.push({ id: `${base}.${key}`, name: `${who}: ${words}, FY${fy}`, value: Number(r[column]), level: total ? 'total' : 'county', parent: total ? null : `${T}.${key}`, ...page(r) });
+    figures.push({ id: `${base}.dev-absorption`, name: `${who}: share of the development budget spent, FY${fy}`, value: Number(r.dev_pct), unit: '%', level: 'measure', parent: null, ...page(r) });
+    figures.push({ id: `${base}.absorption`, name: `${who}: share of the budget spent, FY${fy}`, value: Number(r.overall_pct), unit: '%', level: 'measure', parent: null, ...page(r) });
   }
-  return { defaults: { fy: '2024/25', stage: 'spent', unit: 'KSh m', grouping: 'county-spending', money: 'county', label: 'official', source: 'cob-county-birr-2024-25', ...CHECKED }, figures };
+  return { defaults: { fy, stage: 'spent', unit: 'KSh m', grouping: 'county-spending', money: 'county', label: 'official', source, ...CHECKED }, figures };
 }
 
 // Which votes make up each sector, from the Budget Explainer's own tables, not from any judgment of ours (decision #93)
@@ -129,7 +129,8 @@ export const GENERATED = {
   'appropriation-act-2026.json': appropriationFigures, 'county-allocation-act-2026.json': countyActFigures, 'cra-recommendation-2026-27.json': craFigures, 'guide-counties-2026-27.json': guideCountyFigures,
   'pbo-votes-2026-27.json': () => pboVoteFigures('votes-2026-27.csv', '2026-27', '2026/27', 'pbo-budget-explainer-2026'),
   'pbo-votes-2025-26.json': () => pboVoteFigures('votes-2025-26.csv', '2025-26', '2025/26', 'pbo-budget-explainer-2025'),
-  'cob-counties-2024-25.json': cobCountyFigures,
+  'cob-counties-2024-25.json': () => cobCountyFigures('2024-25', 'cob-county-birr-2024-25', -44),
+  'cob-counties-2025-26.json': () => cobCountyFigures('2025-26', 'cob-county-birr-2025-26', -34),
 };
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

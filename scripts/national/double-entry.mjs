@@ -82,16 +82,18 @@ export function cobChecks(rows, second, earlier = []) {
   const problems = [], counties = rows.filter((r) => r.county !== 'Total'), total = rows.find((r) => r.county === 'Total');
   const AMOUNTS = ['rec_budget', 'dev_budget', 'total_budget', 'rec_spent', 'dev_spent', 'total_spent'];
   if (counties.length !== 47 || !total) problems.push(`Expected 47 counties and a total, found ${counties.length}`);
-  if (second.length !== rows.length) problems.push(`The readings have ${rows.length} and ${second.length} rows`);
-  rows.forEach((r, i) => {
-    for (const k of AMOUNTS) if (second[i] && Number(second[i][k]) !== Number(r[k])) problems.push(`${r.county} ${k}: readings disagree, ${r[k]} against ${second[i][k]}`);
+  const first = rows.flatMap((r) => AMOUNTS.map((k) => r[k])).sort(), other = second.map((r) => r.amount).sort();
+  const extra = first.filter((a) => !other.includes(a)), lost = other.filter((a) => !first.includes(a));
+  if (first.length !== other.length || extra.length || lost.length) problems.push(`The readings hold different amounts: ${first.length} and ${other.length}, ${[...extra, ...lost].slice(0, 6).join(', ')}`);
+  for (const r of rows) {
     const [a, b, c, d, e, f] = AMOUNTS.map((k) => Number(r[k]));
     if (!within(a + b, c, 0.021)) problems.push(`${r.county}: recurrent and development budgets do not add to ${c}`);
     if (!within(d + e, f, 0.021)) problems.push(`${r.county}: recurrent and development spending do not add to ${f}`);
     for (const [pct, top, bottom] of [['rec_pct', d, a], ['dev_pct', e, b], ['overall_pct', f, c]]) {
-      if (!within(top / bottom * 100, Number(r[pct]), 0.51)) problems.push(`${r.county}: ${pct} prints ${r[pct]}, the amounts give ${(top / bottom * 100).toFixed(1)}`);
+      const tol = r[pct].includes('.') ? 0.011 : 0.51;
+      if (!within(top / bottom * 100, Number(r[pct]), tol)) problems.push(`${r.county}: ${pct} prints ${r[pct]}, the amounts give ${(top / bottom * 100).toFixed(2)}`);
     }
-  });
+  }
   if (total) for (const k of AMOUNTS) if (!within(counties.reduce((n, r) => n + Number(r[k]), 0), Number(total[k]), 0.5)) problems.push(`${k}: the 47 counties do not add to the printed ${total[k]}`);
   for (const c of earlier) {
     const r = rows.find((x) => x.county === c.county || (c.county === 'Nairobi City' && x.county === 'Nairobi'));
@@ -106,7 +108,8 @@ export function runDoubleEntry() {
   const county = countyChecks(csv('county-allocation-act-2026/typed.csv'), csv('cra-recommendation-2026-27/typed.csv'), csv('mwananchi-guide-2026-27/typed.csv'));
   const pbo = pboChecks(csv('appropriation-act-2026/extract.csv'), csv('pbo-explainer/votes-2026-27.csv'), csv('pbo-explainer/votes-2025-26.csv'));
   const earlier = JSON.parse(readFileSync(join(root, 'src/data/compare.json'), 'utf8')).counties;
-  const cob = cobChecks(csv('cob-county-2024-25/extract.csv'), csv('cob-county-2024-25/typed.csv'), earlier);
+  const cob = [...cobChecks(csv('cob-county-2024-25/extract.csv'), csv('cob-county-2024-25/typed.csv'), earlier).map((p) => `FY2024/25 ${p}`),
+    ...cobChecks(csv('cob-county-2025-26/extract.csv'), csv('cob-county-2025-26/typed.csv')).map((p) => `FY2025/26 ${p}`)];
   return { act, county, pbo, cob };
 }
 

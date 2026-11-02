@@ -163,7 +163,8 @@
   "nextExpected": {
    "date": "2027-08-31",
    "what": "The Budget Explainer for FY2027/28"
-  }
+  },
+  "note": "Pages are given as PDF pages: the printed numbering restarts after the front matter."
  },
  {
   "id": "pbo-budget-explainer-2025",
@@ -181,7 +182,8 @@
   "tolerance": {
    "KSh m": 2
   },
-  "nextExpected": null
+  "nextExpected": null,
+  "note": "Pages are given as PDF pages: the printed numbering restarts after the front matter."
  },
  {
   "id": "cob-county-birr-2024-25",
@@ -199,9 +201,27 @@
   "tolerance": {
    "KSh m": 1
   },
+  "nextExpected": null
+ },
+ {
+  "id": "cob-county-birr-2025-26",
+  "title": "County Governments Budget Implementation Review Report FY 2025/26 (Office of the Controller of Budget, August 2026)",
+  "issuer": "Office of the Controller of Budget",
+  "docType": "report",
+  "fy": "2025/26",
+  "stage": "spent",
+  "date": "2026-08",
+  "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-2025-26/?wpdmdl=16482",
+  "archive": null,
+  "sha256": "919930622bc9fbc0c0b5cdcb566219e4f1432e7c9a3329dfd5bb23616cd33c20",
+  "file": "cob-county-birr-2025-26.pdf",
+  "pageOffset": -34,
+  "tolerance": {
+   "KSh m": 1
+  },
   "nextExpected": {
-   "date": "2026-09-30",
-   "what": "The County Governments Budget Implementation Review Report for FY2025/26"
+   "date": "2027-09-30",
+   "what": "The County Governments Budget Implementation Review Report for FY2026/27"
   }
  }
 ]
