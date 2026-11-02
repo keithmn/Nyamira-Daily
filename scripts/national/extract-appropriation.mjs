@@ -150,7 +150,8 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const names = existsSync(namesFile) ? new Map(parseCsv(readFileSync(namesFile, 'utf8')).map((r) => [r.key, r.name])) : new Map();
   for (const v of parsed.votes) {
     v.name = names.get(v.kind + v.code) ?? v.name;
-    for (const p of v.programmes) p.name = names.get(`${v.kind}${v.code}/${p.code}`) ?? p.name;
+    // The Act prints this common name both ways; the Programme Based Budget has the comma
+    for (const p of v.programmes) p.name = (names.get(`${v.kind}${v.code}/${p.code}`) ?? p.name).replace('General Administration Planning', 'General Administration, Planning');
   }
   // The Schedule's classes, in printed order
   const classes = parsed.totals.filter((t) => t.type.startsWith('CLASS'));

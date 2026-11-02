@@ -166,7 +166,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1011.recurrent.programme.0701000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 2761779470,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1011.recurrent.supply",
@@ -175,7 +175,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1011.recurrent.programme.0701000.aia",
-   "name": "General Administration Planning and Support Services, recurrent (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, recurrent (Appropriations-in-Aid)",
    "value": 15000000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1011.recurrent.aia",
@@ -811,7 +811,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1053.recurrent.programme.0714000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 3584531792,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1053.recurrent.supply",
@@ -820,7 +820,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1053.recurrent.programme.0714000.aia",
-   "name": "General Administration Planning and Support Services, recurrent (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, recurrent (Appropriations-in-Aid)",
    "value": 71000000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1053.recurrent.aia",
@@ -1054,7 +1054,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1066.recurrent.programme.0503000.supply",
-   "name": "Qunifty Assurance and Standards, recurrent (Supply)",
+   "name": "Quality Assurance and Standards, recurrent (Supply)",
    "value": 13005019550,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1066.recurrent.supply",
@@ -1063,7 +1063,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1066.recurrent.programme.0503000.aia",
-   "name": "Qunifty Assurance and Standards, recurrent (Appropriations-in-Aid)",
+   "name": "Quality Assurance and Standards, recurrent (Appropriations-in-Aid)",
    "value": 1120711691,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1066.recurrent.aia",
@@ -1144,7 +1144,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1071.recurrent.programme.0717000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 51333833470,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1071.recurrent.supply",
@@ -1153,7 +1153,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1071.recurrent.programme.0717000.aia",
-   "name": "General Administration Planning and Support Services, recurrent (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, recurrent (Appropriations-in-Aid)",
    "value": 14454000000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1071.recurrent.aia",
@@ -1252,7 +1252,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1072.recurrent.programme.0709000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 1490135730,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1072.recurrent.supply",
@@ -1713,7 +1713,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1094.recurrent.programme.0106000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 521073027,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1094.recurrent.supply",
@@ -1769,7 +1769,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1095.recurrent.programme.0106000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 370887734,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1095.recurrent.supply",
@@ -1778,7 +1778,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1095.recurrent.programme.0106000.aia",
-   "name": "General Administration Planning and Support Services, recurrent (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, recurrent (Appropriations-in-Aid)",
    "value": 18000000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1095.recurrent.aia",
@@ -2077,7 +2077,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1122.recurrent.programme.0207000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 420307522,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1122.recurrent.supply",
@@ -2165,7 +2165,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1123.recurrent.programme.0207000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 245069157,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1123.recurrent.supply",
@@ -2444,7 +2444,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1152.recurrent.programme.0211000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 248728196,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1152.recurrent.supply",
@@ -2453,7 +2453,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1152.recurrent.programme.0211000.aia",
-   "name": "General Administration Planning and Support Services, recurrent (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, recurrent (Appropriations-in-Aid)",
    "value": 131580000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1152.recurrent.aia",
@@ -2624,7 +2624,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1169.recurrent.programme.0107000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 1154338240,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1169.recurrent.supply",
@@ -2633,7 +2633,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1169.recurrent.programme.0107000.aia",
-   "name": "General Administration Planning and Support Services, recurrent (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, recurrent (Appropriations-in-Aid)",
    "value": 13871780000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1169.recurrent.aia",
@@ -2831,7 +2831,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1175.recurrent.programme.0301000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 574726169,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1175.recurrent.supply",
@@ -2840,7 +2840,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1175.recurrent.programme.0301000.aia",
-   "name": "General Administration Planning and Support Services, recurrent (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, recurrent (Appropriations-in-Aid)",
    "value": 8670000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1175.recurrent.aia",
@@ -3020,7 +3020,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1184.recurrent.programme.0910000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 839033501,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1184.recurrent.supply",
@@ -3029,7 +3029,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1184.recurrent.programme.0910000.aia",
-   "name": "General Administration Planning and Support Services, recurrent (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, recurrent (Appropriations-in-Aid)",
    "value": 800000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1184.recurrent.aia",
@@ -3182,7 +3182,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1192.recurrent.programme.1007000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 445296405,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1192.recurrent.supply",
@@ -3191,7 +3191,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1192.recurrent.programme.1007000.aia",
-   "name": "General Administration Planning and Support Services, recurrent (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, recurrent (Appropriations-in-Aid)",
    "value": 150635000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1192.recurrent.aia",
@@ -3434,7 +3434,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1213.recurrent.programme.0709000.supply",
-   "name": "General Administration Planning and Support Services, recurrent (Supply)",
+   "name": "General Administration, Planning and Support Services, recurrent (Supply)",
    "value": 384305353,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1213.recurrent.supply",
@@ -3663,7 +3663,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1011.development.programme.0701000.supply",
-   "name": "General Administration Planning and Support Services, development (Supply)",
+   "name": "General Administration, Planning and Support Services, development (Supply)",
    "value": 576200000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1011.development.supply",
@@ -4058,7 +4058,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1053.development.programme.0714000.supply",
-   "name": "General Administration Planning and Support Services, development (Supply)",
+   "name": "General Administration, Planning and Support Services, development (Supply)",
    "value": 243100000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1053.development.supply",
@@ -4238,7 +4238,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1071.development.programme.0717000.supply",
-   "name": "General Administration Planning and Support Services, development (Supply)",
+   "name": "General Administration, Planning and Support Services, development (Supply)",
    "value": 6215500000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1071.development.supply",
@@ -4247,7 +4247,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1071.development.programme.0717000.aia",
-   "name": "General Administration Planning and Support Services, development (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, development (Appropriations-in-Aid)",
    "value": 75500000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1071.development.aia",
@@ -5223,7 +5223,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1152.development.programme.0211000.aia",
-   "name": "General Administration Planning and Support Services, development (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, development (Appropriations-in-Aid)",
    "value": 796000000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1152.development.aia",
@@ -5394,7 +5394,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1169.development.programme.0107000.supply",
-   "name": "General Administration Planning and Support Services, development (Supply)",
+   "name": "General Administration, Planning and Support Services, development (Supply)",
    "value": 2861952087,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1169.development.supply",
@@ -5403,7 +5403,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1169.development.programme.0107000.aia",
-   "name": "General Administration Planning and Support Services, development (Appropriations-in-Aid)",
+   "name": "General Administration, Planning and Support Services, development (Appropriations-in-Aid)",
    "value": 1760000000,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1169.development.aia",
@@ -6134,7 +6134,7 @@
   },
   {
    "id": "ke.fy2026-27.approved.vote.1311.recurrent.programme.0614000.supply",
-   "name": "Registration, Regulation and Funding of Political Parties in- Aid Commissions, recurrent (Supply)",
+   "name": "Registration, Regulation and Funding of Political Parties, recurrent (Supply)",
    "value": 2479350918,
    "level": "programme",
    "parent": "ke.fy2026-27.approved.vote.1311.recurrent.supply",
