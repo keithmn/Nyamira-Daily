@@ -1,0 +1,26 @@
+---
+// Sorted bars with keyboard-reachable tooltips. Context bars are grey, the bar the title is about is Ink, and the reader's
+// county is the accent with a tag, so it is never colour alone. A row with no value says so and draws no bar.
+import { t } from '../i18n/index.js';
+import { barWidths } from '../lib/charts.js';
+
+interface Row { name: string; value: number | null; shown: string; tip?: string; mark?: boolean; county?: string; href?: string }
+interface Props { rows: Row[]; lang?: 'en' | 'sw' }
+const { rows, lang = 'en' } = Astro.props;
+const widths = barWidths(rows.map((r) => r.value));
+const Tag = (r) => (r.href ? 'a' : 'button');
+---
+<ol class="rb">
+  {rows.map((r, i) => {
+    const El = Tag(r);
+    return (
+      <li>
+        <El class:list={['rb-row', { 'is-mark': r.mark }]} type={r.href ? undefined : 'button'} href={r.href} data-tip={r.tip ?? undefined} data-county-row={r.county}>
+          <span class="rb-name">{r.mark ? <b>{r.name}</b> : r.name}<span class="tag" hidden data-mine-tag>{t(lang, 'county.yours')}</span></span>
+          {widths[i] == null ? <span class="rb-track"></span> : <span class="rb-track"><i style={`width:${widths[i]}%`}></i></span>}
+          <span class="rb-val">{r.shown}</span>
+        </El>
+      </li>
+    );
+  })}
+</ol>

@@ -1,0 +1,24 @@
+---
+// Part to whole, debt first, so the two notes read the same way. No text sits inside the bar: its labels are above it
+// in Ink, and each row below repeats the value, so nothing depends on the tooltip (DESIGN.md).
+import { money } from '@kbe/engine/fmt';
+import { t } from '../i18n/index.js';
+import { fitsAboveBar, perHundred } from '../lib/budget.js';
+
+interface Props { parts: { key: string; slot: string; value: number; unit: string; share: number }[]; lang?: 'en' | 'sw'; ariaKey: 'ksh100.outLabel' | 'ksh100.inLabel' }
+const { parts, lang = 'en', ariaKey } = Astro.props;
+const words = (share) => {
+  const p = perHundred(share);
+  if (p.kind === 'under') return t(lang, 'ksh100.underTen');
+  return p.kind === 'cents' ? t(lang, 'ksh100.cents', { n: p.n }) : t(lang, 'ksh100.tops', { n: p.n });
+};
+const rows = parts.map((p) => ({ ...p, name: t(lang, `ksh100.${p.key}`), said: words(p.share), amount: money(p.value, p.unit, lang), tip: `${money(p.value, p.unit, lang)}. ${t(lang, `ksh100.${p.key}.tip`)}`, flex: `flex:${p.share.toFixed(2)} 1 0`, fill: `background:var(--c-${p.slot})` }));
+const aria = t(lang, ariaKey, { list: rows.map((r) => `${r.said} ${r.name}`).join(', ') });
+---
+<div class="k-tops" aria-hidden="true">{rows.map((r) => <span style={r.flex}>{fitsAboveBar(r.share) ? r.said : ''}</span>)}</div>
+<div class="k-bar" role="img" aria-label={aria}>{rows.map((r) => <span style={`${r.flex};${r.fill}`}></span>)}</div>
+<ul class="k-list">
+  {rows.map((r) => (
+    <li><button type="button" class="k-row" data-tip={r.tip}><span class="k-sq" style={r.fill}></span><span class="k-nm">{r.name}</span><span class="k-pc">{r.said}</span><span class="k-ds">{r.amount}</span></button></li>
+  ))}
+</ul>

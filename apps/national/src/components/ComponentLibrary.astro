@@ -1,0 +1,166 @@
+---
+// Every component and its states (build brief 6), left out of production builds. Each figure is real: from the registry,
+// or from Nyamira Daily's checked Controller of Budget data where the registry does not have it yet.
+import { money, full, ordinal, percent } from '@kbe/engine/fmt';
+import { t } from '../i18n/index.js';
+import { inflows, outflows, sectors } from '../lib/budget.js';
+import { countyRows, changeWords } from '../lib/counties.js';
+import { fig, FY } from '../lib/figures.js';
+import { href } from '../lib/routes.js';
+import { allCountyDevelopment, cobDoc, nyamiraYears } from '../lib/sample.js';
+import Breadcrumbs from './Breadcrumbs.astro';
+import BudgetVsSpent from './BudgetVsSpent.astro';
+import Chart from './Chart.astro';
+import DataTable from './DataTable.astro';
+import FigureCard from './FigureCard.astro';
+import FigureMeta from './FigureMeta.astro';
+import GlossaryTerm from './GlossaryTerm.astro';
+import KSh100Bar from './KSh100Bar.astro';
+import KiswahiliSummary from './KiswahiliSummary.astro';
+import LanguageSwitch from './LanguageSwitch.astro';
+import Meter from './Meter.astro';
+import NotYetLoaded from './NotYetLoaded.astro';
+import QuestionCard from './QuestionCard.astro';
+import RankedBars from './RankedBars.astro';
+import SearchBox from './SearchBox.astro';
+import ShareCard from './ShareCard.astro';
+import SplitBar from './SplitBar.astro';
+import StageChange from './StageChange.astro';
+import StaleNote from './StaleNote.astro';
+import StageChip from './StageChip.astro';
+import StageTimeline from './StageTimeline.astro';
+import TrendLine from './TrendLine.astro';
+import UpdatedNote from './UpdatedNote.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+
+const out = outflows(), into = inflows();
+const ranked = sectors();
+const top = ranked[0].figure;
+const sectorRows = ranked.map((s, i) => ({ name: s.figure.name, value: s.figure.value, shown: s.figure.value.toFixed(1), mark: i === 0, tip: money(s.figure.value, s.figure.unit, lang) }));
+
+const counties = countyRows();
+const nyamira = counties.find((c) => c.slug === 'nyamira');
+const near = [...counties].sort((a, b) => a.rank - b.rank).filter((c) => Math.abs(c.rank - nyamira.rank) <= 2);
+const nearRows = near.map((c) => ({ name: c.name, value: c.value, shown: (c.value / 1e9).toFixed(2), county: c.slug, tip: `${c.name}: ${full(c.value)}` }));
+
+const years = nyamiraYears();
+const latest = years.at(-1);
+const nyamiraDoc = cobDoc(latest.src);
+const spentFrom = { label: 'official', stage: 'spent', doc: nyamiraDoc, page: 'FY2024/25' };
+const fiveYears = years.slice(-5).map((y) => ({ fy: y.fy, budget: y.budget, spent: y.spent, shown: percent(y.share, 0), tip: `${y.fy}: ${money(y.budget, 'KSh', lang)}, ${money(y.spent, 'KSh', lang)}` }));
+const trend = years.map((y) => ({ label: y.fy.slice(2), value: Number(y.share.toFixed(1)), tip: `${y.fy}: ${percent(y.share, 0)}` }));
+const others = allCountyDevelopment();
+
+const law = (k) => fig(`law.county-total.${k}`);
+const whole = law('equitable-share').value;
+const parts = [['baseline', 'rest'], ['formula', '3'], ['affirmative-action', '2']].map(([k, slot]) => ({ name: law(k).name.split(': ')[1], shown: money(law(k).value, 'KSh', lang), share: law(k).value / whole * 100, slot }));
+
+const columns = [{ key: 'rank', label: t(lang, 'fig.rank'), num: true }, { key: 'county', label: t(lang, 'nav.counties') }, { key: 'share', label: FY, num: true }, { key: 'change', label: '%', num: true }];
+const tableRows = [...counties].sort((a, b) => a.rank - b.rank).map((c) => ({ rank: { shown: String(c.rank), sort: c.rank }, county: { shown: c.name }, share: { shown: full(c.value), sort: c.value }, change: { shown: percent(c.change), sort: c.change.toFixed(2) } }));
+const shortRows = tableRows.slice(0, 3).map((r, i) => (i === 1 ? { ...r, share: null, change: null } : r));
+
+const statementFor = (c) => `${c.name}: ${money(c.value, 'KSh', lang)}, ${changeWords(c.change, lang)}.`;
+const question = `Development spending was ${latest.devShare}% of the development budget in Nyamira in FY2024/25 (all counties: ${others}%). Which projects were not started?`;
+const page = href(lang, '/dev/components/');
+---
+<div class="wrap">
+  <Breadcrumbs lang={lang} trail={[{ name: t(lang, 'meta.components') }]} />
+  <div class="page-head">
+    <h1>{t(lang, 'meta.components')}</h1>
+    <UpdatedNote lang={lang} />
+  </div>
+</div>
+
+<section class="band" id="figures" aria-labelledby="h-figures">
+  <div class="wrap">
+    <div class="band-head"><span class="eyebrow">FigureCard</span><h2 id="h-figures">Every state a figure can be in</h2></div>
+    <div class="dev-grid">
+      <div class="dev-state"><h3>Normal</h3><FigureCard id="estimates.debt.interest" q="How much goes to interest on public debt?" gap lang={lang}><p>KSh 42 of every KSh 100 of ordinary revenue.</p></FigureCard></div>
+      <div class="dev-state"><h3>Missing</h3><FigureCard q="What did the county get in conditional grants?" lang={lang} missing={{ what: `Nyamira, ${FY}`, why: 'Expected from the County Governments Additional Allocations Act.' }} /></div>
+      <div class="dev-state"><h3>Stale</h3><FigureCard id="estimates.cfs.pensions" q="How much goes to pensions?" lang={lang} staleNow /></div>
+      <div class="dev-state"><h3>Corrected</h3><FigureCard id="statement.sector.public-administration-international-relations" q="What does this sector get?" lang={lang} corrected={{ date: '2026-11-01', old: 'Public Administration and Internal Relations', reason: "Guide p.3 misprints the name; p.15 and the Treasury's sector reports have it right." }} /></div>
+      <div class="dev-state"><h3>Disputed</h3><FigureCard id="statement.total.expenditure" q="How much will the government spend?" lang={lang} disputed={{ other: 'statement.total.with-levy', reason: 'The higher figure adds KSh 32.7 billion of securitised road levy.' }} /></div>
+      <div class="dev-state"><h3>Unverified</h3><FigureCard id="approved.press.education" q="What did a press report say about education?" lang={lang} /></div>
+      <div class="dev-state"><h3>Kiswahili</h3><FigureCard id="statement.total.expenditure" q={t('sw', 'hero.eyebrow', { fy: FY })} lang="sw"><p>{t('sw', 'hero.line')}</p></FigureCard></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="stages" aria-labelledby="h-stages">
+  <div class="wrap stack gap-l">
+    <div class="band-head"><span class="eyebrow">StageTimeline, StageChip, StageChange</span><h2 id="h-stages">The life of one number</h2></div>
+    <div class="on-panel dev-panel"><StageTimeline lang={lang} /></div>
+    <p class="fig-meta">{['recommendation', 'bps', 'estimates', 'statement', 'law', 'approved', 'supplementary-1', 'released', 'spent', 'audited'].map((s) => <StageChip stage={s} lang={lang} />)}</p>
+    <p class="fig-meta"><FigureMeta label="official" stage="law" lang={lang} /><FigureMeta label="verified" stage="audited" lang={lang} /><FigureMeta label="audit" stage="audited" lang={lang} /><FigureMeta label="unverified" stage="approved" calc={t(lang, 'fig.calc')} lang={lang} /></p>
+    <StageChange lang={lang} label="Counties' equitable share at each stage" ids={['recommendation.county-total.equitable-share', 'estimates.county.equitable-share', 'statement.county.equitable-share', 'law.county-total.equitable-share']} who={{ recommendation: 'Commission on Revenue Allocation recommended', estimates: 'Treasury proposed', statement: 'Budget statement', law: 'Parliament set' }} />
+  </div>
+</section>
+
+<section class="band" id="money" aria-labelledby="h-money">
+  <div class="wrap">
+    <div class="band-head"><span class="eyebrow">KSh100Bar</span><h2 id="h-money">Two notes, debt first</h2></div>
+    <div class="dev-grid">
+      <Chart lang={lang} title="Where it goes" sub={t(lang, 'ksh100.out', { fy: FY })} from={out.total} calc={t(lang, 'fig.calcOf', { what: t(lang, 'fig.shares') })}><KSh100Bar parts={out.parts} ariaKey="ksh100.outLabel" lang={lang} /></Chart>
+      <Chart lang={lang} title="Where it comes from" sub={t(lang, 'ksh100.in', { fy: FY })} from={into.total} calc={t(lang, 'fig.calcOf', { what: t(lang, 'fig.shares') })}><KSh100Bar parts={into.parts} ariaKey="ksh100.inLabel" lang={lang} /></Chart>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="ranked" aria-labelledby="h-ranked">
+  <div class="wrap">
+    <div class="band-head"><span class="eyebrow">RankedBars</span><h2 id="h-ranked">Sorted bars, with a table one tap away</h2></div>
+    <div class="dev-grid">
+      <Chart lang={lang} title={`${top.name} gets more than any other sector`} sub={`Ministerial allocations, ${FY}, KSh billion`} from={top} table={{ columns: ['Sector', 'KSh billion'], rows: ranked.map((s) => [s.figure.name, s.figure.value.toFixed(1)]) }} csvName="sectors-2026-27"><RankedBars rows={sectorRows} lang={lang} /></Chart>
+      <div class="stack gap-xl">
+        <Chart lang={lang} title={`Nyamira is ${ordinal(nyamira.rank)} of the 47 counties`} sub={`Equitable share, ${FY}, KSh billion`} from={nyamira.figure} calc={t(lang, 'fig.calcOf', { what: t(lang, 'fig.rank') })}><RankedBars rows={nearRows} lang={lang} /></Chart>
+        <div class="dev-state"><h3>Missing</h3><RankedBars lang={lang} rows={[{ name: 'Nyamira', value: 6.27, shown: '6.27' }, { name: 'Sample with no figure', value: null, shown: t(lang, 'state.notLoaded') }]} /></div>
+        <div class="dev-state"><h3>SplitBar</h3><SplitBar parts={parts} label={parts.map((p) => `${p.name}: ${p.shown}`).join(', ')} /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="years" aria-labelledby="h-years">
+  <div class="wrap">
+    <div class="band-head"><span class="eyebrow">BudgetVsSpent, TrendLine, Meter</span><h2 id="h-years">Budget and spending over time</h2></div>
+    <div class="dev-grid">
+      <Chart lang={lang} title="Nyamira: budget against spending, last five years" from={spentFrom} calc={t(lang, 'fig.calcOf', { what: t(lang, 'fig.shares') })}><BudgetVsSpent rows={fiveYears} keySpent="Spent" keyGap="Not spent" /></Chart>
+      <Chart lang={lang} title="Nyamira: share of the budget spent, each year" sub="Per cent of the final budget" from={spentFrom} calc={t(lang, 'fig.calcOf', { what: t(lang, 'fig.shares') })} table={{ columns: ['Year', 'Per cent'], rows: years.map((y) => [y.fy, y.share.toFixed(0)]) }} csvName="nyamira-share-spent"><TrendLine points={trend} title="Share of the budget spent by Nyamira, FY2013/14 to FY2024/25" endLabel={percent(latest.share, 0)} axis={(v) => `${v}%`} /></Chart>
+      <Chart lang={lang} title="Nyamira spent 37% of its development budget" sub="FY2024/25" from={spentFrom}><Meter value={latest.devShare} mark={others} name="Nyamira" markName="all 47 counties" label={`Nyamira spent ${latest.devShare}% of its FY2024/25 development budget. All 47 counties spent ${others}%.`} /></Chart>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="tables" aria-labelledby="h-tables">
+  <div class="wrap stack gap-l">
+    <div class="band-head"><span class="eyebrow">DataTable</span><h2 id="h-tables">Sortable, with a file to download</h2></div>
+    <DataTable lang={lang} columns={columns} rows={tableRows} caption="Equitable share of the 47 counties" csvHref={href('en', '/data/county-equitable-share-2026-27.csv')} csvName="county-equitable-share-2026-27.csv" />
+    <div class="dev-state"><h3>Missing</h3><DataTable lang={lang} columns={columns} rows={shortRows} caption="A table with one row not loaded" sortable={false} /></div>
+  </div>
+</section>
+
+<section class="band" id="act" aria-labelledby="h-act">
+  <div class="wrap">
+    <div class="band-head"><span class="eyebrow">QuestionCard, ShareCard</span><h2 id="h-act">What a reader can do next</h2></div>
+    <div class="dev-grid">
+      <article class="card fig"><h3>{t(lang, 'question.title')}</h3><QuestionCard question={question} lang={lang} /></article>
+      <article class="card"><ShareCard lang={lang} text={statementFor(nyamira)} source="County Allocation of Revenue Act, 2026, First Schedule." url={new URL(page, Astro.site ?? 'https://example.invalid').href} /></article>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="furniture" aria-labelledby="h-furniture">
+  <div class="wrap">
+    <div class="band-head"><span class="eyebrow">Page furniture</span><h2 id="h-furniture">The small parts</h2></div>
+    <div class="dev-grid">
+      <div class="dev-state"><h3>SearchBox</h3><SearchBox lang={lang} /></div>
+      <div class="dev-state"><h3>LanguageSwitch</h3><div class="btn-row"><LanguageSwitch lang={lang} path="/dev/components/" /></div></div>
+      <div class="dev-state"><h3>GlossaryTerm</h3><p>Counties get an <GlossaryTerm term="equitable" id="gt-eq" lang={lang} />, and every figure has a <GlossaryTerm term="stage" id="gt-st" lang={lang} />.</p></div>
+      <div class="dev-state"><h3>NotYetLoaded</h3><NotYetLoaded what="Nyamira's conditional grants" why="Expected from the County Governments Additional Allocations Act." lang={lang} /></div>
+      <div class="dev-state"><h3>StaleNote</h3><StaleNote after="2027-06-30" what="the next Mwananchi Guide" lang={lang} force /></div>
+      <div class="dev-state"><h3>KiswahiliSummary</h3><KiswahiliSummary lang={lang}>Serikali ya kitaifa inapanga kutumia KSh trilioni 4.82 mwaka wa fedha 2026/27.</KiswahiliSummary></div>
+    </div>
+  </div>
+</section>

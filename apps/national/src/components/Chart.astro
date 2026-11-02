@@ -1,0 +1,19 @@
+---
+// The shared chart frame with this product's foot: evidence label, stage and source, in the page's language.
+import ChartFrame from '@kbe/engine/components/ChartFrame.astro';
+import { t } from '../i18n/index.js';
+import { site } from '../site.js';
+import FigureMeta from './FigureMeta.astro';
+import SourceLine from './SourceLine.astro';
+
+interface Props {
+  title: string; sub?: string; note?: string; lang?: 'en' | 'sw'; calc?: string; id?: string;
+  from: { label: 'official' | 'verified' | 'audit' | 'unverified'; stage: string; doc: { title: string; url: string; archive: string | null }; page: string };
+  table?: { columns: string[]; rows: (string | number | null)[][] }; csvHref?: string; csvName?: string;
+}
+const { title, sub, note, lang = 'en', calc, id, from, table, csvHref, csvName } = Astro.props;
+---
+<ChartFrame title={title} sub={sub} note={note} id={id} site={site.name} table={table} csvHref={csvHref} csvName={csvName} showTable={t(lang, 'chart.showTable')} download={t(lang, 'chart.download')}>
+  <slot />
+  <Fragment slot="foot"><FigureMeta label={from.label} stage={from.stage} calc={calc} lang={lang} /><SourceLine doc={from.doc} page={from.page} lang={lang} /></Fragment>
+</ChartFrame>

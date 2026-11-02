@@ -1,0 +1,8 @@
+---
+// Marked for review until a native speaker has read it (decision #87). On an English page it sits below the text.
+import { t } from '../i18n/index.js';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+---
+<div class="sw" lang="sw"><b>{t('sw', 'sw.heading')}</b><slot /> <span class="small muted" lang={lang === 'sw' ? 'sw' : 'en'}>{t(lang, 'sw.review')}</span></div>

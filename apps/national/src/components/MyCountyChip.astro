@@ -1,0 +1,10 @@
+---
+// Starts empty and points at the list of counties. The script fills it from the reader's own browser: nothing is sent.
+import { t } from '../i18n/index.js';
+import { href } from '../lib/routes.js';
+import Icon from './Icon.astro';
+
+interface Props { lang: 'en' | 'sw' }
+const { lang } = Astro.props;
+---
+<a class="chip-county" href={href(lang, '/counties/')} aria-label={t(lang, 'county.chipEmpty')} data-chip data-empty data-base={href(lang, '/counties/')} data-label={t(lang, 'county.chip', { name: '{name}' })}><Icon name="pin" /><b data-county-name></b></a>

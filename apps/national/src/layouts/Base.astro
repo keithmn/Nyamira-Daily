@@ -1,0 +1,54 @@
+---
+// Every page: the head, the skip link, the top bar, the phone tab bar and the footer. `path` is the page's route without
+// the language prefix, so its Kiswahili or English twin can be linked.
+import '../styles/app.css';
+import bold from '../fonts/LeagueSpartan-Bold.woff2?url';
+import medium from '../fonts/LeagueSpartan-Medium.woff2?url';
+import varela from '../fonts/VarelaRound-Latin.woff2?url';
+import BottomTabs from '../components/BottomTabs.astro';
+import IconSprite from '../components/IconSprite.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { t } from '../i18n/index.js';
+import { LANGS, href } from '../lib/routes.js';
+import { site } from '../site.js';
+
+interface Props { lang?: 'en' | 'sw'; path: string; title: string; description?: string; noindex?: boolean }
+const { lang = 'en', path, title, description = t(lang, 'meta.description'), noindex = false } = Astro.props;
+const fullTitle = title === site.name ? title : `${title} · ${site.name}`;
+const alternates = Astro.site ? LANGS.map((l) => ({ l, url: new URL(href(l, path), Astro.site).href })) : [];
+const canonical = alternates.find((a) => a.l === lang)?.url;
+// Runs before the first paint, so a saved theme never flashes. The build hashes it into the content security policy.
+const early = "(function(){var r=document.documentElement;r.classList.add('js');try{var t=localStorage.getItem('kbe-theme');if(t==='dark'||t==='light')r.setAttribute('data-theme',t)}catch(e){}})();";
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {alternates.map((a) => <link rel="alternate" hreflang={a.l} href={a.url} />)}
+    {alternates.length > 0 && <link rel="alternate" hreflang="x-default" href={alternates[0].url} />}
+    {(noindex || __KBE_PREVIEW__) && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#111111" />
+    <link rel="icon" href="data:," />
+    {/* All three load on every page, so preloading costs nothing and keeps text from shifting when they arrive */}
+    <link rel="preload" href={medium} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={bold} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={varela} as="font" type="font/woff2" crossorigin />
+    <script is:inline set:html={early}></script>
+  </head>
+  <body>
+    <IconSprite />
+    <a class="skip" href="#main">{t(lang, 'skip')}</a>
+    <SiteHeader lang={lang} path={path} />
+    <main id="main"><slot /></main>
+    <SiteFooter lang={lang} />
+    <BottomTabs lang={lang} path={path} />
+    <p class="vh" role="status" id="status"></p>
+    <div class="tip" id="tip" role="tooltip" hidden></div>
+    <script>import '../scripts/app.js';</script>
+  </body>
+</html>

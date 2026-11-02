@@ -1,0 +1,8 @@
+---
+// One whole split into parts, with the chart slots in their fixed order. Labels sit in a legend beside their value.
+interface Part { name: string; shown: string; share: number; slot: string }
+interface Props { parts: Part[]; label: string }
+const { parts, label } = Astro.props;
+---
+<div class="split" role="img" aria-label={label}>{parts.map((p) => <span style={`flex:${p.share.toFixed(2)} 1 0;background:var(--c-${p.slot})`}></span>)}</div>
+<p class="key">{parts.map((p) => <span><i style={`background:var(--c-${p.slot})`}></i>{p.name}: {p.shown}</span>)}</p>

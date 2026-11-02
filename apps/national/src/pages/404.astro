@@ -1,0 +1,13 @@
+---
+import { t } from '../i18n/index.js';
+import Base from '../layouts/Base.astro';
+import { href } from '../lib/routes.js';
+---
+<Base path="/" title={t('en', 'meta.notFound')} noindex>
+  <div class="wrap not-found">
+    <h1>{t('en', 'notFound.title')}</h1>
+    <p>{t('en', 'notFound.body')}</p>
+    <div class="sw" lang="sw"><b>{t('sw', 'notFound.title')}</b>{t('sw', 'notFound.body')}</div>
+    <a class="btn" href={href('en')}>{t('en', 'notFound.home')}</a>
+  </div>
+</Base>

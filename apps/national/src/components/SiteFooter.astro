@@ -1,0 +1,27 @@
+---
+// The footer repeats the map, then who publishes this and how the figures were checked.
+import { t } from '../i18n/index.js';
+import { SECTIONS, TRUST, href } from '../lib/routes.js';
+import { site } from '../site.js';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props { lang: 'en' | 'sw' }
+const { lang } = Astro.props;
+const groups = [...SECTIONS.map((s) => ({ name: t(lang, `nav.${s.key}`), pages: s.pages })), { name: t(lang, 'nav.trust'), pages: TRUST }];
+---
+<footer class="on-ink">
+  <div class="wrap">
+    <nav class="foot-map" aria-label={t(lang, 'nav.footer')}>
+      {groups.map((g) => (
+        <section>
+          <h2>{g.name}</h2>
+          <ul>{g.pages.map((p) => <li><a href={href(lang, p)}>{t(lang, `page.${p}`)}</a></li>)}</ul>
+        </section>
+      ))}
+    </nav>
+    <ThemeToggle lang={lang} />
+    <p>{t(lang, 'footer.about', { site: site.name, publisher: site.publisher })}</p>
+    <p>{t(lang, 'footer.check')}</p>
+    <p><a href={href(lang, '/corrections/')}>{t(lang, 'footer.correct')}</a></p>
+  </div>
+</footer>

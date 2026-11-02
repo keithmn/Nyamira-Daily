@@ -1,0 +1,11 @@
+---
+// The line under every figure and chart: evidence label, stage, and a tag when the number is our own arithmetic.
+import EvidenceLabel from '@kbe/engine/components/EvidenceLabel.astro';
+import { t } from '../i18n/index.js';
+import { site } from '../site.js';
+import StageChip from './StageChip.astro';
+
+interface Props { label: 'official' | 'verified' | 'audit' | 'unverified'; stage: string; calc?: string; lang?: 'en' | 'sw' }
+const { label, stage, calc, lang = 'en' } = Astro.props;
+---
+<p class="fig-meta"><EvidenceLabel kind={label} site={site.name} text={t(lang, `label.${label}`)} /><StageChip stage={stage} lang={lang} />{calc && <span class="chip-calc">{calc}</span>}</p>

@@ -1,0 +1,9 @@
+---
+import { longDate } from '@kbe/engine/fmt';
+import { t } from '../i18n/index.js';
+import { release } from '../lib/figures.js';
+
+interface Props { date?: string; lang?: 'en' | 'sw' }
+const { date = release, lang = 'en' } = Astro.props;
+---
+<p class="small muted">{t(lang, 'state.updated', { date: longDate(date, lang), release })}</p>

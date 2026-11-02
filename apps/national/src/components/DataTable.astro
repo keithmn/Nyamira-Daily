@@ -1,0 +1,21 @@
+---
+// Sortable with JavaScript, a plain table without it. Three or more columns stack into cards on phones; two columns stay
+// a table (#10). Sorting reads `data-sort`, the raw value, so a formatted amount sorts as a number.
+import { t } from '../i18n/index.js';
+
+interface Column { key: string; label: string; num?: boolean }
+interface Props { columns: Column[]; rows: Record<string, { shown: string; sort?: string | number } | null>[]; caption: string; csvHref?: string; csvName?: string; lang?: 'en' | 'sw'; sortable?: boolean }
+const { columns, rows, caption, csvHref, csvName, lang = 'en', sortable = true } = Astro.props;
+---
+<div class="tscroll">
+  <table class={columns.length >= 3 ? 'cards' : undefined} data-sortable={sortable || undefined}>
+    <caption class="vh">{caption}</caption>
+    <thead><tr>{columns.map((c) => (
+      <th scope="col" class={c.num ? 'num' : undefined}>{sortable ? <button type="button" aria-label={t(lang, 'chart.sortBy', { column: c.label })}>{c.label}</button> : c.label}</th>
+    ))}</tr></thead>
+    <tbody>{rows.map((r) => (
+      <tr>{columns.map((c) => <td class={c.num ? 'num' : undefined} data-label={c.label} data-sort={r[c.key]?.sort}>{r[c.key]?.shown ?? t(lang, 'state.notLoaded')}</td>)}</tr>
+    ))}</tbody>
+  </table>
+</div>
+{csvHref && <a class="tbl-csv" href={csvHref} download={csvName}>{t(lang, 'chart.download')}</a>}

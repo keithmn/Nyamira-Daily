@@ -1,0 +1,12 @@
+---
+import { t } from '../i18n/index.js';
+import { SECTIONS, href, sectionOf } from '../lib/routes.js';
+import Icon from './Icon.astro';
+
+interface Props { lang: 'en' | 'sw'; path: string }
+const { lang, path } = Astro.props;
+const current = sectionOf(path);
+---
+<nav class="tabs" aria-label={t(lang, 'nav.tabs')}>
+  {SECTIONS.map((s) => <a href={href(lang, s.path)} aria-current={s.key === current ? 'page' : undefined}><Icon name={s.icon} />{t(lang, `nav.${s.key}`)}</a>)}
+</nav>

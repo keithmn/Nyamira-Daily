@@ -1,0 +1,19 @@
+---
+// Years on a phone-sized canvas. One tab stop: arrow keys move between years, and a tap picks the nearest year. A filled
+// dot is a spent or audited figure and a ring is a plan, so a line never hides which stage each point is.
+import { endLabelY, linePoints } from '../lib/charts.js';
+
+interface Point { label: string; value: number | null; tip: string; planned?: boolean }
+interface Props { points: Point[]; title: string; axis?: (v: number) => string; endLabel?: string }
+const { points, title, axis = (v) => String(v), endLabel } = Astro.props;
+const line = linePoints(points.map((p) => p.value));
+const last = line.points.findLastIndex((p) => p);
+const every = points.length > 7 ? 3 : 2;
+---
+<svg class="lc" viewBox={`0 0 ${line.width} ${line.height}`} role="img" aria-label={title} tabindex="0" data-trend>
+  {line.grid.map((g) => <><line class:list={[g.v === 0 ? 'z' : 'g']} x1={line.left} x2={line.width - line.right} y1={g.y} y2={g.y}></line><text x={line.left - 6} y={g.y + 4} text-anchor="end">{axis(g.v)}</text></>)}
+  <path class="l" d={line.path}></path>
+  {line.points.map((p, i) => p && <circle class:list={['p', { plan: points[i].planned }]} cx={p.x} cy={p.y} r="4" data-t={points[i].tip}></circle>)}
+  {points.map((p, i) => (i % every === (points.length - 1) % every) && line.points[i] && <text x={line.points[i].x} y={line.height - 8} text-anchor="middle">{p.label}</text>)}
+  {endLabel && last >= 0 && <text class="e" x={line.points[last].x} y={endLabelY(line.points)} text-anchor="end">{endLabel}</text>}
+</svg>
