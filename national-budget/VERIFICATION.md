@@ -1,6 +1,6 @@
 # Source check: Kenya Budget Explained
 
-Checked on 1 Nov 2026 by Claude Code, against the PDFs named in `build-data.mjs`. **This is not an editor's sign-off.** The figures stay labelled `official`, not `verified`, until a person checks them against the printed pages (decision of 1 Nov 2026).
+Checked on 1 Nov 2026 by Claude Code, against the PDFs named in `build-data.mjs`. **This is not an editor's sign-off.** The figures stay labelled `official`, not `verified`, until a person checks them against the printed pages (decision of 1 Nov 2026). The two Acts and the typed figures were checked on 2 Nov 2026: see "Phase 2" below.
 
 ## How it was checked
 
@@ -34,6 +34,48 @@ Items the source check confirmed unchanged, after first looking wrong: PAYE 706.
 - The `treasury.go.ke` links failed on 1 Nov 2026 with an expired security certificate, so the page now links the same paths on `newsite.treasury.go.ke`, which opened on that date. The Wayback Machine held copies of the Guide (13 Jul 2026) and the CRA report (8 Apr 2026), and the page links those. It held none of the Budget Summary or the Estimates of Revenue on 1 Nov 2026.
 - Nyamira figures come from `src/data` and were not rechecked here.
 - Which sector a key allocation belongs to is our reading: the Guide lists allocations by theme, not always by sector.
+
+## Phase 2: the two Acts and the typed figures (2 Nov 2026)
+
+Also Claude Code's work, and also not an editor's sign-off. `npm run check:national` repeats all of this except the page search.
+
+**Appropriation Act, 2026 (No. 20): the Schedule, 480 rows (151 votes, 329 programmes) and 7 printed totals.**
+
+- The PDF is a scan with a machine-read text layer. Two readings, through two `pdftotext` modes: `extract.csv` and `typed.csv`, compared by `scripts/national/double-entry.mjs`. 465 rows agree. 3 have the same digits in the other column (D1023, D1193, D1193/0215000). 12 disagree, and each was resolved from the page image, with its reason in `corrections.csv`. None is unresolved.
+- `corrections.csv` has 22 rows in all: those 12, 2 of the rows that changed column (D1193 and D1193/0215000), and 8 where the first reading lost or misplaced an amount and the second reading had it right. 4 damaged names are repaired in `names.csv`. **A person should check these 26 rows first.**
+- Both readings come from one text layer, so double entry cannot see a misread they share. The Act's own arithmetic can: programmes add to their vote, votes to their class, classes to their cluster and clusters to the grand total, in both columns, to the shilling, with no differences left.
+- A dash in the Act gives no figure, so the 480 rows and 7 totals give 763 figures, not 974.
+
+**County Allocation of Revenue Act, 2026 (No. 22): the First Schedule, 47 rows.**
+
+- The schedule has no text layer, so it was typed from a rendered picture of pp.459 to 461. **A person should check these 47 rows first.** Every figure carries that note.
+- Checks on the typing, all 47 rows: column B of the baseline reproduces column C, and index E of the KSh 36.115bn reproduces column F, each within the rounding of the printed percentage. A rounds to CRA's FY2025/26 column. G rounds to the Guide's p.14. B and E each add to 100. A test changes one digit in each column and each check catches it.
+- G = C + D + F holds exactly in 45 rows. Nyamira and Taita Taveta are one shilling out, in the Act itself, and the figures keep what the Act prints. The columns add to within KSh 4 of their printed totals (A +1, C 0, D +4, F -1, G +1), so the tolerance for this document is KSh 5.
+- The formula weights (45, 35, 12 and 8) are in note *** on p.461. Column F is printed as the "additional equitable share" above KSh 391.885bn.
+- The Act has no disbursement schedule. Payment dates are in a separate Gazette notice (s.4(2)).
+
+**The 91 typed figures in `budget-2026-27.json`,** each searched for on its own PDF page by `scripts/national/verify-pages.mjs`: 78 printed as they stand, 7 rounded from a longer printed amount, 5 our calculations (the build recomputes them), and 1 press figure with no document. None was missing. The 47 CRA numbers and the 47 Guide numbers keep the checks above.
+
+**What the Acts settle.**
+
+- Total spending: the Act's Supply plus Appropriations-in-Aid is KSh 2,922.71bn, against the Guide's 2,890.1 of ministerial spending plus the 32.7 securitised levy, 2,922.8. They differ by rounding.
+- Education: votes 1064, 1065, 1066, 1067 and 2091 add to KSh 784.48bn, which is the Guide's 784.5. The 781.4 reported in the press after the vote is not in the Act. It stays `unverified` and its source is unknown.
+- Sectors: the Act does not say which vote is in which sector, so other sector totals cannot be proved from it. The two health votes, 1082 and 1083, add to KSh 176.25bn against the Guide's sector 177.2, and this does not show that either is wrong.
+
+| Figure | Value | Document | Cited as | PDF page | Result |
+|---|---|---|---|---|---|
+| Grand total, Supply | 2186508892628 | Appropriation Act | Schedule, p.422 | 37 | Found: the votes and clusters add to it exactly |
+| Grand total, Appropriations-in-Aid | 736198020556 | Appropriation Act | Schedule, p.422 | 37 | Found: the votes and clusters add to it exactly |
+| Central Government cluster, Supply | 1545115400805 | Appropriation Act | Schedule, p.415 | 30 | Found |
+| Central Government cluster, A-I-A | 733426695556 | Appropriation Act | Schedule, p.415 | 30 | Found |
+| Commissions cluster, Supply | 641393491823 | Appropriation Act | Schedule, p.422 | 37 | Found |
+| Commissions cluster, A-I-A | 2771325000 | Appropriation Act | Schedule, p.422 | 37 | Found |
+| Total equitable share | 428000000000 | County Act | First Schedule, p.461 | 9 | Found: the 47 rows add to within KSh 1 |
+| Baseline | 387425000000 | County Act | First Schedule, p.461 | 9 | Found: the 47 rows add to it exactly |
+| Affirmative action | 4460000000 | County Act | First Schedule, p.461 | 9 | Found: the 12 rows add to within KSh 4 |
+| Additional equitable share | 36115000000 | County Act | First Schedule, p.461 | 9 | Found: the 47 rows add to within KSh 1 |
+| FY2025/26 equitable share | 415000000000 | County Act | First Schedule, p.461 | 9 | Found: the 47 rows add to within KSh 1 |
+| Nyamira's equitable share | 6265653089 | County Act | First Schedule, p.460 | 8 | Found, typed from the picture: a person should check it |
 
 ## Every figure
 

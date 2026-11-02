@@ -1,4 +1,4 @@
-# Status and handover (1 Nov 2026)
+# Status and handover (2 Nov 2026)
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md`, then this page, then `docs/DECISIONS.md`. Older handover notes, with the history of each feature, are in `docs/STATUS_ARCHIVE.md`.
 
@@ -7,6 +7,13 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **The site:** a static Astro 7 site in eight sections (`src/nav.js`), with real data for money (12 years), ward pages, projects and the project tracker, services, census, leaders, the Assembly, county laws, fees, opportunities, constitution summaries, search and open data. Text content lives in `src/content/`; only one explainer and one number of the week are published so far, and two money explainers are drafted.
 - **Who runs it (decision #73):** built and published by Underdogs Rising Group Limited, editorially independent, with a commitment to spin out into a non-profit. Trust pages: `/who-runs-us/`, `/right-of-reply/`, `/privacy/`, `/terms/`.
 - **NY Watch (decision #79):** the founder's data review podcast. No episodes published yet.
+
+## Changes on 2 Nov 2026
+
+- Astro upgraded to 7.4.4 (decision #85), with dependencies pinned, Node pinned in `.nvmrc`, and a regression check of the existing site. On branch `feat/astro-7-upgrade`, not in `main`.
+- National product Phase 2, the data engine, on branch `feat/national-phase-2`, not pushed. New: npm workspaces with `packages/engine` (figure registry, rules, comparison code, releases), `data/national/` (1,158 figures, 7 sources, first data release 2026-11-02), `data-src/national/` and `scripts/national/`. The Appropriation Act, 2026 and County Allocation of Revenue Act, 2026 are loaded. `npm run check:national` is new and runs in CI. Decision #90 logged. How to run it: `docs/national/README.md`; what is loaded: `docs/national/DATA.md`.
+- Tests: 236 of 236 pass (140 existing, 96 new). Preview build passes, 2,817 pages. No page changed.
+- Waiting on the owner: a route to archive copies for four sources (the Budget Summary, the Revenue Estimates and both Acts), a person's check of the rows on `data-src/national/person-checks.csv`, and who is responsible for each dataset. The 781.4 education figure stays `unverified`: the Act shows 784.48.
 
 ## Changes on 1 Nov 2026
 
