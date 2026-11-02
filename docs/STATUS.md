@@ -10,6 +10,10 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 
 ## Changes on 2 Nov 2026
 
+- National product Phase 3, the app shell and design system, on branch `feat/national-phase-3`, not pushed. New: `apps/national` with five-section navigation, English and Kiswahili, the design tokens, the components and charts, a generated `_headers` file with a strict content security policy, and `/dev/components/` in preview builds. The only product page so far is the first screen of the home page. Decisions #91 and #92 logged. How to run it: `docs/national/README.md`; what was measured: `docs/national/DESIGN.md`.
+- `EvidenceLabel`, `ChartFrame` and the number formats moved to `packages/engine`. Main site checked: 2,935 of 2,937 built files byte-identical, and the other two differ only in their build time.
+- Tests: 264 unit tests pass, 72 browser checks pass, 24 visual comparisons pass. `npm audit` clean. Phase 2 counts corrected: the Act has 87 votes and 201 programmes (151 and 329 are rows).
+- Next: Phase 4, the core journeys. It needs the sector-to-vote map, reviewed by a person, and usability round 1 with real readers.
 - Astro upgraded to 7.4.4 (decision #85), with dependencies pinned, Node pinned in `.nvmrc`, and a regression check of the existing site. On branch `feat/astro-7-upgrade`, not in `main`.
 - National product Phase 2, the data engine, on branch `feat/national-phase-2`, not pushed. New: npm workspaces with `packages/engine` (figure registry, rules, comparison code, releases), `data/national/` (1,158 figures, 7 sources, first data release 2026-11-02), `data-src/national/` and `scripts/national/`. The Appropriation Act, 2026 and County Allocation of Revenue Act, 2026 are loaded. `npm run check:national` is new and runs in CI. Decision #90 logged. How to run it: `docs/national/README.md`; what is loaded: `docs/national/DATA.md`.
 - Tests: 236 of 236 pass (140 existing, 96 new). Preview build passes, 2,817 pages. No page changed.

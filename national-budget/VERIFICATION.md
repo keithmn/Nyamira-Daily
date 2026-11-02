@@ -77,6 +77,16 @@ Also Claude Code's work, and also not an editor's sign-off. `npm run check:natio
 | FY2025/26 equitable share | 415000000000 | County Act | First Schedule, p.461 | 9 | Found: the 47 rows add to within KSh 1 |
 | Nyamira's equitable share | 6265653089 | County Act | First Schedule, p.460 | 8 | Found, typed from the picture: a person should check it |
 
+## Phase 3: what the app works out (2 Nov 2026)
+
+No figure was added. The app reads the registry, and these numbers are its own arithmetic, each with a test in `apps/national/src/lib/national.test.js` and an "our calculation" tag where it appears:
+
+- **KSh 100 notes:** each part as a share of the 4,820.4 total. Taxes of 2,862.3 add the five tax heads, and fees and other income of 768.2 add non-tax revenue and Appropriations-in-Aid.
+- **County change on last year:** in cash terms, from the two law-stage columns of the County Allocation of Revenue Act, through `compareFigures`.
+- **County rank:** 1 to 47 by equitable share in the Act.
+
+The component library also shows Nyamira's budget and spending from the main site's `money.json`, already checked for that site. These figures are not in the national registry and no product page reads them.
+
 ## Every figure
 
 | Figure | Value | Document | Cited as | PDF page | Result |

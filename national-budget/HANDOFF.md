@@ -32,9 +32,9 @@ Working name: "Kenya Budget Explained". The founder has not chosen the final nam
 7. Six traps for readers, eight guardrails from how similar tools failed, and a table of every figure with its source.
 
 ## Open work
-This prototype is now a reference, not the base for the product. `BUILD_BRIEF.md` is the plan (decision #82): read it first. The product is a new Astro app at `apps/national` (decision #83), and only the data carries over from here.
+This prototype is now a reference, not the base for the product. `BUILD_BRIEF.md` is the plan (decision #82): read it first. The product is the Astro app at `apps/national` (decision #83), and only the data carried over from here.
 
-Phases: 0 audit and decisions (done, 1 Nov 2026); 1 sitemap, design document and component list (approved 2 Nov 2026: `docs/national/SITEMAP.md` and `DESIGN.md`); 2 data engine (built 2 Nov 2026, waiting for the owner: `docs/national/README.md` and `DATA.md`); then 3 app shell and design system, 4 core journeys, 5 depth, 6 reach, 7 hardening. Branches are `feat/national-phase-<n>`, each from the one before, because none of this is in `main` yet. The figures for the product now live in `data/national/`; `data.json` here still drives this prototype only.
+Phases: 0 audit and decisions (done, 1 Nov 2026); 1 sitemap, design document and component list (approved 2 Nov 2026: `docs/national/SITEMAP.md` and `DESIGN.md`); 2 data engine (built 2 Nov 2026: `docs/national/DATA.md`); 3 app shell and design system (built 2 Nov 2026: `apps/national`, run it from `docs/national/README.md`); then 4 core journeys, 5 depth, 6 reach, 7 hardening. Branches are `feat/national-phase-<n>`, each from the one before, because none of this is in `main` yet. The figures for the product now live in `data/national/`; `data.json` here still drives this prototype only.
 
 Carried over from the old list:
 - **Checks by a person:** Claude Code checked every national figure against its PDF (`VERIFICATION.md`). The labels stay `official` until a person checks the printed pages, starting with `data-src/national/person-checks.csv`.

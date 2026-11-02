@@ -179,7 +179,9 @@ Fonts are the three self-hosted files, 38 KB in all: League Spartan 500 and 700,
 | `CitationButton`, `ReportError` | Copy citation; opens the corrections service with the figure id | Citation |
 | `CompareTray`, `RuleBadge`, `InfographicCard`, `EmbedCode` | Later phases. `RuleBadge` says Meets, Does not meet or No data, and carries no red | No |
 
-Every component shows six states on `/dev/components/`: normal, missing, stale, corrected, disputed and long Kiswahili text. The specimen has the first five as real examples.
+Every component that shows a figure has its six states on `/dev/components/`: normal, missing, stale, corrected, disputed and long Kiswahili text. Page furniture has no figure to be stale or disputed, so it shows normal and Kiswahili only. `/sw/dev/components/` is the whole library in Kiswahili. Both pages exist only in preview builds.
+
+**Built in Phase 3,** in `apps/national`: everything in the table above except the last row. From the main-site table, `EvidenceLabel`, `ChartFrame` and `fmt.js` moved to `packages/engine` (#91). The rest arrive with the first page that needs them, so nothing is carried that no page uses: `ColumnChart`, `ShareBars`, `Coins`, `Toggle`, `PageTools`, `DocTools`, `CorrectionLog`, `PageHead`, `Sheet`, `ElectionNotice`, `project-amounts.js` and `api.js`.
 
 ## Weight and security
 
@@ -219,3 +221,29 @@ Measured on 2 Nov 2026, with the same scripts as the Phase 0 audit of the protot
 | Script errors | none | none |
 
 **Not yet checked:** a real low-end phone, a screen reader, and the Kiswahili interface at full length. The specimen is one page, so these numbers show the system can meet the targets, not that every page will. axe could not judge eight SVG chart labels for contrast; they use `--muted` and `--ink`, which pass on their own.
+
+## Checked on the app
+
+Measured on 2 Nov 2026, on the built app under its real content security policy. `npm run test:national:site` repeats all of it except Lighthouse.
+
+| Check | Home page | Component library |
+|---|---|---|
+| Lighthouse performance, accessibility, best practices (mobile, slow 4G) | 100, 100, 100 | 100, 100, 100 |
+| Largest paint | 1.2 s | 1.2 s |
+| Layout shift | 0 | 0 |
+| Transferred on first load, before fonts | 13 KB | 21 KB |
+| Transferred with the three fonts | 52 KB | 60 KB |
+| axe violations, WCAG 2.2 AA, 390 and 1280, light and dark, both languages | 0 | 0 |
+| Tap targets under 44px at 390 | 0 | 0 |
+| Sideways scroll at 320, 360, 390, 768 and 1280 | none | none |
+| Script errors or policy violations | none | none |
+
+Lighthouse's SEO score is 60 on these pages only because preview builds are marked `noindex`. A test confirms a production build is not.
+
+**Rules this phase added, each with a test:**
+- `[hidden]` always wins over a class that sets `display`. Without it, a hidden button or tag still shows.
+- A label above a KSh 100 bar needs a slice of at least 12%. Smaller slices are named in the list below.
+- All three fonts are preloaded. They load on every page anyway, and without this the bold weight moved the text when it arrived.
+- A glossary term takes its 44px target from a `::after` box, so it does not push its sentence's lines apart.
+
+**Still not checked:** a real low-end phone, a screen reader, and pages with real depth. The app has only one product page so far, so Phase 4 must hold these numbers on the county and vote pages.

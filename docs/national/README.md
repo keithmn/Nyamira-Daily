@@ -10,8 +10,26 @@
 | `data/national/` | What the product reads: `sources.json`, `figures/`, `releases/`, `corrections.json`, `reasons.json` |
 | `data-src/national/` | Where figures come from: the CSVs for each document, and `person-checks.csv`. `pdfs/` holds the stored documents and is not in Git |
 | `scripts/national/` | The extractor, the figure builder, double entry, the page search, releases and the master check |
+| `apps/national/` | The site: `src/pages`, components, `src/lib` (all arithmetic), `src/i18n`, `src/scripts/app.js`, `e2e` (browser tests) |
 
-`apps/national`, the site itself, comes in Phase 3. No page reads this data yet.
+So far the site has the first screen of the home page in both languages, the 404 page, one CSV and the component library. Section links go to routes still listed in `PLANNED` in `src/lib/routes.js`.
+
+## Run the site
+
+```
+npm run dev:national
+```
+
+Then open <http://localhost:4321/> and <http://localhost:4321/dev/components/>.
+
+A public build needs its address, and a preview build needs a flag instead. Previews carry `/dev/` and `noindex`. In Git Bash:
+
+```
+KBE_SITE_URL=https://the-final-domain.example npm run build:national
+KBE_PREVIEW_BUILD=1 npm run build:national
+```
+
+`KBE_BASE` puts the whole site under a prefix. The output is `apps/national/dist`, including its `_headers` file. The Cloudflare Pages project does not exist yet: it needs the root folder of this repo, the build command `npm run build:national`, the output folder above, and `KBE_SITE_URL`.
 
 ## Run the checks
 
@@ -19,11 +37,25 @@
 npm install
 npm test
 npm run check:national
+npm run test:national:site
+npm run test:national:visual
 ```
+
+`test:national:site` builds the app, then checks axe, tap targets, sideways scroll, script errors under the real security policy, JavaScript off, keyboard use, weight and internal links. It runs in CI and needs Chrome installed.
+
+`test:national:visual` compares six key parts of the pages, at 390 and 1280, light and dark, with saved pictures. It runs on the laptop only. After a deliberate change, run it with `-- --update-snapshots` and look at the new pictures before committing them.
 
 `check:national` fails on a broken rule, a table whose two readings disagree, a generated file out of step with its CSV, a figure missing from the latest release, or a stored PDF that has changed. It warns, without failing, about overdue documents, sources with no archive copy and tables waiting for a person.
 
 `node scripts/national/verify-pages.mjs` searches each hand-typed figure's PDF page for its value. It needs `pdftotext` and the stored PDFs, so it runs on the laptop and not in CI. Run it after changing `data/national/figures/budget-2026-27.json`.
+
+## Add a page
+
+1. Put the page in `src/pages/` and its Kiswahili twin in `src/pages/sw/`, both using one shared component with a `lang` prop.
+2. Remove its route from `PLANNED` in `src/lib/routes.js`. The link check fails on a link that is neither built nor planned.
+3. Ask for figures by id with `fig()`. An unknown id stops the build. Any arithmetic goes in `src/lib`, with a test, and adding or comparing figures goes through `@kbe/engine/compare`.
+4. Put every word in `src/i18n/en.json` and `sw.json`. A test fails if the two differ, and a missing key stops the build. All Kiswahili waits for a native speaker's review.
+5. Add the page to `PAGES` and `TEMPLATES` in `e2e/site.spec.mjs`, so axe, phones and weight cover it.
 
 ## Add a document
 
