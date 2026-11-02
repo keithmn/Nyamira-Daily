@@ -2,7 +2,7 @@
 // stages still to come show none (VERIFICATION.md). `anchor` is a figure from the document that closes each stage.
 import { longDate } from '@kbe/engine/fmt';
 import { t } from '../i18n/index.js';
-import { fig } from './figures.js';
+import { fig, sourceDoc, today } from './figures.js';
 
 const TIMELINE = [
   { stage: 'recommendation', anchor: 'recommendation.county-total.equitable-share' },
@@ -15,6 +15,12 @@ const TIMELINE = [
   { stage: 'audited' },
 ];
 const NOW = 'spending';
+
+// The next date the law fixes: the Budget Policy Statement reaches Parliament by 15 February each year (PFM Act, s.25(2))
+export function nextDeadline(lang, now = today()) {
+  const year = Number(now.slice(0, 4)), due = now > `${year}-02-15` ? year + 1 : year, date = `${due}-02-15`;
+  return { date, year: due, text: t(lang, 'stage.nextLine', { year: due, date: longDate(date, lang) }), days: t(lang, 'stage.nextDays', { n: '{n}' }), doc: sourceDoc('pfm-act-2012'), page: 's.25(2), p.908' };
+}
 
 export function timeline(lang) {
   const at = TIMELINE.findIndex((s) => s.stage === NOW);

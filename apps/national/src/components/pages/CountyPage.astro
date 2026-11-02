@@ -7,11 +7,11 @@ import { allCountyDev, countyBySlug, shareParts, stageIds } from '../../lib/coun
 import { href } from '../../lib/routes.js';
 import { changeChip, countyQuestions, whatsappHref } from '../../lib/sentences.js';
 import Breadcrumbs from '../Breadcrumbs.astro';
+import CountyDepth from './CountyDepth.astro';
 import BudgetVsSpent from '../BudgetVsSpent.astro';
 import Chart from '../Chart.astro';
 import DataTable from '../DataTable.astro';
 import Meter from '../Meter.astro';
-import NotYetLoaded from '../NotYetLoaded.astro';
 import PageHero from '../PageHero.astro';
 import QuestionCard from '../QuestionCard.astro';
 import ShareCard from '../ShareCard.astro';
@@ -64,7 +64,6 @@ const questions = countyQuestions(c, lang);
           <h3 class="cf-title">{t(lang, 'county.builds')}</h3>
           <div class="cf-body"><DataTable lang={lang} columns={columns} rows={partRows} caption={t(lang, 'county.builds')} sortable={false} /></div>
         </figure>
-        <NotYetLoaded what={t(lang, 'county.grantsWhat')} why={t(lang, 'county.grantsWhy')} lang={lang} />
       </div>
     </div>
   </div>
@@ -79,14 +78,16 @@ const questions = countyQuestions(c, lang);
   </div>
 </section>
 
-<section class="band" aria-labelledby="h-q">
+<CountyDepth slug={slug} name={c.name} lang={lang} />
+
+<section class="band alt" aria-labelledby="h-q">
   <div class="wrap">
     <div class="band-head"><h2 id="h-q">{t(lang, 'question.title')}</h2></div>
     <div class="dev-grid">{questions.map((q) => <article class="card"><QuestionCard question={q} lang={lang} /></article>)}</div>
   </div>
 </section>
 
-<section class="band alt" id="share">
+<section class="band" id="share">
   <div class="wrap dev-grid">
     <ShareCard lang={lang} text={shareText} source={t(lang, 'county.shareSource')} url={url} />
     <div class="btn-row">

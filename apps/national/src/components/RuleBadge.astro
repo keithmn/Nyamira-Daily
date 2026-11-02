@@ -1,0 +1,9 @@
+---
+// Meets, Does not meet or No data. A tick, a cross or a dash carries the result as well as the word. It has no red: red is
+// for gaps such as unspent money, never for a verdict (DESIGN.md).
+import { t } from '../i18n/index.js';
+
+interface Props { result: 'meets' | 'misses' | 'none'; lang?: 'en' | 'sw' }
+const { result, lang = 'en' } = Astro.props;
+---
+<span class={`rule rule-${result}`}><span aria-hidden="true">{{ meets: '✓', misses: '✕', none: '–' }[result]}</span> {t(lang, `rule.${result}`)}</span>

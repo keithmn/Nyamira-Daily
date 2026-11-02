@@ -108,6 +108,13 @@ for (const table of $$('table[data-sortable]')) {
 const today = new Date().toISOString().slice(0, 10);
 for (const note of $$('[data-stale-after]')) if (note.dataset.staleAfter < today) note.hidden = false;
 
+/* a countdown in days, never hours, worked out from the date in Nairobi */
+for (const el of $$('[data-days-until]')) {
+  const here = new Date().toLocaleDateString('en-CA', { timeZone: 'Africa/Nairobi' });
+  const days = Math.round((Date.parse(el.dataset.daysUntil) - Date.parse(here)) / 864e5);
+  if (days > 0) el.textContent = el.dataset.text.replace('{n}', days);
+}
+
 /* My county */
 const chip = $('[data-chip]');
 function readCounty() { try { return JSON.parse(saved('kbe-county')); } catch { return null; } }

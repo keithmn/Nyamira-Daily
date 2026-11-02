@@ -29,6 +29,8 @@ export function countyQuestions(c, lang) {
     const unspent = year.budget - year.spent;
     if (unspent > 0) out.push(t(lang, 'question.unspent', { name: c.name, amount: money(unspent, 'KSh m', lang), fy: `FY${year.fy}` }));
   }
+  if (c.payables) out.push(t(lang, 'question.bills', { name: c.name, amount: money(c.payables, 'KSh m', lang) }));
+  if (c.osrPct != null && c.osrPct < 100) out.push(t(lang, 'question.osr', { name: c.name, pct: percent(c.osrPct, 0), fy: 'FY2025/26' }));
   const key = c.value < toShillings(c.recommended, 'KSh m') ? 'question.craLess' : 'question.craMore';
   out.push(t(lang, key, { name: c.name, rec: money(c.recommended, 'KSh m', lang), law: money(c.value, 'KSh', lang) }));
   return out;

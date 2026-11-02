@@ -5216,7 +5216,7 @@
   {
    "id": "ke.fy2025-26.spent.county-total.wage-share",
    "name": "All 47 counties: wages as a share of total revenue, FY2025/26",
-   "value": 39.5,
+   "value": 39.54,
    "unit": "%",
    "grouping": "county-measure",
    "level": "measure",
@@ -5229,7 +5229,7 @@
      "ke.fy2025-26.spent.county-total.wages",
      "ke.fy2025-26.spent.county-total.revenue"
     ],
-    "round": 1
+    "round": 2
    },
    "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
   }

@@ -223,5 +223,38 @@
    "date": "2027-09-30",
    "what": "The County Governments Budget Implementation Review Report for FY2026/27"
   }
+ },
+ {
+  "id": "pfm-act-2012",
+  "title": "Public Finance Management Act, 2012 (No. 18 of 2012, Kenya Gazette Supplement No. 94)",
+  "issuer": "Parliament of Kenya",
+  "docType": "act",
+  "fy": "2025/26",
+  "stage": "law",
+  "date": "2012-07",
+  "url": "https://www.parliament.go.ke/sites/default/files/2017-06/Public_Finance_Management_Act_2012.pdf",
+  "archive": null,
+  "sha256": "4b7bc83872504bb6aa0d1d3a37062f75c883332bd666846f4410e35e175468bf",
+  "file": "pfm-act-2012.pdf",
+  "pageOffset": 869,
+  "tolerance": {},
+  "nextExpected": null,
+  "note": "The Act as passed. Later amendments are not read here. The Treasury and the Controller of Budget cite the same sections in their 2026 documents, as Cap 412A."
+ },
+ {
+  "id": "pfm-county-regulations-2015",
+  "title": "Public Finance Management (County Governments) Regulations, 2015 (Legal Notice No. 35, Kenya Gazette Supplement No. 33)",
+  "issuer": "Cabinet Secretary for the National Treasury",
+  "docType": "act",
+  "fy": "2025/26",
+  "stage": "law",
+  "date": "2015-03-20",
+  "url": "https://www.parliament.go.ke/sites/default/files/2017-05/Legal_Notice_No._35_County_Govts_Regu.pdf",
+  "archive": null,
+  "sha256": "98ddeb3d93039d8f92ccc363c2c3a52b31322c450b82cd23379caab4da7524df",
+  "file": "pfm-county-regulations-2015.pdf",
+  "pageOffset": 312,
+  "tolerance": {},
+  "nextExpected": null
  }
 ]

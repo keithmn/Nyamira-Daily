@@ -1,6 +1,6 @@
 ---
 // All 47 counties in one sortable table, with the method beside it. Rank is money received, never a judgment.
-import { full, percent } from '@kbe/engine/fmt';
+import { full, money, percent } from '@kbe/engine/fmt';
 import { t } from '../../i18n/index.js';
 import { countyRows } from '../../lib/counties.js';
 import { FY } from '../../lib/figures.js';
@@ -15,10 +15,10 @@ interface Props { lang?: 'en' | 'sw' }
 const { lang = 'en' } = Astro.props;
 const rows = countyRows().sort((a, b) => a.rank - b.rank);
 const year = rows[0].spending.at(-1);
-const columns = [{ key: 'rank', label: t(lang, 'col.rank'), num: true }, { key: 'county', label: t(lang, 'col.county') }, { key: 'share', label: `${t(lang, 'col.share')}, ${FY}`, num: true }, { key: 'change', label: t(lang, 'col.change'), num: true }, { key: 'dev', label: `${t(lang, 'col.dev')}, FY${year.fy}`, num: true }, { key: 'overall', label: `${t(lang, 'col.overall')}, FY${year.fy}`, num: true }];
+const columns = [{ key: 'rank', label: t(lang, 'col.rank'), num: true }, { key: 'county', label: t(lang, 'col.county') }, { key: 'share', label: `${t(lang, 'col.share')}, ${FY}`, num: true }, { key: 'change', label: t(lang, 'col.change'), num: true }, { key: 'dev', label: `${t(lang, 'col.dev')}, FY${year.fy}`, num: true }, { key: 'overall', label: `${t(lang, 'col.overall')}, FY${year.fy}`, num: true }, { key: 'osr', label: t(lang, 'col.osr'), num: true }, { key: 'wages', label: t(lang, 'col.wages'), num: true }, { key: 'payables', label: t(lang, 'col.payables'), num: true }];
 const tableRows = rows.map((c) => {
   const y = c.spending.at(-1);
-  return { key: c.slug, rank: { shown: String(c.rank), sort: c.rank }, county: { shown: c.name, href: countyHref(lang, c.slug) }, share: { shown: full(c.value), sort: c.value }, change: { shown: changeChip(c.change, lang), sort: c.change.toFixed(2) }, dev: { shown: percent(y.devPct, 0), sort: y.devPct }, overall: { shown: percent(y.pct, 0), sort: y.pct } };
+  return { key: c.slug, rank: { shown: String(c.rank), sort: c.rank }, county: { shown: c.name, href: countyHref(lang, c.slug) }, share: { shown: full(c.value), sort: c.value }, change: { shown: changeChip(c.change, lang), sort: c.change.toFixed(2) }, dev: { shown: percent(y.devPct, 0), sort: y.devPct }, overall: { shown: percent(y.pct, 0), sort: y.pct }, osr: { shown: percent(c.osrPct, 0), sort: c.osrPct }, wages: { shown: percent(c.wageShare, 0), sort: c.wageShare }, payables: c.payables == null ? { shown: t(lang, 'rule.none'), sort: -1 } : { shown: money(c.payables, 'KSh m', lang), sort: c.payables } };
 });
 ---
 <div class="wrap">

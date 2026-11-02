@@ -354,6 +354,13 @@ html.js .no-js-note { display: none; }
 .results li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; border-bottom: 1px solid var(--line); }
 .results a { display: inline-flex; align-items: center; min-height: 44px; }
 
+/* Rule badges: a word and a mark, never red */
+.rule { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; padding: 2px 12px; border: 1.5px solid var(--ink); border-radius: 999px; font-size: var(--fs-s); font-weight: 700; color: var(--ink); }
+.rule-misses { border-style: dashed; }
+.rule-none { border-color: var(--control-line); color: var(--ink-2); font-weight: 500; }
+.stage-next { font-size: var(--fs-s); color: var(--ink-2); max-width: none; }
+.stage-next a { display: inline-flex; align-items: center; min-height: 44px; }
+
 /* Print sheet: always black on white, whatever the reader's theme */
 .sheet-body { --bg: #FFFFFF; --ink: #111111; --ink-2: #333333; --muted: #595957; --line: #dcdcd7; --focus: #111111; --primary: #6250d6; --on-primary: #FFFFFF; --control-line: #8a8a85; color-scheme: light; background: #FFFFFF; color: #111111; padding: 0; }
 .sheet { max-width: 720px; margin: 0 auto; padding: 16px; display: grid; gap: 12px; }

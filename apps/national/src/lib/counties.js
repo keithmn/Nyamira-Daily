@@ -22,7 +22,9 @@ export function countyRows() {
   const rows = COUNTIES.map((c) => {
     const now = fig(`law.county.${c.slug}.equitable-share`), last = fig(`ke.fy2025-26.law.county.${c.slug}.equitable-share`);
     const spending = SPENT_YEARS.map((y) => spendingYear(c.slug, y));
-    return { ...c, figure: now, value: now.value, last: last.value, change: compareFigures(last, now).percent, spending, recommended: fig(`recommendation.county.${c.slug}.equitable-share`).value, allCounty: allCountyDev().value };
+    const y = (key) => fig(`ke.fy2025-26.spent.county.${c.slug}.${key}`);
+    const payables = hasFigure(`ke.fy2025-26.spent.county.${c.slug}.payables`) ? y('payables').value : null;
+    return { ...c, figure: now, value: now.value, last: last.value, change: compareFigures(last, now).percent, spending, recommended: fig(`recommendation.county.${c.slug}.equitable-share`).value, allCounty: allCountyDev().value, payables, osrPct: y('osr-actual').value / y('osr-target').value * 100, wageShare: y('wage-share').value };
   });
   const order = [...rows].sort((a, b) => b.value - a.value);
   return rows.map((r) => ({ ...r, rank: order.indexOf(r) + 1 }));
@@ -53,5 +55,5 @@ export const cardData = (lang) => countyRows().map((r) => ({
 // The rows of the compare page, worded in the page's language
 export const compareData = (lang) => countyRows().map((r) => {
   const y = r.spending.at(-1);
-  return { s: r.slug, n: r.name, v: [money(r.value, 'KSh', lang), changeChip(r.change, lang), `${r.rank}`, percent(y.devPct, 0), percent(y.pct, 0), money(y.budget, 'KSh m', lang), money(y.spent, 'KSh m', lang)] };
+  return { s: r.slug, n: r.name, v: [money(r.value, 'KSh', lang), changeChip(r.change, lang), `${r.rank}`, percent(y.devPct, 0), percent(y.pct, 0), money(y.budget, 'KSh m', lang), money(y.spent, 'KSh m', lang), percent(r.osrPct, 0), percent(r.wageShare, 0), r.payables == null ? t(lang, 'rule.none') : money(r.payables, 'KSh m', lang)] };
 });

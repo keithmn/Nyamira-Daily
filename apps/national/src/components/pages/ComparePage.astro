@@ -11,7 +11,7 @@ import Breadcrumbs from '../Breadcrumbs.astro';
 interface Props { lang?: 'en' | 'sw' }
 const { lang = 'en' } = Astro.props;
 const fy = `FY${LATEST_SPENT.replace('-', '/')}`;
-const measures = [`${t(lang, 'col.share')}, ${FY}`, t(lang, 'col.change'), t(lang, 'col.rank'), `${t(lang, 'col.dev')}, ${fy}`, `${t(lang, 'col.overall')}, ${fy}`, `${t(lang, 'col.budget')}, ${fy}`, `${t(lang, 'col.spent')}, ${fy}`];
+const measures = [`${t(lang, 'col.share')}, ${FY}`, t(lang, 'col.change'), t(lang, 'col.rank'), `${t(lang, 'col.dev')}, ${fy}`, `${t(lang, 'col.overall')}, ${fy}`, `${t(lang, 'col.budget')}, ${fy}`, `${t(lang, 'col.spent')}, ${fy}`, `${t(lang, 'col.osr')}, ${fy}`, `${t(lang, 'col.wages')}, ${fy}`, `${t(lang, 'col.payables')}, 30 June 2026`];
 const data = { rows: compareData(lang), measures, measure: t(lang, 'compare.measure'), base: href(lang, '/counties/') };
 // Nyamira and the three counties with the longest shared boundary, from the file behind the main site's map. Homa Bay also
 // touches it, but the page holds four counties.

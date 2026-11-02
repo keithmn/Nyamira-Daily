@@ -29,7 +29,8 @@ export function fig(id) {
 
 export const hasFigure = (id) => figures.has(id.startsWith('ke.') ? id : PREFIX + id);
 export const allFigures = () => [...figures.values()];
-export const shortTitle = (doc) => doc.title.split(' (')[0];
+export const sourceDoc = (id) => sources.get(id);
+export const shortTitle = (doc) => doc.title.replace(/ ([^()]*)$/, '');
 export const citationFor = (f) => citation(f, f.doc, release, site.name);
 export const correctionFor = (id) => corrections.filter((c) => c.id === id).at(-1) ?? null;
 export const today = () => new Date().toLocaleDateString('en-CA', { timeZone: 'Africa/Nairobi' });
