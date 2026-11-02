@@ -8,6 +8,8 @@ const site = resolveSite({ build: isBuild });
 export default defineConfig({
   site,
   trailingSlash: 'always',
+  // Astro 7's default ('jsx') drops spaces between inline elements; keep the spacing the pages were written with
+  compressHTML: true,
   build: { format: 'directory' },
   // Old data pages now live inside the sector pages (decision #30)
   redirects: {
