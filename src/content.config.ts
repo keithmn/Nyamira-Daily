@@ -1,6 +1,7 @@
 // Content collections: Markdown files anyone can add (one file per entry, frontmatter as below).
 // Entries with `draft: true` (the EXAMPLE entries) are left out of the built site unless ND_DRAFTS=1.
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 import { alertTypes } from './lib/alerts.js';
 import { alertMonitoring } from './config.js';
