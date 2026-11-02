@@ -1,0 +1,147 @@
+[
+ {
+  "id": "mwananchi-2026-27",
+  "title": "Budget Highlights: The Mwananchi Guide for the FY 2026/27 Budget (National Treasury, June 2026)",
+  "issuer": "National Treasury",
+  "docType": "guide",
+  "fy": "2026/27",
+  "stage": "statement",
+  "date": "2026-06-11",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
+  "archive": "https://web.archive.org/web/20260713024452/https://newsite.treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
+  "sha256": "ffd4c8fca40b8ea7357c76520d27e9595cc2340e8f74bd044fb6a45fe6e2472d",
+  "file": "mwananchi-guide-2026-27.pdf",
+  "pageOffset": 0,
+  "tolerance": {
+   "KSh bn": 0.1
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "Mwananchi Guide for FY2027/28"
+  }
+ },
+ {
+  "id": "budget-summary-2026-27",
+  "title": "Budget Summary for the FY 2026/27 Budget (National Treasury, 30 April 2026)",
+  "issuer": "National Treasury",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "estimates",
+  "date": "2026-04-30",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20summary/Budget%20Summary%20for%20the%20FY%202026_27%20Budget.pdf",
+  "archive": null,
+  "sha256": "1e24992d34cb4dddefd4ad04c3f77055e6be976b8b326256a17b5312725a550b",
+  "file": "budget-summary-2026-27.pdf",
+  "pageOffset": 0,
+  "tolerance": {
+   "KSh bn": 0.1
+  },
+  "nextExpected": {
+   "date": "2027-04-30",
+   "what": "Budget Summary for FY2027/28"
+  }
+ },
+ {
+  "id": "revenue-estimates-2026-27",
+  "title": "Estimates of Revenue, Grants and Loans for the FY 2026/27 Budget (National Treasury, June 2026)",
+  "issuer": "National Treasury",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "statement",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Estimates/Estimates%20of%20Revenue%2C%20Grants%20and%20Loans%20for%20the%20FY%202026-27%20Budget.pdf",
+  "archive": null,
+  "sha256": "698a9e5a761c07161f5cc2ad08beb402574728e0e51d2f86f97439ef70896e25",
+  "file": "estimates-of-revenue-2026-27.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh bn": 0.1
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "Estimates of Revenue for FY2027/28"
+  },
+  "note": "Roman-numbered summary pages: PDF p.6 to p.9 are printed v to viii."
+ },
+ {
+  "id": "cra-recommendation-2026-27",
+  "title": "CRA Recommendation on the Basis for Equitable Sharing of Revenue, FY 2026/27 (Commission on Revenue Allocation, February 2026)",
+  "issuer": "Commission on Revenue Allocation",
+  "docType": "recommendation",
+  "fy": "2026/27",
+  "stage": "recommendation",
+  "date": "2026-02-03",
+  "url": "https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf",
+  "archive": "https://web.archive.org/web/20260408023818/https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf",
+  "sha256": "38189f669f7014cfd11d0cc7d7215332667772b5cc32a7ccb083ad9976b8498a",
+  "file": "cra-recommendation-2026-27.pdf",
+  "pageOffset": -7,
+  "tolerance": {
+   "KSh m": 5
+  },
+  "nextExpected": {
+   "date": "2027-02-28",
+   "what": "CRA recommendation for FY2027/28"
+  }
+ },
+ {
+  "id": "appropriation-act-2026",
+  "title": "Appropriation Act, 2026 (No. 20 of 2026, Kenya Gazette Supplement No. 158, 26 June 2026)",
+  "issuer": "Parliament of Kenya",
+  "docType": "act",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06-26",
+  "url": "https://new.kenyalaw.org/akn/ke/act/2026/20/eng@2026-06-26",
+  "archive": null,
+  "sha256": "e7ae5969fee57995371bf77d0473c35d394611d42a1358a7539a6cc7571aace1",
+  "file": "appropriation-act-2026.pdf",
+  "pageOffset": 385,
+  "tolerance": {
+   "KSh": 0
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "Appropriation Act, 2027"
+  },
+  "note": "A scan with a machine-read text layer. Assented 23 June 2026; in force 1 July 2026."
+ },
+ {
+  "id": "county-allocation-act-2026",
+  "title": "County Allocation of Revenue Act, 2026 (No. 22 of 2026, Kenya Gazette Supplement No. 168, 3 July 2026)",
+  "issuer": "Parliament of Kenya",
+  "docType": "act",
+  "fy": "2026/27",
+  "stage": "law",
+  "date": "2026-07-03",
+  "url": "https://new.kenyalaw.org/akn/ke/act/2026/22/eng@2026-07-03",
+  "archive": null,
+  "sha256": "c45529acc965582c75d89214df301d43cabb5925ab486e095dacd7351b8642fd",
+  "file": "county-allocation-act-2026.pdf",
+  "pageOffset": 452,
+  "tolerance": {
+   "KSh": 5
+  },
+  "nextExpected": {
+   "date": "2027-07-31",
+   "what": "County Allocation of Revenue Act, 2027"
+  },
+  "note": "Assented 29 June 2026; in force 17 July 2026. The First Schedule has no text layer. Payment dates are in a separate Gazette notice (s.4(2)), not in the Act."
+ },
+ {
+  "id": "people-daily-approved-2026",
+  "title": "Parliament approves 2026/27 Budget as health and education take lion's share (People Daily, June 2026)",
+  "issuer": "People Daily",
+  "docType": "press",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://peopledaily.digital/business/parliament-approves-2026-27-budget-as-health-and-education-take-lions-share",
+  "archive": null,
+  "sha256": null,
+  "file": null,
+  "pageOffset": null,
+  "tolerance": {},
+  "nextExpected": null
+ }
+]

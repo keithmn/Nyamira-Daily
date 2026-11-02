@@ -1,0 +1,447 @@
+{
+ "defaults": {
+  "fy": "2026/27",
+  "stage": "recommendation",
+  "unit": "KSh m",
+  "grouping": "county-allocation",
+  "money": "county",
+  "label": "official",
+  "source": "cra-recommendation-2026-27",
+  "checkedOn": "2026-11-01",
+  "checkedBy": "claude-code"
+ },
+ "figures": [
+  {
+   "id": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "name": "All 47 counties: CRA recommended share",
+   "value": 458940,
+   "level": "total",
+   "parent": null,
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.baringo.equitable-share",
+   "name": "Baringo: CRA recommended share",
+   "value": 7845,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.bomet.equitable-share",
+   "name": "Bomet: CRA recommended share",
+   "value": 8270,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.bungoma.equitable-share",
+   "name": "Bungoma: CRA recommended share",
+   "value": 13110,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.busia.equitable-share",
+   "name": "Busia: CRA recommended share",
+   "value": 8798,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.elgeyo-marakwet.equitable-share",
+   "name": "Elgeyo/Marakwet: CRA recommended share",
+   "value": 6118,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.embu.equitable-share",
+   "name": "Embu: CRA recommended share",
+   "value": 6717,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.garissa.equitable-share",
+   "name": "Garissa: CRA recommended share",
+   "value": 9996,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.homa-bay.equitable-share",
+   "name": "Homa Bay: CRA recommended share",
+   "value": 9554,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.isiolo.equitable-share",
+   "name": "Isiolo: CRA recommended share",
+   "value": 6271,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.kajiado.equitable-share",
+   "name": "Kajiado: CRA recommended share",
+   "value": 9941,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.kakamega.equitable-share",
+   "name": "Kakamega: CRA recommended share",
+   "value": 14999,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.kericho.equitable-share",
+   "name": "Kericho: CRA recommended share",
+   "value": 8017,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.kiambu.equitable-share",
+   "name": "Kiambu: CRA recommended share",
+   "value": 14556,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.kilifi.equitable-share",
+   "name": "Kilifi: CRA recommended share",
+   "value": 14040,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.44",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.kirinyaga.equitable-share",
+   "name": "Kirinyaga: CRA recommended share",
+   "value": 6782,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.kisii.equitable-share",
+   "name": "Kisii: CRA recommended share",
+   "value": 10799,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.kisumu.equitable-share",
+   "name": "Kisumu: CRA recommended share",
+   "value": 9849,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.kitui.equitable-share",
+   "name": "Kitui: CRA recommended share",
+   "value": 12681,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.kwale.equitable-share",
+   "name": "Kwale: CRA recommended share",
+   "value": 9942,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.laikipia.equitable-share",
+   "name": "Laikipia: CRA recommended share",
+   "value": 6762,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.lamu.equitable-share",
+   "name": "Lamu: CRA recommended share",
+   "value": 4298,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.machakos.equitable-share",
+   "name": "Machakos: CRA recommended share",
+   "value": 11288,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.makueni.equitable-share",
+   "name": "Makueni: CRA recommended share",
+   "value": 9889,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.mandera.equitable-share",
+   "name": "Mandera: CRA recommended share",
+   "value": 13259,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.marsabit.equitable-share",
+   "name": "Marsabit: CRA recommended share",
+   "value": 9073,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.meru.equitable-share",
+   "name": "Meru: CRA recommended share",
+   "value": 11716,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.migori.equitable-share",
+   "name": "Migori: CRA recommended share",
+   "value": 9835,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.mombasa.equitable-share",
+   "name": "Mombasa: CRA recommended share",
+   "value": 9305,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.muranga.equitable-share",
+   "name": "Murang'a: CRA recommended share",
+   "value": 8842,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.nairobi-city.equitable-share",
+   "name": "Nairobi City: CRA recommended share",
+   "value": 23781,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.nakuru.equitable-share",
+   "name": "Nakuru: CRA recommended share",
+   "value": 15958,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.nandi.equitable-share",
+   "name": "Nandi: CRA recommended share",
+   "value": 8583,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.narok.equitable-share",
+   "name": "Narok: CRA recommended share",
+   "value": 10777,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.nyamira.equitable-share",
+   "name": "Nyamira: CRA recommended share",
+   "value": 6724,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.nyandarua.equitable-share",
+   "name": "Nyandarua: CRA recommended share",
+   "value": 7338,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.nyeri.equitable-share",
+   "name": "Nyeri: CRA recommended share",
+   "value": 7615,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.samburu.equitable-share",
+   "name": "Samburu: CRA recommended share",
+   "value": 6988,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.siaya.equitable-share",
+   "name": "Siaya: CRA recommended share",
+   "value": 8618,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.taita-taveta.equitable-share",
+   "name": "Taita Taveta: CRA recommended share",
+   "value": 6374,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.tana-river.equitable-share",
+   "name": "Tana River: CRA recommended share",
+   "value": 7979,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.tharaka-nithi.equitable-share",
+   "name": "Tharaka Nithi: CRA recommended share",
+   "value": 5605,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.trans-nzoia.equitable-share",
+   "name": "Trans Nzoia: CRA recommended share",
+   "value": 8850,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.turkana.equitable-share",
+   "name": "Turkana: CRA recommended share",
+   "value": 15186,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.uasin-gishu.equitable-share",
+   "name": "Uasin Gishu: CRA recommended share",
+   "value": 9939,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.vihiga.equitable-share",
+   "name": "Vihiga: CRA recommended share",
+   "value": 6664,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.wajir.equitable-share",
+   "name": "Wajir: CRA recommended share",
+   "value": 11659,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2026-27.recommendation.county.west-pokot.equitable-share",
+   "name": "West Pokot: CRA recommended share",
+   "value": 7750,
+   "level": "county",
+   "parent": "ke.fy2026-27.recommendation.county-total.equitable-share",
+   "page": "Table 6.2, p.45",
+   "pdfPage": 52
+  }
+ ]
+}
