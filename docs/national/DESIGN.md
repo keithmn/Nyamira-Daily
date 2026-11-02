@@ -246,4 +246,17 @@ Lighthouse's SEO score is 60 on these pages only because preview builds are mark
 - All three fonts are preloaded. They load on every page anyway, and without this the bold weight moved the text when it arrived.
 - A glossary term takes its 44px target from a `::after` box, so it does not push its sentence's lines apart.
 
-**Still not checked:** a real low-end phone, a screen reader, and pages with real depth. The app has only one product page so far, so Phase 4 must hold these numbers on the county and vote pages.
+**Measured again in Phase 4,** on the pages with the most on them:
+
+| Page | Performance, accessibility, best practices | Largest paint | Layout shift | Before fonts |
+|---|---|---|---|---|
+| County page | 100, 100, 100 | 1.3 s | 0 | 15 KB |
+| Year page | 100, 100, 100 | 1.3 s | 0 | 16 KB |
+| All 47 counties | 100, 100, 100 | 1.3 s | 0 | 17 KB |
+| Largest sector page, 15 votes | 100, 100, 100 | 1.3 s | 0 | 15 KB |
+
+`test:national:site` covers 19 page types in axe, heading order, tap targets and sideways scroll. The stylesheet is 6 KB and the script 3 KB, against allowances of 12 and 10.
+
+**Added in Phase 4:** `PageHero` carries the number, sentence, label, stage and source for every page. On the home and year pages the number is the `h1`; deeper down the name is the `h1` and the number follows it. `FigureAbout` is the second layer under a figure. The print sheet has its own layout, and stays black on white in any theme.
+
+**Still not checked:** a real low-end phone, a screen reader, and real readers (section 9 of the brief).

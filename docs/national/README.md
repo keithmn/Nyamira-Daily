@@ -12,7 +12,9 @@
 | `scripts/national/` | The extractor, the figure builder, double entry, the page search, releases and the master check |
 | `apps/national/` | The site: `src/pages`, components, `src/lib` (all arithmetic), `src/i18n`, `src/scripts/app.js`, `e2e` (browser tests) |
 
-So far the site has the first screen of the home page in both languages, the 404 page, one CSV and the component library. Section links go to routes still listed in `PLANNED` in `src/lib/routes.js`.
+So far the site has, in English and Kiswahili: the home page, the year page, all 12 sector groups, all 87 votes, all 201 programmes, all 47 counties with their print sheets, county comparison and search. That is 803 pages, plus CSV files in `/data/` and the component library in preview builds. The Track, Learn and Data sections go to routes still listed in `PLANNED` in `src/lib/routes.js`.
+
+Views are in `src/components/pages/`. Each route is a thin file in `src/pages/` and its twin in `src/pages/sw/`, which only name the paths, the title and the view.
 
 ## Run the site
 
@@ -41,7 +43,7 @@ npm run test:national:site
 npm run test:national:visual
 ```
 
-`test:national:site` builds the app, then checks axe, tap targets, sideways scroll, script errors under the real security policy, JavaScript off, keyboard use, weight and internal links. It runs in CI and needs Chrome installed.
+`test:national:site` builds the app, then checks axe, heading order, tap targets, sideways scroll, script errors under the real security policy, JavaScript off, keyboard use, weight and internal links, and walks the five usability tasks with taps at 390px. It takes about four minutes, runs in CI and needs Chrome installed. Passing it does not replace the rounds with real readers in section 9 of the brief.
 
 `test:national:visual` compares six key parts of the pages, at 390 and 1280, light and dark, with saved pictures. It runs on the laptop only. After a deliberate change, run it with `-- --update-snapshots` and look at the new pictures before committing them.
 

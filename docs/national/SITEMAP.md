@@ -123,7 +123,7 @@ The spec's test of "usable", on a 390px phone:
 | Page type | Count |
 |---|---|
 | Year pages | 5 |
-| Sector pages, 10 per year | 50 |
+| Sector pages, 12 per year (see change 10) | 60 |
 | Vote pages, 87 per year (Appropriation Act 2026) | about 435 |
 | Programme pages, 201 per year (same Act; 329 rows once recurrent and development are split) | about 1,005 |
 | County pages, sheets and embeds | 141 |
@@ -162,6 +162,7 @@ We take the page types, not the look or wording, and never suggest a connection.
 7. **Two reviewed data files**, because the documents do not supply them: which votes make up each sector, and how votes map across years when ministries are reorganised. Neither can be scripted, so a person checks them. The five-year trend depends on the second.
 8. **The Astro 7 upgrade comes first** in the next phase, before the data engine, because the registry's Zod version comes with Astro (decision #85).
 9. **Phases are renumbered** as in decision #82: 2 data engine, 3 app shell, 4 core journeys, 5 depth, 6 reach, 7 hardening.
+10. **Twelve sector groups,** added after approval (decision #93). The Budget Explainer lists Parliament and the Judiciary apart from the ten sectors, so they have pages of their own: `parliament` and `judiciary`.
 
 ## Risks to plan around
 

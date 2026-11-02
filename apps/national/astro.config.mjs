@@ -16,6 +16,7 @@ export default defineConfig({
   compressHTML: true,
   devToolbar: { enabled: false },
   build: { format: 'directory', inlineStylesheets: 'never' },
+  redirects: { '/budget/': '/budget/2026-27/', '/sw/budget/': '/sw/budget/2026-27/' },
   integrations: [headers()],
   vite: {
     build: { assetsInlineLimit: 0 },

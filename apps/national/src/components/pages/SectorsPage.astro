@@ -1,0 +1,34 @@
+---
+// All twelve groups in the Budget Explainer. The change on last year adds the same votes in both years.
+import { full, percent } from '@kbe/engine/fmt';
+import { t } from '../../i18n/index.js';
+import { FY } from '../../lib/figures.js';
+import { YEAR, href, sectorHref } from '../../lib/routes.js';
+import { changeChip } from '../../lib/sentences.js';
+import { allSectors } from '../../lib/votes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import Chart from '../Chart.astro';
+import DataTable from '../DataTable.astro';
+import RankedBars from '../RankedBars.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const sectors = allSectors();
+const rows = sectors.map((s, i) => ({ name: t(lang, `sector.${s.slug}`), value: s.total, shown: (s.total / 1e9).toFixed(1), mark: i === 0, href: sectorHref(lang, s.slug) }));
+const columns = [{ key: 'name', label: t(lang, 'search.type.sector') }, { key: 'total', label: t(lang, 'sector.thisYear'), num: true }, { key: 'change', label: t(lang, 'sector.change'), num: true }];
+const tableRows = sectors.map((s) => ({ name: { shown: t(lang, `sector.${s.slug}`), href: sectorHref(lang, s.slug) }, total: { shown: full(s.total), sort: s.total }, change: { shown: changeChip(s.change, lang), sort: s.change.toFixed(2) } }));
+---
+<div class="wrap">
+  <Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.budget'), path: YEAR }, { name: t(lang, 'sectors.title', { fy: FY }) }]} />
+  <div class="page-head"><h1>{t(lang, 'sectors.title', { fy: FY })}</h1><p>{t(lang, 'sectors.line')}</p></div>
+</div>
+<section class="band">
+  <h2 class="vh">{t(lang, 'nav.detail')}</h2>
+  <div class="wrap stack gap-l">
+    <Chart lang={lang} title={t(lang, 'budget.sectorsTitle', { name: t(lang, `sector.${sectors[0].slug}`) })} sub={t(lang, 'budget.sectorsSub', { fy: FY })} from={sectors[0].first} calc={t(lang, 'fig.calc')}>
+      <RankedBars rows={rows} lang={lang} />
+    </Chart>
+    <DataTable lang={lang} columns={columns} rows={tableRows} caption={t(lang, 'sectors.title', { fy: FY })} csvHref={href('en', '/data/sectors-2026-27.csv')} csvName="sectors-2026-27.csv" />
+    <p class="small muted">{t(lang, 'change.basis', { last: 'FY2025/26' })} {t(lang, 'change.sameVotes')}</p>
+  </div>
+</section>

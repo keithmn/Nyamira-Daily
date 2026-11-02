@@ -1,6 +1,6 @@
 // Sentences written from data. The words are "more" and "less", "up" and "down", with numbers (build brief 5.2). A missing
 // year, a zero and a fall each have their own wording, so no reader ever sees "NaN%" or "0 more".
-import { money, percent } from '@kbe/engine/fmt';
+import { money, percent, toShillings } from '@kbe/engine/fmt';
 import { t } from '../i18n/index.js';
 
 export function amountSentence({ name, amount, change, fy, lang }) {
@@ -25,10 +25,14 @@ export function countyQuestions(c, lang) {
   const year = c.spending.at(-1), all = c.allCounty;
   if (year) {
     const key = year.devPct < all ? 'question.devLow' : 'question.devHigh';
-    out.push(t(lang, key, { name: c.name, pct: percent(year.devPct, 0), all: percent(all, 0), fy: year.fy }));
+    out.push(t(lang, key, { name: c.name, pct: percent(year.devPct, 0), all: percent(all, 0), fy: `FY${year.fy}` }));
     const unspent = year.budget - year.spent;
-    if (unspent > 0) out.push(t(lang, 'question.unspent', { name: c.name, amount: money(unspent, 'KSh m', lang), fy: year.fy }));
+    if (unspent > 0) out.push(t(lang, 'question.unspent', { name: c.name, amount: money(unspent, 'KSh m', lang), fy: `FY${year.fy}` }));
   }
-  out.push(t(lang, c.value < c.recommended ? 'question.craLess' : 'question.craMore', { name: c.name, rec: money(c.recommended, 'KSh m', lang), law: money(c.value, 'KSh', lang) }));
+  const key = c.value < toShillings(c.recommended, 'KSh m') ? 'question.craLess' : 'question.craMore';
+  out.push(t(lang, key, { name: c.name, rec: money(c.recommended, 'KSh m', lang), law: money(c.value, 'KSh', lang) }));
   return out;
 }
+
+// The message carries the figure, its source and the link, so a forwarded card keeps its provenance
+export const whatsappHref = (text, source, url) => `https://wa.me/?text=${encodeURIComponent(`${text} ${source} ${url}`)}`;

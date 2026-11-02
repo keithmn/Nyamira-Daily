@@ -4,10 +4,13 @@ import { dictionaries, t } from '../i18n/index.js';
 import { hash, headersFile, inlineScripts, policy } from '../../integrations/headers.mjs';
 import { fitsAboveBar, inflows, outflows, perHundred, sectors } from './budget.js';
 import { barWidths, endLabelY, linePoints, ticks } from './charts.js';
-import { cardData, changeWords, countyRows } from './counties.js';
+import { allCountyDev, cardData, changeWords, countyBySlug, countyRows, shareParts } from './counties.js';
 import { fig, release } from './figures.js';
 import { PLANNED, SECTIONS, href, isPlanned, sectionOf, twin } from './routes.js';
+import { searchIndex } from './search.js';
+import { amountSentence, countyQuestions, whatsappHref } from './sentences.js';
 import { timeline } from './stages.js';
+import { allSectors, allVotes, sectorBySlug, voteByCode } from './votes.js';
 
 const vars = (s) => [...s.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort();
 
@@ -24,7 +27,7 @@ test('a missing key or value stops the build', () => {
 });
 
 test('every page in the navigation has a name in both languages', () => {
-  for (const p of PLANNED.filter((x) => x !== '/search/')) for (const lang of ['en', 'sw']) assert.ok(t(lang, `page.${p}`), p);
+  for (const p of PLANNED) for (const lang of ['en', 'sw']) assert.ok(t(lang, `page.${p}`), p);
   for (const s of SECTIONS) for (const lang of ['en', 'sw']) assert.ok(t(lang, `nav.${s.key}`));
 });
 
@@ -42,10 +45,108 @@ test('routes carry the language and find their twin', () => {
 });
 
 test('only known routes count as planned', () => {
-  assert.ok(isPlanned('/budget/2026-27/sectors/'));
-  assert.ok(isPlanned('/sw/counties/nyamira/'));
-  assert.ok(isPlanned('/search/'));
+  assert.ok(isPlanned('/revenue/'));
+  assert.ok(isPlanned('/sw/learn/glossary/'));
+  assert.equal(isPlanned('/counties/'), false);
   assert.equal(isPlanned('/nowhere/'), false);
+});
+
+test('the note on the two totals says only what the figures show', () => {
+  const gap = fig('statement.total.with-levy').value - fig('statement.total.expenditure').value;
+  assert.equal(gap.toFixed(1), fig('statement.total.securitised-levy').value.toFixed(1));
+  assert.doesNotMatch(dictionaries.en['budget.disputed'], /ministries/);
+});
+
+test('a sum cites all the pages it draws on', () => {
+  const v = voteByCode('1066');
+  assert.equal(v.first.page.split('p.').length - 1, 2);
+  assert.equal(sectorBySlug('health').first.page, 'Schedule');
+});
+
+test('all 87 votes and 201 programmes are in, each vote in one sector', () => {
+  const votes = allVotes();
+  assert.equal(votes.length, 87);
+  assert.equal(new Set(votes.map((v) => v.code)).size, 87);
+  assert.equal(votes.reduce((n, v) => n + v.programmes.length, 0), 201);
+  assert.equal(allSectors().length, 12);
+});
+
+test('votes and sectors add up to the Act, to the shilling', () => {
+  const total = fig('approved.total.supply').value + fig('approved.total.aia').value;
+  assert.equal(allVotes().reduce((n, v) => n + v.total, 0), total);
+  assert.equal(allSectors().reduce((n, s) => n + s.total, 0), total);
+  for (const v of allVotes()) assert.equal(v.programmes.reduce((n, p) => n + p.total, 0), v.total, v.code);
+  for (const s of allSectors()) assert.equal(s.recurrent + s.development, s.total, s.slug);
+});
+
+test('a sector\'s change counts the same votes in both years', () => {
+  const by = (slug) => sectorBySlug(slug).change.toFixed(1);
+  assert.equal(by('governance-justice-law-order'), '29.7');
+  assert.equal(by('public-administration-international-relations'), '12.6');
+  assert.equal(by('health'), '27.6');
+  assert.equal(by('energy-infrastructure-ict'), '-0.8');
+});
+
+test('names read from a scan carry none of the known damage', () => {
+  const names = allVotes().flatMap((v) => [v.name, ...v.programmes.map((p) => p.name)]);
+  assert.equal(names.filter((n) => /Qunifty|in- Aid|General Administration Planning/.test(n)).length, 0);
+  assert.ok(voteByCode('1066').programmes.some((p) => p.name === 'Quality Assurance and Standards'));
+});
+
+test('sentences say more, less or the same, and cope with a zero or a missing year', () => {
+  const base = { name: 'Vote', fy: 'FY2026/27', lang: 'en' };
+  assert.equal(amountSentence({ ...base, amount: 2e9, change: 6.8 }), 'Vote gets KSh 2.00 billion in FY2026/27, 6.8% more than last year in cash terms.');
+  assert.match(amountSentence({ ...base, amount: 2e9, change: -0.8 }), /0\.8% less than last year/);
+  assert.match(amountSentence({ ...base, amount: 2e9, change: 0.01 }), /the same as last year/);
+  assert.match(amountSentence({ ...base, amount: 2e9, change: null }), /Last year's figure is not loaded/);
+  assert.match(amountSentence({ ...base, amount: 2e9, change: Infinity }), /not loaded/);
+  assert.equal(amountSentence({ ...base, amount: 0, change: -100 }), 'Vote has no allocation in FY2026/27.');
+  assert.match(amountSentence({ ...base, lang: 'sw', amount: 2e9, change: 6.8 }), /KSh bilioni 2\.00.*6\.8% zaidi/);
+});
+
+test('generated text uses plain words, and every county gets questions, not accusations', () => {
+  const banned = /slash|balloon|starv|corrupt|stole|looted|ghost|fail|waste/i;
+  for (const key of Object.keys(dictionaries.en).filter((k) => /^(sentence|question|change)\./.test(k))) assert.doesNotMatch(dictionaries.en[key], banned, key);
+  for (const c of countyRows()) {
+    const list = countyQuestions(c, 'en');
+    assert.ok(list.length >= 2, c.slug);
+    for (const q of list) { assert.match(q, /\?$/); assert.doesNotMatch(q, banned); assert.doesNotMatch(q, /NaN|undefined/); }
+  }
+});
+
+test('questions follow the figures', () => {
+  const q = (slug) => countyQuestions(countyBySlug(slug), 'en');
+  assert.match(q('nyamira')[0], /was 59% .* \(all counties: 54%\)\. Which projects did this pay for/);
+  assert.match(q('kisumu')[0], /was 26% .*Which projects were not started/);
+  assert.match(q('nyamira').at(-1), /recommended KSh 6\.72 billion for Nyamira, and the Act gives KSh 6\.27 billion\. Which county plans changed/);
+});
+
+test('the county row uses the newest Controller of Budget report', () => {
+  const c = countyBySlug('nyamira');
+  assert.deepEqual(c.spending.map((y) => y.fy), ['2024/25', '2025/26']);
+  assert.equal(c.spending.at(-1).devPct, 58.71);
+  assert.equal(allCountyDev().value, 54.21);
+  assert.equal(countyBySlug('nairobi-city').spending.at(-1).devPct, 28.47);
+});
+
+test('a county\'s share is built from the parts the Act prints', () => {
+  assert.deepEqual(shareParts('nyamira').map((p) => p.key), ['baseline', 'affirmative', 'formula']);
+  assert.deepEqual(shareParts('nairobi-city').map((p) => p.key), ['baseline', 'formula']);
+});
+
+test('a WhatsApp message carries the figure, the source and the link', () => {
+  const link = decodeURIComponent(whatsappHref('Nyamira gets KSh 6.27 billion.', 'Source: the Act.', 'https://x.invalid/nyamira/'));
+  assert.ok(link.startsWith('https://wa.me/?text=Nyamira gets'));
+  assert.ok(link.endsWith('Source: the Act. https://x.invalid/nyamira/'));
+});
+
+test('search finds agencies by their short names, and sends unclear ones to the sector', () => {
+  const index = searchIndex('en'), find = (word) => index.filter((i) => `${i[0]} ${i[3]}`.toLowerCase().includes(word.toLowerCase()));
+  assert.ok(find('TSC').some((i) => i[1].endsWith('/votes/2091/')));
+  assert.ok(find('KeNHA').some((i) => i[1].endsWith('/votes/1091/')));
+  assert.ok(find('SHA').some((i) => i[1].endsWith('/sectors/health/')));
+  assert.ok(find('Nyamira').some((i) => i[1] === '/counties/nyamira/'));
+  assert.equal(index.length, 47 + 12 + 87 + 201);
 });
 
 test('the two notes hold every shilling, with debt first', () => {
@@ -114,7 +215,7 @@ test('all 47 counties, ranked once each, from the Act', () => {
 
 test('the county card data is already worded in each language', () => {
   const en = cardData('en').find((r) => r.s === 'nyamira'), sw = cardData('sw').find((r) => r.s === 'nyamira');
-  assert.deepEqual(en, { s: 'nyamira', n: 'Nyamira', m: 'KSh 6.27 billion', c: 'up 3.2% on last year' });
+  assert.deepEqual(en, { s: 'nyamira', n: 'Nyamira', m: 'KSh 6.27 billion', c: 'up 3.2% on last year', d: '59% of the FY2025/26 development budget was spent' });
   assert.equal(sw.m, 'KSh bilioni 6.27');
   assert.equal(changeWords(0.01, 'en'), 'the same as last year');
   assert.equal(changeWords(-2, 'en'), 'down 2.0% on last year');

@@ -9,8 +9,8 @@ import { isPlanned } from '../src/lib/routes.js';
 
 const app = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(app, 'dist'), prod = join(app, 'dist-prod');
-const PAGES = ['/', '/sw/', '/dev/components/', '/sw/dev/components/', '/no-such-page/'];
-const TEMPLATES = ['/', '/sw/', '/dev/components/', '/sw/dev/components/'];
+const TEMPLATES = ['/', '/sw/', '/dev/components/', '/sw/dev/components/', '/budget/2026-27/', '/sw/budget/2026-27/', '/budget/2026-27/sectors/', '/budget/2026-27/sectors/health/', '/sw/budget/2026-27/sectors/health/', '/budget/2026-27/votes/1066/', '/budget/2026-27/votes/1066/0502000/', '/counties/', '/sw/counties/', '/counties/nyamira/', '/sw/counties/nyamira/', '/counties/nairobi-city/', '/counties/nyamira/sheet/', '/counties/compare/?c=nyamira,kisii', '/search/?q=tsc'];
+const PAGES = [...TEMPLATES, '/no-such-page/'];
 const walk = (d, out = []) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p, out); else if (f.endsWith('.html')) out.push(p); } return out; };
 
 async function open(page, path, { width = 390, height = 844, scheme = 'light' } = {}) {
@@ -48,6 +48,14 @@ for (const path of TEMPLATES) {
       });
     }
   }
+
+  test(`headings run in order, ${path}`, async ({ page }) => {
+    await open(page, path);
+    const levels = await page.evaluate(() => [...document.querySelectorAll('main h1, main h2, main h3, main h4')].map((h) => Number(h.tagName[1])));
+    expect(levels[0]).toBe(1);
+    expect(levels.filter((l) => l === 1)).toHaveLength(1);
+    expect(levels.filter((l, i) => i && l > levels[i - 1] + 1)).toEqual([]);
+  });
 
   test(`tap targets are at least 44px, ${path}`, async ({ page }) => {
     await open(page, path);
@@ -123,7 +131,7 @@ test('the My county choice is remembered and follows the reader', async ({ page 
   await page.locator('[data-county-input]').fill('nyamira');
   await expect(page.locator('[data-mc] .mc-num')).toHaveText('KSh 6.27 billion');
   await expect(page.locator('[data-mc]')).toContainText('up 3.2% on last year');
-  await expect(page.locator('[data-mc]')).toContainText('not yet loaded');
+  await expect(page.locator('[data-mc]')).toContainText('59% of the FY2025/26 development budget was spent');
   await expect(page.locator('[data-chip]')).toHaveAttribute('aria-label', 'My county: Nyamira');
   await expect(page.locator('[data-chip]')).toHaveAttribute('href', '/counties/nyamira/');
   await page.goto('/dev/components/');
@@ -221,7 +229,145 @@ test('the CSV a table links to is a real file with its source', async ({ request
   expect(lines[0]).toContain('figure_id');
 });
 
-for (const path of ['/', '/sw/']) {
+// The usability tasks from the brief, walked with taps on a phone screen. These prove the paths exist and how many taps
+// they take. They do not replace the rounds with real readers (build brief, section 9).
+test.describe('the journeys, tap by tap, at 390px', () => {
+  test('task 1: a county\'s share and last year\'s development spending, within 3 taps', async ({ page }) => {
+    await open(page, '/');
+    await page.locator('.tabs a', { hasText: 'Counties' }).click();
+    await page.locator('table a', { hasText: 'Nyamira' }).click();
+    await expect(page).toHaveURL('/counties/nyamira/');
+    await expect(page.locator('.hero-num')).toHaveText('KSh 6.27 billion');
+    const spent = page.locator('.mycounty .fig-num');
+    await expect(spent).toHaveText('59%');
+    await expect(spent).toBeInViewport();
+    await expect(page.locator('.hero-num')).toBeInViewport();
+  });
+
+  test('task 2: the interest bill and its share of revenue, in one tap', async ({ page }) => {
+    await open(page, '/');
+    await page.locator('.tabs a', { hasText: 'Budget' }).click();
+    await expect(page).toHaveURL('/budget/2026-27/');
+    const card = page.locator('.fig', { hasText: 'interest on public debt' });
+    await expect(card.locator('.fig-num')).toHaveText('KSh 1.25 trillion');
+    await expect(card).toContainText('KSh 42 of every KSh 100 of ordinary revenue');
+  });
+
+  test('task 3: a sector, this year against last, and its table to download', async ({ page, request }) => {
+    await open(page, '/');
+    await page.locator('.tabs a', { hasText: 'Budget' }).click();
+    await page.locator('.rb a', { hasText: 'Health' }).click();
+    await expect(page).toHaveURL('/budget/2026-27/sectors/health/');
+    await expect(page.locator('h1')).toHaveText('Health');
+    await expect(page.locator('.hero-line')).toContainText('27.6% more than last year');
+    const csv = page.locator('.tbl-csv');
+    await expect(csv).toBeVisible();
+    const res = await request.get(await csv.getAttribute('href'));
+    expect(res.status()).toBe(200);
+    expect(await res.text()).toContain('State Department for Medical Services');
+  });
+
+  test('task 4: copy a question, from the county page', async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await open(page, '/counties/kisumu/');
+    await page.locator('.qc [data-copy]').first().click();
+    await expect(page.locator('#status')).toHaveText('Question copied.');
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toContain('Which projects were not started');
+  });
+
+  test('task 5: Share is on the county page\'s first screen and carries the figure and source', async ({ page }) => {
+    await open(page, '/counties/nyamira/');
+    const share = page.locator('.hero a.btn', { hasText: 'Share on WhatsApp' });
+    await expect(share).toBeInViewport();
+    const text = decodeURIComponent(await share.getAttribute('href'));
+    expect(text).toContain('Nyamira gets KSh 6.27 billion as its equitable share in FY2026/27, up 3.2% on FY2025/26.');
+    expect(text).toContain('County Allocation of Revenue Act, 2026');
+    expect(text).toContain('/counties/nyamira/');
+  });
+});
+
+test('every county has its page and sheet, in both languages', () => {
+  for (const root of [dist, join(dist, 'sw')]) {
+    const counties = readdirSync(join(root, 'counties')).filter((d) => d !== 'compare' && statSync(join(root, 'counties', d)).isDirectory());
+    expect(counties).toHaveLength(47);
+    for (const c of counties) expect(existsSync(join(root, 'counties', c, 'sheet', 'index.html'))).toBe(true);
+  }
+});
+
+test('every vote and programme has its page', () => {
+  const votes = join(dist, 'budget/2026-27/votes'), codes = readdirSync(votes);
+  expect(codes).toHaveLength(87);
+  const programmes = codes.flatMap((c) => readdirSync(join(votes, c)).filter((d) => statSync(join(votes, c, d)).isDirectory()));
+  expect(programmes).toHaveLength(201);
+});
+
+test('/budget/ sends the reader to the current year', async ({ page }) => {
+  await open(page, '/budget/');
+  await expect(page).toHaveURL('/budget/2026-27/');
+});
+
+test('the Budget and Counties tabs mark where the reader is', async ({ page }) => {
+  await open(page, '/budget/2026-27/votes/1066/');
+  await expect(page.locator('.tabs a[aria-current]')).toHaveText('Budget');
+  await open(page, '/counties/nyamira/');
+  await expect(page.locator('.tabs a[aria-current]')).toHaveText('Counties');
+});
+
+test('breadcrumbs lead back up from a programme', async ({ page }) => {
+  await open(page, '/budget/2026-27/votes/1066/0502000/');
+  await expect(page.locator('.crumbs li')).toHaveText(['Home', 'Budget', 'Education', 'State Department for Basic Education', 'Secondary Education']);
+  await page.locator('.crumbs a', { hasText: 'Basic Education' }).click();
+  await expect(page).toHaveURL('/budget/2026-27/votes/1066/');
+});
+
+test('a county without affirmative action shows no such line, and no row is blank', async ({ page }) => {
+  await open(page, '/counties/nairobi-city/');
+  await expect(page.locator('table').first()).not.toContainText('Affirmative action');
+  await expect(page.locator('.hero-title')).toHaveText('Nairobi City County');
+  await expect(page.locator('body')).not.toContainText('NaN');
+  await expect(page.locator('body')).not.toContainText('undefined');
+});
+
+test('compare reads the link, follows the picks and keeps them in the link', async ({ page }) => {
+  await open(page, '/counties/compare/?c=nyamira,kisii');
+  await expect(page.locator('[data-compare-table] thead th')).toHaveText(['Measure', 'Nyamira', 'Kisii']);
+  await expect(page.locator('[data-compare-table] tbody tr').first()).toContainText('KSh 6.27 billion');
+  await page.locator('#c3').selectOption('bomet');
+  await expect(page).toHaveURL('/counties/compare/?c=nyamira,kisii,bomet');
+  await page.locator('[data-compare-set]').click();
+  await expect(page.locator('[data-compare-table] thead th')).toHaveText(['Measure', 'Nyamira', 'Kisii', 'Bomet', 'Kericho']);
+});
+
+test('search finds a short name and goes to the page', async ({ page }) => {
+  await open(page, '/');
+  await page.locator('.search-box input').fill('TSC');
+  await page.locator('.search-box button').click();
+  await expect(page).toHaveURL('/search/?q=TSC');
+  await page.locator('.results a', { hasText: 'Teachers Service Commission' }).first().click();
+  await expect(page).toHaveURL('/budget/2026-27/votes/2091/');
+});
+
+test('Make this my county sets the chip', async ({ page }) => {
+  await open(page, '/counties/kisii/');
+  await page.locator('[data-set-county]').click();
+  await expect(page.locator('[data-chip]')).toHaveAttribute('aria-label', 'My county: Kisii');
+  await open(page, '/counties/');
+  await expect(page.locator('tr.is-mine')).toContainText('Kisii');
+});
+
+test('the print sheet fits one A4 page, and its QR code points at the county', async ({ page, browserName }) => {
+  await open(page, '/counties/nyamira/sheet/', { width: 794, height: 1123 });
+  await expect(page.locator('.sheet-qr svg')).toBeVisible();
+  await expect(page.locator('.sheet-qs li')).toHaveCount(2);
+  await expect(page.locator('.sheet-nums > div')).toHaveCount(5);
+  await page.emulateMedia({ media: 'print' });
+  await expect(page.locator('.sheet-tools')).toBeHidden();
+  const height = await page.evaluate(() => document.documentElement.scrollHeight);
+  expect(height).toBeLessThanOrEqual(1123);
+  expect(browserName).toBe('chromium');
+});
+
+for (const path of ['/', '/sw/', '/budget/2026-27/', '/budget/2026-27/sectors/governance-justice-law-order/', '/budget/2026-27/votes/1071/', '/counties/', '/counties/compare/', '/counties/nyamira/', '/sw/counties/nyamira/']) {
   test(`weight stays within budget, ${path}`, () => {
     const file = join(dist, path, 'index.html'), html = readFileSync(file);
     const assets = [...html.toString().matchAll(/(?:href|src)="(\/_astro\/[^"]+\.(css|js))"/g)];

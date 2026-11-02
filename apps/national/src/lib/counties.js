@@ -5,6 +5,7 @@ import { COUNTIES } from '@kbe/engine/counties';
 import { money, percent } from '@kbe/engine/fmt';
 import { t } from '../i18n/index.js';
 import { fig, hasFigure } from './figures.js';
+import { changeChip } from './sentences.js';
 
 export const SPENT_YEARS = ['2024-25', '2025-26'];
 export const LATEST_SPENT = SPENT_YEARS.at(-1);
@@ -46,11 +47,11 @@ export function changeWords(change, lang) {
 
 // What the My county card needs in the browser. Everything is already worded, so the page ships no number formatting.
 export const cardData = (lang) => countyRows().map((r) => ({
-  s: r.slug, n: r.name, m: money(r.value, 'KSh', lang), c: changeWords(r.change, lang), d: t(lang, 'county.spent', { pct: percent(r.spending.at(-1).devPct, 0), fy: r.spending.at(-1).fy }),
+  s: r.slug, n: r.name, m: money(r.value, 'KSh', lang), c: changeWords(r.change, lang), d: t(lang, 'county.spent', { pct: percent(r.spending.at(-1).devPct, 0), fy: `FY${r.spending.at(-1).fy}` }),
 }));
 
 // The rows of the compare page, worded in the page's language
 export const compareData = (lang) => countyRows().map((r) => {
   const y = r.spending.at(-1);
-  return { s: r.slug, n: r.name, v: [money(r.value, 'KSh', lang), percent(r.change), `${r.rank}`, percent(y.devPct, 0), percent(y.pct, 0), money(y.budget, 'KSh m', lang), money(y.spent, 'KSh m', lang)] };
+  return { s: r.slug, n: r.name, v: [money(r.value, 'KSh', lang), changeChip(r.change, lang), `${r.rank}`, percent(y.devPct, 0), percent(y.pct, 0), money(y.budget, 'KSh m', lang), money(y.spent, 'KSh m', lang)] };
 });

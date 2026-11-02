@@ -4,7 +4,7 @@
 import { t } from '../i18n/index.js';
 
 interface Column { key: string; label: string; num?: boolean }
-interface Props { columns: Column[]; rows: Record<string, { shown: string; sort?: string | number } | null>[]; caption: string; csvHref?: string; csvName?: string; lang?: 'en' | 'sw'; sortable?: boolean }
+interface Props { columns: Column[]; rows: any[]; caption: string; csvHref?: string; csvName?: string; lang?: 'en' | 'sw'; sortable?: boolean }
 const { columns, rows, caption, csvHref, csvName, lang = 'en', sortable = true } = Astro.props;
 ---
 <div class="tscroll">
@@ -14,7 +14,10 @@ const { columns, rows, caption, csvHref, csvName, lang = 'en', sortable = true }
       <th scope="col" class={c.num ? 'num' : undefined}>{sortable ? <button type="button" aria-label={t(lang, 'chart.sortBy', { column: c.label })}>{c.label}</button> : c.label}</th>
     ))}</tr></thead>
     <tbody>{rows.map((r) => (
-      <tr>{columns.map((c) => <td class={c.num ? 'num' : undefined} data-label={c.label} data-sort={r[c.key]?.sort}>{r[c.key]?.shown ?? t(lang, 'state.notLoaded')}</td>)}</tr>
+      <tr data-county-row={r.key}>{columns.map((c) => {
+        const cell = r[c.key], shown = cell?.shown ?? t(lang, 'state.notLoaded');
+        return <td class={c.num ? 'num' : undefined} data-label={c.label} data-sort={cell?.sort}>{cell?.href ? <a href={cell.href}>{shown}</a> : shown}</td>;
+      })}</tr>
     ))}</tbody>
   </table>
 </div>

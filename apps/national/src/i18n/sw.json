@@ -138,7 +138,6 @@
   "county.up": "juu kwa {p}% ukilinganisha na mwaka jana",
   "county.down": "chini kwa {p}% ukilinganisha na mwaka jana",
   "county.flat": "sawa na mwaka jana",
-  "county.spendingMissing": "Matumizi ya maendeleo: bado hayajapakiwa",
   "county.yours": "Kaunti yako",
   "question.copy": "Nakili",
   "question.copyLabel": "Nakili swali hili",
@@ -294,5 +293,8 @@
   "search.type.county": "Kaunti",
   "search.type.sector": "Sekta",
   "search.type.vote": "Fungu",
-  "search.type.programme": "Programu"
+  "search.type.programme": "Programu",
+  "county.makeMine": "Fanya hii kaunti yangu",
+  "nav.detail": "Maelezo zaidi",
+  "search.result": "Tokeo 1"
 }

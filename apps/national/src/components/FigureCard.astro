@@ -1,27 +1,26 @@
 ---
-// Question, number, sentence, label, stage, source, citation, report error (DESIGN.md). Give it a registry id, and it
-// reads everything else from the registry. `missing`, `disputed` and `corrected` are the states every figure can be in.
-import { fig, correctionFor } from '../lib/figures.js';
+// Question, number, sentence, label, stage, source, citation, report error (DESIGN.md). Give it a registry id, or a total
+// from `summed`, and it reads the rest from the figure. `missing`, `disputed` and `corrected` are the states a figure can be in.
 import { longDate, money } from '@kbe/engine/fmt';
 import { t } from '../i18n/index.js';
-import CitationButton from './CitationButton.astro';
+import { correctionFor, fig } from '../lib/figures.js';
+import FigureAbout from './FigureAbout.astro';
 import FigureMeta from './FigureMeta.astro';
 import NotYetLoaded from './NotYetLoaded.astro';
-import ReportError from './ReportError.astro';
 import SourceLine from './SourceLine.astro';
 import StaleNote from './StaleNote.astro';
 
 interface Props {
-  id?: string; q: string; lang?: 'en' | 'sw'; gap?: boolean; shown?: string; calc?: string; staleNow?: boolean;
+  id?: string; figure?: any; q: string; lang?: 'en' | 'sw'; gap?: boolean; shown?: string; calc?: string; staleNow?: boolean;
   missing?: { what: string; why: string };
   corrected?: { date: string; old: string; reason: string };
   disputed?: { other: string; reason: string };
 }
-const { id, q, lang = 'en', gap = false, shown, calc, staleNow = false, missing, corrected, disputed } = Astro.props;
-const f = id ? fig(id) : null;
+const { id, figure, q, lang = 'en', gap = false, shown, calc, staleNow = false, missing, corrected, disputed } = Astro.props;
+const f = figure ?? (id ? fig(id) : null);
 const number = f ? shown ?? (f.unit === '%' ? `${f.value}%` : money(f.value, f.unit, lang)) : null;
-const inputs = f?.calc ? f.calc.inputs.map(fig) : [];
-const logged = corrected ?? (f && correctionFor(f.id) && { date: correctionFor(f.id).date, old: String(correctionFor(f.id).old), reason: correctionFor(f.id).reason });
+const log = f && correctionFor(f.id);
+const logged = corrected ?? (log && { date: log.date, old: String(log.old), reason: log.reason });
 const against = disputed ? fig(disputed.other) : null;
 ---
 <article class="card fig">
@@ -36,15 +35,7 @@ const against = disputed ? fig(disputed.other) : null;
       {logged && <p class="note">{t(lang, 'state.corrected', { date: longDate(logged.date, lang), old: logged.old, reason: logged.reason })}</p>}
       {against && <p class="note">{t(lang, 'state.disputed', { a: money(f.value, f.unit, lang), b: money(against.value, against.unit, lang), used: money(f.value, f.unit, lang), reason: disputed.reason })}</p>}
       {f.doc.nextExpected && <StaleNote after={f.doc.nextExpected.date} what={f.doc.nextExpected.what} lang={lang} force={staleNow} />}
-      <details class="cite">
-        <summary>{t(lang, 'fig.about')}</summary>
-        <dl>
-          {inputs.length > 0 && <><dt>{t(lang, 'fig.from')}</dt><dd>{inputs.map((i) => `${i.name}: ${money(i.value, i.unit, lang)}`).join('; ')}</dd></>}
-          <dt>{t(lang, 'fig.checkedOn')}</dt><dd>{longDate(f.checkedOn, lang)}</dd>
-          <dt>{t(lang, 'fig.checkedBy')}</dt><dd>{f.checkedBy === 'claude-code' ? t(lang, 'fig.byClaude') : f.checkedBy}</dd>
-        </dl>
-        <div class="btn-row"><CitationButton figure={f} what={q} lang={lang} /><ReportError id={f.id} lang={lang} /></div>
-      </details>
+      <FigureAbout figure={f} what={q} lang={lang} />
     </>
   )}
 </article>

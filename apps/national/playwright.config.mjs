@@ -7,7 +7,7 @@ export default defineConfig({
   globalSetup: './e2e/global-setup.mjs',
   fullyParallel: true,
   reporter: [['list', { printSteps: false }]],
-  webServer: { command: 'node e2e/serve.mjs', port: 4310, reuseExistingServer: true },
+  webServer: { command: 'node e2e/serve.mjs', port: 4310, reuseExistingServer: false },
   use: { baseURL: 'http://127.0.0.1:4310', channel: 'chrome' },
   expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.002, animations: 'disabled' } },
   projects: [

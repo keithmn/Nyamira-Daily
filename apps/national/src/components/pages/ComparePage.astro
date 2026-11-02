@@ -1,0 +1,42 @@
+---
+// Two to four counties side by side. The choice lives in the link (?c=nyamira,kisii), so it can be shared. Differences are
+// numbers in columns, so colour is never the only cue. Without JavaScript the page points to the table of all 47.
+import { COUNTIES } from '@kbe/engine/counties';
+import { t } from '../../i18n/index.js';
+import { compareData, LATEST_SPENT } from '../../lib/counties.js';
+import { FY } from '../../lib/figures.js';
+import { href } from '../../lib/routes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const fy = `FY${LATEST_SPENT.replace('-', '/')}`;
+const measures = [`${t(lang, 'col.share')}, ${FY}`, t(lang, 'col.change'), t(lang, 'col.rank'), `${t(lang, 'col.dev')}, ${fy}`, `${t(lang, 'col.overall')}, ${fy}`, `${t(lang, 'col.budget')}, ${fy}`, `${t(lang, 'col.spent')}, ${fy}`];
+const data = { rows: compareData(lang), measures, measure: t(lang, 'compare.measure'), base: href(lang, '/counties/') };
+// Nyamira and the three counties with the longest shared boundary, from the file behind the main site's map. Homa Bay also
+// touches it, but the page holds four counties.
+const NEIGHBOURS = ['nyamira', 'kisii', 'bomet', 'kericho'];
+---
+<div class="wrap">
+  <Breadcrumbs lang={lang} trail={[{ name: t(lang, 'counties.title'), path: '/counties/' }, { name: t(lang, 'compare.title') }]} />
+  <div class="page-head"><h1>{t(lang, 'compare.title')}</h1><p>{t(lang, 'compare.line')}</p></div>
+</div>
+<section class="band">
+  <div class="wrap stack gap-l" data-compare>
+    <p class="no-js-note"><a href={href(lang, '/counties/')}>{t(lang, 'compare.noJs')}</a></p>
+    <div class="compare-picks js-only">
+      {[1, 2, 3, 4].map((n) => (
+        <div class="picker">
+          <label for={`c${n}`}>{t(lang, 'compare.pick', { n })}</label>
+          <select id={`c${n}`} data-compare-pick>
+            <option value="">{t(lang, 'compare.none')}</option>
+            {COUNTIES.map((c) => <option value={c.slug}>{c.name}</option>)}
+          </select>
+        </div>
+      ))}
+    </div>
+    <div class="btn-row js-only"><button class="btn quiet" type="button" data-compare-set={NEIGHBOURS.join(',')}>{t(lang, 'compare.neighbours')}</button></div>
+    <div class="tscroll" tabindex="0" role="region" aria-label={t(lang, 'compare.caption')}><table data-compare-table hidden><caption class="vh">{t(lang, 'compare.caption')}</caption><thead></thead><tbody></tbody></table></div>
+    <script type="application/json" data-compare-data set:html={JSON.stringify(data)}></script>
+  </div>
+</section>

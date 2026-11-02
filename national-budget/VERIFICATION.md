@@ -87,6 +87,31 @@ No figure was added. The app reads the registry, and these numbers are its own a
 
 The component library also shows Nyamira's budget and spending from the main site's `money.json`, already checked for that site. These figures are not in the national registry and no product page reads them.
 
+## Phase 4: Parliament's tables and county spending (2 Nov 2026)
+
+Also Claude Code's work, and also not an editor's sign-off. `npm run check:national` repeats all of it.
+
+**Budget Explainer 2026 and FY2025/26, Parliamentary Budget Office: "Votes under the ... sector" tables.**
+
+- Every one of the Act's 87 votes is in the 2026 tables exactly once, across 12 groups.
+- All 87 agree with the Act within KSh 1 million, on recurrent, development and total, with no differences left. This is the first independent reading of the Act's vote figures. It does not reach programme level.
+- The 12 groups add to KSh 2,922.70bn, the Act's own total. The 2025 tables add to KSh 2,549.54bn, which the document gives as KSh 2.55 trillion.
+- Each row's recurrent and development add to its total, in both editions.
+- Last year's 87 votes are matched to this year's by name. 82 match on their wording, and 5 are matched in `names-2025-26.csv`, each with its reason. **A person should check those 5, and the sector map.**
+- The eight sector totals the Explainer prints in its text match the sums: 111.38, 784.48, 530.25, 331.14, 176.25, 307.84, 101.27 and 30.38.
+
+**Controller of Budget, County Governments Budget Implementation Review Reports, FY2025/26 and FY2024/25: Table 2.5, 47 counties and a total row.**
+
+- These PDFs have real text layers, unlike the Act. `-raw` gives the rows, and `-layout` gives every amount a second time. `-layout` scrambles the rows, so the two are compared as sets of 288 amounts per year, and they match.
+- Every row passes its own arithmetic: A + B = C, D + E = F, and all three printed percentages recomputed from the amounts, to 0.01 in FY2025/26, which prints two decimals, and to 0.5 in FY2024/25, which prints whole numbers.
+- The 47 counties add to the printed totals. Those totals match the report's text: KSh 233.69bn development budget, KSh 126.69bn spent, 54.21%, for FY2025/26.
+- The development spending of the six counties the main site already held for FY2024/25 agrees with this reading.
+- Kisii prints KSh 3170.50 million with no comma in FY2025/26. It passes its row's sums, so it is read as printed.
+
+**Names.** Arithmetic cannot check words, so Claude Code read all 156 distinct programme names. Two more repairs are in `names.csv`: "Qunifty Assurance and Standards", which the same programme's development row prints correctly, and "...Political Parties in- Aid Commissions", where text from the page was fused into the name. Programme code `075000` looked like a lost digit. The FY2025/26 Programme Based Budget prints it the same way, so it stays as printed.
+
+**What the app works out in this phase,** each with a test in `apps/national/src/lib/national.test.js`: a vote's gross total, Supply plus Appropriations-in-Aid; a sector's total, adding its votes, which reaches the Act's grand total to the shilling; and change on last year, approved against approved, in cash terms, adding the same votes in both years for a sector.
+
 ## Every figure
 
 | Figure | Value | Document | Cited as | PDF page | Result |

@@ -10,6 +10,9 @@ const COLUMNS = ['supply', 'aia'];
 const nameOf = (f, kind) => f.name.split(`, ${kind}`)[0];
 const add = (list) => (list.length ? sumFigures(list) : 0);
 
+// A sum cites every page it draws on, not just the first row's. A sector's votes run across the Schedule, so it cites that.
+const citing = (first, parts) => ({ ...first, page: `Schedule, ${[...new Set(parts.map((f) => f.page.replace('Schedule, ', '')))].join(', ')}` });
+
 const money = (base) => COLUMNS.filter((c) => hasFigure(`${base}.${c}`)).map((c) => fig(`${base}.${c}`));
 
 function programmesOf(code) {
@@ -24,7 +27,7 @@ function programmesOf(code) {
   }
   return [...seen.values()].map((p) => {
     const parts = [...p.recurrent, ...p.development];
-    return { code: p.code, vote: p.vote, name: p.name, recurrent: add(p.recurrent), development: add(p.development), total: sumFigures(parts), first: parts[0] };
+    return { code: p.code, vote: p.vote, name: p.name, recurrent: add(p.recurrent), development: add(p.development), total: sumFigures(parts), first: citing(parts[0], parts) };
   }).sort((a, b) => b.total - a.total);
 }
 
@@ -33,7 +36,7 @@ function buildVote(code, sector) {
   const now = fig(`approved.pbo.vote.${code}.total`), last = fig(`ke.fy2025-26.approved.pbo.vote.${code}.total`);
   return {
     code, sector, name: nameOf(parts[0], r.length ? 'recurrent' : 'development'), recurrent: add(r), development: add(d), total: sumFigures(parts),
-    first: parts[0], parts, pboNow: now, pboLast: last, change: compareFigures(last, now).percent, programmes: programmesOf(code),
+    first: citing(parts[0], parts), parts, recurrentParts: r, developmentParts: d, pboNow: now, pboLast: last, change: compareFigures(last, now).percent, programmes: programmesOf(code),
   };
 }
 
@@ -52,12 +55,12 @@ export function allSectors() {
     const parts = list.flatMap((v) => v.parts), now = sumFigures(list.map((v) => v.pboNow)), last = sumFigures(list.map((v) => v.pboLast));
     const guide = hasFigure(`statement.sector.${s.slug}`) ? fig(`statement.sector.${s.slug}`) : null;
     return {
-      slug: s.slug, table: s.table, votes: list, total: sumFigures(parts), recurrent: add(list.map((v) => v.recurrent).map((value) => ({ ...list[0].first, value }))),
-      development: add(list.map((v) => v.development).map((value) => ({ ...list[0].first, value }))), last, change: (now - last) / last * 100, guide, first: list[0].first,
+      slug: s.slug, table: s.table, votes: list, total: sumFigures(parts), recurrent: add(list.flatMap((v) => v.recurrentParts)), development: add(list.flatMap((v) => v.developmentParts)),
+      last, change: (now - last) / last * 100, guide, first: { ...list[0].first, page: 'Schedule' },
     };
   }).sort((a, b) => b.total - a.total);
 }
 export const sectorBySlug = (slug) => allSectors().find((s) => s.slug === slug);
 
-// The biggest vote in a sector, for its one-line summary
-export const biggestVote = (sector) => sector.votes[0];
+// A total we add up ourselves, in the shape of a figure, so a card can show it with its source and an "our calculation" tag
+export const summed = (first, id, name, value) => ({ ...first, id, name, value, unit: 'KSh', calc: undefined });

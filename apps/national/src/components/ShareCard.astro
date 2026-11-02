@@ -2,17 +2,17 @@
 // A preview of what is shared, and WhatsApp text that carries the figure, its source and a link, so a forwarded message
 // keeps its provenance. The reader sends it: nothing goes out on their behalf (build brief, section 11).
 import { t } from '../i18n/index.js';
+import { whatsappHref } from '../lib/sentences.js';
 import { site } from '../site.js';
 import Icon from './Icon.astro';
 
 interface Props { text: string; source: string; url: string; lang?: 'en' | 'sw' }
 const { text, source, url, lang = 'en' } = Astro.props;
-const message = `${text} ${source} ${url}`;
 ---
 <div class="share">
   <div class="share-card on-panel"><p class="share-text">{text}</p><p class="share-src">{source} · {site.name}</p></div>
   <div class="btn-row">
-    <a class="btn" href={`https://wa.me/?text=${encodeURIComponent(message)}`} rel="noopener"><Icon name="whatsapp" />{t(lang, 'share.whatsapp')}</a>
+    <a class="btn" href={whatsappHref(text, source, url)} rel="noopener"><Icon name="whatsapp" />{t(lang, 'share.whatsapp')}</a>
     <button class="btn quiet" type="button" data-copy={url} data-done={t(lang, 'share.linkCopied')} data-fail={t(lang, 'fig.copyFailed')}>{t(lang, 'share.copyLink')}</button>
   </div>
 </div>

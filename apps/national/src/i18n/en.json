@@ -138,7 +138,6 @@
   "county.up": "up {p}% on last year",
   "county.down": "down {p}% on last year",
   "county.flat": "the same as last year",
-  "county.spendingMissing": "Development spending: not yet loaded",
   "county.yours": "Your county",
   "question.copy": "Copy",
   "question.copyLabel": "Copy this question",
@@ -188,7 +187,7 @@
   "budget.sectorsTitle": "{name} gets more than any other sector",
   "budget.sectorsSub": "Approved allocations, {fy}, KSh billion",
   "budget.seeSectors": "See all sectors",
-  "budget.disputed": "The Treasury gives two totals: {a} on Guide p.2 and {b} on p.15. We lead with {a}. The higher figure adds {levy} of securitised road levy and counts ministries at their later total.",
+  "budget.disputed": "The Treasury gives two totals: {a} on Guide p.2 and {b} on p.15. We lead with {a}. The higher figure adds {levy} of securitised road levy.",
   "sectors.title": "Sectors, {fy}",
   "sectors.line": "Ten sectors, plus Parliament and the Judiciary, which the Parliamentary Budget Office lists on their own.",
   "sector.votesTitle": "Who spends it",
@@ -294,5 +293,8 @@
   "search.type.county": "County",
   "search.type.sector": "Sector",
   "search.type.vote": "Vote",
-  "search.type.programme": "Programme"
+  "search.type.programme": "Programme",
+  "county.makeMine": "Make this my county",
+  "nav.detail": "The detail",
+  "search.result": "1 result"
 }

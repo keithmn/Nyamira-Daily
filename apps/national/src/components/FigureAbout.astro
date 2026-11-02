@@ -1,0 +1,21 @@
+---
+// The second layer under a figure: what it was worked out from, who checked it, its citation and an error link.
+import { longDate, money } from '@kbe/engine/fmt';
+import { t } from '../i18n/index.js';
+import { fig } from '../lib/figures.js';
+import CitationButton from './CitationButton.astro';
+import ReportError from './ReportError.astro';
+
+interface Props { figure: any; what: string; lang?: 'en' | 'sw' }
+const { figure: f, what, lang = 'en' } = Astro.props;
+const inputs = f.calc ? f.calc.inputs.map(fig) : [];
+---
+<details class="cite">
+  <summary>{t(lang, 'fig.about')}</summary>
+  <dl>
+    {inputs.length > 0 && <><dt>{t(lang, 'fig.from')}</dt><dd>{inputs.map((i) => `${i.name}: ${money(i.value, i.unit, lang)}`).join('; ')}</dd></>}
+    <dt>{t(lang, 'fig.checkedOn')}</dt><dd>{longDate(f.checkedOn, lang)}</dd>
+    <dt>{t(lang, 'fig.checkedBy')}</dt><dd>{f.checkedBy === 'claude-code' ? t(lang, 'fig.byClaude') : f.checkedBy}</dd>
+  </dl>
+  <div class="btn-row"><CitationButton figure={f} what={what} lang={lang} /><ReportError id={f.id} lang={lang} /></div>
+</details>

@@ -15,7 +15,7 @@ const Tag = (r) => (r.href ? 'a' : 'button');
     const El = Tag(r);
     return (
       <li>
-        <El class:list={['rb-row', { 'is-mark': r.mark }]} type={r.href ? undefined : 'button'} href={r.href} data-tip={r.tip ?? undefined} data-county-row={r.county}>
+        <El class:list={['rb-row', { 'is-mark': r.mark, 'is-link': r.href }]} type={r.href ? undefined : 'button'} href={r.href} data-tip={r.tip ?? undefined} data-county-row={r.county}>
           <span class="rb-name">{r.mark ? <b>{r.name}</b> : r.name}<span class="tag" hidden data-mine-tag>{t(lang, 'county.yours')}</span></span>
           {widths[i] == null ? <span class="rb-track"></span> : <span class="rb-track"><i style={`width:${widths[i]}%`}></i></span>}
           <span class="rb-val">{r.shown}</span>

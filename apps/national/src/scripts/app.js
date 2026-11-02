@@ -137,7 +137,7 @@ if (card) {
   const line = (cls, text) => { const p = document.createElement('p'); p.className = cls; p.textContent = text; return p; };
   const fill = (row) => {
     title.textContent = D.named.replace('{name}', row.n);
-    mc.replaceChildren(line('mc-num', row.m), line('mc-line', `${D.share}, ${row.c}`), line('mc-line muted', D.missing));
+    mc.replaceChildren(line('mc-num', row.m), line('mc-line', `${D.share}, ${row.c}`), line('mc-line', row.d));
     mc.hidden = false;
     link.href = `${D.base}${row.s}/`;
     link.hidden = false;
@@ -156,4 +156,78 @@ if (card) {
   input.addEventListener('change', choose);
   const first = county && D.rows.find((r) => r.s === county.s);
   if (first) { input.value = first.n; fill(first); }
+}
+
+/* the county page's "Make this my county", and printing a sheet */
+document.addEventListener('click', (e) => {
+  const mine = e.target.closest?.('[data-set-county]');
+  if (mine) {
+    const c = JSON.parse(mine.dataset.setCounty);
+    save('kbe-county', JSON.stringify(c));
+    showChip(c);
+    markRows(c);
+    say(mine.dataset.done);
+  }
+  if (e.target.closest?.('[data-print]')) window.print();
+});
+
+/* compare: the choice lives in the link, so it can be shared */
+const compare = $('[data-compare]');
+if (compare) {
+  const D = JSON.parse($('[data-compare-data]', compare).textContent);
+  const picks = $$('[data-compare-pick]', compare), table = $('[data-compare-table]', compare);
+  const cell = (tag, text, scope) => { const c = document.createElement(tag); c.textContent = text; if (scope) c.scope = scope; return c; };
+  const draw = () => {
+    const rows = [...new Set(picks.map((p) => p.value).filter(Boolean))].map((s) => D.rows.find((r) => r.s === s));
+    table.hidden = !rows.length;
+    const head = document.createElement('tr');
+    head.append(cell('th', D.measure, 'col'));
+    for (const r of rows) {
+      const th = cell('th', '', 'col'), a = document.createElement('a');
+      a.href = `${D.base}${r.s}/`;
+      a.textContent = r.n;
+      th.append(a);
+      head.append(th);
+    }
+    table.tHead.replaceChildren(head);
+    table.tBodies[0].replaceChildren(...D.measures.map((m, i) => {
+      const tr = document.createElement('tr');
+      tr.append(cell('th', m, 'row'), ...rows.map((r) => { const td = cell('td', r.v[i]); td.className = 'num'; return td; }));
+      return tr;
+    }));
+    history.replaceState(null, '', rows.length ? `?c=${rows.map((r) => r.s).join(',')}` : location.pathname);
+  };
+  const choose = (list) => { picks.forEach((p, i) => { p.value = D.rows.some((r) => r.s === list[i]) ? list[i] : ''; }); draw(); };
+  picks.forEach((p) => p.addEventListener('change', draw));
+  $('[data-compare-set]', compare).addEventListener('click', (e) => choose(e.currentTarget.dataset.compareSet.split(',')));
+  choose((new URLSearchParams(location.search).get('c') ?? '').split(',').slice(0, 4));
+}
+
+/* search: one small file, read in the browser, so nothing typed leaves the phone */
+const search = $('[data-search]');
+if (search) {
+  const form = $('form', search), input = $('input', search), list = $('[data-search-results]', search), count = $('[data-search-count]', search);
+  const types = JSON.parse(search.dataset.types), order = ['county', 'sector', 'vote', 'programme'];
+  let items = null;
+  const run = () => {
+    if (!items) return;
+    const words = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    if (!words.length) { list.replaceChildren(); count.textContent = ''; return; }
+    const hits = items.filter((i) => words.every((w) => `${i[0]} ${i[3]}`.toLowerCase().includes(w)))
+      .sort((a, b) => order.indexOf(a[2]) - order.indexOf(b[2]));
+    count.textContent = !hits.length ? search.dataset.none : hits.length === 1 ? search.dataset.one : search.dataset.count.replace('{n}', hits.length);
+    list.replaceChildren(...hits.slice(0, 40).map((i) => {
+      const li = document.createElement('li'), a = document.createElement('a'), type = document.createElement('span');
+      a.href = i[1];
+      a.textContent = i[0];
+      type.className = 'tag';
+      type.textContent = types[i[2]];
+      li.append(a, ' ', type);
+      return li;
+    }));
+  };
+  input.value = new URLSearchParams(location.search).get('q') ?? '';
+  input.addEventListener('input', run);
+  form.addEventListener('submit', (e) => { e.preventDefault(); run(); });
+  fetch(search.dataset.index).then((r) => r.json()).then((d) => { items = d; run(); }, () => {});
 }

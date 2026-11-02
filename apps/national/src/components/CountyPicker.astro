@@ -8,7 +8,7 @@ import { countyHref, href } from '../lib/routes.js';
 
 interface Props { lang?: 'en' | 'sw'; id?: string }
 const { lang = 'en', id = 'pick-county' } = Astro.props;
-const data = { rows: cardData(lang), share: t(lang, 'county.share'), missing: t(lang, 'county.spendingMissing'), named: t(lang, 'county.myNamed', { name: '{name}' }), base: href(lang, '/counties/') };
+const data = { rows: cardData(lang), share: t(lang, 'county.share'), named: t(lang, 'county.myNamed', { name: '{name}' }), base: href(lang, '/counties/') };
 ---
 <section class="card mycounty" aria-labelledby={`${id}-h`} data-county-card>
   <h2 id={`${id}-h`} data-mc-title>{t(lang, 'county.my')}</h2>
