@@ -13,7 +13,7 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - National budget prototype ("Kenya Budget Explained", working name) added in `national-budget/`, on branch `feat/national-budget-prototype`, not pushed. Its plan is `national-budget/BUILD_BRIEF.md` (decision #82).
 - Its build scripts were ported from Python to Node (`build-data.mjs`, `assemble.mjs`), because Python is not installed on the owner's laptop. `npm test` now checks that `data.json` still matches `src/data`, so a correction there needs a rebuild of the page.
 - National product Phase 0 finished: audit reported to the owner, decisions #82 to #87 logged, sector names and Treasury links fixed. The product will be a separate Astro app, `apps/national` (decision #83). Astro 7 upgrade is decided but not done (decision #85).
-- National product Phase 1 written on branch `feat/national-phase-1`, not pushed: `docs/national/SITEMAP.md`, `docs/national/DESIGN.md` and a working design specimen, `docs/national/specimen.html`. These wait for the owner's approval, including the accent colour; no pages are built until then (decision #82).
+- National product Phase 1 written on branch `feat/national-phase-1`, not pushed: `docs/national/SITEMAP.md`, `docs/national/DESIGN.md` and a working design specimen, `docs/national/specimen.html`. Approved by the owner on 2 Nov 2026, with Dusk Violet as the accent (decisions #88, #89).
 
 ## Changes on 31 Oct 2026 (review and "implement all")
 

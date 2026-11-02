@@ -1,12 +1,12 @@
 # Design system: Kenya Budget Explained
 
-**Status: for the owner's approval, Phase 1.** See it working: the [live specimen](https://claude.ai/artifact/RcAVE4AT3hpmKcdHdwaj6c) (private to the owner), or [`specimen.html`](specimen.html) in this folder. It uses real figures and a working picker for all 47 counties, and it can switch between the three accent colours.
+**Status: approved by the owner, 2 Nov 2026 (decision #88).** See it working: the [live specimen](https://claude.ai/artifact/RcAVE4AT3hpmKcdHdwaj6c) (private to the owner), or [`specimen.html`](specimen.html) in this folder. It uses real figures and a working picker for all 47 counties. Its switch still offers the two accents that were not chosen.
 
-## What you are approving
+## What was approved
 
-1. **The accent colour.** Dusk Violet is recommended; Lake Teal and Rain Blue are in the specimen to compare.
+1. **The accent colour:** Dusk Violet. Check it against the IEBC register of party colours before launch.
 2. **Numbers set in Varela Round.** The spec says League Spartan, but its digits cannot line up in columns (see [Type](#type)).
-3. **Red on debt.** Decision #24 limits red to gaps. The spec adds debt service, and the page needs borrowing too. It will be logged as an extension.
+3. **Red on debt,** extending decision #24.
 4. **The component list** below, including what is reused and what is rebuilt.
 
 ## What it inherits, and what is its own

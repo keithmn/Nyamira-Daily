@@ -1,8 +1,8 @@
 # Sitemap: Kenya Budget Explained
 
-**Status: for the owner's approval, Phase 1.** No page is built until this file and [DESIGN.md](DESIGN.md) are approved (decision #82). The plan behind it is [`national-budget/BUILD_BRIEF.md`](../../national-budget/BUILD_BRIEF.md). "Kenya Budget Explained" is a working name, held in one constant, `site.name`.
+**Status: approved by the owner, 2 Nov 2026 (decision #89).** The plan behind it is [`national-budget/BUILD_BRIEF.md`](../../national-budget/BUILD_BRIEF.md). "Kenya Budget Explained" is a working name, held in one constant, `site.name`.
 
-## What you are approving
+## What was approved
 
 1. Five sections, the same on phone and desktop: **Budget, Counties, Track, Learn, Data**.
 2. The route list below: about 1,700 English pages at full depth, and a Kiswahili twin of each.

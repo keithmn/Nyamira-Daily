@@ -34,7 +34,7 @@ Working name: "Kenya Budget Explained". The founder has not chosen the final nam
 ## Open work
 This prototype is now a reference, not the base for the product. `BUILD_BRIEF.md` is the plan (decision #82): read it first. The product is a new Astro app at `apps/national` (decision #83), and only the data carries over from here.
 
-Phases: 0 audit and decisions (done, 1 Nov 2026); 1 sitemap, design document and component list (written 2 Nov 2026: `docs/national/SITEMAP.md` and `DESIGN.md`, waiting for the owner's approval); then the brief's phases, numbered 2 to 7. Nothing in Phase 2 starts until that approval. It opens with the Astro 7 upgrade (decision #85). Branches are `feat/national-phase-<n>`, each from the one before, because this branch is not in `main`.
+Phases: 0 audit and decisions (done, 1 Nov 2026); 1 sitemap, design document and component list (approved 2 Nov 2026: `docs/national/SITEMAP.md` and `DESIGN.md`); then the brief's phases, numbered 2 to 7. Phase 2 opens with the Astro 7 upgrade (decision #85). Branches are `feat/national-phase-<n>`, each from the one before, because this branch is not in `main`.
 
 Carried over from the old list:
 - **Checks by a person:** Claude Code checked every national figure against its PDF on 1 Nov 2026 (`VERIFICATION.md`). The labels stay `official` until a person checks the printed pages, starting with the 47 hand-typed numbers from Guide p.14.
