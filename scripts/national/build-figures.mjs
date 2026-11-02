@@ -85,7 +85,52 @@ export function guideCountyFigures() {
   };
 }
 
-export const GENERATED = { 'appropriation-act-2026.json': appropriationFigures, 'county-allocation-act-2026.json': countyActFigures, 'cra-recommendation-2026-27.json': craFigures, 'guide-counties-2026-27.json': guideCountyFigures };
+// Each vote's total from the Parliamentary Budget Office's tables, in one grouping for both years, so a vote can be
+// compared with last year like for like. The Act stays the record of this year's money; these exist to be compared.
+function pboVoteFigures(file, year, fy, source) {
+  const rows = csv(`pbo-explainer/${file}`);
+  return {
+    defaults: { fy, stage: 'approved', unit: 'KSh m', level: 'vote', grouping: 'pbo-vote', money: 'national', label: 'official', source, parent: null, ...CHECKED },
+    figures: rows.map((r) => ({ id: `ke.fy${year}.approved.pbo.vote.${r.code}.total`, name: `${r.name}: total`, value: Number(r.total), page: `Table ${r.table}, PDF p.${r.pdf_page}`, pdfPage: Number(r.pdf_page) })),
+  };
+}
+
+// The Controller of Budget's Table 2.5. Nairobi is printed as Nairobi; the Act and the URLs call it Nairobi City.
+const cobSlug = (county) => (county === 'Nairobi' ? 'nairobi-city' : countySlug(county).replaceAll('-', ' ').replaceAll(' ', '-'));
+const COB = [['budget', 'total_budget', 'budget'], ['spent', 'total_spent', 'spending'], ['dev-budget', 'dev_budget', 'development budget'], ['dev-spent', 'dev_spent', 'development spending']];
+
+export function cobCountyFigures() {
+  const rows = csv('cob-county-2024-25/extract.csv');
+  const T = 'ke.fy2024-25.spent.county-total';
+  const page = (r) => ({ page: `Table 2.5, p.${Number(r.pdf_page) - 44}`, pdfPage: Number(r.pdf_page) });
+  const figures = [];
+  for (const r of rows) {
+    const total = r.county === 'Total', slug = total ? null : cobSlug(r.county), who = total ? 'All 47 counties' : r.county === 'Nairobi' ? 'Nairobi City' : r.county;
+    if (!total && !COUNTIES.some((c) => c.slug === slug)) throw new Error(`Unknown county in the CoB table: ${r.county}`);
+    const base = total ? T : `ke.fy2024-25.spent.county.${slug}`;
+    for (const [key, column, words] of COB) figures.push({ id: `${base}.${key}`, name: `${who}: ${words}, FY2024/25`, value: Number(r[column]), level: total ? 'total' : 'county', parent: total ? null : `${T}.${key}`, ...page(r) });
+    figures.push({ id: `${base}.dev-absorption`, name: `${who}: share of the development budget spent, FY2024/25`, value: Number(r.dev_pct), unit: '%', level: 'measure', parent: null, ...page(r) });
+    figures.push({ id: `${base}.absorption`, name: `${who}: share of the budget spent, FY2024/25`, value: Number(r.overall_pct), unit: '%', level: 'measure', parent: null, ...page(r) });
+  }
+  return { defaults: { fy: '2024/25', stage: 'spent', unit: 'KSh m', grouping: 'county-spending', money: 'county', label: 'official', source: 'cob-county-birr-2024-25', ...CHECKED }, figures };
+}
+
+// Which votes make up each sector, from the Budget Explainer's own tables, not from any judgment of ours (decision #93)
+export function sectorMap() {
+  const rows = csv('pbo-explainer/votes-2026-27.csv'), out = [];
+  for (const r of rows) {
+    if (!out.some((s) => s.slug === r.sector)) out.push({ slug: r.sector, table: Number(r.table), votes: [] });
+    out.find((s) => s.slug === r.sector).votes.push(r.code);
+  }
+  return out;
+}
+
+export const GENERATED = {
+  'appropriation-act-2026.json': appropriationFigures, 'county-allocation-act-2026.json': countyActFigures, 'cra-recommendation-2026-27.json': craFigures, 'guide-counties-2026-27.json': guideCountyFigures,
+  'pbo-votes-2026-27.json': () => pboVoteFigures('votes-2026-27.csv', '2026-27', '2026/27', 'pbo-budget-explainer-2026'),
+  'pbo-votes-2025-26.json': () => pboVoteFigures('votes-2025-26.csv', '2025-26', '2025/26', 'pbo-budget-explainer-2025'),
+  'cob-counties-2024-25.json': cobCountyFigures,
+};
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   if (COUNTIES.length !== 47) throw new Error('Expected 47 counties');
@@ -94,4 +139,5 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
     writeFileSync(join(root, 'data/national/figures', file), JSON.stringify(data, null, 1) + '\n');
     console.log(file, data.figures.length);
   }
+  writeFileSync(join(root, 'data/national/sectors.json'), JSON.stringify(sectorMap(), null, 1) + '\n');
 }

@@ -40,7 +40,7 @@ export const Source = z.strictObject({
   id: z.string().min(1),
   title: z.string().min(1),
   issuer: z.string().min(1),
-  docType: z.enum(['act', 'budget-document', 'recommendation', 'guide', 'press']),
+  docType: z.enum(['act', 'budget-document', 'recommendation', 'guide', 'report', 'press']),
   fy: z.string().regex(/^\d{4}\/\d{2}$/),
   stage: z.enum(STAGES),
   date: z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/),

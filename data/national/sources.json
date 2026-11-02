@@ -143,5 +143,65 @@
   "pageOffset": null,
   "tolerance": {},
   "nextExpected": null
+ },
+ {
+  "id": "pbo-budget-explainer-2026",
+  "title": "Budget Explainer 2026 (Parliamentary Budget Office, July 2026)",
+  "issuer": "Parliamentary Budget Office",
+  "docType": "guide",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-07",
+  "url": "https://www.parliament.go.ke/sites/default/files/2026-07/BUDGET%20EXPLAINER%20-%202026.pdf",
+  "archive": null,
+  "sha256": "11fba3939604d9c4d7b2d390c6c88679871f9ac7de03daaf4adeb82a4747dde8",
+  "file": "pbo-budget-explainer-2026.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh m": 2
+  },
+  "nextExpected": {
+   "date": "2027-08-31",
+   "what": "The Budget Explainer for FY2027/28"
+  }
+ },
+ {
+  "id": "pbo-budget-explainer-2025",
+  "title": "Budget Explainer for the FY 2025/26 Budget (Parliamentary Budget Office, August 2025)",
+  "issuer": "Parliamentary Budget Office",
+  "docType": "guide",
+  "fy": "2025/26",
+  "stage": "approved",
+  "date": "2025-08",
+  "url": "https://parliament.go.ke/sites/default/files/2025-08/Budget_Explainer_Final.pdf",
+  "archive": null,
+  "sha256": "14c748ef7440814685cc61c0b7a0142783210ff5af61a94d94d289d528ebc152",
+  "file": "pbo-budget-explainer-2025.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh m": 2
+  },
+  "nextExpected": null
+ },
+ {
+  "id": "cob-county-birr-2024-25",
+  "title": "County Governments Budget Implementation Review Report FY 2024/25 (Office of the Controller of Budget, August 2025)",
+  "issuer": "Office of the Controller of Budget",
+  "docType": "report",
+  "fy": "2024/25",
+  "stage": "spent",
+  "date": "2025-08",
+  "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/?wpdmdl=16263",
+  "archive": null,
+  "sha256": "825edf1e1a347016a61477002471761e5f826e540ac153d74764087bb920b213",
+  "file": "cob-county-birr-2024-25.pdf",
+  "pageOffset": -44,
+  "tolerance": {
+   "KSh m": 1
+  },
+  "nextExpected": {
+   "date": "2026-09-30",
+   "what": "The County Governments Budget Implementation Review Report for FY2025/26"
+  }
  }
 ]

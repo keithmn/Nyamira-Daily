@@ -14,6 +14,7 @@ export default defineConfig({
   base: process.env.KBE_BASE || '/',
   trailingSlash: 'always',
   compressHTML: true,
+  devToolbar: { enabled: false },
   build: { format: 'directory', inlineStylesheets: 'never' },
   integrations: [headers()],
   vite: {

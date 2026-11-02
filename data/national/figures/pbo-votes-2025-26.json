@@ -1,0 +1,626 @@
+{
+ "defaults": {
+  "fy": "2025/26",
+  "stage": "approved",
+  "unit": "KSh m",
+  "level": "vote",
+  "grouping": "pbo-vote",
+  "money": "national",
+  "label": "official",
+  "source": "pbo-budget-explainer-2025",
+  "parent": null,
+  "checkedOn": "2026-11-02",
+  "checkedBy": "claude-code"
+ },
+ "figures": [
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1169.total",
+   "name": "State Department for Agriculture: total",
+   "value": 49945,
+   "page": "Table 2, PDF p.15",
+   "pdfPage": 15
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1112.total",
+   "name": "State Department for Lands and Physical Planning: total",
+   "value": 10763,
+   "page": "Table 2, PDF p.15",
+   "pdfPage": 15
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1162.total",
+   "name": "State Department for Livestock Development: total",
+   "value": 10111,
+   "page": "Table 2, PDF p.15",
+   "pdfPage": 15
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1166.total",
+   "name": "State Department for Blue Economy and Fisheries: total",
+   "value": 8230,
+   "page": "Table 2, PDF p.15",
+   "pdfPage": 15
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2021.total",
+   "name": "National Land Commission: total",
+   "value": 3359,
+   "page": "Table 2, PDF p.15",
+   "pdfPage": 15
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2091.total",
+   "name": "Teachers Service Commission: total",
+   "value": 387181,
+   "page": "Table 3, PDF p.16",
+   "pdfPage": 16
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1065.total",
+   "name": "State Department for Higher Education and Research: total",
+   "value": 143735,
+   "page": "Table 3, PDF p.16",
+   "pdfPage": 16
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1066.total",
+   "name": "State Department for Basic Education: total",
+   "value": 127912,
+   "page": "Table 3, PDF p.16",
+   "pdfPage": 16
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1064.total",
+   "name": "State Department for Technical Vocational Education and Training: total",
+   "value": 43245,
+   "page": "Table 3, PDF p.16",
+   "pdfPage": 16
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1067.total",
+   "name": "State Department for Science, Innovation and Research: total",
+   "value": 993,
+   "page": "Table 3, PDF p.16",
+   "pdfPage": 16
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1091.total",
+   "name": "State Department for Roads: total",
+   "value": 221795,
+   "page": "Table 4, PDF p.17",
+   "pdfPage": 17
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1094.total",
+   "name": "State Department for Housing & Urban Development: total",
+   "value": 123829,
+   "page": "Table 4, PDF p.17",
+   "pdfPage": 17
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1152.total",
+   "name": "State Department for Energy: total",
+   "value": 63474,
+   "page": "Table 4, PDF p.17",
+   "pdfPage": 17
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1092.total",
+   "name": "State Department for Transport: total",
+   "value": 47456,
+   "page": "Table 4, PDF p.17",
+   "pdfPage": 17
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1193.total",
+   "name": "State Department for Petroleum: total",
+   "value": 30689,
+   "page": "Table 4, PDF p.17",
+   "pdfPage": 17
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1122.total",
+   "name": "State Department for Information Communication Technology & Digital Economy: total",
+   "value": 16189,
+   "page": "Table 4, PDF p.17",
+   "pdfPage": 17
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1097.total",
+   "name": "State Department for Aviation and Aerospace Development: total",
+   "value": 14515,
+   "page": "Table 4, PDF p.17",
+   "pdfPage": 17
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1123.total",
+   "name": "State Department for Broadcasting & Telecommunications: total",
+   "value": 6553,
+   "page": "Table 4, PDF p.17",
+   "pdfPage": 17
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1093.total",
+   "name": "State Department for Shipping and Maritime Affairs: total",
+   "value": 5683,
+   "page": "Table 4, PDF p.17",
+   "pdfPage": 17
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1095.total",
+   "name": "State Department for Public Works: total",
+   "value": 4445,
+   "page": "Table 4, PDF p.17",
+   "pdfPage": 17
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1109.total",
+   "name": "State Department for Water & Sanitation: total",
+   "value": 53954,
+   "page": "Table 5, PDF p.18",
+   "pdfPage": 18
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1203.total",
+   "name": "State Department for Wildlife: total",
+   "value": 14360,
+   "page": "Table 5, PDF p.18",
+   "pdfPage": 18
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1332.total",
+   "name": "State Department for Forestry: total",
+   "value": 12544,
+   "page": "Table 5, PDF p.18",
+   "pdfPage": 18
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1104.total",
+   "name": "State Department for Irrigation: total",
+   "value": 7548,
+   "page": "Table 5, PDF p.18",
+   "pdfPage": 18
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1331.total",
+   "name": "State Department for Environment & Climate Change: total",
+   "value": 5830,
+   "page": "Table 5, PDF p.18",
+   "pdfPage": 18
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1192.total",
+   "name": "State Department for Mining: total",
+   "value": 1631,
+   "page": "Table 5, PDF p.18",
+   "pdfPage": 18
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1202.total",
+   "name": "State Department for Tourism: total",
+   "value": 16535,
+   "page": "Table 6, PDF p.19",
+   "pdfPage": 19
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1036.total",
+   "name": "State Department for the ASALs and Regional Development: total",
+   "value": 10879,
+   "page": "Table 6, PDF p.19",
+   "pdfPage": 19
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1175.total",
+   "name": "State Department for Industry: total",
+   "value": 9402,
+   "page": "Table 6, PDF p.19",
+   "pdfPage": 19
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1173.total",
+   "name": "State Department for Cooperatives: total",
+   "value": 7349,
+   "page": "Table 6, PDF p.19",
+   "pdfPage": 19
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1176.total",
+   "name": "State Department for Micro, Small and Medium Enterprises: total",
+   "value": 5093,
+   "page": "Table 6, PDF p.19",
+   "pdfPage": 19
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1174.total",
+   "name": "State Department for Trade: total",
+   "value": 4354,
+   "page": "Table 6, PDF p.19",
+   "pdfPage": 19
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1177.total",
+   "name": "State Department for Investment Promotion: total",
+   "value": 3512,
+   "page": "Table 6, PDF p.19",
+   "pdfPage": 19
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1221.total",
+   "name": "State Department for East African Community: total",
+   "value": 1035,
+   "page": "Table 6, PDF p.19",
+   "pdfPage": 19
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1033.total",
+   "name": "State Department for Special Programmes: total",
+   "value": 654,
+   "page": "Table 6, PDF p.19",
+   "pdfPage": 19
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1025.total",
+   "name": "National Police Service: total",
+   "value": 127091,
+   "page": "Table 7, PDF p.20",
+   "pdfPage": 20
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1023.total",
+   "name": "State Department for Correctional Services: total",
+   "value": 38153,
+   "page": "Table 7, PDF p.20",
+   "pdfPage": 20
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1252.total",
+   "name": "State Law Office: total",
+   "value": 5387,
+   "page": "Table 7, PDF p.20",
+   "pdfPage": 20
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1271.total",
+   "name": "Ethics and Anti-Corruption Commission: total",
+   "value": 4500,
+   "page": "Table 7, PDF p.20",
+   "pdfPage": 20
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1291.total",
+   "name": "Office of the Director of Public Prosecutions: total",
+   "value": 4482,
+   "page": "Table 7, PDF p.20",
+   "pdfPage": 20
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1311.total",
+   "name": "Office of the Registrar of Political Parties: total",
+   "value": 2487,
+   "page": "Table 7, PDF p.20",
+   "pdfPage": 20
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1253.total",
+   "name": "State Department for Justice Human Rights and Constitutional Affairs: total",
+   "value": 1020,
+   "page": "Table 7, PDF p.20",
+   "pdfPage": 20
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1321.total",
+   "name": "Witness Protection Agency: total",
+   "value": 841,
+   "page": "Table 7, PDF p.20",
+   "pdfPage": 20
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2141.total",
+   "name": "National Gender and Equality Commission: total",
+   "value": 556,
+   "page": "Table 7, PDF p.20",
+   "pdfPage": 20
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2011.total",
+   "name": "Kenya National Commission on Human Rights: total",
+   "value": 530,
+   "page": "Table 7, PDF p.20",
+   "pdfPage": 20
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1082.total",
+   "name": "State Department for Medical Services: total",
+   "value": 105953,
+   "page": "Table 8, PDF p.21",
+   "pdfPage": 21
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1083.total",
+   "name": "State Department for Public Health and Professional Standards: total",
+   "value": 32152,
+   "page": "Table 8, PDF p.21",
+   "pdfPage": 21
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1041.total",
+   "name": "Ministry of Defence: total",
+   "value": 202323,
+   "page": "Table 9, PDF p.21",
+   "pdfPage": 21
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1281.total",
+   "name": "National Intelligence Service: total",
+   "value": 51447,
+   "page": "Table 9, PDF p.21",
+   "pdfPage": 21
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1071.total",
+   "name": "The National Treasury: total",
+   "value": 106879,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1072.total",
+   "name": "State Department for Economic Planning: total",
+   "value": 63040,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1026.total",
+   "name": "State Department for Internal Security & National Admin.: total",
+   "value": 35830,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1053.total",
+   "name": "State Department for Foreign Affairs: total",
+   "value": 25364,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1024.total",
+   "name": "State Department for Immigration and Citizen Services: total",
+   "value": 22345,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1213.total",
+   "name": "State Department for Public Service: total",
+   "value": 21609,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1032.total",
+   "name": "State Department for Devolution: total",
+   "value": 17246,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2031.total",
+   "name": "Independent Electoral and Boundaries Commission: total",
+   "value": 9332,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2111.total",
+   "name": "Auditor General: total",
+   "value": 8689,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1017.total",
+   "name": "State House: total",
+   "value": 8579,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1011.total",
+   "name": "Executive Office of the President: total",
+   "value": 5569,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1073.total",
+   "name": "State Department for Investments and Assets Management: total",
+   "value": 3908,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2071.total",
+   "name": "Public Service Commission: total",
+   "value": 3562,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1012.total",
+   "name": "Office of the Deputy President: total",
+   "value": 3072,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2101.total",
+   "name": "National Police Service Commission: total",
+   "value": 1391,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2151.total",
+   "name": "Independent Policing Oversight Authority: total",
+   "value": 1316,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1018.total",
+   "name": "State Department for National Government Coordination: total",
+   "value": 1044,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2121.total",
+   "name": "Controller of Budget: total",
+   "value": 834,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2081.total",
+   "name": "Salaries and Remuneration Commission: total",
+   "value": 752,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1054.total",
+   "name": "State Department for Diaspora Affairs: total",
+   "value": 718,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2131.total",
+   "name": "Commission on Administrative Justice: total",
+   "value": 674,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2061.total",
+   "name": "Commission on Revenue Allocation: total",
+   "value": 370,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1014.total",
+   "name": "State Department for Parliamentary Affairs: total",
+   "value": 364,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1013.total",
+   "name": "Office of the Prime Cabinet Secretary: total",
+   "value": 357,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1016.total",
+   "name": "State Department for Cabinet Affairs: total",
+   "value": 229,
+   "page": "Table 10, PDF p.23",
+   "pdfPage": 23
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1185.total",
+   "name": "State Department for Social Protection and Senior Citizens Affairs: total",
+   "value": 29320,
+   "page": "Table 11, PDF p.24",
+   "pdfPage": 24
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1132.total",
+   "name": "State Department for Sports: total",
+   "value": 17462,
+   "page": "Table 11, PDF p.24",
+   "pdfPage": 24
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1186.total",
+   "name": "State Department for Children Welfare Services: total",
+   "value": 12318,
+   "page": "Table 11, PDF p.24",
+   "pdfPage": 24
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1212.total",
+   "name": "State Department for Gender and Affirmative Action: total",
+   "value": 6344,
+   "page": "Table 11, PDF p.24",
+   "pdfPage": 24
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1184.total",
+   "name": "State Department for Labour and Skills Development: total",
+   "value": 5064,
+   "page": "Table 11, PDF p.24",
+   "pdfPage": 24
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1135.total",
+   "name": "State Department for Youth Affairs and Creative Economy: total",
+   "value": 4901,
+   "page": "Table 11, PDF p.24",
+   "pdfPage": 24
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1134.total",
+   "name": "State Department for Culture and Heritage: total",
+   "value": 3586,
+   "page": "Table 11, PDF p.24",
+   "pdfPage": 24
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2042.total",
+   "name": "National Assembly: total",
+   "value": 28569,
+   "page": "Table 12, PDF p.25",
+   "pdfPage": 25
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2043.total",
+   "name": "Parliamentary Joint Services: total",
+   "value": 8383,
+   "page": "Table 12, PDF p.25",
+   "pdfPage": 25
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2044.total",
+   "name": "Senate: total",
+   "value": 8199,
+   "page": "Table 12, PDF p.25",
+   "pdfPage": 25
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2041.total",
+   "name": "Parliamentary Service Commission: total",
+   "value": 2840,
+   "page": "Table 12, PDF p.25",
+   "pdfPage": 25
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.1261.total",
+   "name": "Judiciary: total",
+   "value": 26937,
+   "page": "Table 13, PDF p.25",
+   "pdfPage": 25
+  },
+  {
+   "id": "ke.fy2025-26.approved.pbo.vote.2051.total",
+   "name": "Judicial Service Commission: total",
+   "value": 842,
+   "page": "Table 13, PDF p.25",
+   "pdfPage": 25
+  }
+ ]
+}

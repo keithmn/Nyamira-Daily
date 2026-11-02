@@ -3,3 +3,5 @@ county-allocation-act-2026/typed.csv,"County Act First Schedule, typed from a pi
 mwananchi-guide-2026-27/typed.csv,"Guide p.14 county table, typed from a picture with no text layer",47,waiting,,
 appropriation-act-2026/corrections.csv,Act amounts corrected from page images where the text layer misread them,22,waiting,,
 appropriation-act-2026/names.csv,Act programme and vote names repaired from page images,4,waiting,,
+pbo-explainer/votes-2026-27.csv,"Which votes are in each sector, read from the Budget Explainer's tables (decision #89)",87,waiting,,
+pbo-explainer/names-2025-26.csv,Last year's votes matched to this year's by name where the wording differs,5,waiting,,
