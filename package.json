@@ -6,6 +6,9 @@
   "engines": {
     "node": ">=22.23.4"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -14,7 +17,9 @@
     "db:migrate:local": "wrangler d1 migrations apply nyamira-corrections --local",
     "db:migrate:remote": "wrangler d1 migrations apply nyamira-corrections --remote",
     "test": "node --test",
-    "check:launch": "node scripts/check-launch.mjs"
+    "check:launch": "node scripts/check-launch.mjs",
+    "check:national": "node scripts/national/check-national.mjs",
+    "release:national": "node scripts/national/release.mjs"
   },
   "dependencies": {
     "astro": "7.4.4",

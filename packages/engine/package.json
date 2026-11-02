@@ -1,0 +1,19 @@
+{
+  "name": "@kbe/engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Figure registry, rules and shared helpers for Kenya Budget Explained (decision #83)",
+  "exports": {
+    "./schema": "./src/schema.js",
+    "./registry": "./src/registry.js",
+    "./compare": "./src/compare.js",
+    "./citation": "./src/citation.js",
+    "./counties": "./src/counties.js",
+    "./csv": "./src/csv.js",
+    "./release": "./src/release.js"
+  },
+  "peerDependencies": {
+    "astro": "7.4.4"
+  }
+}
