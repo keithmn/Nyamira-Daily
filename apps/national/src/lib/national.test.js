@@ -5,11 +5,12 @@ import { hash, headersFile, inlineScripts, policy } from '../../integrations/hea
 import { fitsAboveBar, inflows, outflows, perHundred, sectors } from './budget.js';
 import { barWidths, endLabelY, linePoints, ticks } from './charts.js';
 import { allCountyDev, cardData, changeWords, countyBySlug, countyRows, shareParts } from './counties.js';
-import { fig, release } from './figures.js';
+import { citationFor, fig, release, shortTitle } from './figures.js';
 import { PLANNED, SECTIONS, href, isPlanned, sectionOf, twin } from './routes.js';
+import { countOf, rulesFor } from './rules.js';
 import { searchIndex } from './search.js';
 import { amountSentence, countyQuestions, whatsappHref } from './sentences.js';
-import { timeline } from './stages.js';
+import { nextDeadline, timeline } from './stages.js';
 import { allSectors, allVotes, sectorBySlug, voteByCode } from './votes.js';
 
 const vars = (s) => [...s.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort();
@@ -61,6 +62,50 @@ test('a sum cites all the pages it draws on', () => {
   const v = voteByCode('1066');
   assert.equal(v.first.page.split('p.').length - 1, 2);
   assert.equal(sectorBySlug('health').first.page, 'Schedule');
+});
+
+test('a document\'s short title drops only the bracket at its end', () => {
+  assert.equal(shortTitle(fig('ke.fy2025-26.law.rule.wage-maximum').doc), 'Public Finance Management (County Governments) Regulations, 2015');
+  assert.equal(shortTitle(fig('approved.total.supply').doc), 'Appropriation Act, 2026');
+  assert.equal(shortTitle({ title: 'No bracket here' }), 'No bracket here');
+  assert.match(citationFor(fig('approved.total.supply')), /from the Appropriation Act, 2026, Schedule/);
+});
+
+test('the rules use the law\'s own numbers, and report what the arithmetic says', () => {
+  const pick = (slug, key) => rulesFor(slug).find((r) => r.key === key);
+  assert.equal(pick('nyamira', 'development').limit.value, 30);
+  assert.equal(pick('nyamira', 'wages').limit.value, 35);
+  assert.equal(pick('nyamira', 'development').result, 'meets');
+  assert.equal(pick('nyamira', 'wages').result, 'misses');
+  assert.equal(pick('kajiado', 'development').result, 'misses');
+  assert.equal(pick('mombasa', 'wages').result, 'meets');
+  const slugs = countyRows().map((c) => c.slug);
+  assert.equal(countOf(slugs, 'wages', 'misses'), 39);
+  assert.equal(countOf(slugs, 'development', 'misses'), 1);
+});
+
+test('the rule wording keeps the law\'s qualifier, and no rule text assigns blame', () => {
+  assert.match(dictionaries.en['rule.development.law'], /over the medium term/);
+  assert.match(dictionaries.en['rule.development.law'], /one year alone does not settle it/);
+  for (const key of Object.keys(dictionaries.en).filter((k) => k.startsWith('rule.'))) assert.doesNotMatch(dictionaries.en[key], /breach|violat|illegal|fail/i, key);
+});
+
+test('all counties\' wage share matches the report to two decimals', () => {
+  assert.equal(fig('ke.fy2025-26.spent.county-total.wage-share').value, 39.54);
+});
+
+test('a county that reported no trade payables has no figure, not a zero', () => {
+  assert.equal(countyBySlug('nandi').payables, null);
+  assert.ok(countyQuestions(countyBySlug('nandi'), 'en').every((q) => !/owed suppliers/.test(q)));
+  assert.match(countyQuestions(countyBySlug('nyamira'), 'en').join(' '), /owed suppliers KSh 357\.7 million at 30 June 2026/);
+});
+
+test('the next deadline follows the law, and rolls over after it passes', () => {
+  assert.equal(nextDeadline('en', '2026-11-02').date, '2027-02-15');
+  assert.equal(nextDeadline('en', '2027-02-15').date, '2027-02-15');
+  assert.equal(nextDeadline('en', '2027-02-16').date, '2028-02-15');
+  assert.match(nextDeadline('en', '2026-11-02').text, /Budget Policy Statement 2027, due in Parliament by 15 February 2027/);
+  assert.equal(nextDeadline('en').doc.id, 'pfm-act-2012');
 });
 
 test('all 87 votes and 201 programmes are in, each vote in one sector', () => {

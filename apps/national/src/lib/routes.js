@@ -17,7 +17,7 @@ export const SECTIONS = [
 
 export const TRUST = ['/about/', '/who-runs-us/', '/privacy/', '/terms/', '/right-of-reply/'];
 
-const BUILT = ['/budget/', '/counties/', '/counties/compare/'];
+const BUILT = ['/budget/', '/counties/', '/counties/compare/', '/revenue/', '/debt/'];
 export const PLANNED = SECTIONS.flatMap((s) => s.pages).concat(TRUST).filter((p) => !BUILT.includes(p));
 
 export const href = (lang, path = '/') => `${BASE}${lang === 'sw' ? '/sw' : ''}${path}`;

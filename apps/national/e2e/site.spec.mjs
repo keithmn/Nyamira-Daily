@@ -286,6 +286,41 @@ test.describe('the journeys, tap by tap, at 390px', () => {
   });
 });
 
+test('the home page counts down to the next stage, in days', async ({ page }) => {
+  await open(page, '/');
+  await expect(page.locator('.stage-next')).toContainText('Budget Policy Statement 2027, due in Parliament by 15 February 2027, in ');
+  await expect(page.locator('.stage-next')).toContainText(' days.');
+  await expect(page.locator('.stage-next a')).toHaveAttribute('href', /Public_Finance_Management_Act_2012/);
+});
+
+test('a county page gives its rules check, law quoted, with the official finding first', async ({ page }) => {
+  await open(page, '/counties/nyamira/');
+  const rules = page.locator('section:has(#h-rules)');
+  await expect(rules.locator('.band-head')).toContainText('39.54%');
+  await expect(rules.locator('.rule')).toHaveText([/Meets/, /Does not meet/]);
+  await expect(rules).toContainText('over the medium term');
+  await expect(rules).toContainText('one year alone does not settle it');
+  const colour = await rules.locator('.rule-misses').evaluate((e) => getComputedStyle(e).color);
+  expect(colour).not.toBe('rgb(225, 29, 42)');
+  await expect(page.locator('section:has(#h-own)')).toContainText('KSh 613.0 million');
+  await expect(page.locator('section:has(#h-bills)')).toContainText('KSh 357.7 million');
+});
+
+test('Nandi says it reported no bills, and shows no zero', async ({ page }) => {
+  await open(page, '/counties/nandi/');
+  const bills = page.locator('section:has(#h-bills)');
+  await expect(bills).toContainText('No figure reported');
+  await expect(bills).toContainText('not the same as owing nothing');
+  await expect(bills).not.toContainText('KSh 0');
+});
+
+test('a county the report marks carries its warning beside the figure', async ({ page }) => {
+  await open(page, '/counties/kilifi/');
+  await expect(page.locator('section:has(#h-bills) .note')).toContainText('does not agree with its ageing table');
+  await open(page, '/counties/nyeri/');
+  await expect(page.locator('section:has(#h-own) .note')).toContainText('left it out');
+});
+
 test('every county has its page and sheet, in both languages', () => {
   for (const root of [dist, join(dist, 'sw')]) {
     const counties = readdirSync(join(root, 'counties')).filter((d) => d !== 'compare' && statSync(join(root, 'counties', d)).isDirectory());

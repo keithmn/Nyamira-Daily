@@ -158,6 +158,21 @@ export function sectorMap() {
   return out;
 }
 
+// Five years of debt. FY2024/25 is provisional in the report. Stock and interest are national money, kept in their own groupings.
+export function debtFigures() {
+  const rows = csv('debt-report-2024-25/extract.csv'), figures = [];
+  const names = { stock: ['Public debt stock', 'debt-stock', 'KSh m'], 'stock-external': ['External debt stock', 'debt-stock', 'KSh m'], 'stock-domestic': ['Domestic debt stock', 'debt-stock', 'KSh m'], gdp: ['Nominal GDP', 'gdp', 'KSh m'], 'stock-gdp': ['Public debt as a share of GDP', 'debt-ratio', '%'], service: ['Total debt service', 'debt-service', 'KSh m'], interest: ['Interest paid', 'debt-interest', 'KSh m'], 'interest-external': ['Interest on external debt', 'debt-interest', 'KSh m'], 'interest-domestic': ['Interest on domestic debt', 'debt-interest', 'KSh m'], revenue: ['Ordinary revenue', 'revenue-total', 'KSh m'], 'service-revenue': ['Debt service as a share of revenue', 'debt-ratio', '%'] };
+  for (const fy of ['2020/21', '2021/22', '2022/23', '2023/24', '2024/25']) {
+    const year = fy.replace('/', '-');
+    for (const r of rows) {
+      const [name, grouping, unit] = names[r.key], base = `ke.fy${year}.spent.debt`;
+      const parent = { 'stock-external': `${base}.stock`, 'stock-domestic': `${base}.stock`, 'interest-external': `${base}.interest`, 'interest-domestic': `${base}.interest` }[r.key] ?? null;
+      figures.push({ id: `${base}.${r.key}`, name: `${name}, FY${fy}`, value: Number(r[fy]), unit, fy, grouping, parent, level: 'debt', page: `${r.table}, p.${r.pdf_page}`, pdfPage: Number(r.pdf_page), ...(fy === '2024/25' ? { note: 'Provisional in the report.' } : {}) });
+    }
+  }
+  return { defaults: { stage: 'spent', money: 'national', label: 'official', source: 'annual-public-debt-report-2024-25', ...CHECKED }, figures };
+}
+
 export const GENERATED = {
   'appropriation-act-2026.json': appropriationFigures, 'county-allocation-act-2026.json': countyActFigures, 'cra-recommendation-2026-27.json': craFigures, 'guide-counties-2026-27.json': guideCountyFigures,
   'pbo-votes-2026-27.json': () => pboVoteFigures('votes-2026-27.csv', '2026-27', '2026/27', 'pbo-budget-explainer-2026'),
@@ -165,6 +180,7 @@ export const GENERATED = {
   'cob-counties-2024-25.json': () => cobCountyFigures('2024-25', 'cob-county-birr-2024-25', -44),
   'cob-counties-2025-26.json': () => cobCountyFigures('2025-26', 'cob-county-birr-2025-26', -34),
   'cob-county-detail-2025-26.json': cobDetailFigures,
+  'debt-2024-25.json': debtFigures,
 };
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

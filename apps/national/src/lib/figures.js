@@ -3,7 +3,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { citation } from '@kbe/engine/citation';
+import { citation, shortenTitle } from '@kbe/engine/citation';
 import { buildRegistry, readRegistry } from '@kbe/engine/registry';
 import { site } from '../site.js';
 
@@ -30,7 +30,7 @@ export function fig(id) {
 export const hasFigure = (id) => figures.has(id.startsWith('ke.') ? id : PREFIX + id);
 export const allFigures = () => [...figures.values()];
 export const sourceDoc = (id) => sources.get(id);
-export const shortTitle = (doc) => doc.title.replace(/ ([^()]*)$/, '');
+export const shortTitle = (doc) => shortenTitle(doc.title);
 export const citationFor = (f) => citation(f, f.doc, release, site.name);
 export const correctionFor = (id) => corrections.filter((c) => c.id === id).at(-1) ?? null;
 export const today = () => new Date().toLocaleDateString('en-CA', { timeZone: 'Africa/Nairobi' });

@@ -1,0 +1,34 @@
+---
+// Where the money comes from. This year's tax heads are a plan from the Treasury; the trend is what was collected in years that
+// have ended. They are different stages, so they stay in separate charts.
+import { full, money, percent } from '@kbe/engine/fmt';
+import { t } from '../../i18n/index.js';
+import { revenueYears, taxHeads } from '../../lib/depth.js';
+import { fig, FY, PREFIX } from '../../lib/figures.js';
+import { YEAR } from '../../lib/routes.js';
+import { summed } from '../../lib/votes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import Chart from '../Chart.astro';
+import NotYetLoaded from '../NotYetLoaded.astro';
+import PageHero from '../PageHero.astro';
+import RankedBars from '../RankedBars.astro';
+import TrendLine from '../TrendLine.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const ordinary = fig('statement.revenue.ordinary'), heads = taxHeads(), years = revenueYears(), latest = years.at(-1);
+const rows = heads.rows.map((h, i) => ({ name: t(lang, h.key), value: h.figure.value, shown: h.figure.value.toFixed(1), mark: i === 0, tip: `${money(h.figure.value, h.figure.unit, lang)}, ${percent(h.share, 0)}` }));
+const points = years.map((y) => ({ label: y.fy.slice(2), value: Number((y.value / 1e6).toFixed(2)), tip: `FY${y.fy}: ${money(y.value, 'KSh m', lang)}` }));
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.budget'), path: YEAR }, { name: t(lang, 'revenue.title') }]} /></div>
+<PageHero figure={ordinary} title={t(lang, 'revenue.title')} line={t(lang, 'revenue.line', { fy: FY })} what={t(lang, 'revenue.title')} lang={lang} />
+<section class="band">
+  <h2 class="vh">{t(lang, 'nav.detail')}</h2>
+  <div class="wrap two">
+    <Chart lang={lang} title={t(lang, 'revenue.headsTitle', { name: t(lang, heads.rows[0].key) })} sub={t(lang, 'revenue.headsSub', { fy: FY })} from={heads.rows[0].figure} table={{ columns: [t(lang, 'revenue.head'), 'KSh billion'], rows: heads.rows.map((h) => [t(lang, h.key), h.figure.value.toFixed(1)]) }} csvName="tax-heads-2026-27"><RankedBars rows={rows} lang={lang} /></Chart>
+    <div class="stack gap-xl">
+      <Chart lang={lang} title={t(lang, 'revenue.trendTitle')} sub={t(lang, 'revenue.trendSub')} from={latest.figure} table={{ columns: [t(lang, 'debt.year'), t(lang, 'debt.revenue')], rows: years.map((y) => [`FY${y.fy}`, full(y.value * 1e6)]) }} csvName="ordinary-revenue"><TrendLine points={points} title={t(lang, 'revenue.trendTitle')} axis={(v) => `${v}`} endLabel={(latest.value / 1e6).toFixed(2)} /></Chart>
+      <NotYetLoaded what={t(lang, 'revenue.monthlyWhat')} why={t(lang, 'revenue.monthlyWhy')} lang={lang} />
+    </div>
+  </div>
+</section>

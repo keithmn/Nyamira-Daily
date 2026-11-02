@@ -102,6 +102,19 @@ export function cobChecks(rows, second, earlier = []) {
   return problems;
 }
 
+// The debt report's parts must add to its totals, and its printed shares must fit its amounts, in all five years
+export function debtChecks(rows) {
+  const problems = [], row = (k) => rows.find((r) => r.key === k);
+  for (const fy of ['2020/21', '2021/22', '2022/23', '2023/24', '2024/25']) {
+    const v = (k) => Number(row(k)?.[fy]);
+    if (Math.abs(v('stock-external') + v('stock-domestic') - v('stock')) > 3) problems.push(`${fy}: external and domestic debt do not add to ${v('stock')}`);
+    if (Math.abs(v('interest-external') + v('interest-domestic') - v('interest')) > 3) problems.push(`${fy}: interest does not add to ${v('interest')}`);
+    if (Math.abs(v('service') / v('revenue') * 100 - v('service-revenue')) > 0.06) problems.push(`${fy}: debt service prints ${v('service-revenue')}% of revenue, the amounts give ${(v('service') / v('revenue') * 100).toFixed(2)}%`);
+    if (Math.abs(v('stock') / v('gdp') * 100 - v('stock-gdp')) > 0.06) problems.push(`${fy}: debt prints ${v('stock-gdp')}% of GDP, the amounts give ${(v('stock') / v('gdp') * 100).toFixed(2)}%`);
+  }
+  return problems;
+}
+
 // The ratios the report names, which our own division must reproduce. That is what proves the method.
 export const NAMED_WAGE_SHARES = { 'Homa Bay': 56, Nyeri: 52, 'Taita-Taveta': 49, Mombasa: 26, Kwale: 26, 'Tana River': 28 };
 
@@ -149,7 +162,8 @@ export function runDoubleEntry() {
   const cob = [...cobChecks(csv('cob-county-2024-25/extract.csv'), csv('cob-county-2024-25/typed.csv'), earlier).map((p) => `FY2024/25 ${p}`),
     ...cobChecks(csv('cob-county-2025-26/extract.csv'), csv('cob-county-2025-26/typed.csv')).map((p) => `FY2025/26 ${p}`),
     ...cobDetailChecks({ osr: csv('cob-county-2025-26/osr.csv'), wages: csv('cob-county-2025-26/wages.csv'), payables: csv('cob-county-2025-26/payables.csv'), annex: csv('cob-county-2025-26/annex.csv'), spending: csv('cob-county-2025-26/extract.csv'), known: csv('cob-county-2025-26/known-issues.csv') })];
-  return { act, county, pbo, cob };
+  const debt = debtChecks(csv('debt-report-2024-25/extract.csv'));
+  return { act, county, pbo, cob: [...cob, ...debt.map((p) => `Debt report ${p}`)] };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

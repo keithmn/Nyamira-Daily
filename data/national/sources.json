@@ -256,5 +256,26 @@
   "pageOffset": 312,
   "tolerance": {},
   "nextExpected": null
+ },
+ {
+  "id": "annual-public-debt-report-2024-25",
+  "title": "Annual Public Debt Management Report 2024/2025 (National Treasury and Economic Planning, September 2025)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "report",
+  "fy": "2024/25",
+  "stage": "spent",
+  "date": "2025-09",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Annual-Public-Debt-Report-2024-2025.pdf",
+  "archive": null,
+  "sha256": "871bf6b38ed579e9abc8e6f4fe0cd21ad979116118bde109329dcb35b88e8d48",
+  "file": "annual-public-debt-report-2024-25.pdf",
+  "pageOffset": 0,
+  "tolerance": {
+   "KSh m": 3
+  },
+  "nextExpected": {
+   "date": "2026-09-30",
+   "what": "The Annual Public Debt Management Report for FY2025/26"
+  }
  }
 ]

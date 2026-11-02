@@ -1,0 +1,39 @@
+---
+// What the country owes and what that costs. The red figure is interest, the rule for debt in this product (#88). Past years
+// come from the debt report; this year's interest is a plan from the Budget Summary, so it stands apart from the trend.
+import { full, money, percent } from '@kbe/engine/fmt';
+import { t } from '../../i18n/index.js';
+import { debtYears } from '../../lib/depth.js';
+import { fig, FY } from '../../lib/figures.js';
+import { YEAR } from '../../lib/routes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import Chart from '../Chart.astro';
+import FigureCard from '../FigureCard.astro';
+import PageHero from '../PageHero.astro';
+import SplitBar from '../SplitBar.astro';
+import TrendLine from '../TrendLine.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const years = debtYears(), latest = years.at(-1), share = fig('estimates.debt.interest-share-of-ordinary-revenue');
+const trill = (v) => (v / 1e6).toFixed(1);
+const stockPoints = years.map((y) => ({ label: y.fy.slice(2), value: Number((y.stock.value / 1e6).toFixed(2)), tip: `FY${y.fy}: ${money(y.stock.value, y.stock.unit, lang)}` }));
+const interestPoints = years.map((y) => ({ label: y.fy.slice(2), value: y.interestShare, tip: `FY${y.fy}: ${percent(y.interestShare)}` }));
+const split = [{ name: t(lang, 'debt.external'), shown: money(latest.external.value, latest.external.unit, lang), share: latest.external.value / latest.stock.value * 100, slot: '1' }, { name: t(lang, 'debt.domestic'), shown: money(latest.domestic.value, latest.domestic.unit, lang), share: latest.domestic.value / latest.stock.value * 100, slot: '2' }];
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.budget'), path: YEAR }, { name: t(lang, 'debt.title') }]} /></div>
+<PageHero figure={latest.stock} title={t(lang, 'debt.title')} line={t(lang, 'debt.line', { gdp: percent(latest.shareOfGdp.value), fy: `FY${latest.fy}` })} what={t(lang, 'debt.title')} lang={lang} />
+<section class="band">
+  <h2 class="vh">{t(lang, 'nav.detail')}</h2>
+  <div class="wrap two">
+    <div class="stack gap-xl">
+      <FigureCard id="estimates.debt.interest" q={t(lang, 'debt.interestQ', { fy: FY })} gap lang={lang}><p>{t(lang, 'budget.interestLine', { pct: share.value })}</p></FigureCard>
+      <Chart lang={lang} title={t(lang, 'debt.splitTitle')} sub={`FY${latest.fy}`} from={latest.stock}><SplitBar parts={split} label={split.map((p) => `${p.name}: ${p.shown}`).join(', ')} /></Chart>
+    </div>
+    <div class="stack gap-xl">
+      <Chart lang={lang} title={t(lang, 'debt.trendTitle')} sub={t(lang, 'debt.trendSub')} from={latest.stock} table={{ columns: [t(lang, 'debt.year'), t(lang, 'debt.stock'), t(lang, 'debt.gdp')], rows: years.map((y) => [`FY${y.fy}`, full(y.stock.value * 1e6), percent(y.shareOfGdp.value)]) }} csvName="debt-stock"><TrendLine points={stockPoints} title={t(lang, 'debt.trendTitle')} axis={(v) => `${v}`} endLabel={trill(latest.stock.value)} /></Chart>
+      <Chart lang={lang} title={t(lang, 'debt.interestTitle')} sub={t(lang, 'debt.interestSub')} from={latest.interest} calc={t(lang, 'fig.calc')} table={{ columns: [t(lang, 'debt.year'), t(lang, 'debt.interest'), t(lang, 'debt.revenue'), t(lang, 'debt.share')], rows: years.map((y) => [`FY${y.fy}`, full(y.interest.value * 1e6), full(y.revenue.value * 1e6), percent(y.interestShare)]) }} csvName="debt-interest"><TrendLine points={interestPoints} title={t(lang, 'debt.interestTitle')} axis={(v) => `${v}%`} endLabel={percent(latest.interestShare, 0)} /></Chart>
+    </div>
+  </div>
+  <div class="wrap"><p class="small muted">{t(lang, 'debt.note', { fy: `FY${latest.fy}` })}</p></div>
+</section>
