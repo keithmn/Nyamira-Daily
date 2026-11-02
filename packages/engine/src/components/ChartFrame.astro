@@ -1,0 +1,40 @@
+---
+// Chart frame (decision #69), after the FT and The Economist: a short Ink rule, a title that states the
+// finding, one subtitle line with units and period, the chart, then the evidence label and source.
+// The same numbers are always one tap away as a table, and downloadable as CSV. Pass `csvHref` to link a file; without
+// it the CSV is built into the link. The `foot` slot replaces the label and source line.
+import EvidenceLabel from './EvidenceLabel.astro';
+interface Props {
+  title: string; sub?: string; evidence?: 'verified' | 'audit' | 'official' | 'unverified'; site: string;
+  source?: string; sourceUrl?: string; note?: string;
+  table?: { columns: string[]; rows: (string | number | null)[][] }; csvName?: string; csvHref?: string; id?: string;
+  showTable?: string; download?: string;
+}
+const { title, sub, evidence, site, source, sourceUrl, note, table, csvName, csvHref, id, showTable = 'Show as a table', download = 'Download these figures (CSV)' } = Astro.props;
+const cell = (v) => (v == null ? '' : String(v));
+const csv = table && !csvHref ? [table.columns, ...table.rows].map((r) => r.map((v) => `"${cell(v).split('"').join('""')}"`).join(',')).join('\n') : null;
+const href = csvHref ?? (csv ? `data:text/csv;charset=utf-8,${encodeURIComponent(csv)}` : null);
+---
+<figure class="cf" id={id}>
+  <h3 class="cf-title">{title}</h3>
+  {sub && <p class="cf-sub">{sub}</p>}
+  <div class="cf-body"><slot /></div>
+  <figcaption class="cf-foot">
+    <slot name="foot">
+      {(evidence || source) && (
+        <p class="source">{evidence && <EvidenceLabel kind={evidence} site={site} />} {source && <>Source: {sourceUrl ? <a href={sourceUrl} rel="noopener">{source}</a> : source}</>}</p>
+      )}
+    </slot>
+    {note && <p class="cf-note">{note}</p>}
+  </figcaption>
+  {table && (
+    <details class="cf-table">
+      <summary>{showTable}</summary>
+      <div class="table-box"><table>
+        <thead><tr>{table.columns.map((c, i) => <th class={i ? 'num' : undefined}>{c}</th>)}</tr></thead>
+        <tbody>{table.rows.map((r) => <tr>{r.map((v, i) => <td class={i ? 'num' : undefined}>{v == null ? '—' : v}</td>)}</tr>)}</tbody>
+      </table></div>
+      {href && <a class="cf-csv" href={href} download={`${csvName ?? 'nyamira-daily-chart'}.csv`}>{download}</a>}
+    </details>
+  )}
+</figure>
