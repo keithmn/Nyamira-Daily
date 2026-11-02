@@ -124,8 +124,8 @@ The spec's test of "usable", on a 390px phone:
 |---|---|
 | Year pages | 5 |
 | Sector pages, 10 per year | 50 |
-| Vote pages, about 87 per year (Appropriation Act 2026) | about 435 |
-| Programme pages, about 192 per year (same Act) | about 960 |
+| Vote pages, 87 per year (Appropriation Act 2026) | about 435 |
+| Programme pages, 201 per year (same Act; 329 rows once recurrent and development are split) | about 1,005 |
 | County pages, sheets and embeds | 141 |
 | Infographics (10 numbers, KSh 100, debt, 10 sectors, 47 counties) | about 60 |
 | Learn, Data, Track, trust and the rest | about 40 |

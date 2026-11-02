@@ -39,7 +39,7 @@ Items the source check confirmed unchanged, after first looking wrong: PAYE 706.
 
 Also Claude Code's work, and also not an editor's sign-off. `npm run check:national` repeats all of this except the page search.
 
-**Appropriation Act, 2026 (No. 20): the Schedule, 480 rows (151 votes, 329 programmes) and 7 printed totals.**
+**Appropriation Act, 2026 (No. 20): the Schedule, 480 rows and 7 printed totals.** The rows are 151 for votes and 329 for programmes, because recurrent and development money are printed separately. That is 87 votes, 64 of them with both kinds of money, and 201 programmes.
 
 - The PDF is a scan with a machine-read text layer. Two readings, through two `pdftotext` modes: `extract.csv` and `typed.csv`, compared by `scripts/national/double-entry.mjs`. 465 rows agree. 3 have the same digits in the other column (D1023, D1193, D1193/0215000). 12 disagree, and each was resolved from the page image, with its reason in `corrections.csv`. None is unresolved.
 - `corrections.csv` has 22 rows in all: those 12, 2 of the rows that changed column (D1193 and D1193/0215000), and 8 where the first reading lost or misplaced an amount and the second reading had it right. 4 damaged names are repaired in `names.csv`. **A person should check these 26 rows first.**
