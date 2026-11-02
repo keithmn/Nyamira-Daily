@@ -1,0 +1,6 @@
+table,county,problem,what_we_do
+wages,Machakos,Compensation 6368.66 plus operations 2683.60 is 9052.26 and the report prints 9053.28,Shown as printed with a note
+wages,Mandera,Compensation 5273.50 plus operations 3969.36 is 9242.86 and the report prints 9242.66,Shown as printed with a note
+wages,Meru,Compensation 5441.60 plus operations 4230.00 is 9671.60 and the report prints 9672.22,Shown as printed with a note
+wages,Total,The printed total for recurrent is 369888.43 and the 47 rows add to 369889.83,Only compensation is used and its total agrees
+payables,Migori,The report prints 8.82 per cent and its own amounts give 8.60,The percentage is not used

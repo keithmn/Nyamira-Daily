@@ -1,0 +1,5237 @@
+{
+ "defaults": {
+  "fy": "2025/26",
+  "stage": "spent",
+  "unit": "KSh m",
+  "money": "county",
+  "label": "official",
+  "source": "cob-county-birr-2025-26",
+  "checkedOn": "2026-11-02",
+  "checkedBy": "claude-code"
+ },
+ "figures": [
+  {
+   "id": "ke.fy2025-26.spent.county.baringo.osr-target",
+   "name": "Baringo: own-source revenue target, FY2025/26",
+   "value": 927,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.baringo.osr-actual",
+   "name": "Baringo: own-source revenue reported, FY2025/26",
+   "value": 557.78,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.baringo.revenue",
+   "name": "Baringo: total revenue reported, FY2025/26",
+   "value": 9177.52,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.baringo.grants-target",
+   "name": "Baringo: additional allocations budgeted, FY2025/26",
+   "value": 1809.25,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.baringo.grants-actual",
+   "name": "Baringo: additional allocations received, FY2025/26",
+   "value": 1169.91,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.baringo.wages",
+   "name": "Baringo: compensation to employees, FY2025/26",
+   "value": 4015.08,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.7",
+   "pdfPage": 41
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.baringo.payables",
+   "name": "Baringo: trade payables at 30 June 2026, FY2025/26",
+   "value": 870.23,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.17",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.baringo.wage-share",
+   "name": "Baringo: wages as a share of total revenue, FY2025/26",
+   "value": 43.7,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.7, and Annex I, p.899",
+   "pdfPage": 41,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.baringo.wages",
+     "ke.fy2025-26.spent.county.baringo.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.baringo.dev-share",
+   "name": "Baringo: development as a share of the budget, FY2025/26",
+   "value": 41.6,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.baringo.dev-budget",
+     "ke.fy2025-26.spent.county.baringo.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bomet.osr-target",
+   "name": "Bomet: own-source revenue target, FY2025/26",
+   "value": 897.12,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bomet.osr-actual",
+   "name": "Bomet: own-source revenue reported, FY2025/26",
+   "value": 623.95,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bomet.revenue",
+   "name": "Bomet: total revenue reported, FY2025/26",
+   "value": 9751.14,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bomet.grants-target",
+   "name": "Bomet: additional allocations budgeted, FY2025/26",
+   "value": 1765.96,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bomet.grants-actual",
+   "name": "Bomet: additional allocations received, FY2025/26",
+   "value": 902.88,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bomet.wages",
+   "name": "Bomet: compensation to employees, FY2025/26",
+   "value": 3586.71,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.7",
+   "pdfPage": 41
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bomet.payables",
+   "name": "Bomet: trade payables at 30 June 2026, FY2025/26",
+   "value": 1431.39,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.17",
+   "pdfPage": 51,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bomet.wage-share",
+   "name": "Bomet: wages as a share of total revenue, FY2025/26",
+   "value": 36.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.7, and Annex I, p.899",
+   "pdfPage": 41,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.bomet.wages",
+     "ke.fy2025-26.spent.county.bomet.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bomet.dev-share",
+   "name": "Bomet: development as a share of the budget, FY2025/26",
+   "value": 36.9,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.bomet.dev-budget",
+     "ke.fy2025-26.spent.county.bomet.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bungoma.osr-target",
+   "name": "Bungoma: own-source revenue target, FY2025/26",
+   "value": 2077.45,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bungoma.osr-actual",
+   "name": "Bungoma: own-source revenue reported, FY2025/26",
+   "value": 1727.4,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bungoma.revenue",
+   "name": "Bungoma: total revenue reported, FY2025/26",
+   "value": 16154.93,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bungoma.grants-target",
+   "name": "Bungoma: additional allocations budgeted, FY2025/26",
+   "value": 2826.02,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bungoma.grants-actual",
+   "name": "Bungoma: additional allocations received, FY2025/26",
+   "value": 1897.81,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bungoma.wages",
+   "name": "Bungoma: compensation to employees, FY2025/26",
+   "value": 7533.29,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.7",
+   "pdfPage": 41
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bungoma.payables",
+   "name": "Bungoma: trade payables at 30 June 2026, FY2025/26",
+   "value": 3125.74,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.17",
+   "pdfPage": 51,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bungoma.wage-share",
+   "name": "Bungoma: wages as a share of total revenue, FY2025/26",
+   "value": 46.6,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.7, and Annex I, p.899",
+   "pdfPage": 41,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.bungoma.wages",
+     "ke.fy2025-26.spent.county.bungoma.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.bungoma.dev-share",
+   "name": "Bungoma: development as a share of the budget, FY2025/26",
+   "value": 31.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.bungoma.dev-budget",
+     "ke.fy2025-26.spent.county.bungoma.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.busia.osr-target",
+   "name": "Busia: own-source revenue target, FY2025/26",
+   "value": 999.76,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.busia.osr-actual",
+   "name": "Busia: own-source revenue reported, FY2025/26",
+   "value": 702.98,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.busia.revenue",
+   "name": "Busia: total revenue reported, FY2025/26",
+   "value": 10508.38,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.busia.grants-target",
+   "name": "Busia: additional allocations budgeted, FY2025/26",
+   "value": 1081.82,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.busia.grants-actual",
+   "name": "Busia: additional allocations received, FY2025/26",
+   "value": 728.47,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.busia.wages",
+   "name": "Busia: compensation to employees, FY2025/26",
+   "value": 3618.45,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.7",
+   "pdfPage": 41
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.busia.payables",
+   "name": "Busia: trade payables at 30 June 2026, FY2025/26",
+   "value": 2594.37,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.17",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.busia.wage-share",
+   "name": "Busia: wages as a share of total revenue, FY2025/26",
+   "value": 34.4,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.7, and Annex I, p.899",
+   "pdfPage": 41,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.busia.wages",
+     "ke.fy2025-26.spent.county.busia.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.busia.dev-share",
+   "name": "Busia: development as a share of the budget, FY2025/26",
+   "value": 34.1,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.busia.dev-budget",
+     "ke.fy2025-26.spent.county.busia.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.elgeyo-marakwet.osr-target",
+   "name": "Elgeyo/Marakwet: own-source revenue target, FY2025/26",
+   "value": 457.43,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.elgeyo-marakwet.osr-actual",
+   "name": "Elgeyo/Marakwet: own-source revenue reported, FY2025/26",
+   "value": 479.29,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.elgeyo-marakwet.revenue",
+   "name": "Elgeyo/Marakwet: total revenue reported, FY2025/26",
+   "value": 8205.52,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.elgeyo-marakwet.grants-target",
+   "name": "Elgeyo/Marakwet: additional allocations budgeted, FY2025/26",
+   "value": 1615.83,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.elgeyo-marakwet.grants-actual",
+   "name": "Elgeyo/Marakwet: additional allocations received, FY2025/26",
+   "value": 654.61,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.elgeyo-marakwet.wages",
+   "name": "Elgeyo/Marakwet: compensation to employees, FY2025/26",
+   "value": 3176.69,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.7",
+   "pdfPage": 41
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.elgeyo-marakwet.payables",
+   "name": "Elgeyo/Marakwet: trade payables at 30 June 2026, FY2025/26",
+   "value": 238.71,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.17",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.elgeyo-marakwet.wage-share",
+   "name": "Elgeyo/Marakwet: wages as a share of total revenue, FY2025/26",
+   "value": 38.7,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.7, and Annex I, p.899",
+   "pdfPage": 41,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.elgeyo-marakwet.wages",
+     "ke.fy2025-26.spent.county.elgeyo-marakwet.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.elgeyo-marakwet.dev-share",
+   "name": "Elgeyo/Marakwet: development as a share of the budget, FY2025/26",
+   "value": 41.7,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.elgeyo-marakwet.dev-budget",
+     "ke.fy2025-26.spent.county.elgeyo-marakwet.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.embu.osr-target",
+   "name": "Embu: own-source revenue target, FY2025/26",
+   "value": 1677.71,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.embu.osr-actual",
+   "name": "Embu: own-source revenue reported, FY2025/26",
+   "value": 1272.72,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.embu.revenue",
+   "name": "Embu: total revenue reported, FY2025/26",
+   "value": 8123.17,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.embu.grants-target",
+   "name": "Embu: additional allocations budgeted, FY2025/26",
+   "value": 1331.37,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.embu.grants-actual",
+   "name": "Embu: additional allocations received, FY2025/26",
+   "value": 464.4,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.embu.wages",
+   "name": "Embu: compensation to employees, FY2025/26",
+   "value": 3559.11,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.7",
+   "pdfPage": 41
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.embu.payables",
+   "name": "Embu: trade payables at 30 June 2026, FY2025/26",
+   "value": 1624.98,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.17",
+   "pdfPage": 51
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.embu.wage-share",
+   "name": "Embu: wages as a share of total revenue, FY2025/26",
+   "value": 43.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.7, and Annex I, p.899",
+   "pdfPage": 41,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.embu.wages",
+     "ke.fy2025-26.spent.county.embu.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.embu.dev-share",
+   "name": "Embu: development as a share of the budget, FY2025/26",
+   "value": 34.9,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.embu.dev-budget",
+     "ke.fy2025-26.spent.county.embu.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.garissa.osr-target",
+   "name": "Garissa: own-source revenue target, FY2025/26",
+   "value": 450,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.garissa.osr-actual",
+   "name": "Garissa: own-source revenue reported, FY2025/26",
+   "value": 744.79,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.garissa.revenue",
+   "name": "Garissa: total revenue reported, FY2025/26",
+   "value": 11659.94,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.garissa.grants-target",
+   "name": "Garissa: additional allocations budgeted, FY2025/26",
+   "value": 2196.38,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.garissa.grants-actual",
+   "name": "Garissa: additional allocations received, FY2025/26",
+   "value": 1226.4,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.garissa.wages",
+   "name": "Garissa: compensation to employees, FY2025/26",
+   "value": 5443.54,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.7",
+   "pdfPage": 41
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.garissa.payables",
+   "name": "Garissa: trade payables at 30 June 2026, FY2025/26",
+   "value": 1485.65,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.garissa.wage-share",
+   "name": "Garissa: wages as a share of total revenue, FY2025/26",
+   "value": 46.7,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.7, and Annex I, p.899",
+   "pdfPage": 41,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.garissa.wages",
+     "ke.fy2025-26.spent.county.garissa.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.garissa.dev-share",
+   "name": "Garissa: development as a share of the budget, FY2025/26",
+   "value": 43,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.garissa.dev-budget",
+     "ke.fy2025-26.spent.county.garissa.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.homa-bay.osr-target",
+   "name": "Homa Bay: own-source revenue target, FY2025/26",
+   "value": 1671.09,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.homa-bay.osr-actual",
+   "name": "Homa Bay: own-source revenue reported, FY2025/26",
+   "value": 1656.35,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.homa-bay.revenue",
+   "name": "Homa Bay: total revenue reported, FY2025/26",
+   "value": 11029.02,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.homa-bay.grants-target",
+   "name": "Homa Bay: additional allocations budgeted, FY2025/26",
+   "value": 2958.24,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.homa-bay.grants-actual",
+   "name": "Homa Bay: additional allocations received, FY2025/26",
+   "value": 724.67,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.homa-bay.wages",
+   "name": "Homa Bay: compensation to employees, FY2025/26",
+   "value": 6198.99,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.7",
+   "pdfPage": 41
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.homa-bay.payables",
+   "name": "Homa Bay: trade payables at 30 June 2026, FY2025/26",
+   "value": 1118.01,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.homa-bay.wage-share",
+   "name": "Homa Bay: wages as a share of total revenue, FY2025/26",
+   "value": 56.2,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.7, and Annex I, p.899",
+   "pdfPage": 41,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.homa-bay.wages",
+     "ke.fy2025-26.spent.county.homa-bay.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.homa-bay.dev-share",
+   "name": "Homa Bay: development as a share of the budget, FY2025/26",
+   "value": 38.2,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.homa-bay.dev-budget",
+     "ke.fy2025-26.spent.county.homa-bay.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.isiolo.osr-target",
+   "name": "Isiolo: own-source revenue target, FY2025/26",
+   "value": 375.21,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.isiolo.osr-actual",
+   "name": "Isiolo: own-source revenue reported, FY2025/26",
+   "value": 216.74,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.isiolo.revenue",
+   "name": "Isiolo: total revenue reported, FY2025/26",
+   "value": 7100.4,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.isiolo.grants-target",
+   "name": "Isiolo: additional allocations budgeted, FY2025/26",
+   "value": 557.01,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.isiolo.grants-actual",
+   "name": "Isiolo: additional allocations received, FY2025/26",
+   "value": 612.76,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.isiolo.wages",
+   "name": "Isiolo: compensation to employees, FY2025/26",
+   "value": 2539.82,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.7",
+   "pdfPage": 41
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.isiolo.payables",
+   "name": "Isiolo: trade payables at 30 June 2026, FY2025/26",
+   "value": 1672.46,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.isiolo.wage-share",
+   "name": "Isiolo: wages as a share of total revenue, FY2025/26",
+   "value": 35.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.7, and Annex I, p.899",
+   "pdfPage": 41,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.isiolo.wages",
+     "ke.fy2025-26.spent.county.isiolo.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.isiolo.dev-share",
+   "name": "Isiolo: development as a share of the budget, FY2025/26",
+   "value": 31.9,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.isiolo.dev-budget",
+     "ke.fy2025-26.spent.county.isiolo.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kajiado.osr-target",
+   "name": "Kajiado: own-source revenue target, FY2025/26",
+   "value": 1968.47,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kajiado.osr-actual",
+   "name": "Kajiado: own-source revenue reported, FY2025/26",
+   "value": 965.3,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kajiado.revenue",
+   "name": "Kajiado: total revenue reported, FY2025/26",
+   "value": 11628.85,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kajiado.grants-target",
+   "name": "Kajiado: additional allocations budgeted, FY2025/26",
+   "value": 2644.16,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kajiado.grants-actual",
+   "name": "Kajiado: additional allocations received, FY2025/26",
+   "value": 1754.07,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kajiado.wages",
+   "name": "Kajiado: compensation to employees, FY2025/26",
+   "value": 5589.55,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kajiado.payables",
+   "name": "Kajiado: trade payables at 30 June 2026, FY2025/26",
+   "value": 2555.43,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kajiado.wage-share",
+   "name": "Kajiado: wages as a share of total revenue, FY2025/26",
+   "value": 48.1,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kajiado.wages",
+     "ke.fy2025-26.spent.county.kajiado.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kajiado.dev-share",
+   "name": "Kajiado: development as a share of the budget, FY2025/26",
+   "value": 26.3,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kajiado.dev-budget",
+     "ke.fy2025-26.spent.county.kajiado.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kakamega.osr-target",
+   "name": "Kakamega: own-source revenue target, FY2025/26",
+   "value": 2200,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kakamega.osr-actual",
+   "name": "Kakamega: own-source revenue reported, FY2025/26",
+   "value": 1737.17,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kakamega.revenue",
+   "name": "Kakamega: total revenue reported, FY2025/26",
+   "value": 16811.94,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kakamega.grants-target",
+   "name": "Kakamega: additional allocations budgeted, FY2025/26",
+   "value": 1086.45,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kakamega.grants-actual",
+   "name": "Kakamega: additional allocations received, FY2025/26",
+   "value": 864.11,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kakamega.wages",
+   "name": "Kakamega: compensation to employees, FY2025/26",
+   "value": 6987.04,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kakamega.payables",
+   "name": "Kakamega: trade payables at 30 June 2026, FY2025/26",
+   "value": 2808.81,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kakamega.wage-share",
+   "name": "Kakamega: wages as a share of total revenue, FY2025/26",
+   "value": 41.6,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kakamega.wages",
+     "ke.fy2025-26.spent.county.kakamega.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kakamega.dev-share",
+   "name": "Kakamega: development as a share of the budget, FY2025/26",
+   "value": 30.1,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kakamega.dev-budget",
+     "ke.fy2025-26.spent.county.kakamega.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kericho.osr-target",
+   "name": "Kericho: own-source revenue target, FY2025/26",
+   "value": 1461.19,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kericho.osr-actual",
+   "name": "Kericho: own-source revenue reported, FY2025/26",
+   "value": 960.61,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.2",
+   "pdfPage": 36
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kericho.revenue",
+   "name": "Kericho: total revenue reported, FY2025/26",
+   "value": 9414.27,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kericho.grants-target",
+   "name": "Kericho: additional allocations budgeted, FY2025/26",
+   "value": 1840.42,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kericho.grants-actual",
+   "name": "Kericho: additional allocations received, FY2025/26",
+   "value": 1272.77,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kericho.wages",
+   "name": "Kericho: compensation to employees, FY2025/26",
+   "value": 4010.36,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kericho.payables",
+   "name": "Kericho: trade payables at 30 June 2026, FY2025/26",
+   "value": 1483.04,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kericho.wage-share",
+   "name": "Kericho: wages as a share of total revenue, FY2025/26",
+   "value": 42.6,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kericho.wages",
+     "ke.fy2025-26.spent.county.kericho.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kericho.dev-share",
+   "name": "Kericho: development as a share of the budget, FY2025/26",
+   "value": 36.5,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kericho.dev-budget",
+     "ke.fy2025-26.spent.county.kericho.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kiambu.osr-target",
+   "name": "Kiambu: own-source revenue target, FY2025/26",
+   "value": 9934.22,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kiambu.osr-actual",
+   "name": "Kiambu: own-source revenue reported, FY2025/26",
+   "value": 6000.1,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kiambu.revenue",
+   "name": "Kiambu: total revenue reported, FY2025/26",
+   "value": 21877.48,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kiambu.grants-target",
+   "name": "Kiambu: additional allocations budgeted, FY2025/26",
+   "value": 2982.96,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kiambu.grants-actual",
+   "name": "Kiambu: additional allocations received, FY2025/26",
+   "value": 2402.36,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kiambu.wages",
+   "name": "Kiambu: compensation to employees, FY2025/26",
+   "value": 8510.22,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kiambu.payables",
+   "name": "Kiambu: trade payables at 30 June 2026, FY2025/26",
+   "value": 5800.13,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kiambu.wage-share",
+   "name": "Kiambu: wages as a share of total revenue, FY2025/26",
+   "value": 38.9,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kiambu.wages",
+     "ke.fy2025-26.spent.county.kiambu.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kiambu.dev-share",
+   "name": "Kiambu: development as a share of the budget, FY2025/26",
+   "value": 37,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kiambu.dev-budget",
+     "ke.fy2025-26.spent.county.kiambu.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kilifi.osr-target",
+   "name": "Kilifi: own-source revenue target, FY2025/26",
+   "value": 2567.49,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kilifi.osr-actual",
+   "name": "Kilifi: own-source revenue reported, FY2025/26",
+   "value": 1729.85,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kilifi.revenue",
+   "name": "Kilifi: total revenue reported, FY2025/26",
+   "value": 17118.56,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kilifi.grants-target",
+   "name": "Kilifi: additional allocations budgeted, FY2025/26",
+   "value": 3949.96,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kilifi.grants-actual",
+   "name": "Kilifi: additional allocations received, FY2025/26",
+   "value": 1625.25,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kilifi.wages",
+   "name": "Kilifi: compensation to employees, FY2025/26",
+   "value": 4857.66,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kilifi.payables",
+   "name": "Kilifi: trade payables at 30 June 2026, FY2025/26",
+   "value": 8091.52,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kilifi.wage-share",
+   "name": "Kilifi: wages as a share of total revenue, FY2025/26",
+   "value": 28.4,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kilifi.wages",
+     "ke.fy2025-26.spent.county.kilifi.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kilifi.dev-share",
+   "name": "Kilifi: development as a share of the budget, FY2025/26",
+   "value": 36.4,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kilifi.dev-budget",
+     "ke.fy2025-26.spent.county.kilifi.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kirinyaga.osr-target",
+   "name": "Kirinyaga: own-source revenue target, FY2025/26",
+   "value": 764,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kirinyaga.osr-actual",
+   "name": "Kirinyaga: own-source revenue reported, FY2025/26",
+   "value": 1110.63,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kirinyaga.revenue",
+   "name": "Kirinyaga: total revenue reported, FY2025/26",
+   "value": 8592.59,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kirinyaga.grants-target",
+   "name": "Kirinyaga: additional allocations budgeted, FY2025/26",
+   "value": 1591.1,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kirinyaga.grants-actual",
+   "name": "Kirinyaga: additional allocations received, FY2025/26",
+   "value": 1295.69,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kirinyaga.wages",
+   "name": "Kirinyaga: compensation to employees, FY2025/26",
+   "value": 2901.45,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kirinyaga.payables",
+   "name": "Kirinyaga: trade payables at 30 June 2026, FY2025/26",
+   "value": 564.47,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kirinyaga.wage-share",
+   "name": "Kirinyaga: wages as a share of total revenue, FY2025/26",
+   "value": 33.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kirinyaga.wages",
+     "ke.fy2025-26.spent.county.kirinyaga.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kirinyaga.dev-share",
+   "name": "Kirinyaga: development as a share of the budget, FY2025/26",
+   "value": 38,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kirinyaga.dev-budget",
+     "ke.fy2025-26.spent.county.kirinyaga.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisii.osr-target",
+   "name": "Kisii: own-source revenue target, FY2025/26",
+   "value": 3167,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisii.osr-actual",
+   "name": "Kisii: own-source revenue reported, FY2025/26",
+   "value": 2486.89,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisii.revenue",
+   "name": "Kisii: total revenue reported, FY2025/26",
+   "value": 16499.04,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisii.grants-target",
+   "name": "Kisii: additional allocations budgeted, FY2025/26",
+   "value": 1214.5,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisii.grants-actual",
+   "name": "Kisii: additional allocations received, FY2025/26",
+   "value": 855.58,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisii.wages",
+   "name": "Kisii: compensation to employees, FY2025/26",
+   "value": 6492.59,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisii.payables",
+   "name": "Kisii: trade payables at 30 June 2026, FY2025/26",
+   "value": 1247.7,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisii.wage-share",
+   "name": "Kisii: wages as a share of total revenue, FY2025/26",
+   "value": 39.4,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kisii.wages",
+     "ke.fy2025-26.spent.county.kisii.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisii.dev-share",
+   "name": "Kisii: development as a share of the budget, FY2025/26",
+   "value": 38.3,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kisii.dev-budget",
+     "ke.fy2025-26.spent.county.kisii.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisumu.osr-target",
+   "name": "Kisumu: own-source revenue target, FY2025/26",
+   "value": 3623.88,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisumu.osr-actual",
+   "name": "Kisumu: own-source revenue reported, FY2025/26",
+   "value": 1803.5,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisumu.revenue",
+   "name": "Kisumu: total revenue reported, FY2025/26",
+   "value": 13573.02,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisumu.grants-target",
+   "name": "Kisumu: additional allocations budgeted, FY2025/26",
+   "value": 2887.57,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisumu.grants-actual",
+   "name": "Kisumu: additional allocations received, FY2025/26",
+   "value": 1307.66,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisumu.wages",
+   "name": "Kisumu: compensation to employees, FY2025/26",
+   "value": 5542,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisumu.payables",
+   "name": "Kisumu: trade payables at 30 June 2026, FY2025/26",
+   "value": 850.47,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisumu.wage-share",
+   "name": "Kisumu: wages as a share of total revenue, FY2025/26",
+   "value": 40.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kisumu.wages",
+     "ke.fy2025-26.spent.county.kisumu.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kisumu.dev-share",
+   "name": "Kisumu: development as a share of the budget, FY2025/26",
+   "value": 39.5,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kisumu.dev-budget",
+     "ke.fy2025-26.spent.county.kisumu.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kitui.osr-target",
+   "name": "Kitui: own-source revenue target, FY2025/26",
+   "value": 1119.25,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kitui.osr-actual",
+   "name": "Kitui: own-source revenue reported, FY2025/26",
+   "value": 1271.4,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kitui.revenue",
+   "name": "Kitui: total revenue reported, FY2025/26",
+   "value": 14113.05,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kitui.grants-target",
+   "name": "Kitui: additional allocations budgeted, FY2025/26",
+   "value": 2071.21,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kitui.grants-actual",
+   "name": "Kitui: additional allocations received, FY2025/26",
+   "value": 1286.75,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kitui.wages",
+   "name": "Kitui: compensation to employees, FY2025/26",
+   "value": 5892.85,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kitui.payables",
+   "name": "Kitui: trade payables at 30 June 2026, FY2025/26",
+   "value": 494.96,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kitui.wage-share",
+   "name": "Kitui: wages as a share of total revenue, FY2025/26",
+   "value": 41.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kitui.wages",
+     "ke.fy2025-26.spent.county.kitui.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kitui.dev-share",
+   "name": "Kitui: development as a share of the budget, FY2025/26",
+   "value": 35.4,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kitui.dev-budget",
+     "ke.fy2025-26.spent.county.kitui.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kwale.osr-target",
+   "name": "Kwale: own-source revenue target, FY2025/26",
+   "value": 1004.36,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kwale.osr-actual",
+   "name": "Kwale: own-source revenue reported, FY2025/26",
+   "value": 884.88,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kwale.revenue",
+   "name": "Kwale: total revenue reported, FY2025/26",
+   "value": 15252.95,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kwale.grants-target",
+   "name": "Kwale: additional allocations budgeted, FY2025/26",
+   "value": 6627.12,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kwale.grants-actual",
+   "name": "Kwale: additional allocations received, FY2025/26",
+   "value": 4837.82,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kwale.wages",
+   "name": "Kwale: compensation to employees, FY2025/26",
+   "value": 3994.91,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kwale.payables",
+   "name": "Kwale: trade payables at 30 June 2026, FY2025/26",
+   "value": 310.94,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kwale.wage-share",
+   "name": "Kwale: wages as a share of total revenue, FY2025/26",
+   "value": 26.2,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kwale.wages",
+     "ke.fy2025-26.spent.county.kwale.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.kwale.dev-share",
+   "name": "Kwale: development as a share of the budget, FY2025/26",
+   "value": 49.4,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.kwale.dev-budget",
+     "ke.fy2025-26.spent.county.kwale.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.laikipia.osr-target",
+   "name": "Laikipia: own-source revenue target, FY2025/26",
+   "value": 1351,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.laikipia.osr-actual",
+   "name": "Laikipia: own-source revenue reported, FY2025/26",
+   "value": 1368.78,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.laikipia.revenue",
+   "name": "Laikipia: total revenue reported, FY2025/26",
+   "value": 9186.9,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.laikipia.grants-target",
+   "name": "Laikipia: additional allocations budgeted, FY2025/26",
+   "value": 1517.03,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.laikipia.grants-actual",
+   "name": "Laikipia: additional allocations received, FY2025/26",
+   "value": 911.93,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.laikipia.wages",
+   "name": "Laikipia: compensation to employees, FY2025/26",
+   "value": 3313.7,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.laikipia.payables",
+   "name": "Laikipia: trade payables at 30 June 2026, FY2025/26",
+   "value": 983.14,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.laikipia.wage-share",
+   "name": "Laikipia: wages as a share of total revenue, FY2025/26",
+   "value": 36.1,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.laikipia.wages",
+     "ke.fy2025-26.spent.county.laikipia.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.laikipia.dev-share",
+   "name": "Laikipia: development as a share of the budget, FY2025/26",
+   "value": 48.3,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.laikipia.dev-budget",
+     "ke.fy2025-26.spent.county.laikipia.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.lamu.osr-target",
+   "name": "Lamu: own-source revenue target, FY2025/26",
+   "value": 280,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.lamu.osr-actual",
+   "name": "Lamu: own-source revenue reported, FY2025/26",
+   "value": 283.65,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.lamu.revenue",
+   "name": "Lamu: total revenue reported, FY2025/26",
+   "value": 5288.15,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.lamu.grants-target",
+   "name": "Lamu: additional allocations budgeted, FY2025/26",
+   "value": 1061.02,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.lamu.grants-actual",
+   "name": "Lamu: additional allocations received, FY2025/26",
+   "value": 752.96,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.lamu.wages",
+   "name": "Lamu: compensation to employees, FY2025/26",
+   "value": 1988.64,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.lamu.payables",
+   "name": "Lamu: trade payables at 30 June 2026, FY2025/26",
+   "value": 1.3,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.lamu.wage-share",
+   "name": "Lamu: wages as a share of total revenue, FY2025/26",
+   "value": 37.6,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.lamu.wages",
+     "ke.fy2025-26.spent.county.lamu.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.lamu.dev-share",
+   "name": "Lamu: development as a share of the budget, FY2025/26",
+   "value": 40,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.lamu.dev-budget",
+     "ke.fy2025-26.spent.county.lamu.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.machakos.osr-target",
+   "name": "Machakos: own-source revenue target, FY2025/26",
+   "value": 4090.88,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.machakos.osr-actual",
+   "name": "Machakos: own-source revenue reported, FY2025/26",
+   "value": 3325.26,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.machakos.revenue",
+   "name": "Machakos: total revenue reported, FY2025/26",
+   "value": 14230.74,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.machakos.grants-target",
+   "name": "Machakos: additional allocations budgeted, FY2025/26",
+   "value": 1075.81,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.machakos.grants-actual",
+   "name": "Machakos: additional allocations received, FY2025/26",
+   "value": 297.57,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.899",
+   "pdfPage": 933
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.machakos.wages",
+   "name": "Machakos: compensation to employees, FY2025/26",
+   "value": 6368.66,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42,
+   "note": "The report prints this row with parts that do not add to its recurrent total. Shown as printed."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.machakos.payables",
+   "name": "Machakos: trade payables at 30 June 2026, FY2025/26",
+   "value": 4493.5,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.machakos.wage-share",
+   "name": "Machakos: wages as a share of total revenue, FY2025/26",
+   "value": 44.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.899",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.machakos.wages",
+     "ke.fy2025-26.spent.county.machakos.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.machakos.dev-share",
+   "name": "Machakos: development as a share of the budget, FY2025/26",
+   "value": 30.3,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.machakos.dev-budget",
+     "ke.fy2025-26.spent.county.machakos.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.makueni.osr-target",
+   "name": "Makueni: own-source revenue target, FY2025/26",
+   "value": 1667.56,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.makueni.osr-actual",
+   "name": "Makueni: own-source revenue reported, FY2025/26",
+   "value": 1909.23,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.makueni.revenue",
+   "name": "Makueni: total revenue reported, FY2025/26",
+   "value": 12560.31,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.makueni.grants-target",
+   "name": "Makueni: additional allocations budgeted, FY2025/26",
+   "value": 1335.43,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.makueni.grants-actual",
+   "name": "Makueni: additional allocations received, FY2025/26",
+   "value": 950.59,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.makueni.wages",
+   "name": "Makueni: compensation to employees, FY2025/26",
+   "value": 5464.58,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.makueni.payables",
+   "name": "Makueni: trade payables at 30 June 2026, FY2025/26",
+   "value": 424.25,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.makueni.wage-share",
+   "name": "Makueni: wages as a share of total revenue, FY2025/26",
+   "value": 43.5,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.makueni.wages",
+     "ke.fy2025-26.spent.county.makueni.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.makueni.dev-share",
+   "name": "Makueni: development as a share of the budget, FY2025/26",
+   "value": 35.5,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.makueni.dev-budget",
+     "ke.fy2025-26.spent.county.makueni.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mandera.osr-target",
+   "name": "Mandera: own-source revenue target, FY2025/26",
+   "value": 682.53,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mandera.osr-actual",
+   "name": "Mandera: own-source revenue reported, FY2025/26",
+   "value": 409.25,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mandera.revenue",
+   "name": "Mandera: total revenue reported, FY2025/26",
+   "value": 14011.8,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mandera.grants-target",
+   "name": "Mandera: additional allocations budgeted, FY2025/26",
+   "value": 1797.59,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mandera.grants-actual",
+   "name": "Mandera: additional allocations received, FY2025/26",
+   "value": 989.94,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mandera.wages",
+   "name": "Mandera: compensation to employees, FY2025/26",
+   "value": 5273.5,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42,
+   "note": "The report prints this row with parts that do not add to its recurrent total. Shown as printed."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mandera.payables",
+   "name": "Mandera: trade payables at 30 June 2026, FY2025/26",
+   "value": 3825,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mandera.wage-share",
+   "name": "Mandera: wages as a share of total revenue, FY2025/26",
+   "value": 37.6,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.mandera.wages",
+     "ke.fy2025-26.spent.county.mandera.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mandera.dev-share",
+   "name": "Mandera: development as a share of the budget, FY2025/26",
+   "value": 35.7,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.mandera.dev-budget",
+     "ke.fy2025-26.spent.county.mandera.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.marsabit.osr-target",
+   "name": "Marsabit: own-source revenue target, FY2025/26",
+   "value": 320,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.marsabit.osr-actual",
+   "name": "Marsabit: own-source revenue reported, FY2025/26",
+   "value": 219.81,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.marsabit.revenue",
+   "name": "Marsabit: total revenue reported, FY2025/26",
+   "value": 9584.52,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.marsabit.grants-target",
+   "name": "Marsabit: additional allocations budgeted, FY2025/26",
+   "value": 1819.08,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.marsabit.grants-actual",
+   "name": "Marsabit: additional allocations received, FY2025/26",
+   "value": 816.22,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.marsabit.wages",
+   "name": "Marsabit: compensation to employees, FY2025/26",
+   "value": 4282.86,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.marsabit.payables",
+   "name": "Marsabit: trade payables at 30 June 2026, FY2025/26",
+   "value": 1427.6,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.marsabit.wage-share",
+   "name": "Marsabit: wages as a share of total revenue, FY2025/26",
+   "value": 44.7,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.marsabit.wages",
+     "ke.fy2025-26.spent.county.marsabit.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.marsabit.dev-share",
+   "name": "Marsabit: development as a share of the budget, FY2025/26",
+   "value": 39.6,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.marsabit.dev-budget",
+     "ke.fy2025-26.spent.county.marsabit.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.meru.osr-target",
+   "name": "Meru: own-source revenue target, FY2025/26",
+   "value": 1821.5,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.meru.osr-actual",
+   "name": "Meru: own-source revenue reported, FY2025/26",
+   "value": 1666.81,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.meru.revenue",
+   "name": "Meru: total revenue reported, FY2025/26",
+   "value": 13981.38,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.meru.grants-target",
+   "name": "Meru: additional allocations budgeted, FY2025/26",
+   "value": 1472.16,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.meru.grants-actual",
+   "name": "Meru: additional allocations received, FY2025/26",
+   "value": 539.35,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.meru.wages",
+   "name": "Meru: compensation to employees, FY2025/26",
+   "value": 5441.6,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42,
+   "note": "The report prints this row with parts that do not add to its recurrent total. Shown as printed."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.meru.payables",
+   "name": "Meru: trade payables at 30 June 2026, FY2025/26",
+   "value": 1901.8,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.meru.wage-share",
+   "name": "Meru: wages as a share of total revenue, FY2025/26",
+   "value": 38.9,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.meru.wages",
+     "ke.fy2025-26.spent.county.meru.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.meru.dev-share",
+   "name": "Meru: development as a share of the budget, FY2025/26",
+   "value": 35.3,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.meru.dev-budget",
+     "ke.fy2025-26.spent.county.meru.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.migori.osr-target",
+   "name": "Migori: own-source revenue target, FY2025/26",
+   "value": 1032,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.migori.osr-actual",
+   "name": "Migori: own-source revenue reported, FY2025/26",
+   "value": 850.03,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.migori.revenue",
+   "name": "Migori: total revenue reported, FY2025/26",
+   "value": 10473.58,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.migori.grants-target",
+   "name": "Migori: additional allocations budgeted, FY2025/26",
+   "value": 1952.09,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.migori.grants-actual",
+   "name": "Migori: additional allocations received, FY2025/26",
+   "value": 634.65,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.migori.wages",
+   "name": "Migori: compensation to employees, FY2025/26",
+   "value": 4143.4,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.migori.payables",
+   "name": "Migori: trade payables at 30 June 2026, FY2025/26",
+   "value": 1029.96,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.migori.wage-share",
+   "name": "Migori: wages as a share of total revenue, FY2025/26",
+   "value": 39.6,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.migori.wages",
+     "ke.fy2025-26.spent.county.migori.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.migori.dev-share",
+   "name": "Migori: development as a share of the budget, FY2025/26",
+   "value": 36.5,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.migori.dev-budget",
+     "ke.fy2025-26.spent.county.migori.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mombasa.osr-target",
+   "name": "Mombasa: own-source revenue target, FY2025/26",
+   "value": 8388.18,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mombasa.osr-actual",
+   "name": "Mombasa: own-source revenue reported, FY2025/26",
+   "value": 21126.23,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mombasa.revenue",
+   "name": "Mombasa: total revenue reported, FY2025/26",
+   "value": 30702.42,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mombasa.grants-target",
+   "name": "Mombasa: additional allocations budgeted, FY2025/26",
+   "value": 1734.14,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mombasa.grants-actual",
+   "name": "Mombasa: additional allocations received, FY2025/26",
+   "value": 1001.8,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mombasa.wages",
+   "name": "Mombasa: compensation to employees, FY2025/26",
+   "value": 7833.92,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mombasa.payables",
+   "name": "Mombasa: trade payables at 30 June 2026, FY2025/26",
+   "value": 3844.59,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mombasa.wage-share",
+   "name": "Mombasa: wages as a share of total revenue, FY2025/26",
+   "value": 25.5,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.mombasa.wages",
+     "ke.fy2025-26.spent.county.mombasa.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.mombasa.dev-share",
+   "name": "Mombasa: development as a share of the budget, FY2025/26",
+   "value": 30,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.mombasa.dev-budget",
+     "ke.fy2025-26.spent.county.mombasa.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.muranga.osr-target",
+   "name": "Murang'a: own-source revenue target, FY2025/26",
+   "value": 2549.86,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.muranga.osr-actual",
+   "name": "Murang'a: own-source revenue reported, FY2025/26",
+   "value": 1764.85,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.muranga.revenue",
+   "name": "Murang'a: total revenue reported, FY2025/26",
+   "value": 10679.29,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.muranga.grants-target",
+   "name": "Murang'a: additional allocations budgeted, FY2025/26",
+   "value": 1493.59,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.muranga.grants-actual",
+   "name": "Murang'a: additional allocations received, FY2025/26",
+   "value": 815.14,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.muranga.wages",
+   "name": "Murang'a: compensation to employees, FY2025/26",
+   "value": 4997.08,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.muranga.payables",
+   "name": "Murang'a: trade payables at 30 June 2026, FY2025/26",
+   "value": 1479.9,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.muranga.wage-share",
+   "name": "Murang'a: wages as a share of total revenue, FY2025/26",
+   "value": 46.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.muranga.wages",
+     "ke.fy2025-26.spent.county.muranga.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.muranga.dev-share",
+   "name": "Murang'a: development as a share of the budget, FY2025/26",
+   "value": 33.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.muranga.dev-budget",
+     "ke.fy2025-26.spent.county.muranga.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nairobi-city.osr-target",
+   "name": "Nairobi City: own-source revenue target, FY2025/26",
+   "value": 21578.05,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nairobi-city.osr-actual",
+   "name": "Nairobi City: own-source revenue reported, FY2025/26",
+   "value": 15536.97,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nairobi-city.revenue",
+   "name": "Nairobi City: total revenue reported, FY2025/26",
+   "value": 37918.12,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nairobi-city.grants-target",
+   "name": "Nairobi City: additional allocations budgeted, FY2025/26",
+   "value": 625.84,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nairobi-city.grants-actual",
+   "name": "Nairobi City: additional allocations received, FY2025/26",
+   "value": 223.82,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nairobi-city.wages",
+   "name": "Nairobi City: compensation to employees, FY2025/26",
+   "value": 17817,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nairobi-city.payables",
+   "name": "Nairobi City: trade payables at 30 June 2026, FY2025/26",
+   "value": 86899.38,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nairobi-city.wage-share",
+   "name": "Nairobi City: wages as a share of total revenue, FY2025/26",
+   "value": 47,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nairobi-city.wages",
+     "ke.fy2025-26.spent.county.nairobi-city.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nairobi-city.dev-share",
+   "name": "Nairobi City: development as a share of the budget, FY2025/26",
+   "value": 30.1,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nairobi-city.dev-budget",
+     "ke.fy2025-26.spent.county.nairobi-city.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nakuru.osr-target",
+   "name": "Nakuru: own-source revenue target, FY2025/26",
+   "value": 4936.13,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nakuru.osr-actual",
+   "name": "Nakuru: own-source revenue reported, FY2025/26",
+   "value": 5398.73,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nakuru.revenue",
+   "name": "Nakuru: total revenue reported, FY2025/26",
+   "value": 25382.59,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nakuru.grants-target",
+   "name": "Nakuru: additional allocations budgeted, FY2025/26",
+   "value": 1798.76,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nakuru.grants-actual",
+   "name": "Nakuru: additional allocations received, FY2025/26",
+   "value": 1069.66,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nakuru.wages",
+   "name": "Nakuru: compensation to employees, FY2025/26",
+   "value": 8513.5,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nakuru.payables",
+   "name": "Nakuru: trade payables at 30 June 2026, FY2025/26",
+   "value": 3137.67,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nakuru.wage-share",
+   "name": "Nakuru: wages as a share of total revenue, FY2025/26",
+   "value": 33.5,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nakuru.wages",
+     "ke.fy2025-26.spent.county.nakuru.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nakuru.dev-share",
+   "name": "Nakuru: development as a share of the budget, FY2025/26",
+   "value": 34.4,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nakuru.dev-budget",
+     "ke.fy2025-26.spent.county.nakuru.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nandi.osr-target",
+   "name": "Nandi: own-source revenue target, FY2025/26",
+   "value": 1735.88,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nandi.osr-actual",
+   "name": "Nandi: own-source revenue reported, FY2025/26",
+   "value": 1473.12,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nandi.revenue",
+   "name": "Nandi: total revenue reported, FY2025/26",
+   "value": 10574.98,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nandi.grants-target",
+   "name": "Nandi: additional allocations budgeted, FY2025/26",
+   "value": 1896.88,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nandi.grants-actual",
+   "name": "Nandi: additional allocations received, FY2025/26",
+   "value": 1150.28,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nandi.wages",
+   "name": "Nandi: compensation to employees, FY2025/26",
+   "value": 3965.69,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nandi.wage-share",
+   "name": "Nandi: wages as a share of total revenue, FY2025/26",
+   "value": 37.5,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nandi.wages",
+     "ke.fy2025-26.spent.county.nandi.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nandi.dev-share",
+   "name": "Nandi: development as a share of the budget, FY2025/26",
+   "value": 40.3,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nandi.dev-budget",
+     "ke.fy2025-26.spent.county.nandi.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.narok.osr-target",
+   "name": "Narok: own-source revenue target, FY2025/26",
+   "value": 6327.88,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.narok.osr-actual",
+   "name": "Narok: own-source revenue reported, FY2025/26",
+   "value": 4479.84,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.narok.revenue",
+   "name": "Narok: total revenue reported, FY2025/26",
+   "value": 15263.37,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.narok.grants-target",
+   "name": "Narok: additional allocations budgeted, FY2025/26",
+   "value": 1215.25,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.narok.grants-actual",
+   "name": "Narok: additional allocations received, FY2025/26",
+   "value": 952.34,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.narok.wages",
+   "name": "Narok: compensation to employees, FY2025/26",
+   "value": 6166.68,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.narok.payables",
+   "name": "Narok: trade payables at 30 June 2026, FY2025/26",
+   "value": 4245.69,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.narok.wage-share",
+   "name": "Narok: wages as a share of total revenue, FY2025/26",
+   "value": 40.4,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.narok.wages",
+     "ke.fy2025-26.spent.county.narok.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.narok.dev-share",
+   "name": "Narok: development as a share of the budget, FY2025/26",
+   "value": 36.1,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.narok.dev-budget",
+     "ke.fy2025-26.spent.county.narok.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyamira.osr-target",
+   "name": "Nyamira: own-source revenue target, FY2025/26",
+   "value": 868.71,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyamira.osr-actual",
+   "name": "Nyamira: own-source revenue reported, FY2025/26",
+   "value": 613.01,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyamira.revenue",
+   "name": "Nyamira: total revenue reported, FY2025/26",
+   "value": 8103.87,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyamira.grants-target",
+   "name": "Nyamira: additional allocations budgeted, FY2025/26",
+   "value": 1320.51,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyamira.grants-actual",
+   "name": "Nyamira: additional allocations received, FY2025/26",
+   "value": 778.81,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyamira.wages",
+   "name": "Nyamira: compensation to employees, FY2025/26",
+   "value": 3505.63,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyamira.payables",
+   "name": "Nyamira: trade payables at 30 June 2026, FY2025/26",
+   "value": 357.68,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyamira.wage-share",
+   "name": "Nyamira: wages as a share of total revenue, FY2025/26",
+   "value": 43.3,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nyamira.wages",
+     "ke.fy2025-26.spent.county.nyamira.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyamira.dev-share",
+   "name": "Nyamira: development as a share of the budget, FY2025/26",
+   "value": 37.9,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nyamira.dev-budget",
+     "ke.fy2025-26.spent.county.nyamira.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyandarua.osr-target",
+   "name": "Nyandarua: own-source revenue target, FY2025/26",
+   "value": 1038.48,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyandarua.osr-actual",
+   "name": "Nyandarua: own-source revenue reported, FY2025/26",
+   "value": 738.55,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyandarua.revenue",
+   "name": "Nyandarua: total revenue reported, FY2025/26",
+   "value": 8494.07,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyandarua.grants-target",
+   "name": "Nyandarua: additional allocations budgeted, FY2025/26",
+   "value": 1847.02,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyandarua.grants-actual",
+   "name": "Nyandarua: additional allocations received, FY2025/26",
+   "value": 942.76,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyandarua.wages",
+   "name": "Nyandarua: compensation to employees, FY2025/26",
+   "value": 3142.07,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyandarua.payables",
+   "name": "Nyandarua: trade payables at 30 June 2026, FY2025/26",
+   "value": 2190.5,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyandarua.wage-share",
+   "name": "Nyandarua: wages as a share of total revenue, FY2025/26",
+   "value": 37,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nyandarua.wages",
+     "ke.fy2025-26.spent.county.nyandarua.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyandarua.dev-share",
+   "name": "Nyandarua: development as a share of the budget, FY2025/26",
+   "value": 36.7,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nyandarua.dev-budget",
+     "ke.fy2025-26.spent.county.nyandarua.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyeri.osr-target",
+   "name": "Nyeri: own-source revenue target, FY2025/26",
+   "value": 800,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37,
+   "note": "Nyeri reported hospital (FIF) revenue inconsistently, so the Controller of Budget left it out of this table."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyeri.osr-actual",
+   "name": "Nyeri: own-source revenue reported, FY2025/26",
+   "value": 746.51,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37,
+   "note": "Nyeri reported hospital (FIF) revenue inconsistently, so the Controller of Budget left it out of this table."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyeri.revenue",
+   "name": "Nyeri: total revenue reported, FY2025/26",
+   "value": 8863.04,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyeri.grants-target",
+   "name": "Nyeri: additional allocations budgeted, FY2025/26",
+   "value": 1460.53,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyeri.grants-actual",
+   "name": "Nyeri: additional allocations received, FY2025/26",
+   "value": 935.33,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyeri.wages",
+   "name": "Nyeri: compensation to employees, FY2025/26",
+   "value": 4620.89,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyeri.payables",
+   "name": "Nyeri: trade payables at 30 June 2026, FY2025/26",
+   "value": 572.06,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyeri.wage-share",
+   "name": "Nyeri: wages as a share of total revenue, FY2025/26",
+   "value": 52.1,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nyeri.wages",
+     "ke.fy2025-26.spent.county.nyeri.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.nyeri.dev-share",
+   "name": "Nyeri: development as a share of the budget, FY2025/26",
+   "value": 33,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.nyeri.dev-budget",
+     "ke.fy2025-26.spent.county.nyeri.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.samburu.osr-target",
+   "name": "Samburu: own-source revenue target, FY2025/26",
+   "value": 342,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.samburu.osr-actual",
+   "name": "Samburu: own-source revenue reported, FY2025/26",
+   "value": 453.94,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.samburu.revenue",
+   "name": "Samburu: total revenue reported, FY2025/26",
+   "value": 7668.34,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.samburu.grants-target",
+   "name": "Samburu: additional allocations budgeted, FY2025/26",
+   "value": 1422.19,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.samburu.grants-actual",
+   "name": "Samburu: additional allocations received, FY2025/26",
+   "value": 873.4,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.samburu.wages",
+   "name": "Samburu: compensation to employees, FY2025/26",
+   "value": 3184.11,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.samburu.payables",
+   "name": "Samburu: trade payables at 30 June 2026, FY2025/26",
+   "value": 117.25,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.samburu.wage-share",
+   "name": "Samburu: wages as a share of total revenue, FY2025/26",
+   "value": 41.5,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.samburu.wages",
+     "ke.fy2025-26.spent.county.samburu.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.samburu.dev-share",
+   "name": "Samburu: development as a share of the budget, FY2025/26",
+   "value": 32,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.samburu.dev-budget",
+     "ke.fy2025-26.spent.county.samburu.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.siaya.osr-target",
+   "name": "Siaya: own-source revenue target, FY2025/26",
+   "value": 3252.42,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.siaya.osr-actual",
+   "name": "Siaya: own-source revenue reported, FY2025/26",
+   "value": 876.14,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.siaya.revenue",
+   "name": "Siaya: total revenue reported, FY2025/26",
+   "value": 10500.43,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.siaya.grants-target",
+   "name": "Siaya: additional allocations budgeted, FY2025/26",
+   "value": 1409.27,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.siaya.grants-actual",
+   "name": "Siaya: additional allocations received, FY2025/26",
+   "value": 908,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.siaya.wages",
+   "name": "Siaya: compensation to employees, FY2025/26",
+   "value": 4435.93,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.siaya.payables",
+   "name": "Siaya: trade payables at 30 June 2026, FY2025/26",
+   "value": 1276.89,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.siaya.wage-share",
+   "name": "Siaya: wages as a share of total revenue, FY2025/26",
+   "value": 42.2,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.siaya.wages",
+     "ke.fy2025-26.spent.county.siaya.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.siaya.dev-share",
+   "name": "Siaya: development as a share of the budget, FY2025/26",
+   "value": 45.1,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 43,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.siaya.dev-budget",
+     "ke.fy2025-26.spent.county.siaya.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.taita-taveta.osr-target",
+   "name": "Taita Taveta: own-source revenue target, FY2025/26",
+   "value": 949.6,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.taita-taveta.osr-actual",
+   "name": "Taita Taveta: own-source revenue reported, FY2025/26",
+   "value": 648.41,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.taita-taveta.revenue",
+   "name": "Taita Taveta: total revenue reported, FY2025/26",
+   "value": 7531.7,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.taita-taveta.grants-target",
+   "name": "Taita Taveta: additional allocations budgeted, FY2025/26",
+   "value": 1535.72,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.taita-taveta.grants-actual",
+   "name": "Taita Taveta: additional allocations received, FY2025/26",
+   "value": 1071.08,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.taita-taveta.wages",
+   "name": "Taita Taveta: compensation to employees, FY2025/26",
+   "value": 3707.72,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.taita-taveta.payables",
+   "name": "Taita Taveta: trade payables at 30 June 2026, FY2025/26",
+   "value": 2296.71,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.taita-taveta.wage-share",
+   "name": "Taita Taveta: wages as a share of total revenue, FY2025/26",
+   "value": 49.2,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.taita-taveta.wages",
+     "ke.fy2025-26.spent.county.taita-taveta.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.taita-taveta.dev-share",
+   "name": "Taita Taveta: development as a share of the budget, FY2025/26",
+   "value": 31.2,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.10",
+   "pdfPage": 44,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.taita-taveta.dev-budget",
+     "ke.fy2025-26.spent.county.taita-taveta.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tana-river.osr-target",
+   "name": "Tana River: own-source revenue target, FY2025/26",
+   "value": 200.42,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tana-river.osr-actual",
+   "name": "Tana River: own-source revenue reported, FY2025/26",
+   "value": 121.57,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tana-river.revenue",
+   "name": "Tana River: total revenue reported, FY2025/26",
+   "value": 9469.45,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tana-river.grants-target",
+   "name": "Tana River: additional allocations budgeted, FY2025/26",
+   "value": 1684.04,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tana-river.grants-actual",
+   "name": "Tana River: additional allocations received, FY2025/26",
+   "value": 994.96,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tana-river.wages",
+   "name": "Tana River: compensation to employees, FY2025/26",
+   "value": 2639.92,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tana-river.payables",
+   "name": "Tana River: trade payables at 30 June 2026, FY2025/26",
+   "value": 1771.28,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tana-river.wage-share",
+   "name": "Tana River: wages as a share of total revenue, FY2025/26",
+   "value": 27.9,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.tana-river.wages",
+     "ke.fy2025-26.spent.county.tana-river.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tana-river.dev-share",
+   "name": "Tana River: development as a share of the budget, FY2025/26",
+   "value": 40.3,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.10",
+   "pdfPage": 44,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.tana-river.dev-budget",
+     "ke.fy2025-26.spent.county.tana-river.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tharaka-nithi.osr-target",
+   "name": "Tharaka Nithi: own-source revenue target, FY2025/26",
+   "value": 668.48,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tharaka-nithi.osr-actual",
+   "name": "Tharaka Nithi: own-source revenue reported, FY2025/26",
+   "value": 884.19,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tharaka-nithi.revenue",
+   "name": "Tharaka Nithi: total revenue reported, FY2025/26",
+   "value": 6924.32,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tharaka-nithi.grants-target",
+   "name": "Tharaka Nithi: additional allocations budgeted, FY2025/26",
+   "value": 1844.92,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tharaka-nithi.grants-actual",
+   "name": "Tharaka Nithi: additional allocations received, FY2025/26",
+   "value": 776.52,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tharaka-nithi.wages",
+   "name": "Tharaka Nithi: compensation to employees, FY2025/26",
+   "value": 3172.74,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tharaka-nithi.payables",
+   "name": "Tharaka Nithi: trade payables at 30 June 2026, FY2025/26",
+   "value": 858.58,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tharaka-nithi.wage-share",
+   "name": "Tharaka Nithi: wages as a share of total revenue, FY2025/26",
+   "value": 45.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.tharaka-nithi.wages",
+     "ke.fy2025-26.spent.county.tharaka-nithi.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.tharaka-nithi.dev-share",
+   "name": "Tharaka Nithi: development as a share of the budget, FY2025/26",
+   "value": 37,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.10",
+   "pdfPage": 44,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.tharaka-nithi.dev-budget",
+     "ke.fy2025-26.spent.county.tharaka-nithi.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.trans-nzoia.osr-target",
+   "name": "Trans Nzoia: own-source revenue target, FY2025/26",
+   "value": 600,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.trans-nzoia.osr-actual",
+   "name": "Trans Nzoia: own-source revenue reported, FY2025/26",
+   "value": 699.71,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.trans-nzoia.revenue",
+   "name": "Trans Nzoia: total revenue reported, FY2025/26",
+   "value": 10003.73,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.trans-nzoia.grants-target",
+   "name": "Trans Nzoia: additional allocations budgeted, FY2025/26",
+   "value": 1153.43,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.trans-nzoia.grants-actual",
+   "name": "Trans Nzoia: additional allocations received, FY2025/26",
+   "value": 745.98,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.trans-nzoia.wages",
+   "name": "Trans Nzoia: compensation to employees, FY2025/26",
+   "value": 3998.64,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.trans-nzoia.payables",
+   "name": "Trans Nzoia: trade payables at 30 June 2026, FY2025/26",
+   "value": 2374.07,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.trans-nzoia.wage-share",
+   "name": "Trans Nzoia: wages as a share of total revenue, FY2025/26",
+   "value": 40,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.trans-nzoia.wages",
+     "ke.fy2025-26.spent.county.trans-nzoia.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.trans-nzoia.dev-share",
+   "name": "Trans Nzoia: development as a share of the budget, FY2025/26",
+   "value": 38.6,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.10",
+   "pdfPage": 44,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.trans-nzoia.dev-budget",
+     "ke.fy2025-26.spent.county.trans-nzoia.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.turkana.osr-target",
+   "name": "Turkana: own-source revenue target, FY2025/26",
+   "value": 600,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.turkana.osr-actual",
+   "name": "Turkana: own-source revenue reported, FY2025/26",
+   "value": 495.86,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.turkana.revenue",
+   "name": "Turkana: total revenue reported, FY2025/26",
+   "value": 17218.99,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.turkana.grants-target",
+   "name": "Turkana: additional allocations budgeted, FY2025/26",
+   "value": 3323.17,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.turkana.grants-actual",
+   "name": "Turkana: additional allocations received, FY2025/26",
+   "value": 1331.12,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.turkana.wages",
+   "name": "Turkana: compensation to employees, FY2025/26",
+   "value": 6215.97,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.turkana.payables",
+   "name": "Turkana: trade payables at 30 June 2026, FY2025/26",
+   "value": 3077.49,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52,
+   "note": "The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.turkana.wage-share",
+   "name": "Turkana: wages as a share of total revenue, FY2025/26",
+   "value": 36.1,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.turkana.wages",
+     "ke.fy2025-26.spent.county.turkana.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.turkana.dev-share",
+   "name": "Turkana: development as a share of the budget, FY2025/26",
+   "value": 32,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.10",
+   "pdfPage": 44,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.turkana.dev-budget",
+     "ke.fy2025-26.spent.county.turkana.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.uasin-gishu.osr-target",
+   "name": "Uasin Gishu: own-source revenue target, FY2025/26",
+   "value": 1882.03,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.uasin-gishu.osr-actual",
+   "name": "Uasin Gishu: own-source revenue reported, FY2025/26",
+   "value": 1692.18,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.uasin-gishu.revenue",
+   "name": "Uasin Gishu: total revenue reported, FY2025/26",
+   "value": 16632.35,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.uasin-gishu.grants-target",
+   "name": "Uasin Gishu: additional allocations budgeted, FY2025/26",
+   "value": 2054,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.uasin-gishu.grants-actual",
+   "name": "Uasin Gishu: additional allocations received, FY2025/26",
+   "value": 1448.98,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.uasin-gishu.wages",
+   "name": "Uasin Gishu: compensation to employees, FY2025/26",
+   "value": 5459.8,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.uasin-gishu.payables",
+   "name": "Uasin Gishu: trade payables at 30 June 2026, FY2025/26",
+   "value": 1153.72,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.uasin-gishu.wage-share",
+   "name": "Uasin Gishu: wages as a share of total revenue, FY2025/26",
+   "value": 32.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.uasin-gishu.wages",
+     "ke.fy2025-26.spent.county.uasin-gishu.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.uasin-gishu.dev-share",
+   "name": "Uasin Gishu: development as a share of the budget, FY2025/26",
+   "value": 42.7,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.10",
+   "pdfPage": 44,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.uasin-gishu.dev-budget",
+     "ke.fy2025-26.spent.county.uasin-gishu.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.vihiga.osr-target",
+   "name": "Vihiga: own-source revenue target, FY2025/26",
+   "value": 444.13,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.vihiga.osr-actual",
+   "name": "Vihiga: own-source revenue reported, FY2025/26",
+   "value": 501.27,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.vihiga.revenue",
+   "name": "Vihiga: total revenue reported, FY2025/26",
+   "value": 7397.22,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.vihiga.grants-target",
+   "name": "Vihiga: additional allocations budgeted, FY2025/26",
+   "value": 1443.69,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.vihiga.grants-actual",
+   "name": "Vihiga: additional allocations received, FY2025/26",
+   "value": 858.5,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.vihiga.wages",
+   "name": "Vihiga: compensation to employees, FY2025/26",
+   "value": 3130.48,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.vihiga.payables",
+   "name": "Vihiga: trade payables at 30 June 2026, FY2025/26",
+   "value": 811.24,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.vihiga.wage-share",
+   "name": "Vihiga: wages as a share of total revenue, FY2025/26",
+   "value": 42.3,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.vihiga.wages",
+     "ke.fy2025-26.spent.county.vihiga.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.vihiga.dev-share",
+   "name": "Vihiga: development as a share of the budget, FY2025/26",
+   "value": 33.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.10",
+   "pdfPage": 44,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.vihiga.dev-budget",
+     "ke.fy2025-26.spent.county.vihiga.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.wajir.osr-target",
+   "name": "Wajir: own-source revenue target, FY2025/26",
+   "value": 350,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.wajir.osr-actual",
+   "name": "Wajir: own-source revenue reported, FY2025/26",
+   "value": 432.52,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.wajir.revenue",
+   "name": "Wajir: total revenue reported, FY2025/26",
+   "value": 12916.26,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.wajir.grants-target",
+   "name": "Wajir: additional allocations budgeted, FY2025/26",
+   "value": 2140.49,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.wajir.grants-actual",
+   "name": "Wajir: additional allocations received, FY2025/26",
+   "value": 1271.12,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.wajir.wages",
+   "name": "Wajir: compensation to employees, FY2025/26",
+   "value": 5215.29,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.wajir.payables",
+   "name": "Wajir: trade payables at 30 June 2026, FY2025/26",
+   "value": 3304.84,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.wajir.wage-share",
+   "name": "Wajir: wages as a share of total revenue, FY2025/26",
+   "value": 40.4,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.wajir.wages",
+     "ke.fy2025-26.spent.county.wajir.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.wajir.dev-share",
+   "name": "Wajir: development as a share of the budget, FY2025/26",
+   "value": 35.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.10",
+   "pdfPage": 44,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.wajir.dev-budget",
+     "ke.fy2025-26.spent.county.wajir.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.west-pokot.osr-target",
+   "name": "West Pokot: own-source revenue target, FY2025/26",
+   "value": 351.66,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-target",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.west-pokot.osr-actual",
+   "name": "West Pokot: own-source revenue reported, FY2025/26",
+   "value": 429.31,
+   "grouping": "county-revenue-osr",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.osr-actual",
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.west-pokot.revenue",
+   "name": "West Pokot: total revenue reported, FY2025/26",
+   "value": 8623.74,
+   "grouping": "county-revenue",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.revenue",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.west-pokot.grants-target",
+   "name": "West Pokot: additional allocations budgeted, FY2025/26",
+   "value": 1264.12,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-target",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.west-pokot.grants-actual",
+   "name": "West Pokot: additional allocations received, FY2025/26",
+   "value": 824.01,
+   "grouping": "county-grants",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.grants-actual",
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.west-pokot.wages",
+   "name": "West Pokot: compensation to employees, FY2025/26",
+   "value": 3514.29,
+   "grouping": "county-wages",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.wages",
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.west-pokot.payables",
+   "name": "West Pokot: trade payables at 30 June 2026, FY2025/26",
+   "value": 301.59,
+   "grouping": "county-payables",
+   "level": "county",
+   "parent": "ke.fy2025-26.spent.county-total.payables",
+   "page": "Table 2.10, p.18",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.west-pokot.wage-share",
+   "name": "West Pokot: wages as a share of total revenue, FY2025/26",
+   "value": 40.8,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.west-pokot.wages",
+     "ke.fy2025-26.spent.county.west-pokot.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county.west-pokot.dev-share",
+   "name": "West Pokot: development as a share of the budget, FY2025/26",
+   "value": 30.7,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.10",
+   "pdfPage": 44,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county.west-pokot.dev-budget",
+     "ke.fy2025-26.spent.county.west-pokot.budget"
+    ],
+    "round": 1
+   }
+  },
+  {
+   "id": "ke.fy2025-26.spent.county-total.osr-target",
+   "name": "All 47 counties: own-source revenue target, FY2025/26",
+   "value": 106452.02,
+   "grouping": "county-revenue-osr",
+   "level": "total",
+   "parent": null,
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county-total.osr-actual",
+   "name": "All 47 counties: own-source revenue reported, FY2025/26",
+   "value": 96078.05,
+   "grouping": "county-revenue-osr",
+   "level": "total",
+   "parent": null,
+   "page": "Table 2.1, p.3",
+   "pdfPage": 37
+  },
+  {
+   "id": "ke.fy2025-26.spent.county-total.revenue",
+   "name": "All 47 counties: total revenue reported, FY2025/26",
+   "value": 596777.42,
+   "grouping": "county-revenue",
+   "level": "total",
+   "parent": null,
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county-total.grants-target",
+   "name": "All 47 counties: additional allocations budgeted, FY2025/26",
+   "value": 87735.11,
+   "grouping": "county-grants",
+   "level": "total",
+   "parent": null,
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county-total.grants-actual",
+   "name": "All 47 counties: additional allocations received, FY2025/26",
+   "value": 50750.81,
+   "grouping": "county-grants",
+   "level": "total",
+   "parent": null,
+   "page": "Annex I, p.900",
+   "pdfPage": 934
+  },
+  {
+   "id": "ke.fy2025-26.spent.county-total.wages",
+   "name": "All 47 counties: compensation to employees, FY2025/26",
+   "value": 235964.6,
+   "grouping": "county-wages",
+   "level": "total",
+   "parent": null,
+   "page": "Table 2.4, p.8",
+   "pdfPage": 42,
+   "note": "The report prints this row with parts that do not add to its recurrent total. Shown as printed."
+  },
+  {
+   "id": "ke.fy2025-26.spent.county-total.payables",
+   "name": "All 47 counties: trade payables at 30 June 2026, FY2025/26",
+   "value": 172526.69,
+   "grouping": "county-payables",
+   "level": "total",
+   "parent": null,
+   "page": "Table 2.10, p.19",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2025-26.spent.county-total.wage-share",
+   "name": "All 47 counties: wages as a share of total revenue, FY2025/26",
+   "value": 39.5,
+   "unit": "%",
+   "grouping": "county-measure",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.4, p.8, and Annex I, p.900",
+   "pdfPage": 42,
+   "calc": {
+    "formula": "a / b * 100",
+    "inputs": [
+     "ke.fy2025-26.spent.county-total.wages",
+     "ke.fy2025-26.spent.county-total.revenue"
+    ],
+    "round": 1
+   },
+   "note": "Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios."
+  }
+ ]
+}

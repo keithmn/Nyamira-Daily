@@ -102,6 +102,44 @@ export function cobChecks(rows, second, earlier = []) {
   return problems;
 }
 
+// The ratios the report names, which our own division must reproduce. That is what proves the method.
+export const NAMED_WAGE_SHARES = { 'Homa Bay': 56, Nyeri: 52, 'Taita-Taveta': 49, Mombasa: 26, Kwale: 26, 'Tana River': 28 };
+
+// Each table's arithmetic and totals, its agreement with Table 2.5, and the report's named wage ratios. The report's own slips
+// are listed in known-issues.csv: they do not fail, and anything new does.
+export function cobDetailChecks({ osr, wages, payables, annex, spending, known = [] }) {
+  const problems = [], n = (v) => Number(v || 0), norm = (c) => c.toLowerCase().replace(/[^a-z]/g, '').replace('nairobicity', 'nairobi');
+  const by = (list, county) => list.find((r) => norm(r.county) === norm(county));
+  const add = (table, county, text) => { if (!known.some((k) => k.table === table && norm(k.county) === norm(county))) problems.push(`Table ${table}, ${county}: ${text}`); };
+  for (const r of osr) {
+    if (Math.abs(n(r.ord_target) + n(r.fif_target) - n(r.total_target)) > 0.021) add('osr', r.county, 'targets do not add');
+    if (Math.abs(n(r.ord_actual) + n(r.fif_actual) - n(r.total_actual)) > 0.021) add('osr', r.county, 'revenue does not add');
+    if (Math.abs(n(r.total_actual) / n(r.total_target) * 100 - n(r.total_pct)) > 0.02) add('osr', r.county, `prints ${r.total_pct}%`);
+  }
+  for (const r of wages) {
+    if (Math.abs(n(r.compensation) + n(r.operations) - n(r.recurrent)) > 0.021) add('wages', r.county, 'wages and operations do not add to recurrent');
+    const t = by(spending, r.county);
+    if (r.county !== 'Total' && Math.abs(n(r.development) - n(t?.dev_spent)) > 0.05) add('wages', r.county, `development ${r.development} against Table 2.5 ${t?.dev_spent}`);
+  }
+  for (const r of payables) {
+    if (Math.abs(n(r.exec_total) + n(r.asm_total) - n(r.total)) > 0.021) add('payables', r.county, 'executive and assembly do not add');
+    if (Math.abs(n(r.total) / n(r.budget) * 100 - n(r.pct)) > 0.06) add('payables', r.county, `prints ${r.pct}%`);
+    if (Math.abs(n(r.budget) - n(by(spending, r.county)?.total_budget)) > 0.05) add('payables', r.county, 'budget differs from Table 2.5');
+  }
+  for (const [name, rows, keys] of [['osr', osr, ['total_target', 'total_actual']], ['wages', wages, ['compensation']], ['payables', payables, ['total']], ['annex', annex, ['total_actual', 'additional_actual', 'additional_target']]]) {
+    const counties = rows.filter((r) => r.county !== 'Total'), total = rows.find((r) => r.county === 'Total');
+    if (counties.length !== 47 || !total) problems.push(`Table ${name}: expected 47 counties and a total, found ${counties.length}`);
+    if (total) for (const k of keys) if (Math.abs(counties.reduce((a, r) => a + n(r[k]), 0) - n(total[k])) > 0.5) problems.push(`Table ${name}: ${k} does not add to ${total[k]}`);
+  }
+  for (const [county, share] of Object.entries(NAMED_WAGE_SHARES)) {
+    const got = n(by(wages, county)?.compensation) / n(by(annex, county)?.total_actual) * 100;
+    if (Math.round(got) !== share) problems.push(`${county}: the report names a wage share of ${share}%, the tables give ${got.toFixed(1)}%`);
+  }
+  const all = n(by(wages, 'Total')?.compensation) / n(by(annex, 'Total')?.total_actual) * 100;
+  if (annex.length && wages.length && Math.abs(all - 39.54) > 0.01) problems.push(`All counties: the report gives a wage share of 39.54%, the tables give ${all.toFixed(2)}%`);
+  return problems;
+}
+
 export function runDoubleEntry() {
   const corrections = new Map(csv('appropriation-act-2026/corrections.csv').map((r) => [r.key, r]));
   const act = compareReadings(csv('appropriation-act-2026/extract.csv'), csv('appropriation-act-2026/typed.csv'), corrections);
@@ -109,7 +147,8 @@ export function runDoubleEntry() {
   const pbo = pboChecks(csv('appropriation-act-2026/extract.csv'), csv('pbo-explainer/votes-2026-27.csv'), csv('pbo-explainer/votes-2025-26.csv'));
   const earlier = JSON.parse(readFileSync(join(root, 'src/data/compare.json'), 'utf8')).counties;
   const cob = [...cobChecks(csv('cob-county-2024-25/extract.csv'), csv('cob-county-2024-25/typed.csv'), earlier).map((p) => `FY2024/25 ${p}`),
-    ...cobChecks(csv('cob-county-2025-26/extract.csv'), csv('cob-county-2025-26/typed.csv')).map((p) => `FY2025/26 ${p}`)];
+    ...cobChecks(csv('cob-county-2025-26/extract.csv'), csv('cob-county-2025-26/typed.csv')).map((p) => `FY2025/26 ${p}`),
+    ...cobDetailChecks({ osr: csv('cob-county-2025-26/osr.csv'), wages: csv('cob-county-2025-26/wages.csv'), payables: csv('cob-county-2025-26/payables.csv'), annex: csv('cob-county-2025-26/annex.csv'), spending: csv('cob-county-2025-26/extract.csv'), known: csv('cob-county-2025-26/known-issues.csv') })];
   return { act, county, pbo, cob };
 }
 

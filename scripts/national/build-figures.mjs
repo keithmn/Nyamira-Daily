@@ -115,6 +115,39 @@ export function cobCountyFigures(year, source, offset) {
   return { defaults: { fy, stage: 'spent', unit: 'KSh m', grouping: 'county-spending', money: 'county', label: 'official', source, ...CHECKED }, figures };
 }
 
+// Own-source revenue, wages, trade payables and total revenue for FY2025/26. A dash in the report gives no figure: Nandi reported
+// no trade payables, so it has none here. The notes repeat the report's own warnings, so they stay with the figures.
+const NOTES = {
+  nyeri: 'Nyeri reported hospital (FIF) revenue inconsistently, so the Controller of Budget left it out of this table.',
+  wages: 'Several counties did not pay their full wage bill for the year, which the Controller of Budget says understates their ratios.',
+  payables: 'The Controller of Budget marks this county: its total here does not agree with its ageing table in the same report.',
+  sums: 'The report prints this row with parts that do not add to its recurrent total. Shown as printed.',
+};
+export function cobDetailFigures() {
+  const Y = 'ke.fy2025-26.spent', fy = 'FY2025/26', out = [];
+  const read = (file) => new Map(csv(`cob-county-2025-26/${file}`).map((r) => [r.county === 'Total' ? 'total' : cobSlug(r.county), r]));
+  const osr = read('osr.csv'), wages = read('wages.csv'), payables = read('payables.csv'), annex = read('annex.csv');
+  const off = (table, r) => ({ page: `${table}, p.${Number(r.pdf_page) - 34}`, pdfPage: Number(r.pdf_page) });
+  const summedIssue = new Set(csv('cob-county-2025-26/known-issues.csv').filter((k) => k.table === 'wages').map((k) => cobSlug(k.county)));
+  for (const slug of [...COUNTIES.map((c) => c.slug), 'total']) {
+    const all = slug === 'total', name = all ? 'All 47 counties' : COUNTIES.find((c) => c.slug === slug).name, base = all ? `${Y}.county-total` : `${Y}.county.${slug}`;
+    const add = (key, words, value, grouping, at, extra = {}) => out.push({ id: `${base}.${key}`, name: `${name}: ${words}, ${fy}`, value: Number(value), grouping, level: all ? 'total' : 'county', parent: all ? null : `${Y}.county-total.${key}`, ...at, ...extra });
+    const o = osr.get(slug), w = wages.get(slug), p = payables.get(slug), a = annex.get(slug);
+    const note = (text) => (text ? { note: text } : {});
+    add('osr-target', 'own-source revenue target', o.total_target, 'county-revenue-osr', off('Table 2.1', o), note(slug === 'nyeri' && NOTES.nyeri));
+    add('osr-actual', 'own-source revenue reported', o.total_actual, 'county-revenue-osr', off('Table 2.1', o), note(slug === 'nyeri' && NOTES.nyeri));
+    add('revenue', 'total revenue reported', a.total_actual, 'county-revenue', off('Annex I', a));
+    add('grants-target', 'additional allocations budgeted', a.additional_target, 'county-grants', off('Annex I', a));
+    add('grants-actual', 'additional allocations received', a.additional_actual, 'county-grants', off('Annex I', a));
+    add('wages', 'compensation to employees', w.compensation, 'county-wages', off('Table 2.4', w), note(summedIssue.has(slug) && NOTES.sums));
+    if (p.total) add('payables', 'trade payables at 30 June 2026', p.total, 'county-payables', off('Table 2.10', p), note(p.starred && NOTES.payables));
+    out.push({ id: `${base}.wage-share`, name: `${name}: wages as a share of total revenue, ${fy}`, value: Number((Number(w.compensation) / Number(a.total_actual) * 100).toFixed(1)), unit: '%', grouping: 'county-measure', level: 'measure', parent: null, ...off('Table 2.4 and Annex I', w), page: `Table 2.4, p.${Number(w.pdf_page) - 34}, and Annex I, p.${Number(a.pdf_page) - 34}`, calc: { formula: 'a / b * 100', inputs: [`${base}.wages`, `${base}.revenue`], round: 1 }, note: NOTES.wages });
+    if (!all) out.push({ id: `${base}.dev-share`, name: `${name}: development as a share of the budget, ${fy}`, value: Number((Number(fig25(slug).dev_budget) / Number(fig25(slug).total_budget) * 100).toFixed(1)), unit: '%', grouping: 'county-measure', level: 'measure', parent: null, page: `Table 2.5, p.${Number(fig25(slug).pdf_page) - 34}`, pdfPage: Number(fig25(slug).pdf_page), calc: { formula: 'a / b * 100', inputs: [`${base}.dev-budget`, `${base}.budget`], round: 1 } });
+  }
+  return { defaults: { fy: '2025/26', stage: 'spent', unit: 'KSh m', money: 'county', label: 'official', source: 'cob-county-birr-2025-26', ...CHECKED }, figures: out };
+}
+const fig25 = (slug) => csv('cob-county-2025-26/extract.csv').find((r) => cobSlug(r.county) === slug);
+
 // Which votes make up each sector, from the Budget Explainer's own tables, not from any judgment of ours (decision #93)
 export function sectorMap() {
   const rows = csv('pbo-explainer/votes-2026-27.csv'), out = [];
@@ -131,6 +164,7 @@ export const GENERATED = {
   'pbo-votes-2025-26.json': () => pboVoteFigures('votes-2025-26.csv', '2025-26', '2025/26', 'pbo-budget-explainer-2025'),
   'cob-counties-2024-25.json': () => cobCountyFigures('2024-25', 'cob-county-birr-2024-25', -44),
   'cob-counties-2025-26.json': () => cobCountyFigures('2025-26', 'cob-county-birr-2025-26', -34),
+  'cob-county-detail-2025-26.json': cobDetailFigures,
 };
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
