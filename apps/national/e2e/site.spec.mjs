@@ -287,9 +287,10 @@ test.describe('the journeys, tap by tap, at 390px', () => {
 
 test('the home page counts down to the next stage, in days', async ({ page }) => {
   await open(page, '/');
-  await expect(page.locator('.stage-next')).toContainText('Budget Policy Statement 2027, due in Parliament by 15 February 2027, in ');
+  // The date is the Treasury's announced one while it is ahead, then the law's (decision #103), so either may show
+  await expect(page.locator('.stage-next')).toContainText(/Budget Policy Statement 20\d\d, due in Parliament by \d{1,2} (February|November) 20\d\d/);
   await expect(page.locator('.stage-next')).toContainText(' days.');
-  await expect(page.locator('.stage-next a')).toHaveAttribute('href', /Public_Finance_Management_Act_2012/);
+  await expect(page.locator('.stage-next a')).toHaveAttribute('href', /Public_Finance_Management_Act_2012|newsite\.treasury\.go\.ke/);
 });
 
 test('a county page gives its rules check, law quoted, with the official finding first', async ({ page }) => {
