@@ -582,5 +582,14 @@
   "county.picture": "A picture to share",
   "county.hearings": "Hearings, and write a memorandum",
   "search.type.explainer": "Explainer",
-  "nav.planned": "Planned"
+  "nav.planned": "Planned",
+  "report.privacy": "Do not include private or sensitive personal information. You do not need to give your name or contact details. Reports are kept for up to {days} days. A report is a lead for us to check, not a correction, and you may not get a reply.",
+  "report.page": "Page or figure",
+  "report.pageHint": "Filled in when you came from a figure's \"Report an error\" button. Otherwise type the page, such as /counties/nyamira/.",
+  "report.details": "What may be wrong?",
+  "report.source": "A public source link (optional)",
+  "report.send": "Send for review",
+  "report.sending": "Sending for review…",
+  "report.saved": "Saved for review. Reference: {ref}. It has not changed any figure.",
+  "report.failed": "The report could not be saved. Please try again later."
 }

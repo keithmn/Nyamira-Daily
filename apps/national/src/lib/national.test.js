@@ -11,6 +11,7 @@ import { countOf, rulesFor } from './rules.js';
 import { searchIndex } from './search.js';
 import { amountSentence, countyQuestions, whatsappHref } from './sentences.js';
 import { nextDates } from './calendar.js';
+import { intakeSettings, reportPage } from './intake.js';
 import { allInfographics, infographic } from './infographics.js';
 import { explainers } from './learn.js';
 import { memorandum } from './memo.js';
@@ -421,4 +422,17 @@ test('a section tab goes to its own page once built, and to its first built page
   assert.equal(sectionPath(track), '/projects/');
   assert.equal(sectionPath(SECTIONS.find((s) => s.key === 'counties')), '/counties/');
   for (const s of SECTIONS) assert.equal(isPlanned(sectionPath(s)), false, s.key);
+});
+
+test('corrections intake opens only with all three settings, and only then lets Turnstile in, on that page alone', () => {
+  const on = { PUBLIC_CORRECTION_INTAKE_ENABLED: 'true', PUBLIC_TURNSTILE_SITE_KEY: '0x4AAA', PUBLIC_CORRECTION_RETENTION_DAYS: '180' };
+  assert.equal(intakeSettings(on).open, true);
+  for (const key of Object.keys(on)) assert.equal(intakeSettings({ ...on, [key]: '' }).open, false, key);
+  assert.equal(intakeSettings({ ...on, PUBLIC_CORRECTION_RETENTION_DAYS: 'forever' }).open, false);
+  assert.doesNotMatch(headersFile([]), /challenges\.cloudflare\.com/);
+  const open = headersFile([], { intakeOpen: true });
+  assert.match(open.split('/corrections/*')[1].split('\n/')[0], /script-src 'self' https:\/\/challenges\.cloudflare\.com; frame-src https:\/\/challenges\.cloudflare\.com/);
+  assert.doesNotMatch(open.split('/corrections/*')[0], /challenges\.cloudflare\.com/);
+  assert.equal(reportPage('ke.fy2026-27.law.county.nyamira.equitable-share', ''), '/corrections/?figure=ke.fy2026-27.law.county.nyamira.equitable-share');
+  assert.equal(reportPage('', '/debt/'), '/debt/');
 });

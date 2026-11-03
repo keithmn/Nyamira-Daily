@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { intakeSettings } from '../src/lib/intake.js';
 
 const walk = (dir, out = []) => {
   for (const name of readdirSync(dir)) {
@@ -20,14 +21,18 @@ export function inlineScripts(html) {
 }
 export const hash = (body) => `'sha256-${createHash('sha256').update(body, 'utf8').digest('base64')}'`;
 
-export function policy(hashes, embed = false) {
+// Turnstile, Cloudflare's anti-spam check, is the one outside script the product allows, and only on the corrections page
+// of a build where intake is open (decision #102)
+const TURNSTILE = 'https://challenges.cloudflare.com';
+
+export function policy(hashes, embed = false, turnstile = false) {
   return [
-    "default-src 'none'", `script-src 'self' ${hashes.join(' ')}`.trim(), "style-src 'self'", "style-src-attr 'unsafe-inline'", "img-src 'self' data:", "font-src 'self'",
+    "default-src 'none'", ['script-src', "'self'", ...hashes, ...(turnstile ? [TURNSTILE] : [])].join(' '), ...(turnstile ? [`frame-src ${TURNSTILE}`] : []), "style-src 'self'", "style-src-attr 'unsafe-inline'", "img-src 'self' data:", "font-src 'self'",
     "connect-src 'self'", "base-uri 'none'", "form-action 'self'", `frame-ancestors ${embed ? '*' : "'none'"}`,
   ].join('; ');
 }
 
-export function headersFile(hashes) {
+export function headersFile(hashes, { intakeOpen = false } = {}) {
   const common = [
     'Referrer-Policy: strict-origin-when-cross-origin', 'X-Content-Type-Options: nosniff', 'Permissions-Policy: camera=(), geolocation=(), microphone=(), payment=(), usb=()',
     'Strict-Transport-Security: max-age=31536000', 'Cross-Origin-Opener-Policy: same-origin',
@@ -35,6 +40,7 @@ export function headersFile(hashes) {
   return [
     '/*', ...common.map((h) => `  ${h}`), `  Content-Security-Policy: ${policy(hashes)}`,
     ...['/embed/*', '/sw/embed/*'].flatMap((path) => [path, '  ! Content-Security-Policy', `  Content-Security-Policy: ${policy(hashes, true)}`]),
+    ...(intakeOpen ? ['/corrections/*', '/sw/corrections/*'].flatMap((path) => [path, '  ! Content-Security-Policy', `  Content-Security-Policy: ${policy(hashes, false, true)}`]) : []),
     '/_astro/*', '  Cache-Control: public, max-age=31536000, immutable',
     // Open data: any site or tool may read the files, which hold nothing but published figures (build brief 5.13)
     ...['/api/*', '/data/*'].flatMap((path) => [path, '  Access-Control-Allow-Origin: *']),
@@ -51,7 +57,7 @@ export function headers() {
       'astro:build:done': ({ dir }) => {
         const root = fileURLToPath(dir);
         const hashes = [...new Set(walk(root).flatMap((f) => inlineScripts(readFileSync(f, 'utf8')).map(hash)))].sort();
-        writeFileSync(join(root, '_headers'), headersFile(hashes));
+        writeFileSync(join(root, '_headers'), headersFile(hashes, { intakeOpen: intakeSettings(process.env).open }));
       },
     },
   };
