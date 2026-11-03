@@ -3,7 +3,8 @@
 // points to its sector instead of guessing a vote.
 import { COUNTIES } from '@kbe/engine/counties';
 import { t } from '../i18n/index.js';
-import { countyHref, programmeHref, sectorHref, voteHref } from './routes.js';
+import { explainers } from './learn.js';
+import { countyHref, href, programmeHref, sectorHref, voteHref } from './routes.js';
 import { allSectors, allVotes } from './votes.js';
 
 const VOTE_WORDS = {
@@ -21,5 +22,7 @@ export function searchIndex(lang) {
     out.push([v.name, voteHref(lang, v.code), 'vote', `${v.code} ${VOTE_WORDS[v.code] ?? ''}`.trim()]);
     for (const p of v.programmes) out.push([p.name, programmeHref(lang, v.code, p.code), 'programme', `${v.name} ${p.code}`]);
   }
+  // Explainers are written in English; the Kiswahili summary makes them findable in Kiswahili too
+  for (const e of explainers()) out.push([e.title, href(lang, `/learn/${e.slug}/`), 'explainer', e.sw]);
   return out;
 }

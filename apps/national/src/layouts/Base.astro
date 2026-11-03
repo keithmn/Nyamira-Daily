@@ -13,8 +13,10 @@ import { t } from '../i18n/index.js';
 import { LANGS, href } from '../lib/routes.js';
 import { site } from '../site.js';
 
-interface Props { lang?: 'en' | 'sw'; path: string; title: string; description?: string; noindex?: boolean }
-const { lang = 'en', path, title, description = t(lang, 'meta.description'), noindex = false } = Astro.props;
+interface Props { lang?: 'en' | 'sw'; path: string; title: string; description?: string; noindex?: boolean; image?: string }
+const { lang = 'en', path, title, description = t(lang, 'meta.description'), noindex = false, image } = Astro.props;
+// A link preview for WhatsApp and social sites: the page's own 1200 × 630 picture, which carries its source and release
+const preview = image && Astro.site ? new URL(href('en', image), Astro.site).href : null;
 const fullTitle = title === site.name ? title : `${title} · ${site.name}`;
 const alternates = Astro.site ? LANGS.map((l) => ({ l, url: new URL(href(l, path), Astro.site).href })) : [];
 const canonical = alternates.find((a) => a.l === lang)?.url;
@@ -32,6 +34,13 @@ const early = "(function(){var r=document.documentElement;r.classList.add('js');
     {alternates.map((a) => <link rel="alternate" hreflang={a.l} href={a.url} />)}
     {alternates.length > 0 && <link rel="alternate" hreflang="x-default" href={alternates[0].url} />}
     {(noindex || __KBE_PREVIEW__) && <meta name="robots" content="noindex" />}
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {preview && <meta property="og:image" content={preview} />}
+    {preview && <meta property="og:image:width" content="1200" />}
+    {preview && <meta property="og:image:height" content="630" />}
+    {preview && <meta name="twitter:card" content="summary_large_image" />}
     <meta name="theme-color" content="#111111" />
     <link rel="icon" href="data:," />
     {/* All three load on every page, so preloading costs nothing and keeps text from shifting when they arrive */}

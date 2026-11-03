@@ -1,0 +1,27 @@
+---
+// A small county card for news sites (SITEMAP.md): the equitable share with its label and source, last year's development
+// spending, and a link back. It runs no script and sets no cookie, so it adds nothing to the host page's privacy policy.
+import { money, percent } from '@kbe/engine/fmt';
+import { site } from '../../site.js';
+import { t } from '../../i18n/index.js';
+import { changeWords, countyBySlug } from '../../lib/counties.js';
+import { FY, release } from '../../lib/figures.js';
+import { countyHref } from '../../lib/routes.js';
+import FigureMeta from '../FigureMeta.astro';
+import SourceLine from '../SourceLine.astro';
+
+interface Props { slug: string; lang?: 'en' | 'sw' }
+const { slug, lang = 'en' } = Astro.props;
+const c = countyBySlug(slug), y = c.spending.at(-1);
+const page = Astro.site ? new URL(countyHref(lang, slug), Astro.site).href : countyHref(lang, slug);
+---
+<article class="embed">
+  <p class="embed-kicker">{t(lang, 'embed.kicker', { name: c.name, fy: FY })}</p>
+  <p class="embed-num">{money(c.value, 'KSh', lang)}</p>
+  <p>{t(lang, 'embed.line', { change: changeWords(c.change, lang) })}</p>
+  <FigureMeta label={c.figure.label} stage={c.figure.stage} lang={lang} />
+  <SourceLine doc={c.figure.doc} page={c.figure.page} lang={lang} />
+  <p class="small">{t(lang, 'county.spent', { pct: percent(y.devPct, 0), fy: `FY${y.fy}` })}</p>
+  <p class="small muted">{t(lang, 'embed.release', { release })}</p>
+  <p><a class="btn quiet" href={page} target="_blank" rel="noopener">{t(lang, 'embed.more', { name: site.name })}</a></p>
+</article>

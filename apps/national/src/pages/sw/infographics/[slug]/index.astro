@@ -1,0 +1,9 @@
+---
+import View from '../../../../components/pages/InfographicPage.astro';
+import Base from '../../../../layouts/Base.astro';
+import { allInfographics, infographic } from '../../../../lib/infographics.js';
+
+export const getStaticPaths = () => allInfographics('sw').map((g) => ({ params: { slug: g.slug } }));
+const { slug } = Astro.params;
+---
+<Base lang="sw" path={`/infographics/${slug}/`} image={`/img/infographics/sw/${slug}-landscape.png`} title={infographic(slug, 'sw').title}><View lang="sw" slug={slug} /></Base>

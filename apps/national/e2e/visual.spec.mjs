@@ -15,6 +15,8 @@ for (const [width, height] of [[390, 844], [1280, 800]]) {
           await document.fonts.ready;
           // The sticky bars would otherwise land on top of whatever part of the page is being pictured
           for (const bar of ['.top', '.tabs']) document.querySelector(bar).style.position = 'static';
+          // A countdown changes every day, so the picture shows it as it reads with no count
+          for (const el of document.querySelectorAll('[data-days-until]')) el.textContent = '.';
         });
         await expect(page.locator(target)).toHaveScreenshot(`${name}-${width}-${scheme}.png`);
       });

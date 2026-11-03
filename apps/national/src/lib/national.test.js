@@ -10,7 +10,14 @@ import { PLANNED, SECTIONS, href, isPlanned, sectionOf, twin } from './routes.js
 import { countOf, rulesFor } from './rules.js';
 import { searchIndex } from './search.js';
 import { amountSentence, countyQuestions, whatsappHref } from './sentences.js';
+import { nextDates } from './calendar.js';
+import { allInfographics, infographic } from './infographics.js';
+import { explainers } from './learn.js';
+import { memorandum } from './memo.js';
+import { memoTopics, memoWords } from './memoTopics.js';
 import { fellToZero, projectQuestions, sameNameTwoVotes } from './projects.js';
+import { countByFamily, family } from './releases.js';
+import { readAmount, splitAmount } from './split.js';
 import { nextDeadline, timeline } from './stages.js';
 import { allSectors, allVotes, economicSplit, programmeDetail, sectorBySlug, voteByCode } from './votes.js';
 
@@ -49,7 +56,8 @@ test('routes carry the language and find their twin', () => {
 test('only known routes count as planned', () => {
   assert.ok(isPlanned('/track/'));
   assert.equal(isPlanned('/revenue/'), false);
-  assert.ok(isPlanned('/sw/learn/glossary/'));
+  assert.ok(isPlanned('/sw/about/'));
+  assert.equal(isPlanned('/sw/learn/glossary/'), false);
   assert.equal(isPlanned('/counties/'), false);
   assert.equal(isPlanned('/nowhere/'), false);
 });
@@ -209,7 +217,8 @@ test('search finds agencies by their short names, and sends unclear ones to the 
   assert.ok(find('KeNHA').some((i) => i[1].endsWith('/votes/1091/')));
   assert.ok(find('SHA').some((i) => i[1].endsWith('/sectors/health/')));
   assert.ok(find('Nyamira').some((i) => i[1] === '/counties/nyamira/'));
-  assert.equal(index.length, 47 + 12 + 87 + 201);
+  assert.equal(index.length, 47 + 12 + 87 + 201 + 10);
+  assert.ok(find('mgao sawa').some((i) => i[1] === '/learn/equitable-share/'));
 });
 
 test('the two notes hold every shilling, with debt first', () => {
@@ -330,4 +339,76 @@ test('project question rules ask only what the two printed years show', () => {
   assert.deepEqual(twice[0].map((x) => x.vote), ['1109', '1103']);
   for (const q of projectQuestions('en', list)) assert.match(q.text, /\?$/);
   for (const q of projectQuestions('sw', list)) assert.match(q.text, /\?$/);
+});
+
+test('Your taxes splits an amount into whole shillings that add back to it', () => {
+  const shares = [1501.3, 2081.1, 809, 428, 1];
+  for (const amount of [1, 7, 10000, 123457, 999999999]) {
+    const parts = splitAmount(amount, shares);
+    assert.equal(parts.reduce((a, b) => a + b, 0), amount, String(amount));
+    assert.ok(parts.every((p) => Number.isInteger(p) && p >= 0));
+  }
+  assert.deepEqual(splitAmount(10000, shares), [3115, 4317, 1678, 888, 2]);
+  assert.equal(readAmount('KSh 10,000'), 10000);
+  assert.equal(readAmount('10 000'), 10000);
+  for (const bad of ['', 'ten', '-5', '0', '1e13']) assert.equal(readAmount(bad), null, bad);
+});
+
+test('the calendar gives only the three dates read from the PFM Act, soonest first', () => {
+  const d = nextDates('2026-11-03');
+  assert.deepEqual(d.map((x) => x.date), ['2027-02-15', '2027-04-30', '2027-06-30']);
+  assert.equal(d[0].days, 104);
+  assert.deepEqual(nextDates('2027-03-01').map((x) => x.date), ['2027-04-30', '2027-06-30', '2028-02-15']);
+  assert.equal(nextDates('2027-02-15')[0].days, 0);
+  for (const x of d) assert.match(x.page, /^s\.\d+\(\d\), p\.\d+$/);
+});
+
+test('a memorandum has every part, with each figure cited, and fills gaps with prompts', () => {
+  const w = memoWords('en'), topic = memoTopics('en').counties.find((c) => c.id === 'cnyamira');
+  const text = memorandum({ topic, from: '', date: '3 November 2026', ask: '', w });
+  for (const part of ['To: The Clerk of the Nyamira County Assembly', 'Subject:', '1. Background', '2. Request', w.yourName, w.yourAsk]) assert.ok(text.includes(part), part);
+  assert.equal(text.match(/\(Source: /g).length, topic.facts.length);
+  assert.ok(memorandum({ topic, from: 'Amina', date: 'x', ask: 'Publish the bills.', w }).includes('Publish the bills.'));
+});
+
+test('a release counts added figures by family', () => {
+  assert.deepEqual(family('ke.fy2026-27.approved.project.1091100100'), { key: 'fy2026-27.approved.project', fy: 'FY2026/27', stage: 'approved', kind: 'project' });
+  assert.deepEqual(countByFamily(['ke.fy2026-27.law.county.a', 'ke.fy2026-27.law.county.b', 'ke.fy2025-26.spent.debt.c']).map((f) => f.n), [2, 1]);
+});
+
+test('only the embeds may be framed by other sites, in both languages', () => {
+  const file = headersFile([]);
+  for (const path of ['/embed/*', '/sw/embed/*']) {
+    const block = file.split(`\n${path}\n`)[1].split('\n/')[0];
+    assert.ok(block.startsWith('  ! Content-Security-Policy\n'), path);
+    assert.ok(block.trimEnd().endsWith('frame-ancestors *'), path);
+  }
+  assert.match(file.split('/embed/*')[0], /frame-ancestors 'none'/);
+});
+
+test('every infographic names its source and has alt text, in both languages', () => {
+  for (const lang of ['en', 'sw']) {
+    const all = allInfographics(lang);
+    assert.equal(all.length, 3 + 12 + 47);
+    assert.equal(new Set(all.map((g) => g.slug)).size, all.length);
+    for (const g of all) {
+      assert.ok(g.source && g.alt && g.title && g.line, g.slug);
+      assert.ok(g.number || g.rows?.length, g.slug);
+      if (g.rows) for (const r of g.rows) assert.ok(r.value && !r.value.includes('NaN'), `${g.slug} ${r.name}`);
+    }
+  }
+  assert.equal(infographic('ksh-100', 'en').rows.length, 5);
+});
+
+test('the explainers use only registry figures and each has a two-question check and a Kiswahili summary', () => {
+  const list = explainers();
+  assert.equal(list.length, 10);
+  for (const e of list) {
+    assert.equal(e.check.length, 2, e.slug);
+    assert.ok(e.sw.length > 40, e.slug);
+    for (const p of e.body) {
+      assert.doesNotMatch(p, /\bNaN\b|\bundefined\b/, e.slug);
+      assert.doesNotMatch(p, /corrupt|\bstole\b|looted/i, e.slug);
+    }
+  }
 });

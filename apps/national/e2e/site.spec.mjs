@@ -9,7 +9,7 @@ import { isPlanned } from '../src/lib/routes.js';
 
 const app = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(app, 'dist'), prod = join(app, 'dist-prod');
-const TEMPLATES = ['/', '/sw/', '/dev/components/', '/sw/dev/components/', '/budget/2026-27/', '/sw/budget/2026-27/', '/debt/', '/revenue/', '/sw/debt/', '/projects/', '/sw/projects/', '/budget/2026-27/votes/1066/0503000/', '/budget/2026-27/sectors/', '/budget/2026-27/sectors/health/', '/sw/budget/2026-27/sectors/health/', '/budget/2026-27/votes/1066/', '/budget/2026-27/votes/1066/0502000/', '/counties/', '/sw/counties/', '/counties/nyamira/', '/sw/counties/nyamira/', '/counties/nairobi-city/', '/counties/nyamira/sheet/', '/counties/compare/?c=nyamira,kisii', '/search/?q=tsc'];
+const TEMPLATES = ['/', '/sw/', '/dev/components/', '/sw/dev/components/', '/budget/2026-27/', '/sw/budget/2026-27/', '/debt/', '/revenue/', '/sw/debt/', '/projects/', '/sw/projects/', '/tools/your-taxes/', '/sw/tools/your-taxes/', '/have-your-say/', '/sw/have-your-say/', '/learn/', '/learn/equitable-share/', '/sw/learn/equitable-share/', '/learn/glossary/', '/learn/calendar/', '/data/', '/data/releases/', '/data/releases/2026-11-03/', '/methods/', '/corrections/', '/infographics/', '/infographics/county-nyamira/', '/sw/infographics/budget-in-10-numbers/', '/budget/2026-27/votes/1066/0503000/', '/budget/2026-27/sectors/', '/budget/2026-27/sectors/health/', '/sw/budget/2026-27/sectors/health/', '/budget/2026-27/votes/1066/', '/budget/2026-27/votes/1066/0502000/', '/counties/', '/sw/counties/', '/counties/nyamira/', '/sw/counties/nyamira/', '/counties/nairobi-city/', '/counties/nyamira/sheet/', '/counties/compare/?c=nyamira,kisii', '/search/?q=tsc'];
 const PAGES = [...TEMPLATES, '/no-such-page/'];
 const walk = (d, out = []) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p, out); else if (f.endsWith('.html')) out.push(p); } return out; };
 
@@ -348,6 +348,88 @@ test('projects add to the development money, and every question asks rather than
   await expect(page.locator('body')).toContainText('Projects under this vote');
 });
 
+test('Your taxes splits a typed amount, keeps it in the link, and shows KSh 10,000 without JavaScript', async ({ page, browser }) => {
+  await open(page, '/tools/your-taxes/');
+  await page.fill('#tax-amount', '25,000');
+  await page.click('[data-taxes-form] button');
+  await expect(page).toHaveURL(/\?a=25000$/);
+  const parts = (await page.locator('[data-part]').allTextContents()).map((x) => Number(x.replace(/\D/g, '')));
+  expect(parts.reduce((a, b) => a + b, 0)).toBe(25000);
+  await expect(page.locator('[data-taxes-text]')).not.toContainText('KSh KSh');
+  await page.fill('#tax-amount', 'ten');
+  await page.click('[data-taxes-form] button');
+  await expect(page.locator('[data-taxes-error]')).toBeVisible();
+  const off = await browser.newContext({ javaScriptEnabled: false });
+  const bare = await off.newPage();
+  await bare.goto('/tools/your-taxes/');
+  await expect(bare.locator('.cf-title')).toHaveText('Of your KSh 10,000');
+  await expect(bare.locator('[data-taxes-form]')).toBeHidden();
+  await off.close();
+});
+
+test('the memorandum builder writes a cited memorandum and sends nothing', async ({ page }) => {
+  const sent = [];
+  page.on('request', (r) => { if (r.method() !== 'GET') sent.push(r.url()); });
+  await open(page, '/have-your-say/');
+  await expect(page.locator('.say-none')).toBeVisible();
+  await page.selectOption('#memo-topic', 'v1091');
+  await page.fill('#memo-from', 'Amina');
+  await page.fill('#memo-ask', 'Publish the road maintenance list.');
+  const text = await page.locator('[data-memo]').textContent();
+  for (const part of ['To: The Clerk of the National Assembly', 'From: Amina', 'State Department for Roads', '(Source: Appropriation Act', 'Publish the road maintenance list.']) expect(text).toContain(part);
+  expect(await page.locator('[data-memo-copy]').getAttribute('data-copy')).toBe(text);
+  expect(sent).toEqual([]);
+});
+
+test('every infographic picture exists for the current release, and every card fits its frame', async ({ page }) => {
+  const manifest = JSON.parse(readFileSync(join(app, 'public/img/infographics/manifest.json'), 'utf8'));
+  const release = readdirSync(join(app, '../../data/national/releases')).filter((f) => f.endsWith('.json')).sort().at(-1).replace('.json', '');
+  expect(manifest.release, 'run node e2e/infographics.mjs after a data release').toBe(release);
+  for (const file of manifest.files) expect(existsSync(join(dist, file)), file).toBe(true);
+  for (const path of ['/infographics/budget-in-10-numbers/card/portrait/', '/sw/infographics/budget-in-10-numbers/card/landscape/', '/infographics/county-elgeyo-marakwet/card/portrait/']) {
+    await page.goto(path);
+    const [content, frame] = await page.locator('[data-ig]').evaluate((e) => [e.scrollHeight, e.clientHeight]);
+    expect(content, path).toBeLessThanOrEqual(frame);
+    await expect(page.locator('[data-ig]')).toContainText(release);
+  }
+});
+
+test('the county embed can be framed and carries its source, and nothing else can be framed', async ({ page }) => {
+  await open(page, '/embed/county/nyamira/');
+  await expect(page.locator('.embed-num')).toHaveText(/^KSh /);
+  await expect(page.locator('.src a')).toHaveCount(1);
+  expect(await page.locator('script').count()).toBe(0);
+  const headers = readFileSync(join(dist, '_headers'), 'utf8');
+  expect(headers).toMatch(/\/embed\/\*\n {2}! Content-Security-Policy\n {2}Content-Security-Policy: [^\n]*frame-ancestors \*/);
+  await open(page, '/counties/nyamira/');
+  await expect(page.locator('#share details pre')).toContainText('/embed/county/nyamira/');
+});
+
+test('explainers check themselves and say where their figures come from', async ({ page }) => {
+  await open(page, '/learn/');
+  await expect(page.locator('.learn-list li')).toHaveCount(10);
+  await open(page, '/learn/equitable-share/');
+  await expect(page.locator('details.check')).toHaveCount(2);
+  await expect(page.locator('.sw')).toBeVisible();
+  await expect(page.locator('.prose')).toContainText('KSh 428.0 billion');
+  await open(page, '/sw/learn/equitable-share/');
+  const order = await page.evaluate(() => [...document.querySelectorAll('.sw, .prose')].map((e) => e.className));
+  expect(order[0]).toBe('sw');
+});
+
+test('the data page lists files that exist, and the package describes them', async ({ page }) => {
+  await open(page, '/data/');
+  for (const href of await page.locator('.file-list a[download]').evaluateAll((as) => as.map((a) => a.getAttribute('href')))) {
+    expect((await page.request.get(href)).status(), href).toBe(200);
+  }
+  const pkg = await (await page.request.get('/data/datapackage.json')).json();
+  expect(pkg.licenses[0].name).toBe('CC-BY-4.0');
+  expect(pkg.resources.length).toBe(4 + 12 + 87 + 47);
+  const vote = await (await page.request.get('/api/national/votes/1066.json')).json();
+  expect(vote.gross).toBe(vote.programmes.reduce((a, p) => a + p.gross, 0));
+  expect(vote.sources.length).toBeGreaterThan(0);
+});
+
 test('every county has its page and sheet, in both languages', () => {
   for (const root of [dist, join(dist, 'sw')]) {
     const counties = readdirSync(join(root, 'counties')).filter((d) => d !== 'compare' && statSync(join(root, 'counties', d)).isDirectory());
@@ -429,7 +511,7 @@ test('the print sheet fits one A4 page, and its QR code points at the county', a
   expect(browserName).toBe('chromium');
 });
 
-for (const path of ['/', '/sw/', '/budget/2026-27/', '/budget/2026-27/sectors/governance-justice-law-order/', '/budget/2026-27/votes/1071/', '/counties/', '/counties/compare/', '/counties/nyamira/', '/sw/counties/nyamira/']) {
+for (const path of ['/tools/your-taxes/', '/have-your-say/', '/learn/equitable-share/', '/data/releases/2026-11-03/', '/infographics/county-nyamira/', '/', '/sw/', '/budget/2026-27/', '/budget/2026-27/sectors/governance-justice-law-order/', '/budget/2026-27/votes/1071/', '/counties/', '/counties/compare/', '/counties/nyamira/', '/sw/counties/nyamira/']) {
   test(`weight stays within budget, ${path}`, () => {
     const file = join(dist, path, 'index.html'), html = readFileSync(file);
     const assets = [...html.toString().matchAll(/(?:href|src)="(\/_astro\/[^"]+\.(css|js))"/g)];

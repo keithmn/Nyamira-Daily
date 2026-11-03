@@ -4,6 +4,7 @@
 import { full, money, ordinal, percent } from '@kbe/engine/fmt';
 import { t } from '../../i18n/index.js';
 import { allCountyDev, countyBySlug, shareParts, stageIds } from '../../lib/counties.js';
+import { FY } from '../../lib/figures.js';
 import { href } from '../../lib/routes.js';
 import { changeChip, countyQuestions, whatsappHref } from '../../lib/sentences.js';
 import Breadcrumbs from '../Breadcrumbs.astro';
@@ -28,6 +29,8 @@ const pct = percent(year.devPct, 0), allPct = percent(all.value, 0);
 const change = changeChip(c.change, lang);
 const line = t(lang, 'county.changeLine', { change, last: money(c.last, 'KSh', lang), rank: ordinal(c.rank, lang) });
 const url = new URL(href(lang, `/counties/${slug}/`), Astro.site ?? 'https://example.invalid').href;
+const embedSrc = new URL(href(lang, `/embed/county/${slug}/`), Astro.site ?? 'https://example.invalid').href;
+const embedCode = `<iframe src="${embedSrc}" title="${t(lang, 'embed.kicker', { name: c.name, fy: FY })}" width="100%" height="440" style="border:0;max-width:480px" loading="lazy"></iframe>`;
 const shareText = t(lang, 'county.shareText', { name: c.name, amount: money(c.value, 'KSh', lang), change: change.toLowerCase() });
 const parts = shareParts(slug);
 const columns = [{ key: 'part', label: t(lang, 'county.part.col') }, { key: 'amount', label: t(lang, 'county.part.amount'), num: true }];
@@ -84,6 +87,7 @@ const questions = countyQuestions(c, lang);
   <div class="wrap">
     <div class="band-head"><h2 id="h-q">{t(lang, 'question.title')}</h2></div>
     <div class="dev-grid">{questions.map((q) => <article class="card"><QuestionCard question={q} lang={lang} /></article>)}</div>
+    <div class="btn-row hearing-link"><a class="btn quiet" href={href(lang, '/have-your-say/')}>{t(lang, 'county.hearings')}</a></div>
   </div>
 </section>
 
@@ -93,6 +97,13 @@ const questions = countyQuestions(c, lang);
     <div class="btn-row">
       <a class="btn quiet" href={href(lang, `/counties/${slug}/sheet/`)}>{t(lang, 'county.print')}</a>
       <a class="btn quiet" href={`${href(lang, '/counties/compare/')}?c=${slug}`}>{t(lang, 'county.compareThis')}</a>
+      <a class="btn quiet" href={href(lang, `/infographics/county-${slug}/`)}>{t(lang, 'county.picture')}</a>
     </div>
+    <details class="toggle">
+      <summary>{t(lang, 'embed.title')}</summary>
+      <p class="small">{t(lang, 'embed.how')}</p>
+      <pre class="memo">{embedCode}</pre>
+      <div class="btn-row"><button class="btn quiet js-only" type="button" data-copy={embedCode} data-done={t(lang, 'embed.copied')} data-fail={t(lang, 'fig.copyFailed')}>{t(lang, 'embed.copy')}</button></div>
+    </details>
   </div>
 </section>

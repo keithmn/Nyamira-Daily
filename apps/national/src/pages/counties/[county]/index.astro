@@ -9,4 +9,4 @@ export function getStaticPaths() {
 }
 const { county } = Astro.params;
 ---
-<Base path={`/counties/${county}/`} title={t('en', 'county.title', { name: COUNTIES.find((c) => c.slug === county).name })}><View slug={county} /></Base>
+<Base path={`/counties/${county}/`} image={`/img/infographics/en/county-${county}-landscape.png`} title={t('en', 'county.title', { name: COUNTIES.find((c) => c.slug === county).name })}><View slug={county} /></Base>

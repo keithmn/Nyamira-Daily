@@ -12,8 +12,12 @@ const DATA = typeof __KBE_DATA__ === 'undefined' ? fileURLToPath(new URL('../../
 const { sources, figures, problems } = buildRegistry(readRegistry(DATA));
 if (problems.length) throw new Error(`The figure registry has ${problems.length} problems:\n${problems.join('\n')}`);
 
-export const release = readdirSync(join(DATA, 'releases')).filter((f) => f.endsWith('.json')).sort().at(-1).replace('.json', '');
+const RELEASES = readdirSync(join(DATA, 'releases')).filter((f) => f.endsWith('.json')).sort();
+export const release = RELEASES.at(-1).replace('.json', '');
+// Every data release, newest first, as written by scripts/national/release.mjs
+export const allReleases = () => RELEASES.toReversed().map((f) => JSON.parse(readFileSync(join(DATA, 'releases', f), 'utf8')));
 const corrections = JSON.parse(readFileSync(join(DATA, 'corrections.json'), 'utf8'));
+export const allCorrections = () => corrections;
 export const sectorMap = JSON.parse(readFileSync(join(DATA, 'sectors.json'), 'utf8'));
 export const outcomes = JSON.parse(readFileSync(join(DATA, 'outcomes.json'), 'utf8'));
 

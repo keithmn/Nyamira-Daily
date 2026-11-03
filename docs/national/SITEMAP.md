@@ -72,17 +72,17 @@ Phones get a bottom tab bar with these five. Desktop gets them in the top bar. B
 |---|---|---|---|
 | `/track/` | How much has actually moved this year? | Revenue against target, Exchequer releases, county releases against the schedule, each with an "as of" date | To find |
 | `/projects/` | Which national projects are funded, and what should I ask? | The total and the biggest projects, questions from the Development Estimates. Locations are not printed, so nothing is "near you" yet | Ready (four approved volumes) |
-| `/have-your-say/` | When can I be heard, and how? | Next hearing with a countdown in days, or "None announced" | To find (official notices only, #29) |
+| `/have-your-say/` | When can I be heard, and how? | Next hearing with a countdown in days, or "None announced" | Built. No hearing until an official notice is loaded (#100); the memorandum builder covers 87 votes and 47 counties |
 
 ### Learn
 
 | Route | Question | First screen leads with | Data |
 |---|---|---|---|
-| `/learn/` and `/learn/[slug]/` | How does this work? | Ten five-minute explainers, plus longer reports | Two drafts exist in the main site |
-| `/learn/glossary/` | What does this word mean? | Every interface term, with its Kiswahili | Main-site glossary to extend |
-| `/learn/calendar/` | What happens next in the budget year? | Next dated stage, with its legal source | PFM Act dates to check one by one |
-| `/infographics/` and `/infographics/[slug]/` | One shareable picture per topic | The budget in 10 numbers, KSh 100, debt, each sector, each county | Follows the data |
-| `/tools/your-taxes/` | Where does my tax go? | Your amount split by spending shares, with the caveat | Ready for version 1 |
+| `/learn/` and `/learn/[slug]/` | How does this work? | Ten five-minute explainers, plus longer reports | Built: ten explainers from registry figures (#98). Audit opinions waits for audit reports |
+| `/learn/glossary/` | What does this word mean? | Every interface term, with its Kiswahili | Built: 15 terms in both languages |
+| `/learn/calendar/` | What happens next in the budget year? | Next dated stage, with its legal source | Built: 15 February, 30 April and 30 June, each read from the PFM Act |
+| `/infographics/` and `/infographics/[slug]/` | One shareable picture per topic | The budget in 10 numbers, KSh 100, debt, each sector, each county | Built: 62 topics, pictures made by hand after each release (#99) |
+| `/tools/your-taxes/` | Where does my tax go? | Your amount split by spending shares, with the caveat | Built: version 1. Version 2 (PAYE) waits for a test against KRA's examples |
 
 ### Data and trust
 

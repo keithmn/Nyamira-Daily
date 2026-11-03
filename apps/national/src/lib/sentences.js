@@ -36,5 +36,4 @@ export function countyQuestions(c, lang) {
   return out;
 }
 
-// The message carries the figure, its source and the link, so a forwarded card keeps its provenance
-export const whatsappHref = (text, source, url) => `https://wa.me/?text=${encodeURIComponent(`${text} ${source} ${url}`)}`;
+export { whatsappHref } from './share.js';

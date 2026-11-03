@@ -59,6 +59,18 @@ npm run test:national:visual
 4. Put every word in `src/i18n/en.json` and `sw.json`. A test fails if the two differ, and a missing key stops the build. All Kiswahili waits for a native speaker's review.
 5. Add the page to `PAGES` and `TEMPLATES` in `e2e/site.spec.mjs`, so axe, phones and weight cover it.
 
+## Remake the infographics
+
+The 248 pictures in `apps/national/public/img/infographics/` (62 topics, two sizes, two languages) are photographed from card pages, because Cloudflare Pages cannot run a browser at build time (decision #99). After every data release:
+
+1. Build, then serve it: `npm run build -w @kbe/national`, then `npx astro preview --port 4321` from `apps/national`.
+2. In another terminal, from `apps/national`: `node e2e/infographics.mjs http://localhost:4321`. It rewrites every picture and `manifest.json`.
+3. Build again and commit the pictures. The browser checks fail while the manifest names an older release, or when a card overflows its frame.
+
+## Add an explainer
+
+Explainers live in `apps/national/src/lib/learn.js` (decision #98). Write numbers with `m('<figure id>')` or `v('<figure id>')`, never by hand, so they follow each release. Give each one a key figure, two self-check questions and a Kiswahili summary, and quote the law only from a section already read from its text.
+
 ## Add a document
 
 1. Save the PDF in `data-src/national/pdfs/`. Kenya Law blocks scripts, so a person downloads anything from it.

@@ -31,7 +31,7 @@ export function headersFile(hashes) {
   const common = ['Referrer-Policy: strict-origin-when-cross-origin', 'X-Content-Type-Options: nosniff', 'Permissions-Policy: camera=(), geolocation=(), microphone=(), payment=()'];
   return [
     '/*', ...common.map((h) => `  ${h}`), `  Content-Security-Policy: ${policy(hashes)}`,
-    '/embed/*', '  ! Content-Security-Policy', `  Content-Security-Policy: ${policy(hashes, true)}`,
+    ...['/embed/*', '/sw/embed/*'].flatMap((path) => [path, '  ! Content-Security-Policy', `  Content-Security-Policy: ${policy(hashes, true)}`]),
     '/_astro/*', '  Cache-Control: public, max-age=31536000, immutable',
     '',
   ].join('\n');

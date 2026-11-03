@@ -1,0 +1,10 @@
+---
+import View from '../../../../../components/pages/ReleasePage.astro';
+import { t } from '../../../../../i18n/index.js';
+import Base from '../../../../../layouts/Base.astro';
+import { releases } from '../../../../../lib/releases.js';
+
+export const getStaticPaths = () => releases().map((r) => ({ params: { date: r.date } }));
+const { date } = Astro.params;
+---
+<Base lang="sw" path={`/data/releases/${date}/`} title={t('sw', 'releases.one', { date })}><View lang="sw" date={date} /></Base>

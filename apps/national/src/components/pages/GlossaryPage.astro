@@ -1,0 +1,20 @@
+---
+// The glossary: each interface term with its definition, and its Kiswahili name beside the English one
+import { t } from '../../i18n/index.js';
+import { TERMS } from '../../lib/glossary.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const other = lang === 'en' ? 'sw' : 'en';
+const list = TERMS.map((k) => ({ k, name: t(lang, `term.${k}`), def: t(lang, `term.${k}.def`), alt: t(other, `term.${k}`) })).sort((a, b) => a.name.localeCompare(b.name));
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.learn'), path: '/learn/' }, { name: t(lang, 'glossary.title') }]} /></div>
+<section class="band">
+  <div class="wrap stack gap-l">
+    <div class="page-head"><h1>{t(lang, 'glossary.title')}</h1><p>{t(lang, 'glossary.line')}</p></div>
+    <dl class="methods">
+      {list.map((e) => <div class="method" id={e.k}><dt>{e.name} <span class="small muted" lang={other}>{e.alt}</span></dt><dd><p>{e.def}</p></dd></div>)}
+    </dl>
+  </div>
+</section>

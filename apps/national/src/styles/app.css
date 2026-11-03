@@ -412,3 +412,77 @@ html:not(.js) .sheet-tools { display: none; }
   .two { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: start; }
 }
 @media (prefers-reduced-motion: no-preference) { .area, .btn, .top-nav a { transition: background-color .12s, border-color .12s; } }
+
+/* Phase 6: tools, have your say, data */
+.taxes-form, .memo-form { display: grid; gap: 8px; max-width: 560px; }
+.taxes-row { display: flex; gap: 8px; }
+.taxes-form input, .memo-form input, .memo-form select, .memo-form textarea { font: inherit; font-size: 16px; min-height: 44px; min-width: 0; width: 100%; padding: 8px 12px; border: 1.5px solid var(--control-line); border-radius: 10px; background: var(--bg); color: var(--ink); }
+.taxes-row input { flex: 1; }
+.taxes-error { font-weight: 700; }
+.taxes-list .k-row { cursor: default; }
+.memo-form label { font-weight: 700; margin-top: 6px; }
+.memo { margin: 0; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); white-space: pre-wrap; overflow-wrap: anywhere; font: var(--fs-s)/1.5 var(--font); max-width: 70ch; }
+.cal-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.cal-item { padding: 12px 0; border-top: 1px solid var(--line); display: grid; gap: 4px; }
+.cal-when { font-family: var(--title-font); font-size: var(--fs-l); }
+.cal-name { font-weight: 700; }
+.file-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.file-list li { padding: 10px 0; border-top: 1px solid var(--line); min-height: 44px; overflow-wrap: anywhere; }
+.file-list a, .cal-item a { display: inline-flex; align-items: center; min-height: 44px; }
+.toggle > summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 700; }
+.methods { margin: 0; display: grid; }
+.method { padding: 14px 0; border-top: 1px solid var(--line); display: grid; gap: 6px; }
+.method dt { font-weight: 700; }
+.method dd { margin: 0; display: grid; gap: 4px; }
+.prose p { max-width: 68ch; line-height: 1.55; }
+.check { border-top: 1px solid var(--line); }
+.check > p { padding-bottom: 10px; max-width: 68ch; }
+.embed-body { background: var(--bg); color: var(--ink); margin: 0; }
+.embed { display: grid; gap: 8px; padding: 16px; max-width: 480px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+.embed-kicker { font-weight: 700; }
+.embed-num { font-family: var(--title-font); font-size: var(--fs-num); line-height: 1; }
+
+/* Infographic cards, photographed at their exact size by e2e/infographics.mjs */
+.ig-body { margin: 0; background: #ffffff; }
+.ig { box-sizing: border-box; display: flex; flex-direction: column; gap: 28px; padding: 72px; overflow: hidden; }
+.ig-portrait { width: 1080px; height: 1350px; }
+.ig-landscape { width: 1200px; height: 630px; padding: 48px 56px; gap: 16px; }
+.ig-site { font-weight: 700; font-size: 30px; opacity: .85; }
+.ig-title { font-size: 64px; color: inherit; line-height: 1.08; }
+.ig-landscape .ig-title { font-size: 44px; }
+.ig-num { font-family: var(--title-font); font-size: 150px; line-height: 1; }
+.ig-landscape .ig-num { font-size: 96px; }
+.ig-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.ig-rows li { display: grid; grid-template-columns: 1fr auto; gap: 2px 20px; align-items: baseline; border-top: 1px solid rgba(255,255,255,.25); padding-top: 10px; }
+.ig-name { font-size: 30px; font-weight: 700; }
+.ig-val { font-family: var(--title-font); font-size: 40px; text-align: right; }
+.ig-landscape .ig-name { font-size: 22px; } .ig-landscape .ig-val { font-size: 26px; }
+.ig-note { grid-column: 1 / -1; font-size: 20px; opacity: .8; }
+.ig-line { font-size: 36px; line-height: 1.3; }
+.ig-landscape .ig-line { font-size: 26px; }
+.ig-more { font-size: 22px; opacity: .85; }
+.ig-foot { margin-top: auto; display: grid; gap: 8px; }
+.ig-foot .fig-meta { transform: scale(1.6); transform-origin: left center; margin-bottom: 10px; }
+.ig-landscape .ig-foot .fig-meta { transform: scale(1.25); margin-bottom: 4px; }
+.ig-src { font-size: 22px; opacity: .9; }
+.ig-landscape .ig-src { font-size: 17px; }
+.ig-img { width: 100%; height: auto; border-radius: var(--radius); }
+.ig-page-num { font-family: var(--title-font); font-size: var(--fs-num); line-height: 1; }
+.ig-portrait:has(.ig-rows) { gap: 20px; padding: 56px 64px; }
+.ig-portrait:has(.ig-rows) .ig-title { font-size: 54px; }
+.ig-portrait .ig-rows { gap: 8px; }
+.ig-portrait .ig-rows li { padding-top: 8px; }
+.ig-portrait:has(.ig-rows li:nth-child(6)) .ig-name { font-size: 25px; }
+.ig-portrait:has(.ig-rows li:nth-child(6)) .ig-val { font-size: 32px; }
+.ig-portrait:has(.ig-rows li:nth-child(6)) .ig-note { font-size: 17px; }
+.ig-portrait:has(.ig-rows li:nth-child(6)) .ig-line { font-size: 26px; }
+.ig-portrait:has(.ig-rows li:nth-child(6)) { gap: 14px; }
+.ig-portrait:has(.ig-rows li:nth-child(6)) .ig-title { font-size: 48px; }
+.ig-portrait:has(.ig-rows li:nth-child(6)) .ig-site { font-size: 24px; }
+.ig-landscape:has(.ig-rows) { gap: 10px; }
+.ig-landscape:has(.ig-rows) .ig-title { font-size: 36px; }
+.ig-landscape:has(.ig-rows) .ig-site { font-size: 22px; }
+.ig-landscape:has(.ig-rows) .ig-line { font-size: 20px; }
+.ig-landscape .ig-rows { gap: 6px; }
+.ig-landscape .ig-rows li { padding-top: 6px; }
+.hearing-link { margin-top: 16px; }

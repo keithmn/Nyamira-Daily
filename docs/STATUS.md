@@ -10,6 +10,22 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 
 ## Changes on 3 Nov 2026
 
+- National product Phase 6, reach, on branch `feat/national-phase-6`, not pushed. New, in English and Kiswahili:
+  - `/tools/your-taxes/`: version 1, which splits a typed amount by the shares of spending.
+  - `/have-your-say/`: the dates the law fixes, a memorandum builder that sends and keeps nothing, and no hearing listed until an official notice is loaded.
+  - `/learn/`: ten explainers.
+  - `/learn/glossary/` and `/learn/calendar/`.
+  - `/infographics/`: 62 topics, with 248 pictures that are each county's link preview.
+  - `/embed/county/<slug>/`: a card news sites can frame.
+  - The Data section: `/data/`, `/data/releases/`, `/methods/`, `/corrections/`, `datapackage.json`, and JSON files per vote and per county.
+  - Decisions #98 to #101.
+- Not done in Phase 6, and why:
+  - Usability round 2 needs real readers.
+  - The audit-opinions explainer needs the Auditor-General's reports.
+  - Reporting an error needs a corrections contact.
+  - PAYE (Your taxes version 2) waits for a test against KRA's examples.
+  - Kiswahili summaries on pages other than explainers.
+
 - National product Phase 5, depth, on branch `feat/national-phase-5`, not pushed. New pages: `/debt/`, `/revenue/` and `/projects/`, in English and Kiswahili. Programme pages now show sub-programmes and the stated outcome. Vote pages show what the money pays for and the vote's projects. County pages show own-source revenue, grants, the wage and development rules checks, and pending bills.
 - New data: 6,152 figures from 19 sources, data release 2026-11-03. Added:
   - the Controller of Budget's county detail tables;

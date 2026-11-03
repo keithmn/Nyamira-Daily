@@ -214,7 +214,7 @@ if (compare) {
 const search = $('[data-search]');
 if (search) {
   const form = $('form', search), input = $('input', search), list = $('[data-search-results]', search), count = $('[data-search-count]', search);
-  const types = JSON.parse(search.dataset.types), order = ['county', 'sector', 'vote', 'programme'];
+  const types = JSON.parse(search.dataset.types), order = ['county', 'sector', 'vote', 'programme', 'explainer'];
   let items = null;
   const run = () => {
     if (!items) return;
@@ -238,3 +238,7 @@ if (search) {
   form.addEventListener('submit', (e) => { e.preventDefault(); run(); });
   fetch(search.dataset.index).then((r) => r.json()).then((d) => { items = d; run(); }, () => {});
 }
+
+/* corrections: name the figure the reader came from; the id is only shown, never sent */
+const asked = $('[data-asked-figure]'), figureId = new URLSearchParams(location.search).get('figure');
+if (asked && figureId && /^[a-z0-9.-]{3,160}$/.test(figureId)) { asked.textContent = asked.dataset.text.replace('{id}', figureId); asked.hidden = false; }

@@ -13,7 +13,7 @@ const { lang = 'en' } = Astro.props;
   <div class="page-head"><h1>{t(lang, 'search.title')}</h1></div>
 </div>
 <section class="band">
-  <div class="wrap stack gap-l" data-search data-index={href('en', `/data/search-${lang}.json`)} data-count={t(lang, 'search.results', { n: '{n}' })} data-one={t(lang, 'search.result')} data-none={t(lang, 'search.none')} data-types={JSON.stringify(Object.fromEntries(['county', 'sector', 'vote', 'programme'].map((k) => [k, t(lang, `search.type.${k}`)])))}>
+  <div class="wrap stack gap-l" data-search data-index={href('en', `/data/search-${lang}.json`)} data-count={t(lang, 'search.results', { n: '{n}' })} data-one={t(lang, 'search.result')} data-none={t(lang, 'search.none')} data-types={JSON.stringify(Object.fromEntries(['county', 'sector', 'vote', 'programme', 'explainer'].map((k) => [k, t(lang, `search.type.${k}`)])))}>
     <SearchBox lang={lang} />
     <p class="no-js-note"><a href={href(lang, YEAR)}>{t(lang, 'search.noJs')}</a></p>
     <p role="status" data-search-count class="small muted"></p>

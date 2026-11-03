@@ -1,0 +1,20 @@
+---
+// A page with no site navigation and no script: for embeds on other sites and for the infographic cards the image script
+// photographs. `/embed/*` may be framed by any site (integrations/headers.mjs); everything else may not.
+import '../styles/app.css';
+import { site } from '../site.js';
+
+interface Props { lang?: 'en' | 'sw'; title: string; theme?: 'light' | 'dark'; bodyClass?: string }
+const { lang = 'en', title, theme, bodyClass } = Astro.props;
+---
+<!doctype html>
+<html lang={lang} data-theme={theme}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{`${title} · ${site.name}`}</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body class={bodyClass}><slot /></body>
+</html>
