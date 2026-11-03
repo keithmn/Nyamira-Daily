@@ -366,5 +366,19 @@
   "programme.subsTitle": "Programu ndogo",
   "programme.sub": "Programu ndogo",
   "programme.targetsWhat": "malengo ya programu hii",
-  "programme.differs": "Bajeti ya Programu inaipa programu hii {book}; Sheria ya Matumizi inatoa {act}. Sheria ndiyo inayotumika, kwa hiyo kiasi kilicho juu ni cha Sheria. Tofauti ilihamia kati ya programu mbili za fungu moja."
+  "programme.differs": "Bajeti ya Programu inaipa programu hii {book}; Sheria ya Matumizi inatoa {act}. Sheria ndiyo inayotumika, kwa hiyo kiasi kilicho juu ni cha Sheria. Tofauti ilihamia kati ya programu mbili za fungu moja.",
+  "projects.title": "Miradi ya kitaifa",
+  "projects.line": "ni pesa za maendeleo za miradi {n} mwaka {fy}, kama Makadirio ya Maendeleo yanavyoiorodhesha.",
+  "projects.topTitle": "Miradi 20 mikubwa zaidi",
+  "projects.topSub": "Mgao wa jumla mwaka {fy}, KSh bilioni",
+  "projects.csv": "Pakua miradi yote {n} (CSV)",
+  "projects.qLine": "Kila swali linatokana na Makadirio ya Maendeleo pekee. Ni jambo la kuuliza wizara, si uamuzi.",
+  "projects.stoppedTitle": "Pesa mwaka jana, hakuna mwaka huu ({n})",
+  "projects.twiceTitle": "Jina moja chini ya zaidi ya fungu moja ({n})",
+  "projects.more": "Mingine {n} iko kwenye upakuaji.",
+  "projects.voteTitle": "Miradi chini ya fungu hili",
+  "projects.voteSub": "Mgao wa jumla mwaka {fy}, KSh milioni",
+  "projects.voteAll": "Tazama miradi yote ya kitaifa",
+  "project.qStopped": "{name} chini ya {vote} ulipewa {amount} mwaka jana na hakuna mwaka huu. Je, umekamilika, umesimamishwa au umehamishwa?",
+  "project.qTwice": "Mradi unaoitwa {name} unaonekana chini ya mafungu {n}: {votes}. Je, ni mradi mmoja unaolipwa na zaidi ya fungu moja, au miradi tofauti?"
 }

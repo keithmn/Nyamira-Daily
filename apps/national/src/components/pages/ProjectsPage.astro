@@ -1,0 +1,43 @@
+---
+// National development projects: the biggest, the questions the documents raise, and every project as a file.
+import { full, num } from '@kbe/engine/fmt';
+import { t } from '../../i18n/index.js';
+import { FY, PREFIX, fig } from '../../lib/figures.js';
+import { allProjects, projectQuestions, projectTotal } from '../../lib/projects.js';
+import { href, voteHref } from '../../lib/routes.js';
+import { summed, voteByCode } from '../../lib/votes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import Chart from '../Chart.astro';
+import PageHero from '../PageHero.astro';
+import QuestionCard from '../QuestionCard.astro';
+import RankedBars from '../RankedBars.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const list = allProjects(), funded = list.filter((p) => p.current), total = projectTotal();
+const top = funded.slice(0, 20);
+// The total adds all four volumes, so it cites the set: Volume I's link, with the title naming every volume
+const first = fig(`${PREFIX}approved.project-vote.1011`);
+const figure = { ...summed(first, `${PREFIX}approved.projects.total`, t(lang, 'projects.title'), total), page: 'vote summaries', doc: { ...first.doc, title: first.doc.title.replace('Volume I ', 'Volumes I to IV ') } };
+const rows = top.map((p, i) => ({ name: `${p.name} (${voteByCode(p.vote)?.name ?? p.vote})`, value: p.current.value, shown: (p.current.value / 1e9).toFixed(2), mark: i === 0, href: voteHref(lang, p.vote), tip: full(p.current.value) }));
+const questions = projectQuestions(lang);
+const stopped = questions.filter((q) => q.kind === 'stopped'), twice = questions.filter((q) => q.kind === 'twice');
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'projects.title') }]} /></div>
+<PageHero figure={figure} title={t(lang, 'projects.title')} line={t(lang, 'projects.line', { n: num(funded.length), fy: FY })} calc={t(lang, 'fig.calc')} what={t(lang, 'projects.title')} lang={lang} />
+<section class="band">
+  <h2 class="vh">{t(lang, 'nav.detail')}</h2>
+  <div class="wrap stack gap-l">
+    <Chart lang={lang} title={t(lang, 'projects.topTitle')} sub={t(lang, 'projects.topSub', { fy: FY })} from={{ ...top[0].current, page: 'Vote summaries' }}><RankedBars rows={rows} lang={lang} /></Chart>
+    <p><a class="tbl-csv" href={href('en', '/data/projects-2026-27.csv')} download="projects-2026-27.csv">{t(lang, 'projects.csv', { n: num(list.length) })}</a></p>
+  </div>
+</section>
+<section class="band alt" aria-labelledby="h-pq">
+  <div class="wrap">
+    <div class="band-head"><h2 id="h-pq">{t(lang, 'question.title')}</h2><p>{t(lang, 'projects.qLine')}</p></div>
+    <h3>{t(lang, 'projects.stoppedTitle', { n: stopped.length })}</h3>
+    <div class="dev-grid">{stopped.slice(0, 12).map((q) => <article class="card"><QuestionCard question={q.text} lang={lang} /></article>)}</div>
+    {stopped.length > 12 && <p class="small muted">{t(lang, 'projects.more', { n: stopped.length - 12 })}</p>}
+    {twice.length > 0 && <><h3>{t(lang, 'projects.twiceTitle', { n: twice.length })}</h3><div class="dev-grid">{twice.map((q) => <article class="card"><QuestionCard question={q.text} lang={lang} /></article>)}</div></>}
+  </div>
+</section>

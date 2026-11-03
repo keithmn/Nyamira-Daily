@@ -1,4 +1,4 @@
-# Status and handover (2 Nov 2026)
+# Status and handover (3 Nov 2026)
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md`, then this page, then `docs/DECISIONS.md`. Older handover notes, with the history of each feature, are in `docs/STATUS_ARCHIVE.md`.
 
@@ -7,6 +7,18 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **The site:** a static Astro 7 site in eight sections (`src/nav.js`), with real data for money (12 years), ward pages, projects and the project tracker, services, census, leaders, the Assembly, county laws, fees, opportunities, constitution summaries, search and open data. Text content lives in `src/content/`; only one explainer and one number of the week are published so far, and two money explainers are drafted.
 - **Who runs it (decision #73):** built and published by Underdogs Rising Group Limited, editorially independent, with a commitment to spin out into a non-profit. Trust pages: `/who-runs-us/`, `/right-of-reply/`, `/privacy/`, `/terms/`.
 - **NY Watch (decision #79):** the founder's data review podcast. No episodes published yet.
+
+## Changes on 3 Nov 2026
+
+- National product Phase 5, depth, on branch `feat/national-phase-5`, not pushed. New pages: `/debt/`, `/revenue/` and `/projects/`, in English and Kiswahili. Programme pages now show sub-programmes and the stated outcome. Vote pages show what the money pays for and the vote's projects. County pages show own-source revenue, grants, the wage and development rules checks, and pending bills.
+- New data: 6,152 figures from 19 sources, data release 2026-11-03. Added:
+  - the Controller of Budget's county detail tables;
+  - the Annual Public Debt Report;
+  - the approved Programme Based Budget;
+  - all four approved Development Estimates volumes;
+  - two sections of the PFM Act and one of the county regulations, read from Gazette copies.
+- Every new table is proved against the Act or its own totals; see `national-budget/VERIFICATION.md`. Decisions #95 to #97 logged.
+- `/track/` stays planned. The monthly Exchequer statements are in the Kenya Gazette, which Kenya Law serves behind a bot check, so the owner must download them. Programme targets wait for a person to type them (decision #97).
 
 ## Changes on 2 Nov 2026
 

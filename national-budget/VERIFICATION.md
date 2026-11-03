@@ -112,6 +112,58 @@ Also Claude Code's work, and also not an editor's sign-off. `npm run check:natio
 
 **What the app works out in this phase,** each with a test in `apps/national/src/lib/national.test.js`: a vote's gross total, Supply plus Appropriations-in-Aid; a sector's total, adding its votes, which reaches the Act's grand total to the shilling; and change on last year, approved against approved, in cash terms, adding the same votes in both years for a sector.
 
+## Phase 5: county detail, the law, debt, programmes and projects (3 Nov 2026)
+
+Claude Code's checks again, not an editor's sign-off. `npm run check:national` repeats all of them, and fails if one stops holding.
+
+**Controller of Budget, FY2025/26 report: Tables 2.1, 2.4 and 2.10 and Annex I.**
+
+- Each table is read twice, through `-raw` and `-layout`, and the two readings agree.
+- Our wage share, wages divided by total revenue, reproduces every ratio the report names: Homa Bay 56%, Nyeri 52%, Taita-Taveta 49%, Mombasa 26%, Kwale 26% and Tana River 28%, and 39.54% for all 47 counties. This proves the method is the report's own.
+- Pending bills add to the printed total, KSh 172,526.69 million.
+- Five places do not add up as printed: the wage sums for Machakos, Mandera and Meru, the wages total, and a percentage for Migori. They are in `known-issues.csv`, shown as printed and not corrected. **A person should look at these five.**
+- Nandi prints no pending bills figure, so its page says "No figure reported", not zero.
+
+**The law, read from Gazette copies hosted by Parliament.**
+
+- PFM Act s.107(2)(b), printed p.969: at least 30% of the budget to development "over the medium term". The page quotes those words, because one year below 30% is not by itself a breach.
+- PFM (County Governments) Regulations 2015, reg. 25(1)(b), printed p.333: wages at most 35% of total revenue. Reg. 25(1)(a) excludes extractive revenue; no county reports any.
+- PFM Act s.25(2), printed p.908: the Budget Policy Statement goes to Parliament by 15 February. The countdown on the home page uses this date.
+- The PFM Act copy is the 2012 original. Later amendments are not loaded. **A person should confirm these three sections are unchanged in the current revised edition.**
+
+**Annual Public Debt Management Report, FY2024/25: Tables 3 and 4.**
+
+- For each of five years, FY2020/21 to FY2024/25:
+  - external and domestic debt add to the printed total;
+  - external and domestic interest add to the printed interest;
+  - debt as a share of GDP, recomputed from the printed amounts, matches the printed share;
+  - debt service as a share of revenue, recomputed the same way, also matches.
+- The report for FY2025/26 was due by 30 September 2026 and has not been found. `check:national` warns about it.
+
+**Programme Based Budget FY2026/27, approved edition: Parts F and G.**
+
+- All 1,485 programme and sub-programme figures were read.
+- Every programme's total equals the Appropriation Act, except vote 1213. There, KSh 40 million sits in a different programme in the book, and the vote's total still agrees. That one difference is in `known-issues.csv`, and the programme page explains it.
+- Each programme's sub-programmes add to it.
+- Each vote's economic classification adds to the vote's gross total in the Act.
+- Outcomes are quoted as printed. Targets are not read (decision #97).
+
+**Development Estimates FY2026/27, approved, Volumes I to IV: each vote's summary table.**
+
+- 1,492 project lines were read, under 64 vote totals. The Act has 64 development votes, and every one is found.
+- In every vote, the projects add to the printed TOTAL FOR VOTE, in both the FY2025/26 approved and the FY2026/27 gross columns.
+- Every vote total equals the Act's development money for that vote, Supply plus Appropriations-in-Aid, to the shilling. All 64 totals add to KSh 844.44 billion.
+- No project code appears twice.
+- Names are read as printed, including spelling such as "thro'". 97 projects print a dash in both years, so they have no figure.
+
+**What the app works out in this phase**, each with a test:
+
+- a county's wage share and development share;
+- whether each share is above or below the legal limit;
+- the days left until the next legal deadline;
+- a vote's economic split into wages, goods and services, transfers and assets;
+- the two project question rules.
+
 ## Every figure
 
 | Figure | Value | Document | Cited as | PDF page | Result |

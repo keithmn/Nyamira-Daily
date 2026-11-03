@@ -366,5 +366,19 @@
   "programme.subsTitle": "Sub-programmes",
   "programme.sub": "Sub-programme",
   "programme.targetsWhat": "targets for this programme",
-  "programme.differs": "The Programme Based Budget gives this programme {book}; the Appropriation Act gives {act}. The Act is the law, so the amount above is the Act's. The difference moved between two programmes of the same vote."
+  "programme.differs": "The Programme Based Budget gives this programme {book}; the Appropriation Act gives {act}. The Act is the law, so the amount above is the Act's. The difference moved between two programmes of the same vote.",
+  "projects.title": "National projects",
+  "projects.line": "is the development money for {n} projects in {fy}, as the Development Estimates list them.",
+  "projects.topTitle": "The 20 biggest projects",
+  "projects.topSub": "Gross allocation in {fy}, KSh billion",
+  "projects.csv": "Download all {n} projects (CSV)",
+  "projects.qLine": "Each question comes from the Development Estimates alone. It is something to ask the ministry, not a finding.",
+  "projects.stoppedTitle": "Money last year, none this year ({n})",
+  "projects.twiceTitle": "The same name under more than one vote ({n})",
+  "projects.more": "{n} more are in the download.",
+  "projects.voteTitle": "Projects under this vote",
+  "projects.voteSub": "Gross allocation in {fy}, KSh million",
+  "projects.voteAll": "See all national projects",
+  "project.qStopped": "{name} under {vote} was given {amount} last year and nothing this year. Is it finished, stopped or moved?",
+  "project.qTwice": "A project named {name} appears under {n} votes: {votes}. Is it one project paid from more than one vote, or separate projects?"
 }

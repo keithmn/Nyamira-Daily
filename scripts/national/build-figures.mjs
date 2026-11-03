@@ -195,6 +195,25 @@ export function pbbFigures() {
   return { defaults: { fy: '2026/27', stage: 'approved', unit: 'KSh', money: 'national', label: 'official', source: 'pbb-2026-27', ...CHECKED }, figures: out };
 }
 
+// Every project in the Development Estimates, this year's gross and last year's approved amount, each under its vote's total.
+// A dash gives no figure: a project with no money this year has only its FY2025/26 figure.
+export function projectFigures() {
+  const rows = csv('dev-estimates-2026-27/projects.csv'), out = [];
+  const at = (r) => ({ source: `dev-estimates-2026-27-vol${r.volume}`, page: `Vote D${r.vote} summary, PDF p.${r.pdf_page}`, pdfPage: Number(r.pdf_page) });
+  for (const r of rows) {
+    const total = !r.code;
+    for (const [fy, year, column] of [['2026/27', '2026-27', 'gross_2026_27'], ['2025/26', '2025-26', 'approved_2025_26']]) {
+      if (r[column] === '') continue;
+      out.push({
+        id: total ? `ke.fy${year}.approved.project-vote.${r.vote}` : `ke.fy${year}.approved.project.${r.code}`,
+        name: total ? `Vote D${r.vote}: all projects` : r.name, value: Number(r[column]), fy, level: total ? 'vote' : 'project',
+        parent: total ? null : `ke.fy${year}.approved.project-vote.${r.vote}`, ...at(r),
+      });
+    }
+  }
+  return { defaults: { stage: 'approved', unit: 'KSh', grouping: 'project', money: 'national', label: 'official', ...CHECKED }, figures: out };
+}
+
 // Each programme's stated outcome, in the book's words. Text, not figures, so it lives beside them.
 export const outcomeMap = () => Object.fromEntries(csv('pbb-2026-27/outcomes.csv').map((r) => [r.programme, r.outcome]));
 
@@ -207,6 +226,7 @@ export const GENERATED = {
   'cob-county-detail-2025-26.json': cobDetailFigures,
   'debt-2024-25.json': debtFigures,
   'pbb-2026-27.json': pbbFigures,
+  'projects-2026-27.json': projectFigures,
 };
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

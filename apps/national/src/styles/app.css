@@ -33,6 +33,9 @@
 * { box-sizing: border-box; }
 /* `hidden` must win over every class that sets display, or a hidden button or tag shows anyway */
 [hidden] { display: none !important; }
+/* A wide table scrolls inside its own box, never the whole page. The box takes focus, so it scrolls by keyboard too. */
+.tscroll { overflow-x: auto; max-width: 100%; }
+.tscroll:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 76px; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 500 var(--fs-m)/1.5 var(--font); padding-bottom: calc(var(--tab-h) + env(safe-area-inset-bottom, 0px)); }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--panel); }

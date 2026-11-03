@@ -9,7 +9,7 @@ import { isPlanned } from '../src/lib/routes.js';
 
 const app = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(app, 'dist'), prod = join(app, 'dist-prod');
-const TEMPLATES = ['/', '/sw/', '/dev/components/', '/sw/dev/components/', '/budget/2026-27/', '/sw/budget/2026-27/', '/budget/2026-27/sectors/', '/budget/2026-27/sectors/health/', '/sw/budget/2026-27/sectors/health/', '/budget/2026-27/votes/1066/', '/budget/2026-27/votes/1066/0502000/', '/counties/', '/sw/counties/', '/counties/nyamira/', '/sw/counties/nyamira/', '/counties/nairobi-city/', '/counties/nyamira/sheet/', '/counties/compare/?c=nyamira,kisii', '/search/?q=tsc'];
+const TEMPLATES = ['/', '/sw/', '/dev/components/', '/sw/dev/components/', '/budget/2026-27/', '/sw/budget/2026-27/', '/debt/', '/revenue/', '/sw/debt/', '/projects/', '/sw/projects/', '/budget/2026-27/votes/1066/0503000/', '/budget/2026-27/sectors/', '/budget/2026-27/sectors/health/', '/sw/budget/2026-27/sectors/health/', '/budget/2026-27/votes/1066/', '/budget/2026-27/votes/1066/0502000/', '/counties/', '/sw/counties/', '/counties/nyamira/', '/sw/counties/nyamira/', '/counties/nairobi-city/', '/counties/nyamira/sheet/', '/counties/compare/?c=nyamira,kisii', '/search/?q=tsc'];
 const PAGES = [...TEMPLATES, '/no-such-page/'];
 const walk = (d, out = []) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p, out); else if (f.endsWith('.html')) out.push(p); } return out; };
 
@@ -319,6 +319,33 @@ test('a county the report marks carries its warning beside the figure', async ({
   await expect(page.locator('section:has(#h-bills) .note')).toContainText('does not agree with its ageing table');
   await open(page, '/counties/nyeri/');
   await expect(page.locator('section:has(#h-own) .note')).toContainText('left it out');
+});
+
+test('a programme page quotes its aim and lists its sub-programmes', async ({ page }) => {
+  await open(page, '/budget/2026-27/votes/1066/0503000/');
+  await expect(page.locator('.quote')).toBeVisible();
+  await expect(page.locator('.rb-row').first()).toBeVisible();
+  await expect(page.locator('body')).toContainText('a person will type them');
+  await open(page, '/budget/2026-27/votes/1213/0710000/');
+  await expect(page.locator('.cf-note').first()).toContainText('The Act is the law');
+});
+
+test('the debt page keeps past years and this year\'s plan apart', async ({ page }) => {
+  await open(page, '/debt/');
+  await expect(page.locator('.hero-num')).toHaveText('KSh 11.81 trillion');
+  await expect(page.locator('body')).toContainText('67.8% of GDP');
+  await expect(page.locator('body')).toContainText('not added to the trend');
+});
+
+test('projects add to the development money, and every question asks rather than finds', async ({ page }) => {
+  await open(page, '/projects/');
+  await expect(page.locator('.rb-row')).toHaveCount(20);
+  for (const text of await page.locator('.dev-grid .card').allTextContents()) expect(text).toMatch(/\?/);
+  await expect(page.locator('body')).not.toContainText(/corrupt|stole|looted|ghost/i);
+  const file = await (await page.request.get('/data/projects-2026-27.csv')).text();
+  expect(file.split('\n')[0]).toContain('gross_fy2026_27_ksh');
+  await open(page, '/budget/2026-27/votes/1091/');
+  await expect(page.locator('body')).toContainText('Projects under this vote');
 });
 
 test('every county has its page and sheet, in both languages', () => {

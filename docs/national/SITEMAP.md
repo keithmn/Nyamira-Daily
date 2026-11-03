@@ -50,9 +50,9 @@ Phones get a bottom tab bar with these five. Desktop gets them in the top bar. B
 | `/budget/[fy]/sectors/` | How do the ten sectors compare? | Largest sector, ranked bars | FY2026/27 Ready |
 | `/budget/[fy]/sectors/[sector]/` | What does this sector get, and how does it compare with last year? | Amount, change on last year, its votes | Amounts Ready. Votes and last year need the map below |
 | `/budget/[fy]/votes/[vote]/` | What does this ministry, department or agency get? | Amount, change, programmes | Appropriation Act Downloaded |
-| `/budget/[fy]/votes/[vote]/[programme]/` | What will this programme spend and deliver? | Amount, targets ("what they promised") | Programme level Downloaded. Sub-programmes and targets Located (Estimates volumes on parliament.go.ke) |
+| `/budget/[fy]/votes/[vote]/[programme]/` | What will this programme spend and deliver? | Amount, targets ("what they promised") | Programme, sub-programmes and outcomes Ready (approved Programme Based Budget). Targets wait for a person (#97) |
 | `/revenue/` | Where does the money come from, and is it on target? | Tax heads over five years | FY2026/27 Ready. Monthly To find |
-| `/debt/` | How much is owed, and what does it cost? | Interest, share of revenue, stock | Interest Ready. Stock To find |
+| `/debt/` | How much is owed, and what does it cost? | Interest, share of revenue, stock | Ready (Annual Public Debt Report, FY2020/21 to FY2024/25) |
 | `/budget-day/[fy]/` | What changed today? | What moved from the estimates, risers and fallers | Built for June 2027 |
 
 ### Counties
@@ -60,7 +60,7 @@ Phones get a bottom tab bar with these five. Desktop gets them in the top bar. B
 | Route | Question | First screen leads with | Data |
 |---|---|---|---|
 | `/counties/` | How do the 47 counties compare? | Your county in the list, sortable by any measure | Equitable share Ready. Other measures Located |
-| `/counties/[county]/` | What does my county get, and what did it do with it? | Equitable share (law), change on last year, last year's development spending, Share button | Share Ready for 47. Spending Ready for 6, Located for 41 |
+| `/counties/[county]/` | What does my county get, and what did it do with it? | Equitable share (law), change on last year, last year's development spending, Share button | Ready for 47: share, development spending, own-source revenue, wages, pending bills |
 | `/counties/[county]/sheet/` | One A4 page for a town hall or radio script | Five key numbers, two questions, hearing date, QR code | As the county page |
 | `/counties/compare/?c=nyamira,kisii` | How do these counties compare? | Two to four counties side by side; the choice lives in the link | As the county page |
 | `/counties/state/[edition]/` | How do counties compare on each published measure? | One ranked measure at a time, method beside it, no overall score (#84) | First edition held until after 24 Aug 2027 unless the owner decides otherwise |
@@ -71,7 +71,7 @@ Phones get a bottom tab bar with these five. Desktop gets them in the top bar. B
 | Route | Question | First screen leads with | Data |
 |---|---|---|---|
 | `/track/` | How much has actually moved this year? | Revenue against target, Exchequer releases, county releases against the schedule, each with an "as of" date | To find |
-| `/projects/` | Which national projects are funded, and what should I ask? | Projects near you, questions from dated documents | To find (Development Estimates) |
+| `/projects/` | Which national projects are funded, and what should I ask? | The total and the biggest projects, questions from the Development Estimates. Locations are not printed, so nothing is "near you" yet | Ready (four approved volumes) |
 | `/have-your-say/` | When can I be heard, and how? | Next hearing with a countdown in days, or "None announced" | To find (official notices only, #29) |
 
 ### Learn

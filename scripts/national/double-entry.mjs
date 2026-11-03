@@ -141,6 +141,23 @@ export function pbbChecks(book, economic, act, known = []) {
   return problems;
 }
 
+// Each vote's projects must add to the vote's printed total, in both years, and that total must be the Act's development money
+export function projectChecks(rows, act) {
+  const problems = [], n = (v) => Number(v || 0), gross = new Map();
+  for (const r of act.filter((x) => x.kind === 'D' && !x.programme)) gross.set(r.vote, n(r.supply) + n(r.aia));
+  const totals = rows.filter((r) => !r.code);
+  for (const t of totals) {
+    const list = rows.filter((r) => r.code && r.vote === t.vote);
+    for (const k of ['gross_2026_27', 'approved_2025_26']) if (Math.abs(list.reduce((a, r) => a + n(r[k]), 0) - n(t[k])) > 2) problems.push(`Development Estimates D${t.vote}: projects do not add to the printed ${k}`);
+    if (n(t.gross_2026_27) !== gross.get(t.vote)) problems.push(`Development Estimates D${t.vote}: ${t.gross_2026_27} against the Act's ${gross.get(t.vote)}`);
+  }
+  const missing = [...gross.keys()].filter((v) => !totals.some((t) => t.vote === v));
+  if (missing.length) problems.push(`Development Estimates: no vote total for D${missing.join(', D')}`);
+  const codes = rows.filter((r) => r.code).map((r) => r.code);
+  if (new Set(codes).size !== codes.length) problems.push('Development Estimates: a project code appears twice');
+  return problems;
+}
+
 // The ratios the report names, which our own division must reproduce. That is what proves the method.
 export const NAMED_WAGE_SHARES = { 'Homa Bay': 56, Nyeri: 52, 'Taita-Taveta': 49, Mombasa: 26, Kwale: 26, 'Tana River': 28 };
 
@@ -190,7 +207,8 @@ export function runDoubleEntry() {
     ...cobDetailChecks({ osr: csv('cob-county-2025-26/osr.csv'), wages: csv('cob-county-2025-26/wages.csv'), payables: csv('cob-county-2025-26/payables.csv'), annex: csv('cob-county-2025-26/annex.csv'), spending: csv('cob-county-2025-26/extract.csv'), known: csv('cob-county-2025-26/known-issues.csv') })];
   const debt = debtChecks(csv('debt-report-2024-25/extract.csv'));
   const pbb = pbbChecks(csv('pbb-2026-27/programmes.csv'), csv('pbb-2026-27/economic.csv'), csv('appropriation-act-2026/extract.csv'), csv('pbb-2026-27/known-issues.csv'));
-  return { act, county, pbo: [...pbo, ...pbb], cob: [...cob, ...debt.map((p) => `Debt report ${p}`)] };
+  const projects = projectChecks(csv('dev-estimates-2026-27/projects.csv'), csv('appropriation-act-2026/extract.csv'));
+  return { act, county, pbo: [...pbo, ...pbb, ...projects], cob: [...cob, ...debt.map((p) => `Debt report ${p}`)] };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

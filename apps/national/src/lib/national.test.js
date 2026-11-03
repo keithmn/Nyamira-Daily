@@ -10,6 +10,7 @@ import { PLANNED, SECTIONS, href, isPlanned, sectionOf, twin } from './routes.js
 import { countOf, rulesFor } from './rules.js';
 import { searchIndex } from './search.js';
 import { amountSentence, countyQuestions, whatsappHref } from './sentences.js';
+import { fellToZero, projectQuestions, sameNameTwoVotes } from './projects.js';
 import { nextDeadline, timeline } from './stages.js';
 import { allSectors, allVotes, economicSplit, programmeDetail, sectorBySlug, voteByCode } from './votes.js';
 
@@ -313,4 +314,20 @@ test('the content security policy matches the design document', () => {
   assert.doesNotMatch(strict, /unsafe-eval|https?:/);
   assert.match(policy([], true), /frame-ancestors \*/);
   assert.match(headersFile([]), /X-Content-Type-Options: nosniff/);
+});
+
+test('project question rules ask only what the two printed years show', () => {
+  const p = (code, name, now, last) => ({ code, vote: code.slice(0, 4), name, current: now == null ? null : { value: now }, previous: last == null ? null : { value: last } });
+  const list = [
+    p('1091100100', 'Construction of Isiolo-Mandera Road', 0, 500), p('1091100200', 'Dualling of Kisumu Bypass', null, 300),
+    p('1091100300', 'New dam at Thwake', 200, null), p('1109100100', 'Thwake Multipurpose Dam Project', 900, 800),
+    p('1103100100', 'Thwake Multipurpose Dam Project', 100, 50), p('1104100100', 'Headquarters office block', 10, 5),
+    p('1105100100', 'Headquarters office block', 10, 5),
+  ];
+  assert.deepEqual(fellToZero(list).map((x) => x.code), ['1091100100', '1091100200']);
+  const twice = sameNameTwoVotes(list);
+  assert.equal(twice.length, 1, 'generic names are left out');
+  assert.deepEqual(twice[0].map((x) => x.vote), ['1109', '1103']);
+  for (const q of projectQuestions('en', list)) assert.match(q.text, /\?$/);
+  for (const q of projectQuestions('sw', list)) assert.match(q.text, /\?$/);
 });

@@ -299,5 +299,93 @@
    "what": "The Programme Based Budget for FY2027/28"
   },
   "note": "Pages are given as PDF pages: the book numbers each vote's section separately. Parliament also hosts the April estimates edition, which has a different total; this is the approved edition, whose total equals the Appropriation Act."
+ },
+ {
+  "id": "dev-estimates-2026-27-vol1",
+  "title": "Estimates of Development Expenditure of the Government of Kenya for the year ending 30th June, 2027, Volume I (National Treasury, June 2026, approved)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20Books/Budget%20books%202026-2027/Development%20Volume%20I%20(1011-1083)_Approved.pdf",
+  "archive": null,
+  "sha256": "3507854b7f72cbf73962e9237dd80e776407965cd27f29d449d06987bfbf4359",
+  "file": "dev-estimates-2026-27-vol1.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh": 2
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "The Development Estimates for FY2027/28"
+  },
+  "note": "Votes 1011-1083. Pages are given as PDF pages. Only each vote's summary table is read: project, approved FY2025/26 and gross FY2026/27. Each vote's total equals the Appropriation Act's development money for it."
+ },
+ {
+  "id": "dev-estimates-2026-27-vol2",
+  "title": "Estimates of Development Expenditure of the Government of Kenya for the year ending 30th June, 2027, Volume II (National Treasury, June 2026, approved)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20Books/Budget%20books%202026-2027/Development%20Volume%20II%20(1091-1091)_Approved.pdf",
+  "archive": null,
+  "sha256": "e16a42879921b7e6cbf33fac197f456f72cd43efe94379943f96ec6f95eb8227",
+  "file": "dev-estimates-2026-27-vol2.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh": 2
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "The Development Estimates for FY2027/28"
+  },
+  "note": "Votes 1091. Pages are given as PDF pages. Only each vote's summary table is read: project, approved FY2025/26 and gross FY2026/27. Each vote's total equals the Appropriation Act's development money for it."
+ },
+ {
+  "id": "dev-estimates-2026-27-vol3",
+  "title": "Estimates of Development Expenditure of the Government of Kenya for the year ending 30th June, 2027, Volume III (National Treasury, June 2026, approved)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20Books/Budget%20books%202026-2027/Development%20Volume%20III%20(1092-1135)_Approved.pdf",
+  "archive": null,
+  "sha256": "944d3f6798719f809d0f6f44c7a79f6dd16d1b8c2cd495d5d1c1e342d8a526bb",
+  "file": "dev-estimates-2026-27-vol3.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh": 2
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "The Development Estimates for FY2027/28"
+  },
+  "note": "Votes 1092-1135. Pages are given as PDF pages. Only each vote's summary table is read: project, approved FY2025/26 and gross FY2026/27. Each vote's total equals the Appropriation Act's development money for it."
+ },
+ {
+  "id": "dev-estimates-2026-27-vol4",
+  "title": "Estimates of Development Expenditure of the Government of Kenya for the year ending 30th June, 2027, Volume IV (National Treasury, June 2026, approved)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20Books/Budget%20books%202026-2027/Development%20Volume%20IV%20(1152-2111)_Approved.pdf",
+  "archive": null,
+  "sha256": "9e7cff400cc05aecfdefb791234e9c7eefe7da3bb0edebbcefd676e75821798d",
+  "file": "dev-estimates-2026-27-vol4.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh": 2
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "The Development Estimates for FY2027/28"
+  },
+  "note": "Votes 1152-2111. Pages are given as PDF pages. Only each vote's summary table is read: project, approved FY2025/26 and gross FY2026/27. Each vote's total equals the Appropriation Act's development money for it."
  }
 ]

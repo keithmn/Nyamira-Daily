@@ -7,7 +7,7 @@ interface Column { key: string; label: string; num?: boolean }
 interface Props { columns: Column[]; rows: any[]; caption: string; csvHref?: string; csvName?: string; lang?: 'en' | 'sw'; sortable?: boolean }
 const { columns, rows, caption, csvHref, csvName, lang = 'en', sortable = true } = Astro.props;
 ---
-<div class="tscroll">
+<div class="tscroll" tabindex="0" role="region" aria-label={caption}>
   <table class={columns.length >= 3 ? 'cards' : undefined} data-sortable={sortable || undefined}>
     <caption class="vh">{caption}</caption>
     <thead><tr>{columns.map((c) => (

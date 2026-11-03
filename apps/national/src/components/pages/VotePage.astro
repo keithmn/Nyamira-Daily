@@ -3,7 +3,8 @@
 import { full, money, percent } from '@kbe/engine/fmt';
 import { t } from '../../i18n/index.js';
 import { FY, PREFIX } from '../../lib/figures.js';
-import { YEAR, programmeHref, sectorHref } from '../../lib/routes.js';
+import { projectsOf } from '../../lib/projects.js';
+import { YEAR, href, programmeHref, sectorHref } from '../../lib/routes.js';
 import { amountSentence } from '../../lib/sentences.js';
 import { economicSplit, summed, voteByCode } from '../../lib/votes.js';
 import Breadcrumbs from '../Breadcrumbs.astro';
@@ -20,6 +21,8 @@ const figure = summed(v.first, `${PREFIX}approved.vote.${code}`, v.name, v.total
 const parts = [{ name: t(lang, 'vote.recurrent'), value: v.recurrent, slot: '1' }, { name: t(lang, 'vote.development'), value: v.development, slot: '2' }].filter((p) => p.value > 0).map((p) => ({ ...p, shown: `${money(p.value, 'KSh', lang)} (${percent(p.value / v.total * 100, 0)})`, share: p.value / v.total * 100 }));
 const rows = v.programmes.map((p, i) => ({ name: p.name, value: p.total, shown: (p.total / 1e9).toFixed(2), mark: i === 0, href: programmeHref(lang, code, p.code) }));
 const econ = economicSplit(code);
+const projects = projectsOf(code).filter((p) => p.current), shownProjects = projects.slice(0, 10);
+const projectRows = shownProjects.map((p, i) => ({ name: p.name, value: p.current.value, shown: (p.current.value / 1e6).toLocaleString('en-KE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }), mark: i === 0, tip: full(p.current.value) }));
 const buys = econ.parts.map((p) => ({ name: t(lang, `econ.${p.key}`), slot: p.slot, share: p.value / econ.total.value * 100, shown: `${money(p.value, 'KSh', lang)} (${percent(p.value / econ.total.value * 100, 0)})` }));
 ---
 <div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.budget'), path: YEAR }, { name: sector, path: `${YEAR}sectors/${v.sector}/` }, { name: v.name }]} /></div>
@@ -37,6 +40,10 @@ const buys = econ.parts.map((p) => ({ name: t(lang, `econ.${p.key}`), slot: p.sl
     <Chart lang={lang} title={t(lang, 'vote.programmes')} sub={t(lang, 'vote.programmesSub', { fy: FY })} from={v.first} calc={t(lang, 'fig.calc')} table={{ columns: [t(lang, 'vote.programmes'), 'KSh'], rows: v.programmes.map((p) => [p.name, full(p.total)]) }} csvName={`vote-${code}-2026-27`}>
       <RankedBars rows={rows} lang={lang} />
     </Chart>
+    {projects.length > 0 && <Chart lang={lang} title={t(lang, 'projects.voteTitle')} sub={t(lang, 'projects.voteSub', { fy: FY })} from={projects[0].current} table={{ columns: [t(lang, 'projects.title'), 'KSh'], rows: projects.map((p) => [p.name, full(p.current.value)]) }} csvName={`projects-${code}-2026-27`}>
+      <RankedBars rows={projectRows} lang={lang} />
+    </Chart>}
+    {projects.length > 0 && <div class="btn-row"><a class="btn quiet" href={href(lang, '/projects/')}>{t(lang, 'projects.voteAll')}</a></div>}
     <NotYetLoaded what={t(lang, 'vote.targetsWhat')} why={t(lang, 'vote.targetsWhy')} lang={lang} />
     <p class="small muted">{t(lang, 'change.basis', { last: 'FY2025/26' })}</p>
   </div>
