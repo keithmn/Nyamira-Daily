@@ -1,0 +1,55 @@
+---
+// Track: how much actually moved against target, from the Treasury's latest quarterly review (decision #104). Shares spent
+// are the report's own; a question is asked of every vote that spent less than three quarters of its target.
+import { full, money } from '@kbe/engine/fmt';
+import { t } from '../../i18n/index.js';
+import { sourceDoc } from '../../lib/figures.js';
+import { href, voteHref } from '../../lib/routes.js';
+import { LOW_SHARE, TRACK_FY, headline, interest, lowSpenders, ministries, voteSpending } from '../../lib/track.js';
+import { voteByCode } from '../../lib/votes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import Chart from '../Chart.astro';
+import DataTable from '../DataTable.astro';
+import FigureCard from '../FigureCard.astro';
+import PageHero from '../PageHero.astro';
+import QuestionCard from '../QuestionCard.astro';
+import StaleNote from '../StaleNote.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const m = ministries(), doc = sourceDoc('qebr-2025-26-q4'), heads = headline(), low = lowSpenders(), all = voteSpending();
+const line = (l) => t(l, 'track.line', { target: money(m.target.value, m.target.unit, l), pct: `${m.pct.value.toFixed(1)}%`, fy: TRACK_FY });
+const cell = (shown, sort = shown) => ({ shown, sort });
+const headCols = [{ key: 'what', label: t(lang, 'track.measure') }, { key: 'actual', label: t(lang, 'track.actual'), num: true }, { key: 'target', label: t(lang, 'track.target'), num: true }, { key: 'gap', label: t(lang, 'track.below'), num: true }];
+const headRows = heads.map((h) => ({ what: cell(t(lang, `track.h.${h.key}`)), actual: cell(money(h.actual.value, h.actual.unit, lang), h.actual.value), target: cell(money(h.target.value, h.target.unit, lang), h.target.value), gap: cell(money(h.shortfall.value, h.shortfall.unit, lang), h.shortfall.value) }));
+const voteCols = [{ key: 'name', label: t(lang, 'sector.vote') }, { key: 'actual', label: t(lang, 'track.actual'), num: true }, { key: 'target', label: t(lang, 'track.target'), num: true }, { key: 'pct', label: t(lang, 'track.pct'), num: true }];
+const voteRows = all.map((v) => ({ name: { shown: v.name, href: voteByCode(v.code) ? voteHref(lang, v.code) : undefined }, actual: cell(full(v.actual.value * 1e6), v.actual.value), target: cell(full(v.target.value * 1e6), v.target.value), pct: cell(`${v.pct.value.toFixed(1)}%`, v.pct.value) }));
+const question = (v) => t(lang, 'track.qLow', { name: v.name, pct: `${v.pct.value.toFixed(1)}%`, spent: money(v.actual.value, 'KSh m', lang), target: money(v.target.value, 'KSh m', lang), fy: TRACK_FY });
+const i = interest();
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'track.title') }]} /></div>
+<PageHero figure={m.actual} title={t(lang, 'track.title')} line={line(lang)} swAfter={line('sw')} what={t(lang, 'track.title')} lang={lang} />
+<section class="band">
+  <h2 class="vh">{t(lang, 'nav.detail')}</h2>
+  <div class="wrap stack gap-l">
+    <p>{t(lang, 'track.latest', { fy: TRACK_FY })}</p>
+    <StaleNote after={doc.nextExpected.date} what={doc.nextExpected.what} lang={lang} />
+    <Chart lang={lang} title={t(lang, 'track.headTitle', { fy: TRACK_FY })} sub={t(lang, 'track.headSub')} from={heads[0].actual}>
+      <DataTable lang={lang} caption={t(lang, 'track.headTitle', { fy: TRACK_FY })} columns={headCols} rows={headRows} sortable={false} />
+    </Chart>
+    <FigureCard figure={i.total} q={t(lang, 'track.interestQ', { fy: TRACK_FY })} lang={lang}><p>{t(lang, 'track.interestLine', { domestic: money(i.domestic.value, i.domestic.unit, lang), foreign: money(i.foreign.value, i.foreign.unit, lang) })}</p></FigureCard>
+  </div>
+</section>
+<section class="band alt" aria-labelledby="h-tq">
+  <div class="wrap">
+    <div class="band-head"><h2 id="h-tq">{t(lang, 'question.title')}</h2><p>{t(lang, 'track.qLine', { n: low.length, share: LOW_SHARE })}</p></div>
+    <div class="dev-grid">{low.map((v) => <article class="card"><QuestionCard question={question(v)} lang={lang} /></article>)}</div>
+  </div>
+</section>
+<section class="band" aria-labelledby="h-tv">
+  <div class="wrap stack">
+    <h2 id="h-tv">{t(lang, 'track.votesTitle', { n: all.length, fy: TRACK_FY })}</h2>
+    <p class="small muted">{t(lang, 'track.votesSub')}</p>
+    <DataTable lang={lang} caption={t(lang, 'track.votesTitle', { n: all.length, fy: TRACK_FY })} columns={voteCols} rows={voteRows} csvHref={href('en', '/data/spending-2025-26.csv')} csvName="spending-2025-26.csv" />
+  </div>
+</section>

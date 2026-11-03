@@ -164,6 +164,27 @@ Claude Code's checks again, not an editor's sign-off. `npm run check:national` r
 - a vote's economic split into wages, goods and services, transfers and assets;
 - the two project question rules.
 
+## The Treasury's quarterly review, FY2025/26 fourth quarter (3 Nov 2026)
+
+Claude Code's checks, not an editor's sign-off. `npm run check:national` repeats the arithmetic.
+
+- **Table 6, spending by vote, PDF p.26:**
+  - 87 votes with amounts, one printed with dashes only, and the total row.
+  - The `-raw` reading gives the rows, and the `-layout` reading gives every amount a second time. Every amount in the first reading appears in the second.
+  - In every row, variance is actual minus target within 1 million, and recurrent plus development equals the total.
+  - Each printed share spent follows from the amounts, within what rounding to the million can move it.
+  - The votes add to the total row within a few million, which is rounding over 87 rows.
+  - **One misprint:** vote 1175, State Department for Industry. Its recurrent and development targets add to 10,424 million, but it prints a total target of 10,362. Its total variance also leaves out the development variance of 62, and the total row carries the same 62. It is shown as printed and listed in `known-issues.csv`. **A person should look at it.**
+- **Headline figures from the text:**
+  - Revenue and its shortfall: para 36, PDF p.22.
+  - Grants: para 38, p.22.
+  - Spending: para 39, p.23.
+  - Interest: para 40, p.24.
+
+  Each value, actual, target and printed shortfall, was found on its page. Domestic and foreign interest add to the total within the report's rounding.
+- **Tables 4 and 5** are pictures with no text layer. Nothing is read from them.
+- **Date:** the report prints only the period it covers. Its date in `sources.json` is the PDF's own creation date, 18 September 2026.
+
 ## Every figure
 
 | Figure | Value | Document | Cited as | PDF page | Result |

@@ -6,3 +6,4 @@ appropriation-act-2026/names.csv,Act programme and vote names repaired from page
 pbo-explainer/votes-2026-27.csv,"Which votes are in each sector, read from the Budget Explainer's tables (decision #89)",87,waiting,,
 pbo-explainer/names-2025-26.csv,Last year's votes matched to this year's by name where the wording differs,5,waiting,,
 cob-county-2025-26/known-issues.csv,Places where the Controller of Budget report does not add up as printed,5,waiting,,
+qebr-2025-26-q4/known-issues.csv,Places where the quarterly review does not add up as printed,2,waiting,,

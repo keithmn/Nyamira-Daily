@@ -1,0 +1,9 @@
+key,name,actual_bn,target_bn,shortfall_bn,pdf_page,para
+revenue-total,Total revenue including Appropriations-in-Aid,3198.8,3259.0,60.2,22,para 36
+revenue-ordinary,Ordinary revenue,2588.4,2640.6,52.2,22,para 36
+grants,External grants,20.7,39.9,19.3,22,para 38
+expenditure-total,Total expenditure and net lending including transfers to counties,4484.2,4656.5,172.4,23,para 39
+recurrent-national,National government recurrent expenditure,3285.3,3400.7,115.4,23,para 39
+interest,Interest payments,1074.4,,,24,para 40
+interest-domestic,Domestic interest payments,862.7,,,24,para 40
+interest-foreign,Foreign interest payments,211.8,,,24,para 40

@@ -387,5 +387,28 @@
    "what": "The Development Estimates for FY2027/28"
   },
   "note": "Votes 1152-2111. Pages are given as PDF pages. Only each vote's summary table is read: project, approved FY2025/26 and gross FY2026/27. Each vote's total equals the Appropriation Act's development money for it."
+ },
+ {
+  "id": "qebr-2025-26-q4",
+  "title": "Quarterly Economic and Budgetary Review, Fourth Quarter, Financial Year 2025/2026, period ending 30th June 2026 (National Treasury)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "report",
+  "fy": "2025/26",
+  "stage": "spent",
+  "date": "2026-09-18",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/QEBRs/Fourth%20QEBR%20Report%20FY%202025-26.pdf",
+  "archive": null,
+  "sha256": "094f1c1e1a5df7139495f43e4b8dba88ca6570a990545dc394187b9143492d18",
+  "file": "qebr-2025-26-q4.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh m": 2,
+   "KSh bn": 0.2
+  },
+  "nextExpected": {
+   "date": "2026-12-31",
+   "what": "The first Quarterly Economic and Budgetary Review for FY2026/27, to 30 September 2026"
+  },
+  "note": "Pages are given as PDF pages. Amounts are provisional in the report. Tables 4 and 5 are pictures with no text, so only the figures the text also states are loaded. Targets are the report's targets for the year. The date is the PDF's own creation date, 18 September 2026; the report prints none."
  }
 ]

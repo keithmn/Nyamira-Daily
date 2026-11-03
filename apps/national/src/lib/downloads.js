@@ -8,6 +8,7 @@ export function downloads() {
     { name: 'sectors-2026-27', path: '/data/sectors-2026-27.csv', format: 'csv', key: 'sectors' },
     { name: 'county-equitable-share-2026-27', path: '/data/county-equitable-share-2026-27.csv', format: 'csv', key: 'counties' },
     { name: 'projects-2026-27', path: '/data/projects-2026-27.csv', format: 'csv', key: 'projects' },
+    { name: 'spending-2025-26', path: '/data/spending-2025-26.csv', format: 'csv', key: 'spending' },
     ...allSectors().map((s) => ({ name: `sector-${s.slug}-2026-27`, path: `/data/sectors/${s.slug}-2026-27.csv`, format: 'csv', key: 'sector', slug: s.slug })),
   ];
 }
