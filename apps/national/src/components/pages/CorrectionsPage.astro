@@ -4,12 +4,14 @@
 import { longDate, num } from '@kbe/engine/fmt';
 import { t } from '../../i18n/index.js';
 import { allCorrections } from '../../lib/figures.js';
+import { intakeSettings } from '../../lib/intake.js';
+import { href } from '../../lib/routes.js';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import DataTable from '../DataTable.astro';
 
 interface Props { lang?: 'en' | 'sw' }
 const { lang = 'en' } = Astro.props;
-const log = allCorrections().toReversed();
+const log = allCorrections().toReversed(), intake = intakeSettings();
 const cell = (shown, sort = shown) => ({ shown, sort });
 const columns = [{ key: 'date', label: t(lang, 'corrections.date') }, { key: 'id', label: t(lang, 'releases.figure') }, { key: 'old', label: t(lang, 'releases.old'), num: true }, { key: 'new', label: t(lang, 'releases.new'), num: true }, { key: 'why', label: t(lang, 'corrections.why') }];
 const rows = log.map((c) => ({ date: cell(longDate(c.date, lang), c.date), id: cell(c.id), old: cell(num(c.old), c.old), new: cell(c.new == null ? t(lang, 'releases.removed') : num(c.new), c.new ?? ''), why: cell(c.reason) }));
@@ -25,6 +27,23 @@ const rows = log.map((c) => ({ date: cell(longDate(c.date, lang), c.date), id: c
   <div class="wrap stack">
     <h2 id="h-report">{t(lang, 'corrections.reportTitle')}</h2>
     <p class="js-only" data-asked-figure data-text={t(lang, 'corrections.asked', { id: '{id}' })} hidden></p>
-    <p>{t(lang, 'corrections.notOpen')}</p>
+    {intake.open ? (
+      <form class="memo-form stack js-only" action={href('en', '/api/corrections')} method="post" data-report-form data-sending={t(lang, 'report.sending')} data-saved={t(lang, 'report.saved', { ref: '{ref}' })} data-failed={t(lang, 'report.failed')}>
+        <p class="small muted">{t(lang, 'report.privacy', { days: intake.retentionDays })}</p>
+        <label for="report-page">{t(lang, 'report.page')}</label>
+        <input id="report-page" name="page" type="text" maxlength="500" required placeholder="/counties/nyamira/" aria-describedby="report-page-hint" />
+        <p id="report-page-hint" class="small muted">{t(lang, 'report.pageHint')}</p>
+        <label for="report-details">{t(lang, 'report.details')}</label>
+        <textarea id="report-details" name="details" minlength="10" maxlength="3000" rows="5" required></textarea>
+        <label for="report-source">{t(lang, 'report.source')}</label>
+        <input id="report-source" name="source" type="url" maxlength="2048" placeholder="https://" />
+        <label hidden aria-hidden="true">Leave this empty<input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+        <div class="cf-turnstile" data-sitekey={intake.siteKey}></div>
+        <div class="btn-row"><button class="btn" type="submit">{t(lang, 'report.send')}</button></div>
+        <p class="small" role="status" aria-live="polite" data-report-status></p>
+      </form>
+    ) : <p>{t(lang, 'corrections.notOpen')}</p>}
   </div>
 </section>
+{intake.open && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+{intake.open && <script>import '../../scripts/report.js';</script>}

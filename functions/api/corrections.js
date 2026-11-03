@@ -32,7 +32,7 @@ export async function onRequestPost({ request, env }) {
   if (submission.error) return jsonResponse({ error: submission.error }, 400);
   const { fields } = submission;
   if (fields.website) return jsonResponse({ error: 'The submission could not be accepted.' }, 400);
-  if (!validPagePath(fields.page)) return jsonResponse({ error: 'Enter a valid Nyamira Daily page path.' }, 400);
+  if (!validPagePath(fields.page)) return jsonResponse({ error: 'Enter a valid page path, starting with /.' }, 400);
   if (fields.details.length < 10) return jsonResponse({ error: 'Please describe the issue in at least 10 characters.' }, 400);
   const source = validSourceUrl(fields.source, { optional: true });
   if (fields.source && !source) return jsonResponse({ error: 'The source link must be a valid HTTPS URL.' }, 400);

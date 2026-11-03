@@ -582,5 +582,14 @@
   "county.picture": "Picha ya kushiriki",
   "county.hearings": "Vikao, na uandike memoranda",
   "search.type.explainer": "Maelezo",
-  "nav.planned": "Imepangwa"
+  "nav.planned": "Imepangwa",
+  "report.privacy": "Usiweke taarifa za kibinafsi au nyeti. Huhitaji kutoa jina lako wala mawasiliano yako. Ripoti zinahifadhiwa hadi siku {days}. Ripoti ni dokezo kwetu kuchunguza, si sahihisho, na huenda usipate jibu.",
+  "report.page": "Ukurasa au takwimu",
+  "report.pageHint": "Hujazwa ukija kutoka kitufe cha \"Ripoti kosa\" cha takwimu. La sivyo andika ukurasa, kama /counties/nyamira/.",
+  "report.details": "Nini kinaweza kuwa na kosa?",
+  "report.source": "Kiungo cha chanzo cha umma (si lazima)",
+  "report.send": "Tuma ikaguliwe",
+  "report.sending": "Inatumwa ikaguliwe…",
+  "report.saved": "Imehifadhiwa ikaguliwe. Nambari ya kumbukumbu: {ref}. Haijabadilisha takwimu yoyote.",
+  "report.failed": "Ripoti haikuweza kuhifadhiwa. Tafadhali jaribu tena baadaye."
 }

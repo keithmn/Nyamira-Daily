@@ -31,7 +31,7 @@ Nothing here is pushed, merged or deployed. That needs the founder's go-ahead (A
 | 16 | A native speaker reviews every Kiswahili string and summary (decision #87) | Reviewer | Open |
 | 17 | An editor reads the ten explainers, the methods page and every question template (decisions #96, #98) | Editor | Open |
 | 18 | Usability rounds 1 and 2 (`USABILITY.md`) | Ward champions | Open |
-| 19 | A corrections contact, so "Report an error" can open (decision #101) | Founder | Open |
+| 19 | Open corrections: create the D1 database, Turnstile widget, secrets and Access policy listed in `README.md`, "Turn on corrections" (decision #102). The form is built and waits for them | Founder | Open |
 | 20 | Trust pages: `/about/`, `/who-runs-us/`, `/privacy/`, `/terms/`, `/right-of-reply/`. Wording from decision #73; legal wording waits for the lawyer | Founder and lawyer | Open |
 | 21 | Confirm that PFM Act ss.25(2), 37(2), 39(1) and (2) and 107(2)(b) are unchanged in the current revised edition: the stored copy is the 2012 Act as enacted | A person | Open |
 | 22 | Check the IEBC timetable against the election-period dates (decision #77) | Founder | Open |

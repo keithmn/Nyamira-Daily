@@ -76,6 +76,32 @@ npm run test:national:visual
 4. Put every word in `src/i18n/en.json` and `sw.json`. A test fails if the two differ, and a missing key stops the build. All Kiswahili waits for a native speaker's review.
 5. Add the page to `PAGES` and `TEMPLATES` in `e2e/site.spec.mjs`, so axe, phones and weight cover it.
 
+## Turn on corrections
+
+"Report an error" leads to `/corrections/`. The form there appears only on a build where intake is open (decision #102). It posts to `apps/national/functions/api/corrections.js`, which re-exports the main site's service from `functions/`. Until it is set up, the page says reporting is not open.
+
+To open it, in the national product's own Cloudflare Pages project:
+
+1. **Database.** Create a D1 database, for example `kbe-corrections`. Apply `migrations/0001_corrections.sql` to it, and bind it as `DB`.
+2. **Turnstile.** Create a Turnstile widget for the product's domain.
+3. **Secrets.**
+   - `TURNSTILE_SECRET_KEY`.
+   - `CORRECTION_RATE_SALT`: a random string of at least 32 characters.
+4. **Variables.**
+   - `CORRECTION_INTAKE_ENABLED=true`.
+   - `CORRECTION_SITE_ORIGIN`: for example `https://<domain>`.
+   - `CORRECTION_SITE_HOST`: the domain.
+   - `CORRECTION_RETENTION_DAYS`: how long reports are kept.
+5. **Build settings**, which the form reads:
+   - `PUBLIC_CORRECTION_INTAKE_ENABLED=true`;
+   - `PUBLIC_TURNSTILE_SITE_KEY`;
+   - `PUBLIC_CORRECTION_RETENTION_DAYS`, the same number as above.
+
+   With all three set, the build adds the form. It also lets Turnstile's script into the corrections page's security policy, and only that page's.
+6. **Reviewers.** Put `/api/review*` behind Cloudflare Access. Set `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS_AUD` and `CORRECTION_REVIEWER_EMAILS`, as on the main site.
+
+A report stores what the reader typed: the page or figure, the description and an optional source link. It also stores a keyed hash of their address, used for the rate limit and kept for one hour. Reports are deleted after the retention period. An accepted report changes nothing by itself: the figure is corrected through `reasons.json` and a data release, which adds it to the corrections log.
+
 ## Remake the infographics
 
 The 248 pictures in `apps/national/public/img/infographics/` (62 topics, two sizes, two languages) are photographed from card pages, because Cloudflare Pages cannot run a browser at build time (decision #99). After every data release:
