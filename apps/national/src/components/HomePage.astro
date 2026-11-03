@@ -22,7 +22,7 @@ const areas = [
   ['money', YEAR, 'home.area1'], ['map', '/counties/', 'home.area2'], ['chart', `${YEAR}sectors/`, 'home.area3'], ['data', '/counties/compare/', 'home.area4'],
 ];
 ---
-<PageHero figure={total} eyebrow={t(lang, 'hero.eyebrow', { fy: FY })} line={t(lang, 'hero.line')} lang={lang}>
+<PageHero figure={total} eyebrow={t(lang, 'hero.eyebrow', { fy: FY })} line={t(lang, 'hero.line')} swAfter={t('sw', 'hero.line')} lang={lang}>
   <StageTimeline slot="top" lang={lang} />
   <CountyPicker slot="side" lang={lang} />
 </PageHero>

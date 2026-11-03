@@ -24,7 +24,7 @@ const subRows = detail.subs.map((s, i) => ({ name: s.name, value: s.value, shown
 const differs = detail.book && detail.book.value !== p.total;
 ---
 <div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.budget'), path: YEAR }, { name: sector, path: `${YEAR}sectors/${v.sector}/` }, { name: v.name, path: `${YEAR}votes/${vote}/` }, { name: p.name }]} /></div>
-<PageHero figure={figure} title={p.name} line={t(lang, 'programme.of', { name: v.name })} calc={t(lang, 'fig.calc')} what={p.name} lang={lang} />
+<PageHero figure={figure} title={p.name} line={t(lang, 'programme.of', { name: v.name })} sw={`${p.name}: ${money(figure.value, figure.unit, 'sw')}. ${t('sw', 'programme.of', { name: v.name })}.`} calc={t(lang, 'fig.calc')} what={p.name} lang={lang} />
 <section class="band">
   <h2 class="vh">{t(lang, 'nav.detail')}</h2>
   <div class="wrap stack gap-l">

@@ -71,7 +71,7 @@ npm run test:national:visual
 ## Add a page
 
 1. Put the page in `src/pages/` and its Kiswahili twin in `src/pages/sw/`, both using one shared component with a `lang` prop.
-2. Remove its route from `PLANNED` in `src/lib/routes.js`. The link check fails on a link that is neither built nor planned.
+2. Add its route to `BUILT` in `src/lib/routes.js`. Until then the footer shows it as "Planned" without a link, and a section tab goes to the section's first built page. The link check fails on any link to a page that is not built.
 3. Ask for figures by id with `fig()`. An unknown id stops the build. Any arithmetic goes in `src/lib`, with a test, and adding or comparing figures goes through `@kbe/engine/compare`.
 4. Put every word in `src/i18n/en.json` and `sw.json`. A test fails if the two differ, and a missing key stops the build. All Kiswahili waits for a native speaker's review.
 5. Add the page to `PAGES` and `TEMPLATES` in `e2e/site.spec.mjs`, so axe, phones and weight cover it.

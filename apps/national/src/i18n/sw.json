@@ -581,5 +581,6 @@
   "ig.county.line": "Mgao sawa kisheria, {change}. {pct} ya bajeti ya maendeleo ya {fy} ilitumika.",
   "county.picture": "Picha ya kushiriki",
   "county.hearings": "Vikao, na uandike memoranda",
-  "search.type.explainer": "Maelezo"
+  "search.type.explainer": "Maelezo",
+  "nav.planned": "Imepangwa"
 }

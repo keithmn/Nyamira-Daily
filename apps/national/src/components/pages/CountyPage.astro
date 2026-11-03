@@ -40,7 +40,7 @@ const who = { recommendation: t(lang, 'county.who.recommendation'), statement: t
 const questions = countyQuestions(c, lang);
 ---
 <div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'counties.title'), path: '/counties/' }, { name: c.name }]} /></div>
-<PageHero figure={c.figure} title={title} line={line} what={title} lang={lang} small>
+<PageHero figure={c.figure} title={title} line={line} sw={t('sw', 'county.shareText', { name: c.name, amount: money(c.value, 'KSh', 'sw'), change: changeChip(c.change, 'sw').toLowerCase() })} what={title} lang={lang} small>
   <a class="btn" href={whatsappHref(shareText, t(lang, 'county.shareSource'), url)} rel="noopener"><Icon name="whatsapp" />{t(lang, 'share.whatsapp')}</a>
   <section class="card mycounty" slot="side" aria-labelledby="h-dev">
     <h2 id="h-dev" class="fig-q">{t(lang, 'county.devQ')}</h2>

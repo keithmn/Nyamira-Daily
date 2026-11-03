@@ -486,3 +486,6 @@ html:not(.js) .sheet-tools { display: none; }
 .ig-landscape .ig-rows { gap: 6px; }
 .ig-landscape .ig-rows li { padding-top: 6px; }
 .hearing-link { margin-top: 16px; }
+.foot-map .planned { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; min-height: 44px; min-width: 0; overflow-wrap: anywhere; color: var(--muted); }
+.foot-map .planned .tag { background: transparent; border: 1px solid currentColor; color: inherit; }
+.hero-sw { padding-top: 16px; }

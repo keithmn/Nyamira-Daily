@@ -21,7 +21,7 @@ const columns = [{ key: 'name', label: t(lang, 'sector.vote') }, { key: 'total',
 const tableRows = s.votes.map((v) => ({ name: { shown: v.name, href: voteHref(lang, v.code) }, total: { shown: full(v.total), sort: v.total }, last: { shown: money(v.pboLast.value, v.pboLast.unit, lang), sort: v.pboLast.value }, change: { shown: changeChip(v.change, lang), sort: v.change.toFixed(2) } }));
 ---
 <div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.budget'), path: YEAR }, { name: t(lang, 'sectors.title', { fy: FY }), path: `${YEAR}sectors/` }, { name }]} /></div>
-<PageHero figure={figure} title={name} line={amountSentence({ name, amount: s.total, change: s.change, fy: FY, lang })} calc={t(lang, 'fig.calc')} what={name} lang={lang} />
+<PageHero figure={figure} title={name} line={amountSentence({ name, amount: s.total, change: s.change, fy: FY, lang })} sw={amountSentence({ name: t('sw', `sector.${slug}`), amount: s.total, change: s.change, fy: FY, lang: 'sw' })} calc={t(lang, 'fig.calc')} what={name} lang={lang} />
 <section class="band">
   <h2 class="vh">{t(lang, 'nav.detail')}</h2>
   <div class="wrap stack gap-l">

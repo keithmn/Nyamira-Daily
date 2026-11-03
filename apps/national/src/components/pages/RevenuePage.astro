@@ -21,7 +21,7 @@ const rows = heads.rows.map((h, i) => ({ name: t(lang, h.key), value: h.figure.v
 const points = years.map((y) => ({ label: y.fy.slice(2), value: Number((y.value / 1e6).toFixed(2)), tip: `FY${y.fy}: ${money(y.value, 'KSh m', lang)}` }));
 ---
 <div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.budget'), path: YEAR }, { name: t(lang, 'revenue.title') }]} /></div>
-<PageHero figure={ordinary} title={t(lang, 'revenue.title')} line={t(lang, 'revenue.line', { fy: FY })} what={t(lang, 'revenue.title')} lang={lang} />
+<PageHero figure={ordinary} title={t(lang, 'revenue.title')} line={t(lang, 'revenue.line', { fy: FY })} swAfter={t('sw', 'revenue.line', { fy: FY })} what={t(lang, 'revenue.title')} lang={lang} />
 <section class="band">
   <h2 class="vh">{t(lang, 'nav.detail')}</h2>
   <div class="wrap two">

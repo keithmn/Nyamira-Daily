@@ -1,6 +1,6 @@
 // The five sections and every route they link to (SITEMAP.md). Links work under any domain or prefix, because each one
-// goes through `href`. `PLANNED` lists routes nothing has built yet; a page leaves it in the phase that builds it, and
-// the link check fails on any internal link that is neither built nor planned.
+// goes through `href`. `PLANNED` lists routes nothing has built yet; nothing links to them (the footer names them as
+// planned, and a section tab goes to its first built page), and the link check fails on any link to a page not built.
 const BASE = (import.meta.env?.BASE_URL ?? '/').replace(/\/$/, '');
 
 export const LANGS = ['en', 'sw'];
@@ -33,4 +33,7 @@ export const twin = (lang, path) => href(other(lang), path);
 // The section a path belongs to, for aria-current
 export const sectionOf = (path) => SECTIONS.find((s) => s.pages.some((p) => path === p || (p !== '/' && path.startsWith(p))))?.key ?? null;
 
-export const isPlanned = (path) => PLANNED.includes(path.replace(/^\/sw(?=\/)/, ''));
+// Where a section's tab goes: its own page once built, until then its first built page, so no tab leads to a missing page
+export const sectionPath = (s) => (PLANNED.includes(s.path) ? s.pages.find((p) => !PLANNED.includes(p)) ?? s.path : s.path);
+
+export const isPlanned =(path) => PLANNED.includes(path.replace(/^\/sw(?=\/)/, ''));

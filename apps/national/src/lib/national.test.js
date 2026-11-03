@@ -6,7 +6,7 @@ import { fitsAboveBar, inflows, outflows, perHundred, sectors } from './budget.j
 import { barWidths, endLabelY, linePoints, ticks } from './charts.js';
 import { allCountyDev, cardData, changeWords, countyBySlug, countyRows, shareParts } from './counties.js';
 import { citationFor, fig, release, shortTitle } from './figures.js';
-import { PLANNED, SECTIONS, href, isPlanned, sectionOf, twin } from './routes.js';
+import { PLANNED, SECTIONS, href, isPlanned, sectionOf, sectionPath, twin } from './routes.js';
 import { countOf, rulesFor } from './rules.js';
 import { searchIndex } from './search.js';
 import { amountSentence, countyQuestions, whatsappHref } from './sentences.js';
@@ -414,4 +414,11 @@ test('the explainers use only registry figures and each has a two-question check
       assert.doesNotMatch(p, /corrupt|\bstole\b|looted/i, e.slug);
     }
   }
+});
+
+test('a section tab goes to its own page once built, and to its first built page until then', () => {
+  const track = SECTIONS.find((s) => s.key === 'track');
+  assert.equal(sectionPath(track), '/projects/');
+  assert.equal(sectionPath(SECTIONS.find((s) => s.key === 'counties')), '/counties/');
+  for (const s of SECTIONS) assert.equal(isPlanned(sectionPath(s)), false, s.key);
 });

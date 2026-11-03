@@ -22,7 +22,7 @@ const interestPoints = years.map((y) => ({ label: y.fy.slice(2), value: y.intere
 const split = [{ name: t(lang, 'debt.external'), shown: money(latest.external.value, latest.external.unit, lang), share: latest.external.value / latest.stock.value * 100, slot: '1' }, { name: t(lang, 'debt.domestic'), shown: money(latest.domestic.value, latest.domestic.unit, lang), share: latest.domestic.value / latest.stock.value * 100, slot: '2' }];
 ---
 <div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.budget'), path: YEAR }, { name: t(lang, 'debt.title') }]} /></div>
-<PageHero figure={latest.stock} title={t(lang, 'debt.title')} line={t(lang, 'debt.line', { gdp: percent(latest.shareOfGdp.value), fy: `FY${latest.fy}` })} what={t(lang, 'debt.title')} lang={lang} />
+<PageHero figure={latest.stock} title={t(lang, 'debt.title')} line={t(lang, 'debt.line', { gdp: percent(latest.shareOfGdp.value), fy: `FY${latest.fy}` })} swAfter={t('sw', 'debt.line', { gdp: percent(latest.shareOfGdp.value), fy: `FY${latest.fy}` })} what={t(lang, 'debt.title')} lang={lang} />
 <section class="band">
   <h2 class="vh">{t(lang, 'nav.detail')}</h2>
   <div class="wrap two">

@@ -26,7 +26,7 @@ const projectRows = shownProjects.map((p, i) => ({ name: p.name, value: p.curren
 const buys = econ.parts.map((p) => ({ name: t(lang, `econ.${p.key}`), slot: p.slot, share: p.value / econ.total.value * 100, shown: `${money(p.value, 'KSh', lang)} (${percent(p.value / econ.total.value * 100, 0)})` }));
 ---
 <div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.budget'), path: YEAR }, { name: sector, path: `${YEAR}sectors/${v.sector}/` }, { name: v.name }]} /></div>
-<PageHero figure={figure} title={v.name} line={amountSentence({ name: v.name, amount: v.total, change: v.change, fy: FY, lang })} calc={t(lang, 'fig.calc')} what={v.name} lang={lang} />
+<PageHero figure={figure} title={v.name} line={amountSentence({ name: v.name, amount: v.total, change: v.change, fy: FY, lang })} sw={amountSentence({ name: v.name, amount: v.total, change: v.change, fy: FY, lang: 'sw' })} calc={t(lang, 'fig.calc')} what={v.name} lang={lang} />
 <section class="band">
   <h2 class="vh">{t(lang, 'nav.detail')}</h2>
   <div class="wrap stack gap-l">

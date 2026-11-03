@@ -581,5 +581,6 @@
   "ig.county.line": "Equitable share in law, {change}. {pct} of the {fy} development budget was spent.",
   "county.picture": "A picture to share",
   "county.hearings": "Hearings, and write a memorandum",
-  "search.type.explainer": "Explainer"
+  "search.type.explainer": "Explainer",
+  "nav.planned": "Planned"
 }

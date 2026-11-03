@@ -5,7 +5,6 @@ import { fileURLToPath } from 'node:url';
 import { gzipSync } from 'node:zlib';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
-import { isPlanned } from '../src/lib/routes.js';
 
 const app = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(app, 'dist'), prod = join(app, 'dist-prod');
@@ -534,14 +533,14 @@ test('the stylesheet and script are files, and only hashed inline scripts exist'
   expect(headers.match(/'sha256-/g).length).toBeGreaterThan(0);
 });
 
-test('every internal link is built or planned', () => {
+test('every internal link leads to a built page, and no tab leads to a planned one', () => {
   const broken = new Set();
   for (const file of walk(dist)) {
     for (const [, link] of readFileSync(file, 'utf8').matchAll(/href="(\/[^"#?]*)/g)) {
       if (link.startsWith('/_astro/')) continue;
       const target = join(dist, link);
       const built = existsSync(target) && (statSync(target).isFile() || existsSync(join(target, 'index.html')));
-      if (!built && !isPlanned(link)) broken.add(link);
+      if (!built) broken.add(link);
     }
   }
   expect([...broken]).toEqual([]);
@@ -556,4 +555,21 @@ test('a production build leaves out /dev/, and carries canonical and hreflang li
   expect(home).toContain('hreflang="x-default"');
   expect(home).not.toContain('noindex');
   expect(readFileSync(join(dist, 'index.html'), 'utf8')).toContain('noindex');
+});
+
+test('English pages carry a Kiswahili summary, and Kiswahili pages do not repeat it', async ({ page }) => {
+  for (const path of ['/', '/budget/2026-27/', '/debt/', '/revenue/', '/projects/', '/counties/nyamira/', '/budget/2026-27/sectors/health/', '/budget/2026-27/votes/1091/', '/learn/equitable-share/']) {
+    await open(page, path);
+    await expect(page.locator('.sw[lang="sw"]'), path).toHaveCount(1);
+    await expect(page.locator('.sw[lang="sw"]'), path).not.toContainText(/NaN|undefined/);
+  }
+  await open(page, '/sw/counties/nyamira/');
+  await expect(page.locator('.hero-sw')).toHaveCount(0);
+});
+
+test('every section tab leads to a built page, and the footer marks planned pages without linking them', async ({ page }) => {
+  await open(page, '/', { width: 1280 });
+  for (const href of await page.locator('.top nav a').evaluateAll((as) => as.map((a) => a.getAttribute('href')))) expect((await page.request.get(href)).status(), href).toBe(200);
+  await expect(page.locator('footer .planned').first()).toBeVisible();
+  for (const href of await page.locator('footer a').evaluateAll((as) => as.map((a) => a.getAttribute('href')))) expect((await page.request.get(href)).status(), href).toBe(200);
 });

@@ -1,7 +1,7 @@
 ---
 // The top bar: the same five sections as the phone tab bar, from 900px. Language, search and My county stay on phones.
 import { t } from '../i18n/index.js';
-import { SECTIONS, href, other, sectionOf, twin } from '../lib/routes.js';
+import { SECTIONS, href, other, sectionOf, sectionPath, twin } from '../lib/routes.js';
 import { site } from '../site.js';
 import Icon from './Icon.astro';
 import MyCountyChip from './MyCountyChip.astro';
@@ -14,7 +14,7 @@ const current = sectionOf(path);
   <div class="wrap top-row">
     <a class="brand" href={href(lang)}>{site.name}</a>
     <nav class="top-nav" aria-label={t(lang, 'nav.main')}>
-      {SECTIONS.map((s) => <a href={href(lang, s.path)} aria-current={s.key === current ? 'page' : undefined}>{t(lang, `nav.${s.key}`)}</a>)}
+      {SECTIONS.map((s) => <a href={href(lang, sectionPath(s))} aria-current={s.key === current ? 'page' : undefined}>{t(lang, `nav.${s.key}`)}</a>)}
     </nav>
     <a class="lang-link" href={twin(lang, path)} lang={other(lang)} hreflang={other(lang)} aria-label={`${t(lang, 'lang.short')}: ${t(lang, 'lang.switch')}`}>{t(lang, 'lang.short')}</a>
     <a class="icon-btn" href={href(lang, '/search/')} aria-label={t(lang, 'search.open')}><Icon name="search" /></a>

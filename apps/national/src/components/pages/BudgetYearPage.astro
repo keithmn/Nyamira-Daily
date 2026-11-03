@@ -20,7 +20,7 @@ const out = outflows(), into = inflows(), sectors = allSectors();
 const shares = t(lang, 'fig.calcOf', { what: t(lang, 'fig.shares') });
 const rows = sectors.map((s, i) => ({ name: t(lang, `sector.${s.slug}`), value: s.total, shown: (s.total / 1e9).toFixed(1), mark: i === 0, href: sectorHref(lang, s.slug) }));
 ---
-<PageHero figure={total} eyebrow={t(lang, 'budget.title', { fy: FY })} line={t(lang, 'hero.line')} lang={lang} what={t(lang, 'budget.title', { fy: FY })}>
+<PageHero figure={total} eyebrow={t(lang, 'budget.title', { fy: FY })} line={t(lang, 'hero.line')} swAfter={t('sw', 'hero.line')} lang={lang} what={t(lang, 'budget.title', { fy: FY })}>
   <p class="note on-dark">{t(lang, 'budget.disputed', { a: money(total.value, total.unit, lang), b: money(withLevy.value, withLevy.unit, lang), levy: money(levy.value, levy.unit, lang) })}</p>
 </PageHero>
 <section class="band alt">
