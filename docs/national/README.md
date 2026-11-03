@@ -12,7 +12,24 @@
 | `scripts/national/` | The extractor, the figure builder, double entry, the page search, releases and the master check |
 | `apps/national/` | The site: `src/pages`, components, `src/lib` (all arithmetic), `src/i18n`, `src/scripts/app.js`, `e2e` (browser tests) |
 
-So far the site has, in English and Kiswahili: the home page, the year page, all 12 sector groups, all 87 votes, all 201 programmes, all 47 counties with their print sheets, county comparison and search. That is 803 pages, plus CSV files in `/data/` and the component library in preview builds. The Track, Learn and Data sections go to routes still listed in `PLANNED` in `src/lib/routes.js`.
+The site has the following, in English and Kiswahili:
+
+- **Budget:** the home page, the year page, all 12 sector groups, all 87 votes and all 201 programmes, `/revenue/` and `/debt/`.
+- **Counties:** all 47 counties with their print sheets and embeds, and county comparison.
+- **Track:** `/projects/` and `/have-your-say/`.
+- **Learn:** ten explainers, the glossary, the calendar, Your taxes and 62 infographics.
+- **Data:** `/data/`, releases, methods, corrections, CSV and JSON files, and search.
+
+That is about 1,300 pages, plus the component library in preview builds. `/track/` and the trust pages are still listed in `PLANNED` in `src/lib/routes.js`.
+
+The other documents in this folder:
+
+- `METHODS.md`: every number the site works out.
+- `BUDGET_DAY.md`: the runbook for budget day.
+- `USABILITY.md`: how to run the usability rounds, and their results.
+- `LAUNCH_CHECKLIST.md`: what the founder signs.
+
+`npm run check:national:all` runs the data check, the unit tests, the browser checks and `npm audit` in one go.
 
 Views are in `src/components/pages/`. Each route is a thin file in `src/pages/` and its twin in `src/pages/sw/`, which only name the paths, the title and the view.
 

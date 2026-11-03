@@ -20,6 +20,7 @@
     "test": "node --test",
     "check:launch": "node scripts/check-launch.mjs",
     "check:national": "node scripts/national/check-national.mjs",
+    "check:national:all": "npm run check:national && npm test && npm run test:national:site && npm audit",
     "release:national": "node scripts/national/release.mjs",
     "dev:national": "npm run dev -w @kbe/national",
     "build:national": "npm run build -w @kbe/national",

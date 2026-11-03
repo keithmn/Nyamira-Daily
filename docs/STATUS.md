@@ -10,6 +10,19 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 
 ## Changes on 3 Nov 2026
 
+- National product Phase 7, hardening, on branch `feat/national-phase-7`, not pushed:
+  - New security headers: HSTS, a cross-origin opener policy, open CORS on `/api/` and `/data/` only, and a one-day cache for the pictures.
+  - `npm audit` now runs in CI.
+  - `npm run check:national:all` runs every check in one command.
+  - New documents in `docs/national/`: `METHODS.md`, `BUDGET_DAY.md` (with the rehearsal timed on the laptop), `USABILITY.md` and `LAUNCH_CHECKLIST.md`.
+- **Not done in Phase 7:**
+  - Lighthouse is not installed, and adding it needs a new dependency.
+  - The `/budget-day/` page needs next year's estimates.
+  - Moving the national lib to TypeScript, or adding `astro check`, needs new dependencies.
+  - Blocking merges on CI failures is a GitHub branch-protection setting the founder controls.
+  - The trust pages wait for the lawyer.
+  - The founder's sign-off. Everything that needs a person is in `docs/national/LAUNCH_CHECKLIST.md`.
+
 - National product Phase 6, reach, on branch `feat/national-phase-6`, not pushed. New, in English and Kiswahili:
   - `/tools/your-taxes/`: version 1, which splits a typed amount by the shares of spending.
   - `/have-your-say/`: the dates the law fixes, a memorandum builder that sends and keeps nothing, and no hearing listed until an official notice is loaded.

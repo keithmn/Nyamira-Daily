@@ -323,6 +323,9 @@ test('the content security policy matches the design document', () => {
   assert.doesNotMatch(strict, /unsafe-eval|https?:/);
   assert.match(policy([], true), /frame-ancestors \*/);
   assert.match(headersFile([]), /X-Content-Type-Options: nosniff/);
+  for (const h of ['Strict-Transport-Security: max-age=31536000', 'Cross-Origin-Opener-Policy: same-origin', 'Referrer-Policy: strict-origin-when-cross-origin']) assert.ok(headersFile([]).includes(`  ${h}\n`), h);
+  assert.ok(headersFile([]).includes('/api/*\n  Access-Control-Allow-Origin: *\n'));
+  assert.doesNotMatch(headersFile([]).split('/api/*')[0], /Access-Control-Allow-Origin/);
 });
 
 test('project question rules ask only what the two printed years show', () => {

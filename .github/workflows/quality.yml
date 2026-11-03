@@ -21,6 +21,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: npm ci
+      - run: npm audit
       - run: npm test
       - run: npm run check:national
       - run: npm run test:national:site

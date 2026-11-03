@@ -28,11 +28,18 @@ export function policy(hashes, embed = false) {
 }
 
 export function headersFile(hashes) {
-  const common = ['Referrer-Policy: strict-origin-when-cross-origin', 'X-Content-Type-Options: nosniff', 'Permissions-Policy: camera=(), geolocation=(), microphone=(), payment=()'];
+  const common = [
+    'Referrer-Policy: strict-origin-when-cross-origin', 'X-Content-Type-Options: nosniff', 'Permissions-Policy: camera=(), geolocation=(), microphone=(), payment=(), usb=()',
+    'Strict-Transport-Security: max-age=31536000', 'Cross-Origin-Opener-Policy: same-origin',
+  ];
   return [
     '/*', ...common.map((h) => `  ${h}`), `  Content-Security-Policy: ${policy(hashes)}`,
     ...['/embed/*', '/sw/embed/*'].flatMap((path) => [path, '  ! Content-Security-Policy', `  Content-Security-Policy: ${policy(hashes, true)}`]),
     '/_astro/*', '  Cache-Control: public, max-age=31536000, immutable',
+    // Open data: any site or tool may read the files, which hold nothing but published figures (build brief 5.13)
+    ...['/api/*', '/data/*'].flatMap((path) => [path, '  Access-Control-Allow-Origin: *']),
+    // The pictures change with each data release and keep their names, so they are cached for a day, not a year
+    '/img/*', '  Cache-Control: public, max-age=86400',
     '',
   ].join('\n');
 }

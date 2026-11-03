@@ -202,7 +202,7 @@ default-src 'none'; script-src 'self' 'sha256-…'; style-src 'self'; style-src-
 img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'
 ```
 
-`style-src-attr` is needed because bar widths are inline styles, as in the main site's `HBars` and `ShareBars`. `/embed/*` pages relax `frame-ancestors` so news sites can show them.
+`style-src-attr` is needed because bar widths are inline styles, as in the main site's `HBars` and `ShareBars`. `/embed/*` and `/sw/embed/*` pages relax `frame-ancestors` so news sites can show them. Every page also sends `Referrer-Policy`, `X-Content-Type-Options`, `Permissions-Policy`, `Strict-Transport-Security` and `Cross-Origin-Opener-Policy`; `/api/*` and `/data/*` allow any origin to read them, because they are open data (`integrations/headers.mjs`).
 
 ## Checked on the specimen
 
