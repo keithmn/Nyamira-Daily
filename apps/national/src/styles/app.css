@@ -354,6 +354,9 @@ html.js .no-js-note { display: none; }
 .results li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; border-bottom: 1px solid var(--line); }
 .results a { display: inline-flex; align-items: center; min-height: 44px; }
 
+/* A quotation from a document */
+.quote { margin: 0; padding-left: 14px; border-left: 3px solid var(--primary); font-size: var(--fs-l); line-height: 1.35; }
+
 /* Rule badges: a word and a mark, never red */
 .rule { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; padding: 2px 12px; border: 1.5px solid var(--ink); border-radius: 999px; font-size: var(--fs-s); font-weight: 700; color: var(--ink); }
 .rule-misses { border-style: dashed; }

@@ -15,6 +15,7 @@ if (problems.length) throw new Error(`The figure registry has ${problems.length}
 export const release = readdirSync(join(DATA, 'releases')).filter((f) => f.endsWith('.json')).sort().at(-1).replace('.json', '');
 const corrections = JSON.parse(readFileSync(join(DATA, 'corrections.json'), 'utf8'));
 export const sectorMap = JSON.parse(readFileSync(join(DATA, 'sectors.json'), 'utf8'));
+export const outcomes = JSON.parse(readFileSync(join(DATA, 'outcomes.json'), 'utf8'));
 
 export const FY = 'FY2026/27';
 export const PREFIX = 'ke.fy2026-27.';

@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { parseCsv } from '@kbe/engine/csv';
 import { buildRegistry, readRegistry, staleSources } from '@kbe/engine/registry';
 import { diffValues, valuesOf } from '@kbe/engine/release';
-import { GENERATED, sectorMap } from './build-figures.mjs';
+import { GENERATED, outcomeMap, sectorMap } from './build-figures.mjs';
 import { runDoubleEntry } from './double-entry.mjs';
 import { readReleases } from './release.mjs';
 
@@ -25,7 +25,9 @@ export function checkNational(today) {
     if (JSON.stringify(stored) !== JSON.stringify(make())) errors.push(`${file} does not match its CSV: run node scripts/national/build-figures.mjs`);
   }
 
-  if (JSON.stringify(JSON.parse(readFileSync(join(dir, 'sectors.json'), 'utf8'))) !== JSON.stringify(sectorMap())) errors.push('sectors.json does not match its CSV: run node scripts/national/build-figures.mjs');
+  for (const [file, make] of [['sectors.json', sectorMap], ['outcomes.json', outcomeMap]]) {
+    if (JSON.stringify(JSON.parse(readFileSync(join(dir, file), 'utf8'))) !== JSON.stringify(make())) errors.push(`${file} does not match its CSV: run node scripts/national/build-figures.mjs`);
+  }
 
   const { act, county, pbo, cob } = runDoubleEntry();
   errors.push(...act.unresolved.map((r) => `Appropriation Act ${r.key}: readings disagree, ${r.first} against ${r.second}`), ...county.map((p) => `County Act: ${p}`), ...pbo, ...cob.map((p) => `Controller of Budget: ${p}`));

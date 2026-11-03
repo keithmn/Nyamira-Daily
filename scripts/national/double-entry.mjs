@@ -115,6 +115,32 @@ export function debtChecks(rows) {
   return problems;
 }
 
+// The Programme Based Budget against the Act: every programme the Act funds must be in the book at the Act's gross amount,
+// sub-programmes must add to their programme, and each vote's economic classification must add to the vote. Where the book
+// and the Act disagree, the Act is the law and the difference is listed in known-issues.csv.
+export function pbbChecks(book, economic, act, known = []) {
+  const problems = [], n = (v) => Number(v || 0), gross = new Map();
+  for (const r of act) { const k = r.programme ? `${r.vote}/${r.programme}` : r.vote; gross.set(k, (gross.get(k) ?? 0) + n(r.supply) + n(r.aia)); }
+  const add = (key, text) => { if (!known.some((k) => k.key === key)) problems.push(`Programme Based Budget ${key}: ${text}`); };
+  const funded = book.filter((r) => r.kind === 'programme' && r.y2026_27 !== '');
+  for (const [key, value] of gross) {
+    if (!key.includes('/')) { const t = book.find((r) => r.kind === 'total' && r.vote === key); if (n(t?.y2026_27) !== value) add(key, `vote total ${t?.y2026_27} against the Act's ${value}`); continue; }
+    const r = funded.find((x) => `${x.vote}/${x.code}` === key);
+    if (!r) add(key, 'not in the book');
+    else if (n(r.y2026_27) !== value) add(key, `${r.y2026_27} against the Act's ${value}`);
+  }
+  for (const p of funded) {
+    const subs = book.filter((r) => r.kind === 'subprogramme' && r.vote === p.vote && r.code.slice(0, 4) === p.code.slice(0, 4));
+    if (Math.abs(subs.reduce((a, r) => a + n(r.y2026_27), 0) - n(p.y2026_27)) > 2) add(`${p.vote}/${p.code}`, 'sub-programmes do not add to the programme');
+  }
+  for (const vote of new Set(economic.map((r) => r.vote))) {
+    const rows = economic.filter((r) => r.vote === vote), total = rows.find((r) => r.block === 'total'), blocks = rows.filter((r) => r.block === 'current' || r.block === 'capital');
+    if (Math.abs(blocks.reduce((a, r) => a + n(r.y2026_27), 0) - n(total?.y2026_27)) > 2) add(`${vote}/economic`, 'current and capital do not add to the total');
+    if (n(total?.y2026_27) !== gross.get(vote)) add(`${vote}/economic`, `total ${total?.y2026_27} against the Act's ${gross.get(vote)}`);
+  }
+  return problems;
+}
+
 // The ratios the report names, which our own division must reproduce. That is what proves the method.
 export const NAMED_WAGE_SHARES = { 'Homa Bay': 56, Nyeri: 52, 'Taita-Taveta': 49, Mombasa: 26, Kwale: 26, 'Tana River': 28 };
 
@@ -163,7 +189,8 @@ export function runDoubleEntry() {
     ...cobChecks(csv('cob-county-2025-26/extract.csv'), csv('cob-county-2025-26/typed.csv')).map((p) => `FY2025/26 ${p}`),
     ...cobDetailChecks({ osr: csv('cob-county-2025-26/osr.csv'), wages: csv('cob-county-2025-26/wages.csv'), payables: csv('cob-county-2025-26/payables.csv'), annex: csv('cob-county-2025-26/annex.csv'), spending: csv('cob-county-2025-26/extract.csv'), known: csv('cob-county-2025-26/known-issues.csv') })];
   const debt = debtChecks(csv('debt-report-2024-25/extract.csv'));
-  return { act, county, pbo, cob: [...cob, ...debt.map((p) => `Debt report ${p}`)] };
+  const pbb = pbbChecks(csv('pbb-2026-27/programmes.csv'), csv('pbb-2026-27/economic.csv'), csv('appropriation-act-2026/extract.csv'), csv('pbb-2026-27/known-issues.csv'));
+  return { act, county, pbo: [...pbo, ...pbb], cob: [...cob, ...debt.map((p) => `Debt report ${p}`)] };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

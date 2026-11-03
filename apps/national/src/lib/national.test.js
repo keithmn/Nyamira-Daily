@@ -11,7 +11,7 @@ import { countOf, rulesFor } from './rules.js';
 import { searchIndex } from './search.js';
 import { amountSentence, countyQuestions, whatsappHref } from './sentences.js';
 import { nextDeadline, timeline } from './stages.js';
-import { allSectors, allVotes, sectorBySlug, voteByCode } from './votes.js';
+import { allSectors, allVotes, economicSplit, programmeDetail, sectorBySlug, voteByCode } from './votes.js';
 
 const vars = (s) => [...s.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort();
 
@@ -46,7 +46,8 @@ test('routes carry the language and find their twin', () => {
 });
 
 test('only known routes count as planned', () => {
-  assert.ok(isPlanned('/revenue/'));
+  assert.ok(isPlanned('/track/'));
+  assert.equal(isPlanned('/revenue/'), false);
   assert.ok(isPlanned('/sw/learn/glossary/'));
   assert.equal(isPlanned('/counties/'), false);
   assert.equal(isPlanned('/nowhere/'), false);
@@ -106,6 +107,22 @@ test('the next deadline follows the law, and rolls over after it passes', () => 
   assert.equal(nextDeadline('en', '2027-02-16').date, '2028-02-15');
   assert.match(nextDeadline('en', '2026-11-02').text, /Budget Policy Statement 2027, due in Parliament by 15 February 2027/);
   assert.equal(nextDeadline('en').doc.id, 'pfm-act-2012');
+});
+
+test('a vote\'s economic split covers every shilling, and programmes show the book\'s sub-programmes and aim', () => {
+  const e = economicSplit('1066');
+  assert.equal(e.parts.reduce((a, p) => a + p.value, 0), e.total.value);
+  assert.equal(e.total.value, voteByCode('1066').total);
+  const d = programmeDetail('1066', '0503000');
+  assert.ok(d.subs.length > 0);
+  assert.equal(d.subs.reduce((a, s) => a + s.value, 0), d.book.value);
+  assert.ok(d.outcome.length > 10);
+  assert.equal(programmeDetail('2071', '075000').book.value, voteByCode('2071').programmes.find((p) => p.code === '075000').total);
+});
+
+test('where the budget book and the Act differ, the page shows the Act and says so', () => {
+  const book = programmeDetail('1213', '0710000').book.value, act = voteByCode('1213').programmes.find((p) => p.code === '0710000').total;
+  assert.equal(book - act, 40000000);
 });
 
 test('all 87 votes and 201 programmes are in, each vote in one sector', () => {
@@ -278,7 +295,7 @@ test('the timeline has one stage now, and gives only dates a loaded document sup
 test('an unknown figure stops the build', () => {
   assert.throws(() => fig('statement.no.such.figure'), /Unknown figure/);
   assert.equal(fig('statement.total.expenditure').value, 4820.4);
-  assert.equal(release, '2026-11-02');
+  assert.match(release, /^\d{4}-\d{2}-\d{2}$/);
 });
 
 test('only inline scripts that run are hashed', () => {

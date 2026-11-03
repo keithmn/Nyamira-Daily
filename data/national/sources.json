@@ -277,5 +277,27 @@
    "date": "2026-09-30",
    "what": "The Annual Public Debt Management Report for FY2025/26"
   }
+ },
+ {
+  "id": "pbb-2026-27",
+  "title": "Programme Based Budget of the National Government of Kenya for the year ending 30th June, 2027 (National Treasury, June 2026, approved)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20Books/Budget%20books%202026-2027/FY%202026%202027%20Programme%20Based%20Budget%20Book_Approved.pdf",
+  "archive": null,
+  "sha256": "ccb44aa1a3b5aa1b13e27d5d8a17d8c3b5a4e6fca561b6e98c9dda9e654ae9e6",
+  "file": "pbb-2026-27-approved.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh": 2
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "The Programme Based Budget for FY2027/28"
+  },
+  "note": "Pages are given as PDF pages: the book numbers each vote's section separately. Parliament also hosts the April estimates edition, which has a different total; this is the approved edition, whose total equals the Appropriation Act."
  }
 ]

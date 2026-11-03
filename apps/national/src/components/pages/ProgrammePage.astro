@@ -1,14 +1,17 @@
 ---
-// One programme, at the level the Act gives. Sub-programmes and targets come from the Programme Based Budget, not yet loaded.
-import { money, percent } from '@kbe/engine/fmt';
+// One programme: its amount from the Act, what the Programme Based Budget says it is for, and its sub-programmes. The book's
+// targets do not line up reliably as text, so they wait for a person to type them.
+import { full, money, percent } from '@kbe/engine/fmt';
 import { t } from '../../i18n/index.js';
-import { PREFIX } from '../../lib/figures.js';
+import { FY, PREFIX } from '../../lib/figures.js';
 import { YEAR } from '../../lib/routes.js';
-import { summed, voteByCode } from '../../lib/votes.js';
+import { programmeDetail, summed, voteByCode } from '../../lib/votes.js';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import Chart from '../Chart.astro';
 import NotYetLoaded from '../NotYetLoaded.astro';
 import PageHero from '../PageHero.astro';
+import RankedBars from '../RankedBars.astro';
+import SourceLine from '../SourceLine.astro';
 import SplitBar from '../SplitBar.astro';
 
 interface Props { vote: string; code: string; lang?: 'en' | 'sw' }
@@ -16,15 +19,30 @@ const { vote, code, lang = 'en' } = Astro.props;
 const v = voteByCode(vote), p = v.programmes.find((x) => x.code === code), sector = t(lang, `sector.${v.sector}`);
 const figure = summed(p.first, `${PREFIX}approved.vote.${vote}.programme.${code}`, p.name, p.total);
 const parts = [{ name: t(lang, 'vote.recurrent'), value: p.recurrent, slot: '1' }, { name: t(lang, 'vote.development'), value: p.development, slot: '2' }].filter((x) => x.value > 0).map((x) => ({ ...x, shown: `${money(x.value, 'KSh', lang)} (${percent(x.value / p.total * 100, 0)})`, share: x.value / p.total * 100 }));
+const detail = programmeDetail(vote, code);
+const subRows = detail.subs.map((s, i) => ({ name: s.name, value: s.value, shown: (s.value / 1e9).toFixed(2), mark: i === 0, tip: full(s.value) }));
+const differs = detail.book && detail.book.value !== p.total;
 ---
 <div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.budget'), path: YEAR }, { name: sector, path: `${YEAR}sectors/${v.sector}/` }, { name: v.name, path: `${YEAR}votes/${vote}/` }, { name: p.name }]} /></div>
 <PageHero figure={figure} title={p.name} line={t(lang, 'programme.of', { name: v.name })} calc={t(lang, 'fig.calc')} what={p.name} lang={lang} />
 <section class="band">
   <h2 class="vh">{t(lang, 'nav.detail')}</h2>
   <div class="wrap stack gap-l">
+    {detail.outcome && detail.book && (
+      <article class="card fig">
+        <p class="fig-q">{t(lang, 'programme.aim')}</p>
+        <blockquote class="quote" lang="en">{detail.outcome}</blockquote>
+        <SourceLine doc={detail.book.doc} page={detail.book.page} lang={lang} />
+      </article>
+    )}
+    {subRows.length > 0 && (
+      <Chart lang={lang} title={t(lang, 'programme.subsTitle')} sub={t(lang, 'vote.programmesSub', { fy: FY })} from={detail.book} table={{ columns: [t(lang, 'programme.sub'), 'KSh'], rows: detail.subs.map((s) => [s.name, full(s.value)]) }} csvName={`programme-${vote}-${code}-2026-27`} note={differs ? t(lang, 'programme.differs', { book: money(detail.book.value, 'KSh', lang), act: money(p.total, 'KSh', lang) }) : undefined}>
+        <RankedBars rows={subRows} lang={lang} />
+      </Chart>
+    )}
     <Chart lang={lang} title={t(lang, 'vote.split')} from={p.first} calc={t(lang, 'fig.calc')} note={t(lang, 'vote.gross')}>
       <SplitBar parts={parts} label={parts.map((x) => `${x.name}: ${x.shown}`).join(', ')} />
     </Chart>
-    <NotYetLoaded what={t(lang, 'programme.subWhat')} why={t(lang, 'vote.targetsWhy')} lang={lang} />
+    <NotYetLoaded what={t(lang, 'programme.targetsWhat')} why={t(lang, 'vote.targetsWhy')} lang={lang} />
   </div>
 </section>

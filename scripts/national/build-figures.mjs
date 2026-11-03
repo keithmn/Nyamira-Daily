@@ -173,6 +173,31 @@ export function debtFigures() {
   return { defaults: { stage: 'spent', money: 'national', label: 'official', source: 'annual-public-debt-report-2024-25', ...CHECKED }, figures };
 }
 
+// The Programme Based Budget's FY2026/27 column: sub-programmes under their programmes, and each vote's economic classification.
+// Programmes the Act no longer funds have no FY2026/27 amount in the book, so they are left out.
+export function pbbFigures() {
+  const book = csv('pbb-2026-27/programmes.csv'), economic = csv('pbb-2026-27/economic.csv'), V = 'ke.fy2026-27.approved.pbb.vote', out = [];
+  const at = (r, part) => ({ page: `Part ${part}, PDF p.${r.pdf_page}`, pdfPage: Number(r.pdf_page) });
+  const programmeOf = (r) => book.find((p) => p.kind === 'programme' && p.vote === r.vote && p.code.slice(0, 4) === r.code.slice(0, 4) && p.y2026_27 !== '');
+  for (const r of book.filter((x) => x.y2026_27 !== '')) {
+    if (r.kind === 'total') out.push({ id: `${V}.${r.vote}.total`, name: `Vote ${r.vote}: total`, value: Number(r.y2026_27), level: 'vote', grouping: 'pbb-programme', parent: null, ...at(r, 'F') });
+    if (r.kind === 'programme') out.push({ id: `${V}.${r.vote}.programme.${r.code}`, name: r.name, value: Number(r.y2026_27), level: 'programme', grouping: 'pbb-programme', parent: `${V}.${r.vote}.total`, ...at(r, 'F') });
+    if (r.kind === 'subprogramme') out.push({ id: `${V}.${r.vote}.subprogramme.${r.code}`, name: r.name, value: Number(r.y2026_27), level: 'subprogramme', grouping: 'pbb-programme', parent: `${V}.${r.vote}.programme.${programmeOf(r).code}`, ...at(r, 'F') });
+  }
+  for (const vote of new Set(economic.map((r) => r.vote))) {
+    let block = null;
+    for (const r of economic.filter((x) => x.vote === vote && x.y2026_27 !== '')) {
+      if (r.block === 'total') out.push({ id: `${V}.${vote}.economic.total`, name: `Vote ${vote}: total by economic classification`, value: Number(r.y2026_27), level: 'economic', grouping: 'pbb-economic', parent: null, ...at(r, 'G') });
+      else if (r.block === 'current' || r.block === 'capital') { block = r.block; out.push({ id: `${V}.${vote}.economic.${block}`, name: `Vote ${vote}: ${block} expenditure`, value: Number(r.y2026_27), level: 'economic', grouping: 'pbb-economic', parent: `${V}.${vote}.economic.total`, ...at(r, 'G') }); }
+      else if (block) out.push({ id: `${V}.${vote}.economic.${block}.${r.code}`, name: r.name, value: Number(r.y2026_27), level: 'economic', grouping: 'pbb-economic', parent: `${V}.${vote}.economic.${block}`, ...at(r, 'G') });
+    }
+  }
+  return { defaults: { fy: '2026/27', stage: 'approved', unit: 'KSh', money: 'national', label: 'official', source: 'pbb-2026-27', ...CHECKED }, figures: out };
+}
+
+// Each programme's stated outcome, in the book's words. Text, not figures, so it lives beside them.
+export const outcomeMap = () => Object.fromEntries(csv('pbb-2026-27/outcomes.csv').map((r) => [r.programme, r.outcome]));
+
 export const GENERATED = {
   'appropriation-act-2026.json': appropriationFigures, 'county-allocation-act-2026.json': countyActFigures, 'cra-recommendation-2026-27.json': craFigures, 'guide-counties-2026-27.json': guideCountyFigures,
   'pbo-votes-2026-27.json': () => pboVoteFigures('votes-2026-27.csv', '2026-27', '2026/27', 'pbo-budget-explainer-2026'),
@@ -181,6 +206,7 @@ export const GENERATED = {
   'cob-counties-2025-26.json': () => cobCountyFigures('2025-26', 'cob-county-birr-2025-26', -34),
   'cob-county-detail-2025-26.json': cobDetailFigures,
   'debt-2024-25.json': debtFigures,
+  'pbb-2026-27.json': pbbFigures,
 };
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
@@ -191,4 +217,5 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
     console.log(file, data.figures.length);
   }
   writeFileSync(join(root, 'data/national/sectors.json'), JSON.stringify(sectorMap(), null, 1) + '\n');
+  writeFileSync(join(root, 'data/national/outcomes.json'), JSON.stringify(outcomeMap(), null, 1) + '\n');
 }
