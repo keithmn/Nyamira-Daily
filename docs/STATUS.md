@@ -14,6 +14,8 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
   - New security headers: HSTS, a cross-origin opener policy, open CORS on `/api/` and `/data/` only, and a one-day cache for the pictures.
   - `npm audit` now runs in CI.
   - `npm run check:national:all` runs every check in one command.
+  - English pages with a headline (home, year, sector, vote, programme, county, debt, revenue, projects) now carry a Kiswahili summary, marked for review (decision #87).
+  - The Track tab led to the unbuilt `/track/`. Tabs now go to a section's first built page, the footer shows unbuilt pages as "Planned" without a link, and the link check fails on any link to an unbuilt page.
   - New documents in `docs/national/`: `METHODS.md`, `BUDGET_DAY.md` (with the rehearsal timed on the laptop), `USABILITY.md` and `LAUNCH_CHECKLIST.md`.
 - **Not done in Phase 7:**
   - Lighthouse is not installed, and adding it needs a new dependency.
@@ -37,7 +39,6 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
   - The audit-opinions explainer needs the Auditor-General's reports.
   - Reporting an error needs a corrections contact.
   - PAYE (Your taxes version 2) waits for a test against KRA's examples.
-  - Kiswahili summaries on pages other than explainers.
 
 - National product Phase 5, depth, on branch `feat/national-phase-5`, not pushed. New pages: `/debt/`, `/revenue/` and `/projects/`, in English and Kiswahili. Programme pages now show sub-programmes and the stated outcome. Vote pages show what the money pays for and the vote's projects. County pages show own-source revenue, grants, the wage and development rules checks, and pending bills.
 - New data: 6,152 figures from 19 sources, data release 2026-11-03. Added:
