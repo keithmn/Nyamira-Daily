@@ -38,6 +38,8 @@ Nothing here is pushed, merged or deployed. That needs the founder's go-ahead (A
 | 23 | Review decisions #90 to #101 | Founder | Done 3 Nov 2026: #90 to #100 approved; #101 replaced by #102 |
 | 24 | Agree to commit about 9 MB of infographic pictures, or choose another home for them (decision #99) | Founder | Done 3 Nov 2026: approved, 8.3 MB in Git |
 | 25 | Budget-day rehearsal with a person, before June 2027 (`BUDGET_DAY.md`) | Founder and an editor | Open |
+| 26 | A daily rebuild (a Cloudflare Pages deploy hook on a schedule), so dates, countdowns and notices move on without a code change (decision #103) | Founder | Open |
+| 27 | Watch the Treasury and Parliament sites for new notices (hearings, calls for comments) and add them to `data/national/notices.json`; the 2027 Budget Policy Statement reaches Parliament by 16 November 2026; watch Parliament's site for any call for views on it | A named person | Open |
 
 ## Sign-off
 

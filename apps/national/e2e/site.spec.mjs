@@ -573,3 +573,13 @@ test('every section tab leads to a built page, and the footer marks planned page
   await expect(page.locator('footer .planned').first()).toBeVisible();
   for (const href of await page.locator('footer a').evaluateAll((as) => as.map((a) => a.getAttribute('href')))) expect((await page.request.get(href)).status(), href).toBe(200);
 });
+
+test('official notices: the announced date leads, closed notices say so, and each links to the Treasury', async ({ page }) => {
+  await open(page, '/');
+  await expect(page.locator('.stage-next')).toContainText('16 November 2026');
+  await expect(page.locator('.stage-next')).toContainText('15 February 2027');
+  await open(page, '/have-your-say/');
+  await expect(page.locator('.say-none')).toBeVisible();
+  await expect(page.locator('.cal-item .tag')).toHaveCount(2);
+  for (const href of await page.locator('.cal-item a[href*="treasury"]').evaluateAll((as) => as.map((a) => a.getAttribute('href')))) expect(href).toMatch(/^https:\/\/newsite\.treasury\.go\.ke\//);
+});

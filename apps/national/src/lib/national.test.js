@@ -5,7 +5,8 @@ import { hash, headersFile, inlineScripts, policy } from '../../integrations/hea
 import { fitsAboveBar, inflows, outflows, perHundred, sectors } from './budget.js';
 import { barWidths, endLabelY, linePoints, ticks } from './charts.js';
 import { allCountyDev, cardData, changeWords, countyBySlug, countyRows, shareParts } from './counties.js';
-import { citationFor, fig, release, shortTitle } from './figures.js';
+import { allNotices, citationFor, fig, release, shortTitle } from './figures.js';
+import { bpsYear, recentlyClosed, upcoming } from './notices.js';
 import { PLANNED, SECTIONS, href, isPlanned, sectionOf, sectionPath, twin } from './routes.js';
 import { countOf, rulesFor } from './rules.js';
 import { searchIndex } from './search.js';
@@ -111,12 +112,28 @@ test('a county that reported no trade payables has no figure, not a zero', () =>
   assert.match(countyQuestions(countyBySlug('nyamira'), 'en').join(' '), /owed suppliers KSh 357\.7 million at 30 June 2026/);
 });
 
-test('the next deadline follows the law, and rolls over after it passes', () => {
-  assert.equal(nextDeadline('en', '2026-11-02').date, '2027-02-15');
-  assert.equal(nextDeadline('en', '2027-02-15').date, '2027-02-15');
-  assert.equal(nextDeadline('en', '2027-02-16').date, '2028-02-15');
-  assert.match(nextDeadline('en', '2026-11-02').text, /Budget Policy Statement 2027, due in Parliament by 15 February 2027/);
-  assert.equal(nextDeadline('en').doc.id, 'pfm-act-2012');
+test('with no notice, the next deadline follows the law, and rolls over after it passes', () => {
+  assert.equal(nextDeadline('en', '2026-11-02', []).date, '2027-02-15');
+  assert.equal(nextDeadline('en', '2027-02-15', []).date, '2027-02-15');
+  assert.equal(nextDeadline('en', '2027-02-16', []).date, '2028-02-15');
+  assert.match(nextDeadline('en', '2026-11-02', []).text, /Budget Policy Statement 2027, due in Parliament by 15 February 2027/);
+  assert.equal(nextDeadline('en', '2026-11-02', []).doc.id, 'pfm-act-2012');
+});
+
+test('a date the Treasury announced comes first while it is ahead, and the law takes over once it passes', () => {
+  const n = nextDeadline('en', '2026-11-03');
+  assert.equal(n.date, '2026-11-16');
+  assert.match(n.text, /Budget Policy Statement 2027, due in Parliament by 16 November 2026.*15 February 2027/);
+  assert.match(n.doc.url, /newsite\.treasury\.go\.ke/);
+  assert.equal(nextDeadline('en', '2026-11-17').date, '2027-02-15');
+  const notices = allNotices();
+  assert.deepEqual(upcoming(notices, '2026-11-03'), []);
+  assert.deepEqual(recentlyClosed(notices, '2026-11-03').map((x) => x.id), ['tnt-2026-draft-bps-comments', 'tnt-2026-public-sector-hearings']);
+  assert.deepEqual(recentlyClosed(notices, '2027-03-01'), []);
+  assert.equal(upcoming(notices, '2026-10-10')[0].id, 'tnt-2026-public-sector-hearings');
+  assert.equal(bpsYear('2026-11-16'), 2027);
+  assert.equal(bpsYear('2027-02-15'), 2027);
+  for (const x of notices) assert.match(x.source.url, /^https:\/\/newsite\.treasury\.go\.ke\//);
 });
 
 test('a vote\'s economic split covers every shilling, and programmes show the book\'s sub-programmes and aim', () => {

@@ -20,5 +20,5 @@ const next = nextDeadline(lang);
     ))}
   </ol>
   <p class="stage-now">{t(lang, 'stage.nowLine')}</p>
-  <p class="stage-next">{next.text}<span data-days-until={next.date} data-text={next.days}>.</span> <a href={next.doc.url} rel="noopener">{t(lang, 'stage.nextSource')}</a></p>
+  <p class="stage-next">{next.text}<span data-days-until={next.date} data-text={next.days}>.</span> <a href={next.doc.url} rel="noopener">{next.sourceText}</a></p>
 </div>

@@ -18,6 +18,8 @@ export const release = RELEASES.at(-1).replace('.json', '');
 export const allReleases = () => RELEASES.toReversed().map((f) => JSON.parse(readFileSync(join(DATA, 'releases', f), 'utf8')));
 const corrections = JSON.parse(readFileSync(join(DATA, 'corrections.json'), 'utf8'));
 export const allCorrections = () => corrections;
+const notices = JSON.parse(readFileSync(join(DATA, 'notices.json'), 'utf8'));
+export const allNotices = () => notices;
 export const sectorMap = JSON.parse(readFileSync(join(DATA, 'sectors.json'), 'utf8'));
 export const outcomes = JSON.parse(readFileSync(join(DATA, 'outcomes.json'), 'utf8'));
 

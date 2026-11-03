@@ -3,14 +3,17 @@
 // memorandum builder. The builder sends nothing and keeps nothing; the reader copies the text and sends it themselves.
 import { longDate } from '@kbe/engine/fmt';
 import { t } from '../../i18n/index.js';
-import { today } from '../../lib/figures.js';
+import { allNotices, today } from '../../lib/figures.js';
 import { memorandum } from '../../lib/memo.js';
 import { memoTopics, memoWords } from '../../lib/memoTopics.js';
+import { recentlyClosed, upcoming } from '../../lib/notices.js';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import LegalDates from '../LegalDates.astro';
+import NoticeList from '../NoticeList.astro';
 
 interface Props { lang?: 'en' | 'sw' }
 const { lang = 'en' } = Astro.props;
+const next = upcoming(allNotices(), today()), announcedDates = upcoming(allNotices(), today(), ['deadline']), closed = recentlyClosed(allNotices(), today());
 const topics = memoTopics(lang), w = memoWords(lang);
 const example = memorandum({ topic: topics.whole, from: '', date: longDate(today(), lang), ask: '', w });
 const data = { w, lang, topics: [topics.whole, ...topics.votes, ...topics.counties] };
@@ -21,14 +24,17 @@ const data = { w, lang, topics: [topics.whole, ...topics.votes, ...topics.counti
     <div class="page-head"><h1>{t(lang, 'say.title')}</h1><p>{t(lang, 'say.line')}</p></div>
     <article class="card stack">
       <h2>{t(lang, 'say.nextTitle')}</h2>
-      <p class="say-none">{t(lang, 'say.none')}</p>
+      {next.length > 0 ? <NoticeList list={next} lang={lang} /> : <p class="say-none">{t(lang, 'say.none')}</p>}
       <p class="small muted">{t(lang, 'say.noneWhy')}</p>
     </article>
+    {closed.length > 0 && <div class="stack"><h2>{t(lang, 'notice.recentTitle')}</h2><p>{t(lang, 'notice.recentLine')}</p><NoticeList list={closed} closed lang={lang} /></div>}
   </div>
 </section>
 <section class="band alt" aria-labelledby="h-dates">
   <div class="wrap stack">
     <div class="band-head"><h2 id="h-dates">{t(lang, 'cal.title')}</h2><p>{t(lang, 'cal.line')}</p></div>
+    {announcedDates.length > 0 && <><h3>{t(lang, 'notice.announcedTitle')}</h3><p>{t(lang, 'notice.announcedLine')}</p><NoticeList list={announcedDates} lang={lang} /></>}
+    <h3>{t(lang, 'cal.lawTitle')}</h3>
     <LegalDates lang={lang} />
   </div>
 </section>

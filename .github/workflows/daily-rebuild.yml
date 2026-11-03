@@ -1,0 +1,22 @@
+name: Daily rebuild
+
+# The national product is static, so dates, countdowns and notices move on only when it is rebuilt (decision #103).
+# This calls the Cloudflare Pages deploy hook once a day. Until the KBE_DEPLOY_HOOK secret exists, it does nothing.
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 03:00 in Nairobi
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call the deploy hook
+        env:
+          HOOK: ${{ secrets.KBE_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "No KBE_DEPLOY_HOOK secret yet: nothing to do."; exit 0; fi
+          curl -fsS -X POST "$HOOK" > /dev/null && echo "Rebuild requested."

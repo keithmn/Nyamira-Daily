@@ -99,3 +99,10 @@ The Mwananchi Guide's ten sectors group some votes differently: its General Econ
 - **Programme targets:** to be typed by a person (decision #97).
 - **Projects funded in four or more budgets** (brief 5.7): needs the Development Estimates of earlier years.
 - **County budget releases and disbursement dates:** the County Allocation of Revenue Act has no disbursement schedule; payment dates are in a separate Gazette notice under s.4(2).
+
+## Official notices
+
+`data/national/notices.json` holds notices of hearings, calls for comments and announced dates. It is typed by hand from notices on the Treasury's site, each with its link, SHA-256 and the date it was downloaded (decision #103). The stored copies are in `data-src/national/pdfs/` as `notice-*.pdf`. Add a notice only from an official document, never from a newspaper or social media.
+
+- **`/track/` source.** The Treasury's Quarterly Economic and Budgetary Review is on `newsite.treasury.go.ke`, which scripts can reach, so `/track/` could be built from it without Kenya Law. It is quarterly, though, not monthly; the latest is the fourth quarter of FY2025/26. The monthly Exchequer statements are in the Kenya Gazette. Which to use is the founder's choice.
+- **The County Governments Additional Allocations Act, 2026** is not on the Treasury's site, so it still has to be downloaded from Kenya Law by hand.
