@@ -2,7 +2,8 @@
 // stages still to come show none (VERIFICATION.md). `anchor` is a figure from the document that closes each stage.
 import { longDate } from '@kbe/engine/fmt';
 import { t } from '../i18n/index.js';
-import { fig, sourceDoc, today } from './figures.js';
+import { allNotices, fig, sourceDoc, today } from './figures.js';
+import { announced, bpsYear } from './notices.js';
 
 const TIMELINE = [
   { stage: 'recommendation', anchor: 'recommendation.county-total.equitable-share' },
@@ -16,10 +17,14 @@ const TIMELINE = [
 ];
 const NOW = 'spending';
 
-// The next date the law fixes: the Budget Policy Statement reaches Parliament by 15 February each year (PFM Act, s.25(2))
-export function nextDeadline(lang, now = today()) {
-  const year = Number(now.slice(0, 4)), due = now > `${year}-02-15` ? year + 1 : year, date = `${due}-02-15`;
-  return { date, year: due, text: t(lang, 'stage.nextLine', { year: due, date: longDate(date, lang) }), days: t(lang, 'stage.nextDays', { n: '{n}' }), doc: sourceDoc('pfm-act-2012'), page: 's.25(2), p.908' };
+// The next Budget Policy Statement. The law's latest date is 15 February (PFM Act, s.25(2)); when the Treasury has announced
+// an earlier date in an official notice, that is the one shown, with the law's date beside it (decision #103).
+export function nextDeadline(lang, now = today(), notices = allNotices()) {
+  const year = Number(now.slice(0, 4)), legal = `${now > `${year}-02-15` ? year + 1 : year}-02-15`;
+  const early = announced(notices, 'bps', now, legal), date = early?.dates[0] ?? legal, bps = bpsYear(date);
+  const text = early ? t(lang, 'stage.nextAnnounced', { year: bps, date: longDate(date, lang), legal: longDate(legal, lang) }) : t(lang, 'stage.nextLine', { year: bps, date: longDate(date, lang) });
+  const doc = early ? { title: early.source.title, url: early.source.url, archive: null } : sourceDoc('pfm-act-2012');
+  return { date, year: bps, text, days: t(lang, 'stage.nextDays', { n: '{n}' }), doc, page: early ? 'p.1' : 's.25(2), p.908', sourceText: t(lang, early ? 'stage.nextNotice' : 'stage.nextSource') };
 }
 
 export function timeline(lang) {

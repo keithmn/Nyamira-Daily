@@ -287,9 +287,10 @@ test.describe('the journeys, tap by tap, at 390px', () => {
 
 test('the home page counts down to the next stage, in days', async ({ page }) => {
   await open(page, '/');
-  await expect(page.locator('.stage-next')).toContainText('Budget Policy Statement 2027, due in Parliament by 15 February 2027, in ');
+  // The date is the Treasury's announced one while it is ahead, then the law's (decision #103), so either may show
+  await expect(page.locator('.stage-next')).toContainText(/Budget Policy Statement 20\d\d, due in Parliament by \d{1,2} (February|November) 20\d\d/);
   await expect(page.locator('.stage-next')).toContainText(' days.');
-  await expect(page.locator('.stage-next a')).toHaveAttribute('href', /Public_Finance_Management_Act_2012/);
+  await expect(page.locator('.stage-next a')).toHaveAttribute('href', /Public_Finance_Management_Act_2012|newsite\.treasury\.go\.ke/);
 });
 
 test('a county page gives its rules check, law quoted, with the official finding first', async ({ page }) => {
@@ -572,4 +573,14 @@ test('every section tab leads to a built page, and the footer marks planned page
   for (const href of await page.locator('.top nav a').evaluateAll((as) => as.map((a) => a.getAttribute('href')))) expect((await page.request.get(href)).status(), href).toBe(200);
   await expect(page.locator('footer .planned').first()).toBeVisible();
   for (const href of await page.locator('footer a').evaluateAll((as) => as.map((a) => a.getAttribute('href')))) expect((await page.request.get(href)).status(), href).toBe(200);
+});
+
+test('official notices: the announced date leads, closed notices say so, and each links to the Treasury', async ({ page }) => {
+  await open(page, '/');
+  await expect(page.locator('.stage-next')).toContainText('16 November 2026');
+  await expect(page.locator('.stage-next')).toContainText('15 February 2027');
+  await open(page, '/have-your-say/');
+  await expect(page.locator('.say-none')).toBeVisible();
+  await expect(page.locator('.cal-item .tag')).toHaveCount(2);
+  for (const href of await page.locator('.cal-item a[href*="treasury"]').evaluateAll((as) => as.map((a) => a.getAttribute('href')))) expect(href).toMatch(/^https:\/\/newsite\.treasury\.go\.ke\//);
 });
