@@ -16,11 +16,11 @@ The site has the following, in English and Kiswahili:
 
 - **Budget:** the home page, the year page, all 12 sector groups, all 87 votes and all 201 programmes, `/revenue/` and `/debt/`.
 - **Counties:** all 47 counties with their print sheets and embeds, and county comparison.
-- **Track:** `/projects/` and `/have-your-say/`.
+- **Track:** `/track/`, `/projects/` and `/have-your-say/`.
 - **Learn:** ten explainers, the glossary, the calendar, Your taxes and 62 infographics.
 - **Data:** `/data/`, releases, methods, corrections, CSV and JSON files, and search.
 
-That is about 1,300 pages, plus the component library in preview builds. `/track/` and the trust pages are still listed in `PLANNED` in `src/lib/routes.js`.
+That is about 1,300 pages, plus the component library in preview builds. Only the trust pages are still listed in `PLANNED` in `src/lib/routes.js`.
 
 The other documents in this folder:
 

@@ -1,0 +1,90 @@
+vote,name,rec_actual,rec_target,rec_variance,dev_actual,dev_target,dev_variance,total_actual,total_target,total_variance,pct_spent
+1011,Executive Office of the President,6684,6860,-176,1329,1344,-15,8013,8204,-191,97.7
+1012,Office of the Deputy President,5112,5268,-155,100,100,0,5212,5368,-155,97.1
+1013,Office of the Prime Cabinet Secretary,602,629,-27,,,,602,629,-27,95.7
+1014,State Department for Parliamentary Affairs,433,440,-6,,,,433,440,-6,98.5
+1015,State Department for Performance and Delivery Management,,,,,,,,,,
+1016,State Department for Cabinet Affairs,226,235,-9,,,,226,235,-9,96.1
+1017,State House,17121,17254,-133,1292,1295,-3,18413,18549,-135,99.3
+1018,State Department for National Government Coordination,967,1034,-67,21,22,-1,988,1056,-68,93.5
+1023,State Department for Correctional Services,38574,38737,-163,267,329,-62,38841,39066,-225,99.4
+1024,State Department for Immigration and Citizen Services,14249,14960,-711,12878,14302,-1425,27126,29262,-2136,92.7
+1025,National Police Service,134004,134493,-488,1671,1713,-42,135675,136206,-531,99.6
+1026,State Department for Internal Security & National Administration,47894,49877,-1983,8031,8037,-6,55925,57914,-1989,96.6
+1032,State Department for Devolution,1370,1374,-4,9666,14176,-4510,11036,15550,-4514,71.0
+1033,State Department for Special Programmes,13330,13809,-478,166,166,,13496,13974,-478,96.6
+1036,State Department for the ASALs and Regional Development,9010,9623,-613,4718,4976,-258,13728,14598,-871,94.0
+1041,Ministry of Defence,213852,221819,-7967,1000,4634,-3634,214852,226453,-11601,94.9
+1053,State Department for Foreign Affairs,17234,23746,-6512,782,2346,-1564,18016,26092,-8076,69.0
+1054,State Department for Diaspora Affairs,750,759,-8,,,,750,759,-8,98.9
+1064,State Department for Vocational and Technical Training,37155,43766,-6611,5761,7282,-1521,42916,51048,-8132,84.1
+1065,State Department for Higher Education and Research,120983,156422,-35440,4859,4992,-133,125841,161414,-35573,78.0
+1066,State Department for Basic Education,108461,114599,-6138,15721,18073,-2352,124181,132672,-8491,93.6
+1067,"State Department for Science, Innovation and Research",859,1070,-210,,,,859,1070,-210,80.3
+1071,The National Treasury,79973,89873,-9900,30538,37262,-6725,110510,127135,-16625,86.9
+1072,State Department for Economic Planning,4385,4433,-48,62047,62211,-164,66432,66644,-212,99.7
+1073,State Department for Public Investments and Assets Management,3485,3873,-388,726,736,-10,4211,4609,-398,91.4
+1082,State Department for Medical Services,93317,93491,-174,29817,33704,-3887,123134,127195,-4061,96.8
+1083,State Department for Public Health and Professional Standards,29615,33523,-3908,3688,4202,-514,33303,37725,-4422,88.3
+1091,State Department for Roads,58158,71628,-13470,139289,182745,-43456,197447,254373,-56926,77.6
+1092,State Department for Transport,2316,6833,-4517,14067,61200,-47134,16382,68033,-51651,24.1
+1093,State Department for Shipping and Maritime Affairs,625,3629,-3004,565,2625,-2060,1189,6253,-5064,19.0
+1094,State Department for Housing & Urban Development,2346,6926,-4580,129956,140987,-11031,132302,147913,-15610,89.4
+1095,State Department for Public Works,3433,4045,-612,762,813,-51,4194,4858,-664,86.3
+1097,State Department for Aviation and Aerospace Development,474,14359,-13886,653,653,0,1126,15012,-13886,7.5
+1104,State Department for Irrigation,813,1131,-318,9130,10935,-1805,9942,12065,-2123,82.4
+1109,State Department for Water & Sanitation,3378,8496,-5118,48360,51838,-3477,51738,60334,-8596,85.8
+1112,State Department for Lands and Physical Planning,5082,5607,-525,7582,7702,-120,12663,13309,-645,95.2
+1122,State Department for Information Communication Technology & Digital Economy,3151,3628,-477,7912,8587,-676,11063,12215,-1152,90.6
+1123,State Department for Broadcasting & Telecommunications,4190,6240,-2050,276,325,-50,4466,6565,-2100,68.0
+1132,State Department for Sports,5486,5655,-169,21493,23611,-2118,26979,29266,-2286,92.2
+1134,State Department for Culture and Heritage,2229,3000,-770,125,212,-87,2354,3212,-857,73.3
+1135,State Department for Youth Affairs and the Arts,2787,2892,-105,2410,3226,-816,5197,6119,-922,84.9
+1152,State Department for Energy,1126,12140,-11013,34695,50488,-15793,35822,62628,-26806,57.2
+1162,State Department for Livestock Development,3168,6296,-3127,6976,7331,-354,10145,13626,-3481,74.5
+1166,State Department for the Blue Economy and Fisheries,3180,3585,-405,6514,7564,-1049,9695,11149,-1454,87.0
+1169,State Department for Crop Development,15464,24352,-8888,46399,48865,-2466,61863,73217,-11353,84.5
+1173,State Department for Cooperatives,4711,5944,-1233,3349,3371,-22,8060,9315,-1255,86.5
+1174,State Department for Trade,2991,5083,-2092,300,300,,3291,5383,-2092,61.1
+1175,State Department for Industry,3252,4734,-1482,5628,5690,-62,8880,10362,-1482,85.7
+1176,"State Department for Micro, Small and Medium Enterprises",1482,2257,-775,9314,9842,-528,10796,12099,-1302,89.2
+1177,State Department for Investment Promotion,866,1612,-746,2697,3261,-564,3563,4873,-1311,73.1
+1184,State Department for Labour and Skills Development,2087,4986,-2899,537,853,-315,2624,5839,-3215,44.9
+1185,State Department for Social Protection and Senior Citizens Affairs,33172,33285,-113,146,207,-61,33318,33492,-174,99.5
+1186,State Department for Children Services,11599,11941,-342,183,184,0,11782,12125,-343,97.2
+1192,State Department for Mining,1656,2194,-537,74,267,-194,1730,2461,-731,70.3
+1193,State Department for Petroleum,19683,25030,-5347,5048,5291,-243,24731,30321,-5590,81.6
+1202,State Department for Tourism,7432,11758,-4327,2036,5210,-3174,9468,16968,-7501,55.8
+1203,State Department for Wildlife,3760,13566,-9806,2076,3529,-1453,5836,17095,-11259,34.1
+1212,State Department for Gender and Affirmative Action,1515,1666,-151,4557,4633,-77,6071,6300,-228,96.4
+1213,State Department for Public Service,19217,22254,-3037,1832,2024,-192,21049,24278,-3230,86.7
+1221,State Department for East African Community,1259,1281,-23,,,,1259,1281,-23,98.2
+1252,State Law Office,4382,5116,-734,300,300,0,4682,5416,-734,86.4
+1253,State Department for Justice Human Rights and Constitutional Affairs,1035,1064,-28,,,,1035,1064,-28,97.3
+1261,The Judiciary,25271,25637,-366,981,1513,-532,26253,27151,-898,96.7
+1271,Ethics and Anti-Corruption Commission,4334,4359,-25,162,180,-18,4495,4539,-43,99.0
+1281,National Intelligence Service,64947,64947,,,,,64947,64947,,100.0
+1291,Office of the Director of Public Prosecutions,5357,5560,-203,272,286,-14,5629,5846,-217,96.3
+1311,Office of the Registrar of Political Parties,3027,3057,-30,,,,3027,3057,-30,99.0
+1321,Witness Protection Agency,592,791,-199,,,,592,791,-199,74.8
+1331,State Department for Environment & Climate Change,2649,4142,-1493,1374,1704,-329,4024,5846,-1822,68.8
+1332,State Department for Forestry,6112,11088,-4976,5412,6462,-1050,11523,17550,-6026,65.7
+2011,Kenya National Commission on Human Rights,501,521,-20,,,,501,521,-20,96.1
+2021,National Land Commission,5554,5553,1,556,556,0,6110,6109,1,100.0
+2031,Independent Electoral and Boundaries Commission,10975,12980,-2005,30,30,,11005,13010,-2005,84.6
+2041,Parliamentary Service Commission,2732,2870,-137,,,,2732,2870,-137,95.2
+2042,National Assembly,27466,28929,-1463,,,,27466,28929,-1463,94.9
+2043,Parliamentary Joint Services,6814,6948,-134,1564,1565,-1,8378,8513,-135,98.4
+2044,Senate,8306,8379,-73,,,,8306,8379,-73,99.1
+2051,Judicial Service Commission,916,941,-25,,,,916,941,-25,97.4
+2061,Commission on Revenue Allocation,424,488,-64,,,,424,488,-64,86.9
+2071,Public Service Commission,3513,3627,-114,,,,3513,3627,-114,96.8
+2081,Salaries and Remuneration Commission,803,869,-66,,,,803,869,-66,92.4
+2091,Teachers Service Commission,397945,410622,-12677,466,671,-205,398411,411293,-12882,96.9
+2101,National Police Service Commission,1395,1455,-61,,,,1395,1455,-61,95.8
+2111,Auditor General,8282,8359,-77,320,330,-10,8602,8689,-87,99.0
+2121,Controller of Budget,933,948,-15,,,,933,948,-15,98.4
+2131,Commission on Administrative Justice,642,666,-24,,,,642,666,-24,96.4
+2141,National Gender and Equality Commission,560,560,0,,,,560,560,0,100.0
+2151,Independent Policing Oversight Authority,1405,1406,-1,,,,1405,1406,-1,99.9
+,Total,1828607,2041882,-213275,721452,889866,-168414,2550059,2931686,-381627,87.0

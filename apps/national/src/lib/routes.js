@@ -17,7 +17,7 @@ export const SECTIONS = [
 
 export const TRUST = ['/about/', '/who-runs-us/', '/privacy/', '/terms/', '/right-of-reply/'];
 
-const BUILT = ['/budget/', '/counties/', '/counties/compare/', '/revenue/', '/debt/', '/projects/', '/have-your-say/', '/tools/your-taxes/', '/learn/calendar/', '/learn/', '/learn/glossary/', '/infographics/', '/data/', '/data/releases/', '/methods/', '/corrections/'];
+const BUILT = ['/budget/', '/track/', '/counties/', '/counties/compare/', '/revenue/', '/debt/', '/projects/', '/have-your-say/', '/tools/your-taxes/', '/learn/calendar/', '/learn/', '/learn/glossary/', '/infographics/', '/data/', '/data/releases/', '/methods/', '/corrections/'];
 export const PLANNED = SECTIONS.flatMap((s) => s.pages).concat(TRUST).filter((p) => !BUILT.includes(p));
 
 export const href = (lang, path = '/') => `${BASE}${lang === 'sw' ? '/sw' : ''}${path}`;

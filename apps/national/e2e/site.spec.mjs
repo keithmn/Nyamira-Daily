@@ -8,7 +8,7 @@ import { expect, test } from '@playwright/test';
 
 const app = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(app, 'dist'), prod = join(app, 'dist-prod');
-const TEMPLATES = ['/', '/sw/', '/dev/components/', '/sw/dev/components/', '/budget/2026-27/', '/sw/budget/2026-27/', '/debt/', '/revenue/', '/sw/debt/', '/projects/', '/sw/projects/', '/tools/your-taxes/', '/sw/tools/your-taxes/', '/have-your-say/', '/sw/have-your-say/', '/learn/', '/learn/equitable-share/', '/sw/learn/equitable-share/', '/learn/glossary/', '/learn/calendar/', '/data/', '/data/releases/', '/data/releases/2026-11-03/', '/methods/', '/corrections/', '/infographics/', '/infographics/county-nyamira/', '/sw/infographics/budget-in-10-numbers/', '/budget/2026-27/votes/1066/0503000/', '/budget/2026-27/sectors/', '/budget/2026-27/sectors/health/', '/sw/budget/2026-27/sectors/health/', '/budget/2026-27/votes/1066/', '/budget/2026-27/votes/1066/0502000/', '/counties/', '/sw/counties/', '/counties/nyamira/', '/sw/counties/nyamira/', '/counties/nairobi-city/', '/counties/nyamira/sheet/', '/counties/compare/?c=nyamira,kisii', '/search/?q=tsc'];
+const TEMPLATES = ['/', '/sw/', '/dev/components/', '/sw/dev/components/', '/budget/2026-27/', '/sw/budget/2026-27/', '/debt/', '/revenue/', '/sw/debt/', '/projects/', '/sw/projects/', '/track/', '/sw/track/', '/tools/your-taxes/', '/sw/tools/your-taxes/', '/have-your-say/', '/sw/have-your-say/', '/learn/', '/learn/equitable-share/', '/sw/learn/equitable-share/', '/learn/glossary/', '/learn/calendar/', '/data/', '/data/releases/', '/data/releases/2026-11-03/', '/methods/', '/corrections/', '/infographics/', '/infographics/county-nyamira/', '/sw/infographics/budget-in-10-numbers/', '/budget/2026-27/votes/1066/0503000/', '/budget/2026-27/sectors/', '/budget/2026-27/sectors/health/', '/sw/budget/2026-27/sectors/health/', '/budget/2026-27/votes/1066/', '/budget/2026-27/votes/1066/0502000/', '/counties/', '/sw/counties/', '/counties/nyamira/', '/sw/counties/nyamira/', '/counties/nairobi-city/', '/counties/nyamira/sheet/', '/counties/compare/?c=nyamira,kisii', '/search/?q=tsc'];
 const PAGES = [...TEMPLATES, '/no-such-page/'];
 const walk = (d, out = []) => { for (const f of readdirSync(d)) { const p = join(d, f); if (statSync(p).isDirectory()) walk(p, out); else if (f.endsWith('.html')) out.push(p); } return out; };
 
@@ -424,7 +424,7 @@ test('the data page lists files that exist, and the package describes them', asy
   }
   const pkg = await (await page.request.get('/data/datapackage.json')).json();
   expect(pkg.licenses[0].name).toBe('CC-BY-4.0');
-  expect(pkg.resources.length).toBe(4 + 12 + 87 + 47);
+  expect(pkg.resources.length).toBe(5 + 12 + 87 + 47);
   const vote = await (await page.request.get('/api/national/votes/1066.json')).json();
   expect(vote.gross).toBe(vote.programmes.reduce((a, p) => a + p.gross, 0));
   expect(vote.sources.length).toBeGreaterThan(0);
@@ -511,7 +511,7 @@ test('the print sheet fits one A4 page, and its QR code points at the county', a
   expect(browserName).toBe('chromium');
 });
 
-for (const path of ['/tools/your-taxes/', '/have-your-say/', '/learn/equitable-share/', '/data/releases/2026-11-03/', '/infographics/county-nyamira/', '/', '/sw/', '/budget/2026-27/', '/budget/2026-27/sectors/governance-justice-law-order/', '/budget/2026-27/votes/1071/', '/counties/', '/counties/compare/', '/counties/nyamira/', '/sw/counties/nyamira/']) {
+for (const path of ['/track/', '/tools/your-taxes/', '/have-your-say/', '/learn/equitable-share/', '/data/releases/2026-11-03/', '/infographics/county-nyamira/', '/', '/sw/', '/budget/2026-27/', '/budget/2026-27/sectors/governance-justice-law-order/', '/budget/2026-27/votes/1071/', '/counties/', '/counties/compare/', '/counties/nyamira/', '/sw/counties/nyamira/']) {
   test(`weight stays within budget, ${path}`, () => {
     const file = join(dist, path, 'index.html'), html = readFileSync(file);
     const assets = [...html.toString().matchAll(/(?:href|src)="(\/_astro\/[^"]+\.(css|js))"/g)];
@@ -583,4 +583,16 @@ test('official notices: the announced date leads, closed notices say so, and eac
   await expect(page.locator('.say-none')).toBeVisible();
   await expect(page.locator('.cal-item .tag')).toHaveCount(2);
   for (const href of await page.locator('.cal-item a[href*="treasury"]').evaluateAll((as) => as.map((a) => a.getAttribute('href')))) expect(href).toMatch(/^https:\/\/newsite\.treasury\.go\.ke\//);
+});
+
+test('track gives the Treasury figures as printed, asks about low spenders, and vote pages say what they spent', async ({ page }) => {
+  await open(page, '/track/');
+  await expect(page.locator('.hero-line')).toContainText('87.0% of their target');
+  await expect(page.locator('.hero .src a').first()).toHaveAttribute('href', /QEBR/);
+  // Only the questions are checked for words of blame: the table names the Ethics and Anti-Corruption Commission
+  for (const text of await page.locator('.dev-grid .card').allTextContents()) { expect(text).toMatch(/\?/); expect(text).not.toMatch(/corrupt|stole|looted|ghost/i); }
+  const file = await (await page.request.get('/data/spending-2025-26.csv')).text();
+  expect(file.split('\n').length).toBeGreaterThan(80);
+  await open(page, '/budget/2026-27/votes/1091/');
+  await expect(page.locator('body')).toContainText('this vote spent KSh 197.4 billion of a target of KSh 254.4 billion, 77.6%');
 });

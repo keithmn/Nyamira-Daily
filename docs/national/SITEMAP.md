@@ -70,7 +70,7 @@ Phones get a bottom tab bar with these five. Desktop gets them in the top bar. B
 
 | Route | Question | First screen leads with | Data |
 |---|---|---|---|
-| `/track/` | How much has actually moved this year? | Revenue against target, Exchequer releases, county releases against the schedule, each with an "as of" date | To find |
+| `/track/` | How much has actually moved this year? | Revenue and spending against target, and every vote's share spent, from the Treasury's quarterly review, with its period | Built from the quarterly review (#104). Monthly Gazette statements and county releases to add |
 | `/projects/` | Which national projects are funded, and what should I ask? | The total and the biggest projects, questions from the Development Estimates. Locations are not printed, so nothing is "near you" yet | Ready (four approved volumes) |
 | `/have-your-say/` | When can I be heard, and how? | Next hearing with a countdown in days, or "None announced" | Built. No hearing until an official notice is loaded (#100); the memorandum builder covers 87 votes and 47 counties |
 

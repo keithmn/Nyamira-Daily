@@ -26,7 +26,7 @@ Nothing here is pushed, merged or deployed. That needs the founder's go-ahead (A
 | 11 | A person checks the rows in `data-src/national/person-checks.csv` and the five places in the Controller of Budget's `known-issues.csv`; only then can figures be labelled `verified` | An editor | Open |
 | 12 | A named person responsible for each dataset (`docs/national/DATA.md`) | Founder | Open |
 | 13 | Archive copies of the 17 sources without one (`check:national` lists them) | Founder decides how | Open |
-| 14 | Download from Kenya Law: the Gazette's monthly Exchequer statements (for `/track/`) and the County Governments Additional Allocations Act | A person | Open |
+| 14 | Download from Kenya Law: the County Governments Additional Allocations Act, and, to add monthly figures to `/track/`, the Gazette's Exchequer statements. `/track/` already shows the Treasury's quarterly review (decision #104) | A person | Open |
 | 15 | Type the Programme Based Budget's targets (decision #97) | A person, typed twice | Open |
 | 16 | A native speaker reviews every Kiswahili string and summary (decision #87) | Reviewer | Open |
 | 17 | An editor reads the ten explainers, the methods page and every question template (decisions #96, #98) | Editor | Open |

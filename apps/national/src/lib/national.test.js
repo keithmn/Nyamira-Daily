@@ -12,6 +12,7 @@ import { countOf, rulesFor } from './rules.js';
 import { searchIndex } from './search.js';
 import { amountSentence, countyQuestions, whatsappHref } from './sentences.js';
 import { nextDates } from './calendar.js';
+import { LOW_SHARE, headline, lowSpenders, ministries, spendingOf } from './track.js';
 import { intakeSettings, reportPage } from './intake.js';
 import { allInfographics, infographic } from './infographics.js';
 import { explainers } from './learn.js';
@@ -56,7 +57,7 @@ test('routes carry the language and find their twin', () => {
 });
 
 test('only known routes count as planned', () => {
-  assert.ok(isPlanned('/track/'));
+  assert.equal(isPlanned('/track/'), false);
   assert.equal(isPlanned('/revenue/'), false);
   assert.ok(isPlanned('/sw/about/'));
   assert.equal(isPlanned('/sw/learn/glossary/'), false);
@@ -435,9 +436,8 @@ test('the explainers use only registry figures and each has a two-question check
 });
 
 test('a section tab goes to its own page once built, and to its first built page until then', () => {
-  const track = SECTIONS.find((s) => s.key === 'track');
-  assert.equal(sectionPath(track), '/projects/');
-  assert.equal(sectionPath(SECTIONS.find((s) => s.key === 'counties')), '/counties/');
+  assert.equal(sectionPath(SECTIONS.find((s) => s.key === 'track')), '/track/');
+  assert.equal(sectionPath({ path: '/about/', pages: ['/about/', '/learn/'] }), '/learn/', 'an unbuilt section page falls back');
   for (const s of SECTIONS) assert.equal(isPlanned(sectionPath(s)), false, s.key);
 });
 
@@ -452,4 +452,15 @@ test('corrections intake opens only with all three settings, and only then lets 
   assert.doesNotMatch(open.split('/corrections/*')[0], /challenges\.cloudflare\.com/);
   assert.equal(reportPage('ke.fy2026-27.law.county.nyamira.equitable-share', ''), '/corrections/?figure=ke.fy2026-27.law.county.nyamira.equitable-share');
   assert.equal(reportPage('', '/debt/'), '/debt/');
+});
+
+test('track shows the quarterly review as printed: shares from the report, gaps within one report and stage', () => {
+  const m = ministries();
+  assert.equal(m.pct.value, 87);
+  assert.equal(m.actual.stage, m.target.stage);
+  assert.deepEqual(headline().map((h) => h.shortfall.value), [60.2, 52.2, 19.3, 172.4, 115.4]);
+  const low = lowSpenders();
+  assert.ok(low.length > 0 && low.every((v) => v.pct.value < LOW_SHARE));
+  assert.equal(spendingOf('1091').pct.value, 77.6);
+  assert.equal(spendingOf('9999'), null);
 });

@@ -173,6 +173,38 @@ export function debtFigures() {
   return { defaults: { stage: 'spent', money: 'national', label: 'official', source: 'annual-public-debt-report-2024-25', ...CHECKED }, figures };
 }
 
+// The Treasury's Quarterly Economic and Budgetary Review for the fourth quarter of FY2025/26, the whole year to June 2026:
+// each vote's spending against its target from Table 6, and the headline revenue and spending from the report's text. A
+// report's target and its actual share its stage, as the Controller of Budget's budget and spending do (decision #104).
+export function qebrFigures() {
+  const votes = csv('qebr-2025-26-q4/votes.csv'), headline = csv('qebr-2025-26-q4/headline.csv'), B = 'ke.fy2025-26.spent.qebr', out = [];
+  const table = { page: 'Table 6, PDF p.26', pdfPage: 26 }, known = csv('qebr-2025-26-q4/known-issues.csv');
+  for (const r of votes) {
+    const base = r.vote ? `${B}.vote.${r.vote}` : `${B}.ministries`, who = r.vote ? r.name : 'All ministries, departments and agencies';
+    // Where the report's target does not add up as printed, the parts are not tied to it, and the note says why
+    const misprint = known.find((k) => k.vote === (r.vote || 'Total'));
+    for (const [part, label] of [['total', 'total'], ['rec', 'recurrent'], ['dev', 'development']]) {
+      const key = { total: 'total', rec: 'recurrent', dev: 'development' }[part];
+      for (const kind of ['actual', 'target']) {
+        if (r[`${part}_${kind}`] === '') continue; // a dash prints no amount: no figure, never a zero
+        const loose = misprint && kind === 'target';
+        out.push({ id: `${base}.${key}.${kind}`, name: `${who}, ${label} ${kind === 'actual' ? 'spent' : 'target'}, FY2025/26`, value: Number(r[`${part}_${kind}`]), unit: 'KSh m', level: r.vote ? 'vote' : 'total', grouping: 'vote-spending', parent: part === 'total' || loose ? null : `${base}.total.${kind}`, ...table, ...(loose && part === 'total' ? { note: 'As printed. The recurrent and development targets add to 62 more; see known-issues.csv.' } : {}) });
+      }
+    }
+    if (r.pct_spent !== '') out.push({ id: `${base}.pct-spent`, name: `${who}, share of target spent, FY2025/26`, value: Number(r.pct_spent), unit: '%', level: 'measure', grouping: 'vote-spending', parent: null, ...table });
+  }
+  for (const r of headline) {
+    // The shortfall is the report's own printed figure, worked out from its unrounded amounts, so it is never recomputed
+    if (r.shortfall_bn !== '') out.push({ id: `${B}.${r.key}.shortfall`, name: `${r.name}, below target by, FY2025/26`, value: Number(r.shortfall_bn), unit: 'KSh bn', level: 'measure', grouping: 'fiscal-total', parent: null, page: `${r.para}, PDF p.${r.pdf_page}`, pdfPage: Number(r.pdf_page) });
+    for (const kind of ['actual', 'target']) {
+      if (r[`${kind}_bn`] === '') continue;
+      const parent = { 'interest-domestic': `${B}.interest.actual`, 'interest-foreign': `${B}.interest.actual` }[r.key] ?? null;
+      out.push({ id: `${B}.${r.key}.${kind}`, name: `${r.name}, ${kind === 'actual' ? 'actual' : 'target'}, FY2025/26`, value: Number(r[`${kind}_bn`]), unit: 'KSh bn', level: 'total', grouping: 'fiscal-total', parent, page: `${r.para}, PDF p.${r.pdf_page}`, pdfPage: Number(r.pdf_page) });
+    }
+  }
+  return { defaults: { stage: 'spent', fy: '2025/26', money: 'national', label: 'official', source: 'qebr-2025-26-q4', ...CHECKED }, figures: out };
+}
+
 // The Programme Based Budget's FY2026/27 column: sub-programmes under their programmes, and each vote's economic classification.
 // Programmes the Act no longer funds have no FY2026/27 amount in the book, so they are left out.
 export function pbbFigures() {
@@ -227,6 +259,7 @@ export const GENERATED = {
   'debt-2024-25.json': debtFigures,
   'pbb-2026-27.json': pbbFigures,
   'projects-2026-27.json': projectFigures,
+  'qebr-2025-26-q4.json': qebrFigures,
 };
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

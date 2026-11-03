@@ -141,6 +141,34 @@ export function pbbChecks(book, economic, act, known = []) {
   return problems;
 }
 
+// The quarterly review's Table 6: each row's variance is actual minus target, recurrent plus development is the total,
+// the printed share spent follows from the amounts, the rows add to the Total row, and every amount is in the second
+// reading. Amounts are rounded to the million, so sums may differ by one per row added, and the share by what that
+// rounding can move it. Printed inconsistencies are listed in known-issues.csv: they do not fail, and anything new does.
+export function qebrChecks(rows, second, headline, known = []) {
+  const problems = [], n = (v) => (v === '' ? 0 : Number(v)), skip = (vote) => known.some((k) => k.vote === (vote || 'Total'));
+  const add = (r, text) => { if (!skip(r.vote)) problems.push(`Quarterly review Table 6 ${r.vote || 'Total'}: ${text}`); };
+  for (const r of rows) {
+    for (const p of ['rec', 'dev', 'total']) if (Math.abs(n(r[`${p}_actual`]) - n(r[`${p}_target`]) - n(r[`${p}_variance`])) > 1) add(r, `${p} variance is not actual minus target`);
+    for (const k of ['actual', 'target', 'variance']) if (Math.abs(n(r[`rec_${k}`]) + n(r[`dev_${k}`]) - n(r[`total_${k}`])) > 1) add(r, `recurrent and development do not add to the total ${k}`);
+    if (r.pct_spent !== '') {
+      const a = n(r.total_actual), t = n(r.total_target), slack = (0.5 / t + 0.5 * a / t / t) * 100 + 0.05;
+      if (Math.abs(a / t * 100 - Number(r.pct_spent)) > slack) add(r, `prints ${r.pct_spent}% spent, the amounts give ${(a / t * 100).toFixed(2)}%`);
+    }
+  }
+  const votes = rows.filter((r) => r.vote), total = rows.find((r) => !r.vote);
+  for (const c of Object.keys(total).filter((k) => /_(actual|target|variance)$/.test(k))) {
+    if (Math.abs(votes.reduce((a, r) => a + n(r[c]), 0) - n(total[c])) > votes.length / 2) problems.push(`Quarterly review Table 6: the votes do not add to the Total row's ${c}`);
+  }
+  const counts = new Map(second.map((x) => [x.printed, Number(x.count)])), need = new Map();
+  const printed = (v) => { const s = Math.abs(v).toLocaleString('en-US'); return v < 0 ? `(${s})` : s; };
+  for (const r of rows) for (const [k, v] of Object.entries(r)) if (/_(actual|target|variance)$/.test(k) && v !== '') need.set(printed(Number(v)), (need.get(printed(Number(v))) ?? 0) + 1);
+  for (const [s, c] of need) if ((counts.get(s) ?? 0) < c) problems.push(`Quarterly review Table 6: ${s} is in the first reading ${c} times but not as often in the second`);
+  const h = new Map(headline.map((x) => [x.key, x]));
+  if (Math.abs(n(h.get('interest-domestic').actual_bn) + n(h.get('interest-foreign').actual_bn) - n(h.get('interest').actual_bn)) > 0.15) problems.push('Quarterly review: domestic and foreign interest do not add to the interest paid');
+  return problems;
+}
+
 // Each vote's projects must add to the vote's printed total, in both years, and that total must be the Act's development money
 export function projectChecks(rows, act) {
   const problems = [], n = (v) => Number(v || 0), gross = new Map();
@@ -208,7 +236,8 @@ export function runDoubleEntry() {
   const debt = debtChecks(csv('debt-report-2024-25/extract.csv'));
   const pbb = pbbChecks(csv('pbb-2026-27/programmes.csv'), csv('pbb-2026-27/economic.csv'), csv('appropriation-act-2026/extract.csv'), csv('pbb-2026-27/known-issues.csv'));
   const projects = projectChecks(csv('dev-estimates-2026-27/projects.csv'), csv('appropriation-act-2026/extract.csv'));
-  return { act, county, pbo: [...pbo, ...pbb, ...projects], cob: [...cob, ...debt.map((p) => `Debt report ${p}`)] };
+  const qebr = qebrChecks(csv('qebr-2025-26-q4/votes.csv'), csv('qebr-2025-26-q4/votes-second.csv'), csv('qebr-2025-26-q4/headline.csv'), csv('qebr-2025-26-q4/known-issues.csv'));
+  return { act, county, pbo: [...pbo, ...pbb, ...projects, ...qebr], cob: [...cob, ...debt.map((p) => `Debt report ${p}`)] };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

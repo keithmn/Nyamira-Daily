@@ -10,6 +10,13 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 
 ## Changes on 3 Nov 2026
 
+- After the phases, all merged into `main`:
+  - the corrections form, reusing the main site's service (decision #102);
+  - the owner's approval of decisions #90 to #100;
+  - Treasury notices: the 2027 Budget Policy Statement goes to Parliament by 16 November 2026, under a calendar revised for the election (decision #103);
+  - briefs for reviewers, deploy steps and a daily-rebuild workflow.
+- `/track/` is built from the Treasury's quarterly review for FY2025/26: revenue and spending against target, every vote's share spent, and questions for the votes under 75% (decision #104). Data release 2026-11-03 now holds 6,740 figures from 20 sources.
+
 - National product Phase 7, hardening, on branch `feat/national-phase-7`, not pushed:
   - New security headers: HSTS, a cross-origin opener policy, open CORS on `/api/` and `/data/` only, and a one-day cache for the pictures.
   - `npm audit` now runs in CI.
