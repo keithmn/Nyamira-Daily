@@ -1,0 +1,30 @@
+---
+// One explainer: the text, its key figure with label and source, a two-question self-check that needs no JavaScript, and
+// a Kiswahili summary. On the Kiswahili page the summary comes first and the English text is marked as English.
+import { t } from '../../i18n/index.js';
+import { explainerBySlug } from '../../lib/learn.js';
+import { href } from '../../lib/routes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import FigureCard from '../FigureCard.astro';
+import KiswahiliSummary from '../KiswahiliSummary.astro';
+
+interface Props { slug: string; lang?: 'en' | 'sw' }
+const { slug, lang = 'en' } = Astro.props;
+const e = explainerBySlug(slug);
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.learn'), path: '/learn/' }, { name: e.title }]} /></div>
+<article class="band">
+  <div class="wrap stack gap-l">
+    <div class="page-head" lang="en"><h1>{e.title}</h1><p class="small muted" lang={lang}>{t(lang, 'learn.minutes', { n: e.minutes })}</p></div>
+    {lang === 'sw' && <KiswahiliSummary lang={lang}>{e.sw}</KiswahiliSummary>}
+    <div class="prose stack" lang="en">{e.body.map((p) => <p>{p}</p>)}</div>
+    {e.figures.map((f) => <FigureCard id={f.id} q={f.q} lang={lang} />)}
+    {e.slug === 'how-to-submit-a-memorandum' && <div class="btn-row"><a class="btn" href={href(lang, '/have-your-say/')}>{t(lang, 'memo.title')}</a></div>}
+    {e.sources.length > 0 && <p class="small muted" lang="en">{t(lang, 'learn.sources')} {e.sources.join('; ')}</p>}
+    <section class="stack" aria-labelledby="h-check">
+      <h2 id="h-check">{t(lang, 'learn.check')}</h2>
+      {e.check.map((c) => <details class="toggle check" lang="en"><summary>{c.q}</summary><p>{c.a}</p></details>)}
+    </section>
+    {lang === 'en' && <KiswahiliSummary lang={lang}>{e.sw}</KiswahiliSummary>}
+  </div>
+</article>

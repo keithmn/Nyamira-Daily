@@ -23,7 +23,8 @@ This repo is **Nyamira Daily**, a non-partisan, editorially independent civic in
 
 ## Conventions
 
-- Astro 5 static site. Data lives in `src/data/*.json` and is rendered at build time; see `docs/DATA.md` for sources and refresh cadence.
+- Astro 7 static site. Data lives in `src/data/*.json` and is rendered at build time; see `docs/DATA.md` for sources and refresh cadence.
+- The national product is a separate app in `apps/national`, with its own tokens and rules: read `docs/national/README.md` before changing it. Code both apps use lives in `packages/engine`; never copy it.
 - Two-layer pages: headline card (number, sentence, label, source) first; tables and caveats inside `<details>`.
 - Tables that should stack on phones use `class="cards"` with `data-label` on each `<td>`.
 - Unfinished pages go in the `planned` set in `src/config.js` (tagged "Planned", kept off the home page). Don't add "Coming soon" boxes.

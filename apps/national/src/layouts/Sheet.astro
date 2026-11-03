@@ -1,0 +1,28 @@
+---
+// One A4 page for town halls and radio scripts. It carries its own header and no site navigation, and it prints in black
+// on white whatever theme the reader uses.
+import '../styles/app.css';
+import { t } from '../i18n/index.js';
+import { site } from '../site.js';
+
+interface Props { lang?: 'en' | 'sw'; title: string }
+const { lang = 'en', title } = Astro.props;
+const early = "(function(){var r=document.documentElement;r.classList.add('js');try{var t=localStorage.getItem('kbe-theme');if(t==='dark'||t==='light')r.setAttribute('data-theme',t)}catch(e){}})();";
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{`${title} · ${site.name}`}</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="data:," />
+    <script is:inline set:html={early}></script>
+  </head>
+  <body class="sheet-body">
+    <main id="main"><slot /></main>
+    <p class="vh" role="status" id="status"></p>
+    <div class="tip" id="tip" role="tooltip" hidden></div>
+    <script>import '../scripts/app.js';</script>
+  </body>
+</html>

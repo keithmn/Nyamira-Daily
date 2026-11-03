@@ -1,0 +1,12 @@
+---
+import { t } from '../i18n/index.js';
+import { href } from '../lib/routes.js';
+
+interface Props { lang: 'en' | 'sw'; id?: string }
+const { lang, id = 'q' } = Astro.props;
+---
+<form class="search-box" role="search" action={href(lang, '/search/')} method="get">
+  <label for={id}>{t(lang, 'search.label')}</label>
+  <input id={id} name="q" type="search" enterkeyhint="search" />
+  <button class="btn" type="submit">{t(lang, 'search.button')}</button>
+</form>

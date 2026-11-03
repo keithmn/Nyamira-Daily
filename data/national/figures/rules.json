@@ -1,0 +1,7 @@
+{
+ "defaults": { "fy": "2025/26", "stage": "law", "unit": "%", "level": "measure", "grouping": "fiscal-rule", "money": "county", "label": "official", "parent": null, "checkedOn": "2026-11-02", "checkedBy": "claude-code" },
+ "figures": [
+  { "id": "ke.fy2025-26.law.rule.development-minimum", "name": "Minimum share of a county budget for development, over the medium term", "value": 30, "source": "pfm-act-2012", "page": "s.107(2)(b), p.969", "pdfPage": 100 },
+  { "id": "ke.fy2025-26.law.rule.wage-maximum", "name": "Most a county may spend on wages and benefits, as a share of total revenue", "value": 35, "source": "pfm-county-regulations-2015", "page": "reg. 25(1)(b), p.333", "pdfPage": 21 }
+ ]
+}

@@ -1,0 +1,41 @@
+---
+// The whole budget for one year: the total, the interest bill, the two KSh 100 notes and the sectors.
+import { money, percent } from '@kbe/engine/fmt';
+import { t } from '../../i18n/index.js';
+import { inflows, outflows } from '../../lib/budget.js';
+import { fig, FY } from '../../lib/figures.js';
+import { YEAR, href, sectorHref } from '../../lib/routes.js';
+import { allSectors } from '../../lib/votes.js';
+import Chart from '../Chart.astro';
+import FigureCard from '../FigureCard.astro';
+import KSh100Bar from '../KSh100Bar.astro';
+import PageHero from '../PageHero.astro';
+import RankedBars from '../RankedBars.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const total = fig('statement.total.expenditure'), withLevy = fig('statement.total.with-levy'), levy = fig('statement.total.securitised-levy');
+const share = fig('estimates.debt.interest-share-of-ordinary-revenue');
+const out = outflows(), into = inflows(), sectors = allSectors();
+const shares = t(lang, 'fig.calcOf', { what: t(lang, 'fig.shares') });
+const rows = sectors.map((s, i) => ({ name: t(lang, `sector.${s.slug}`), value: s.total, shown: (s.total / 1e9).toFixed(1), mark: i === 0, href: sectorHref(lang, s.slug) }));
+---
+<PageHero figure={total} eyebrow={t(lang, 'budget.title', { fy: FY })} line={t(lang, 'hero.line')} swAfter={t('sw', 'hero.line')} lang={lang} what={t(lang, 'budget.title', { fy: FY })}>
+  <p class="note on-dark">{t(lang, 'budget.disputed', { a: money(total.value, total.unit, lang), b: money(withLevy.value, withLevy.unit, lang), levy: money(levy.value, levy.unit, lang) })}</p>
+</PageHero>
+<section class="band alt">
+  <h2 class="vh">{t(lang, 'nav.detail')}</h2>
+  <div class="wrap two">
+    <div class="stack gap-xl">
+      <Chart lang={lang} title={t(lang, 'budget.goes')} sub={t(lang, 'ksh100.out', { fy: FY })} from={out.total} calc={shares}><KSh100Bar parts={out.parts} ariaKey="ksh100.outLabel" lang={lang} /></Chart>
+      <Chart lang={lang} title={t(lang, 'budget.comes')} sub={t(lang, 'ksh100.in', { fy: FY })} from={into.total} calc={shares}><KSh100Bar parts={into.parts} ariaKey="ksh100.inLabel" lang={lang} /></Chart>
+    </div>
+    <div class="stack gap-l">
+      <FigureCard id="estimates.debt.interest" q={t(lang, 'budget.interestQ')} gap lang={lang}><p>{t(lang, 'budget.interestLine', { pct: share.value })}</p></FigureCard>
+      <Chart lang={lang} title={t(lang, 'budget.sectorsTitle', { name: t(lang, `sector.${sectors[0].slug}`) })} sub={t(lang, 'budget.sectorsSub', { fy: FY })} from={sectors[0].first} calc={t(lang, 'fig.calc')}>
+        <RankedBars rows={rows} lang={lang} />
+      </Chart>
+      <p><a class="btn quiet" href={href(lang, `${YEAR}sectors/`)}>{t(lang, 'budget.seeSectors')}</a></p>
+    </div>
+  </div>
+</section>

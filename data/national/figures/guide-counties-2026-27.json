@@ -1,0 +1,255 @@
+{
+ "defaults": {
+  "fy": "2026/27",
+  "stage": "statement",
+  "unit": "KSh bn",
+  "grouping": "county-allocation",
+  "money": "county",
+  "label": "official",
+  "source": "mwananchi-2026-27",
+  "level": "county",
+  "parent": "ke.fy2026-27.statement.county.equitable-share",
+  "page": "p.14, table",
+  "pdfPage": 14,
+  "checkedOn": "2026-11-01",
+  "checkedBy": "claude-code",
+  "note": "Rounded by the Treasury and printed as a picture. The exact amount at the law stage is in the County Allocation of Revenue Act."
+ },
+ "figures": [
+  {
+   "id": "ke.fy2026-27.statement.county.baringo.equitable-share",
+   "name": "Baringo: equitable share, rounded",
+   "value": 7.3
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.bomet.equitable-share",
+   "name": "Bomet: equitable share, rounded",
+   "value": 7.7
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.bungoma.equitable-share",
+   "name": "Bungoma: equitable share, rounded",
+   "value": 12.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.busia.equitable-share",
+   "name": "Busia: equitable share, rounded",
+   "value": 8.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.elgeyo-marakwet.equitable-share",
+   "name": "Elgeyo/Marakwet: equitable share, rounded",
+   "value": 5.7
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.embu.equitable-share",
+   "name": "Embu: equitable share, rounded",
+   "value": 6.3
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.garissa.equitable-share",
+   "name": "Garissa: equitable share, rounded",
+   "value": 9.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.homa-bay.equitable-share",
+   "name": "Homa Bay: equitable share, rounded",
+   "value": 8.9
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.isiolo.equitable-share",
+   "name": "Isiolo: equitable share, rounded",
+   "value": 5.8
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.kajiado.equitable-share",
+   "name": "Kajiado: equitable share, rounded",
+   "value": 9.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.kakamega.equitable-share",
+   "name": "Kakamega: equitable share, rounded",
+   "value": 14.1
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.kericho.equitable-share",
+   "name": "Kericho: equitable share, rounded",
+   "value": 7.4
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.kiambu.equitable-share",
+   "name": "Kiambu: equitable share, rounded",
+   "value": 13.5
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.kilifi.equitable-share",
+   "name": "Kilifi: equitable share, rounded",
+   "value": 13.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.kirinyaga.equitable-share",
+   "name": "Kirinyaga: equitable share, rounded",
+   "value": 6.3
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.kisii.equitable-share",
+   "name": "Kisii: equitable share, rounded",
+   "value": 10.1
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.kisumu.equitable-share",
+   "name": "Kisumu: equitable share, rounded",
+   "value": 9.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.kitui.equitable-share",
+   "name": "Kitui: equitable share, rounded",
+   "value": 11.9
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.kwale.equitable-share",
+   "name": "Kwale: equitable share, rounded",
+   "value": 9.3
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.laikipia.equitable-share",
+   "name": "Laikipia: equitable share, rounded",
+   "value": 6.3
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.lamu.equitable-share",
+   "name": "Lamu: equitable share, rounded",
+   "value": 4
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.machakos.equitable-share",
+   "name": "Machakos: equitable share, rounded",
+   "value": 10.5
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.makueni.equitable-share",
+   "name": "Makueni: equitable share, rounded",
+   "value": 9.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.mandera.equitable-share",
+   "name": "Mandera: equitable share, rounded",
+   "value": 12.6
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.marsabit.equitable-share",
+   "name": "Marsabit: equitable share, rounded",
+   "value": 8.4
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.meru.equitable-share",
+   "name": "Meru: equitable share, rounded",
+   "value": 10.9
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.migori.equitable-share",
+   "name": "Migori: equitable share, rounded",
+   "value": 9.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.mombasa.equitable-share",
+   "name": "Mombasa: equitable share, rounded",
+   "value": 8.7
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.muranga.equitable-share",
+   "name": "Murang'a: equitable share, rounded",
+   "value": 8.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.nairobi-city.equitable-share",
+   "name": "Nairobi City: equitable share, rounded",
+   "value": 22.1
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.nakuru.equitable-share",
+   "name": "Nakuru: equitable share, rounded",
+   "value": 14.9
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.nandi.equitable-share",
+   "name": "Nandi: equitable share, rounded",
+   "value": 8
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.narok.equitable-share",
+   "name": "Narok: equitable share, rounded",
+   "value": 10.1
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.nyamira.equitable-share",
+   "name": "Nyamira: equitable share, rounded",
+   "value": 6.3
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.nyandarua.equitable-share",
+   "name": "Nyandarua: equitable share, rounded",
+   "value": 6.9
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.nyeri.equitable-share",
+   "name": "Nyeri: equitable share, rounded",
+   "value": 7.1
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.samburu.equitable-share",
+   "name": "Samburu: equitable share, rounded",
+   "value": 6.5
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.siaya.equitable-share",
+   "name": "Siaya: equitable share, rounded",
+   "value": 8
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.taita-taveta.equitable-share",
+   "name": "Taita Taveta: equitable share, rounded",
+   "value": 5.9
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.tana-river.equitable-share",
+   "name": "Tana River: equitable share, rounded",
+   "value": 7.4
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.tharaka-nithi.equitable-share",
+   "name": "Tharaka Nithi: equitable share, rounded",
+   "value": 5.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.trans-nzoia.equitable-share",
+   "name": "Trans Nzoia: equitable share, rounded",
+   "value": 8.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.turkana.equitable-share",
+   "name": "Turkana: equitable share, rounded",
+   "value": 14.3
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.uasin-gishu.equitable-share",
+   "name": "Uasin Gishu: equitable share, rounded",
+   "value": 9.3
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.vihiga.equitable-share",
+   "name": "Vihiga: equitable share, rounded",
+   "value": 6.2
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.wajir.equitable-share",
+   "name": "Wajir: equitable share, rounded",
+   "value": 10.8
+  },
+  {
+   "id": "ke.fy2026-27.statement.county.west-pokot.equitable-share",
+   "name": "West Pokot: equitable share, rounded",
+   "value": 7.2
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+---
+// Opens corrections with the figure id filled in. It sends nothing else about the reader (build brief 5.13).
+import { t } from '../i18n/index.js';
+import { href } from '../lib/routes.js';
+
+interface Props { id: string; lang?: 'en' | 'sw' }
+const { id, lang = 'en' } = Astro.props;
+---
+<a class="btn quiet" href={`${href(lang, '/corrections/')}?figure=${encodeURIComponent(id)}`}>{t(lang, 'fig.reportError')}</a>

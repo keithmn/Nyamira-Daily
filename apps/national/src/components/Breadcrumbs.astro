@@ -1,0 +1,12 @@
+---
+// For pages deeper than one level. The last item is the page itself, so it is not a link.
+import { t } from '../i18n/index.js';
+import { href } from '../lib/routes.js';
+
+interface Props { lang: 'en' | 'sw'; trail: { name: string; path?: string }[] }
+const { lang, trail } = Astro.props;
+const items = [{ name: t(lang, 'nav.home'), path: '/' }, ...trail];
+---
+<nav class="crumbs" aria-label={t(lang, 'nav.breadcrumbs')}>
+  <ol>{items.map((c, i) => <li>{i < items.length - 1 ? <a href={href(lang, c.path)}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>)}</ol>
+</nav>

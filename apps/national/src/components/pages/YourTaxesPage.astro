@@ -1,0 +1,52 @@
+---
+// Your taxes, version 1 (build brief 5.9): an amount split by the shares of national spending. Without JavaScript the page
+// shows KSh 10,000. Nothing typed leaves the page, and the caveat says why this is a share, not a receipt.
+import { t } from '../../i18n/index.js';
+import { outflows } from '../../lib/budget.js';
+import { FY } from '../../lib/figures.js';
+import { href } from '../../lib/routes.js';
+import { shillings, splitAmount } from '../../lib/split.js';
+import { whatsappHref } from '../../lib/sentences.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import Chart from '../Chart.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const EXAMPLE = 10000;
+const { total, parts } = outflows();
+const names = parts.map((p) => t(lang, `ksh100.${p.key}`));
+const amounts = splitAmount(EXAMPLE, parts.map((p) => p.value));
+const item = (amount, i) => t(lang, 'taxes.item', { amount: shillings(amount), name: names[i].toLowerCase() });
+const sentence = (amount, list) => t(lang, 'taxes.shareText', { amount: shillings(amount), list: list.map(item).join(', '), fy: FY });
+const source = `${total.doc.title.replace(/ \([^()]*\)$/, '')}, ${total.page}`;
+const url = Astro.site ? new URL(href(lang, '/tools/your-taxes/'), Astro.site).href : href(lang, '/tools/your-taxes/');
+const data = { shares: parts.map((p) => p.value), of: t(lang, 'taxes.of', { amount: '{amount}' }), item: t(lang, 'taxes.item', { amount: '{amount}', name: '{name}' }), names: names.map((n) => n.toLowerCase()), share: t(lang, 'taxes.shareText', { amount: '{amount}', list: '{list}', fy: FY }), source, url };
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.learn'), path: '/learn/' }, { name: t(lang, 'taxes.title') }]} /></div>
+<section class="band" data-taxes>
+  <div class="wrap stack gap-l">
+    <div class="page-head"><h1>{t(lang, 'taxes.title')}</h1><p>{t(lang, 'taxes.line', { fy: FY })}</p></div>
+    <form class="taxes-form js-only" data-taxes-form novalidate>
+      <label for="tax-amount">{t(lang, 'taxes.label')}</label>
+      <div class="taxes-row">
+        <input id="tax-amount" name="a" inputmode="numeric" autocomplete="off" enterkeyhint="done" value={EXAMPLE.toLocaleString('en-KE')} aria-describedby="tax-error" />
+        <button class="btn" type="submit">{t(lang, 'taxes.button')}</button>
+      </div>
+      <p id="tax-error" class="small taxes-error" data-taxes-error hidden>{t(lang, 'taxes.invalid')}</p>
+    </form>
+    <h2 class="vh">{t(lang, 'nav.detail')}</h2>
+    <Chart lang={lang} title={t(lang, 'taxes.of', { amount: EXAMPLE.toLocaleString('en-KE') })} sub={t(lang, 'taxes.sub', { fy: FY })} from={total} calc={t(lang, 'fig.calc')} note={t(lang, 'taxes.caveat')}>
+      <p class="vh" aria-live="polite" data-taxes-said></p>
+      <ul class="k-list taxes-list">
+        {parts.map((p, i) => <li class="k-row"><span class="k-sq" style={`background:var(--c-${p.slot})`}></span><span class="k-nm">{names[i]}</span><span class="k-pc" data-part>{shillings(amounts[i])}</span></li>)}
+      </ul>
+    </Chart>
+    <div class="share">
+      <div class="share-card on-panel"><p class="share-text" data-taxes-text>{sentence(EXAMPLE, amounts)}</p><p class="share-src">{source}</p></div>
+      <div class="btn-row"><a class="btn" href={whatsappHref(sentence(EXAMPLE, amounts), source, url)} rel="noopener" data-taxes-wa>{t(lang, 'share.whatsapp')}</a></div>
+    </div>
+    <p class="small muted">{t(lang, 'taxes.private')}</p>
+  </div>
+  <script type="application/json" data-taxes-data set:html={JSON.stringify(data)}></script>
+</section>
+<script>import '../../scripts/taxes.js';</script>

@@ -1,0 +1,7 @@
+---
+// One county against the all-county figure. Both values are also printed, so the tick is never the only cue.
+interface Props { value: number; mark: number; shown?: string; markShown?: string; name: string; markName: string; label: string }
+const { value, mark, shown = `${value}%`, markShown = `${mark}%`, name, markName, label } = Astro.props;
+---
+<div class="meter" role="img" aria-label={label}><span class="m-fill" style={`width:${value}%`}></span><span class="m-tick" style={`left:${mark}%`}></span></div>
+<p class="m-key"><span><b>{shown}</b> {name}</span><span><b>{markShown}</b> {markName}</span></p>

@@ -1,0 +1,12 @@
+---
+import View from '../../../../components/pages/CountyPage.astro';
+import { t } from '../../../../i18n/index.js';
+import Base from '../../../../layouts/Base.astro';
+import { COUNTIES } from '@kbe/engine/counties';
+
+export function getStaticPaths() {
+  return COUNTIES.map((c) => ({ params: { county: c.slug } }));
+}
+const { county } = Astro.params;
+---
+<Base lang="sw" path={`/counties/${county}/`} image={`/img/infographics/sw/county-${county}-landscape.png`} title={t('sw', 'county.title', { name: COUNTIES.find((c) => c.slug === county).name })}><View lang="sw" slug={county} /></Base>

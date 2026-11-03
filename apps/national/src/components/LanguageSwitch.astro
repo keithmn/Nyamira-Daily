@@ -1,0 +1,9 @@
+---
+// The full-width link to the page's twin. The header has the short version.
+import { t } from '../i18n/index.js';
+import { other, twin } from '../lib/routes.js';
+
+interface Props { lang: 'en' | 'sw'; path: string }
+const { lang, path } = Astro.props;
+---
+<a class="btn quiet" href={twin(lang, path)} lang={other(lang)} hreflang={other(lang)}>{t(lang, 'lang.switch')}</a>

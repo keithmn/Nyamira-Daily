@@ -1,0 +1,27 @@
+---
+// Pick once, remembered in the reader's browser, with no account and nothing sent. Without JavaScript the list of 47 links
+// does the same job. The worded figures for the card travel in a JSON block, so the page ships no number formatting.
+import { COUNTIES } from '@kbe/engine/counties';
+import { t } from '../i18n/index.js';
+import { cardData } from '../lib/counties.js';
+import { countyHref, href } from '../lib/routes.js';
+
+interface Props { lang?: 'en' | 'sw'; id?: string }
+const { lang = 'en', id = 'pick-county' } = Astro.props;
+const data = { rows: cardData(lang), share: t(lang, 'county.share'), named: t(lang, 'county.myNamed', { name: '{name}' }), base: href(lang, '/counties/') };
+---
+<section class="card mycounty" aria-labelledby={`${id}-h`} data-county-card>
+  <h2 id={`${id}-h`} data-mc-title>{t(lang, 'county.my')}</h2>
+  <div class="picker js-only">
+    <label for={id}>{t(lang, 'county.pick')}</label>
+    <input id={id} name="county" list={`${id}-list`} autocomplete="off" enterkeyhint="done" data-county-input />
+    <datalist id={`${id}-list`}>{COUNTIES.map((c) => <option value={c.name}></option>)}</datalist>
+  </div>
+  <div aria-live="polite" data-mc hidden></div>
+  <a class="btn" hidden data-mc-link href={href(lang, '/counties/')}>{t(lang, 'county.see')}</a>
+  <details class="tv">
+    <summary>{t(lang, 'county.all')}</summary>
+    <ul class="county-links">{COUNTIES.map((c) => <li><a href={countyHref(lang, c.slug)}>{c.name}</a></li>)}</ul>
+  </details>
+  <script type="application/json" data-county-data set:html={JSON.stringify(data)}></script>
+</section>

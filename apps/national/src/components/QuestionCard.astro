@@ -1,0 +1,11 @@
+---
+// A question with a Copy button. Questions, not accusations: the wording comes from dated documents.
+import { t } from '../i18n/index.js';
+
+interface Props { question: string; lang?: 'en' | 'sw' }
+const { question, lang = 'en' } = Astro.props;
+---
+<div class="qc">
+  <p>{question}</p>
+  <button class="btn quiet" type="button" data-copy={question} data-done={t(lang, 'question.copied')} data-fail={t(lang, 'fig.copyFailed')} aria-label={t(lang, 'question.copyLabel')}>{t(lang, 'question.copy')}</button>
+</div>

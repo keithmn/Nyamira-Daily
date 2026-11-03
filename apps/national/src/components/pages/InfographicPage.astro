@@ -1,0 +1,31 @@
+---
+// One infographic: the picture with its alt text, the same content as text, downloads in both sizes, and Share
+import { t } from '../../i18n/index.js';
+import { FORMATS, imagePath, infographic } from '../../lib/infographics.js';
+import { countyHref, href } from '../../lib/routes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import ShareCard from '../ShareCard.astro';
+
+interface Props { slug: string; lang?: 'en' | 'sw' }
+const { slug, lang = 'en' } = Astro.props;
+const g = infographic(slug, lang);
+const url = new URL(href(lang, `/infographics/${slug}/`), Astro.site ?? 'https://example.invalid').href;
+const file = (format) => `${slug}-${format}.png`;
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'ig.title'), path: '/infographics/' }, { name: g.title }]} /></div>
+<section class="band">
+  <div class="wrap two">
+    <img class="ig-img" src={href('en', imagePath(slug, 'portrait', lang))} alt={g.alt} width={FORMATS.portrait.width} height={FORMATS.portrait.height} />
+    <div class="stack gap-l">
+      <div class="page-head"><h1>{g.title}</h1>{g.number && <p class="ig-page-num">{g.number}</p>}<p>{g.line}</p></div>
+      {g.rows && <dl class="methods">{g.rows.map((r) => <div class="method"><dt>{r.name}: {r.value}</dt><dd><p class="small muted">{r.note}</p></dd></div>)}</dl>}
+      <p class="small muted">{t(lang, 'learn.sources')} {g.source}</p>
+      <ShareCard lang={lang} text={[`${g.title}:`, g.number, g.line].filter(Boolean).join(' ')} source={g.source} url={url} />
+      <div class="btn-row">
+        <a class="btn quiet" href={href('en', imagePath(slug, 'portrait', lang))} download={file('portrait')}>{t(lang, 'ig.downloadPortrait')}</a>
+        <a class="btn quiet" href={href('en', imagePath(slug, 'landscape', lang))} download={file('landscape')}>{t(lang, 'ig.downloadLandscape')}</a>
+        {g.county && <a class="btn quiet" href={countyHref(lang, g.county)}>{t(lang, 'ig.countyPage')}</a>}
+      </div>
+    </div>
+  </div>
+</section>

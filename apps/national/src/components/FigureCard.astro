@@ -1,0 +1,41 @@
+---
+// Question, number, sentence, label, stage, source, citation, report error (DESIGN.md). Give it a registry id, or a total
+// from `summed`, and it reads the rest from the figure. `missing`, `disputed` and `corrected` are the states a figure can be in.
+import { longDate, money } from '@kbe/engine/fmt';
+import { t } from '../i18n/index.js';
+import { correctionFor, fig } from '../lib/figures.js';
+import FigureAbout from './FigureAbout.astro';
+import FigureMeta from './FigureMeta.astro';
+import NotYetLoaded from './NotYetLoaded.astro';
+import SourceLine from './SourceLine.astro';
+import StaleNote from './StaleNote.astro';
+
+interface Props {
+  id?: string; figure?: any; q: string; lang?: 'en' | 'sw'; gap?: boolean; shown?: string; calc?: string; staleNow?: boolean;
+  missing?: { what: string; why: string };
+  corrected?: { date: string; old: string; reason: string };
+  disputed?: { other: string; reason: string };
+}
+const { id, figure, q, lang = 'en', gap = false, shown, calc, staleNow = false, missing, corrected, disputed } = Astro.props;
+const f = figure ?? (id ? fig(id) : null);
+const number = f ? shown ?? (f.unit === '%' ? `${f.value}%` : money(f.value, f.unit, lang)) : null;
+const log = f && correctionFor(f.id);
+const logged = corrected ?? (log && { date: log.date, old: String(log.old), reason: log.reason });
+const against = disputed ? fig(disputed.other) : null;
+---
+<article class="card fig">
+  <p class="fig-q">{q}</p>
+  {missing && <NotYetLoaded what={missing.what} why={missing.why} lang={lang} />}
+  {f && (
+    <>
+      <span class:list={['fig-num', { gap }]}>{number}</span>
+      <slot />
+      <FigureMeta label={f.label} stage={f.stage} calc={calc ?? (f.calc ? t(lang, 'fig.calc') : undefined)} lang={lang} />
+      <SourceLine doc={f.doc} page={f.page} lang={lang} />
+      {logged && <p class="note">{t(lang, 'state.corrected', { date: longDate(logged.date, lang), old: logged.old, reason: logged.reason })}</p>}
+      {against && <p class="note">{t(lang, 'state.disputed', { a: money(f.value, f.unit, lang), b: money(against.value, against.unit, lang), used: money(f.value, f.unit, lang), reason: disputed.reason })}</p>}
+      {f.doc.nextExpected && <StaleNote after={f.doc.nextExpected.date} what={f.doc.nextExpected.what} lang={lang} force={staleNow} />}
+      <FigureAbout figure={f} what={q} lang={lang} />
+    </>
+  )}
+</article>

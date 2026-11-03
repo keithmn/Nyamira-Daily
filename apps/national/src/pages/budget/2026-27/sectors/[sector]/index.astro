@@ -1,0 +1,12 @@
+---
+import View from '../../../../../components/pages/SectorPage.astro';
+import { t } from '../../../../../i18n/index.js';
+import Base from '../../../../../layouts/Base.astro';
+import { allSectors } from '../../../../../lib/votes.js';
+
+export function getStaticPaths() {
+  return allSectors().map((s) => ({ params: { sector: s.slug } }));
+}
+const { sector } = Astro.params;
+---
+<Base path={`/budget/2026-27/sectors/${sector}/`} title={t('en', `sector.${sector}`)}><View slug={sector} /></Base>

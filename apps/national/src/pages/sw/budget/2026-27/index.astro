@@ -1,0 +1,7 @@
+---
+import View from '../../../../components/pages/BudgetYearPage.astro';
+import { t } from '../../../../i18n/index.js';
+import Base from '../../../../layouts/Base.astro';
+import { FY } from '../../../../lib/figures.js';
+---
+<Base lang="sw" path={'/budget/2026-27/'} title={t('sw', 'budget.title', { fy: FY })}><View lang="sw" /></Base>

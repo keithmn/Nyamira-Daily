@@ -1,0 +1,38 @@
+---
+// The Dusk band at the top of a page: the number, a sentence, its label, stage and source. On the home and year pages the
+// number is the page's heading; elsewhere the heading is the name, and the number follows it. Slot `side` is the right column.
+import { money } from '@kbe/engine/fmt';
+import FigureAbout from './FigureAbout.astro';
+import FigureMeta from './FigureMeta.astro';
+import KiswahiliSummary from './KiswahiliSummary.astro';
+import SourceLine from './SourceLine.astro';
+
+// `sw` is a whole Kiswahili sentence; `swAfter` is one that follows the number. Either gives English pages their Kiswahili
+// summary (decision #87); a Kiswahili page needs none.
+interface Props { figure: any; line: string; eyebrow?: string; title?: string; lang?: 'en' | 'sw'; calc?: string; what?: string; small?: boolean; sw?: string; swAfter?: string }
+const { figure, line, eyebrow, title, lang = 'en', calc, what, small = false, sw, swAfter } = Astro.props;
+const summary = lang === 'en' ? sw ?? (swAfter ? `${money(figure.value, figure.unit, 'sw')} ${swAfter}` : null) : null;
+// The word sits smaller than the number, wherever each language puts it: KSh 4.82 trillion, KSh trilioni 4.82
+const parts = money(figure.value, figure.unit, lang).split(' ');
+const isWord = (p) => p !== 'KSh' && Number.isNaN(Number(p));
+const Number_ = title ? 'p' : 'h1';
+---
+<section class="hero on-panel">
+  <div class="wrap hero-in">
+    <slot name="top" />
+    <div class="hero-grid">
+      <div class="stack">
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        {title && <h1 class="hero-title">{title}</h1>}
+        <Number_ class:list={['hero-num', { 'is-small': small }]}>{parts.map((p, i) => <>{i > 0 && ' '}{isWord(p) ? <small>{p}</small> : p}</>)}</Number_>
+        <p class="hero-line">{line}</p>
+        <FigureMeta label={figure.label} stage={figure.stage} calc={calc} lang={lang} />
+        <SourceLine doc={figure.doc} page={figure.page} lang={lang} />
+        {what && <FigureAbout figure={figure} what={what} lang={lang} />}
+        <slot />
+      </div>
+      <slot name="side" />
+    </div>
+  </div>
+</section>
+{summary && <div class="wrap hero-sw"><KiswahiliSummary lang={lang}>{summary}</KiswahiliSummary></div>}

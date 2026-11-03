@@ -1,0 +1,30 @@
+---
+// Corrections: every figure a release changed or removed, with the old value, the new one and the reason (build brief
+// 4.6). Each "Report an error" button lands here with the figure's id; reporting opens once a contact is set up.
+import { longDate, num } from '@kbe/engine/fmt';
+import { t } from '../../i18n/index.js';
+import { allCorrections } from '../../lib/figures.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import DataTable from '../DataTable.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const log = allCorrections().toReversed();
+const cell = (shown, sort = shown) => ({ shown, sort });
+const columns = [{ key: 'date', label: t(lang, 'corrections.date') }, { key: 'id', label: t(lang, 'releases.figure') }, { key: 'old', label: t(lang, 'releases.old'), num: true }, { key: 'new', label: t(lang, 'releases.new'), num: true }, { key: 'why', label: t(lang, 'corrections.why') }];
+const rows = log.map((c) => ({ date: cell(longDate(c.date, lang), c.date), id: cell(c.id), old: cell(num(c.old), c.old), new: cell(c.new == null ? t(lang, 'releases.removed') : num(c.new), c.new ?? ''), why: cell(c.reason) }));
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'data.title'), path: '/data/' }, { name: t(lang, 'corrections.title') }]} /></div>
+<section class="band">
+  <div class="wrap stack gap-l">
+    <div class="page-head"><h1>{t(lang, 'corrections.title')}</h1><p>{t(lang, 'corrections.line')}</p></div>
+    {rows.length > 0 ? <DataTable lang={lang} caption={t(lang, 'corrections.title')} columns={columns} rows={rows} /> : <p>{t(lang, 'corrections.none')}</p>}
+  </div>
+</section>
+<section class="band alt" aria-labelledby="h-report">
+  <div class="wrap stack">
+    <h2 id="h-report">{t(lang, 'corrections.reportTitle')}</h2>
+    <p class="js-only" data-asked-figure data-text={t(lang, 'corrections.asked', { id: '{id}' })} hidden></p>
+    <p>{t(lang, 'corrections.notOpen')}</p>
+  </div>
+</section>

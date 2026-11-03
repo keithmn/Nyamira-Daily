@@ -1,0 +1,11 @@
+---
+// Built in development and preview only: a production build returns no paths, so /dev/ does not exist there.
+import ComponentLibrary from '../../components/ComponentLibrary.astro';
+import { t } from '../../i18n/index.js';
+import Base from '../../layouts/Base.astro';
+
+export function getStaticPaths() {
+  return import.meta.env.DEV || __KBE_PREVIEW__ ? [{ params: { page: 'components' } }] : [];
+}
+---
+<Base path="/dev/components/" title={t('en', 'meta.components')} noindex><ComponentLibrary /></Base>

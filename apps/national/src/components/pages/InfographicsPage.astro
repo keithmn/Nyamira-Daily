@@ -1,0 +1,24 @@
+---
+// The library: links only, grouped, so the page stays light. Each picture lives on its own page.
+import { t } from '../../i18n/index.js';
+import { allInfographics } from '../../lib/infographics.js';
+import { href } from '../../lib/routes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const all = allInfographics(lang);
+const groups = ['budget', 'sector', 'county'].map((key) => ({ key, list: all.filter((g) => g.group === key) }));
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'ig.title') }]} /></div>
+<section class="band">
+  <div class="wrap stack gap-l">
+    <div class="page-head"><h1>{t(lang, 'ig.title')}</h1><p>{t(lang, 'ig.line', { n: all.length })}</p></div>
+    {groups.map((group) => (
+      <div class="stack gap-s">
+        <h2>{t(lang, `ig.group.${group.key}`)}</h2>
+        <ul class="file-list ig-list">{group.list.map((g) => <li><a href={href(lang, `/infographics/${g.slug}/`)}>{g.title}</a></li>)}</ul>
+      </div>
+    ))}
+  </div>
+</section>

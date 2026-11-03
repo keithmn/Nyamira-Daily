@@ -1,0 +1,12 @@
+---
+// Says a newer document may exist. Shown at build time if the date has passed, and by the script if it passes between
+// builds. It uses no `define:vars`, unlike the main site's StaleScript (DESIGN.md).
+import { longDate } from '@kbe/engine/fmt';
+import { t } from '../i18n/index.js';
+import { today } from '../lib/figures.js';
+
+interface Props { after: string; what: string; lang?: 'en' | 'sw'; force?: boolean }
+const { after, what, lang = 'en', force = false } = Astro.props;
+const due = force || after < today();
+---
+<p class="note" data-stale-after={force ? undefined : after} hidden={!due}>{t(lang, 'state.stale', { what, date: longDate(after, lang) })}</p>

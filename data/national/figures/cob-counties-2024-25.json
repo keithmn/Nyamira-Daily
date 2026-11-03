@@ -1,0 +1,2703 @@
+{
+ "defaults": {
+  "fy": "2024/25",
+  "stage": "spent",
+  "unit": "KSh m",
+  "grouping": "county-spending",
+  "money": "county",
+  "label": "official",
+  "source": "cob-county-birr-2024-25",
+  "checkedOn": "2026-11-02",
+  "checkedBy": "claude-code"
+ },
+ "figures": [
+  {
+   "id": "ke.fy2024-25.spent.county.baringo.budget",
+   "name": "Baringo: budget, FY2024/25",
+   "value": 8983.76,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.baringo.spent",
+   "name": "Baringo: spending, FY2024/25",
+   "value": 7211.31,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.baringo.dev-budget",
+   "name": "Baringo: development budget, FY2024/25",
+   "value": 3190.04,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.baringo.dev-spent",
+   "name": "Baringo: development spending, FY2024/25",
+   "value": 1680.21,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.baringo.dev-absorption",
+   "name": "Baringo: share of the development budget spent, FY2024/25",
+   "value": 53,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.baringo.absorption",
+   "name": "Baringo: share of the budget spent, FY2024/25",
+   "value": 80,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bomet.budget",
+   "name": "Bomet: budget, FY2024/25",
+   "value": 9831.7,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bomet.spent",
+   "name": "Bomet: spending, FY2024/25",
+   "value": 7876.38,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bomet.dev-budget",
+   "name": "Bomet: development budget, FY2024/25",
+   "value": 3364.86,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bomet.dev-spent",
+   "name": "Bomet: development spending, FY2024/25",
+   "value": 2054.41,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bomet.dev-absorption",
+   "name": "Bomet: share of the development budget spent, FY2024/25",
+   "value": 61,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bomet.absorption",
+   "name": "Bomet: share of the budget spent, FY2024/25",
+   "value": 80,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bungoma.budget",
+   "name": "Bungoma: budget, FY2024/25",
+   "value": 16704.46,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bungoma.spent",
+   "name": "Bungoma: spending, FY2024/25",
+   "value": 12492.78,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bungoma.dev-budget",
+   "name": "Bungoma: development budget, FY2024/25",
+   "value": 6625.86,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bungoma.dev-spent",
+   "name": "Bungoma: development spending, FY2024/25",
+   "value": 3789.78,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bungoma.dev-absorption",
+   "name": "Bungoma: share of the development budget spent, FY2024/25",
+   "value": 57,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.bungoma.absorption",
+   "name": "Bungoma: share of the budget spent, FY2024/25",
+   "value": 75,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.busia.budget",
+   "name": "Busia: budget, FY2024/25",
+   "value": 10770.15,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.busia.spent",
+   "name": "Busia: spending, FY2024/25",
+   "value": 8305.12,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.busia.dev-budget",
+   "name": "Busia: development budget, FY2024/25",
+   "value": 3905.95,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.busia.dev-spent",
+   "name": "Busia: development spending, FY2024/25",
+   "value": 2684.31,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.busia.dev-absorption",
+   "name": "Busia: share of the development budget spent, FY2024/25",
+   "value": 69,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.busia.absorption",
+   "name": "Busia: share of the budget spent, FY2024/25",
+   "value": 77,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.elgeyo-marakwet.budget",
+   "name": "Elgeyo-Marakwet: budget, FY2024/25",
+   "value": 7899.87,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.elgeyo-marakwet.spent",
+   "name": "Elgeyo-Marakwet: spending, FY2024/25",
+   "value": 5728.28,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.elgeyo-marakwet.dev-budget",
+   "name": "Elgeyo-Marakwet: development budget, FY2024/25",
+   "value": 3147.09,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.elgeyo-marakwet.dev-spent",
+   "name": "Elgeyo-Marakwet: development spending, FY2024/25",
+   "value": 1222.12,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.elgeyo-marakwet.dev-absorption",
+   "name": "Elgeyo-Marakwet: share of the development budget spent, FY2024/25",
+   "value": 39,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.elgeyo-marakwet.absorption",
+   "name": "Elgeyo-Marakwet: share of the budget spent, FY2024/25",
+   "value": 73,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.embu.budget",
+   "name": "Embu: budget, FY2024/25",
+   "value": 8533.54,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.embu.spent",
+   "name": "Embu: spending, FY2024/25",
+   "value": 6352.93,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.embu.dev-budget",
+   "name": "Embu: development budget, FY2024/25",
+   "value": 2821.73,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.embu.dev-spent",
+   "name": "Embu: development spending, FY2024/25",
+   "value": 1631.35,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.embu.dev-absorption",
+   "name": "Embu: share of the development budget spent, FY2024/25",
+   "value": 58,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.embu.absorption",
+   "name": "Embu: share of the budget spent, FY2024/25",
+   "value": 74,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.8",
+   "pdfPage": 52
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.garissa.budget",
+   "name": "Garissa: budget, FY2024/25",
+   "value": 12005.81,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.garissa.spent",
+   "name": "Garissa: spending, FY2024/25",
+   "value": 9904.45,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.garissa.dev-budget",
+   "name": "Garissa: development budget, FY2024/25",
+   "value": 4662.07,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.garissa.dev-spent",
+   "name": "Garissa: development spending, FY2024/25",
+   "value": 3130.21,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.garissa.dev-absorption",
+   "name": "Garissa: share of the development budget spent, FY2024/25",
+   "value": 67,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.garissa.absorption",
+   "name": "Garissa: share of the budget spent, FY2024/25",
+   "value": 82,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.homa-bay.budget",
+   "name": "Homa Bay: budget, FY2024/25",
+   "value": 13130.57,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.homa-bay.spent",
+   "name": "Homa Bay: spending, FY2024/25",
+   "value": 10752.69,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.homa-bay.dev-budget",
+   "name": "Homa Bay: development budget, FY2024/25",
+   "value": 5191.15,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.homa-bay.dev-spent",
+   "name": "Homa Bay: development spending, FY2024/25",
+   "value": 3562.22,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.homa-bay.dev-absorption",
+   "name": "Homa Bay: share of the development budget spent, FY2024/25",
+   "value": 69,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.homa-bay.absorption",
+   "name": "Homa Bay: share of the budget spent, FY2024/25",
+   "value": 82,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.isiolo.budget",
+   "name": "Isiolo: budget, FY2024/25",
+   "value": 6805.05,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.isiolo.spent",
+   "name": "Isiolo: spending, FY2024/25",
+   "value": 4297.96,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.isiolo.dev-budget",
+   "name": "Isiolo: development budget, FY2024/25",
+   "value": 2487.73,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.isiolo.dev-spent",
+   "name": "Isiolo: development spending, FY2024/25",
+   "value": 1292.04,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.isiolo.dev-absorption",
+   "name": "Isiolo: share of the development budget spent, FY2024/25",
+   "value": 52,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.isiolo.absorption",
+   "name": "Isiolo: share of the budget spent, FY2024/25",
+   "value": 63,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kajiado.budget",
+   "name": "Kajiado: budget, FY2024/25",
+   "value": 12786.47,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kajiado.spent",
+   "name": "Kajiado: spending, FY2024/25",
+   "value": 9627.07,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kajiado.dev-budget",
+   "name": "Kajiado: development budget, FY2024/25",
+   "value": 3836.83,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kajiado.dev-spent",
+   "name": "Kajiado: development spending, FY2024/25",
+   "value": 1779.55,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kajiado.dev-absorption",
+   "name": "Kajiado: share of the development budget spent, FY2024/25",
+   "value": 46,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kajiado.absorption",
+   "name": "Kajiado: share of the budget spent, FY2024/25",
+   "value": 75,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kakamega.budget",
+   "name": "Kakamega: budget, FY2024/25",
+   "value": 17646.79,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kakamega.spent",
+   "name": "Kakamega: spending, FY2024/25",
+   "value": 14347.46,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kakamega.dev-budget",
+   "name": "Kakamega: development budget, FY2024/25",
+   "value": 5403.21,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kakamega.dev-spent",
+   "name": "Kakamega: development spending, FY2024/25",
+   "value": 3264.01,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kakamega.dev-absorption",
+   "name": "Kakamega: share of the development budget spent, FY2024/25",
+   "value": 60,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kakamega.absorption",
+   "name": "Kakamega: share of the budget spent, FY2024/25",
+   "value": 81,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kericho.budget",
+   "name": "Kericho: budget, FY2024/25",
+   "value": 9756.94,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kericho.spent",
+   "name": "Kericho: spending, FY2024/25",
+   "value": 7976.04,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kericho.dev-budget",
+   "name": "Kericho: development budget, FY2024/25",
+   "value": 3561.28,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kericho.dev-spent",
+   "name": "Kericho: development spending, FY2024/25",
+   "value": 2578.83,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kericho.dev-absorption",
+   "name": "Kericho: share of the development budget spent, FY2024/25",
+   "value": 72,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kericho.absorption",
+   "name": "Kericho: share of the budget spent, FY2024/25",
+   "value": 82,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kiambu.budget",
+   "name": "Kiambu: budget, FY2024/25",
+   "value": 23480.38,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kiambu.spent",
+   "name": "Kiambu: spending, FY2024/25",
+   "value": 16495.58,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kiambu.dev-budget",
+   "name": "Kiambu: development budget, FY2024/25",
+   "value": 7961.5,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kiambu.dev-spent",
+   "name": "Kiambu: development spending, FY2024/25",
+   "value": 2952.47,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kiambu.dev-absorption",
+   "name": "Kiambu: share of the development budget spent, FY2024/25",
+   "value": 37,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kiambu.absorption",
+   "name": "Kiambu: share of the budget spent, FY2024/25",
+   "value": 70,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kilifi.budget",
+   "name": "Kilifi: budget, FY2024/25",
+   "value": 21406.5,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kilifi.spent",
+   "name": "Kilifi: spending, FY2024/25",
+   "value": 15932.1,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kilifi.dev-budget",
+   "name": "Kilifi: development budget, FY2024/25",
+   "value": 11440.1,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kilifi.dev-spent",
+   "name": "Kilifi: development spending, FY2024/25",
+   "value": 6705.07,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kilifi.dev-absorption",
+   "name": "Kilifi: share of the development budget spent, FY2024/25",
+   "value": 59,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kilifi.absorption",
+   "name": "Kilifi: share of the budget spent, FY2024/25",
+   "value": 74,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kirinyaga.budget",
+   "name": "Kirinyaga: budget, FY2024/25",
+   "value": 7925.71,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kirinyaga.spent",
+   "name": "Kirinyaga: spending, FY2024/25",
+   "value": 6666.53,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kirinyaga.dev-budget",
+   "name": "Kirinyaga: development budget, FY2024/25",
+   "value": 2994.12,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kirinyaga.dev-spent",
+   "name": "Kirinyaga: development spending, FY2024/25",
+   "value": 2146.4,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kirinyaga.dev-absorption",
+   "name": "Kirinyaga: share of the development budget spent, FY2024/25",
+   "value": 72,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kirinyaga.absorption",
+   "name": "Kirinyaga: share of the budget spent, FY2024/25",
+   "value": 84,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisii.budget",
+   "name": "Kisii: budget, FY2024/25",
+   "value": 15155.35,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisii.spent",
+   "name": "Kisii: spending, FY2024/25",
+   "value": 9963.15,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisii.dev-budget",
+   "name": "Kisii: development budget, FY2024/25",
+   "value": 6146.12,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisii.dev-spent",
+   "name": "Kisii: development spending, FY2024/25",
+   "value": 2456.17,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisii.dev-absorption",
+   "name": "Kisii: share of the development budget spent, FY2024/25",
+   "value": 40,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisii.absorption",
+   "name": "Kisii: share of the budget spent, FY2024/25",
+   "value": 66,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisumu.budget",
+   "name": "Kisumu: budget, FY2024/25",
+   "value": 15314.33,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisumu.spent",
+   "name": "Kisumu: spending, FY2024/25",
+   "value": 9467.84,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisumu.dev-budget",
+   "name": "Kisumu: development budget, FY2024/25",
+   "value": 5428.94,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisumu.dev-spent",
+   "name": "Kisumu: development spending, FY2024/25",
+   "value": 1567.99,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisumu.dev-absorption",
+   "name": "Kisumu: share of the development budget spent, FY2024/25",
+   "value": 29,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kisumu.absorption",
+   "name": "Kisumu: share of the budget spent, FY2024/25",
+   "value": 62,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kitui.budget",
+   "name": "Kitui: budget, FY2024/25",
+   "value": 14305.36,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kitui.spent",
+   "name": "Kitui: spending, FY2024/25",
+   "value": 12459.66,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kitui.dev-budget",
+   "name": "Kitui: development budget, FY2024/25",
+   "value": 4751.75,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kitui.dev-spent",
+   "name": "Kitui: development spending, FY2024/25",
+   "value": 3277.21,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kitui.dev-absorption",
+   "name": "Kitui: share of the development budget spent, FY2024/25",
+   "value": 69,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kitui.absorption",
+   "name": "Kitui: share of the budget spent, FY2024/25",
+   "value": 87,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kwale.budget",
+   "name": "Kwale: budget, FY2024/25",
+   "value": 14876.06,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kwale.spent",
+   "name": "Kwale: spending, FY2024/25",
+   "value": 10085.02,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kwale.dev-budget",
+   "name": "Kwale: development budget, FY2024/25",
+   "value": 6953.45,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kwale.dev-spent",
+   "name": "Kwale: development spending, FY2024/25",
+   "value": 3078.8,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kwale.dev-absorption",
+   "name": "Kwale: share of the development budget spent, FY2024/25",
+   "value": 44,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.kwale.absorption",
+   "name": "Kwale: share of the budget spent, FY2024/25",
+   "value": 68,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.laikipia.budget",
+   "name": "Laikipia: budget, FY2024/25",
+   "value": 8479.54,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.laikipia.spent",
+   "name": "Laikipia: spending, FY2024/25",
+   "value": 6249.43,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.laikipia.dev-budget",
+   "name": "Laikipia: development budget, FY2024/25",
+   "value": 3475.84,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.laikipia.dev-spent",
+   "name": "Laikipia: development spending, FY2024/25",
+   "value": 1604.79,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.laikipia.dev-absorption",
+   "name": "Laikipia: share of the development budget spent, FY2024/25",
+   "value": 46,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.laikipia.absorption",
+   "name": "Laikipia: share of the budget spent, FY2024/25",
+   "value": 74,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.lamu.budget",
+   "name": "Lamu: budget, FY2024/25",
+   "value": 4988.65,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.lamu.spent",
+   "name": "Lamu: spending, FY2024/25",
+   "value": 3828.46,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.lamu.dev-budget",
+   "name": "Lamu: development budget, FY2024/25",
+   "value": 1903.72,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.lamu.dev-spent",
+   "name": "Lamu: development spending, FY2024/25",
+   "value": 1016.59,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.lamu.dev-absorption",
+   "name": "Lamu: share of the development budget spent, FY2024/25",
+   "value": 53,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.lamu.absorption",
+   "name": "Lamu: share of the budget spent, FY2024/25",
+   "value": 77,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.machakos.budget",
+   "name": "Machakos: budget, FY2024/25",
+   "value": 15622.16,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.machakos.spent",
+   "name": "Machakos: spending, FY2024/25",
+   "value": 11807.44,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.machakos.dev-budget",
+   "name": "Machakos: development budget, FY2024/25",
+   "value": 4747.75,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.machakos.dev-spent",
+   "name": "Machakos: development spending, FY2024/25",
+   "value": 1943.56,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.machakos.dev-absorption",
+   "name": "Machakos: share of the development budget spent, FY2024/25",
+   "value": 41,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.machakos.absorption",
+   "name": "Machakos: share of the budget spent, FY2024/25",
+   "value": 76,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.makueni.budget",
+   "name": "Makueni: budget, FY2024/25",
+   "value": 11580.21,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.makueni.spent",
+   "name": "Makueni: spending, FY2024/25",
+   "value": 10082.1,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.makueni.dev-budget",
+   "name": "Makueni: development budget, FY2024/25",
+   "value": 3678.31,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.makueni.dev-spent",
+   "name": "Makueni: development spending, FY2024/25",
+   "value": 2621.37,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.makueni.dev-absorption",
+   "name": "Makueni: share of the development budget spent, FY2024/25",
+   "value": 71,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.makueni.absorption",
+   "name": "Makueni: share of the budget spent, FY2024/25",
+   "value": 87,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mandera.budget",
+   "name": "Mandera: budget, FY2024/25",
+   "value": 14567.55,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mandera.spent",
+   "name": "Mandera: spending, FY2024/25",
+   "value": 12713.17,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mandera.dev-budget",
+   "name": "Mandera: development budget, FY2024/25",
+   "value": 5655.28,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mandera.dev-spent",
+   "name": "Mandera: development spending, FY2024/25",
+   "value": 4067.14,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mandera.dev-absorption",
+   "name": "Mandera: share of the development budget spent, FY2024/25",
+   "value": 72,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mandera.absorption",
+   "name": "Mandera: share of the budget spent, FY2024/25",
+   "value": 87,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.marsabit.budget",
+   "name": "Marsabit: budget, FY2024/25",
+   "value": 10318.61,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.marsabit.spent",
+   "name": "Marsabit: spending, FY2024/25",
+   "value": 8625.61,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.marsabit.dev-budget",
+   "name": "Marsabit: development budget, FY2024/25",
+   "value": 4273.66,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.marsabit.dev-spent",
+   "name": "Marsabit: development spending, FY2024/25",
+   "value": 3014.55,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.marsabit.dev-absorption",
+   "name": "Marsabit: share of the development budget spent, FY2024/25",
+   "value": 71,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.marsabit.absorption",
+   "name": "Marsabit: share of the budget spent, FY2024/25",
+   "value": 84,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.meru.budget",
+   "name": "Meru: budget, FY2024/25",
+   "value": 13108.95,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.meru.spent",
+   "name": "Meru: spending, FY2024/25",
+   "value": 11647.06,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.meru.dev-budget",
+   "name": "Meru: development budget, FY2024/25",
+   "value": 3882.8,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.meru.dev-spent",
+   "name": "Meru: development spending, FY2024/25",
+   "value": 2844.65,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.meru.dev-absorption",
+   "name": "Meru: share of the development budget spent, FY2024/25",
+   "value": 73,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.meru.absorption",
+   "name": "Meru: share of the budget spent, FY2024/25",
+   "value": 89,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.migori.budget",
+   "name": "Migori: budget, FY2024/25",
+   "value": 12147.01,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.migori.spent",
+   "name": "Migori: spending, FY2024/25",
+   "value": 10120.43,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.migori.dev-budget",
+   "name": "Migori: development budget, FY2024/25",
+   "value": 4466.41,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.migori.dev-spent",
+   "name": "Migori: development spending, FY2024/25",
+   "value": 2790.61,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.migori.dev-absorption",
+   "name": "Migori: share of the development budget spent, FY2024/25",
+   "value": 62,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.migori.absorption",
+   "name": "Migori: share of the budget spent, FY2024/25",
+   "value": 83,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mombasa.budget",
+   "name": "Mombasa: budget, FY2024/25",
+   "value": 17360,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mombasa.spent",
+   "name": "Mombasa: spending, FY2024/25",
+   "value": 13316.23,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mombasa.dev-budget",
+   "name": "Mombasa: development budget, FY2024/25",
+   "value": 5521.91,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mombasa.dev-spent",
+   "name": "Mombasa: development spending, FY2024/25",
+   "value": 3430.47,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mombasa.dev-absorption",
+   "name": "Mombasa: share of the development budget spent, FY2024/25",
+   "value": 62,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.mombasa.absorption",
+   "name": "Mombasa: share of the budget spent, FY2024/25",
+   "value": 77,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.muranga.budget",
+   "name": "Murang'a: budget, FY2024/25",
+   "value": 10743.65,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.muranga.spent",
+   "name": "Murang'a: spending, FY2024/25",
+   "value": 9184.72,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.muranga.dev-budget",
+   "name": "Murang'a: development budget, FY2024/25",
+   "value": 3218.2,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.muranga.dev-spent",
+   "name": "Murang'a: development spending, FY2024/25",
+   "value": 2278.76,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.muranga.dev-absorption",
+   "name": "Murang'a: share of the development budget spent, FY2024/25",
+   "value": 71,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.muranga.absorption",
+   "name": "Murang'a: share of the budget spent, FY2024/25",
+   "value": 85,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nairobi-city.budget",
+   "name": "Nairobi City: budget, FY2024/25",
+   "value": 43564.27,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nairobi-city.spent",
+   "name": "Nairobi City: spending, FY2024/25",
+   "value": 33523.47,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nairobi-city.dev-budget",
+   "name": "Nairobi City: development budget, FY2024/25",
+   "value": 14259.54,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nairobi-city.dev-spent",
+   "name": "Nairobi City: development spending, FY2024/25",
+   "value": 4090.36,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nairobi-city.dev-absorption",
+   "name": "Nairobi City: share of the development budget spent, FY2024/25",
+   "value": 29,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nairobi-city.absorption",
+   "name": "Nairobi City: share of the budget spent, FY2024/25",
+   "value": 77,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nakuru.budget",
+   "name": "Nakuru: budget, FY2024/25",
+   "value": 23980.4,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nakuru.spent",
+   "name": "Nakuru: spending, FY2024/25",
+   "value": 15965.37,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nakuru.dev-budget",
+   "name": "Nakuru: development budget, FY2024/25",
+   "value": 9310.14,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nakuru.dev-spent",
+   "name": "Nakuru: development spending, FY2024/25",
+   "value": 3936.02,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nakuru.dev-absorption",
+   "name": "Nakuru: share of the development budget spent, FY2024/25",
+   "value": 42,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nakuru.absorption",
+   "name": "Nakuru: share of the budget spent, FY2024/25",
+   "value": 67,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nandi.budget",
+   "name": "Nandi: budget, FY2024/25",
+   "value": 10188.22,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nandi.spent",
+   "name": "Nandi: spending, FY2024/25",
+   "value": 9984.94,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nandi.dev-budget",
+   "name": "Nandi: development budget, FY2024/25",
+   "value": 3694.68,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nandi.dev-spent",
+   "name": "Nandi: development spending, FY2024/25",
+   "value": 3335.12,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nandi.dev-absorption",
+   "name": "Nandi: share of the development budget spent, FY2024/25",
+   "value": 90,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nandi.absorption",
+   "name": "Nandi: share of the budget spent, FY2024/25",
+   "value": 98,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.narok.budget",
+   "name": "Narok: budget, FY2024/25",
+   "value": 17567.52,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.narok.spent",
+   "name": "Narok: spending, FY2024/25",
+   "value": 15838.27,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.narok.dev-budget",
+   "name": "Narok: development budget, FY2024/25",
+   "value": 5333.64,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.narok.dev-spent",
+   "name": "Narok: development spending, FY2024/25",
+   "value": 3960.27,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.narok.dev-absorption",
+   "name": "Narok: share of the development budget spent, FY2024/25",
+   "value": 74,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.narok.absorption",
+   "name": "Narok: share of the budget spent, FY2024/25",
+   "value": 90,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyamira.budget",
+   "name": "Nyamira: budget, FY2024/25",
+   "value": 8102.9,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyamira.spent",
+   "name": "Nyamira: spending, FY2024/25",
+   "value": 5656.74,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyamira.dev-budget",
+   "name": "Nyamira: development budget, FY2024/25",
+   "value": 2870.61,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyamira.dev-spent",
+   "name": "Nyamira: development spending, FY2024/25",
+   "value": 1052.12,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyamira.dev-absorption",
+   "name": "Nyamira: share of the development budget spent, FY2024/25",
+   "value": 37,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyamira.absorption",
+   "name": "Nyamira: share of the budget spent, FY2024/25",
+   "value": 70,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyandarua.budget",
+   "name": "Nyandarua: budget, FY2024/25",
+   "value": 8779.76,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyandarua.spent",
+   "name": "Nyandarua: spending, FY2024/25",
+   "value": 7059.73,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyandarua.dev-budget",
+   "name": "Nyandarua: development budget, FY2024/25",
+   "value": 3171.86,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyandarua.dev-spent",
+   "name": "Nyandarua: development spending, FY2024/25",
+   "value": 1955.58,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyandarua.dev-absorption",
+   "name": "Nyandarua: share of the development budget spent, FY2024/25",
+   "value": 62,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyandarua.absorption",
+   "name": "Nyandarua: share of the budget spent, FY2024/25",
+   "value": 80,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyeri.budget",
+   "name": "Nyeri: budget, FY2024/25",
+   "value": 9004.03,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyeri.spent",
+   "name": "Nyeri: spending, FY2024/25",
+   "value": 7911.64,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyeri.dev-budget",
+   "name": "Nyeri: development budget, FY2024/25",
+   "value": 2902.36,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyeri.dev-spent",
+   "name": "Nyeri: development spending, FY2024/25",
+   "value": 1973.08,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyeri.dev-absorption",
+   "name": "Nyeri: share of the development budget spent, FY2024/25",
+   "value": 68,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.nyeri.absorption",
+   "name": "Nyeri: share of the budget spent, FY2024/25",
+   "value": 88,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.samburu.budget",
+   "name": "Samburu: budget, FY2024/25",
+   "value": 7382.22,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.samburu.spent",
+   "name": "Samburu: spending, FY2024/25",
+   "value": 6507.46,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.samburu.dev-budget",
+   "name": "Samburu: development budget, FY2024/25",
+   "value": 2244.98,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.samburu.dev-spent",
+   "name": "Samburu: development spending, FY2024/25",
+   "value": 1596.79,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.samburu.dev-absorption",
+   "name": "Samburu: share of the development budget spent, FY2024/25",
+   "value": 71,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.samburu.absorption",
+   "name": "Samburu: share of the budget spent, FY2024/25",
+   "value": 88,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.siaya.budget",
+   "name": "Siaya: budget, FY2024/25",
+   "value": 10948.13,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.siaya.spent",
+   "name": "Siaya: spending, FY2024/25",
+   "value": 7748.65,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.siaya.dev-budget",
+   "name": "Siaya: development budget, FY2024/25",
+   "value": 4874.83,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.siaya.dev-spent",
+   "name": "Siaya: development spending, FY2024/25",
+   "value": 2756.67,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.siaya.dev-absorption",
+   "name": "Siaya: share of the development budget spent, FY2024/25",
+   "value": 57,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.siaya.absorption",
+   "name": "Siaya: share of the budget spent, FY2024/25",
+   "value": 71,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.taita-taveta.budget",
+   "name": "Taita-Taveta: budget, FY2024/25",
+   "value": 8179.7,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.taita-taveta.spent",
+   "name": "Taita-Taveta: spending, FY2024/25",
+   "value": 6607.73,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.taita-taveta.dev-budget",
+   "name": "Taita-Taveta: development budget, FY2024/25",
+   "value": 2406.2,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.taita-taveta.dev-spent",
+   "name": "Taita-Taveta: development spending, FY2024/25",
+   "value": 1504.71,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.taita-taveta.dev-absorption",
+   "name": "Taita-Taveta: share of the development budget spent, FY2024/25",
+   "value": 63,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.taita-taveta.absorption",
+   "name": "Taita-Taveta: share of the budget spent, FY2024/25",
+   "value": 81,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tana-river.budget",
+   "name": "Tana River: budget, FY2024/25",
+   "value": 9177.72,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tana-river.spent",
+   "name": "Tana River: spending, FY2024/25",
+   "value": 6705.9,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tana-river.dev-budget",
+   "name": "Tana River: development budget, FY2024/25",
+   "value": 3656.02,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tana-river.dev-spent",
+   "name": "Tana River: development spending, FY2024/25",
+   "value": 2063.88,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tana-river.dev-absorption",
+   "name": "Tana River: share of the development budget spent, FY2024/25",
+   "value": 56,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tana-river.absorption",
+   "name": "Tana River: share of the budget spent, FY2024/25",
+   "value": 73,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tharaka-nithi.budget",
+   "name": "Tharaka-Nithi: budget, FY2024/25",
+   "value": 7005.68,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tharaka-nithi.spent",
+   "name": "Tharaka-Nithi: spending, FY2024/25",
+   "value": 5462.63,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tharaka-nithi.dev-budget",
+   "name": "Tharaka-Nithi: development budget, FY2024/25",
+   "value": 2391.04,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tharaka-nithi.dev-spent",
+   "name": "Tharaka-Nithi: development spending, FY2024/25",
+   "value": 1233.39,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tharaka-nithi.dev-absorption",
+   "name": "Tharaka-Nithi: share of the development budget spent, FY2024/25",
+   "value": 52,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.tharaka-nithi.absorption",
+   "name": "Tharaka-Nithi: share of the budget spent, FY2024/25",
+   "value": 78,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.trans-nzoia.budget",
+   "name": "Trans Nzoia: budget, FY2024/25",
+   "value": 10455.02,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.trans-nzoia.spent",
+   "name": "Trans Nzoia: spending, FY2024/25",
+   "value": 9275.11,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.trans-nzoia.dev-budget",
+   "name": "Trans Nzoia: development budget, FY2024/25",
+   "value": 4343.03,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.trans-nzoia.dev-spent",
+   "name": "Trans Nzoia: development spending, FY2024/25",
+   "value": 3363.86,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.trans-nzoia.dev-absorption",
+   "name": "Trans Nzoia: share of the development budget spent, FY2024/25",
+   "value": 77,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.trans-nzoia.absorption",
+   "name": "Trans Nzoia: share of the budget spent, FY2024/25",
+   "value": 89,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.turkana.budget",
+   "name": "Turkana: budget, FY2024/25",
+   "value": 17213.59,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.turkana.spent",
+   "name": "Turkana: spending, FY2024/25",
+   "value": 13548.66,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.turkana.dev-budget",
+   "name": "Turkana: development budget, FY2024/25",
+   "value": 6644.28,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.turkana.dev-spent",
+   "name": "Turkana: development spending, FY2024/25",
+   "value": 4293.02,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.turkana.dev-absorption",
+   "name": "Turkana: share of the development budget spent, FY2024/25",
+   "value": 65,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.turkana.absorption",
+   "name": "Turkana: share of the budget spent, FY2024/25",
+   "value": 79,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.uasin-gishu.budget",
+   "name": "Uasin Gishu: budget, FY2024/25",
+   "value": 15179.79,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.uasin-gishu.spent",
+   "name": "Uasin Gishu: spending, FY2024/25",
+   "value": 11132.21,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.uasin-gishu.dev-budget",
+   "name": "Uasin Gishu: development budget, FY2024/25",
+   "value": 6359.05,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.uasin-gishu.dev-spent",
+   "name": "Uasin Gishu: development spending, FY2024/25",
+   "value": 3593.32,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.uasin-gishu.dev-absorption",
+   "name": "Uasin Gishu: share of the development budget spent, FY2024/25",
+   "value": 57,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.uasin-gishu.absorption",
+   "name": "Uasin Gishu: share of the budget spent, FY2024/25",
+   "value": 73,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.vihiga.budget",
+   "name": "Vihiga: budget, FY2024/25",
+   "value": 7105.9,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.vihiga.spent",
+   "name": "Vihiga: spending, FY2024/25",
+   "value": 5610.94,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.vihiga.dev-budget",
+   "name": "Vihiga: development budget, FY2024/25",
+   "value": 2286.77,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.vihiga.dev-spent",
+   "name": "Vihiga: development spending, FY2024/25",
+   "value": 1307.41,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.vihiga.dev-absorption",
+   "name": "Vihiga: share of the development budget spent, FY2024/25",
+   "value": 57,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.vihiga.absorption",
+   "name": "Vihiga: share of the budget spent, FY2024/25",
+   "value": 79,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.wajir.budget",
+   "name": "Wajir: budget, FY2024/25",
+   "value": 13517.62,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.wajir.spent",
+   "name": "Wajir: spending, FY2024/25",
+   "value": 11455.02,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.wajir.dev-budget",
+   "name": "Wajir: development budget, FY2024/25",
+   "value": 5140.14,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.wajir.dev-spent",
+   "name": "Wajir: development spending, FY2024/25",
+   "value": 3644.91,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.wajir.dev-absorption",
+   "name": "Wajir: share of the development budget spent, FY2024/25",
+   "value": 71,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.wajir.absorption",
+   "name": "Wajir: share of the budget spent, FY2024/25",
+   "value": 85,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.west-pokot.budget",
+   "name": "West Pokot: budget, FY2024/25",
+   "value": 8101.51,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.west-pokot.spent",
+   "name": "West Pokot: spending, FY2024/25",
+   "value": 7223.89,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.west-pokot.dev-budget",
+   "name": "West Pokot: development budget, FY2024/25",
+   "value": 2402.78,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-budget",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.west-pokot.dev-spent",
+   "name": "West Pokot: development spending, FY2024/25",
+   "value": 1631.04,
+   "level": "county",
+   "parent": "ke.fy2024-25.spent.county-total.dev-spent",
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.west-pokot.dev-absorption",
+   "name": "West Pokot: share of the development budget spent, FY2024/25",
+   "value": 68,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county.west-pokot.absorption",
+   "name": "West Pokot: share of the budget spent, FY2024/25",
+   "value": 89,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county-total.budget",
+   "name": "All 47 counties: budget, FY2024/25",
+   "value": 601689.14,
+   "level": "total",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county-total.spent",
+   "name": "All 47 counties: spending, FY2024/25",
+   "value": 470735.36,
+   "level": "total",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county-total.dev-budget",
+   "name": "All 47 counties: development budget, FY2024/25",
+   "value": 218989.61,
+   "level": "total",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county-total.dev-spent",
+   "name": "All 47 counties: development spending, FY2024/25",
+   "value": 123757.22,
+   "level": "total",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county-total.dev-absorption",
+   "name": "All 47 counties: share of the development budget spent, FY2024/25",
+   "value": 57,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  },
+  {
+   "id": "ke.fy2024-25.spent.county-total.absorption",
+   "name": "All 47 counties: share of the budget spent, FY2024/25",
+   "value": 78,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "Table 2.5, p.9",
+   "pdfPage": 53
+  }
+ ]
+}

@@ -1,0 +1,109 @@
+---
+// The county page. Its first screen answers the first usability task: this year's share and last year's development
+// spending, with Share beside them (#89). Sections with no loaded data stay out, rather than showing empty boxes.
+import { full, money, ordinal, percent } from '@kbe/engine/fmt';
+import { t } from '../../i18n/index.js';
+import { allCountyDev, countyBySlug, shareParts, stageIds } from '../../lib/counties.js';
+import { FY } from '../../lib/figures.js';
+import { href } from '../../lib/routes.js';
+import { changeChip, countyQuestions, whatsappHref } from '../../lib/sentences.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import CountyDepth from './CountyDepth.astro';
+import BudgetVsSpent from '../BudgetVsSpent.astro';
+import Chart from '../Chart.astro';
+import DataTable from '../DataTable.astro';
+import Meter from '../Meter.astro';
+import PageHero from '../PageHero.astro';
+import QuestionCard from '../QuestionCard.astro';
+import ShareCard from '../ShareCard.astro';
+import FigureMeta from '../FigureMeta.astro';
+import Icon from '../Icon.astro';
+import SourceLine from '../SourceLine.astro';
+import StageChange from '../StageChange.astro';
+
+interface Props { slug: string; lang?: 'en' | 'sw' }
+const { slug, lang = 'en' } = Astro.props;
+const c = countyBySlug(slug), year = c.spending.at(-1), all = allCountyDev();
+const title = t(lang, 'county.title', { name: c.name });
+const pct = percent(year.devPct, 0), allPct = percent(all.value, 0);
+const change = changeChip(c.change, lang);
+const line = t(lang, 'county.changeLine', { change, last: money(c.last, 'KSh', lang), rank: ordinal(c.rank, lang) });
+const url = new URL(href(lang, `/counties/${slug}/`), Astro.site ?? 'https://example.invalid').href;
+const embedSrc = new URL(href(lang, `/embed/county/${slug}/`), Astro.site ?? 'https://example.invalid').href;
+const embedCode = `<iframe src="${embedSrc}" title="${t(lang, 'embed.kicker', { name: c.name, fy: FY })}" width="100%" height="440" style="border:0;max-width:480px" loading="lazy"></iframe>`;
+const shareText = t(lang, 'county.shareText', { name: c.name, amount: money(c.value, 'KSh', lang), change: change.toLowerCase() });
+const parts = shareParts(slug);
+const columns = [{ key: 'part', label: t(lang, 'county.part.col') }, { key: 'amount', label: t(lang, 'county.part.amount'), num: true }];
+const partRows = [...parts.map((p) => ({ part: { shown: t(lang, `county.part.${p.key}`) }, amount: { shown: full(p.figure.value), sort: p.figure.value } })), { part: { shown: t(lang, 'county.part.total') }, amount: { shown: full(c.value), sort: c.value } }];
+const bars = c.spending.map((y) => ({ fy: y.fy, budget: y.budget, spent: y.spent, shown: percent(y.pct, 0), tip: t(lang, 'county.bvsTip', { fy: y.fy, budget: money(y.budget, 'KSh m', lang), spent: money(y.spent, 'KSh m', lang), gap: money(y.budget - y.spent, 'KSh m', lang) }) }));
+const who = { recommendation: t(lang, 'county.who.recommendation'), statement: t(lang, 'county.who.statement'), law: t(lang, 'county.who.law') };
+const questions = countyQuestions(c, lang);
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'counties.title'), path: '/counties/' }, { name: c.name }]} /></div>
+<PageHero figure={c.figure} title={title} line={line} sw={t('sw', 'county.shareText', { name: c.name, amount: money(c.value, 'KSh', 'sw'), change: changeChip(c.change, 'sw').toLowerCase() })} what={title} lang={lang} small>
+  <a class="btn" href={whatsappHref(shareText, t(lang, 'county.shareSource'), url)} rel="noopener"><Icon name="whatsapp" />{t(lang, 'share.whatsapp')}</a>
+  <section class="card mycounty" slot="side" aria-labelledby="h-dev">
+    <h2 id="h-dev" class="fig-q">{t(lang, 'county.devQ')}</h2>
+    <span class="fig-num">{pct}</span>
+    <p class="mc-line">{t(lang, 'county.devLine', { spent: money(year.devSpent, 'KSh m', lang), budget: money(year.devBudget, 'KSh m', lang), fy: `FY${year.fy}`, all: allPct })}</p>
+    <Meter value={year.devPct} mark={all.value} shown={pct} markShown={allPct} name={c.name} markName={t(lang, 'county.allName')} label={t(lang, 'county.meter', { name: c.name, pct, fy: `FY${year.fy}`, all: allPct })} />
+    <FigureMeta label={year.figure.label} stage="spent" lang={lang} />
+    <SourceLine doc={year.figure.doc} page={year.figure.page} lang={lang} />
+    <button class="btn quiet js-only" type="button" data-set-county={JSON.stringify({ s: c.slug, n: c.name })} data-done={t(lang, 'county.myNamed', { name: c.name })}>{t(lang, 'county.makeMine')}</button>
+  </section>
+</PageHero>
+
+<section class="band" aria-labelledby="h-in">
+  <div class="wrap">
+    <div class="band-head"><h2 id="h-in">{t(lang, 'county.moneyIn')}</h2></div>
+    <div class="two">
+      <figure class="cf">
+        <h3 class="cf-title">{t(lang, 'county.stages')}</h3>
+        <p class="cf-sub">{t(lang, 'county.stageLabel')}</p>
+        <div class="cf-body"><StageChange ids={stageIds(slug)} who={who} label={t(lang, 'county.stageLabel')} lang={lang} /></div>
+      </figure>
+      <div class="stack gap-l">
+        <figure class="cf">
+          <h3 class="cf-title">{t(lang, 'county.builds')}</h3>
+          <div class="cf-body"><DataTable lang={lang} columns={columns} rows={partRows} caption={t(lang, 'county.builds')} sortable={false} /></div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" aria-labelledby="h-out">
+  <div class="wrap">
+    <div class="band-head"><h2 id="h-out">{t(lang, 'county.moneyOut')}</h2></div>
+    <Chart lang={lang} title={t(lang, 'county.bvsTitle')} sub={t(lang, 'county.bvsSub')} from={{ ...year.figure, stage: 'spent' }} calc={undefined}>
+      <BudgetVsSpent rows={bars} keySpent={t(lang, 'county.keySpent')} keyGap={t(lang, 'county.keyGap')} />
+    </Chart>
+  </div>
+</section>
+
+<CountyDepth slug={slug} name={c.name} lang={lang} />
+
+<section class="band alt" aria-labelledby="h-q">
+  <div class="wrap">
+    <div class="band-head"><h2 id="h-q">{t(lang, 'question.title')}</h2></div>
+    <div class="dev-grid">{questions.map((q) => <article class="card"><QuestionCard question={q} lang={lang} /></article>)}</div>
+    <div class="btn-row hearing-link"><a class="btn quiet" href={href(lang, '/have-your-say/')}>{t(lang, 'county.hearings')}</a></div>
+  </div>
+</section>
+
+<section class="band" id="share">
+  <div class="wrap dev-grid">
+    <ShareCard lang={lang} text={shareText} source={t(lang, 'county.shareSource')} url={url} />
+    <div class="btn-row">
+      <a class="btn quiet" href={href(lang, `/counties/${slug}/sheet/`)}>{t(lang, 'county.print')}</a>
+      <a class="btn quiet" href={`${href(lang, '/counties/compare/')}?c=${slug}`}>{t(lang, 'county.compareThis')}</a>
+      <a class="btn quiet" href={href(lang, `/infographics/county-${slug}/`)}>{t(lang, 'county.picture')}</a>
+    </div>
+    <details class="toggle">
+      <summary>{t(lang, 'embed.title')}</summary>
+      <p class="small">{t(lang, 'embed.how')}</p>
+      <pre class="memo">{embedCode}</pre>
+      <div class="btn-row"><button class="btn quiet js-only" type="button" data-copy={embedCode} data-done={t(lang, 'embed.copied')} data-fail={t(lang, 'fig.copyFailed')}>{t(lang, 'embed.copy')}</button></div>
+    </details>
+  </div>
+</section>

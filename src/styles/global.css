@@ -1424,7 +1424,8 @@ details.sheet-sec[open] > summary .chev { transform: rotate(180deg); opacity: 1;
    highlighted ward like a map widget. Phones: the card docks under the map. */
 .hero-grid { padding-bottom: 8px; }
 @media (min-width: 900px) {
-  .hero-grid { grid-template-areas: "top" "pick"; padding-bottom: 0; }
+  /* Rows named too: the CSS minifier turns the four-row rule above into `grid-template`, which would leave two empty rows here */
+  .hero-grid { grid-template-areas: "top" "pick"; grid-template-rows: auto auto; padding-bottom: 0; }
 }
 .hero-stage { position: relative; margin-top: 8px; }
 .hero-map { margin: 0; display: block; width: 100%; }

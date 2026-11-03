@@ -1,0 +1,86 @@
+---
+// The deeper county sections: own-source revenue, grants received, the rules and bills. Each repeats the Controller of
+// Budget's own warnings beside the figure, and a county that reported nothing says so instead of showing a zero.
+import { money, percent } from '@kbe/engine/fmt';
+import { t } from '../../i18n/index.js';
+import { fig, hasFigure } from '../../lib/figures.js';
+import { rulesFor, RULE_YEAR } from '../../lib/rules.js';
+import FigureMeta from '../FigureMeta.astro';
+import NotYetLoaded from '../NotYetLoaded.astro';
+import RuleBadge from '../RuleBadge.astro';
+import SourceLine from '../SourceLine.astro';
+
+interface Props { slug: string; name: string; lang?: 'en' | 'sw' }
+const { slug, name, lang = 'en' } = Astro.props;
+const y = (key) => fig(`ke.fy2025-26.spent.county.${slug}.${key}`);
+const all = (key) => fig(`ke.fy2025-26.spent.county-total.${key}`);
+const osrTarget = y('osr-target'), osr = y('osr-actual'), grantsTarget = y('grants-target'), grants = y('grants-actual');
+const osrPct = percent(osr.value / osrTarget.value * 100, 0), grantsPct = percent(grants.value / grantsTarget.value * 100, 0);
+const payables = hasFigure(`ke.fy2025-26.spent.county.${slug}.payables`) ? y('payables') : null, budget = y('budget');
+const rules = rulesFor(slug);
+const wholeWages = all('wage-share');
+---
+<section class="band" aria-labelledby="h-own">
+  <div class="wrap">
+    <div class="band-head"><h2 id="h-own">{t(lang, 'depth.moneyRaised')}</h2></div>
+    <div class="dev-grid">
+      <article class="card fig">
+        <p class="fig-q">{t(lang, 'depth.osrQ')}</p>
+        <span class="fig-num">{money(osr.value, osr.unit, lang)}</span>
+        <p>{t(lang, 'depth.osrLine', { pct: osrPct, target: money(osrTarget.value, osrTarget.unit, lang), fy: RULE_YEAR })}</p>
+        {osr.note && <p class="note">{osr.note}</p>}
+        <FigureMeta label={osr.label} stage="spent" calc={t(lang, 'fig.calc')} lang={lang} />
+        <SourceLine doc={osr.doc} page={osr.page} lang={lang} />
+      </article>
+      <article class="card fig">
+        <p class="fig-q">{t(lang, 'depth.grantsQ')}</p>
+        <span class="fig-num">{money(grants.value, grants.unit, lang)}</span>
+        <p>{t(lang, 'depth.grantsLine', { pct: grantsPct, target: money(grantsTarget.value, grantsTarget.unit, lang), fy: RULE_YEAR })}</p>
+        <FigureMeta label={grants.label} stage="spent" calc={t(lang, 'fig.calc')} lang={lang} />
+        <SourceLine doc={grants.doc} page={grants.page} lang={lang} />
+        <NotYetLoaded what={t(lang, 'county.grantsWhat')} why={t(lang, 'county.grantsWhy')} lang={lang} />
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" aria-labelledby="h-rules">
+  <div class="wrap">
+    <div class="band-head">
+      <h2 id="h-rules">{t(lang, 'rule.title')}</h2>
+      <p>{t(lang, 'rule.official', { wages: percent(wholeWages.value, 2), limit: '35%' })}</p>
+    </div>
+    <div class="dev-grid">
+      {rules.map((r) => (
+        <article class="card fig">
+          <p class="fig-q">{t(lang, `rule.${r.key}.q`)}</p>
+          <RuleBadge result={r.result} lang={lang} />
+          <span class="fig-num">{percent(r.value, 1)}</span>
+          <p>{t(lang, `rule.${r.key}.line`, { limit: percent(r.limit.value, 0), name, fy: RULE_YEAR })}</p>
+          <p class="note">{t(lang, `rule.${r.key}.law`)}</p>
+          <FigureMeta label={r.figure.label} stage="spent" calc={t(lang, 'fig.calc')} lang={lang} />
+          <SourceLine doc={r.figure.doc} page={r.figure.page} lang={lang} />
+          <SourceLine doc={r.limit.doc} page={r.limit.page} lang={lang} />
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="h-bills">
+  <div class="wrap">
+    <div class="band-head"><h2 id="h-bills">{t(lang, 'depth.billsTitle')}</h2></div>
+    <article class="card fig">
+      <p class="fig-q">{t(lang, 'depth.billsQ')}</p>
+      {payables ? (
+        <>
+          <span class="fig-num gap">{money(payables.value, payables.unit, lang)}</span>
+          <p>{t(lang, 'depth.billsLine', { pct: percent(payables.value / budget.value * 100, 0), fy: RULE_YEAR })}</p>
+          {payables.note && <p class="note">{payables.note}</p>}
+          <FigureMeta label={payables.label} stage="spent" calc={t(lang, 'fig.calc')} lang={lang} />
+          <SourceLine doc={payables.doc} page={payables.page} lang={lang} />
+        </>
+      ) : <div class="nyl"><p class="nyl-t"><b>{t(lang, 'depth.billsNoneWhat')}</b></p><p class="small muted">{t(lang, 'depth.billsNoneWhy', { name })}</p></div>}
+    </article>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+---
+// The home page: where the budget is, the one number and the reader's county, then ways in. "This month" and the next
+// hearing join it when their sources are loaded (SITEMAP.md), so nothing here stands in for them.
+import { t } from '../i18n/index.js';
+import { fig, FY } from '../lib/figures.js';
+import { YEAR, href, sectorHref } from '../lib/routes.js';
+import { allSectors } from '../lib/votes.js';
+import Chart from './Chart.astro';
+import CountyPicker from './CountyPicker.astro';
+import Icon from './Icon.astro';
+import PageHero from './PageHero.astro';
+import RankedBars from './RankedBars.astro';
+import SearchBox from './SearchBox.astro';
+import StageTimeline from './StageTimeline.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const total = fig('statement.total.expenditure');
+const sectors = allSectors();
+const rows = sectors.slice(0, 5).map((s, i) => ({ name: t(lang, `sector.${s.slug}`), value: s.total, shown: (s.total / 1e9).toFixed(1), mark: i === 0, href: sectorHref(lang, s.slug) }));
+const areas = [
+  ['money', YEAR, 'home.area1'], ['map', '/counties/', 'home.area2'], ['chart', `${YEAR}sectors/`, 'home.area3'], ['data', '/counties/compare/', 'home.area4'],
+];
+---
+<PageHero figure={total} eyebrow={t(lang, 'hero.eyebrow', { fy: FY })} line={t(lang, 'hero.line')} swAfter={t('sw', 'hero.line')} lang={lang}>
+  <StageTimeline slot="top" lang={lang} />
+  <CountyPicker slot="side" lang={lang} />
+</PageHero>
+<section class="band" aria-label={t(lang, 'home.areasLabel')}>
+  <div class="wrap">
+    <SearchBox lang={lang} />
+    <nav class="areas" aria-label={t(lang, 'home.areasLabel')}>
+      {areas.map(([icon, path, key]) => <a class="area" href={href(lang, path)}><Icon name={icon} /><span><b>{t(lang, key)}</b><span>{t(lang, `${key}Sub`)}</span></span></a>)}
+    </nav>
+  </div>
+</section>
+<section class="band alt">
+  <h2 class="vh">{t(lang, 'nav.detail')}</h2>
+  <div class="wrap">
+    <Chart lang={lang} title={t(lang, 'budget.sectorsTitle', { name: t(lang, `sector.${sectors[0].slug}`) })} sub={t(lang, 'budget.sectorsSub', { fy: FY })} from={sectors[0].first} calc={t(lang, 'fig.calc')}>
+      <RankedBars rows={rows} lang={lang} />
+    </Chart>
+    <p><a class="btn quiet" href={href(lang, `${YEAR}sectors/`)}>{t(lang, 'budget.seeSectors')}</a></p>
+  </div>
+</section>

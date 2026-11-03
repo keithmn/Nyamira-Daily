@@ -1,0 +1,9 @@
+---
+// Copies the citation behind a figure. The confirmation goes through the page's role="status" line.
+import { t } from '../i18n/index.js';
+import { citationFor } from '../lib/figures.js';
+
+interface Props { figure: object; what: string; lang?: 'en' | 'sw' }
+const { figure, what, lang = 'en' } = Astro.props;
+---
+<button class="btn quiet" type="button" data-copy={citationFor(figure)} data-done={t(lang, 'fig.citationCopied')} data-fail={t(lang, 'fig.copyFailed')} aria-label={t(lang, 'fig.copyCitationFor', { what })}>{t(lang, 'fig.copyCitation')}</button>

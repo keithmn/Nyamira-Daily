@@ -1,0 +1,24 @@
+---
+// One figure across its stages. It uses the engine's `stageChange`, which refuses a mix of years or groupings and never
+// gives a total. Each row is a stage on its own: these amounts are never added up.
+import { stageChange } from '@kbe/engine/compare';
+import { longDate, money } from '@kbe/engine/fmt';
+import { fig, shortTitle } from '../lib/figures.js';
+import { t } from '../i18n/index.js';
+import StageChip from './StageChip.astro';
+
+interface Props { ids: string[]; who: Record<string, string>; label: string; lang?: 'en' | 'sw' }
+const { ids, who, label, lang = 'en' } = Astro.props;
+const figures = ids.map(fig);
+const byId = new Map(figures.map((f) => [f.id, f]));
+const rows = stageChange(figures).map((r) => ({ ...r, f: byId.get(r.id) }));
+---
+<ol class="sc" aria-label={label}>
+  {rows.map((r) => (
+    <li>
+      <span>{who[r.stage]}<br /><StageChip stage={r.stage} lang={lang} /></span>
+      <b>{money(r.value, r.unit, lang)}</b>
+      <small>{longDate(r.f.doc.date, lang)}. {shortTitle(r.f.doc)}, {r.f.page}.</small>
+    </li>
+  ))}
+</ol>

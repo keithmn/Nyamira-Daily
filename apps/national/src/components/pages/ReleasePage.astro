@@ -1,0 +1,33 @@
+---
+// One data release: changed and removed figures one by one, with old and new values; added figures counted by family
+import { longDate, num } from '@kbe/engine/fmt';
+import { t } from '../../i18n/index.js';
+import { releaseByDate } from '../../lib/releases.js';
+import { href } from '../../lib/routes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import DataTable from '../DataTable.astro';
+
+interface Props { date: string; lang?: 'en' | 'sw' }
+const { date, lang = 'en' } = Astro.props;
+const r = releaseByDate(date);
+const stage = (s) => t(lang, `stage.${s}`);
+const cell = (shown, sort = shown) => ({ shown, sort });
+const changeCols = [{ key: 'id', label: t(lang, 'releases.figure') }, { key: 'old', label: t(lang, 'releases.old'), num: true }, { key: 'new', label: t(lang, 'releases.new'), num: true }];
+const changeRows = [...r.changed.map((c) => ({ id: cell(c.id), old: cell(num(c.old), c.old), new: cell(num(c.new), c.new) })), ...r.removed.map((c) => ({ id: cell(c.id), old: cell(num(c.old), c.old), new: cell(t(lang, 'releases.removed'), '') }))];
+const addCols = [{ key: 'fy', label: t(lang, 'releases.year') }, { key: 'stage', label: t(lang, 'releases.stage') }, { key: 'kind', label: t(lang, 'releases.kind') }, { key: 'n', label: t(lang, 'releases.n'), num: true }];
+const addRows = r.families.map((f) => ({ fy: cell(f.fy), stage: cell(stage(f.stage)), kind: cell(f.kind), n: cell(num(f.n), f.n) }));
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'data.title'), path: '/data/' }, { name: t(lang, 'releases.title'), path: '/data/releases/' }, { name: longDate(date, lang) }]} /></div>
+<section class="band">
+  <div class="wrap stack gap-l">
+    <div class="page-head">
+      <h1>{t(lang, 'releases.one', { date: longDate(date, lang) })}</h1>
+      <p>{t(lang, 'releases.counts', { figures: num(r.counts.figures), added: num(r.counts.added), changed: num(r.counts.changed), removed: num(r.counts.removed) })}</p>
+      {r.previous && <p class="small muted">{t(lang, 'releases.since', { date: longDate(r.previous, lang) })}</p>}
+    </div>
+    <h2>{t(lang, 'releases.changedTitle')}</h2>
+    {changeRows.length > 0 ? <DataTable lang={lang} caption={t(lang, 'releases.changedTitle')} columns={changeCols} rows={changeRows} /> : <p>{t(lang, 'releases.noChanges')}</p>}
+    {addRows.length > 0 && <><h2>{t(lang, 'releases.addedTitle')}</h2><DataTable lang={lang} caption={t(lang, 'releases.addedTitle')} columns={addCols} rows={addRows} /></>}
+    <p><a class="tbl-csv" href={href('en', `/data/releases/${date}.json`)} download={`release-${date}.json`}>{t(lang, 'releases.file')}</a></p>
+  </div>
+</section>

@@ -1,0 +1,8 @@
+---
+// A missing figure inside a page: never 0, NaN or an empty bar. It says what is missing and why (build brief 7.6).
+import { t } from '../i18n/index.js';
+
+interface Props { what: string; why: string; lang?: 'en' | 'sw' }
+const { what, why, lang = 'en' } = Astro.props;
+---
+<div class="nyl"><p class="nyl-t"><b>{t(lang, 'state.notLoadedOf', { what })}</b></p><p class="small muted">{why}</p></div>

@@ -1,0 +1,9 @@
+---
+import { COUNTIES } from '@kbe/engine/counties';
+import View from '../../../../../components/pages/EmbedCounty.astro';
+import Bare from '../../../../../layouts/Bare.astro';
+
+export const getStaticPaths = () => COUNTIES.map((c) => ({ params: { county: c.slug }, props: { name: c.name } }));
+const { county } = Astro.params;
+---
+<Bare lang="sw" title={Astro.props.name} bodyClass="embed-body"><View lang="sw" slug={county} /></Bare>

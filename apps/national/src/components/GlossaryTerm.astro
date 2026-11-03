@@ -1,0 +1,9 @@
+---
+// A native popover: keyboard reachable, Escape closes it, and it needs no JavaScript. A browser without popovers shows the
+// definition in the text instead of hiding it.
+import { t } from '../i18n/index.js';
+
+interface Props { term: string; lang?: 'en' | 'sw'; id: string }
+const { term, lang = 'en', id } = Astro.props;
+---
+<button class="gt" type="button" popovertarget={id}>{t(lang, `term.${term}`)}</button><span class="gt-pop" popover id={id}><b>{t(lang, `term.${term}`)}</b>{t(lang, `term.${term}.def`)}</span>

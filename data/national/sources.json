@@ -1,0 +1,391 @@
+[
+ {
+  "id": "mwananchi-2026-27",
+  "title": "Budget Highlights: The Mwananchi Guide for the FY 2026/27 Budget (National Treasury, June 2026)",
+  "issuer": "National Treasury",
+  "docType": "guide",
+  "fy": "2026/27",
+  "stage": "statement",
+  "date": "2026-06-11",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
+  "archive": "https://web.archive.org/web/20260713024452/https://newsite.treasury.go.ke/sites/default/files/Latest%20updates/Budget%20Highlights-The%20Mwananchi%20Guide%20for%20the%20FY-2026-27%20Budget.pdf",
+  "sha256": "ffd4c8fca40b8ea7357c76520d27e9595cc2340e8f74bd044fb6a45fe6e2472d",
+  "file": "mwananchi-guide-2026-27.pdf",
+  "pageOffset": 0,
+  "tolerance": {
+   "KSh bn": 0.1
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "Mwananchi Guide for FY2027/28"
+  }
+ },
+ {
+  "id": "budget-summary-2026-27",
+  "title": "Budget Summary for the FY 2026/27 Budget (National Treasury, 30 April 2026)",
+  "issuer": "National Treasury",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "estimates",
+  "date": "2026-04-30",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20summary/Budget%20Summary%20for%20the%20FY%202026_27%20Budget.pdf",
+  "archive": null,
+  "sha256": "1e24992d34cb4dddefd4ad04c3f77055e6be976b8b326256a17b5312725a550b",
+  "file": "budget-summary-2026-27.pdf",
+  "pageOffset": 0,
+  "tolerance": {
+   "KSh bn": 0.1
+  },
+  "nextExpected": {
+   "date": "2027-04-30",
+   "what": "Budget Summary for FY2027/28"
+  }
+ },
+ {
+  "id": "revenue-estimates-2026-27",
+  "title": "Estimates of Revenue, Grants and Loans for the FY 2026/27 Budget (National Treasury, June 2026)",
+  "issuer": "National Treasury",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "statement",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Estimates/Estimates%20of%20Revenue%2C%20Grants%20and%20Loans%20for%20the%20FY%202026-27%20Budget.pdf",
+  "archive": null,
+  "sha256": "698a9e5a761c07161f5cc2ad08beb402574728e0e51d2f86f97439ef70896e25",
+  "file": "estimates-of-revenue-2026-27.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh bn": 0.1
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "Estimates of Revenue for FY2027/28"
+  },
+  "note": "Roman-numbered summary pages: PDF p.6 to p.9 are printed v to viii."
+ },
+ {
+  "id": "cra-recommendation-2026-27",
+  "title": "CRA Recommendation on the Basis for Equitable Sharing of Revenue, FY 2026/27 (Commission on Revenue Allocation, February 2026)",
+  "issuer": "Commission on Revenue Allocation",
+  "docType": "recommendation",
+  "fy": "2026/27",
+  "stage": "recommendation",
+  "date": "2026-02-03",
+  "url": "https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf",
+  "archive": "https://web.archive.org/web/20260408023818/https://cra.go.ke/wp-content/uploads/2026/02/CRA-Recommendation-on-The-Basis-for-Equitable-Sharing-Of-Revenue-FY-2026-27.pdf",
+  "sha256": "38189f669f7014cfd11d0cc7d7215332667772b5cc32a7ccb083ad9976b8498a",
+  "file": "cra-recommendation-2026-27.pdf",
+  "pageOffset": -7,
+  "tolerance": {
+   "KSh m": 5
+  },
+  "nextExpected": {
+   "date": "2027-02-28",
+   "what": "CRA recommendation for FY2027/28"
+  }
+ },
+ {
+  "id": "appropriation-act-2026",
+  "title": "Appropriation Act, 2026 (No. 20 of 2026, Kenya Gazette Supplement No. 158, 26 June 2026)",
+  "issuer": "Parliament of Kenya",
+  "docType": "act",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06-26",
+  "url": "https://new.kenyalaw.org/akn/ke/act/2026/20/eng@2026-06-26",
+  "archive": null,
+  "sha256": "e7ae5969fee57995371bf77d0473c35d394611d42a1358a7539a6cc7571aace1",
+  "file": "appropriation-act-2026.pdf",
+  "pageOffset": 385,
+  "tolerance": {
+   "KSh": 0
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "Appropriation Act, 2027"
+  },
+  "note": "A scan with a machine-read text layer. Assented 23 June 2026; in force 1 July 2026."
+ },
+ {
+  "id": "county-allocation-act-2026",
+  "title": "County Allocation of Revenue Act, 2026 (No. 22 of 2026, Kenya Gazette Supplement No. 168, 3 July 2026)",
+  "issuer": "Parliament of Kenya",
+  "docType": "act",
+  "fy": "2026/27",
+  "stage": "law",
+  "date": "2026-07-03",
+  "url": "https://new.kenyalaw.org/akn/ke/act/2026/22/eng@2026-07-03",
+  "archive": null,
+  "sha256": "c45529acc965582c75d89214df301d43cabb5925ab486e095dacd7351b8642fd",
+  "file": "county-allocation-act-2026.pdf",
+  "pageOffset": 452,
+  "tolerance": {
+   "KSh": 5
+  },
+  "nextExpected": {
+   "date": "2027-07-31",
+   "what": "County Allocation of Revenue Act, 2027"
+  },
+  "note": "Assented 29 June 2026; in force 17 July 2026. The First Schedule has no text layer. Payment dates are in a separate Gazette notice (s.4(2)), not in the Act."
+ },
+ {
+  "id": "people-daily-approved-2026",
+  "title": "Parliament approves 2026/27 Budget as health and education take lion's share (People Daily, June 2026)",
+  "issuer": "People Daily",
+  "docType": "press",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://peopledaily.digital/business/parliament-approves-2026-27-budget-as-health-and-education-take-lions-share",
+  "archive": null,
+  "sha256": null,
+  "file": null,
+  "pageOffset": null,
+  "tolerance": {},
+  "nextExpected": null
+ },
+ {
+  "id": "pbo-budget-explainer-2026",
+  "title": "Budget Explainer 2026 (Parliamentary Budget Office, July 2026)",
+  "issuer": "Parliamentary Budget Office",
+  "docType": "guide",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-07",
+  "url": "https://www.parliament.go.ke/sites/default/files/2026-07/BUDGET%20EXPLAINER%20-%202026.pdf",
+  "archive": null,
+  "sha256": "11fba3939604d9c4d7b2d390c6c88679871f9ac7de03daaf4adeb82a4747dde8",
+  "file": "pbo-budget-explainer-2026.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh m": 2
+  },
+  "nextExpected": {
+   "date": "2027-08-31",
+   "what": "The Budget Explainer for FY2027/28"
+  },
+  "note": "Pages are given as PDF pages: the printed numbering restarts after the front matter."
+ },
+ {
+  "id": "pbo-budget-explainer-2025",
+  "title": "Budget Explainer for the FY 2025/26 Budget (Parliamentary Budget Office, August 2025)",
+  "issuer": "Parliamentary Budget Office",
+  "docType": "guide",
+  "fy": "2025/26",
+  "stage": "approved",
+  "date": "2025-08",
+  "url": "https://parliament.go.ke/sites/default/files/2025-08/Budget_Explainer_Final.pdf",
+  "archive": null,
+  "sha256": "14c748ef7440814685cc61c0b7a0142783210ff5af61a94d94d289d528ebc152",
+  "file": "pbo-budget-explainer-2025.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh m": 2
+  },
+  "nextExpected": null,
+  "note": "Pages are given as PDF pages: the printed numbering restarts after the front matter."
+ },
+ {
+  "id": "cob-county-birr-2024-25",
+  "title": "County Governments Budget Implementation Review Report FY 2024/25 (Office of the Controller of Budget, August 2025)",
+  "issuer": "Office of the Controller of Budget",
+  "docType": "report",
+  "fy": "2024/25",
+  "stage": "spent",
+  "date": "2025-08",
+  "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/?wpdmdl=16263",
+  "archive": null,
+  "sha256": "825edf1e1a347016a61477002471761e5f826e540ac153d74764087bb920b213",
+  "file": "cob-county-birr-2024-25.pdf",
+  "pageOffset": -44,
+  "tolerance": {
+   "KSh m": 1
+  },
+  "nextExpected": null
+ },
+ {
+  "id": "cob-county-birr-2025-26",
+  "title": "County Governments Budget Implementation Review Report FY 2025/26 (Office of the Controller of Budget, August 2026)",
+  "issuer": "Office of the Controller of Budget",
+  "docType": "report",
+  "fy": "2025/26",
+  "stage": "spent",
+  "date": "2026-08",
+  "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-2025-26/?wpdmdl=16482",
+  "archive": null,
+  "sha256": "919930622bc9fbc0c0b5cdcb566219e4f1432e7c9a3329dfd5bb23616cd33c20",
+  "file": "cob-county-birr-2025-26.pdf",
+  "pageOffset": -34,
+  "tolerance": {
+   "KSh m": 1
+  },
+  "nextExpected": {
+   "date": "2027-09-30",
+   "what": "The County Governments Budget Implementation Review Report for FY2026/27"
+  }
+ },
+ {
+  "id": "pfm-act-2012",
+  "title": "Public Finance Management Act, 2012 (No. 18 of 2012, Kenya Gazette Supplement No. 94)",
+  "issuer": "Parliament of Kenya",
+  "docType": "act",
+  "fy": "2025/26",
+  "stage": "law",
+  "date": "2012-07",
+  "url": "https://www.parliament.go.ke/sites/default/files/2017-06/Public_Finance_Management_Act_2012.pdf",
+  "archive": null,
+  "sha256": "4b7bc83872504bb6aa0d1d3a37062f75c883332bd666846f4410e35e175468bf",
+  "file": "pfm-act-2012.pdf",
+  "pageOffset": 869,
+  "tolerance": {},
+  "nextExpected": null,
+  "note": "The Act as passed. Later amendments are not read here. The Treasury and the Controller of Budget cite the same sections in their 2026 documents, as Cap 412A."
+ },
+ {
+  "id": "pfm-county-regulations-2015",
+  "title": "Public Finance Management (County Governments) Regulations, 2015 (Legal Notice No. 35, Kenya Gazette Supplement No. 33)",
+  "issuer": "Cabinet Secretary for the National Treasury",
+  "docType": "act",
+  "fy": "2025/26",
+  "stage": "law",
+  "date": "2015-03-20",
+  "url": "https://www.parliament.go.ke/sites/default/files/2017-05/Legal_Notice_No._35_County_Govts_Regu.pdf",
+  "archive": null,
+  "sha256": "98ddeb3d93039d8f92ccc363c2c3a52b31322c450b82cd23379caab4da7524df",
+  "file": "pfm-county-regulations-2015.pdf",
+  "pageOffset": 312,
+  "tolerance": {},
+  "nextExpected": null
+ },
+ {
+  "id": "annual-public-debt-report-2024-25",
+  "title": "Annual Public Debt Management Report 2024/2025 (National Treasury and Economic Planning, September 2025)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "report",
+  "fy": "2024/25",
+  "stage": "spent",
+  "date": "2025-09",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Annual-Public-Debt-Report-2024-2025.pdf",
+  "archive": null,
+  "sha256": "871bf6b38ed579e9abc8e6f4fe0cd21ad979116118bde109329dcb35b88e8d48",
+  "file": "annual-public-debt-report-2024-25.pdf",
+  "pageOffset": 0,
+  "tolerance": {
+   "KSh m": 3
+  },
+  "nextExpected": {
+   "date": "2026-09-30",
+   "what": "The Annual Public Debt Management Report for FY2025/26"
+  }
+ },
+ {
+  "id": "pbb-2026-27",
+  "title": "Programme Based Budget of the National Government of Kenya for the year ending 30th June, 2027 (National Treasury, June 2026, approved)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20Books/Budget%20books%202026-2027/FY%202026%202027%20Programme%20Based%20Budget%20Book_Approved.pdf",
+  "archive": null,
+  "sha256": "ccb44aa1a3b5aa1b13e27d5d8a17d8c3b5a4e6fca561b6e98c9dda9e654ae9e6",
+  "file": "pbb-2026-27-approved.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh": 2
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "The Programme Based Budget for FY2027/28"
+  },
+  "note": "Pages are given as PDF pages: the book numbers each vote's section separately. Parliament also hosts the April estimates edition, which has a different total; this is the approved edition, whose total equals the Appropriation Act."
+ },
+ {
+  "id": "dev-estimates-2026-27-vol1",
+  "title": "Estimates of Development Expenditure of the Government of Kenya for the year ending 30th June, 2027, Volume I (National Treasury, June 2026, approved)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20Books/Budget%20books%202026-2027/Development%20Volume%20I%20(1011-1083)_Approved.pdf",
+  "archive": null,
+  "sha256": "3507854b7f72cbf73962e9237dd80e776407965cd27f29d449d06987bfbf4359",
+  "file": "dev-estimates-2026-27-vol1.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh": 2
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "The Development Estimates for FY2027/28"
+  },
+  "note": "Votes 1011-1083. Pages are given as PDF pages. Only each vote's summary table is read: project, approved FY2025/26 and gross FY2026/27. Each vote's total equals the Appropriation Act's development money for it."
+ },
+ {
+  "id": "dev-estimates-2026-27-vol2",
+  "title": "Estimates of Development Expenditure of the Government of Kenya for the year ending 30th June, 2027, Volume II (National Treasury, June 2026, approved)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20Books/Budget%20books%202026-2027/Development%20Volume%20II%20(1091-1091)_Approved.pdf",
+  "archive": null,
+  "sha256": "e16a42879921b7e6cbf33fac197f456f72cd43efe94379943f96ec6f95eb8227",
+  "file": "dev-estimates-2026-27-vol2.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh": 2
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "The Development Estimates for FY2027/28"
+  },
+  "note": "Votes 1091. Pages are given as PDF pages. Only each vote's summary table is read: project, approved FY2025/26 and gross FY2026/27. Each vote's total equals the Appropriation Act's development money for it."
+ },
+ {
+  "id": "dev-estimates-2026-27-vol3",
+  "title": "Estimates of Development Expenditure of the Government of Kenya for the year ending 30th June, 2027, Volume III (National Treasury, June 2026, approved)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20Books/Budget%20books%202026-2027/Development%20Volume%20III%20(1092-1135)_Approved.pdf",
+  "archive": null,
+  "sha256": "944d3f6798719f809d0f6f44c7a79f6dd16d1b8c2cd495d5d1c1e342d8a526bb",
+  "file": "dev-estimates-2026-27-vol3.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh": 2
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "The Development Estimates for FY2027/28"
+  },
+  "note": "Votes 1092-1135. Pages are given as PDF pages. Only each vote's summary table is read: project, approved FY2025/26 and gross FY2026/27. Each vote's total equals the Appropriation Act's development money for it."
+ },
+ {
+  "id": "dev-estimates-2026-27-vol4",
+  "title": "Estimates of Development Expenditure of the Government of Kenya for the year ending 30th June, 2027, Volume IV (National Treasury, June 2026, approved)",
+  "issuer": "National Treasury and Economic Planning",
+  "docType": "budget-document",
+  "fy": "2026/27",
+  "stage": "approved",
+  "date": "2026-06",
+  "url": "https://newsite.treasury.go.ke/sites/default/files/Budget%20Books/Budget%20books%202026-2027/Development%20Volume%20IV%20(1152-2111)_Approved.pdf",
+  "archive": null,
+  "sha256": "9e7cff400cc05aecfdefb791234e9c7eefe7da3bb0edebbcefd676e75821798d",
+  "file": "dev-estimates-2026-27-vol4.pdf",
+  "pageOffset": null,
+  "tolerance": {
+   "KSh": 2
+  },
+  "nextExpected": {
+   "date": "2027-06-30",
+   "what": "The Development Estimates for FY2027/28"
+  },
+  "note": "Votes 1152-2111. Pages are given as PDF pages. Only each vote's summary table is read: project, approved FY2025/26 and gross FY2026/27. Each vote's total equals the Appropriation Act's development money for it."
+ }
+]

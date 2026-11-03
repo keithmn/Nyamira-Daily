@@ -1,0 +1,9 @@
+---
+// The document and page behind a figure, plus the archive copy where one exists (build brief, section 8).
+import { t } from '../i18n/index.js';
+import { shortTitle } from '../lib/figures.js';
+
+interface Props { doc: { title: string; url: string; archive: string | null }; page: string; lang?: 'en' | 'sw' }
+const { doc, page, lang = 'en' } = Astro.props;
+---
+<p class="src"><a href={doc.url} rel="noopener">{shortTitle(doc)}, {page}</a>{doc.archive && <a href={doc.archive} rel="noopener">{t(lang, 'source.archive')}</a>}</p>

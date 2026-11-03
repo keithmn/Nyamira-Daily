@@ -1,0 +1,53 @@
+---
+// Data (build brief 5.13): every published file, the licence and how to cite. The same list feeds datapackage.json.
+import { site } from '../../site.js';
+import { t } from '../../i18n/index.js';
+import { citationFor, fig, release } from '../../lib/figures.js';
+import { downloads } from '../../lib/downloads.js';
+import { href } from '../../lib/routes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+
+interface Props { lang?: 'en' | 'sw' }
+const { lang = 'en' } = Astro.props;
+const files = downloads();
+const main = files.filter((f) => f.key !== 'sector'), sectors = files.filter((f) => f.key === 'sector');
+const file = (f) => f.path.split('/').pop();
+const example = citationFor(fig('approved.total.supply'));
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'data.title') }]} /></div>
+<section class="band">
+  <div class="wrap stack gap-l">
+    <div class="page-head"><h1>{t(lang, 'data.title')}</h1><p>{t(lang, 'data.line', { release })}</p></div>
+    <ul class="file-list">
+      {main.map((f) => <li><a href={href('en', f.path)} download={file(f)}>{t(lang, `data.file.${f.key}`)}</a> <span class="small muted">{f.format.toUpperCase()}</span></li>)}
+      <li><a href={href('en', '/data/datapackage.json')} download="datapackage.json">{t(lang, 'data.file.package')}</a> <span class="small muted">JSON</span></li>
+    </ul>
+    <details class="toggle">
+      <summary>{t(lang, 'data.sectorFiles', { n: sectors.length })}</summary>
+      <ul class="file-list">{sectors.map((f) => <li><a href={href('en', f.path)} download={file(f)}>{t(lang, `sector.${f.slug}`)}</a> <span class="small muted">CSV</span></li>)}</ul>
+    </details>
+    <div class="stack gap-s">
+      <h2>{t(lang, 'data.perTitle')}</h2>
+      <p>{t(lang, 'data.perLine')}</p>
+      <ul class="file-list">
+        <li><code>/api/national/votes/[vote].json</code> · <a href={href('en', '/api/national/votes/1066.json')}>{t(lang, 'data.example')}</a></li>
+        <li><code>/api/national/counties/[county].json</code> · <a href={href('en', '/api/national/counties/nyamira.json')}>{t(lang, 'data.example')}</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="band alt" aria-labelledby="h-reuse">
+  <div class="wrap stack">
+    <h2 id="h-reuse">{t(lang, 'data.reuseTitle')}</h2>
+    <p>{t(lang, 'data.licence', { name: site.name })}</p>
+    <div class="btn-row"><a class="btn quiet" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener license">CC BY 4.0</a></div>
+    <p>{t(lang, 'data.citeLine')}</p>
+    <blockquote class="quote"><p>{example}</p></blockquote>
+    <p class="small muted">{t(lang, 'data.stages')}</p>
+    <div class="btn-row">
+      <a class="btn quiet" href={href(lang, '/data/releases/')}>{t(lang, 'releases.title')}</a>
+      <a class="btn quiet" href={href(lang, '/methods/')}>{t(lang, 'methods.title')}</a>
+      <a class="btn quiet" href={href(lang, '/corrections/')}>{t(lang, 'corrections.title')}</a>
+    </div>
+  </div>
+</section>

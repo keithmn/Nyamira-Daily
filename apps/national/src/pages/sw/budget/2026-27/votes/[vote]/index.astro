@@ -1,0 +1,12 @@
+---
+import View from '../../../../../../components/pages/VotePage.astro';
+import { t } from '../../../../../../i18n/index.js';
+import Base from '../../../../../../layouts/Base.astro';
+import { allVotes, voteByCode } from '../../../../../../lib/votes.js';
+
+export function getStaticPaths() {
+  return allVotes().map((v) => ({ params: { vote: v.code } }));
+}
+const { vote } = Astro.params;
+---
+<Base lang="sw" path={`/budget/2026-27/votes/${vote}/`} title={voteByCode(vote).name}><View lang="sw" code={vote} /></Base>

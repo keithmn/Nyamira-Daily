@@ -1,0 +1,11 @@
+---
+// Follows the phone by default. The choice stays in the reader's browser. Needs JavaScript, so it is hidden without it.
+import { t } from '../i18n/index.js';
+
+interface Props { lang: 'en' | 'sw' }
+const { lang } = Astro.props;
+---
+<fieldset class="seg js-only" data-theme-control>
+  <legend>{t(lang, 'theme.legend')}</legend>
+  {['auto', 'light', 'dark'].map((v) => <label><input type="radio" name="theme" value={v} checked={v === 'auto'} />{t(lang, `theme.${v}`)}</label>)}
+</fieldset>

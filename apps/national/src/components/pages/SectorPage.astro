@@ -1,0 +1,33 @@
+---
+// One sector: what it gets, how that compares with the same votes last year, and who spends it.
+import { full, money } from '@kbe/engine/fmt';
+import { t } from '../../i18n/index.js';
+import { FY, PREFIX } from '../../lib/figures.js';
+import { YEAR, href, voteHref } from '../../lib/routes.js';
+import { amountSentence, changeChip } from '../../lib/sentences.js';
+import { sectorBySlug, summed } from '../../lib/votes.js';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import Chart from '../Chart.astro';
+import DataTable from '../DataTable.astro';
+import PageHero from '../PageHero.astro';
+import RankedBars from '../RankedBars.astro';
+
+interface Props { slug: string; lang?: 'en' | 'sw' }
+const { slug, lang = 'en' } = Astro.props;
+const s = sectorBySlug(slug), name = t(lang, `sector.${slug}`);
+const figure = summed(s.first, `${PREFIX}approved.sector.${slug}`, name, s.total);
+const rows = s.votes.map((v, i) => ({ name: v.name, value: v.total, shown: (v.total / 1e9).toFixed(2), mark: i === 0, href: voteHref(lang, v.code) }));
+const columns = [{ key: 'name', label: t(lang, 'sector.vote') }, { key: 'total', label: t(lang, 'sector.thisYear'), num: true }, { key: 'last', label: t(lang, 'sector.lastYear'), num: true }, { key: 'change', label: t(lang, 'sector.change'), num: true }];
+const tableRows = s.votes.map((v) => ({ name: { shown: v.name, href: voteHref(lang, v.code) }, total: { shown: full(v.total), sort: v.total }, last: { shown: money(v.pboLast.value, v.pboLast.unit, lang), sort: v.pboLast.value }, change: { shown: changeChip(v.change, lang), sort: v.change.toFixed(2) } }));
+---
+<div class="wrap"><Breadcrumbs lang={lang} trail={[{ name: t(lang, 'nav.budget'), path: YEAR }, { name: t(lang, 'sectors.title', { fy: FY }), path: `${YEAR}sectors/` }, { name }]} /></div>
+<PageHero figure={figure} title={name} line={amountSentence({ name, amount: s.total, change: s.change, fy: FY, lang })} sw={amountSentence({ name: t('sw', `sector.${slug}`), amount: s.total, change: s.change, fy: FY, lang: 'sw' })} calc={t(lang, 'fig.calc')} what={name} lang={lang} />
+<section class="band">
+  <h2 class="vh">{t(lang, 'nav.detail')}</h2>
+  <div class="wrap stack gap-l">
+    <Chart lang={lang} title={t(lang, 'sector.votesTitle')} sub={t(lang, 'sector.votesSub', { fy: FY })} from={s.first} calc={t(lang, 'fig.calc')}><RankedBars rows={rows} lang={lang} /></Chart>
+    <DataTable lang={lang} columns={columns} rows={tableRows} caption={name} csvHref={href('en', `/data/sectors/${slug}-2026-27.csv`)} csvName={`${slug}-2026-27.csv`} />
+    <p class="small muted">{t(lang, 'change.basis', { last: 'FY2025/26' })} {t(lang, 'change.sameVotes')}</p>
+    {s.guide && <p class="small muted">{t(lang, 'sector.guideNote', { amount: money(s.guide.value, s.guide.unit, lang) })}</p>}
+  </div>
+</section>

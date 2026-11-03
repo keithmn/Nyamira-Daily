@@ -1,0 +1,2154 @@
+{
+ "defaults": {
+  "fy": "2026/27",
+  "stage": "law",
+  "unit": "KSh",
+  "grouping": "county-allocation",
+  "money": "county",
+  "label": "official",
+  "source": "county-allocation-act-2026",
+  "checkedOn": "2026-11-02",
+  "checkedBy": "claude-code",
+  "note": "Typed from a picture of the table; a person should check it first."
+ },
+ "figures": [
+  {
+   "id": "ke.fy2026-27.law.county-total.equitable-share",
+   "name": "All 47 counties: total equitable share",
+   "value": 428000000000,
+   "level": "total",
+   "parent": null,
+   "page": "First Schedule, p.461, Total row",
+   "pdfPage": 9,
+   "parts": [
+    "ke.fy2026-27.law.county-total.baseline",
+    "ke.fy2026-27.law.county-total.affirmative-action",
+    "ke.fy2026-27.law.county-total.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county-total.baseline",
+   "name": "All 47 counties: baseline allocation",
+   "value": 387425000000,
+   "level": "total",
+   "parent": null,
+   "page": "First Schedule, p.461, Total row",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county-total.affirmative-action",
+   "name": "All 47 counties: affirmative action allocation",
+   "value": 4460000000,
+   "level": "total",
+   "parent": null,
+   "page": "First Schedule, p.461, Total row",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county-total.formula",
+   "name": "All 47 counties: additional equitable share (weighted formula)",
+   "value": 36115000000,
+   "level": "total",
+   "parent": null,
+   "page": "First Schedule, p.461, Total row",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2025-26.law.county-total.equitable-share",
+   "name": "All 47 counties: total equitable share, FY2025/26",
+   "value": 415000000000,
+   "level": "total",
+   "parent": null,
+   "page": "First Schedule, p.461, Total row",
+   "pdfPage": 9,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.baringo.equitable-share",
+   "name": "Baringo: total equitable share",
+   "value": 7308538764,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.baringo.baseline",
+    "ke.fy2026-27.law.county.baringo.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.baringo.baseline",
+   "name": "Baringo: baseline allocation",
+   "value": 6683873223,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.baringo.formula",
+   "name": "Baringo: additional equitable share (weighted formula)",
+   "value": 624665541,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.baringo.equitable-share",
+   "name": "Baringo: total equitable share, FY2025/26",
+   "value": 7083683384,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.bomet.equitable-share",
+   "name": "Bomet: total equitable share",
+   "value": 7690203903,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.bomet.baseline",
+    "ke.fy2026-27.law.county.bomet.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.bomet.baseline",
+   "name": "Bomet: baseline allocation",
+   "value": 7015121755,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.bomet.formula",
+   "name": "Bomet: additional equitable share (weighted formula)",
+   "value": 675082148,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.bomet.equitable-share",
+   "name": "Bomet: total equitable share, FY2025/26",
+   "value": 7447200499,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.bungoma.equitable-share",
+   "name": "Bungoma: total equitable share",
+   "value": 12213393358,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.bungoma.baseline",
+    "ke.fy2026-27.law.county.bungoma.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.bungoma.baseline",
+   "name": "Bungoma: baseline allocation",
+   "value": 11170673599,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.bungoma.formula",
+   "name": "Bungoma: additional equitable share (weighted formula)",
+   "value": 1042719759,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.bungoma.equitable-share",
+   "name": "Bungoma: total equitable share, FY2025/26",
+   "value": 11838054666,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.busia.equitable-share",
+   "name": "Busia: total equitable share",
+   "value": 8204938281,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.busia.baseline",
+    "ke.fy2026-27.law.county.busia.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.busia.baseline",
+   "name": "Busia: baseline allocation",
+   "value": 7514935582,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.busia.formula",
+   "name": "Busia: additional equitable share (weighted formula)",
+   "value": 690002699,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.busia.equitable-share",
+   "name": "Busia: total equitable share, FY2025/26",
+   "value": 7956564058,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.elgeyo-marakwet.equitable-share",
+   "name": "Elgeyo/Marakwet: total equitable share",
+   "value": 5693287501,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.elgeyo-marakwet.baseline",
+    "ke.fy2026-27.law.county.elgeyo-marakwet.affirmative-action",
+    "ke.fy2026-27.law.county.elgeyo-marakwet.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.elgeyo-marakwet.baseline",
+   "name": "Elgeyo/Marakwet: baseline allocation",
+   "value": 4826732019,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.elgeyo-marakwet.affirmative-action",
+   "name": "Elgeyo/Marakwet: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.elgeyo-marakwet.formula",
+   "name": "Elgeyo/Marakwet: additional equitable share (weighted formula)",
+   "value": 494888815,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.elgeyo-marakwet.equitable-share",
+   "name": "Elgeyo/Marakwet: total equitable share, FY2025/26",
+   "value": 5515146712,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.embu.equitable-share",
+   "name": "Embu: total equitable share",
+   "value": 6266341359,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.embu.baseline",
+    "ke.fy2026-27.law.county.embu.affirmative-action",
+    "ke.fy2026-27.law.county.embu.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.embu.baseline",
+   "name": "Embu: baseline allocation",
+   "value": 5369896832,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.embu.affirmative-action",
+   "name": "Embu: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.embu.formula",
+   "name": "Embu: additional equitable share (weighted formula)",
+   "value": 524777860,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.embu.equitable-share",
+   "name": "Embu: total equitable share, FY2025/26",
+   "value": 6077441672,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.garissa.equitable-share",
+   "name": "Garissa: total equitable share",
+   "value": 9208106330,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.garissa.baseline",
+    "ke.fy2026-27.law.county.garissa.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.garissa.baseline",
+   "name": "Garissa: baseline allocation",
+   "value": 8290447365,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.garissa.formula",
+   "name": "Garissa: additional equitable share (weighted formula)",
+   "value": 917658965,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.garissa.equitable-share",
+   "name": "Garissa: total equitable share, FY2025/26",
+   "value": 8877784676,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.homa-bay.equitable-share",
+   "name": "Homa Bay: total equitable share",
+   "value": 8914134592,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.homa-bay.baseline",
+    "ke.fy2026-27.law.county.homa-bay.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.homa-bay.baseline",
+   "name": "Homa Bay: baseline allocation",
+   "value": 8170280800,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.homa-bay.formula",
+   "name": "Homa Bay: additional equitable share (weighted formula)",
+   "value": 743853792,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.homa-bay.equitable-share",
+   "name": "Homa Bay: total equitable share, FY2025/26",
+   "value": 8646376063,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.isiolo.equitable-share",
+   "name": "Isiolo: total equitable share",
+   "value": 5820428671,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.isiolo.baseline",
+    "ke.fy2026-27.law.county.isiolo.affirmative-action",
+    "ke.fy2026-27.law.county.isiolo.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.isiolo.baseline",
+   "name": "Isiolo: baseline allocation",
+   "value": 4923507187,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.isiolo.affirmative-action",
+   "name": "Isiolo: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.isiolo.formula",
+   "name": "Isiolo: additional equitable share (weighted formula)",
+   "value": 525254817,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.isiolo.equitable-share",
+   "name": "Isiolo: total equitable share, FY2025/26",
+   "value": 5631357298,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kajiado.equitable-share",
+   "name": "Kajiado: total equitable share",
+   "value": 9203151126,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.kajiado.baseline",
+    "ke.fy2026-27.law.county.kajiado.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kajiado.baseline",
+   "name": "Kajiado: baseline allocation",
+   "value": 8345013610,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kajiado.formula",
+   "name": "Kajiado: additional equitable share (weighted formula)",
+   "value": 858137516,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.kajiado.equitable-share",
+   "name": "Kajiado: total equitable share, FY2025/26",
+   "value": 8894254886,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kakamega.equitable-share",
+   "name": "Kakamega: total equitable share",
+   "value": 14065352058,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.kakamega.baseline",
+    "ke.fy2026-27.law.county.kakamega.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kakamega.baseline",
+   "name": "Kakamega: baseline allocation",
+   "value": 12980503320,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kakamega.formula",
+   "name": "Kakamega: additional equitable share (weighted formula)",
+   "value": 1084848738,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.kakamega.equitable-share",
+   "name": "Kakamega: total equitable share, FY2025/26",
+   "value": 13674848566,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kericho.equitable-share",
+   "name": "Kericho: total equitable share",
+   "value": 7426240914,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.kericho.baseline",
+    "ke.fy2026-27.law.county.kericho.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kericho.baseline",
+   "name": "Kericho: baseline allocation",
+   "value": 6738465302,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kericho.formula",
+   "name": "Kericho: additional equitable share (weighted formula)",
+   "value": 687775612,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.kericho.equitable-share",
+   "name": "Kericho: total equitable share, FY2025/26",
+   "value": 7178668356,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kiambu.equitable-share",
+   "name": "Kiambu: total equitable share",
+   "value": 13509437586,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.kiambu.baseline",
+    "ke.fy2026-27.law.county.kiambu.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kiambu.baseline",
+   "name": "Kiambu: baseline allocation",
+   "value": 12293696674,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kiambu.formula",
+   "name": "Kiambu: additional equitable share (weighted formula)",
+   "value": 1215740912,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.kiambu.equitable-share",
+   "name": "Kiambu: total equitable share, FY2025/26",
+   "value": 13071817986,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kilifi.equitable-share",
+   "name": "Kilifi: total equitable share",
+   "value": 13175334595,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.kilifi.baseline",
+    "ke.fy2026-27.law.county.kilifi.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kilifi.baseline",
+   "name": "Kilifi: baseline allocation",
+   "value": 12169843476,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kilifi.formula",
+   "name": "Kilifi: additional equitable share (weighted formula)",
+   "value": 1005491119,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.kilifi.equitable-share",
+   "name": "Kilifi: total equitable share, FY2025/26",
+   "value": 12813396770,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kirinyaga.equitable-share",
+   "name": "Kirinyaga: total equitable share",
+   "value": 6337662004,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.kirinyaga.baseline",
+    "ke.fy2026-27.law.county.kirinyaga.affirmative-action",
+    "ke.fy2026-27.law.county.kirinyaga.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kirinyaga.baseline",
+   "name": "Kirinyaga: baseline allocation",
+   "value": 5449272719,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kirinyaga.affirmative-action",
+   "name": "Kirinyaga: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kirinyaga.formula",
+   "name": "Kirinyaga: additional equitable share (weighted formula)",
+   "value": 516722618,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.kirinyaga.equitable-share",
+   "name": "Kirinyaga: total equitable share, FY2025/26",
+   "value": 6151661892,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kisii.equitable-share",
+   "name": "Kisii: total equitable share",
+   "value": 10108734057,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.kisii.baseline",
+    "ke.fy2026-27.law.county.kisii.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kisii.baseline",
+   "name": "Kisii: baseline allocation",
+   "value": 9305835688,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kisii.formula",
+   "name": "Kisii: additional equitable share (weighted formula)",
+   "value": 802898369,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.kisii.equitable-share",
+   "name": "Kisii: total equitable share, FY2025/26",
+   "value": 9819721768,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kisumu.equitable-share",
+   "name": "Kisumu: total equitable share",
+   "value": 9181372763,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.kisumu.baseline",
+    "ke.fy2026-27.law.county.kisumu.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kisumu.baseline",
+   "name": "Kisumu: baseline allocation",
+   "value": 8405328573,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kisumu.formula",
+   "name": "Kisumu: additional equitable share (weighted formula)",
+   "value": 776044190,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.kisumu.equitable-share",
+   "name": "Kisumu: total equitable share, FY2025/26",
+   "value": 8902026938,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kitui.equitable-share",
+   "name": "Kitui: total equitable share",
+   "value": 11851440460,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "parts": [
+    "ke.fy2026-27.law.county.kitui.baseline",
+    "ke.fy2026-27.law.county.kitui.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kitui.baseline",
+   "name": "Kitui: baseline allocation",
+   "value": 10885968099,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kitui.formula",
+   "name": "Kitui: additional equitable share (weighted formula)",
+   "value": 965472361,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7
+  },
+  {
+   "id": "ke.fy2025-26.law.county.kitui.equitable-share",
+   "name": "Kitui: total equitable share, FY2025/26",
+   "value": 11503907837,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.459",
+   "pdfPage": 7,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kwale.equitable-share",
+   "name": "Kwale: total equitable share",
+   "value": 9333631268,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.kwale.baseline",
+    "ke.fy2026-27.law.county.kwale.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kwale.baseline",
+   "name": "Kwale: baseline allocation",
+   "value": 8625411603,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.kwale.formula",
+   "name": "Kwale: additional equitable share (weighted formula)",
+   "value": 708219665,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.kwale.equitable-share",
+   "name": "Kwale: total equitable share, FY2025/26",
+   "value": 9078699643,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.laikipia.equitable-share",
+   "name": "Laikipia: total equitable share",
+   "value": 6298325916,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.laikipia.baseline",
+    "ke.fy2026-27.law.county.laikipia.affirmative-action",
+    "ke.fy2026-27.law.county.laikipia.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.laikipia.baseline",
+   "name": "Laikipia: baseline allocation",
+   "value": 5387034732,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.laikipia.affirmative-action",
+   "name": "Laikipia: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.laikipia.formula",
+   "name": "Laikipia: additional equitable share (weighted formula)",
+   "value": 539624517,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.laikipia.equitable-share",
+   "name": "Laikipia: total equitable share, FY2025/26",
+   "value": 6104082008,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.lamu.equitable-share",
+   "name": "Lamu: total equitable share",
+   "value": 3987831441,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.lamu.baseline",
+    "ke.fy2026-27.law.county.lamu.affirmative-action",
+    "ke.fy2026-27.law.county.lamu.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.lamu.baseline",
+   "name": "Lamu: baseline allocation",
+   "value": 3254430723,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.lamu.affirmative-action",
+   "name": "Lamu: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.lamu.formula",
+   "name": "Lamu: additional equitable share (weighted formula)",
+   "value": 361734051,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.lamu.equitable-share",
+   "name": "Lamu: total equitable share, FY2025/26",
+   "value": 3857621205,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.machakos.equitable-share",
+   "name": "Machakos: total equitable share",
+   "value": 10506401278,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.machakos.baseline",
+    "ke.fy2026-27.law.county.machakos.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.machakos.baseline",
+   "name": "Machakos: baseline allocation",
+   "value": 9597223940,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.machakos.formula",
+   "name": "Machakos: additional equitable share (weighted formula)",
+   "value": 909177338,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.machakos.equitable-share",
+   "name": "Machakos: total equitable share, FY2025/26",
+   "value": 10179132681,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.makueni.equitable-share",
+   "name": "Makueni: total equitable share",
+   "value": 9245743223,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.makueni.baseline",
+    "ke.fy2026-27.law.county.makueni.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.makueni.baseline",
+   "name": "Makueni: baseline allocation",
+   "value": 8497308272,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.makueni.formula",
+   "name": "Makueni: additional equitable share (weighted formula)",
+   "value": 748434951,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.makueni.equitable-share",
+   "name": "Makueni: total equitable share, FY2025/26",
+   "value": 8976335654,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.mandera.equitable-share",
+   "name": "Mandera: total equitable share",
+   "value": 12588136749,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.mandera.baseline",
+    "ke.fy2026-27.law.county.mandera.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.mandera.baseline",
+   "name": "Mandera: baseline allocation",
+   "value": 11690618560,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.mandera.formula",
+   "name": "Mandera: additional equitable share (weighted formula)",
+   "value": 897518189,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.mandera.equitable-share",
+   "name": "Mandera: total equitable share, FY2025/26",
+   "value": 12265064993,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.marsabit.equitable-share",
+   "name": "Marsabit: total equitable share",
+   "value": 8391662265,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.marsabit.baseline",
+    "ke.fy2026-27.law.county.marsabit.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.marsabit.baseline",
+   "name": "Marsabit: baseline allocation",
+   "value": 7597151194,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.marsabit.formula",
+   "name": "Marsabit: additional equitable share (weighted formula)",
+   "value": 794511071,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.marsabit.equitable-share",
+   "name": "Marsabit: total equitable share, FY2025/26",
+   "value": 8105669078,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.meru.equitable-share",
+   "name": "Meru: total equitable share",
+   "value": 10896791506,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.meru.baseline",
+    "ke.fy2026-27.law.county.meru.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.meru.baseline",
+   "name": "Meru: baseline allocation",
+   "value": 9944340480,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.meru.formula",
+   "name": "Meru: additional equitable share (weighted formula)",
+   "value": 952451026,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.meru.equitable-share",
+   "name": "Meru: total equitable share, FY2025/26",
+   "value": 10553946059,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.migori.equitable-share",
+   "name": "Migori: total equitable share",
+   "value": 9164503127,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.migori.baseline",
+    "ke.fy2026-27.law.county.migori.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.migori.baseline",
+   "name": "Migori: baseline allocation",
+   "value": 8385076399,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.migori.formula",
+   "name": "Migori: additional equitable share (weighted formula)",
+   "value": 779426728,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.migori.equitable-share",
+   "name": "Migori: total equitable share, FY2025/26",
+   "value": 8883939719,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.mombasa.equitable-share",
+   "name": "Mombasa: total equitable share",
+   "value": 8655427079,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.mombasa.baseline",
+    "ke.fy2026-27.law.county.mombasa.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.mombasa.baseline",
+   "name": "Mombasa: baseline allocation",
+   "value": 7899674038,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.mombasa.formula",
+   "name": "Mombasa: additional equitable share (weighted formula)",
+   "value": 755753041,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.mombasa.equitable-share",
+   "name": "Mombasa: total equitable share, FY2025/26",
+   "value": 8383385281,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.muranga.equitable-share",
+   "name": "Murang'a: total equitable share",
+   "value": 8226820359,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.muranga.baseline",
+    "ke.fy2026-27.law.county.muranga.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.muranga.baseline",
+   "name": "Murang'a: baseline allocation",
+   "value": 7511867031,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.muranga.formula",
+   "name": "Murang'a: additional equitable share (weighted formula)",
+   "value": 714953328,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.muranga.equitable-share",
+   "name": "Murang'a: total equitable share, FY2025/26",
+   "value": 7969464876,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nairobi-city.equitable-share",
+   "name": "Nairobi City: total equitable share",
+   "value": 22113620446,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.nairobi-city.baseline",
+    "ke.fy2026-27.law.county.nairobi-city.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nairobi-city.baseline",
+   "name": "Nairobi City: baseline allocation",
+   "value": 20178711957,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nairobi-city.formula",
+   "name": "Nairobi City: additional equitable share (weighted formula)",
+   "value": 1934908489,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.nairobi-city.equitable-share",
+   "name": "Nairobi City: total equitable share, FY2025/26",
+   "value": 21417128397,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nakuru.equitable-share",
+   "name": "Nakuru: total equitable share",
+   "value": 14898407452,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.nakuru.baseline",
+    "ke.fy2026-27.law.county.nakuru.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nakuru.baseline",
+   "name": "Nakuru: baseline allocation",
+   "value": 13666997646,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nakuru.formula",
+   "name": "Nakuru: additional equitable share (weighted formula)",
+   "value": 1231409806,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.nakuru.equitable-share",
+   "name": "Nakuru: total equitable share, FY2025/26",
+   "value": 14455147658,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nandi.equitable-share",
+   "name": "Nandi: total equitable share",
+   "value": 8011197944,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.nandi.baseline",
+    "ke.fy2026-27.law.county.nandi.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nandi.baseline",
+   "name": "Nandi: baseline allocation",
+   "value": 7346071107,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nandi.formula",
+   "name": "Nandi: additional equitable share (weighted formula)",
+   "value": 665126837,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.nandi.equitable-share",
+   "name": "Nandi: total equitable share, FY2025/26",
+   "value": 7771778066,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.narok.equitable-share",
+   "name": "Narok: total equitable share",
+   "value": 10067523987,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.narok.baseline",
+    "ke.fy2026-27.law.county.narok.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.narok.baseline",
+   "name": "Narok: baseline allocation",
+   "value": 9241860519,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.narok.formula",
+   "name": "Narok: additional equitable share (weighted formula)",
+   "value": 825663468,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.narok.equitable-share",
+   "name": "Narok: total equitable share, FY2025/26",
+   "value": 9770317146,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nyamira.equitable-share",
+   "name": "Nyamira: total equitable share",
+   "value": 6265653089,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.nyamira.baseline",
+    "ke.fy2026-27.law.county.nyamira.affirmative-action",
+    "ke.fy2026-27.law.county.nyamira.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nyamira.baseline",
+   "name": "Nyamira: baseline allocation",
+   "value": 5359987994,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nyamira.affirmative-action",
+   "name": "Nyamira: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nyamira.formula",
+   "name": "Nyamira: additional equitable share (weighted formula)",
+   "value": 533998429,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.nyamira.equitable-share",
+   "name": "Nyamira: total equitable share, FY2025/26",
+   "value": 6073434356,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nyandarua.equitable-share",
+   "name": "Nyandarua: total equitable share",
+   "value": 6862041197,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.nyandarua.baseline",
+    "ke.fy2026-27.law.county.nyandarua.affirmative-action",
+    "ke.fy2026-27.law.county.nyandarua.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nyandarua.baseline",
+   "name": "Nyandarua: baseline allocation",
+   "value": 5936521652,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nyandarua.affirmative-action",
+   "name": "Nyandarua: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nyandarua.formula",
+   "name": "Nyandarua: additional equitable share (weighted formula)",
+   "value": 553852878,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.nyandarua.equitable-share",
+   "name": "Nyandarua: total equitable share, FY2025/26",
+   "value": 6662675631,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nyeri.equitable-share",
+   "name": "Nyeri: total equitable share",
+   "value": 7108453869,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.nyeri.baseline",
+    "ke.fy2026-27.law.county.nyeri.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nyeri.baseline",
+   "name": "Nyeri: baseline allocation",
+   "value": 6518609255,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.nyeri.formula",
+   "name": "Nyeri: additional equitable share (weighted formula)",
+   "value": 589844614,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.nyeri.equitable-share",
+   "name": "Nyeri: total equitable share, FY2025/26",
+   "value": 6896132673,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.samburu.equitable-share",
+   "name": "Samburu: total equitable share",
+   "value": 6529355285,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.samburu.baseline",
+    "ke.fy2026-27.law.county.samburu.affirmative-action",
+    "ke.fy2026-27.law.county.samburu.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.samburu.baseline",
+   "name": "Samburu: baseline allocation",
+   "value": 5623228509,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.samburu.affirmative-action",
+   "name": "Samburu: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.samburu.formula",
+   "name": "Samburu: additional equitable share (weighted formula)",
+   "value": 534460109,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.samburu.equitable-share",
+   "name": "Samburu: total equitable share, FY2025/26",
+   "value": 6336970364,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.siaya.equitable-share",
+   "name": "Siaya: total equitable share",
+   "value": 8009251583,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.siaya.baseline",
+    "ke.fy2026-27.law.county.siaya.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.siaya.baseline",
+   "name": "Siaya: baseline allocation",
+   "value": 7301473431,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.siaya.formula",
+   "name": "Siaya: additional equitable share (weighted formula)",
+   "value": 707778152,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.siaya.equitable-share",
+   "name": "Siaya: total equitable share, FY2025/26",
+   "value": 7754478885,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.taita-taveta.equitable-share",
+   "name": "Taita Taveta: total equitable share",
+   "value": 5941906759,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "parts": [
+    "ke.fy2026-27.law.county.taita-taveta.baseline",
+    "ke.fy2026-27.law.county.taita-taveta.affirmative-action",
+    "ke.fy2026-27.law.county.taita-taveta.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.taita-taveta.baseline",
+   "name": "Taita Taveta: baseline allocation",
+   "value": 5066138383,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.taita-taveta.affirmative-action",
+   "name": "Taita Taveta: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2026-27.law.county.taita-taveta.formula",
+   "name": "Taita Taveta: additional equitable share (weighted formula)",
+   "value": 504101710,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8
+  },
+  {
+   "id": "ke.fy2025-26.law.county.taita-taveta.equitable-share",
+   "name": "Taita Taveta: total equitable share, FY2025/26",
+   "value": 5760449685,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.460",
+   "pdfPage": 8,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.tana-river.equitable-share",
+   "name": "Tana River: total equitable share",
+   "value": 7446174779,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "parts": [
+    "ke.fy2026-27.law.county.tana-river.baseline",
+    "ke.fy2026-27.law.county.tana-river.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.tana-river.baseline",
+   "name": "Tana River: baseline allocation",
+   "value": 6824718834,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county.tana-river.formula",
+   "name": "Tana River: additional equitable share (weighted formula)",
+   "value": 621455945,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2025-26.law.county.tana-river.equitable-share",
+   "name": "Tana River: total equitable share, FY2025/26",
+   "value": 7222474730,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.tharaka-nithi.equitable-share",
+   "name": "Tharaka Nithi: total equitable share",
+   "value": 5219759236,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "parts": [
+    "ke.fy2026-27.law.county.tharaka-nithi.baseline",
+    "ke.fy2026-27.law.county.tharaka-nithi.affirmative-action",
+    "ke.fy2026-27.law.county.tharaka-nithi.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.tharaka-nithi.baseline",
+   "name": "Tharaka Nithi: baseline allocation",
+   "value": 4399508312,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county.tharaka-nithi.affirmative-action",
+   "name": "Tharaka Nithi: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county.tharaka-nithi.formula",
+   "name": "Tharaka Nithi: additional equitable share (weighted formula)",
+   "value": 448584257,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2025-26.law.county.tharaka-nithi.equitable-share",
+   "name": "Tharaka Nithi: total equitable share, FY2025/26",
+   "value": 5058286293,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.trans-nzoia.equitable-share",
+   "name": "Trans Nzoia: total equitable share",
+   "value": 8244551895,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "parts": [
+    "ke.fy2026-27.law.county.trans-nzoia.baseline",
+    "ke.fy2026-27.law.county.trans-nzoia.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.trans-nzoia.baseline",
+   "name": "Trans Nzoia: baseline allocation",
+   "value": 7540500922,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county.trans-nzoia.formula",
+   "name": "Trans Nzoia: additional equitable share (weighted formula)",
+   "value": 704050973,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2025-26.law.county.trans-nzoia.equitable-share",
+   "name": "Trans Nzoia: total equitable share, FY2025/26",
+   "value": 7991120837,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.turkana.equitable-share",
+   "name": "Turkana: total equitable share",
+   "value": 14274615989,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "parts": [
+    "ke.fy2026-27.law.county.turkana.baseline",
+    "ke.fy2026-27.law.county.turkana.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.turkana.baseline",
+   "name": "Turkana: baseline allocation",
+   "value": 13213283320,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county.turkana.formula",
+   "name": "Turkana: additional equitable share (weighted formula)",
+   "value": 1061332669,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2025-26.law.county.turkana.equitable-share",
+   "name": "Turkana: total equitable share, FY2025/26",
+   "value": 13892577371,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.uasin-gishu.equitable-share",
+   "name": "Uasin Gishu: total equitable share",
+   "value": 9260813408,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "parts": [
+    "ke.fy2026-27.law.county.uasin-gishu.baseline",
+    "ke.fy2026-27.law.county.uasin-gishu.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.uasin-gishu.baseline",
+   "name": "Uasin Gishu: baseline allocation",
+   "value": 8472398961,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county.uasin-gishu.formula",
+   "name": "Uasin Gishu: additional equitable share (weighted formula)",
+   "value": 788414447,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2025-26.law.county.uasin-gishu.equitable-share",
+   "name": "Uasin Gishu: total equitable share, FY2025/26",
+   "value": 8977014770,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.vihiga.equitable-share",
+   "name": "Vihiga: total equitable share",
+   "value": 6202310291,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "parts": [
+    "ke.fy2026-27.law.county.vihiga.baseline",
+    "ke.fy2026-27.law.county.vihiga.affirmative-action",
+    "ke.fy2026-27.law.county.vihiga.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.vihiga.baseline",
+   "name": "Vihiga: baseline allocation",
+   "value": 5292921648,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county.vihiga.affirmative-action",
+   "name": "Vihiga: affirmative action allocation",
+   "value": 371666667,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.affirmative-action",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county.vihiga.formula",
+   "name": "Vihiga: additional equitable share (weighted formula)",
+   "value": 537721976,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2025-26.law.county.vihiga.equitable-share",
+   "name": "Vihiga: total equitable share, FY2025/26",
+   "value": 6008751224,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.wajir.equitable-share",
+   "name": "Wajir: total equitable share",
+   "value": 10847713122,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "parts": [
+    "ke.fy2026-27.law.county.wajir.baseline",
+    "ke.fy2026-27.law.county.wajir.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.wajir.baseline",
+   "name": "Wajir: baseline allocation",
+   "value": 9902799041,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county.wajir.formula",
+   "name": "Wajir: additional equitable share (weighted formula)",
+   "value": 944914081,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2025-26.law.county.wajir.equitable-share",
+   "name": "Wajir: total equitable share, FY2025/26",
+   "value": 10507580683,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.county.west-pokot.equitable-share",
+   "name": "West Pokot: total equitable share",
+   "value": 7223277137,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "parts": [
+    "ke.fy2026-27.law.county.west-pokot.baseline",
+    "ke.fy2026-27.law.county.west-pokot.formula"
+   ]
+  },
+  {
+   "id": "ke.fy2026-27.law.county.west-pokot.baseline",
+   "name": "West Pokot: baseline allocation",
+   "value": 6609735714,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.baseline",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.county.west-pokot.formula",
+   "name": "West Pokot: additional equitable share (weighted formula)",
+   "value": 613541423,
+   "level": "county",
+   "parent": "ke.fy2026-27.law.county-total.formula",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2025-26.law.county.west-pokot.equitable-share",
+   "name": "West Pokot: total equitable share, FY2025/26",
+   "value": 7002426008,
+   "level": "county",
+   "parent": "ke.fy2025-26.law.county-total.equitable-share",
+   "page": "First Schedule, p.461",
+   "pdfPage": 9,
+   "fy": "2025/26"
+  },
+  {
+   "id": "ke.fy2026-27.law.formula-weight.population",
+   "name": "Formula weight: Population",
+   "value": 45,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "First Schedule, note ***, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.formula-weight.equal-share",
+   "name": "Formula weight: Equal share",
+   "value": 35,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "First Schedule, note ***, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.formula-weight.poverty",
+   "name": "Formula weight: Poverty",
+   "value": 12,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "First Schedule, note ***, p.461",
+   "pdfPage": 9
+  },
+  {
+   "id": "ke.fy2026-27.law.formula-weight.geographical-size",
+   "name": "Formula weight: Geographical size",
+   "value": 8,
+   "unit": "%",
+   "level": "measure",
+   "parent": null,
+   "page": "First Schedule, note ***, p.461",
+   "pdfPage": 9
+  }
+ ]
+}

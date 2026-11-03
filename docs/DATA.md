@@ -1,6 +1,6 @@
 # Data: what we hold, where it comes from, how to refresh it
 
-All site data lives in `src/data/` as JSON files, built into pages at build time. Downloadable copies for readers live in `public/files/` (CSV). Each JSON file includes its sources; this document summarises them.
+All Nyamira Daily data lives in `src/data/` as JSON files, built into pages at build time. The national budget product keeps its own in `data/national/`: see `docs/national/DATA.md`. Downloadable copies for readers live in `public/files/` (CSV). Each JSON file includes its sources; this document summarises them.
 
 **Never estimate or interpolate.** If a figure was not found, leave it empty and say so.
 

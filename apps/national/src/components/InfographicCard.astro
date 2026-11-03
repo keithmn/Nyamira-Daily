@@ -1,0 +1,28 @@
+---
+// One infographic at its exact pixel size, for the image script to photograph. The figure, its label and stage, the source
+// and the data release are part of the picture, so the picture can travel alone (build brief 5.12).
+import { t } from '../i18n/index.js';
+import { site } from '../site.js';
+import FigureMeta from './FigureMeta.astro';
+
+interface Props { g: any; format: 'portrait' | 'landscape'; lang?: 'en' | 'sw'; release: string }
+const { g, format, lang = 'en', release } = Astro.props;
+const rows = format === 'landscape' && g.rows ? g.rows.slice(0, 3) : g.rows;
+---
+<div class={`ig ig-${format} on-panel`} data-ig>
+  <p class="ig-site">{site.name}</p>
+  <h1 class="ig-title">{g.title}</h1>
+  {g.number && <p class="ig-num">{g.number}</p>}
+  {rows && (
+    <ol class="ig-rows">
+      {rows.map((r) => <li><span class="ig-name">{r.name}</span><span class="ig-val">{r.value}</span>{format === 'portrait' && <span class="ig-note">{r.note}</span>}</li>)}
+    </ol>
+  )}
+  {format === 'landscape' && g.rows && g.rows.length > rows.length && <p class="ig-more">{t(lang, 'ig.more', { n: g.rows.length - rows.length })}</p>}
+  <p class="ig-line">{g.line}</p>
+  <div class="ig-foot">
+    {g.meta.stage ? <FigureMeta label={g.meta.label} stage={g.meta.stage} calc={g.meta.calc ? t(lang, 'fig.calc') : undefined} lang={lang} /> : <p class="ig-src">{t(lang, 'ig.stagesMarked')}</p>}
+    <p class="ig-src">{t(lang, 'learn.sources')} {g.source}</p>
+    <p class="ig-src">{t(lang, 'ig.release', { release })}</p>
+  </div>
+</div>

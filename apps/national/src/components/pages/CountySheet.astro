@@ -1,0 +1,41 @@
+---
+// Five key numbers, two questions and a QR code to the full page. There is no hearing date until one is sourced.
+import { money, ordinal, percent } from '@kbe/engine/fmt';
+import QRCode from 'qrcode';
+import { t } from '../../i18n/index.js';
+import { countyBySlug } from '../../lib/counties.js';
+import { release, FY } from '../../lib/figures.js';
+import { href } from '../../lib/routes.js';
+import { changeChip, countyQuestions } from '../../lib/sentences.js';
+import { site } from '../../site.js';
+
+interface Props { slug: string; lang?: 'en' | 'sw' }
+const { slug, lang = 'en' } = Astro.props;
+const c = countyBySlug(slug), y = c.spending.at(-1);
+const page = new URL(href(lang, `/counties/${slug}/`), Astro.site ?? 'https://example.invalid').href;
+const qr = await QRCode.toString(page, { type: 'svg', margin: 0, errorCorrectionLevel: 'M' });
+const numbers = [
+  [money(c.value, 'KSh', lang), `${t(lang, 'col.share')}, ${FY}`],
+  [changeChip(c.change, lang), t(lang, 'col.change')],
+  [`${ordinal(c.rank, lang)} / 47`, t(lang, 'col.rank')],
+  [percent(y.devPct, 0), `${t(lang, 'col.dev')}, FY${y.fy}`],
+  [percent(y.pct, 0), `${t(lang, 'col.overall')}, FY${y.fy}`],
+];
+const questions = countyQuestions(c, lang).slice(0, 2);
+---
+<div class="sheet">
+  <div class="sheet-tools js-only">
+    <a class="btn quiet" href={href(lang, `/counties/${slug}/`)}>{t(lang, 'sheet.back', { name: c.name })}</a>
+    <button class="btn" type="button" data-print>{t(lang, 'sheet.print')}</button>
+  </div>
+  <p class="eyebrow">{site.name}</p>
+  <h1>{t(lang, 'sheet.title', { name: c.name })}</h1>
+  <h2>{t(lang, 'sheet.numbers')}</h2>
+  <dl class="sheet-nums">{numbers.map(([value, label]) => <div><dd>{value}</dd><dt>{label}</dt></div>)}</dl>
+  <h2>{t(lang, 'sheet.questions')}</h2>
+  <ol class="sheet-qs">{questions.map((q) => <li>{q}</li>)}</ol>
+  <div class="sheet-foot">
+    <div class="sheet-qr" role="img" aria-label={t(lang, 'sheet.scan')} set:html={qr}></div>
+    <div><p>{t(lang, 'sheet.scan')}</p><p class="small">{t(lang, 'sheet.sources', { release })}</p></div>
+  </div>
+</div>

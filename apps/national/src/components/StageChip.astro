@@ -1,0 +1,8 @@
+---
+// The stage in words, kept separate from the evidence label. The diamond is shape, not colour.
+import { t } from '../i18n/index.js';
+
+interface Props { stage: string; lang?: 'en' | 'sw' }
+const { stage, lang = 'en' } = Astro.props;
+---
+<span class="chip-stage">{t(lang, `stage.${stage}`)}</span>

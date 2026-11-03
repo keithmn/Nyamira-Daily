@@ -1,0 +1,12 @@
+---
+// The picture the image script photographs (e2e/infographics.mjs). Not linked from any page.
+import InfographicCard from '../../../../../components/InfographicCard.astro';
+import Bare from '../../../../../layouts/Bare.astro';
+import { release } from '../../../../../lib/figures.js';
+import { FORMATS, allInfographics, infographic } from '../../../../../lib/infographics.js';
+
+export const getStaticPaths = () => allInfographics('en').flatMap((g) => Object.keys(FORMATS).map((format) => ({ params: { slug: g.slug, format } })));
+const { slug, format } = Astro.params;
+const g = infographic(slug, 'en');
+---
+<Bare title={g.title} theme="light" bodyClass="ig-body"><InfographicCard g={g} format={format} lang="en" release={release} /></Bare>

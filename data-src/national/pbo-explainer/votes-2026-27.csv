@@ -1,0 +1,88 @@
+code,name,sector,recurrent,development,total,table,pdf_page
+1112,State Department for Lands and Physical Planning,agriculture-rural-urban-development,5738,11405,17143,2,13
+1162,State Department for Livestock Development,agriculture-rural-urban-development,5865,6230,12095,2,13
+1166,State Department for the Blue Economy and Fisheries,agriculture-rural-urban-development,3101,4828,7929,2,13
+1169,State Department for Agriculture,agriculture-rural-urban-development,24354,43093,67446,2,13
+2021,National Land Commission,agriculture-rural-urban-development,5930,840,6771,2,13
+1064,State Department for Technical Vocational Education and Training,education,49886,8619,58505,3,14
+1065,State Department for Higher Education and Research,education,155326,8588,163913,3,14
+1066,State Department for Basic Education,education,118186,18369,136555,3,14
+1067,"State Department for Science, Innovation and Research",education,1256,0,1256,3,14
+2091,Teachers Service Commission,education,423510,742,424252,3,14
+1091,State Department for Roads,energy-infrastructure-ict,57802,167085,224887,4,14
+1092,State Department for Transport,energy-infrastructure-ict,7626,57175,64801,4,14
+1093,State Department for Shipping and Maritime Affairs,energy-infrastructure-ict,5136,1851,6987,4,14
+1094,State Department for Housing & Urban Development,energy-infrastructure-ict,5621,132662,138283,4,14
+1095,State Department for Public Works,energy-infrastructure-ict,3574,1837,5411,4,14
+1097,State Department for State Department for Aviation and Aerospace Development,energy-infrastructure-ict,13281,651,13932,4,14
+1122,State Department for Information Communication Technology & Digital Economy,energy-infrastructure-ict,3914,8850,12764,4,14
+1123,State Department for Broadcasting & Telecommunications,energy-infrastructure-ict,6583,397,6981,4,15
+1152,State Department for Energy,energy-infrastructure-ict,12793,21371,34164,4,15
+1193,State Department for Petroleum,energy-infrastructure-ict,21891,150,22041,4,15
+1104,State Department for Irrigation,environment-water-natural-resources,988,10514,11502,5,15
+1109,State Department for Water & Sanitation,environment-water-natural-resources,8685,52694,61378,5,15
+1192,State Department for Mining,environment-water-natural-resources,2172,478,2650,5,15
+1203,State Department for Wildlife,environment-water-natural-resources,14800,1830,16630,5,15
+1331,State Department for Environment & Climate Change,environment-water-natural-resources,4249,6225,10474,5,15
+1332,State Department for Forestry,environment-water-natural-resources,9573,9031,18604,5,15
+1036,State Department for the ASALs and Regional,general-economics-commercial-affairs,7487,3947,11434,6,16
+1173,State Department for Cooperatives,general-economics-commercial-affairs,5731,552,6283,6,16
+1174,State Department for Trade,general-economics-commercial-affairs,4796,416,5212,6,16
+1175,State Department for Industry,general-economics-commercial-affairs,5108,3578,8685,6,16
+1176,"State Department for Micro, Small and Medium Enterprises Development",general-economics-commercial-affairs,2339,3395,5734,6,16
+1177,State Department for Investment Promotion,general-economics-commercial-affairs,1701,3406,5107,6,16
+1202,State Department for Tourism,general-economics-commercial-affairs,11938,6018,17956,6,16
+1221,State Department for East African Community,general-economics-commercial-affairs,809,0,809,6,16
+1023,State Department for Correctional Services,governance-justice-law-order,41572,1072,42644,7,17
+1024,State Department for Immigration and Citizen Services,governance-justice-law-order,13429,12457,25886,7,17
+1025,National Police Service,governance-justice-law-order,144259,3051,147310,7,17
+1026,State Department for Internal Security & National Administration,governance-justice-law-order,53051,9835,62886,7,17
+1252,State Law Office,governance-justice-law-order,5670,300,5970,7,17
+1253,State Department for Justice Human Rights and Constitutional Affairs,governance-justice-law-order,1480,0,1480,7,17
+1271,Ethics and Anti-Corruption Commission,governance-justice-law-order,4974,123,5097,7,17
+1291,Office of the Director of Public Prosecutions,governance-justice-law-order,6551,491,7042,7,17
+1311,Office of the Registrar of Political Parties,governance-justice-law-order,2479,0,2479,7,17
+1321,Witness Protection Agency,governance-justice-law-order,979,0,979,7,17
+2011,Kenya National Commission on Human Rights,governance-justice-law-order,593,0,593,7,17
+2031,Independent Electoral and Boundaries Commission,governance-justice-law-order,24903,62,24965,7,17
+2101,National Police Service Commission,governance-justice-law-order,1579,0,1579,7,17
+2141,National Gender and Equality Commission,governance-justice-law-order,668,0,668,7,17
+2151,Independent Policing Oversight Authority,governance-justice-law-order,1562,0,1562,7,17
+1082,State Department for Medical Services,health,107682,25735,133417,8,18
+1083,State Department for Public Health and Professional Standards,health,33340,9496,42836,8,18
+1041,Ministry of Defence,national-security,241513,10634,252148,9,18
+1281,National Intelligence Service,national-security,64085,0,64085,9,18
+1011,Executive Office of the President,public-administration-international-relations,6188,1311,7499,10,19
+1012,Office of the Deputy President,public-administration-international-relations,3476,100,3576,10,19
+1013,Office of the Prime Cabinet Secretary,public-administration-international-relations,1140,0,1140,10,19
+1014,State Department for Parliamentary Affairs,public-administration-international-relations,361,0,361,10,19
+1016,State Department for Cabinet Affairs,public-administration-international-relations,269,0,269,10,19
+1017,State House,public-administration-international-relations,12517,1027,13544,10,19
+1018,State Department for National Government Coordination,public-administration-international-relations,1232,0,1232,10,19
+1032,State Department for Devolution,public-administration-international-relations,1463,10659,12122,10,19
+1033,State Department for Special Programmes,public-administration-international-relations,1294,165,1459,10,19
+1053,State Department for Foreign Affairs,public-administration-international-relations,24270,2356,26626,10,19
+1054,State Department for Diaspora Affairs,public-administration-international-relations,817,0,817,10,19
+1071,The National Treasury,public-administration-international-relations,76551,47323,123874,10,19
+1072,State Department for Economic Planning,public-administration-international-relations,5151,61996,67147,10,19
+1073,State Department for Investments and Assets Management,public-administration-international-relations,4334,323,4657,10,19
+1213,State Department for Public Service,public-administration-international-relations,24276,2513,26789,10,19
+2061,Commission on Revenue Allocation,public-administration-international-relations,421,98,519,10,19
+2071,Public Service Commission,public-administration-international-relations,3736,0,3736,10,19
+2081,Salaries and Remuneration Commission,public-administration-international-relations,1014,0,1014,10,19
+2111,Auditor General,public-administration-international-relations,9526,303,9829,10,19
+2121,Controller of Budget,public-administration-international-relations,935,0,935,10,19
+2131,Commission on Administrative Justice,public-administration-international-relations,695,0,695,10,19
+1132,State Department for Sports,social-protection-culture-recreation,3758,28639,32397,11,20
+1134,State Department for Culture and Heritage,social-protection-culture-recreation,3038,254,3292,11,20
+1135,State Department for Youth Affairs and Creative Economy,social-protection-culture-recreation,3387,3576,6964,11,20
+1184,State Department for Labour and Skills Development,social-protection-culture-recreation,5117,1690,6807,11,20
+1185,State Department for Social Protection and Senior Citizens Affairs,social-protection-culture-recreation,30371,1908,32279,11,20
+1186,State Department for Children Services,social-protection-culture-recreation,12431,740,13171,11,20
+1212,State Department for Gender and Affirmative Action,social-protection-culture-recreation,1237,5125,6361,11,20
+2041,Parliamentary Service Commission,parliament,2000,0,2000,12,21
+2042,National Assembly,parliament,31044,0,31044,12,21
+2043,Parliamentary Joint Services,parliament,7472,1915,9387,12,21
+2044,Senate,parliament,8581,0,8581,12,21
+1261,The Judiciary,judiciary,27084,2330,29414,13,21
+2051,Judicial Service Commission,judiciary,967,0,967,13,21

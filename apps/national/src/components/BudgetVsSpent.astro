@@ -1,0 +1,16 @@
+---
+// Budget, spent, and the gap in red. Spent is solid Ink and the gap is outlined, so the two differ in shape as well as
+// colour. Red is only ever the gap (decision #24).
+import { barWidths } from '../lib/charts.js';
+
+interface Row { fy: string; budget: number; spent: number; shown: string; tip: string }
+interface Props { rows: Row[]; keySpent: string; keyGap: string }
+const { rows, keySpent, keyGap } = Astro.props;
+const widths = barWidths(rows.flatMap((r) => [r.budget, r.spent]));
+---
+<p class="key"><span><i class="k-spent"></i>{keySpent}</span><span><i class="k-gap"></i>{keyGap}</span></p>
+<ol class="bvs">
+  {rows.map((r, i) => (
+    <li><button type="button" class="bvs-row" data-tip={r.tip}><span class="bvs-fy">{r.fy}</span><span class="bvs-t"><span class="bvs-b" style={`width:${widths[i * 2]}%`}></span><span class="bvs-s" style={`width:${widths[i * 2 + 1]}%`}></span></span><span class="bvs-p">{r.shown}</span></button></li>
+  ))}
+</ol>

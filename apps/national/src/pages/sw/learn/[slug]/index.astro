@@ -1,0 +1,9 @@
+---
+import View from '../../../../components/pages/ExplainerPage.astro';
+import Base from '../../../../layouts/Base.astro';
+import { explainerBySlug, explainers } from '../../../../lib/learn.js';
+
+export const getStaticPaths = () => explainers().map((e) => ({ params: { slug: e.slug } }));
+const { slug } = Astro.params;
+---
+<Base lang="sw" path={`/learn/${slug}/`} title={explainerBySlug(slug).title}><View lang="sw" slug={slug} /></Base>
