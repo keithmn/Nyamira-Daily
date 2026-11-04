@@ -9,7 +9,8 @@ import ShareBars from '../../../../components/charts/ShareBars.astro';
 import HBars from '../../../../components/viz/HBars.astro';
 import { ksh } from '../../../../lib/fmt.js';
 import { full } from '@kbe/engine/fmt';
-import { budgetYear, departments, departmentPath, FY, FY_PATH } from '../../../../lib/county-budget.js';
+import ColumnChart from '../../../../components/charts/ColumnChart.astro';
+import { budgetYear, countyYears, departments, departmentPath, FY, FY_PATH } from '../../../../lib/county-budget.js';
 import { shortTitle } from '../../../../lib/county-registry.js';
 
 export function getStaticPaths() {
@@ -27,6 +28,11 @@ const inRows = y.into.map((p) => ({ label: `${p.label}: ${ksh(p.value)}`, value:
 const tOut = { columns: ['Spent on', 'KSh', 'Of each KSh 100'], rows: y.out.map((p) => [p.label, p.value, p.share.toFixed(1)]) };
 const tIn = { columns: ['Comes from', 'KSh', 'Of each KSh 100'], rows: y.into.map((p) => [p.label, p.value, p.share.toFixed(1)]) };
 const tDept = { columns: ['Vote', 'Department', 'Total (KSh)', 'Recurrent (KSh)', 'Development (KSh)', 'Staff pay (KSh)'], rows: list.map((d) => [d.vote, d.name, d.total, d.recurrent, d.development, d.staff]) };
+// The printed budget each year since FY2021/22: estimates compared with estimates.
+const cy = countyYears();
+const grow = ((cy.at(-1).total - cy[0].total) / cy[0].total) * 100;
+const tYears = { columns: ['Financial year', 'Recurrent (KSh)', 'Development (KSh)', 'Total (KSh)'], rows: cy.map((r) => [r.fy, r.recurrent, r.development, r.total]) };
+const cyNote = ['Each year is the budget as printed in that year\'s Programme Based Budget, before any changes the Assembly or supplementary budgets made.', ...cy.filter((r) => r.note).map((r) => `In ${r.fy}, ${r.note.charAt(0).toLowerCase()}${r.note.slice(1)}`)].join(' ');
 const staff = y.out.find((p) => p.key === 'staff');
 const dev = y.out.find((p) => p.key === 'development');
 ---
@@ -48,6 +54,10 @@ const dev = y.out.find((p) => p.key === 'development');
       <ShareBars rows={inRows} label={`Where each KSh 100 of the ${FY} budget comes from`} />
     </ChartFrame>
   </div>
+
+  <ChartFrame title={`The printed budget ${grow >= 0 ? 'grew' : 'fell'} ${Math.abs(Math.round(grow))}% in ${cy.length - 1} years, from ${ksh(cy[0].total)} in ${cy[0].fy} to ${ksh(cy.at(-1).total)}`} sub={`Nyamira's budget as printed each year, KSh billion, ${cy[0].fy} to ${FY}`} evidence="official" source={`The county's Programme Based Budgets, ${cy[0].fy} to ${FY}`} note={cyNote} table={tYears} csvName="nyamira-budget-by-year">
+    <ColumnChart label={`Nyamira's printed budget each year, KSh billion`} labels={cy.map((r) => r.fy)} values={cy.map((r) => Math.round(r.total / 1e7) / 100)} format={(v) => v.toFixed(2)} />
+  </ChartFrame>
 
   <ChartFrame title={`${list[0].name} gets the most, ${ksh(list[0].total)}`} sub={`The 24 departments' budgets for ${FY}. Tap one to see its programmes and what it spent.`} evidence="official" source={`${src}, Table 8`} table={tDept} csvName={`nyamira-departments-${FY_PATH}`}>
     <HBars title={`Department budgets ${FY}`} rows={list.map((d) => ({ label: d.short, value: d.total, display: ksh(d.total), href: departmentPath(d.vote) }))} />

@@ -51,3 +51,20 @@ test('ward projects come from the same budget, mapped to departments', () => {
   const assembly = departments().find((d) => d.vote === '5261');
   assert.equal(assembly.wardProjects.lines, 0);
 });
+
+test('five years of department budgets: same departments compared, combined ones said so', async () => {
+  const { departmentYears, changeOnLastYear, countyYears, HISTORY_YEARS } = await import('./county-budget.js');
+  assert.deepEqual(HISTORY_YEARS, ['2021/22', '2022/23', '2023/24', '2024/25', '2025/26']);
+  const assembly = departmentYears('5261');
+  assert.ok(assembly.every((y) => y.scope === 'same'));
+  assert.equal(assembly.find((y) => y.fy === '2024/25').recurrent, 724762663);
+  const primary = departmentYears('5279');
+  assert.deepEqual(primary.map((y) => y.scope), ['combined', 'combined', 'same', 'same', 'same']);
+  assert.equal(primary[0].name, 'Health Services');
+  const water = departmentYears('5269');
+  assert.equal(water.find((y) => y.fy === '2023/24').scope, 'combined');
+  assert.equal(departmentYears('5281')[0].scope, 'absent');
+  const c = changeOnLastYear('5261');
+  assert.equal(c.before, 724762663 + 216000000);
+  assert.equal(countyYears().find((y) => y.fy === '2022/23').total, 4492045644 + 2037874643);
+});

@@ -73,11 +73,15 @@ test('a Q4 budget that differs from the Programme Based Budget is caught', () =>
   assert.deepEqual(quarterMatchesBudget(figures), []);
 });
 
-test('the equitable share is filed as allocated or received, as each report says', () => {
+test('the equitable share has both measures, each with the report\'s own words', () => {
   const { figures } = loadAll();
-  assert.equal(figures.get('ke.fy2021-22.spent.county.nyamira.equitable-share-allocated').value, 5135.34);
-  assert.equal(figures.get('ke.fy2015-16.spent.county.nyamira.equitable-share-received').value, 4150);
-  assert.ok(!figures.has('ke.fy2021-22.spent.county.nyamira.equitable-share-received'));
+  const e = (fy, k) => figures.get(`ke.fy${fy}.spent.county.nyamira.equitable-share-${k}`);
+  assert.equal(e('2021-22', 'allocated').value, 5135.34);
+  assert.equal(e('2021-22', 'received').value, 4724.51);
+  assert.match(e('2021-22', 'received').note, /Actual Receipts 4,724,512,833/);
+  assert.equal(e('2015-16', 'received').value, 4150);
+  assert.ok(!figures.has('ke.fy2018-19.spent.county.nyamira.equitable-share-received'), 'FY2018/19 receipts wait for a person');
+  for (const fy of ['2013-14', '2016-17', '2019-20', '2024-25']) assert.ok(e(fy, 'allocated') && e(fy, 'received'), fy);
 });
 
 test('no county figure is labelled verified without a person', () => {

@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildRegistry, readRegistry, staleSources } from '@kbe/engine/registry';
 import { parseCsv } from '@kbe/engine/csv';
-import { budgetFigures, historyFigures, quarterFigures } from './build-figures.mjs';
+import { budgetFigures, departmentHistory, historyFigures, quarterFigures } from './build-figures.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const COUNTY = join(root, 'data/county/nyamira');
@@ -64,6 +64,9 @@ export function generatedInStep() {
   same('structure-2025-26.json', structure);
   same('figures/cob-history.json', historyFigures());
   same('figures/bir-2025-26-q4.json', quarterFigures());
+  const history = departmentHistory();
+  for (const [fy, file] of Object.entries(history.files)) same(`figures/pbb-${fy.replace('/', '-')}.json`, file);
+  same('departments-history.json', history.structure);
   return problems;
 }
 
@@ -88,13 +91,17 @@ export function quarterMatchesBudget(figures) {
 export function legacyAgrees(figures) {
   const problems = [];
   const money = read('src/data/money.json');
-  const key = { budget: 'budget', spent: 'spent', dev: 'dev-spent', rec: 'rec-spent', devAbs: 'dev-absorption', osrTarget: 'osr-target', osr: 'osr-actual', eqShare: 'equitable-share', pending: 'pending-bills' };
-  const eqIs = Object.fromEntries(parseCsv(readFileSync(join(root, 'data-src/county/nyamira/cob-history/history.csv'), 'utf8')).map((r) => [r.fy, r.eqShareIs]));
+  const key = { budget: 'budget', spent: 'spent', dev: 'dev-spent', rec: 'rec-spent', devAbs: 'dev-absorption', osrTarget: 'osr-target', osr: 'osr-actual', pending: 'pending-bills' };
   for (const y of money.years) {
+    // money.json's one equitable share column mixed two measures: it must match one of them, within the KSh 10m that
+    // "Kshs.4.81 billion" in a report's text rounds to.
+    const base = `ke.fy${y.fy.replace('/', '-')}.spent.county.nyamira`;
+    const eq = ['allocated', 'received'].map((k) => figures.get(`${base}.equitable-share-${k}`)?.value).filter((v) => v != null);
+    if (!eq.some((v) => Math.abs(v - y.eqShare) <= 10)) problems.push(`money.json ${y.fy} eqShare is ${y.eqShare}; the registry has ${eq.join(' and ') || 'nothing'}`);
     for (const [col, field] of Object.entries(key)) {
       if (y[col] == null) continue;
-      const k = col === 'eqShare' ? `${field}-${eqIs[y.fy]}` : field;
-      const id = `ke.fy${y.fy.replace('/', '-')}.spent.county.nyamira.${k}`;
+      const k = field;
+      const id = `${base}.${k}`;
       const f = figures.get(id);
       if (!f) { problems.push(`money.json ${y.fy} ${col} (${y[col]}) has no registry figure ${id}`); continue; }
       // money.json rounds FY2024/25's totals from section 3.34; the registry holds Table 2.5's unrounded figures.

@@ -1,0 +1,789 @@
+{
+  "2024/25": [
+    {
+      "key": "vote.5261",
+      "votes": [
+        "5261"
+      ],
+      "scope": "same",
+      "name": "County Assembly",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5261.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5261.development"
+    },
+    {
+      "key": "vote.5262",
+      "votes": [
+        "5262"
+      ],
+      "scope": "same",
+      "name": "County Executive",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5262.recurrent",
+      "development": null
+    },
+    {
+      "key": "vote.5263",
+      "votes": [
+        "5263"
+      ],
+      "scope": "same",
+      "name": "Finance and accounting services",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5263.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5263.development"
+    },
+    {
+      "key": "vote.5264",
+      "votes": [
+        "5264"
+      ],
+      "scope": "same",
+      "name": "crop development",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5264.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5264.development"
+    },
+    {
+      "key": "vote.5265",
+      "votes": [
+        "5265"
+      ],
+      "scope": "same",
+      "name": "Environment, Water, Energy & Natural Resources",
+      "note": "Water had its own vote from this year.",
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5265.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5265.development"
+    },
+    {
+      "key": "vote.5269",
+      "votes": [
+        "5269"
+      ],
+      "scope": "same",
+      "name": "Water Sanitation and Irrigation",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5269.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5269.development"
+    },
+    {
+      "key": "vote.5266",
+      "votes": [
+        "5266"
+      ],
+      "scope": "same",
+      "name": "Education & Vocational Training",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5266.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5266.development"
+    },
+    {
+      "key": "vote.5267",
+      "votes": [
+        "5267"
+      ],
+      "scope": "same",
+      "name": "Medical Services",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5267.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5267.development"
+    },
+    {
+      "key": "vote.5268",
+      "votes": [
+        "5268"
+      ],
+      "scope": "same",
+      "name": "Land, Physical Planning, Housing and Urban",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5268.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5268.development"
+    },
+    {
+      "key": "vote.5270",
+      "votes": [
+        "5270"
+      ],
+      "scope": "same",
+      "name": "Transport & Public Works",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5270.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5270.development"
+    },
+    {
+      "key": "vote.5271",
+      "votes": [
+        "5271"
+      ],
+      "scope": "same",
+      "name": "Trade, Tourism and Co-operatives Development",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5271.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5271.development"
+    },
+    {
+      "key": "vote.5272",
+      "votes": [
+        "5272"
+      ],
+      "scope": "same",
+      "name": "Youth, Gender, Culture and Social services",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5272.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5272.development"
+    },
+    {
+      "key": "vote.5273",
+      "votes": [
+        "5273"
+      ],
+      "scope": "same",
+      "name": "CPSB",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5273.recurrent",
+      "development": null
+    },
+    {
+      "key": "vote.5274",
+      "votes": [
+        "5274"
+      ],
+      "scope": "same",
+      "name": "Public Service Management",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5274.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5274.development"
+    },
+    {
+      "key": "vote.5282",
+      "votes": [
+        "5282"
+      ],
+      "scope": "same",
+      "name": "Nyamira Disability Board",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5282.recurrent",
+      "development": null
+    },
+    {
+      "key": "vote.5281",
+      "votes": [
+        "5281"
+      ],
+      "scope": "same",
+      "name": "Nyamira Revenue Board",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5281.recurrent",
+      "development": null
+    },
+    {
+      "key": "vote.5280",
+      "votes": [
+        "5280"
+      ],
+      "scope": "same",
+      "name": "Keroka Municipality Board",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5280.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5280.development"
+    },
+    {
+      "key": "vote.5275",
+      "votes": [
+        "5275"
+      ],
+      "scope": "same",
+      "name": "Nyamira Municipality",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5275.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5275.development"
+    },
+    {
+      "key": "vote.5276",
+      "votes": [
+        "5276"
+      ],
+      "scope": "same",
+      "name": "the County Attorney",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5276.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5276.development"
+    },
+    {
+      "key": "vote.5277",
+      "votes": [
+        "5277"
+      ],
+      "scope": "same",
+      "name": "Economic Planning, Resources Mobilization and ICT",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5277.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5277.development"
+    },
+    {
+      "key": "vote.5278",
+      "votes": [
+        "5278"
+      ],
+      "scope": "same",
+      "name": "Livestock and Fisheries Services",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5278.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5278.development"
+    },
+    {
+      "key": "vote.5279",
+      "votes": [
+        "5279"
+      ],
+      "scope": "same",
+      "name": "Primary Healthcare",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5279.recurrent",
+      "development": "ke.fy2024-25.estimates.county.nyamira.vote.5279.development"
+    },
+    {
+      "key": "vote.5283",
+      "votes": [
+        "5283"
+      ],
+      "scope": "same",
+      "name": "Nyamira investment corporation",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5283.recurrent",
+      "development": null
+    },
+    {
+      "key": "vote.5284",
+      "votes": [
+        "5284"
+      ],
+      "scope": "same",
+      "name": "Nyamira water and sanitation company",
+      "note": null,
+      "recurrent": "ke.fy2024-25.estimates.county.nyamira.vote.5284.recurrent",
+      "development": null
+    }
+  ],
+  "2023/24": [
+    {
+      "key": "vote.5261",
+      "votes": [
+        "5261"
+      ],
+      "scope": "same",
+      "name": "County Assembly",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5261.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5261.development"
+    },
+    {
+      "key": "vote.5262",
+      "votes": [
+        "5262"
+      ],
+      "scope": "same",
+      "name": "County Executive",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5262.recurrent",
+      "development": null
+    },
+    {
+      "key": "vote.5263",
+      "votes": [
+        "5263"
+      ],
+      "scope": "same",
+      "name": "Finance and planning",
+      "note": "Printed as Finance and planning; Economic Planning had its own vote this year.",
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5263.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5263.development"
+    },
+    {
+      "key": "vote.5264",
+      "votes": [
+        "5264"
+      ],
+      "scope": "same",
+      "name": "Agriculture, Livestock and Fisheries",
+      "note": "Printed as Agriculture, Livestock and Fisheries; Livestock and Fisheries had its own vote this year.",
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5264.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5264.development"
+    },
+    {
+      "key": "dept.5265-5269",
+      "votes": [
+        "5265",
+        "5269"
+      ],
+      "scope": "combined",
+      "name": "Environment, Water, Energy & Natural Resources",
+      "note": "Environment and Water together: Water had no vote of its own until 2024/25.",
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.dept.5265-5269.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.dept.5265-5269.development"
+    },
+    {
+      "key": "vote.5266",
+      "votes": [
+        "5266"
+      ],
+      "scope": "same",
+      "name": "Education & Vocational Training",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5266.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5266.development"
+    },
+    {
+      "key": "vote.5267",
+      "votes": [
+        "5267"
+      ],
+      "scope": "same",
+      "name": "Health Services",
+      "note": "Printed as Health Services; Primary Healthcare had its own vote this year.",
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5267.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5267.development"
+    },
+    {
+      "key": "vote.5268",
+      "votes": [
+        "5268"
+      ],
+      "scope": "same",
+      "name": "Land, Physical Planning, Housing and Urban Development",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5268.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5268.development"
+    },
+    {
+      "key": "vote.5270",
+      "votes": [
+        "5270"
+      ],
+      "scope": "same",
+      "name": "Transport & Public Works",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5270.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5270.development"
+    },
+    {
+      "key": "vote.5271",
+      "votes": [
+        "5271"
+      ],
+      "scope": "same",
+      "name": "Trade, Tourism and Co-operatives Development",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5271.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5271.development"
+    },
+    {
+      "key": "vote.5272",
+      "votes": [
+        "5272"
+      ],
+      "scope": "same",
+      "name": "Youth, Gender, Culture and Social services",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5272.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5272.development"
+    },
+    {
+      "key": "vote.5273",
+      "votes": [
+        "5273"
+      ],
+      "scope": "same",
+      "name": "CPSB",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5273.recurrent",
+      "development": null
+    },
+    {
+      "key": "vote.5274",
+      "votes": [
+        "5274"
+      ],
+      "scope": "same",
+      "name": "Public Service Management",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5274.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5274.development"
+    },
+    {
+      "key": "vote.5275",
+      "votes": [
+        "5275"
+      ],
+      "scope": "same",
+      "name": "Nyamira Municipality",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5275.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5275.development"
+    },
+    {
+      "key": "vote.5276",
+      "votes": [
+        "5276"
+      ],
+      "scope": "same",
+      "name": "the County Attorney",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5276.recurrent",
+      "development": null
+    },
+    {
+      "key": "vote.5277",
+      "votes": [
+        "5277"
+      ],
+      "scope": "same",
+      "name": "Economic Planning, Resources Mobilization and ICT",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5277.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5277.development"
+    },
+    {
+      "key": "vote.5278",
+      "votes": [
+        "5278"
+      ],
+      "scope": "same",
+      "name": "Livestock and Fisheries Services",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5278.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5278.development"
+    },
+    {
+      "key": "vote.5279",
+      "votes": [
+        "5279"
+      ],
+      "scope": "same",
+      "name": "Primary Healthcare",
+      "note": null,
+      "recurrent": "ke.fy2023-24.estimates.county.nyamira.vote.5279.recurrent",
+      "development": "ke.fy2023-24.estimates.county.nyamira.vote.5279.development"
+    }
+  ],
+  "2022/23": [
+    {
+      "key": "vote.5261",
+      "votes": [
+        "5261"
+      ],
+      "scope": "same",
+      "name": "County Assembly",
+      "note": null,
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.vote.5261.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.vote.5261.development"
+    },
+    {
+      "key": "vote.5262",
+      "votes": [
+        "5262"
+      ],
+      "scope": "same",
+      "name": "County Executive",
+      "note": null,
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.vote.5262.recurrent",
+      "development": null
+    },
+    {
+      "key": "dept.5263-5277",
+      "votes": [
+        "5263",
+        "5277"
+      ],
+      "scope": "combined",
+      "name": "Finance and planning",
+      "note": "Finance and Economic Planning together.",
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.dept.5263-5277.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.dept.5263-5277.development"
+    },
+    {
+      "key": "dept.5264-5278",
+      "votes": [
+        "5264",
+        "5278"
+      ],
+      "scope": "combined",
+      "name": "Agriculture, Livestock and Fisheries",
+      "note": "Crops and Livestock together.",
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.dept.5264-5278.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.dept.5264-5278.development"
+    },
+    {
+      "key": "dept.5265-5269",
+      "votes": [
+        "5265",
+        "5269"
+      ],
+      "scope": "combined",
+      "name": "Environment, Water, Energy & Natural Resources",
+      "note": "Environment and Water together.",
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.dept.5265-5269.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.dept.5265-5269.development"
+    },
+    {
+      "key": "vote.5266",
+      "votes": [
+        "5266"
+      ],
+      "scope": "same",
+      "name": "Education & Vocational Training",
+      "note": null,
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.vote.5266.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.vote.5266.development"
+    },
+    {
+      "key": "dept.5267-5279",
+      "votes": [
+        "5267",
+        "5279"
+      ],
+      "scope": "combined",
+      "name": "Health Services",
+      "note": "Medical Services and Primary Healthcare together.",
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.dept.5267-5279.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.dept.5267-5279.development"
+    },
+    {
+      "key": "vote.5268",
+      "votes": [
+        "5268"
+      ],
+      "scope": "same",
+      "name": "Land, Physical Planning, Housing and Urban Development",
+      "note": null,
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.vote.5268.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.vote.5268.development"
+    },
+    {
+      "key": "vote.5270",
+      "votes": [
+        "5270"
+      ],
+      "scope": "same",
+      "name": "Transport & Public Works",
+      "note": null,
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.vote.5270.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.vote.5270.development"
+    },
+    {
+      "key": "vote.5271",
+      "votes": [
+        "5271"
+      ],
+      "scope": "same",
+      "name": "Trade, Tourism and Co-operatives Development",
+      "note": null,
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.vote.5271.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.vote.5271.development"
+    },
+    {
+      "key": "vote.5272",
+      "votes": [
+        "5272"
+      ],
+      "scope": "same",
+      "name": "Youth, Gender, Culture and Social services",
+      "note": null,
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.vote.5272.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.vote.5272.development"
+    },
+    {
+      "key": "vote.5273",
+      "votes": [
+        "5273"
+      ],
+      "scope": "same",
+      "name": "County Public Service Board",
+      "note": null,
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.vote.5273.recurrent",
+      "development": null
+    },
+    {
+      "key": "vote.5274",
+      "votes": [
+        "5274"
+      ],
+      "scope": "same",
+      "name": "Public Service Management",
+      "note": null,
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.vote.5274.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.vote.5274.development"
+    },
+    {
+      "key": "vote.5275",
+      "votes": [
+        "5275"
+      ],
+      "scope": "same",
+      "name": "Nyamira Municipality",
+      "note": null,
+      "recurrent": "ke.fy2022-23.estimates.county.nyamira.vote.5275.recurrent",
+      "development": "ke.fy2022-23.estimates.county.nyamira.vote.5275.development"
+    }
+  ],
+  "2021/22": [
+    {
+      "key": "vote.5261",
+      "votes": [
+        "5261"
+      ],
+      "scope": "same",
+      "name": "County Assembly",
+      "note": null,
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.vote.5261.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.vote.5261.development"
+    },
+    {
+      "key": "vote.5262",
+      "votes": [
+        "5262"
+      ],
+      "scope": "same",
+      "name": "County Executive",
+      "note": null,
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.vote.5262.recurrent",
+      "development": null
+    },
+    {
+      "key": "dept.5263-5277",
+      "votes": [
+        "5263",
+        "5277"
+      ],
+      "scope": "combined",
+      "name": "Finance and planning",
+      "note": "Finance and Economic Planning together.",
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.dept.5263-5277.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.dept.5263-5277.development"
+    },
+    {
+      "key": "dept.5264-5278",
+      "votes": [
+        "5264",
+        "5278"
+      ],
+      "scope": "combined",
+      "name": "Agriculture, Livestock and Fisheries",
+      "note": "Crops and Livestock together.",
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.dept.5264-5278.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.dept.5264-5278.development"
+    },
+    {
+      "key": "dept.5265-5269",
+      "votes": [
+        "5265",
+        "5269"
+      ],
+      "scope": "combined",
+      "name": "Environment, Water, Energy & Natural Resources",
+      "note": "Environment and Water together.",
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.dept.5265-5269.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.dept.5265-5269.development"
+    },
+    {
+      "key": "vote.5266",
+      "votes": [
+        "5266"
+      ],
+      "scope": "same",
+      "name": "Education & Vocational Training",
+      "note": null,
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.vote.5266.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.vote.5266.development"
+    },
+    {
+      "key": "dept.5267-5279",
+      "votes": [
+        "5267",
+        "5279"
+      ],
+      "scope": "combined",
+      "name": "Health Services",
+      "note": "Medical Services and Primary Healthcare together.",
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.dept.5267-5279.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.dept.5267-5279.development"
+    },
+    {
+      "key": "vote.5268",
+      "votes": [
+        "5268"
+      ],
+      "scope": "same",
+      "name": "Land, Physical Planning, Housing and Urban Development",
+      "note": null,
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.vote.5268.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.vote.5268.development"
+    },
+    {
+      "key": "vote.5270",
+      "votes": [
+        "5270"
+      ],
+      "scope": "same",
+      "name": "Transport & Public Works",
+      "note": null,
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.vote.5270.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.vote.5270.development"
+    },
+    {
+      "key": "vote.5271",
+      "votes": [
+        "5271"
+      ],
+      "scope": "same",
+      "name": "Trade, Tourism and Co-operatives Development",
+      "note": null,
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.vote.5271.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.vote.5271.development"
+    },
+    {
+      "key": "vote.5272",
+      "votes": [
+        "5272"
+      ],
+      "scope": "same",
+      "name": "Youth, Gender, Culture and Social services",
+      "note": null,
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.vote.5272.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.vote.5272.development"
+    },
+    {
+      "key": "vote.5273",
+      "votes": [
+        "5273"
+      ],
+      "scope": "same",
+      "name": "County Public Service Board",
+      "note": null,
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.vote.5273.recurrent",
+      "development": null
+    },
+    {
+      "key": "vote.5274",
+      "votes": [
+        "5274"
+      ],
+      "scope": "same",
+      "name": "Public Service Management",
+      "note": null,
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.vote.5274.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.vote.5274.development"
+    },
+    {
+      "key": "vote.5275",
+      "votes": [
+        "5275"
+      ],
+      "scope": "same",
+      "name": "Nyamira Municipality",
+      "note": null,
+      "recurrent": "ke.fy2021-22.estimates.county.nyamira.vote.5275.recurrent",
+      "development": "ke.fy2021-22.estimates.county.nyamira.vote.5275.development"
+    }
+  ]
+}

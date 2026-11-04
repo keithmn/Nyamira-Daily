@@ -24,6 +24,11 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
   - Checked at 390 and 1280, light and dark, on eight page types: no sideways scroll, no script errors. One layout fault found by eye and fixed: long values squeezed the labels in share bars.
   - One build took 13 minutes while screenshots ran beside it; the next took 34 seconds.
   - Next: phase C3, history (Programme Based Budgets FY2015/16 to FY2024/25, the department rename map, and the missing equitable share values so allocated and received are complete).
+- **Phase C3, history, built** on branch `feat/county-phase-3-history` (stacked on C2), not pushed. Choices in decision #108, for the owner to review; details in `docs/county-budget/DATA.md`.
+  - Equitable share: allocated and received for every year FY2013/14 to FY2025/26 except FY2018/19 receipts; the revenue page now charts both. The county received less than its allocation in 4 of 12 years.
+  - Department budgets FY2021/22 to FY2024/25 from each year's Programme Based Budget (7 of 8 tables proved to the shilling), with a reviewed map of renamed and combined departments. Department pages show the change on FY2024/25 and five years of budgets; the year page charts the county's printed budget since FY2021/22; the department list has a change column. Registry: 876 county figures.
+  - Found: FY2024/25's recurrent table does not add up to its own total (KSh 22.4 million apart); a C1 evidence note for FY2015/16 quoted the next county and is corrected.
+  - Next: phase C4, hardening, and the person checks in `data-src/county/nyamira/person-checks.csv`. Earlier programme rows and budgets before FY2021/22 are not loaded.
 
 ## Changes on 3 Nov 2026
 

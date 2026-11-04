@@ -68,3 +68,17 @@ Printed errors and how each is handled: `data-src/county/nyamira/known-issues.cs
 - Programme Based Budgets FY2015/16 to FY2024/25 (phase C3), and the map of departments renamed or merged across years.
 - Programme targets (key performance indicators), which wrap in the PDF as badly as the national ones (decision #97).
 - Fiscal Strategy Papers, Budget Review and Outlook Papers, and supplementary budgets.
+
+## Phase C3: history
+
+**The equitable share, both measures.** `cob-history/equitable-share.csv` gives the allocation and the amount received for every year from FY2013/14 to FY2024/25, each with its page and the report's own words; FY2025/26 comes from the national CSVs. Values come from the report's table in whole shillings where there is one (FY2019/20 onwards) and from its sentences otherwise. Only FY2018/19's receipts are missing: that part of the report has a garbled text layer. The county received less than its allocation in four years (FY2013/14, 2019/20, 2021/22, 2023/24); in FY2024/25 it received more (KSh 5.79 billion against 5.52 billion), as late money from an earlier year arrived.
+
+One correction to phase C1: FY2015/16's evidence quoted "expected to receive Kshs.4.3 billion", which is the next county's sentence. Nyamira's own section says it expected and received KSh 4.15 billion.
+
+**Department budgets, FY2021/22 to FY2024/25.** `extract-pbb-departments.mjs` reads each year's department recurrent and development tables and keeps the printed estimates (third column from the right; the rows adding up to the table's TOTAL proves the choice). Seven of the eight tables add up exactly. FY2024/25's recurrent rows add up to KSh 22.4 million more than its printed total, and the document's revenue table agrees with the total, so the rows are loaded as printed and are not tied to it.
+
+`department-map.csv` says which of today's votes each printed name is. Departments were combined in earlier years (Health Services, Agriculture with Livestock, Finance with Economic Planning, Environment with Water), and several did not exist before FY2023/24 or FY2024/25. A combined department has its own id (`dept.5267-5279`) and is never compared with one of today's departments; pages show those years as gaps with the reason.
+
+What the pages now show: each department's change on FY2024/25 and its budget each year since FY2021/22, and the county's printed budget each year (from KSh 6.94 billion in FY2021/22 to 8.65 billion in FY2025/26). These compare printed estimates with printed estimates, not approved or supplementary budgets.
+
+**Not done in C3:** programme rows for earlier years (the national registry's programme work shows how; the department totals were the plan's minimum), and PBBs before FY2021/22.

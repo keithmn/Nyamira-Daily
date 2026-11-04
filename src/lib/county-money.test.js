@@ -32,15 +32,16 @@ test('every year money.json had is the same here, except the equitable share, wh
       const tol = o.fy === '2024/25' && ['budget', 'spent', 'dev'].includes(k) ? 10 : 0; // money.json rounded these
       assert.ok(Math.abs(y[k] - o[k]) <= tol, `${o.fy} ${k}: ${y[k]} against ${o[k]}`);
     }
-    assert.equal(y.eqAllocated ?? y.eqReceived, o.eqShare, `${o.fy} equitable share`);
+    // money.json's one column was one measure or the other; it rounded the report's 'Kshs.4.81 billion' to 10m
+    assert.ok([y.eqAllocated, y.eqReceived].some((v) => v != null && Math.abs(v - o.eqShare) <= 10), `${o.fy} equitable share`);
   }
 });
 
 test('the equitable share says which measure it is, and FY2021/22 shows both differ', () => {
   const y = money.years.find((x) => x.fy === '2021/22');
   assert.equal(y.eqAllocated, 5135.34);
-  assert.equal(y.eqReceived, null);
-  assert.match(y.eqNote, /received Kshs\.4\.72 billion/);
+  assert.equal(y.eqReceived, 4724.51);
+  assert.match(y.eqNote, /4,724,512,833/);
 });
 
 test('each year cites its own report', () => {

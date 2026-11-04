@@ -25,6 +25,15 @@ const sOsr = [{ name: 'Target', tone: 'context', values: ys.map((y) => y.osrTarg
 const known = ys.filter((y) => y.osr != null && y.osrTarget != null);
 const short = known.filter((y) => y.osr < y.osrTarget).length;
 const osrTitle = short === known.length ? `The county collected less than its own target in every year from ${known[0].fy} to ${known.at(-1).fy}` : `The county collected less than its own target in ${short} of ${known.length} years`;
+const both = ys.filter((y) => y.eqAllocated != null && y.eqReceived != null);
+const lessYears = both.filter((y) => y.eqReceived < y.eqAllocated - 0.005);
+const eqTitle = lessYears.length ? `The county received less than its allocation in ${lessYears.length} of ${both.length} years, most recently ${lessYears.at(-1).fy}` : `The county received its full allocation in every year shown`;
+const sEq = [
+  // Short end labels: the chart is drawn small on phones, and the latest values are in the table and the figure above.
+  { name: 'Allocated', tone: 'context', values: ys.map((y) => (y.eqAllocated != null ? y.eqAllocated / 1000 : null)), end: 'Allocated' },
+  { name: 'Received', tone: 'main', values: ys.map((y) => (y.eqReceived != null ? y.eqReceived / 1000 : null)), end: 'Received' },
+];
+const tEq = { columns: ['Financial year', 'Allocated (KSh M)', 'Received (KSh M)'], rows: ys.map((y) => [y.fy, y.eqAllocated ?? '', y.eqReceived ?? '']) };
 const tOsr = { columns: ['Financial year', 'Target (KSh M)', 'Collected (KSh M)'], rows: ys.map((y) => [y.fy, y.osrTarget, y.osr]) };
 const questions = [
   { text: `By 30 June 2026 the county had received KSh ${grA.value.toFixed(2)} million of the KSh ${grT.value.toFixed(2)} million in grants it budgeted for ${last.fy}. Which grants did not arrive, and what happens to the work they were meant to pay for?`, source: `the Controller of Budget's report for ${last.fy}, ${grA.page}` },
@@ -68,9 +77,12 @@ const questions = [
     <LineChart label="Own-source revenue target and collected, KSh million" labels={labels} series={sOsr} />
   </ChartFrame>
 
-  <section aria-labelledby="eq-h">
-    <h2 id="eq-h">The equitable share, year by year</h2>
-    <p>The Controller of Budget gives what the county was allocated, what it received, or both. They can differ: money promised is not always money paid. Where a report gives only one, the other is left blank.</p>
+  <ChartFrame title={eqTitle} sub={`Equitable share allocated and received, KSh billion, ${labels[0]} to ${last.fy}`} evidence="official" source="Controller of Budget, County Budget Implementation Review Reports, each year's Nyamira section" note="Where the received line is below the allocated one, money allocated did not arrive that year. Where it is above, money owed from an earlier year arrived late. FY2018/19's receipts are not shown: that part of the report does not read reliably." table={tEq} csvName="nyamira-equitable-share">
+    <LineChart label="Equitable share allocated and received, KSh billion" labels={labels} format={(v) => v.toFixed(1)} series={sEq} />
+  </ChartFrame>
+
+  <details>
+    <summary>The equitable share, year by year, as each report puts it</summary>
     <div class="table-box">
       <table class="cards">
         <thead><tr><th>Year</th><th class="num">Allocated (KSh M)</th><th class="num">Received (KSh M)</th><th>How the report puts it</th></tr></thead>
@@ -82,7 +94,7 @@ const questions = [
       </table>
     </div>
     <p class="source small"><EvidenceLabel kind="official" /> Controller of Budget annual county reports, each year's Nyamira section. Earlier, this site showed these in one column called "Equitable share reported"; see <a href="/how-we-work/#corrections">corrections</a>.</p>
-  </section>
+  </details>
 
   <p>Where this year's budget expected its money to come from: <a href="/data/money/2025-26/">Nyamira's budget 2025/26</a>.</p>
 </MoneyShell>

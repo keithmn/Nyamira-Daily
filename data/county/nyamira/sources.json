@@ -44,6 +44,82 @@
     "note": "The county's own report. Its spending for FY2025/26 (KSh 7,105,627,509) is higher than the Controller of Budget's (KSh 7,009.26 million); both are shown with their sources."
   },
   {
+    "id": "nyamira-pbb-2024-25",
+    "title": "The Programme Based Budget 2024/2025 (County Government of Nyamira)",
+    "issuer": "County Government of Nyamira",
+    "docType": "budget-document",
+    "fy": "2024/25",
+    "stage": "estimates",
+    "date": "2025-03",
+    "url": "https://nyamira.go.ke/static/documents/12_03_2025_11_35_18_am_PBB_2024-2025_FINAL_(1)_compressed.pdf",
+    "archive": null,
+    "sha256": "ff39a982fb8f17061a4501848013fe4554ff9c7565d4f507079f4fc90a6170dd",
+    "file": "pbb-2024-25.pdf",
+    "pageOffset": null,
+    "tolerance": {
+      "KSh": 1
+    },
+    "nextExpected": null,
+    "note": "The cover gives no month; the date is when the county posted this copy (12 March 2025, from its file name). Only the department tables are loaded: each year's own printed estimates."
+  },
+  {
+    "id": "nyamira-pbb-2023-24",
+    "title": "The Programme Based Budget 2023/2024 (County Government of Nyamira)",
+    "issuer": "County Government of Nyamira",
+    "docType": "budget-document",
+    "fy": "2023/24",
+    "stage": "estimates",
+    "date": "2025-03",
+    "url": "https://nyamira.go.ke/static/documents/12_03_2025_11_26_27_am_PBB_FINAL_2023-2024_compressed_(1).pdf",
+    "archive": null,
+    "sha256": "8f2f3ee9aed66351184704cee7b24eea9af855c346b4909f164797636a84ff54",
+    "file": "pbb-2023-24.pdf",
+    "pageOffset": null,
+    "tolerance": {
+      "KSh": 1
+    },
+    "nextExpected": null,
+    "note": "The cover gives no month; the date is when the county posted this copy (12 March 2025, from its file name). Only the department tables are loaded: each year's own printed estimates."
+  },
+  {
+    "id": "nyamira-pbb-2022-23",
+    "title": "The Programme Based Budget 2022/2023 (County Government of Nyamira)",
+    "issuer": "County Government of Nyamira",
+    "docType": "budget-document",
+    "fy": "2022/23",
+    "stage": "estimates",
+    "date": "2025-03",
+    "url": "https://nyamira.go.ke/static/documents/12_03_2025_11_13_54_am_FINAL_PROGRAMME_BASED_BUDGET_2022-2023.pdf",
+    "archive": null,
+    "sha256": "7f28c44c4e761f520c61be53c1b2b336757ed0f99d6130315f5a492c17531904",
+    "file": "pbb-2022-23.pdf",
+    "pageOffset": null,
+    "tolerance": {
+      "KSh": 1
+    },
+    "nextExpected": null,
+    "note": "The cover gives no month; the date is when the county posted this copy (12 March 2025, from its file name). Only the department tables are loaded: each year's own printed estimates."
+  },
+  {
+    "id": "nyamira-pbb-2021-22",
+    "title": "The Programme Based Budget 2021/2022 (County Government of Nyamira)",
+    "issuer": "County Government of Nyamira",
+    "docType": "budget-document",
+    "fy": "2021/22",
+    "stage": "estimates",
+    "date": "2025-03",
+    "url": "https://nyamira.go.ke/static/documents/12_03_2025_10_59_21_am_PBB_2021-2022_compressed.pdf",
+    "archive": null,
+    "sha256": "8de68a06c00caa97d404b837b59d45960b65235a2ff0511b1c30aab14e70017a",
+    "file": "pbb-2021-22.pdf",
+    "pageOffset": null,
+    "tolerance": {
+      "KSh": 1
+    },
+    "nextExpected": null,
+    "note": "The cover gives no month; the date is when the county posted this copy (12 March 2025, from its file name). Only the department tables are loaded: each year's own printed estimates."
+  },
+  {
     "id": "cob-county-annual-2013-14",
     "title": "Annual County Governments Budget Implementation Review Report FY 2013/2014 (Office of the Controller of Budget)",
     "issuer": "Office of the Controller of Budget",

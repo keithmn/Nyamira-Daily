@@ -1,0 +1,274 @@
+{
+  "defaults": {
+    "fy": "2021/22",
+    "stage": "estimates",
+    "unit": "KSh",
+    "grouping": "vote",
+    "money": "county",
+    "label": "official",
+    "source": "nyamira-pbb-2021-22",
+    "parent": null,
+    "checkedOn": "2026-11-04",
+    "checkedBy": "claude-code"
+  },
+  "figures": [
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.recurrent",
+      "name": "Nyamira: recurrent budget, FY2021/22",
+      "value": 4458492308,
+      "level": "total",
+      "page": "Table 8, TOTAL row, PDF page 20",
+      "pdfPage": 20
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5261.recurrent",
+      "name": "County Assembly: recurrent budget, FY2021/22",
+      "value": 612444433,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5262.recurrent",
+      "name": "County Executive: recurrent budget, FY2021/22",
+      "value": 469162325,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.dept.5263-5277.recurrent",
+      "name": "Finance and planning: recurrent budget, FY2021/22",
+      "value": 351066631,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent",
+      "note": "Finance and Economic Planning together."
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.dept.5264-5278.recurrent",
+      "name": "Agriculture, Livestock and Fisheries: recurrent budget, FY2021/22",
+      "value": 156552700,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent",
+      "note": "Crops and Livestock together."
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.dept.5265-5269.recurrent",
+      "name": "Environment, Water, Energy & Natural Resources: recurrent budget, FY2021/22",
+      "value": 92647959,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent",
+      "note": "Environment and Water together."
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5266.recurrent",
+      "name": "Education & Vocational Training: recurrent budget, FY2021/22",
+      "value": 405715398,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.dept.5267-5279.recurrent",
+      "name": "Health Services: recurrent budget, FY2021/22",
+      "value": 1681431312,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent",
+      "note": "Medical Services and Primary Healthcare together."
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5268.recurrent",
+      "name": "Land, Physical Planning, Housing and Urban Development: recurrent budget, FY2021/22",
+      "value": 68210790,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5270.recurrent",
+      "name": "Transport & Public Works: recurrent budget, FY2021/22",
+      "value": 110629190,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5271.recurrent",
+      "name": "Trade, Tourism and Co-operatives Development: recurrent budget, FY2021/22",
+      "value": 32806994,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5272.recurrent",
+      "name": "Youth, Gender, Culture and Social services: recurrent budget, FY2021/22",
+      "value": 49137356,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5273.recurrent",
+      "name": "County Public Service Board: recurrent budget, FY2021/22",
+      "value": 66113290,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5274.recurrent",
+      "name": "Public Service Management: recurrent budget, FY2021/22",
+      "value": 321168878,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5275.recurrent",
+      "name": "Nyamira Municipality: recurrent budget, FY2021/22",
+      "value": 41405052,
+      "level": "vote",
+      "page": "Table 8, PDF page 20",
+      "pdfPage": 20,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.recurrent"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.development",
+      "name": "Nyamira: development budget, FY2021/22",
+      "value": 2479125351,
+      "level": "total",
+      "page": "Table 14, TOTAL row, PDF page 26",
+      "pdfPage": 26
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5261.development",
+      "name": "County Assembly: development budget, FY2021/22",
+      "value": 193678206,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.dept.5263-5277.development",
+      "name": "Finance and planning: development budget, FY2021/22",
+      "value": 200784197,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development",
+      "note": "Finance and Economic Planning together."
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.dept.5264-5278.development",
+      "name": "Agriculture, Livestock and Fisheries: development budget, FY2021/22",
+      "value": 325392845,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development",
+      "note": "Crops and Livestock together."
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.dept.5265-5269.development",
+      "name": "Environment, Water, Energy & Natural Resources: development budget, FY2021/22",
+      "value": 196700000,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development",
+      "note": "Environment and Water together."
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5266.development",
+      "name": "Education & Vocational Training: development budget, FY2021/22",
+      "value": 78817351,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.dept.5267-5279.development",
+      "name": "Health Services: development budget, FY2021/22",
+      "value": 509776147,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development",
+      "note": "Medical Services and Primary Healthcare together."
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5268.development",
+      "name": "Land, Physical Planning, Housing and Urban Development: development budget, FY2021/22",
+      "value": 230554023,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5270.development",
+      "name": "Transport & Public Works: development budget, FY2021/22",
+      "value": 374199206,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5271.development",
+      "name": "Trade, Tourism and Co-operatives Development: development budget, FY2021/22",
+      "value": 37684952,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5272.development",
+      "name": "Youth, Gender, Culture and Social services: development budget, FY2021/22",
+      "value": 107078070,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5274.development",
+      "name": "Public Service Management: development budget, FY2021/22",
+      "value": 60000000,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development"
+    },
+    {
+      "id": "ke.fy2021-22.estimates.county.nyamira.vote.5275.development",
+      "name": "Nyamira Municipality: development budget, FY2021/22",
+      "value": 164460354,
+      "level": "vote",
+      "page": "Table 14, PDF page 26",
+      "pdfPage": 26,
+      "parent": "ke.fy2021-22.estimates.county.nyamira.development"
+    }
+  ]
+}

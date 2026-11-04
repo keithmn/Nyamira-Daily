@@ -19,6 +19,7 @@ if (problems.length) throw new Error(`The county figure registry has ${problems.
 
 export const structure = JSON.parse(readFileSync(join(ROOT, 'data/county/nyamira/structure-2025-26.json'), 'utf8'));
 export const notes = JSON.parse(readFileSync(join(ROOT, 'data/county/nyamira/notes.json'), 'utf8'));
+export const departmentsHistory = JSON.parse(readFileSync(join(ROOT, 'data/county/nyamira/departments-history.json'), 'utf8'));
 // Read here, not imported, so the tests can run this file without Astro.
 export const wardspend = JSON.parse(readFileSync(join(ROOT, 'src/data/wardspend.json'), 'utf8'));
 

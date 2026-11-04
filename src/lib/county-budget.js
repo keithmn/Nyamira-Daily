@@ -1,6 +1,6 @@
 // Nyamira's budget for one year, its 24 departments and their programmes, and what each spent (decision #105).
 // Everything comes from the figure registry; this file only adds up and compares, and is tested.
-import { fig, hasFig, maybe, structure, wardspend } from './county-registry.js';
+import { departmentsHistory, fig, hasFig, maybe, structure, wardspend } from './county-registry.js';
 
 export const FY = structure.fy; // "2025/26"
 export const FY_PATH = FY.replace('/', '-');
@@ -119,4 +119,39 @@ export function track() {
     devBudget: fig(`${Q4}.development.target`), devSpent: fig(`${Q4}.development.actual`), devShare: fig(`${Q4}.development.share`) };
   const cob = { spent: fig(`${COB}.spent`), budget: fig(`${COB}.budget`), devSpent: fig(`${COB}.dev-spent`), absorption: fig(`${COB}.absorption`) };
   return { list: list.sort((a, b) => (a.total.share ?? 0) - (b.total.share ?? 0)), county, cob };
+}
+
+// Each year's printed estimates since FY2021/22, oldest first. A year is compared with today only where the department
+// was the same then (scope "same"); where it was combined with others, or did not exist, the page says so instead.
+export const HISTORY_YEARS = [...Object.keys(departmentsHistory).sort(), FY];
+
+export function departmentYears(vote) {
+  return HISTORY_YEARS.map((fy) => {
+    if (fy === FY) {
+      const V = `${PBB}.vote.${vote}`;
+      return { fy, scope: 'same', recurrent: maybe(`${V}.recurrent`) ?? 0, development: maybe(`${V}.development`) ?? 0, total: fig(V).value, name: null, note: null };
+    }
+    const list = departmentsHistory[fy];
+    const e = list.find((x) => x.votes.includes(vote));
+    if (!e) return { fy, scope: 'absent' };
+    const recurrent = e.recurrent ? fig(e.recurrent).value : 0, development = e.development ? fig(e.development).value : 0;
+    return { fy, scope: e.scope, votes: e.votes, name: e.name, note: e.note, recurrent, development, total: recurrent + development, ids: [e.recurrent, e.development].filter(Boolean) };
+  });
+}
+
+// The change on last year, only where the department was the same in both years. Both are printed estimates.
+export function changeOnLastYear(vote) {
+  const ys = departmentYears(vote);
+  const now = ys.at(-1), before = ys.at(-2);
+  if (before.scope !== 'same' || !before.total) return null;
+  return { fy: before.fy, before: before.total, now: now.total, pct: ((now.total - before.total) / before.total) * 100 };
+}
+
+// The county's printed budget each year: the recurrent and development tables' own totals.
+export function countyYears() {
+  return HISTORY_YEARS.map((fy) => {
+    const P = `ke.fy${fy.replace('/', '-')}.estimates.county.nyamira`;
+    const recurrent = fig(`${P}.recurrent`), development = fig(`${P}.development`);
+    return { fy, recurrent: recurrent.value, development: development.value, total: recurrent.value + development.value, note: recurrent.note ?? null };
+  });
 }

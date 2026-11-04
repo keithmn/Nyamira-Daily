@@ -105,30 +105,45 @@ const FIELDS = [
   ['devAbs', 'dev-absorption', 'share of the development budget spent', 'county-measure'],
   ['osrTarget', 'osr-target', 'own-source revenue target', 'county-revenue-osr'],
   ['osr', 'osr-actual', 'own-source revenue reported', 'county-revenue-osr'],
-  ['eqShare', 'equitable-share', 'equitable share', 'county-revenue'],
   ['pending', 'pending-bills', 'pending bills at year end', 'county-pending-bills'],
 ];
-// money.json's equitable share column is the allocation in some years and the amount received in others; each year
-// is filed under what the report says it is (eqShareIs in history.csv, with the report's words).
+// The equitable share has two measures, the allocation and the amount received. Both come from
+// cob-history/equitable-share.csv, each with its page and the report's own words (decision #106; completed in C3).
 const EQ = { allocated: 'equitable share allocated (what the county expected to receive)', received: 'equitable share received' };
+const sourceFor = (fy) => (fy === '2024/25' ? 'cob-county-birr-2024-25' : `cob-county-annual-${fyId(fy)}`);
+const OFFSETS = Object.fromEntries(JSON.parse(readFileSync(join(root, 'data/county/nyamira/sources.json'), 'utf8')).map((s) => [s.id, s.pageOffset]));
+const OFFSET_2024_25 = -44; // the national copy of the FY2024/25 report (data/national/sources.json)
+const pageFor = (fy, pdf) => {
+  const offset = fy === '2024/25' ? OFFSET_2024_25 : OFFSETS[sourceFor(fy)];
+  return offset != null ? `Nyamira section, p.${pdf + offset}` : `Nyamira section, PDF page ${pdf}`;
+};
 
 export function historyFigures() {
   const figures = [];
+  for (const r of csv('cob-history/equitable-share.csv')) {
+    for (const kind of ['allocated', 'received']) {
+      if (r[kind] === '') continue; // not readable in the report: waits for a person
+      const pdf = Number(r[`${kind}_pdf_page`]);
+      figures.push({
+        id: `ke.fy${fyId(r.fy)}.spent.county.nyamira.equitable-share-${kind}`, name: `Nyamira: ${EQ[kind]}, FY${r.fy}`, value: Number(r[kind]), fy: r.fy,
+        unit: 'KSh m', grouping: 'county-revenue', level: 'county', source: sourceFor(r.fy), page: pageFor(r.fy, pdf), pdfPage: pdf,
+        checkedOn: '2026-11-04', checkedBy: 'claude-code', note: `Printed: "${r[`${kind}_printed`]}".${r.note ? ` ${r.note}` : ''}`,
+      });
+    }
+  }
   for (const y of csv('cob-history/history.csv')) {
     const base = `ke.fy${fyId(y.fy)}.spent.county.nyamira`;
     const skip = NATIONAL_HAS[y.fy] ?? [];
     const check = CHECKED[y.fy];
     for (const [col, field, label, grouping] of FIELDS) {
       if (y[col] === '' || skip.includes(field)) continue; // not reported, or held by the national registry
-      const isEq = field === 'equitable-share';
-      const key = isEq ? `equitable-share-${y.eqShareIs}` : field;
-      const what = isEq ? EQ[y.eqShareIs] : label;
-      const note = field === 'osr-actual' ? y.osrNote : field === 'pending-bills' ? y.pendingNote : isEq ? y.eqShareEvidence : '';
+      const key = field, what = label;
+      const note = field === 'osr-actual' ? y.osrNote : field === 'pending-bills' ? y.pendingNote : '';
       const checked = check?.fields?.[field];
       figures.push({
         id: `${base}.${key}`, name: `Nyamira: ${what}, FY${y.fy}`, value: Number(y[col]), fy: y.fy,
         unit: key === 'dev-absorption' ? '%' : 'KSh m', grouping, level: key === 'dev-absorption' ? 'measure' : 'county',
-        source: y.fy === '2024/25' ? 'cob-county-birr-2024-25' : `cob-county-annual-${fyId(y.fy)}`,
+        source: sourceFor(y.fy),
         page: checked?.page ?? y.page, pdfPage: checked?.pdfPage ?? null,
         checkedOn: checked ? check.checkedOn : '2026-10-22', checkedBy: checked ? 'claude-code' : 'carried over from src/data/money.json',
         ...(note ? { note } : {}),
@@ -171,7 +186,51 @@ export function quarterFigures() {
   return { defaults: { fy: '2025/26', stage: 'spent', unit: 'KSh', grouping: 'vote-spending', money: 'county', label: 'official', source: 'nyamira-bir-2025-26-q4', checkedOn: '2026-11-04', checkedBy: 'claude-code' }, figures };
 }
 
+// --- Earlier Programme Based Budgets, FY2021/22 to FY2024/25: each department's printed estimates -----------------
+// Read by extract-pbb-departments.mjs; department-map.csv says which of today's votes each printed name is. A name
+// that covers several of today's departments gets its own id (dept.5263-5277), so it is never taken for one of them.
+const TABLES = { '2024/25': ['Table 9', 'Table 16'], '2023/24': ['Table 10', 'Table 17'], '2022/23': ['Table 12', 'Table 18'], '2021/22': ['Table 8', 'Table 14'] };
+
+export function departmentHistory() {
+  const rows = csv('pbb-history/departments.csv');
+  const map = new Map(csv('department-map.csv').map((m) => [`${m.fy}|${m.name_as_printed}`, m]));
+  const files = {}, structure = {};
+  for (const fy of Object.keys(TABLES)) {
+    const P = `ke.fy${fyId(fy)}.estimates.county.nyamira`;
+    const figures = [], entries = new Map();
+    for (const kind of ['recurrent', 'development']) {
+      const list = rows.filter((r) => r.fy === fy && r.kind === kind);
+      const proved = list.every((r) => r.proved === 'yes');
+      const table = TABLES[fy][kind === 'recurrent' ? 0 : 1];
+      const page = Number(list[0].pdf_page);
+      figures.push({ id: `${P}.${kind}`, name: `Nyamira: ${kind} budget, FY${fy}`, value: Number(list[0].table_total), level: 'total', page: `${table}, TOTAL row, PDF page ${page}`, pdfPage: page,
+        ...(proved ? {} : { note: `The department rows of ${table} add up to KSh ${Number(list[0].rows_add_to).toLocaleString('en-KE')}, not the printed total; the document does not say which row is wrong.` }) });
+      for (const r of list) {
+        const m = map.get(`${fy}|${r.name_as_printed}`);
+        if (!m) throw new Error(`department-map.csv has no line for ${fy} "${r.name_as_printed}"`);
+        const key = m.scope === 'same' ? `vote.${m.votes}` : `dept.${m.votes.replace(/\+/g, '-')}`;
+        const e = entries.get(key) ?? { key, votes: m.votes.split('+'), scope: m.scope, name: r.name_as_printed, note: m.note || null, recurrent: 0, development: 0, pages: {} };
+        e[kind] += Number(r.value);
+        e.pages[kind] = `${table}, PDF page ${r.pdf_page}`;
+        entries.set(key, e);
+      }
+      for (const e of entries.values()) {
+        if (!e[kind] || figures.some((f) => f.id === `${P}.${e.key}.${kind}`)) continue;
+        figures.push({ id: `${P}.${e.key}.${kind}`, name: `${e.name}: ${kind} budget, FY${fy}`, value: e[kind], level: 'vote', page: e.pages[kind], pdfPage: Number(e.pages[kind].match(/(\d+)$/)[1]),
+          parent: proved ? `${P}.${kind}` : null, ...(e.note ? { note: e.note } : {}) });
+      }
+    }
+    files[fy] = { defaults: { fy, stage: 'estimates', unit: 'KSh', grouping: 'vote', money: 'county', label: 'official', source: `nyamira-pbb-${fyId(fy)}`, parent: null, checkedOn: '2026-11-04', checkedBy: 'claude-code' }, figures };
+    structure[fy] = [...entries.values()].map((e) => ({ key: e.key, votes: e.votes, scope: e.scope, name: e.name, note: e.note,
+      recurrent: e.recurrent ? `${P}.${e.key}.recurrent` : null, development: e.development ? `${P}.${e.key}.development` : null }));
+  }
+  return { files, structure };
+}
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const history = departmentHistory();
+  for (const [fy, file] of Object.entries(history.files)) out(`figures/pbb-${fyId(fy)}.json`, file);
+  out('departments-history.json', history.structure);
   const { file, structure } = budgetFigures();
   out('figures/pbb-2025-26.json', file);
   out('structure-2025-26.json', structure);
