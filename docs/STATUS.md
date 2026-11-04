@@ -1,4 +1,4 @@
-# Status and handover (3 Nov 2026)
+# Status and handover (4 Nov 2026)
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md`, then this page, then `docs/DECISIONS.md`. Older handover notes, with the history of each feature, are in `docs/STATUS_ARCHIVE.md`.
 
@@ -7,6 +7,11 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **The site:** a static Astro 7 site in eight sections (`src/nav.js`), with real data for money (12 years), ward pages, projects and the project tracker, services, census, leaders, the Assembly, county laws, fees, opportunities, constitution summaries, search and open data. Text content lives in `src/content/`; only one explainer and one number of the week are published so far, and two money explainers are drafted.
 - **Who runs it (decision #73):** built and published by Underdogs Rising Group Limited, editorially independent, with a commitment to spin out into a non-profit. Trust pages: `/who-runs-us/`, `/right-of-reply/`, `/privacy/`, `/terms/`.
 - **NY Watch (decision #79):** the founder's data review podcast. No episodes published yet.
+
+## Changes on 4 Nov 2026
+
+- **County budget on the national model (decision #105).** The owner approved `docs/county-budget/SITEMAP.md`: Nyamira's money figures move into a registry in `data/county/nyamira/`, then the money section grows into year, department, programme, revenue, track and history pages under `/data/money/`, in Nyamira's own look. Next: phase C1, data, on `feat/county-phase-1-data`.
+- Found while planning: the Money page ends at FY2024/25, while the national registry already holds Nyamira's FY2025/26 Controller of Budget figures. The county's website has Programme Based Budgets FY2015/16 to FY2025/26, the FY2025/26 quarterly reports, and no FY2026/27 budget yet.
 
 ## Changes on 3 Nov 2026
 
