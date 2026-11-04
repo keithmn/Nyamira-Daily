@@ -18,6 +18,12 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
   - `npm run check:county` and 11 tests (`npm test`: 322 pass). No page changed: the main site builds the same 2,817 pages.
   - Waiting for a person: `data-src/county/nyamira/person-checks.csv` (programme names and grouping, the budget's approval status, one history figure, the equitable share years).
   - Next: phase C2, pages. It must also fix the Money page's equitable share column, with a corrections note.
+- **Phase C2, pages, built** on branch `feat/county-phase-2-pages` (stacked on C1), not pushed. Choices in decision #107, for the owner to review.
+  - New under `/data/money/`: `2025-26/` (the year: total, where each KSh 100 goes and comes from, departments), `2025-26/departments/` and one page per department (24) and per programme (78), `revenue/`, `track/` (spending to 30 June 2026, with questions for departments under 75%), `history/` (the twelve-year charts, moved from `/data/money/`). `/data/money/` now opens with a stage strip, the year's budget, both published spending totals and cards to these pages. Menu: four pages under Money. Build: 2,924 pages.
+  - The site now reads `src/lib/county-money.js` (from the registry) wherever it read `money.json`, so the home page, ward pages, embed and APIs all show FY2025/26. The equitable share is two columns (allocated, received), with an entry in the corrections log.
+  - Checked at 390 and 1280, light and dark, on eight page types: no sideways scroll, no script errors. One layout fault found by eye and fixed: long values squeezed the labels in share bars.
+  - One build took 13 minutes while screenshots ran beside it; the next took 34 seconds.
+  - Next: phase C3, history (Programme Based Budgets FY2015/16 to FY2024/25, the department rename map, and the missing equitable share values so allocated and received are complete).
 
 ## Changes on 3 Nov 2026
 

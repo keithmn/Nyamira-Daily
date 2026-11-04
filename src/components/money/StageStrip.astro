@@ -1,0 +1,32 @@
+---
+// Where Nyamira's budget for one year has got to. Each stage says its state in words and with a mark (tick, ring or
+// question mark), so it never rests on colour alone. Dates are the law's deadlines; documents link to the source.
+import { sourceDoc } from '../../lib/county-registry.js';
+
+const pbb = sourceDoc('nyamira-pbb-2025-26');
+const q4 = sourceDoc('nyamira-bir-2025-26-q4');
+const stages = [
+  { name: 'Fiscal strategy', when: 'By 28 Feb 2025', law: 'PFM Act s.117(1)', state: 'done', said: 'Published', href: 'https://nyamira.go.ke/static/documents/12_03_2025_09_37_20_am_CFSP_2025-2026_compressed.pdf' },
+  { name: 'Estimates', when: 'By 30 Apr 2025', law: 'PFM Act s.129(2)', state: 'done', said: 'Published: the figures on these pages', href: pbb.url },
+  { name: 'Approved', when: 'By 30 Jun 2025', law: 'PFM Act s.131(1)', state: 'unknown', said: 'Not confirmed: no approved budget found on the county\'s website', href: null },
+  { name: 'Spent', when: 'Each quarter', law: 'PFM Act s.166(4)', state: 'done', said: 'Year-end report published July 2026', href: q4.url },
+  { name: 'Audited', when: 'After the year', law: null, state: 'todo', said: 'Not yet: the Auditor-General\'s report on this year is not out', href: null },
+];
+const mark = { done: '✓', unknown: '?', todo: '' };
+---
+<section class="stage-strip" aria-labelledby="stage-h">
+  <h2 id="stage-h" class="mini">Where the 2025/26 budget is now</h2>
+  <ol>
+    {stages.map((s) => (
+      <li class={`st-${s.state}`}>
+        <span class="st-dot" aria-hidden="true">{mark[s.state]}</span>
+        <span class="st-text">
+          <b>{s.name}</b>
+          <span class="st-when">{s.when}{s.law && <> · {s.law}</>}</span>
+          <span class="st-said">{s.href ? <a href={s.href} rel="noopener">{s.said}</a> : s.said}</span>
+        </span>
+      </li>
+    ))}
+  </ol>
+  <p class="small muted">The year ran from 1 July 2025 to 30 June 2026. The figures are the printed estimates, because the county has not published the approved budget; the Controller of Budget's total for the year is the same.</p>
+</section>

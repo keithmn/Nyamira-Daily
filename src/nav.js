@@ -22,8 +22,15 @@ const dataDesc = {
   farming: 'Tea bonuses and farm spending',
   'open-data': 'Download every table',
 };
+// The Money section's own pages (decision #105)
+const moneyPages = [
+  { href: '/data/money/2025-26/', label: 'Budget 2025/26', also: ['/data/money/2025-26/departments/'] },
+  { href: '/data/money/track/', label: 'What was spent' },
+  { href: '/data/money/revenue/', label: 'Where it comes from' },
+  { href: '/data/money/history/', label: 'Since 2013' },
+];
 const dataPages = topics.map((t) => ({ href: `/data/${t.slug}/`, label: t.title, icon: dataIcon[t.slug], desc: dataDesc[t.slug],
-  also: t.slug === 'money' ? ['/projects/'] : undefined }));
+  also: t.slug === 'money' ? ['/projects/'] : undefined, pages: t.slug === 'money' ? moneyPages : undefined }));
 
 // Each section: `overview` names its own page, `desc` introduces it in the menu, `icon` is from
 // src/lib/icons.js. Each page has a short `desc` for the menu cards; pages can hold pages of their own.

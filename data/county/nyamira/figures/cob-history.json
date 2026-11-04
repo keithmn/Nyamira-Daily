@@ -1451,6 +1451,65 @@
       "checkedOn": "2026-10-22",
       "checkedBy": "carried over from src/data/money.json",
       "note": "Older (legacy) bills only. The report text says 391.68M. The county's own Pending Bills Committee gives 673.03M."
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.rec-spent",
+      "name": "Nyamira: recurrent spending, FY2025/26",
+      "value": 5083.03,
+      "fy": "2025/26",
+      "unit": "KSh m",
+      "grouping": "county-spending",
+      "level": "county",
+      "source": "cob-county-birr-2025-26",
+      "page": "Table 2.5, p.9",
+      "pdfPage": 43,
+      "checkedOn": "2026-11-02",
+      "checkedBy": "claude-code"
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.equitable-share-allocated",
+      "name": "Nyamira: equitable share allocated (what the county expected to receive), FY2025/26",
+      "value": 6073.43,
+      "fy": "2025/26",
+      "unit": "KSh m",
+      "grouping": "county-revenue",
+      "level": "county",
+      "source": "cob-county-birr-2025-26",
+      "page": "Annex I, p.900",
+      "pdfPage": 934,
+      "checkedOn": "2026-11-02",
+      "checkedBy": "claude-code",
+      "note": "Equals the County Allocation of Revenue Act's FY2025/26 equitable share for Nyamira (KSh 6.07 billion)."
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.equitable-share-received",
+      "name": "Nyamira: equitable share received, FY2025/26",
+      "value": 6073.43,
+      "fy": "2025/26",
+      "unit": "KSh m",
+      "grouping": "county-revenue",
+      "level": "county",
+      "source": "cob-county-birr-2025-26",
+      "page": "Annex I, p.900",
+      "pdfPage": 934,
+      "checkedOn": "2026-11-02",
+      "checkedBy": "claude-code",
+      "note": "The county received its full equitable share."
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.osr-fif-actual",
+      "name": "Nyamira: hospital fees within own-source revenue, FY2025/26",
+      "value": 483.35,
+      "fy": "2025/26",
+      "unit": "KSh m",
+      "grouping": "county-revenue-osr-detail",
+      "level": "county",
+      "source": "cob-county-birr-2025-26",
+      "page": "Table 2.1, p.3",
+      "pdfPage": 37,
+      "checkedOn": "2026-11-02",
+      "checkedBy": "claude-code",
+      "note": "Hospital fees (Facility Improvement Fund) within own-source revenue."
     }
   ]
 }

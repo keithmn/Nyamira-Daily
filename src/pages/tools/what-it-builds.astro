@@ -5,7 +5,7 @@ import PageHead from '../../components/PageHead.astro';
 import EvidenceLabel from '../../components/EvidenceLabel.astro';
 import U from '../../data/unit-costs.json';
 import C from '../../data/compare.json';
-import M from '../../data/money.json';
+import M from '../../lib/county-money.js';
 import { ksh } from '../../lib/fmt.js';
 const nya = C.counties.find((c) => c.county === 'Nyamira');
 const last = M.years[M.years.length - 1];

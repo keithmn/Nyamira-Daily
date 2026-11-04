@@ -1,0 +1,45 @@
+---
+// The front of the Money section (decision #105): where this year's budget is, its total, what was spent, and the
+// pages one tap deeper. The twelve-year charts moved to /data/money/history/.
+import EvidenceLabel from '../EvidenceLabel.astro';
+import StageStrip from './StageStrip.astro';
+import { ksh } from '../../lib/fmt.js';
+import { budgetYear, departments, track, yearPath, pct, FY } from '../../lib/county-budget.js';
+import { shortTitle } from '../../lib/county-registry.js';
+
+const y = budgetYear();
+const t = track();
+const top = departments().sort((a, b) => b.total - a.total)[0];
+const cobPct = t.cob.absorption.value;
+const cards = [
+  { href: yearPath(), t: `Budget ${FY}`, d: `${ksh(y.total.value)}: where each KSh 100 goes and comes from` },
+  { href: `${yearPath()}departments/`, t: 'The 24 departments', d: `${top.short} gets the most: ${ksh(top.total)}. Each with its programmes` },
+  { href: '/data/money/track/', t: 'What was spent this year', d: `Each department's spending to 30 June 2026, and questions to ask` },
+  { href: '/data/money/revenue/', t: 'Where the money comes from', d: 'Equitable share, local revenue and grants since 2013' },
+  { href: '/data/money/history/', t: 'Twelve years of money', d: 'Budget and spending, development, unpaid bills since 2013/14' },
+];
+---
+<div class="stack-lg" style="margin-top:24px">
+  <StageStrip />
+
+  <section class="two-figures" aria-label={`Budget and spending, ${FY}`}>
+    <div class="figure">
+      <span class="eyebrow">Budget · {FY}</span>
+      <span class="num is-lead">{ksh(y.total.value)}</span>
+      <p class="say">is what Nyamira planned to spend in {FY}, on 24 departments. <strong>{Math.round(y.out.find((p) => p.key === 'staff').share)}%</strong> of it is staff pay.</p>
+      <p class="source"><EvidenceLabel kind={y.total.label} /> Source: <a href={y.total.doc.url} rel="noopener">{shortTitle(y.total.doc)}</a>, {y.total.page}. Printed estimates.</p>
+    </div>
+    <div class="figure">
+      <span class="eyebrow">Spent by 30 June 2026</span>
+      <span class="num">{ksh(t.county.spent.value)}</span>
+      <p class="say">spent, <strong>{pct(t.county.share.value)}</strong> of the budget, says the county's own year-end report. The Controller of Budget reports <strong>{ksh(t.cob.spent.value * 1e6)}</strong> ({Math.round(cobPct)}%).</p>
+      <p class="source"><EvidenceLabel kind={t.county.spent.label} /> Sources: <a href={t.county.spent.doc.url} rel="noopener">county Q4 report</a>, {t.county.spent.page}; <a href={t.cob.spent.doc.url} rel="noopener">Controller of Budget</a>, {t.cob.spent.page}.</p>
+    </div>
+  </section>
+  <p class="callout"><span><strong>Two totals for one year.</strong> The county and the Controller of Budget give different spending totals, and we show both. Why do they differ by {ksh(t.county.spent.value - t.cob.spent.value * 1e6)}? That is a question for the county.</span></p>
+
+  <section aria-labelledby="money-pages">
+    <h2 id="money-pages">Look closer</h2>
+    <ul class="money-cards">{cards.map((c) => <li><a href={c.href}><b>{c.t}</b><span>{c.d}</span></a></li>)}</ul>
+  </section>
+</div>

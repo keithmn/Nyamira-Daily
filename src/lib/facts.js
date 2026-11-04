@@ -12,7 +12,9 @@ const moneyFields = [
   ['devAbs', 'Share of the development budget used', 'per cent'],
   ['osrTarget', 'Own-source revenue target', 'KSh million'],
   ['osr', 'Own-source revenue collected', 'KSh million'],
-  ['eqShare', 'Equitable share from the national government', 'KSh million'],
+  // The allocation and the amount received are different measures; each report gives one or both (decision #106).
+  ['eqAllocated', 'Equitable share allocated (what the county expected to receive)', 'KSh million'],
+  ['eqReceived', 'Equitable share received from the national government', 'KSh million'],
   ['pending', 'Pending bills reported', 'KSh million'],
 ];
 
@@ -21,7 +23,7 @@ export function moneyFacts(money) {
   for (const y of money.years) {
     for (const [key, label, unit] of moneyFields) {
       if (y[key] == null) continue; // unknown stays unknown: no row
-      const note = key === 'osr' ? y.osrNote : key === 'pending' ? y.pendingNote : undefined;
+      const note = key === 'osr' ? y.osrNote : key === 'pending' ? y.pendingNote : key.startsWith('eq') ? y.eqNote ?? undefined : undefined;
       rows.push({
         id: `money.${y.fy}.${key}`, topic: 'money', place: 'Nyamira County', period: `FY${y.fy}`,
         label, value: y[key], unit, evidence: 'official',

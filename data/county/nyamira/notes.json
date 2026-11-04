@@ -1,0 +1,10 @@
+{
+  "updated": "2026-11-04",
+  "note": "County totals (County Executive and County Assembly together), as reported by the Controller of Budget (CoB) in its annual County Governments Budget Implementation Review Report. The budget is the final approved/revised (supplementary) budget where CoB says so; expenditure is reported actual spending. These fields do not include a separate cash-release series. The equitable share is shown in two columns: what the county was allocated (what it expected to receive) and what it received, as each report gives them.",
+  "caveats": [
+    "The county's own reports sometimes give different totals. For FY2024/25 the County Budget Review and Outlook Paper (Oct 2025) reports 7.41B spent and 2.43B on development, against CoB's 5.65B and 1.05B. We show CoB's figures and are asking the county to explain the difference. For FY2025/26 the county's fourth-quarter report gives 7.11B spent against CoB's 7.01B; that difference is a question for the county too.",
+    "From FY2022/23, CoB counts hospital fees (Facility Improvement Financing) as own-source revenue. Revenue before and after that change cannot be compared directly.",
+    "Pending bills figures change between CoB reports for the same date. Treat them as reported figures, not a settled total. The FY2025/26 report gives trade payables instead (KSh 357.68 million at 30 June 2026), which are counted differently, so no pending bills figure is shown for that year.",
+    "Do not add up spending across years without adjusting for unspent cash carried forward and re-budgeted the next year."
+  ]
+}

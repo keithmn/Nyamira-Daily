@@ -1,0 +1,64 @@
+---
+// One year's budget (decision #105): the total, where each KSh 100 goes and comes from, and the 24 departments.
+// A page exists only for a year whose budget is loaded.
+import MoneyShell from '../../../../components/money/MoneyShell.astro';
+import StageStrip from '../../../../components/money/StageStrip.astro';
+import EvidenceLabel from '../../../../components/EvidenceLabel.astro';
+import ChartFrame from '../../../../components/charts/ChartFrame.astro';
+import ShareBars from '../../../../components/charts/ShareBars.astro';
+import HBars from '../../../../components/viz/HBars.astro';
+import { ksh } from '../../../../lib/fmt.js';
+import { full } from '@kbe/engine/fmt';
+import { budgetYear, departments, departmentPath, FY, FY_PATH } from '../../../../lib/county-budget.js';
+import { shortTitle } from '../../../../lib/county-registry.js';
+
+export function getStaticPaths() {
+  return [{ params: { fy: FY_PATH } }];
+}
+
+const y = budgetYear();
+const list = departments().sort((a, b) => b.total - a.total);
+const doc = y.total.doc;
+const src = `${shortTitle(doc)}`;
+const per100 = (s) => (s >= 10 ? `KSh ${Math.round(s)}` : `KSh ${s.toFixed(1)}`);
+// Share bars print their value large, so the value stays short and the amount goes in the label.
+const outRows = y.out.map((p) => ({ label: `${p.label}: ${ksh(p.value)}`, value: p.share, display: per100(p.share) }));
+const inRows = y.into.map((p) => ({ label: `${p.label}: ${ksh(p.value)}`, value: p.share, display: per100(p.share) }));
+const tOut = { columns: ['Spent on', 'KSh', 'Of each KSh 100'], rows: y.out.map((p) => [p.label, p.value, p.share.toFixed(1)]) };
+const tIn = { columns: ['Comes from', 'KSh', 'Of each KSh 100'], rows: y.into.map((p) => [p.label, p.value, p.share.toFixed(1)]) };
+const tDept = { columns: ['Vote', 'Department', 'Total (KSh)', 'Recurrent (KSh)', 'Development (KSh)', 'Staff pay (KSh)'], rows: list.map((d) => [d.vote, d.name, d.total, d.recurrent, d.development, d.staff]) };
+const staff = y.out.find((p) => p.key === 'staff');
+const dev = y.out.find((p) => p.key === 'development');
+---
+<MoneyShell title={`Nyamira's budget ${FY}`} lead={`What the county planned to spend in ${FY}, on what, and where the money comes from.`} crumbs={[{ href: `/data/money/${FY_PATH}/`, label: `Budget ${FY}` }]}>
+  <section class="figure">
+    <span class="eyebrow">Budget · {FY} · printed estimates</span>
+    <span class="num is-lead">{ksh(y.total.value)}</span>
+    <p class="say">is Nyamira's budget for {FY}: <strong>{full(y.total.value)}</strong>. Of every KSh 100, <strong>{per100(staff.share)}</strong> pays staff and <strong>{per100(dev.share)}</strong> builds things that last.</p>
+    <p class="source"><EvidenceLabel kind={y.total.label} /> Source: <a href={doc.url} rel="noopener">{src}</a>, {y.total.page}</p>
+  </section>
+
+  <StageStrip />
+
+  <div class="two-figures">
+    <ChartFrame title={`Of each KSh 100, ${per100(staff.share)} pays staff`} sub={`Where Nyamira's ${FY} budget goes, by kind of spending`} evidence="official" source={`${src}, Tables 12 to 19`} note={`${staff.note} The budget's own wage-bill share is ${y.wageShare.value}% (${y.wageShare.page}).`} table={tOut} csvName={`nyamira-budget-${FY_PATH}-by-kind`}>
+      <ShareBars rows={outRows} label={`Where each KSh 100 of the ${FY} budget goes`} />
+    </ChartFrame>
+    <ChartFrame title={`Of each KSh 100, ${per100(y.into[0].share)} comes from the national government`} sub={`Where the money for Nyamira's ${FY} budget comes from`} evidence="official" source={`${src}, Table 3 and p.13`} note="The equitable share is the county's part of the money raised nationally, set by the County Allocation of Revenue Act. Grants come with conditions on how they are spent." table={tIn} csvName={`nyamira-budget-${FY_PATH}-sources`}>
+      <ShareBars rows={inRows} label={`Where each KSh 100 of the ${FY} budget comes from`} />
+    </ChartFrame>
+  </div>
+
+  <ChartFrame title={`${list[0].name} gets the most, ${ksh(list[0].total)}`} sub={`The 24 departments' budgets for ${FY}. Tap one to see its programmes and what it spent.`} evidence="official" source={`${src}, Table 8`} table={tDept} csvName={`nyamira-departments-${FY_PATH}`}>
+    <HBars title={`Department budgets ${FY}`} rows={list.map((d) => ({ label: d.short, value: d.total, display: ksh(d.total), href: departmentPath(d.vote) }))} />
+  </ChartFrame>
+
+  <details>
+    <summary>Read these figures with care</summary>
+    <ul>
+      <li>These are the printed estimates, the budget the county proposed. The county has not published the approved budget for {FY}, so we cannot confirm the Assembly passed it unchanged. The Controller of Budget's total for the year, {ksh(y.total.value)}, is the same.</li>
+      <li>Staff pay and other running costs add up to KSh 1 more than the printed recurrent total, because Medical Services' parts are rounded up by a shilling in the budget itself.</li>
+      <li>The budget has a few printed errors, such as one department total misprinted in Table 9. Where its tables disagree, we use the figure its other tables and its own arithmetic confirm.</li>
+    </ul>
+  </details>
+</MoneyShell>

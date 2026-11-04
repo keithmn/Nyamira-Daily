@@ -1,3 +1,11 @@
 {
-  "items": []
+  "items": [
+    {
+      "date": "2026-11-04",
+      "page": "/data/money/ (now /data/money/history/ and /data/money/revenue/)",
+      "changed": "The column \"Equitable share reported\" is now two columns: the equitable share the county was allocated, and the amount it received. The figures themselves have not changed; each year is now filed under the measure the Controller of Budget's report gives.",
+      "reason": "The one column mixed two measures: it showed the allocation in seven years (FY2013/14, 2014/15, 2018/19, 2019/20, 2021/22, 2023/24 and 2024/25) and the amount received in five. In FY2021/22, for example, it showed the KSh 5.14 billion allocation; the report says the county received KSh 4.72 billion.",
+      "source": "https://cob.go.ke/download/county-governments-annual-budget-implementation-review-report-for-the-fy-2021-22/"
+    }
+  ]
 }

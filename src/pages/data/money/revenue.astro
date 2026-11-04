@@ -1,0 +1,88 @@
+---
+// Where Nyamira's money comes from (decision #105): the equitable share, money raised locally and grants, from the
+// Controller of Budget and the County Allocation of Revenue Act (both held in the national registry where loaded).
+import MoneyShell from '../../../components/money/MoneyShell.astro';
+import Questions from '../../../components/money/Questions.astro';
+import EvidenceLabel from '../../../components/EvidenceLabel.astro';
+import ChartFrame from '../../../components/charts/ChartFrame.astro';
+import LineChart from '../../../components/charts/LineChart.astro';
+import { ksh } from '../../../lib/fmt.js';
+import { full } from '@kbe/engine/fmt';
+import money from '../../../lib/county-money.js';
+import { fig, shortTitle } from '../../../lib/county-registry.js';
+
+const ys = money.years, labels = ys.map((y) => y.fy), last = ys.at(-1);
+const N = 'ke.fy2025-26.spent.county.nyamira';
+const eqNext = fig('ke.fy2026-27.law.county.nyamira.equitable-share');
+const eqNow = fig('ke.fy2025-26.law.county.nyamira.equitable-share');
+const eqGot = fig(`${N}.equitable-share-received`);
+const osrT = fig(`${N}.osr-target`), osrA = fig(`${N}.osr-actual`), fif = fig(`${N}.osr-fif-actual`);
+const grT = fig(`${N}.grants-target`), grA = fig(`${N}.grants-actual`);
+const m = (v) => ksh(v * 1e6); // Controller of Budget figures are in KSh million
+const rise = ((eqNext.value - eqNow.value) / eqNow.value) * 100;
+const sOsr = [{ name: 'Target', tone: 'context', values: ys.map((y) => y.osrTarget), end: 'Target ' + Math.round(last.osrTarget) }, { name: 'Collected', tone: 'good', values: ys.map((y) => y.osr), end: 'Collected ' + Math.round(last.osr) }];
+// The title states the finding, worked out from the figures so it stays true when data changes (decision #69).
+const known = ys.filter((y) => y.osr != null && y.osrTarget != null);
+const short = known.filter((y) => y.osr < y.osrTarget).length;
+const osrTitle = short === known.length ? `The county collected less than its own target in every year from ${known[0].fy} to ${known.at(-1).fy}` : `The county collected less than its own target in ${short} of ${known.length} years`;
+const tOsr = { columns: ['Financial year', 'Target (KSh M)', 'Collected (KSh M)'], rows: ys.map((y) => [y.fy, y.osrTarget, y.osr]) };
+const questions = [
+  { text: `By 30 June 2026 the county had received KSh ${grA.value.toFixed(2)} million of the KSh ${grT.value.toFixed(2)} million in grants it budgeted for ${last.fy}. Which grants did not arrive, and what happens to the work they were meant to pay for?`, source: `the Controller of Budget's report for ${last.fy}, ${grA.page}` },
+  { text: `The county collected KSh ${osrA.value.toFixed(2)} million of its KSh ${osrT.value.toFixed(2)} million own-revenue target in ${last.fy}. Which fees and charges fell short?`, source: `the Controller of Budget's report for ${last.fy}, ${osrA.page}` },
+];
+---
+<MoneyShell title="Where Nyamira's money comes from" lead="Most of the county's money is its share of the taxes raised nationally. The rest is fees and charges it collects, grants, and money left over from earlier years." crumbs={[{ href: '/data/money/revenue/', label: 'Where the money comes from' }]}>
+  <div class="two-figures">
+    <section class="figure">
+      <span class="eyebrow">Equitable share · {last.fy}</span>
+      <span class="num is-lead">{m(eqGot.value)}</span>
+      <p class="say">came from the national government as Nyamira's equitable share in {last.fy}: all of what the law gave it.</p>
+      <p class="source"><EvidenceLabel kind={eqGot.label} /> Source: <a href={eqGot.doc.url} rel="noopener">{shortTitle(eqGot.doc)}</a>, {eqGot.page}</p>
+    </section>
+    <section class="figure">
+      <span class="eyebrow">Set by law for 2026/27</span>
+      <span class="num">{ksh(eqNext.value)}</span>
+      <p class="say">is Nyamira's equitable share for 2026/27, <strong>{rise.toFixed(1)}%</strong> more than the {ksh(eqNow.value)} for 2025/26.</p>
+      <p class="source"><EvidenceLabel kind={eqNext.label} /> Source: <a href={eqNext.doc.url} rel="noopener">{shortTitle(eqNext.doc)}</a>, {eqNext.page}</p>
+    </section>
+  </div>
+
+  <div class="two-figures">
+    <section class="figure">
+      <span class="eyebrow">Raised locally · {last.fy}</span>
+      <span class="num">{m(osrA.value)}</span>
+      <p class="say">collected from fees, rates and hospital charges, against a target of <strong>{m(osrT.value)}</strong>. Hospital fees were <strong>{m(fif.value)}</strong> of it.</p>
+      <p class="source"><EvidenceLabel kind={osrA.label} /> Source: <a href={osrA.doc.url} rel="noopener">{shortTitle(osrA.doc)}</a>, {osrA.page}</p>
+    </section>
+    <section class="figure">
+      <span class="eyebrow">Grants · {last.fy}</span>
+      <span class="num">{m(grA.value)}</span>
+      <p class="say">in grants arrived, of the <strong>{m(grT.value)}</strong> the budget expected. <strong class="hot">{m(grT.value - grA.value)}</strong> did not arrive by 30 June 2026.</p>
+      <p class="source"><EvidenceLabel kind={grA.label} /> Source: <a href={grA.doc.url} rel="noopener">{shortTitle(grA.doc)}</a>, {grA.page}</p>
+    </section>
+  </div>
+
+  <Questions questions={questions} />
+
+  <ChartFrame title={osrTitle} sub={`Own-source revenue target and amount collected, KSh million, ${labels[0]} to ${last.fy}`} evidence="official" source="Controller of Budget, County Budget Implementation Review Reports" note="From FY2022/23 hospital fees (Facility Improvement Financing) are counted, so later years are not directly comparable with earlier ones." table={tOsr} csvName="nyamira-own-source-revenue">
+    <LineChart label="Own-source revenue target and collected, KSh million" labels={labels} series={sOsr} />
+  </ChartFrame>
+
+  <section aria-labelledby="eq-h">
+    <h2 id="eq-h">The equitable share, year by year</h2>
+    <p>The Controller of Budget gives what the county was allocated, what it received, or both. They can differ: money promised is not always money paid. Where a report gives only one, the other is left blank.</p>
+    <div class="table-box">
+      <table class="cards">
+        <thead><tr><th>Year</th><th class="num">Allocated (KSh M)</th><th class="num">Received (KSh M)</th><th>How the report puts it</th></tr></thead>
+        <tbody>
+          {ys.map((y) => (
+            <tr><td>{y.fy}</td><td class="num" data-label="Allocated">{y.eqAllocated != null ? y.eqAllocated.toLocaleString('en-KE') : '–'}</td><td class="num" data-label="Received">{y.eqReceived != null ? y.eqReceived.toLocaleString('en-KE') : '–'}</td><td class="small" data-label="How the report puts it">{y.eqNote}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="source small"><EvidenceLabel kind="official" /> Controller of Budget annual county reports, each year's Nyamira section. Earlier, this site showed these in one column called "Equitable share reported"; see <a href="/how-we-work/#corrections">corrections</a>.</p>
+  </section>
+
+  <p>Where this year's budget expected its money to come from: <a href="/data/money/2025-26/">Nyamira's budget 2025/26</a>.</p>
+</MoneyShell>

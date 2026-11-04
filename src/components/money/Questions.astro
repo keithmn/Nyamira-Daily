@@ -1,0 +1,18 @@
+---
+// Questions to ask (decision #14): each one restates printed numbers, names its document and asks what happened.
+// Nothing here says why; that is for the county to answer.
+interface Q { text: string; source: string }
+interface Props { questions: Q[]; title?: string }
+const { questions, title = 'Questions to ask' } = Astro.props;
+---
+{questions.length > 0 && (
+  <section class="q-list" aria-label={title}>
+    <h2>{title}</h2>
+    <ol>
+      {questions.map((q) => (
+        <li><p>{q.text}</p><p class="source small">From {q.source}.</p></li>
+      ))}
+    </ol>
+    <p class="small muted">You can put these to your MCA, at a budget hearing, or to the county through <a href="/take-part/submission/">the submission helper</a>.</p>
+  </section>
+)}

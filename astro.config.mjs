@@ -1,12 +1,16 @@
 import { defineConfig } from 'astro/config';
+import { fileURLToPath } from 'node:url';
 import { resolveSite } from './scripts/site-config.js';
 
 const isBuild = process.argv.includes('build');
 const site = resolveSite({ build: isBuild });
+const root = fileURLToPath(new URL('.', import.meta.url));
 
 // Nyamira Daily: a light, static, phone-first site.
 export default defineConfig({
   site,
+  // The county figure registry is read from the repo at build time (src/lib/county-registry.js)
+  vite: { define: { __ND_ROOT__: JSON.stringify(root) } },
   trailingSlash: 'always',
   // Astro 7's default ('jsx') drops spaces between inline elements; keep the spacing the pages were written with
   compressHTML: true,

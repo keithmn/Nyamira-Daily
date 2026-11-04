@@ -1,0 +1,74 @@
+---
+// One programme (decision #105): its amount, split and sub-programmes, as Table 9 prints them. The amount is the sum
+// of its printed rows, worked out here and said so. Targets are not loaded yet (as decision #97 for the national pages).
+import MoneyShell from '../../../../../../../components/money/MoneyShell.astro';
+import EvidenceLabel from '../../../../../../../components/EvidenceLabel.astro';
+import ShareBars from '../../../../../../../components/charts/ShareBars.astro';
+import { ksh } from '../../../../../../../lib/fmt.js';
+import { full } from '@kbe/engine/fmt';
+import { departments, departmentPath, FY, FY_PATH } from '../../../../../../../lib/county-budget.js';
+import { shortTitle, sourceDoc } from '../../../../../../../lib/county-registry.js';
+
+export function getStaticPaths() {
+  return departments().flatMap((d) => d.programmes.map((p) => ({ params: { fy: FY_PATH, vote: d.vote, programme: p.slug }, props: { d, p } })));
+}
+
+const { d, p } = Astro.props;
+const pbb = sourceDoc('nyamira-pbb-2025-26');
+const ofDept = d.total ? (p.total / d.total) * 100 : null;
+const split = [{ label: 'Recurrent: staff pay and running costs', value: p.recurrent }, { label: 'Development: building things that last', value: p.development }]
+  .filter((x) => x.value).map((x) => ({ label: `${x.label}: ${ksh(x.value)}`, value: (x.value / p.total) * 100, display: `${Math.round((x.value / p.total) * 100)}%` }));
+const several = p.rows.length > 1;
+const layout = p.rows.some((r) => r.groupedBy === 'layout');
+---
+<MoneyShell title={`${p.name}: ${d.short}, ${FY}`} heading={p.name} lead={`A programme of ${d.name} (vote ${d.vote}) in the ${FY} budget.`} crumbs={[{ href: `/data/money/${FY_PATH}/`, label: `Budget ${FY}` }, { href: `/data/money/${FY_PATH}/departments/`, label: 'Departments' }, { href: departmentPath(d.vote), label: d.short }, { href: Astro.url.pathname, label: 'Programme' }]}>
+  <section class="figure">
+    <span class="eyebrow">Programme budget · {FY}</span>
+    {p.total ? (
+      <>
+        <span class="num is-lead">{ksh(p.total)}</span>
+        <p class="say"><strong>{ofDept.toFixed(1)}%</strong> of {d.name}'s budget ({full(p.total)}).{several && ' Worked out by Nyamira Daily: the sum of the sub-programmes below, as printed.'}</p>
+      </>
+    ) : (
+      <p class="say"><strong>No money is budgeted</strong> for this programme in {FY}: every amount is printed as a dash.</p>
+    )}
+    <p class="source"><EvidenceLabel kind="official" /> Source: <a href={pbb.url} rel="noopener">{shortTitle(pbb)}</a>, {p.page ?? 'Table 9'}</p>
+  </section>
+
+  {split.length > 1 && (
+    <section aria-labelledby="split-h">
+      <h2 id="split-h">How it splits</h2>
+      <ShareBars rows={split} label={`How the ${p.name} budget splits`} />
+    </section>
+  )}
+
+  <section aria-labelledby="sub-h">
+    <h2 id="sub-h">{several ? 'Sub-programmes' : 'As printed'}</h2>
+    <div class="table-box">
+      <table class="cards">
+        <thead><tr><th>Sub-programme</th><th class="num">Recurrent</th><th class="num">Development</th><th class="num">Total</th><th>Code printed</th></tr></thead>
+        <tbody>
+          {p.rows.map((r) => (
+            <tr>
+              <td>{r.name ?? <em>No name printed</em>}</td>
+              <td class="num" data-label="Recurrent">{r.recurrent ? full(r.recurrent) : '–'}</td>
+              <td class="num" data-label="Development">{r.development ? full(r.development) : '–'}</td>
+              <td class="num" data-label="Total">{r.total ? full(r.total) : '–'}</td>
+              <td data-label="Code printed">{r.printedCode ?? 'None'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    {p.rows.filter((r) => r.note).map((r) => <p class="small muted">{r.name ? `${r.name}: ` : ''}{r.note}</p>)}
+    {layout && <p class="small muted">Some rows here have no programme code printed beside them, so we placed them under this programme from the table's layout. A person is still checking that grouping.</p>}
+    <p class="small muted">A dash means the budget prints a dash: no money in that column.</p>
+  </section>
+
+  <section aria-labelledby="promise-h">
+    <h2 id="promise-h">What it promised to deliver</h2>
+    <p>Not yet loaded. The budget's targets for each programme are printed in tables that do not read reliably from the PDF, so a person will type them and check them twice before they appear here.</p>
+  </section>
+
+  <p><a href={departmentPath(d.vote)}>← All of {d.name}'s programmes, and what it spent</a></p>
+</MoneyShell>

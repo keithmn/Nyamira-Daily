@@ -232,6 +232,99 @@
       "note": "Printed as 39.3% in the budget statement on p.29."
     },
     {
+      "id": "ke.fy2025-26.estimates.county.nyamira.revenue.total",
+      "name": "Nyamira: total revenue expected, FY2025/26",
+      "value": 8646298391,
+      "level": "total",
+      "page": "Table 3, p.15, TOTAL REVENUE row",
+      "pdfPage": 15,
+      "grouping": "revenue",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.revenue.equitable-share",
+        "ke.fy2025-26.estimates.county.nyamira.revenue.balances",
+        "ke.fy2025-26.estimates.county.nyamira.revenue.osr-departments",
+        "ke.fy2025-26.estimates.county.nyamira.revenue.osr-fif",
+        "ke.fy2025-26.estimates.county.nyamira.revenue.osr-keroka",
+        "ke.fy2025-26.estimates.county.nyamira.revenue.osr-nyamira-municipality",
+        "ke.fy2025-26.estimates.county.nyamira.revenue.grants-national",
+        "ke.fy2025-26.estimates.county.nyamira.revenue.grants-partners"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.revenue.equitable-share",
+      "name": "Nyamira: equitable share, FY2025/26",
+      "value": 6073434356,
+      "level": "taxhead",
+      "page": "Table 3, p.13",
+      "pdfPage": 13,
+      "grouping": "revenue",
+      "note": "Equals the County Allocation of Revenue Act 2025's equitable share for Nyamira."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.revenue.balances",
+      "name": "Nyamira: unspent balances, FY2025/26",
+      "value": 383646035,
+      "level": "taxhead",
+      "page": "Table 3, p.13",
+      "pdfPage": 13,
+      "grouping": "revenue",
+      "note": "Money from earlier years not yet spent, carried into this budget."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.revenue.osr-departments",
+      "name": "Nyamira: own-source revenue from departments, FY2025/26",
+      "value": 150000000,
+      "level": "taxhead",
+      "page": "Table 3, p.13",
+      "pdfPage": 13,
+      "grouping": "revenue"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.revenue.osr-fif",
+      "name": "Nyamira: health Facility Improvement Fund (hospital fees), FY2025/26",
+      "value": 650000000,
+      "level": "taxhead",
+      "page": "Table 3, p.13",
+      "pdfPage": 13,
+      "grouping": "revenue"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.revenue.osr-keroka",
+      "name": "Nyamira: keroka Municipality own-source revenue, FY2025/26",
+      "value": 28450000,
+      "level": "taxhead",
+      "page": "Table 3, p.13",
+      "pdfPage": 13,
+      "grouping": "revenue"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.revenue.osr-nyamira-municipality",
+      "name": "Nyamira: nyamira Municipality own-source revenue, FY2025/26",
+      "value": 40260000,
+      "level": "taxhead",
+      "page": "Table 3, p.13",
+      "pdfPage": 13,
+      "grouping": "revenue"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.revenue.grants-national",
+      "name": "Nyamira: conditional grants from the national government, FY2025/26",
+      "value": 178858498,
+      "level": "taxhead",
+      "page": "Table 3, p.13-14",
+      "pdfPage": 13,
+      "grouping": "revenue"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.revenue.grants-partners",
+      "name": "Nyamira: grants from development partners, FY2025/26",
+      "value": 1141649502,
+      "level": "taxhead",
+      "page": "Table 3, p.13-14",
+      "pdfPage": 13,
+      "grouping": "revenue"
+    },
+    {
       "id": "ke.fy2025-26.estimates.county.nyamira.vote.5261",
       "name": "County Assembly: total budget, FY2025/26",
       "value": 921414409,

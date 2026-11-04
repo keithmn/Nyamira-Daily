@@ -1,5 +1,5 @@
 // Every published figure with its source, period and evidence label (decision #78). Documented on /data/open-data/.
-import money from '../../data/money.json';
+import money from '../../lib/county-money.js';
 import { json } from '../../lib/api.js';
 import { buildFacts } from '../../lib/facts.js';
 import { receipt, allWards } from '../../lib/ward.js';

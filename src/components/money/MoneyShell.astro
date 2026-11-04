@@ -1,0 +1,18 @@
+---
+// One frame for every county budget page (decision #105): the Money section's colour, its head and breadcrumbs.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../PageHead.astro';
+
+interface Crumb { href: string; label: string }
+interface Props { title: string; heading?: string; lead: string; description?: string; crumbs?: Crumb[] }
+const { title, heading = title, lead, description, crumbs = [] } = Astro.props;
+const trail = [{ href: '/data/', label: 'Data' }, { href: '/data/money/', label: 'Money' }, ...crumbs];
+---
+<Base title={title} description={description ?? lead}>
+  <div class="sec-harvest">
+    <PageHead eyebrow="Money" title={heading} lead={lead} tone="harvest" crumbs={trail} />
+    <div class="stack-lg" style="margin-top:24px">
+      <slot />
+    </div>
+  </div>
+</Base>

@@ -14,7 +14,7 @@ import wards from '../data/wards.js';
 import { topics } from '../data/topics.js';
 import Icon from '../components/Icon.astro';
 import { topicIcon } from '../lib/icons.js';
-import money from '../data/money.json';
+import money from '../lib/county-money.js';
 import { publisher } from '../county.js';
 
 const facilities = wards.reduce((n, w) => n + w.facilities.length, 0);

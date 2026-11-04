@@ -1,16 +1,17 @@
 # County data: what is loaded
 
-Phase C1 of [the plan](SITEMAP.md) (decision #105). Nyamira's money figures are records in `data/county/nyamira/`, in the same shape as the national registry and checked by `@kbe/engine`. No page reads them yet; that is phase C2.
+Phases C1 and C2 of [the plan](SITEMAP.md) (decisions #105 to #107). Nyamira's money figures are records in `data/county/nyamira/`, in the same shape as the national registry and checked by `@kbe/engine`. Pages read them through `src/lib/county-registry.js`, `county-money.js` and `county-budget.js`.
 
 ## In one table
 
 | File | What | Figures | Source |
 |---|---|---|---|
-| `figures/pbb-2025-26.json` | FY2025/26 budget: county totals, 24 votes, staff pay and running costs, and 96 programme rows | 408 | Programme Based Budget 2025/26, printed estimates |
+| `figures/pbb-2025-26.json` | FY2025/26 budget: county totals, 24 votes, staff pay and running costs, 96 programme rows, and the eight revenue sources (Table 3, which adds up to the whole budget) | 417 | Programme Based Budget 2025/26, printed estimates |
 | `figures/bir-2025-26-q4.json` | FY2025/26 spending by department to 30 June 2026, with the share spent | 207 | The county's fourth-quarter Budget Implementation Report |
-| `figures/cob-history.json` | FY2013/14 to FY2024/25: budget, spending, development, own-source revenue, equitable share, pending bills | 102 | Controller of Budget annual reports |
+| `figures/cob-history.json` | FY2013/14 to FY2024/25: budget, spending, development, own-source revenue, equitable share, pending bills; and for FY2025/26 the four values the national registry has in its CSVs but not as figures (recurrent spending, equitable share allocated and received, hospital fees) | 106 | Controller of Budget annual reports |
 | `structure-2025-26.json` | The 24 votes, their programmes and sub-programmes, by name, pointing at the figures | | Built from the CSVs |
 | `sources.json` | 13 documents, with their links, dates, SHA-256 and page offsets | | |
+| `notes.json` | The note and caveats the money pages print | | |
 
 The national registry already holds Nyamira's Controller of Budget figures for FY2024/25 (budget, spending, development) and FY2025/26 (those and own-source revenue, grants, wages, payables), and the equitable share from the County Allocation Act. They are not repeated here; the county check loads both registries together.
 

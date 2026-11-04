@@ -4,7 +4,7 @@ import EmbedFoot from '../../components/EmbedFoot.astro';
 import EvidenceLabel from '../../components/EvidenceLabel.astro';
 import Coins from '../../components/viz/Coins.astro';
 import SplitBar from '../../components/viz/SplitBar.astro';
-import money from '../../data/money.json';
+import money from '../../lib/county-money.js';
 const last = money.years[money.years.length - 1];
 const bn = (m) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
 ---

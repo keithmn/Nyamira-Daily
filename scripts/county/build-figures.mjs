@@ -42,6 +42,12 @@ export function budgetFigures() {
   figures.push({ id: `${PBB}.wage-share`, name: 'Nyamira: wage bill as a share of the budget, FY2025/26', value: 39.3, unit: '%', level: 'measure', grouping: 'measure', page: 'p.29', pdfPage: 29,
     calc: { formula: '(a + b) / c * 100', inputs: [`${PBB}.compensation.employees`, `${PBB}.compensation.social`, `${PBB}.total`], round: 1 },
     note: 'Printed as 39.3% in the budget statement on p.29.' });
+  // Where the money comes from: Table 3, read twice (its rows and the revenue framework on p.13 give the same
+  // amounts), and its parts must add up to the whole budget.
+  const revenue = csv('pbb-2025-26/revenue.csv');
+  add(`${PBB}.revenue.total`, 'Nyamira: total revenue expected, FY2025/26', 8646298391, 'total', 'Table 3, p.15, TOTAL REVENUE row', { grouping: 'revenue', parts: revenue.map((r) => `${PBB}.revenue.${r.key}`) });
+  for (const r of revenue) add(`${PBB}.revenue.${r.key}`, `Nyamira: ${r.name.charAt(0).toLowerCase()}${r.name.slice(1)}, FY2025/26`, Number(r.amount), 'taxhead', r.key.startsWith('grants') ? 'Table 3, p.13-14' : 'Table 3, p.13', { grouping: 'revenue',
+    ...(r.key === 'equitable-share' ? { note: 'Equals the County Allocation of Revenue Act 2025\'s equitable share for Nyamira.' } : r.key === 'balances' ? { note: 'Money from earlier years not yet spent, carried into this budget.' } : {}) });
 
   const structure = { fy: '2025/26', stage: 'estimates', source: 'nyamira-pbb-2025-26', votes: [] };
   for (const d of depts) {
@@ -128,6 +134,13 @@ export function historyFigures() {
         ...(note ? { note } : {}),
       });
     }
+  }
+  // FY2025/26: the few Controller of Budget figures the national registry loaded into its CSVs but not as figures.
+  for (const r of csv('cob-history/fy2025-26.csv')) {
+    const what = { 'rec-spent': 'recurrent spending', 'equitable-share-allocated': EQ.allocated, 'equitable-share-received': EQ.received, 'osr-fif-actual': 'hospital fees within own-source revenue' }[r.key];
+    figures.push({ id: `ke.fy2025-26.spent.county.nyamira.${r.key}`, name: `Nyamira: ${what}, FY2025/26`, value: Number(r.value), fy: '2025/26', unit: 'KSh m',
+      grouping: r.key.startsWith('equitable') ? 'county-revenue' : r.key.startsWith('osr') ? 'county-revenue-osr-detail' : 'county-spending', level: 'county',
+      source: 'cob-county-birr-2025-26', page: r.page, pdfPage: Number(r.pdf_page), checkedOn: '2026-11-02', checkedBy: 'claude-code', ...(r.note ? { note: r.note } : {}) });
   }
   return { defaults: { stage: 'spent', money: 'county', label: 'official', parent: null }, figures };
 }

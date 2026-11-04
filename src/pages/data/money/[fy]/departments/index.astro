@@ -1,0 +1,43 @@
+---
+// The 24 departments compared (decision #105): budget, staff pay share, and what each spent by the year's end.
+import MoneyShell from '../../../../../components/money/MoneyShell.astro';
+import EvidenceLabel from '../../../../../components/EvidenceLabel.astro';
+import ChartFrame from '../../../../../components/charts/ChartFrame.astro';
+import HBars from '../../../../../components/viz/HBars.astro';
+import { ksh } from '../../../../../lib/fmt.js';
+import { departments, departmentPath, pct, FY, FY_PATH } from '../../../../../lib/county-budget.js';
+import { shortTitle, sourceDoc } from '../../../../../lib/county-registry.js';
+
+export function getStaticPaths() {
+  return [{ params: { fy: FY_PATH } }];
+}
+
+const list = departments().sort((a, b) => b.total - a.total);
+const pbb = sourceDoc('nyamira-pbb-2025-26');
+const q4 = sourceDoc('nyamira-bir-2025-26-q4');
+const heavy = [...list].filter((d) => d.staffShare != null).sort((a, b) => b.staffShare - a.staffShare)[0];
+const tStaff = { columns: ['Department', 'Staff pay (KSh)', 'Total (KSh)', 'Staff pay share'], rows: list.map((d) => [d.name, d.staff, d.total, d.staffShare.toFixed(1) + '%']) };
+---
+<MoneyShell title={`Nyamira's 24 departments, ${FY}`} lead={`What each department was given in ${FY}, how much of it pays staff, and how much it had spent by 30 June 2026.`} crumbs={[{ href: `/data/money/${FY_PATH}/`, label: `Budget ${FY}` }, { href: `/data/money/${FY_PATH}/departments/`, label: 'Departments' }]}>
+  <section class="table-box" aria-label="Every department">
+    <table class="cards">
+      <thead><tr><th>Department</th><th class="num">Budget</th><th class="num">Share of county budget</th><th class="num">Staff pay share</th><th class="num">Spent by 30 June 2026</th></tr></thead>
+      <tbody>
+        {list.map((d) => (
+          <tr>
+            <td><a href={departmentPath(d.vote)}>{d.name}</a> <span class="small muted">Vote {d.vote}</span></td>
+            <td class="num" data-label="Budget">{ksh(d.total)}</td>
+            <td class="num" data-label="Share of county budget">{d.shareOfCounty.toFixed(1)}%</td>
+            <td class="num" data-label="Staff pay share">{d.staffShare.toFixed(0)}%</td>
+            <td class="num" data-label="Spent by 30 June 2026">{d.spending.total.share != null ? `${pct(d.spending.total.share)}` : 'Not reported'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+  <p class="source"><EvidenceLabel kind="official" /> Sources: <a href={pbb.url} rel="noopener">{shortTitle(pbb)}</a>, Tables 8, 13 and 14 (budget and staff pay); <a href={q4.url} rel="noopener">{shortTitle(q4)}</a>, Table 4 (spent).</p>
+
+  <ChartFrame title={`${heavy.short} spends the largest share of its budget on staff, ${heavy.staffShare.toFixed(0)}%`} sub={`Staff pay as a share of each department's ${FY} budget`} evidence="official" source={`${shortTitle(pbb)}, Tables 8, 13 and 14`} note="Staff pay is compensation to employees plus the employer's contributions, the budget's own wage-bill measure. Departments that mostly provide services, such as health and education, need more staff." table={tStaff} csvName={`nyamira-staff-pay-${FY_PATH}`}>
+    <HBars title={`Staff pay share by department, ${FY}`} rows={list.map((d) => ({ label: d.short, value: d.staffShare, display: `${d.staffShare.toFixed(0)}%`, href: departmentPath(d.vote) }))} />
+  </ChartFrame>
+</MoneyShell>
