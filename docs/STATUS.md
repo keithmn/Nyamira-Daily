@@ -12,6 +12,12 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 
 - **County budget on the national model (decision #105).** The owner approved `docs/county-budget/SITEMAP.md`: Nyamira's money figures move into a registry in `data/county/nyamira/`, then the money section grows into year, department, programme, revenue, track and history pages under `/data/money/`, in Nyamira's own look. Next: phase C1, data, on `feat/county-phase-1-data`.
 - Found while planning: the Money page ends at FY2024/25, while the national registry already holds Nyamira's FY2025/26 Controller of Budget figures. The county's website has Programme Based Budgets FY2015/16 to FY2025/26, the FY2025/26 quarterly reports, and no FY2026/27 budget yet.
+- **Phase C1, data, built** on branch `feat/county-phase-1-data` (from `3c3bd02`), not pushed. Details in `docs/county-budget/DATA.md`; choices in decision #106, for the owner to review.
+  - `data/county/nyamira/`: 717 figures from 13 documents. FY2025/26 budget for 24 votes and 96 programme rows (proved to the shilling against Tables 8, 12 and 19); FY2025/26 spending by department from the county's Q4 report; FY2013/14 to FY2024/25 from the Controller of Budget.
+  - 96 of 97 history figures carried over from `money.json` were found on their page in the 11 stored reports. `money.json`'s equitable share column mixes the allocation (seven years) and the amount received (five years); the registry separates them.
+  - `npm run check:county` and 11 tests (`npm test`: 322 pass). No page changed: the main site builds the same 2,817 pages.
+  - Waiting for a person: `data-src/county/nyamira/person-checks.csv` (programme names and grouping, the budget's approval status, one history figure, the equitable share years).
+  - Next: phase C2, pages. It must also fix the Money page's equitable share column, with a corrections note.
 
 ## Changes on 3 Nov 2026
 

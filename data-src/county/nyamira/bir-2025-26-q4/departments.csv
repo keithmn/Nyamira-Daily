@@ -1,0 +1,76 @@
+vote,department_as_printed,kind,budget,spent,pct_printed,deviation,pdf_page
+5261,County Assembly,recurrent,689414409,481617284,69.9,207797125,92
+5261,County Assembly,development,232000000,35681553,15.4,196318447,92
+5261,County Assembly,total,921414409,517298837,56.1,404115572,92
+5262,Executive,recurrent,444949706,440202799,98.9,4746907,92
+5262,Executive,development,0,0,0.0,0,92
+5262,Executive,total,444949706,440202799,98.9,4746907,92
+5263,Finance &Accounting services,recurrent,187485390,185445303,98.9,2040087,92
+5263,Finance &Accounting services,development,261573174,252360693,96.5,9212481,92
+5263,Finance &Accounting services,total,449058564,437805996,97.5,11252568,92
+5277,Economic planning & Resource mobilization,recurrent,178551420,179941321,100.8,-1389901,92
+5277,Economic planning & Resource mobilization,development,20000000,19998053,100.0,1947,92
+5277,Economic planning & Resource mobilization,total,198551420,199939374,100.7,-1387954,92
+5264,Agriculture Crop Development,recurrent,60529200,58676089,96.9,1853111,92
+5264,Agriculture Crop Development,development,317668919,308664597,97.2,9004322,92
+5264,Agriculture Crop Development,total,378198119,367340686,97.1,10857433,92
+5278,Livestock and Fisheries Services,recurrent,102917873,90700738,88.1,12217135,92
+5278,Livestock and Fisheries Services,development,16500000,12188158,73.9,4311842,92
+5278,Livestock and Fisheries Services,total,119417873,102888896,86.2,16528977,92
+5265,"Environment, natural resources and mining",recurrent,72584289,67189325,92.6,5394964,92
+5265,"Environment, natural resources and mining",development,248710133,244967348,98.5,3742785,92
+5265,"Environment, natural resources and mining",total,321294422,312156673,97.2,9137749,93
+5266,"Education, Vocational Training and ICT",recurrent,470265561,460128490,97.8,10137071,93
+5266,"Education, Vocational Training and ICT",development,108900000,104141730,95.6,4758270,93
+5266,"Education, Vocational Training and ICT",total,579165561,564270220,97.4,14895341,93
+5267,Medical Services,recurrent,926620438,810662988,87.5,115957450,93
+5267,Medical Services,development,419302600,16845242,4.0,402457358,93
+5267,Medical Services,total,1345923038,827508230,61.5,518414808,93
+5279,Primary Health Care,recurrent,1102065948,1090020033,98.9,12045915,93
+5279,Primary Health Care,development,41100000,40458930,98.4,641070,93
+5279,Primary Health Care,total,1143165948,1130478963,98.9,12686985,93
+5268,Lands Housing and urban development,recurrent,92428464,90703028,98.1,1725436,93
+5268,Lands Housing and urban development,development,291023322,263229081,90.4,27794241,93
+5268,Lands Housing and urban development,total,383451786,353932109,92.3,29519677,93
+5270,Roads Transport and Public Works,recurrent,107959995,107374421,99.5,585574,93
+5270,Roads Transport and Public Works,development,435716791,397068340,91.1,38648451,93
+5270,Roads Transport and Public Works,total,543676786,504442761,92.8,39234025,93
+5271,"Trade, Tourism and Cooperative development",recurrent,45348475,41508704,91.5,3839771,93
+5271,"Trade, Tourism and Cooperative development",development,256200000,241779218,94.4,14420782,93
+5271,"Trade, Tourism and Cooperative development",total,301548475,283287922,93.9,18260553,93
+5272,Gender Youth and Social services,recurrent,79788718,77377213,97.0,2411505,93
+5272,Gender Youth and Social services,development,26800000,26435024,98.6,364976,93
+5272,Gender Youth and Social services,total,106588718,103812237,97.4,2776481,93
+5273,Public Service Board,recurrent,57300102,50127343,87.5,7172759,93
+5273,Public Service Board,development,0,0,0.0,0,93
+5273,Public Service Board,total,57300102,50127343,87.5,7172759,93
+5274,Public Service Management,recurrent,508085294,506511195,99.7,1574099,93
+5274,Public Service Management,development,372500000,2351784,0.6,370148216,94
+5274,Public Service Management,total,880585294,508862979,57.8,371722315,94
+5275,Nyamira Municipality,recurrent,86783593,78246815,90.2,8536778,94
+5275,Nyamira Municipality,development,94295838,62022005,65.8,32273833,94
+5275,Nyamira Municipality,total,181079431,140268820,77.5,40810611,94
+5276,county attorney,recurrent,24447242,14171503,58.0,10275739,94
+5276,county attorney,development,0,0,0.0,0,94
+5276,county attorney,total,24447242,14171503,58.0,10275739,94
+5280,Keroka municipality,recurrent,28559379,28252012,98.9,307367,94
+5280,Keroka municipality,development,20000000,19998783,100.0,1217,94
+5280,Keroka municipality,total,48559379,48250795,99.4,308584,94
+5281,Nyamira Revenue Board,recurrent,13998185,12615971,90.1,1382214,94
+5281,Nyamira Revenue Board,development,0,0,0.0,0,94
+5281,Nyamira Revenue Board,total,13998185,12615971,90.1,1382214,94
+5269,Water and sanitation,recurrent,44226378,42094246,95.2,2132132,94
+5269,Water and sanitation,development,88700000,87719760,98.9,980240,94
+5269,Water and sanitation,total,132926378,129814006,97.7,3112372,94
+5282,Nyamira Disability Board,recurrent,4998185,1001800,20.0,3996385,94
+5282,Nyamira Disability Board,development,0,0,0.0,0,94
+5282,Nyamira Disability Board,total,4998185,1001800,20.0,3996385,94
+5283,Nyamira Investment corporation,recurrent,5498185,1690900,30.8,3807285,94
+5283,Nyamira Investment corporation,development,0,0,0.0,0,94
+5283,Nyamira Investment corporation,total,5498185,1690900,30.8,3807285,94
+5284,Nyamira water & sanitation company,recurrent,30501185,23457689,76.9,7043496,94
+5284,Nyamira water & sanitation company,development,30000000,30000000,100.0,0,94
+5284,Nyamira water & sanitation company,total,60501185,53457689,88.4,7043496,94
+total,County Totals,recurrent,5365307614,4939717210,92.1,425590404,95
+total,County Totals,development,3280990777,2165910299,66.0,1115080478,95
+total,County Totals,total,8646298391,7105627509,82.2,1540670882,95

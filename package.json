@@ -25,7 +25,9 @@
     "dev:national": "npm run dev -w @kbe/national",
     "build:national": "npm run build -w @kbe/national",
     "test:national:site": "npm run test:site -w @kbe/national",
-    "test:national:visual": "npm run test:visual -w @kbe/national"
+    "test:national:visual": "npm run test:visual -w @kbe/national",
+    "check:county": "node scripts/county/check-county.mjs",
+    "build:county-data": "node scripts/county/build-figures.mjs"
   },
   "dependencies": {
     "astro": "7.4.4",

@@ -17,3 +17,5 @@ check-launch.log
 
 # Source PDFs for the national product: listed with checksums in data/national/sources.json, not stored in Git (decision #27)
 data-src/national/pdfs/
+data-src/county/*/pdfs/
+data-src/county/*/text/

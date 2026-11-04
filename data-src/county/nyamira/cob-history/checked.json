@@ -1,0 +1,548 @@
+{
+  "2013/14": {
+    "checkedOn": "2026-11-04",
+    "method": "pdftotext -layout, value searched in the Nyamira section",
+    "fields": {
+      "budget": {
+        "page": "Nyamira section, p.147",
+        "pdfPage": 164,
+        "printedAs": "3.4 billion"
+      },
+      "spent": {
+        "page": "Nyamira section, p.147",
+        "pdfPage": 164,
+        "printedAs": "2.4 billion"
+      },
+      "dev-spent": {
+        "page": "Nyamira section, p.147",
+        "pdfPage": 164,
+        "printedAs": "726.1 million"
+      },
+      "rec-spent": {
+        "page": "Nyamira section, p.147",
+        "pdfPage": 164,
+        "printedAs": "1.7 billion"
+      },
+      "dev-absorption": {
+        "page": "Nyamira section, p.148",
+        "pdfPage": 165,
+        "printedAs": "44 per cent"
+      },
+      "osr-target": {
+        "page": "Nyamira section, p.147",
+        "pdfPage": 164,
+        "printedAs": "100.0 million"
+      },
+      "osr-actual": {
+        "page": "Nyamira section, p.147",
+        "pdfPage": 164,
+        "printedAs": "94.0 million"
+      },
+      "equitable-share": {
+        "page": "Nyamira section, p.147",
+        "pdfPage": 164,
+        "printedAs": "3.3 billion"
+      }
+    }
+  },
+  "2014/15": {
+    "checkedOn": "2026-11-04",
+    "method": "pdftotext -layout, value searched in the Nyamira section",
+    "fields": {
+      "budget": {
+        "page": "Nyamira section, PDF page 225",
+        "pdfPage": 225,
+        "printedAs": "4.67 billion"
+      },
+      "spent": {
+        "page": "Nyamira section, PDF page 226",
+        "pdfPage": 226,
+        "printedAs": "3.62 billion"
+      },
+      "dev-spent": {
+        "page": "Nyamira section, PDF page 226",
+        "pdfPage": 226,
+        "printedAs": "1.27 billion"
+      },
+      "rec-spent": {
+        "page": "Nyamira section, PDF page 226",
+        "pdfPage": 226,
+        "printedAs": "2.36 billion"
+      },
+      "dev-absorption": {
+        "page": "Nyamira section, PDF page 227",
+        "pdfPage": 227,
+        "printedAs": "65.2 per cent"
+      },
+      "osr-target": {
+        "page": "Nyamira section, PDF page 225",
+        "pdfPage": 225,
+        "printedAs": "219.05 million"
+      },
+      "osr-actual": {
+        "page": "Nyamira section, PDF page 226",
+        "pdfPage": 226,
+        "printedAs": "104.20 million"
+      },
+      "equitable-share": {
+        "page": "Nyamira section, PDF page 225",
+        "pdfPage": 225,
+        "printedAs": "3.61 billion"
+      },
+      "pending-bills": {
+        "page": "Nyamira section, PDF page 226",
+        "pdfPage": 226,
+        "printedAs": "187.96 + 215.38 million"
+      }
+    }
+  },
+  "2015/16": {
+    "checkedOn": "2026-11-04",
+    "method": "pdftotext -layout, value searched in the Nyamira section",
+    "fields": {
+      "budget": {
+        "page": "Nyamira section, PDF page 249",
+        "pdfPage": 249,
+        "printedAs": "5.45 billion"
+      },
+      "spent": {
+        "page": "Nyamira section, PDF page 251",
+        "pdfPage": 251,
+        "printedAs": "4.31 billion"
+      },
+      "dev-spent": {
+        "page": "Nyamira section, PDF page 251",
+        "pdfPage": 251,
+        "printedAs": "1.28 billion"
+      },
+      "rec-spent": {
+        "page": "Nyamira section, PDF page 251",
+        "pdfPage": 251,
+        "printedAs": "3.03 billion"
+      },
+      "dev-absorption": {
+        "page": "Nyamira section, PDF page 251",
+        "pdfPage": 251,
+        "printedAs": "54.5 per cent"
+      },
+      "osr-target": {
+        "page": "Nyamira section, PDF page 249",
+        "pdfPage": 249,
+        "printedAs": "240.96 million"
+      },
+      "osr-actual": {
+        "page": "Nyamira section, PDF page 249",
+        "pdfPage": 249,
+        "printedAs": "106.98 million"
+      },
+      "equitable-share": {
+        "page": "Nyamira section, PDF page 249",
+        "pdfPage": 249,
+        "printedAs": "4.15 billion"
+      },
+      "pending-bills": {
+        "page": "Nyamira section, PDF page 251",
+        "pdfPage": 251,
+        "printedAs": "52.91 + 69.48 million"
+      }
+    }
+  },
+  "2016/17": {
+    "checkedOn": "2026-11-04",
+    "method": "pdftotext -layout, value searched in the Nyamira section",
+    "fields": {
+      "budget": {
+        "page": "Nyamira section, PDF page 249",
+        "pdfPage": 249,
+        "printedAs": "5.61 billion"
+      },
+      "spent": {
+        "page": "Nyamira section, PDF page 251",
+        "pdfPage": 251,
+        "printedAs": "4.5 billion"
+      },
+      "dev-spent": {
+        "page": "Nyamira section, PDF page 251",
+        "pdfPage": 251,
+        "printedAs": "979.21 million"
+      },
+      "rec-spent": {
+        "page": "Nyamira section, PDF page 251",
+        "pdfPage": 251,
+        "printedAs": "3.52 billion"
+      },
+      "dev-absorption": {
+        "page": "Nyamira section, PDF page 251",
+        "pdfPage": 251,
+        "printedAs": "58.6 per cent"
+      },
+      "osr-target": {
+        "page": "Nyamira section, PDF page 249",
+        "pdfPage": 249,
+        "printedAs": "198.23 million"
+      },
+      "osr-actual": {
+        "page": "Nyamira section, PDF page 249",
+        "pdfPage": 249,
+        "printedAs": "93.92 million"
+      },
+      "equitable-share": {
+        "page": "Nyamira section, PDF page 249",
+        "pdfPage": 249,
+        "printedAs": "4.48 billion"
+      },
+      "pending-bills": {
+        "page": "Nyamira section, PDF page 251",
+        "pdfPage": 251,
+        "printedAs": "170.07 + 157.6 million"
+      }
+    }
+  },
+  "2017/18": {
+    "checkedOn": "2026-11-04",
+    "method": "pdftotext -layout, value searched in the Nyamira section",
+    "fields": {
+      "budget": {
+        "page": "Nyamira section, p.223",
+        "pdfPage": 243,
+        "printedAs": "6.11 billion"
+      },
+      "spent": {
+        "page": "Nyamira section, p.226",
+        "pdfPage": 246,
+        "printedAs": "4.23 billion"
+      },
+      "dev-spent": {
+        "page": "Nyamira section, p.226",
+        "pdfPage": 246,
+        "printedAs": "527.66 million"
+      },
+      "rec-spent": {
+        "page": "Nyamira section, p.226",
+        "pdfPage": 246,
+        "printedAs": "3.7 billion"
+      },
+      "dev-absorption": {
+        "page": "Nyamira section, p.226",
+        "pdfPage": 246,
+        "printedAs": "27.9 per cent"
+      },
+      "osr-target": {
+        "page": "Nyamira section, p.223",
+        "pdfPage": 243,
+        "printedAs": "253.11 million"
+      },
+      "osr-actual": {
+        "page": "Nyamira section, p.224",
+        "pdfPage": 244,
+        "printedAs": "96.62 million"
+      },
+      "equitable-share": {
+        "page": "Nyamira section, p.223",
+        "pdfPage": 243,
+        "printedAs": "4.62 billion"
+      },
+      "pending-bills": {
+        "page": "Nyamira section, p.226",
+        "pdfPage": 246,
+        "printedAs": "938.83 + 410.76 million"
+      }
+    }
+  },
+  "2018/19": {
+    "checkedOn": "2026-11-04",
+    "method": "pdftotext -layout, value searched in the Nyamira section",
+    "fields": {
+      "budget": {
+        "page": "Nyamira section, p.221",
+        "pdfPage": 243,
+        "printedAs": "6.96 billion"
+      },
+      "spent": {
+        "page": "Nyamira section, p.223",
+        "pdfPage": 245,
+        "printedAs": "5.60 billion"
+      },
+      "dev-spent": {
+        "page": "Nyamira section, p.223",
+        "pdfPage": 245,
+        "printedAs": "1.12 billion"
+      },
+      "rec-spent": {
+        "page": "Nyamira section, p.223",
+        "pdfPage": 245,
+        "printedAs": "4.48 billion"
+      },
+      "dev-absorption": {
+        "page": "Nyamira section, p.223",
+        "pdfPage": 245,
+        "printedAs": "52.6 per cent"
+      },
+      "osr-actual": {
+        "page": "Nyamira section, p.222",
+        "pdfPage": 244,
+        "printedAs": "165.45"
+      },
+      "equitable-share": {
+        "page": "Nyamira section, p.221",
+        "pdfPage": 243,
+        "printedAs": "4.77 billion"
+      }
+    }
+  },
+  "2019/20": {
+    "checkedOn": "2026-11-04",
+    "method": "pdftotext -layout, value searched in the Nyamira section",
+    "fields": {
+      "budget": {
+        "page": "Nyamira section, PDF page 307",
+        "pdfPage": 307,
+        "printedAs": "7 billion"
+      },
+      "spent": {
+        "page": "Nyamira section, PDF page 309",
+        "pdfPage": 309,
+        "printedAs": "5.77 billion"
+      },
+      "dev-spent": {
+        "page": "Nyamira section, PDF page 309",
+        "pdfPage": 309,
+        "printedAs": "1.20 billion"
+      },
+      "rec-spent": {
+        "page": "Nyamira section, PDF page 309",
+        "pdfPage": 309,
+        "printedAs": "4.56 billion"
+      },
+      "dev-absorption": {
+        "page": "Nyamira section, PDF page 309",
+        "pdfPage": 309,
+        "printedAs": "61.5 per cent"
+      },
+      "osr-target": {
+        "page": "Nyamira section, PDF page 307",
+        "pdfPage": 307,
+        "printedAs": "250 million"
+      },
+      "osr-actual": {
+        "page": "Nyamira section, PDF page 307",
+        "pdfPage": 307,
+        "printedAs": "185.57 million"
+      },
+      "equitable-share": {
+        "page": "Nyamira section, PDF page 307",
+        "pdfPage": 307,
+        "printedAs": "4.81 billion"
+      },
+      "pending-bills": {
+        "page": "Nyamira section, PDF page 309",
+        "pdfPage": 309,
+        "printedAs": "51.1 million"
+      }
+    }
+  },
+  "2020/21": {
+    "checkedOn": "2026-11-04",
+    "method": "pdftotext -layout, value searched in the Nyamira section",
+    "fields": {
+      "budget": {
+        "page": "Nyamira section, PDF page 339",
+        "pdfPage": 339,
+        "printedAs": "6.80 billion"
+      },
+      "spent": {
+        "page": "Nyamira section, PDF page 340",
+        "pdfPage": 340,
+        "printedAs": "5.75 billion"
+      },
+      "dev-spent": {
+        "page": "Nyamira section, PDF page 340",
+        "pdfPage": 340,
+        "printedAs": "1.40 billion"
+      },
+      "rec-spent": {
+        "page": "Nyamira section, PDF page 340",
+        "pdfPage": 340,
+        "printedAs": "4.35 billion"
+      },
+      "dev-absorption": {
+        "page": "Nyamira section, PDF page 340",
+        "pdfPage": 340,
+        "printedAs": "65.3 per cent"
+      },
+      "osr-target": {
+        "page": "Nyamira section, PDF page 339",
+        "pdfPage": 339,
+        "printedAs": "250.00 million"
+      },
+      "osr-actual": {
+        "page": "Nyamira section, PDF page 339",
+        "pdfPage": 339,
+        "printedAs": "162.86 million"
+      },
+      "equitable-share": {
+        "page": "Nyamira section, PDF page 339",
+        "pdfPage": 339,
+        "printedAs": "4.81 billion"
+      },
+      "pending-bills": {
+        "page": "Nyamira section, PDF page 340",
+        "pdfPage": 340,
+        "printedAs": "618.78 + 287.79 million"
+      }
+    }
+  },
+  "2021/22": {
+    "checkedOn": "2026-11-04",
+    "method": "pdftotext -layout, value searched in the Nyamira section",
+    "fields": {
+      "budget": {
+        "page": "Nyamira section, PDF page 367",
+        "pdfPage": 367,
+        "printedAs": "6.83 billion"
+      },
+      "spent": {
+        "page": "Nyamira section, PDF page 369",
+        "pdfPage": 369,
+        "printedAs": "5.85 billion"
+      },
+      "dev-spent": {
+        "page": "Nyamira section, PDF page 367",
+        "pdfPage": 367,
+        "printedAs": "1.33 billion"
+      },
+      "rec-spent": {
+        "page": "Nyamira section, PDF page 369",
+        "pdfPage": 369,
+        "printedAs": "4.52 billion"
+      },
+      "dev-absorption": {
+        "page": "Nyamira section, PDF page 369",
+        "pdfPage": 369,
+        "printedAs": "64.9 per cent"
+      },
+      "osr-target": {
+        "page": "Nyamira section, PDF page 367",
+        "pdfPage": 367,
+        "printedAs": "295 million"
+      },
+      "osr-actual": {
+        "page": "Nyamira section, PDF page 368",
+        "pdfPage": 368,
+        "printedAs": "166.49 million"
+      },
+      "equitable-share": {
+        "page": "Nyamira section, PDF page 368",
+        "pdfPage": 368,
+        "printedAs": "5,135,340,036"
+      },
+      "pending-bills": {
+        "page": "Nyamira section, PDF page 369",
+        "pdfPage": 369,
+        "printedAs": "584.56 million"
+      }
+    }
+  },
+  "2022/23": {
+    "checkedOn": "2026-11-04",
+    "method": "pdftotext -layout, value searched in the Nyamira section",
+    "fields": {
+      "budget": {
+        "page": "Nyamira section, PDF page 505",
+        "pdfPage": 505,
+        "printedAs": "7.09 billion"
+      },
+      "spent": {
+        "page": "Nyamira section, PDF page 507",
+        "pdfPage": 507,
+        "printedAs": "5.74 billion"
+      },
+      "dev-spent": {
+        "page": "Nyamira section, PDF page 507",
+        "pdfPage": 507,
+        "printedAs": "1.39 billion"
+      },
+      "rec-spent": {
+        "page": "Nyamira section, PDF page 507",
+        "pdfPage": 507,
+        "printedAs": "4.34 billion"
+      },
+      "dev-absorption": {
+        "page": "Nyamira section, PDF page 507",
+        "pdfPage": 507,
+        "printedAs": "63.8 per cent"
+      },
+      "osr-target": {
+        "page": "Nyamira section, PDF page 505",
+        "pdfPage": 505,
+        "printedAs": "432 million"
+      },
+      "osr-actual": {
+        "page": "Nyamira section, PDF page 505",
+        "pdfPage": 505,
+        "printedAs": "113.48 million"
+      },
+      "equitable-share": {
+        "page": "Nyamira section, PDF page 505",
+        "pdfPage": 505,
+        "printedAs": "5.14 billion"
+      },
+      "pending-bills": {
+        "page": "Nyamira section, PDF page 508",
+        "pdfPage": 508,
+        "printedAs": "78.69 million"
+      }
+    }
+  },
+  "2023/24": {
+    "checkedOn": "2026-11-04",
+    "method": "pdftotext -layout, value searched in the Nyamira section",
+    "fields": {
+      "budget": {
+        "page": "Nyamira section, PDF page 456",
+        "pdfPage": 456,
+        "printedAs": "7.28 billion"
+      },
+      "spent": {
+        "page": "Nyamira section, PDF page 459",
+        "pdfPage": 459,
+        "printedAs": "6.17 billion"
+      },
+      "dev-spent": {
+        "page": "Nyamira section, PDF page 459",
+        "pdfPage": 459,
+        "printedAs": "1.32 billion"
+      },
+      "rec-spent": {
+        "page": "Nyamira section, PDF page 459",
+        "pdfPage": 459,
+        "printedAs": "4.85 billion"
+      },
+      "dev-absorption": {
+        "page": "Nyamira section, PDF page 459",
+        "pdfPage": 459,
+        "printedAs": "61.2 per cent"
+      },
+      "osr-target": {
+        "page": "Nyamira section, PDF page 456",
+        "pdfPage": 456,
+        "printedAs": "687.00 million"
+      },
+      "osr-actual": {
+        "page": "Nyamira section, PDF page 457",
+        "pdfPage": 457,
+        "printedAs": "369.80 million"
+      },
+      "equitable-share": {
+        "page": "Nyamira section, PDF page 457",
+        "pdfPage": 457,
+        "printedAs": "5,334,198,486"
+      },
+      "pending-bills": {
+        "page": "Nyamira section, PDF page 459",
+        "pdfPage": 459,
+        "printedAs": "142.31 + 36.18 million"
+      }
+    }
+  }
+}

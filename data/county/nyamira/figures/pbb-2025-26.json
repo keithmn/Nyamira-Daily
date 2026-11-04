@@ -1,0 +1,4458 @@
+{
+  "defaults": {
+    "fy": "2025/26",
+    "stage": "estimates",
+    "unit": "KSh",
+    "grouping": "vote",
+    "money": "county",
+    "label": "official",
+    "source": "nyamira-pbb-2025-26",
+    "parent": null,
+    "checkedOn": "2026-11-04",
+    "checkedBy": "claude-code"
+  },
+  "figures": [
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.total",
+      "name": "Nyamira: total budget, FY2025/26",
+      "value": 8646298391,
+      "level": "total",
+      "page": "Table 8, p.20, TOTAL row",
+      "pdfPage": 20
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.recurrent",
+      "name": "Nyamira: recurrent budget, FY2025/26",
+      "value": 5365307614,
+      "level": "total",
+      "page": "Table 12, p.38, TOTAL row",
+      "pdfPage": 38,
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.vote.5261.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5262.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5263.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5264.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5265.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5266.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5267.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5268.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5269.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5270.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5271.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5272.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5273.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5275.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5276.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5277.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5278.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5279.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5280.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5281.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5282.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5283.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5284.recurrent"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.development",
+      "name": "Nyamira: development budget, FY2025/26",
+      "value": 3280990777,
+      "level": "total",
+      "page": "Table 19, p.52, TOTAL row",
+      "pdfPage": 52,
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.vote.5261.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5263.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5264.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5265.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5266.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5267.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5268.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5269.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5270.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5271.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5272.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5274.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5275.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5277.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5278.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5279.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5280.development",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5284.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.compensation.employees",
+      "name": "Nyamira: compensation to employees, FY2025/26",
+      "value": 3015964703,
+      "level": "economic",
+      "page": "Table 13, p.39, Total row",
+      "pdfPage": 39,
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.vote.5261.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5262.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5263.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5264.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5265.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5266.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5267.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5268.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5269.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5270.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5271.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5272.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5273.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5274.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5275.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5276.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5277.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5278.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5279.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5280.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5281.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5282.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5283.compensation.employees",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5284.compensation.employees"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.compensation.social",
+      "name": "Nyamira: social contributions (employer), FY2025/26",
+      "value": 385119251,
+      "level": "economic",
+      "page": "Table 14, p.40, Total row",
+      "pdfPage": 40,
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.vote.5261.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5262.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5263.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5264.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5265.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5266.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5267.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5268.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5269.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5270.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5271.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5272.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5273.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5274.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5275.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5276.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5277.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5278.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5279.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5280.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5281.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5282.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5283.compensation.social",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5284.compensation.social"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.operations.grants",
+      "name": "Nyamira: recurrent conditional grants, FY2025/26",
+      "value": 147679711,
+      "level": "economic",
+      "page": "Table 15, p.40-41, Total row",
+      "pdfPage": 40,
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.vote.5274.operations.grants",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5275.operations.grants",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5279.operations.grants"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.operations.funds",
+      "name": "Nyamira: recurrent funds, FY2025/26",
+      "value": 319697400,
+      "level": "economic",
+      "page": "Table 16, p.41, Total row",
+      "pdfPage": 41,
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.vote.5263.operations.funds",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5266.operations.funds",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5267.operations.funds"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.operations.om",
+      "name": "Nyamira: operations and maintenance, FY2025/26",
+      "value": 1496846550,
+      "level": "economic",
+      "page": "Table 17, p.42, Total row",
+      "pdfPage": 42,
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.vote.5261.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5262.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5263.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5264.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5265.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5266.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5267.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5268.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5269.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5270.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5271.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5272.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5273.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5274.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5275.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5276.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5277.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5278.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5279.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5280.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5281.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5282.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5283.operations.om",
+        "ke.fy2025-26.estimates.county.nyamira.vote.5284.operations.om"
+      ],
+      "note": "The narrative on p.29 gives 1,496,846,549; Table 17 and its rows give 1,496,846,550."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.wage-share",
+      "name": "Nyamira: wage bill as a share of the budget, FY2025/26",
+      "value": 39.3,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "page": "p.29",
+      "pdfPage": 29,
+      "calc": {
+        "formula": "(a + b) / c * 100",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.compensation.social",
+          "ke.fy2025-26.estimates.county.nyamira.total"
+        ],
+        "round": 1
+      },
+      "note": "Printed as 39.3% in the budget statement on p.29."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5261",
+      "name": "County Assembly: total budget, FY2025/26",
+      "value": 921414409,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5261.recurrent",
+      "name": "County Assembly: recurrent budget, FY2025/26",
+      "value": 689414409,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5261"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5261.development",
+      "name": "County Assembly: development budget, FY2025/26",
+      "value": 232000000,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5261"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5261.compensation",
+      "name": "County Assembly: staff pay, FY2025/26",
+      "value": 405349717,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5261.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5261.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5261.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5261.operations",
+      "name": "County Assembly: other running costs, FY2025/26",
+      "value": 284064692,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5261.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5261.compensation.employees",
+      "name": "County Assembly: compensation to employees, FY2025/26",
+      "value": 353544720,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5261.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5261.compensation.social",
+      "name": "County Assembly: social contributions (employer), FY2025/26",
+      "value": 51804997,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5261.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5261.operations.om",
+      "name": "County Assembly: operations and maintenance, FY2025/26",
+      "value": 284064692,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5261.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5261.p1.r1.recurrent",
+      "name": "County Assembly: Administration, policy planning and support services (recurrent), FY2025/26",
+      "value": 337724159,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5261.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5261.p1.r1.development",
+      "name": "County Assembly: Administration, policy planning and support services (development), FY2025/26",
+      "value": 122000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5261.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5261.p1.r1",
+      "name": "County Assembly: Administration, policy planning and support services, FY2025/26",
+      "value": 459724159,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5261",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5261.p1.r1.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5261.p1.r1.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5261.p2.r2.recurrent",
+      "name": "County Assembly: Oversight and management services (recurrent), FY2025/26",
+      "value": 43506030,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5261.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5261.p2.r2",
+      "name": "County Assembly: Oversight and management services, FY2025/26",
+      "value": 43506030,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5261"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5261.p3.r3.recurrent",
+      "name": "County Assembly: Legislation and representation services (recurrent), FY2025/26",
+      "value": 308184220,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5261.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5261.p3.r3.development",
+      "name": "County Assembly: Legislation and representation services (development), FY2025/26",
+      "value": 110000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5261.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5261.p3.r3",
+      "name": "County Assembly: Legislation and representation services, FY2025/26",
+      "value": 418184220,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5261",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5261.p3.r3.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5261.p3.r3.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5262",
+      "name": "County Executive: total budget, FY2025/26",
+      "value": 444949706,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5262.recurrent",
+      "name": "County Executive: recurrent budget, FY2025/26",
+      "value": 444949706,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5262"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5262.compensation",
+      "name": "County Executive: staff pay, FY2025/26",
+      "value": 108848732,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5262.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5262.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5262.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5262.operations",
+      "name": "County Executive: other running costs, FY2025/26",
+      "value": 336100974,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5262.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5262.compensation.employees",
+      "name": "County Executive: compensation to employees, FY2025/26",
+      "value": 97869188,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5262.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5262.compensation.social",
+      "name": "County Executive: social contributions (employer), FY2025/26",
+      "value": 10979544,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5262.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5262.operations.om",
+      "name": "County Executive: operations and maintenance, FY2025/26",
+      "value": 336100974,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5262.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p1.r1.recurrent",
+      "name": "County Executive: Policy planning, general administration and support services, General administration (recurrent), FY2025/26",
+      "value": 197138843,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5262.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p1.r1",
+      "name": "County Executive: Policy planning, general administration and support services, General administration, FY2025/26",
+      "value": 197138843,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5262"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p1.r2.recurrent",
+      "name": "County Executive: Policy planning, general administration and support services, Policy planning and support services (recurrent), FY2025/26",
+      "value": 120340627,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5262.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p1.r2",
+      "name": "County Executive: Policy planning, general administration and support services, Policy planning and support services, FY2025/26",
+      "value": 120340627,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5262"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p2.r3.recurrent",
+      "name": "County Executive: County results and delivery support services (recurrent), FY2025/26",
+      "value": 40160880,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5262.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p2.r3",
+      "name": "County Executive: County results and delivery support services, FY2025/26",
+      "value": 40160880,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5262"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p3.r4.recurrent",
+      "name": "County Executive: Governance advisory, liaison, communication support services, Governor's advisory, liaison, communication and support services (recurrent), FY2025/26",
+      "value": 35576000,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5262.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p3.r4",
+      "name": "County Executive: Governance advisory, liaison, communication support services, Governor's advisory, liaison, communication and support services, FY2025/26",
+      "value": 35576000,
+      "level": "subprogramme",
+      "page": "Table 9, p.20",
+      "pdfPage": 20,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5262"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p4.r5.recurrent",
+      "name": "County Executive: Coordination and management of county executive affairs and support services, Executive management services (recurrent), FY2025/26",
+      "value": 51733356,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5262.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p4.r5",
+      "name": "County Executive: Coordination and management of county executive affairs and support services, Executive management services, FY2025/26",
+      "value": 51733356,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5262"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5263",
+      "name": "Finance and Accounting services: total budget, FY2025/26",
+      "value": 449058565,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5263.recurrent",
+      "name": "Finance and Accounting services: recurrent budget, FY2025/26",
+      "value": 187485391,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5263"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5263.development",
+      "name": "Finance and Accounting services: development budget, FY2025/26",
+      "value": 261573174,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5263"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5263.compensation",
+      "name": "Finance and Accounting services: staff pay, FY2025/26",
+      "value": 70977057,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5263.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5263.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5263.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5263.operations",
+      "name": "Finance and Accounting services: other running costs, FY2025/26",
+      "value": 116508334,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5263.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5263.operations.funds",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5263.operations.om"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5263.compensation.employees",
+      "name": "Finance and Accounting services: compensation to employees, FY2025/26",
+      "value": 61505063,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5263.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5263.compensation.social",
+      "name": "Finance and Accounting services: social contributions (employer), FY2025/26",
+      "value": 9471994,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5263.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5263.operations.funds",
+      "name": "Finance and Accounting services: recurrent funds, FY2025/26",
+      "value": 25000000,
+      "level": "economic",
+      "page": "Table 16, p.41",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5263.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5263.operations.om",
+      "name": "Finance and Accounting services: operations and maintenance, FY2025/26",
+      "value": 91508334,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5263.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p1.r1.recurrent",
+      "name": "Finance and Accounting services: General administration, policy planning and support services (recurrent), FY2025/26",
+      "value": 108227057,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5263.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p1.r1",
+      "name": "Finance and Accounting services: General administration, policy planning and support services, FY2025/26",
+      "value": 108227057,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5263"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p2.r2.recurrent",
+      "name": "Finance and Accounting services: Accounting services (recurrent), FY2025/26",
+      "value": 69858334,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5263.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p2.r2.development",
+      "name": "Finance and Accounting services: Accounting services (development), FY2025/26",
+      "value": 261573174,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5263.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p2.r2",
+      "name": "Finance and Accounting services: Accounting services, FY2025/26",
+      "value": 331431508,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5263",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5263.p2.r2.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5263.p2.r2.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p3.r3.recurrent",
+      "name": "Finance and Accounting services: Audit and risk management services (recurrent), FY2025/26",
+      "value": 4000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5263.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p3.r3",
+      "name": "Finance and Accounting services: Audit and risk management services, FY2025/26",
+      "value": 4000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5263"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p4.r4.recurrent",
+      "name": "Finance and Accounting services: Supply chain management services (recurrent), FY2025/26",
+      "value": 5400000,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5263.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p4.r4",
+      "name": "Finance and Accounting services: Supply chain management services, FY2025/26",
+      "value": 5400000,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5263"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5264",
+      "name": "Crop Development: total budget, FY2025/26",
+      "value": 378198119,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5264.recurrent",
+      "name": "Crop Development: recurrent budget, FY2025/26",
+      "value": 60529200,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5264"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5264.development",
+      "name": "Crop Development: development budget, FY2025/26",
+      "value": 317668919,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5264"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5264.compensation",
+      "name": "Crop Development: staff pay, FY2025/26",
+      "value": 56989200,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5264.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5264.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5264.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5264.operations",
+      "name": "Crop Development: other running costs, FY2025/26",
+      "value": 3540000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5264.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5264.compensation.employees",
+      "name": "Crop Development: compensation to employees, FY2025/26",
+      "value": 50394711,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5264.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5264.compensation.social",
+      "name": "Crop Development: social contributions (employer), FY2025/26",
+      "value": 6594489,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5264.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5264.operations.om",
+      "name": "Crop Development: operations and maintenance, FY2025/26",
+      "value": 3540000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5264.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5264.p1.r1.recurrent",
+      "name": "Crop Development: General administration, policy and planning, General administration (recurrent), FY2025/26",
+      "value": 56989200,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5264.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5264.p1.r1",
+      "name": "Crop Development: General administration, policy and planning, General administration, FY2025/26",
+      "value": 56989200,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5264"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5264.p1.r2.recurrent",
+      "name": "Crop Development: General administration, policy and planning, Policy and planning (recurrent), FY2025/26",
+      "value": 2150000,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5264.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5264.p1.r2",
+      "name": "Crop Development: General administration, policy and planning, Policy and planning, FY2025/26",
+      "value": 2150000,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5264"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5264.p2.r3.recurrent",
+      "name": "Crop Development: Crop, agribusiness and land development, Crops (recurrent), FY2025/26",
+      "value": 1390000,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5264.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5264.p2.r3.development",
+      "name": "Crop Development: Crop, agribusiness and land development, Crops (development), FY2025/26",
+      "value": 317668919,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5264.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5264.p2.r3",
+      "name": "Crop Development: Crop, agribusiness and land development, Crops, FY2025/26",
+      "value": 319058919,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5264",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5264.p2.r3.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5264.p2.r3.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5265",
+      "name": "Environment, Water, Energy & Natural Resources: total budget, FY2025/26",
+      "value": 321294422,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5265.recurrent",
+      "name": "Environment, Water, Energy & Natural Resources: recurrent budget, FY2025/26",
+      "value": 72584289,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5265"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5265.development",
+      "name": "Environment, Water, Energy & Natural Resources: development budget, FY2025/26",
+      "value": 248710133,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5265"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5265.compensation",
+      "name": "Environment, Water, Energy & Natural Resources: staff pay, FY2025/26",
+      "value": 45584289,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5265.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5265.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5265.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5265.operations",
+      "name": "Environment, Water, Energy & Natural Resources: other running costs, FY2025/26",
+      "value": 27000000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5265.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5265.compensation.employees",
+      "name": "Environment, Water, Energy & Natural Resources: compensation to employees, FY2025/26",
+      "value": 37763340,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5265.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5265.compensation.social",
+      "name": "Environment, Water, Energy & Natural Resources: social contributions (employer), FY2025/26",
+      "value": 7820949,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5265.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5265.operations.om",
+      "name": "Environment, Water, Energy & Natural Resources: operations and maintenance, FY2025/26",
+      "value": 27000000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5265.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p1.r1.recurrent",
+      "name": "Environment, Water, Energy & Natural Resources: General administration, policy planning and support services (recurrent), FY2025/26",
+      "value": 46584289,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5265.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p1.r1",
+      "name": "Environment, Water, Energy & Natural Resources: General administration, policy planning and support services, FY2025/26",
+      "value": 46584289,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5265"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p2.r2.recurrent",
+      "name": "Environment, Water, Energy & Natural Resources: Environment and natural resources (recurrent), FY2025/26",
+      "value": 10000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5265.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p2.r2.development",
+      "name": "Environment, Water, Energy & Natural Resources: Environment and natural resources (development), FY2025/26",
+      "value": 2000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5265.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p2.r2",
+      "name": "Environment, Water, Energy & Natural Resources: Environment and natural resources, FY2025/26",
+      "value": 12000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5265",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5265.p2.r2.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5265.p2.r2.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p3.r3.development",
+      "name": "Environment, Water, Energy & Natural Resources: Climate change mitigation and adaptation measures (development), FY2025/26",
+      "value": 212210133,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5265.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p3.r3",
+      "name": "Environment, Water, Energy & Natural Resources: Climate change mitigation and adaptation measures, FY2025/26",
+      "value": 212210133,
+      "level": "subprogramme",
+      "page": "Table 9, p.21",
+      "pdfPage": 21,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5265"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p4.r4.recurrent",
+      "name": "Environment, Water, Energy & Natural Resources: Energy and mineral resources (recurrent), FY2025/26",
+      "value": 16000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5265.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p4.r4.development",
+      "name": "Environment, Water, Energy & Natural Resources: Energy and mineral resources (development), FY2025/26",
+      "value": 34500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5265.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p4.r4",
+      "name": "Environment, Water, Energy & Natural Resources: Energy and mineral resources, FY2025/26",
+      "value": 50500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5265",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5265.p4.r4.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5265.p4.r4.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5266",
+      "name": "Education & Vocational Training: total budget, FY2025/26",
+      "value": 579165561,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5266.recurrent",
+      "name": "Education & Vocational Training: recurrent budget, FY2025/26",
+      "value": 470265561,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5266"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5266.development",
+      "name": "Education & Vocational Training: development budget, FY2025/26",
+      "value": 108900000,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5266"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5266.compensation",
+      "name": "Education & Vocational Training: staff pay, FY2025/26",
+      "value": 369789259,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5266.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5266.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5266.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5266.operations",
+      "name": "Education & Vocational Training: other running costs, FY2025/26",
+      "value": 100476302,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5266.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5266.operations.funds",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5266.operations.om"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5266.compensation.employees",
+      "name": "Education & Vocational Training: compensation to employees, FY2025/26",
+      "value": 305183543,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5266.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5266.compensation.social",
+      "name": "Education & Vocational Training: social contributions (employer), FY2025/26",
+      "value": 64605716,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5266.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5266.operations.funds",
+      "name": "Education & Vocational Training: recurrent funds, FY2025/26",
+      "value": 50000000,
+      "level": "economic",
+      "page": "Table 16, p.41",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5266.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5266.operations.om",
+      "name": "Education & Vocational Training: operations and maintenance, FY2025/26",
+      "value": 50476302,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5266.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p1.r1.recurrent",
+      "name": "Education & Vocational Training: General administration and policy planning support services, General administration services and policy support services (recurrent), FY2025/26",
+      "value": 408119259,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p1.r1",
+      "name": "Education & Vocational Training: General administration and policy planning support services, General administration services and policy support services, FY2025/26",
+      "value": 408119259,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p2.r2.recurrent",
+      "name": "Education & Vocational Training: Early childhood development and management services, ECDE management services (recurrent), FY2025/26",
+      "value": 16346302,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p2.r2.development",
+      "name": "Education & Vocational Training: Early childhood development and management services, ECDE management services (development), FY2025/26",
+      "value": 95900000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p2.r2",
+      "name": "Education & Vocational Training: Early childhood development and management services, ECDE management services, FY2025/26",
+      "value": 112246302,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5266.p2.r2.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5266.p2.r2.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p2.r3.recurrent",
+      "name": "Education & Vocational Training: Early childhood development and management services, School feeding programme (recurrent), FY2025/26",
+      "value": 15000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p2.r3",
+      "name": "Education & Vocational Training: Early childhood development and management services, School feeding programme, FY2025/26",
+      "value": 15000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p3.r4.recurrent",
+      "name": "Education & Vocational Training: Information, communication and technology (recurrent), FY2025/26",
+      "value": 4800000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "note": "Printed with no programme code.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p3.r4",
+      "name": "Education & Vocational Training: Information, communication and technology, FY2025/26",
+      "value": 4800000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "note": "Printed with no programme code.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p4.r5.recurrent",
+      "name": "Education & Vocational Training: Vocational training and management services, Vocational training (recurrent), FY2025/26",
+      "value": 26000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p4.r5.development",
+      "name": "Education & Vocational Training: Vocational training and management services, Vocational training (development), FY2025/26",
+      "value": 13000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p4.r5",
+      "name": "Education & Vocational Training: Vocational training and management services, Vocational training, FY2025/26",
+      "value": 39000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5266",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5266.p4.r5.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5266.p4.r5.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5267",
+      "name": "Medical Services: total budget, FY2025/26",
+      "value": 1345923037,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5267.recurrent",
+      "name": "Medical Services: recurrent budget, FY2025/26",
+      "value": 926620437,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5267"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5267.development",
+      "name": "Medical Services: development budget, FY2025/26",
+      "value": 419302600,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5267"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5267.compensation",
+      "name": "Medical Services: staff pay, FY2025/26",
+      "value": 471923038,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5267.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5267.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5267.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5267.operations",
+      "name": "Medical Services: other running costs, FY2025/26",
+      "value": 454697400,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5267.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5267.operations.funds",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5267.operations.om"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5267.compensation.employees",
+      "name": "Medical Services: compensation to employees, FY2025/26",
+      "value": 428887672,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5267.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5267.compensation.social",
+      "name": "Medical Services: social contributions (employer), FY2025/26",
+      "value": 43035366,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5267.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5267.operations.funds",
+      "name": "Medical Services: recurrent funds, FY2025/26",
+      "value": 244697400,
+      "level": "economic",
+      "page": "Table 16, p.41",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5267.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5267.operations.om",
+      "name": "Medical Services: operations and maintenance, FY2025/26",
+      "value": 210000000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5267.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5267.p1.r1.recurrent",
+      "name": "Medical Services: General administration, policy planning and support services, General administration and support services (recurrent), FY2025/26",
+      "value": 471923037,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5267.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5267.p1.r1",
+      "name": "Medical Services: General administration, policy planning and support services, General administration and support services, FY2025/26",
+      "value": 471923037,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5267"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5267.p2.r3.recurrent",
+      "name": "Medical Services: Medical support services (recurrent), FY2025/26",
+      "value": 244697400,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5267.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5267.p2.r3.development",
+      "name": "Medical Services: Medical support services (development), FY2025/26",
+      "value": 419302600,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5267.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5267.p2.r3",
+      "name": "Medical Services: Medical support services, FY2025/26",
+      "value": 664000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5267",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5267.p2.r3.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5267.p2.r3.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5267.p3.r4.recurrent",
+      "name": "Medical Services: Health products and technologies support services (recurrent), FY2025/26",
+      "value": 210000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5267.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5267.p3.r4",
+      "name": "Medical Services: Health products and technologies support services, FY2025/26",
+      "value": 210000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5267"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5268",
+      "name": "Land, Physical Planning, Housing and Urban Development: total budget, FY2025/26",
+      "value": 383451786,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5268.recurrent",
+      "name": "Land, Physical Planning, Housing and Urban Development: recurrent budget, FY2025/26",
+      "value": 92428464,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5268"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5268.development",
+      "name": "Land, Physical Planning, Housing and Urban Development: development budget, FY2025/26",
+      "value": 291023322,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5268"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5268.compensation",
+      "name": "Land, Physical Planning, Housing and Urban Development: staff pay, FY2025/26",
+      "value": 68128464,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5268.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5268.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5268.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5268.operations",
+      "name": "Land, Physical Planning, Housing and Urban Development: other running costs, FY2025/26",
+      "value": 24300000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5268.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5268.compensation.employees",
+      "name": "Land, Physical Planning, Housing and Urban Development: compensation to employees, FY2025/26",
+      "value": 58590732,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5268.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5268.compensation.social",
+      "name": "Land, Physical Planning, Housing and Urban Development: social contributions (employer), FY2025/26",
+      "value": 9537732,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5268.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5268.operations.om",
+      "name": "Land, Physical Planning, Housing and Urban Development: operations and maintenance, FY2025/26",
+      "value": 24300000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5268.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p1.r1.recurrent",
+      "name": "Land, Physical Planning, Housing and Urban Development: General administration, policy planning and support services, General administration and support services (recurrent), FY2025/26",
+      "value": 72228464,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p1.r1",
+      "name": "Land, Physical Planning, Housing and Urban Development: General administration, policy planning and support services, General administration and support services, FY2025/26",
+      "value": 72228464,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p1.r2.recurrent",
+      "name": "Land, Physical Planning, Housing and Urban Development: General administration, policy planning and support services, Policy planning and support services (recurrent), FY2025/26",
+      "value": 1400000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p1.r2",
+      "name": "Land, Physical Planning, Housing and Urban Development: General administration, policy planning and support services, Policy planning and support services, FY2025/26",
+      "value": 1400000,
+      "level": "subprogramme",
+      "page": "Table 9, p.22",
+      "pdfPage": 22,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p2.r3.recurrent",
+      "name": "Land, Physical Planning, Housing and Urban Development: Physical planning and survey services support services, Physical planning and survey services (recurrent), FY2025/26",
+      "value": 10000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p2.r3",
+      "name": "Land, Physical Planning, Housing and Urban Development: Physical planning and survey services support services, Physical planning and survey services, FY2025/26",
+      "value": 10000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p3.r4.recurrent",
+      "name": "Land, Physical Planning, Housing and Urban Development: Land management support services (recurrent), FY2025/26",
+      "value": 4800000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p3.r4.development",
+      "name": "Land, Physical Planning, Housing and Urban Development: Land management support services (development), FY2025/26",
+      "value": 41600000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p3.r4",
+      "name": "Land, Physical Planning, Housing and Urban Development: Land management support services, FY2025/26",
+      "value": 46400000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5268.p3.r4.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5268.p3.r4.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p4.r5.recurrent",
+      "name": "Land, Physical Planning, Housing and Urban Development: Housing and urban development (recurrent), FY2025/26",
+      "value": 4000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p4.r5.development",
+      "name": "Land, Physical Planning, Housing and Urban Development: Housing and urban development (development), FY2025/26",
+      "value": 249423322,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p4.r5",
+      "name": "Land, Physical Planning, Housing and Urban Development: Housing and urban development, FY2025/26",
+      "value": 253423322,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5268",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5268.p4.r5.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5268.p4.r5.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5269",
+      "name": "Water Sanitation and Irrigation: total budget, FY2025/26",
+      "value": 132926378,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5269.recurrent",
+      "name": "Water Sanitation and Irrigation: recurrent budget, FY2025/26",
+      "value": 44226378,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5269"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5269.development",
+      "name": "Water Sanitation and Irrigation: development budget, FY2025/26",
+      "value": 88700000,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5269"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5269.compensation",
+      "name": "Water Sanitation and Irrigation: staff pay, FY2025/26",
+      "value": 24726378,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5269.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5269.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5269.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5269.operations",
+      "name": "Water Sanitation and Irrigation: other running costs, FY2025/26",
+      "value": 19500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5269.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5269.compensation.employees",
+      "name": "Water Sanitation and Irrigation: compensation to employees, FY2025/26",
+      "value": 22825212,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5269.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5269.compensation.social",
+      "name": "Water Sanitation and Irrigation: social contributions (employer), FY2025/26",
+      "value": 1901166,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5269.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5269.operations.om",
+      "name": "Water Sanitation and Irrigation: operations and maintenance, FY2025/26",
+      "value": 19500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5269.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5269.p1.r1.recurrent",
+      "name": "Water Sanitation and Irrigation: General administration, policy and planning, General administration (recurrent), FY2025/26",
+      "value": 26226378,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5269.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5269.p1.r1",
+      "name": "Water Sanitation and Irrigation: General administration, policy and planning, General administration, FY2025/26",
+      "value": 26226378,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5269"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5269.p2.r3.recurrent",
+      "name": "Water Sanitation and Irrigation: Water supplies and management services, Water supplies (recurrent), FY2025/26",
+      "value": 17500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5269.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5269.p2.r3.development",
+      "name": "Water Sanitation and Irrigation: Water supplies and management services, Water supplies (development), FY2025/26",
+      "value": 88700000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5269.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5269.p2.r3",
+      "name": "Water Sanitation and Irrigation: Water supplies and management services, Water supplies, FY2025/26",
+      "value": 106200000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5269",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5269.p2.r3.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5269.p2.r3.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5269.p3.r4.recurrent",
+      "name": "Water Sanitation and Irrigation: Irrigation, drainage and storage services, Irrigation (recurrent), FY2025/26",
+      "value": 500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "note": "Printed with a code ending 64, the crop development vote.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5269.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5269.p3.r4",
+      "name": "Water Sanitation and Irrigation: Irrigation, drainage and storage services, Irrigation, FY2025/26",
+      "value": 500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "note": "Printed with a code ending 64, the crop development vote.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5269"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5270",
+      "name": "Transport & Public Works: total budget, FY2025/26",
+      "value": 543676786,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5270.recurrent",
+      "name": "Transport & Public Works: recurrent budget, FY2025/26",
+      "value": 107959995,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5270"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5270.development",
+      "name": "Transport & Public Works: development budget, FY2025/26",
+      "value": 435716791,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5270"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5270.compensation",
+      "name": "Transport & Public Works: staff pay, FY2025/26",
+      "value": 79159995,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5270.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5270.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5270.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5270.operations",
+      "name": "Transport & Public Works: other running costs, FY2025/26",
+      "value": 28800000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5270.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5270.compensation.employees",
+      "name": "Transport & Public Works: compensation to employees, FY2025/26",
+      "value": 75473948,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5270.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5270.compensation.social",
+      "name": "Transport & Public Works: social contributions (employer), FY2025/26",
+      "value": 3686047,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5270.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5270.operations.om",
+      "name": "Transport & Public Works: operations and maintenance, FY2025/26",
+      "value": 28800000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5270.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p1.r1.recurrent",
+      "name": "Transport & Public Works: General administration, policy planning and support services (recurrent), FY2025/26",
+      "value": 80659995,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5270.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p1.r1",
+      "name": "Transport & Public Works: General administration, policy planning and support services, FY2025/26",
+      "value": 80659995,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5270"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p2.r2.recurrent",
+      "name": "Transport & Public Works: Roads development and management support services (recurrent), FY2025/26",
+      "value": 10800000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5270.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p2.r2.development",
+      "name": "Transport & Public Works: Roads development and management support services (development), FY2025/26",
+      "value": 334008787,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5270.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p2.r2",
+      "name": "Transport & Public Works: Roads development and management support services, FY2025/26",
+      "value": 344808787,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5270",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5270.p2.r2.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5270.p2.r2.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p3.r3.recurrent",
+      "name": "Transport & Public Works: Transport and mechanical support services (recurrent), FY2025/26",
+      "value": 16000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5270.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p3.r3",
+      "name": "Transport & Public Works: Transport and mechanical support services, FY2025/26",
+      "value": 16000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5270"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p4.r4.recurrent",
+      "name": "Transport & Public Works: Public works and disaster management support services (recurrent), FY2025/26",
+      "value": 500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "note": "Printed with the same code as roads development.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5270.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p4.r4",
+      "name": "Transport & Public Works: Public works and disaster management support services, FY2025/26",
+      "value": 500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "note": "Printed with the same code as roads development.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5270"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p5.r5.development",
+      "name": "Transport & Public Works: Integrated road construction and maintenance services (development), FY2025/26",
+      "value": 101708004,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "note": "Printed with no programme code.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5270.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p5.r5",
+      "name": "Transport & Public Works: Integrated road construction and maintenance services, FY2025/26",
+      "value": 101708004,
+      "level": "subprogramme",
+      "page": "Table 9, p.23",
+      "pdfPage": 23,
+      "grouping": "programme",
+      "note": "Printed with no programme code.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5270"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5271",
+      "name": "Trade, Tourism and Co-operatives Development: total budget, FY2025/26",
+      "value": 301548475,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5271.recurrent",
+      "name": "Trade, Tourism and Co-operatives Development: recurrent budget, FY2025/26",
+      "value": 45348475,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5271"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5271.development",
+      "name": "Trade, Tourism and Co-operatives Development: development budget, FY2025/26",
+      "value": 256200000,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5271"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5271.compensation",
+      "name": "Trade, Tourism and Co-operatives Development: staff pay, FY2025/26",
+      "value": 36848475,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5271.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5271.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5271.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5271.operations",
+      "name": "Trade, Tourism and Co-operatives Development: other running costs, FY2025/26",
+      "value": 8500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5271.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5271.compensation.employees",
+      "name": "Trade, Tourism and Co-operatives Development: compensation to employees, FY2025/26",
+      "value": 34058269,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5271.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5271.compensation.social",
+      "name": "Trade, Tourism and Co-operatives Development: social contributions (employer), FY2025/26",
+      "value": 2790206,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5271.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5271.operations.om",
+      "name": "Trade, Tourism and Co-operatives Development: operations and maintenance, FY2025/26",
+      "value": 8500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5271.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p1.r1.recurrent",
+      "name": "Trade, Tourism and Co-operatives Development: General administration and policy services, General administration (recurrent), FY2025/26",
+      "value": 36848475,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "note": "Printed with a code ending 70, the roads vote.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p1.r1",
+      "name": "Trade, Tourism and Co-operatives Development: General administration and policy services, General administration, FY2025/26",
+      "value": 36848475,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "note": "Printed with a code ending 70, the roads vote.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p1.r2.recurrent",
+      "name": "Trade, Tourism and Co-operatives Development: General administration and policy services, Policy services (recurrent), FY2025/26",
+      "value": 2000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p1.r2",
+      "name": "Trade, Tourism and Co-operatives Development: General administration and policy services, Policy services, FY2025/26",
+      "value": 2000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p2.r3.recurrent",
+      "name": "Trade, Tourism and Co-operatives Development: Cooperative development, Cooperative promotion (recurrent), FY2025/26",
+      "value": 1500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "note": "Printed with a code ending 70, the roads vote.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p2.r3.development",
+      "name": "Trade, Tourism and Co-operatives Development: Cooperative development, Cooperative promotion (development), FY2025/26",
+      "value": 10000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "note": "Printed with a code ending 70, the roads vote.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p2.r3",
+      "name": "Trade, Tourism and Co-operatives Development: Cooperative development, Cooperative promotion, FY2025/26",
+      "value": 11500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "note": "Printed with a code ending 70, the roads vote.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5271.p2.r3.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5271.p2.r3.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p3.r4.recurrent",
+      "name": "Trade, Tourism and Co-operatives Development: Industrialization (recurrent), FY2025/26",
+      "value": 1000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p3.r4",
+      "name": "Trade, Tourism and Co-operatives Development: Industrialization, FY2025/26",
+      "value": 1000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p4.r5.recurrent",
+      "name": "Trade, Tourism and Co-operatives Development: Trade, Trade development and promotion (recurrent), FY2025/26",
+      "value": 2500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p4.r5.development",
+      "name": "Trade, Tourism and Co-operatives Development: Trade, Trade development and promotion (development), FY2025/26",
+      "value": 246200000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p4.r5",
+      "name": "Trade, Tourism and Co-operatives Development: Trade, Trade development and promotion, FY2025/26",
+      "value": 248700000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5271.p4.r5.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5271.p4.r5.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p5.r6.recurrent",
+      "name": "Trade, Tourism and Co-operatives Development: Weights and measures, Fair customer practices (recurrent), FY2025/26",
+      "value": 1500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p5.r6",
+      "name": "Trade, Tourism and Co-operatives Development: Weights and measures, Fair customer practices, FY2025/26",
+      "value": 1500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5271"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5272",
+      "name": "Youth, Gender, Culture and Social services: total budget, FY2025/26",
+      "value": 106588718,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5272.recurrent",
+      "name": "Youth, Gender, Culture and Social services: recurrent budget, FY2025/26",
+      "value": 79788718,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5272"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5272.development",
+      "name": "Youth, Gender, Culture and Social services: development budget, FY2025/26",
+      "value": 26800000,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5272"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5272.compensation",
+      "name": "Youth, Gender, Culture and Social services: staff pay, FY2025/26",
+      "value": 43288718,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5272.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5272.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5272.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5272.operations",
+      "name": "Youth, Gender, Culture and Social services: other running costs, FY2025/26",
+      "value": 36500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5272.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5272.compensation.employees",
+      "name": "Youth, Gender, Culture and Social services: compensation to employees, FY2025/26",
+      "value": 36185984,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5272.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5272.compensation.social",
+      "name": "Youth, Gender, Culture and Social services: social contributions (employer), FY2025/26",
+      "value": 7102734,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5272.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5272.operations.om",
+      "name": "Youth, Gender, Culture and Social services: operations and maintenance, FY2025/26",
+      "value": 36500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5272.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p1.r1.recurrent",
+      "name": "Youth, Gender, Culture and Social services: General administration and policy planning (recurrent), FY2025/26",
+      "value": 56288718,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p1.r1",
+      "name": "Youth, Gender, Culture and Social services: General administration and policy planning, FY2025/26",
+      "value": 56288718,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p2.r2.recurrent",
+      "name": "Youth, Gender, Culture and Social services: Cultural development and promotion, heritage (recurrent), FY2025/26",
+      "value": 3500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p2.r2",
+      "name": "Youth, Gender, Culture and Social services: Cultural development and promotion, heritage, FY2025/26",
+      "value": 3500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p3.r3.recurrent",
+      "name": "Youth, Gender, Culture and Social services: Gender and social support services (recurrent), FY2025/26",
+      "value": 5000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "note": "Printed with no programme code.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p3.r3",
+      "name": "Youth, Gender, Culture and Social services: Gender and social support services, FY2025/26",
+      "value": 5000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "note": "Printed with no programme code.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p4.r4.recurrent",
+      "name": "Youth, Gender, Culture and Social services: Youth affairs development and promotion support services (recurrent), FY2025/26",
+      "value": 1000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p4.r4",
+      "name": "Youth, Gender, Culture and Social services: Youth affairs development and promotion support services, FY2025/26",
+      "value": 1000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p5.r5.recurrent",
+      "name": "Youth, Gender, Culture and Social services: Promotion and development of sports (recurrent), FY2025/26",
+      "value": 11000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p5.r5.development",
+      "name": "Youth, Gender, Culture and Social services: Promotion and development of sports (development), FY2025/26",
+      "value": 26800000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p5.r5",
+      "name": "Youth, Gender, Culture and Social services: Promotion and development of sports, FY2025/26",
+      "value": 37800000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5272.p5.r5.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5272.p5.r5.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p5.r6.recurrent",
+      "name": "Youth, Gender, Culture and Social services: Promotion and development of sports, Liqour licencing (recurrent), FY2025/26",
+      "value": 3000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "note": "Spelling as printed. Printed with no programme name of its own, so it is shown under the programme above it.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p5.r6",
+      "name": "Youth, Gender, Culture and Social services: Promotion and development of sports, Liqour licencing, FY2025/26",
+      "value": 3000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.24",
+      "pdfPage": 24,
+      "grouping": "programme",
+      "note": "Spelling as printed. Printed with no programme name of its own, so it is shown under the programme above it.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5272"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5273",
+      "name": "CPSB: total budget, FY2025/26",
+      "value": 57300102,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5273.recurrent",
+      "name": "CPSB: recurrent budget, FY2025/26",
+      "value": 57300102,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5273"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5273.compensation",
+      "name": "CPSB: staff pay, FY2025/26",
+      "value": 50702654,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5273.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5273.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5273.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5273.operations",
+      "name": "CPSB: other running costs, FY2025/26",
+      "value": 6597448,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5273.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5273.compensation.employees",
+      "name": "CPSB: compensation to employees, FY2025/26",
+      "value": 45995319,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5273.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5273.compensation.social",
+      "name": "CPSB: social contributions (employer), FY2025/26",
+      "value": 4707335,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5273.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5273.operations.om",
+      "name": "CPSB: operations and maintenance, FY2025/26",
+      "value": 6597448,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5273.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5273.p1.r1.recurrent",
+      "name": "CPSB: General administration, policy planning and support services, General administration and support services (recurrent), FY2025/26",
+      "value": 53918258,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5273.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5273.p1.r1",
+      "name": "CPSB: General administration, policy planning and support services, General administration and support services, FY2025/26",
+      "value": 53918258,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5273"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5273.p1.r2.recurrent",
+      "name": "CPSB: General administration, policy planning and support services, Policy planning and support services (recurrent), FY2025/26",
+      "value": 1324266,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5273.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5273.p1.r2",
+      "name": "CPSB: General administration, policy planning and support services, Policy planning and support services, FY2025/26",
+      "value": 1324266,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5273"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5273.p1.r3.recurrent",
+      "name": "CPSB: General administration, policy planning and support services, Legal governance and compliance (recurrent), FY2025/26",
+      "value": 2057578,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5273.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5273.p1.r3",
+      "name": "CPSB: General administration, policy planning and support services, Legal governance and compliance, FY2025/26",
+      "value": 2057578,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5273"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5274",
+      "name": "Public Service Management: total budget, FY2025/26",
+      "value": 880585294,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent",
+      "name": "Public Service Management: recurrent budget, FY2025/26",
+      "value": 508085294,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5274"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5274.development",
+      "name": "Public Service Management: development budget, FY2025/26",
+      "value": 372500000,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5274"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5274.compensation",
+      "name": "Public Service Management: staff pay, FY2025/26",
+      "value": 253085294,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5274.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5274.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5274.operations",
+      "name": "Public Service Management: other running costs, FY2025/26",
+      "value": 255000000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5274.operations.grants",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5274.operations.om"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5274.compensation.employees",
+      "name": "Public Service Management: compensation to employees, FY2025/26",
+      "value": 213862634,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5274.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5274.compensation.social",
+      "name": "Public Service Management: social contributions (employer), FY2025/26",
+      "value": 39222660,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5274.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5274.operations.grants",
+      "name": "Public Service Management: recurrent conditional grants, FY2025/26",
+      "value": 37500000,
+      "level": "economic",
+      "page": "Table 15, p.40-41",
+      "pdfPage": 40,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5274.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5274.operations.om",
+      "name": "Public Service Management: operations and maintenance, FY2025/26",
+      "value": 217500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5274.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p1.r1.recurrent",
+      "name": "Public Service Management: County administration and field coordination support services, General administration and support services (recurrent), FY2025/26",
+      "value": 258085294,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p1.r1",
+      "name": "Public Service Management: County administration and field coordination support services, General administration and support services, FY2025/26",
+      "value": 258085294,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p1.r2.recurrent",
+      "name": "Public Service Management: County administration and field coordination support services, Policy development and planning (recurrent), FY2025/26",
+      "value": 3000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p1.r2",
+      "name": "Public Service Management: County administration and field coordination support services, Policy development and planning, FY2025/26",
+      "value": 3000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p1.r3.recurrent",
+      "name": "Public Service Management: County administration and field coordination support services, Field coordination and administration (recurrent), FY2025/26",
+      "value": 5000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p1.r3",
+      "name": "Public Service Management: County administration and field coordination support services, Field coordination and administration, FY2025/26",
+      "value": 5000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p2.r4.recurrent",
+      "name": "Public Service Management: Human resources management and development support services, Human resource management (recurrent), FY2025/26",
+      "value": 1000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p2.r4",
+      "name": "Public Service Management: Human resources management and development support services, Human resource management, FY2025/26",
+      "value": 1000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p2.r5.recurrent",
+      "name": "Public Service Management: Human resources management and development support services, Human resource development (recurrent), FY2025/26",
+      "value": 197000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p2.r5",
+      "name": "Public Service Management: Human resources management and development support services, Human resource development, FY2025/26",
+      "value": 197000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p3.r6.recurrent",
+      "name": "Public Service Management: Public participation and civic education support services (recurrent), FY2025/26",
+      "value": 2000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p3.r6",
+      "name": "Public Service Management: Public participation and civic education support services, FY2025/26",
+      "value": 2000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p4.r7.recurrent",
+      "name": "Public Service Management: Corporate communication support services (recurrent), FY2025/26",
+      "value": 500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "note": "The programme column prints \"orporate\".",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p4.r7",
+      "name": "Public Service Management: Corporate communication support services, FY2025/26",
+      "value": 500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "note": "The programme column prints \"orporate\".",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p5.r8.recurrent",
+      "name": "Public Service Management: Security enforcement and compliance support services (recurrent), FY2025/26",
+      "value": 4000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "note": "Printed with a code ending 60, which is not a vote in this budget.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p5.r8",
+      "name": "Public Service Management: Security enforcement and compliance support services, FY2025/26",
+      "value": 4000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "note": "Printed with a code ending 60, which is not a vote in this budget.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p6.r9.recurrent",
+      "name": "Public Service Management: Special programme (recurrent), FY2025/26",
+      "value": 37500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "note": "Printed with a code ending 60, which is not a vote in this budget.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p6.r9.development",
+      "name": "Public Service Management: Special programme (development), FY2025/26",
+      "value": 372500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "note": "Printed with a code ending 60, which is not a vote in this budget.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p6.r9",
+      "name": "Public Service Management: Special programme, FY2025/26",
+      "value": 410000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.25",
+      "pdfPage": 25,
+      "grouping": "programme",
+      "note": "Printed with a code ending 60, which is not a vote in this budget.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5274",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5274.p6.r9.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5274.p6.r9.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5275",
+      "name": "Nyamira Municipality: total budget, FY2025/26",
+      "value": 181079431,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5275.recurrent",
+      "name": "Nyamira Municipality: recurrent budget, FY2025/26",
+      "value": 86783593,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5275"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5275.development",
+      "name": "Nyamira Municipality: development budget, FY2025/26",
+      "value": 94295838,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5275"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5275.compensation",
+      "name": "Nyamira Municipality: staff pay, FY2025/26",
+      "value": 46225393,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5275.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5275.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5275.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5275.operations",
+      "name": "Nyamira Municipality: other running costs, FY2025/26",
+      "value": 40558200,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5275.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5275.operations.grants",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5275.operations.om"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5275.compensation.employees",
+      "name": "Nyamira Municipality: compensation to employees, FY2025/26",
+      "value": 38298067,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5275.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5275.compensation.social",
+      "name": "Nyamira Municipality: social contributions (employer), FY2025/26",
+      "value": 7927326,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5275.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5275.operations.grants",
+      "name": "Nyamira Municipality: recurrent conditional grants, FY2025/26",
+      "value": 35000000,
+      "level": "economic",
+      "page": "Table 15, p.40-41",
+      "pdfPage": 40,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5275.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5275.operations.om",
+      "name": "Nyamira Municipality: operations and maintenance, FY2025/26",
+      "value": 5558200,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5275.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5275.p1.r1.recurrent",
+      "name": "Nyamira Municipality: General administration, policy planning and support services, General administration and support services (recurrent), FY2025/26",
+      "value": 47783593,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5275.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5275.p1.r1",
+      "name": "Nyamira Municipality: General administration, policy planning and support services, General administration and support services, FY2025/26",
+      "value": 47783593,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5275"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5275.p2.r3.recurrent",
+      "name": "Nyamira Municipality: Environmental support services, Environmental services (recurrent), FY2025/26",
+      "value": 3500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5275.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5275.p2.r3.development",
+      "name": "Nyamira Municipality: Environmental support services, Environmental services (development), FY2025/26",
+      "value": 23878710,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5275.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5275.p2.r3",
+      "name": "Nyamira Municipality: Environmental support services, Environmental services, FY2025/26",
+      "value": 27378710,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5275",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5275.p2.r3.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5275.p2.r3.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5275.p3.r4.recurrent",
+      "name": "Nyamira Municipality: Municipal infrastructure and disaster management support services, Municipal infrastructure and disaster management (recurrent), FY2025/26",
+      "value": 35500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5275.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5275.p3.r4.development",
+      "name": "Nyamira Municipality: Municipal infrastructure and disaster management support services, Municipal infrastructure and disaster management (development), FY2025/26",
+      "value": 70417128,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5275.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5275.p3.r4",
+      "name": "Nyamira Municipality: Municipal infrastructure and disaster management support services, Municipal infrastructure and disaster management, FY2025/26",
+      "value": 105917128,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5275",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5275.p3.r4.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5275.p3.r4.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5276",
+      "name": "The County Attorney: total budget, FY2025/26",
+      "value": 24447242,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5276.recurrent",
+      "name": "The County Attorney: recurrent budget, FY2025/26",
+      "value": 24447242,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5276"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5276.compensation",
+      "name": "The County Attorney: staff pay, FY2025/26",
+      "value": 18947242,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5276.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5276.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5276.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5276.operations",
+      "name": "The County Attorney: other running costs, FY2025/26",
+      "value": 5500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5276.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5276.compensation.employees",
+      "name": "The County Attorney: compensation to employees, FY2025/26",
+      "value": 14973914,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5276.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5276.compensation.social",
+      "name": "The County Attorney: social contributions (employer), FY2025/26",
+      "value": 3973328,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5276.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5276.operations.om",
+      "name": "The County Attorney: operations and maintenance, FY2025/26",
+      "value": 5500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5276.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5276.p1.r1.recurrent",
+      "name": "The County Attorney: General administration and support services, General administration (recurrent), FY2025/26",
+      "value": 20735242,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5276.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5276.p1.r1",
+      "name": "The County Attorney: General administration and support services, General administration, FY2025/26",
+      "value": 20735242,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5276"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5276.p2.r2.recurrent",
+      "name": "The County Attorney: Legal governance, legal training, integrity affairs management and support services (recurrent), FY2025/26",
+      "value": 3712000,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5276.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5276.p2.r2",
+      "name": "The County Attorney: Legal governance, legal training, integrity affairs management and support services, FY2025/26",
+      "value": 3712000,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5276"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5277",
+      "name": "Economic Planning, Resources Mobilization and ICT: total budget, FY2025/26",
+      "value": 198551420,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5277.recurrent",
+      "name": "Economic Planning, Resources Mobilization and ICT: recurrent budget, FY2025/26",
+      "value": 178551420,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5277"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5277.development",
+      "name": "Economic Planning, Resources Mobilization and ICT: development budget, FY2025/26",
+      "value": 20000000,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5277"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5277.compensation",
+      "name": "Economic Planning, Resources Mobilization and ICT: staff pay, FY2025/26",
+      "value": 132381420,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5277.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5277.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5277.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5277.operations",
+      "name": "Economic Planning, Resources Mobilization and ICT: other running costs, FY2025/26",
+      "value": 46170000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5277.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5277.compensation.employees",
+      "name": "Economic Planning, Resources Mobilization and ICT: compensation to employees, FY2025/26",
+      "value": 117870805,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5277.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5277.compensation.social",
+      "name": "Economic Planning, Resources Mobilization and ICT: social contributions (employer), FY2025/26",
+      "value": 14510615,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5277.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5277.operations.om",
+      "name": "Economic Planning, Resources Mobilization and ICT: operations and maintenance, FY2025/26",
+      "value": 46170000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5277.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5277.p1.r1.recurrent",
+      "name": "Economic Planning, Resources Mobilization and ICT: General administration and policy planning (recurrent), FY2025/26",
+      "value": 137881420,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5277.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5277.p1.r1",
+      "name": "Economic Planning, Resources Mobilization and ICT: General administration and policy planning, FY2025/26",
+      "value": 137881420,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5277"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5277.p2.r2.recurrent",
+      "name": "Economic Planning, Resources Mobilization and ICT: Economic planning and budgeting coordination support services (recurrent), FY2025/26",
+      "value": 39480000,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5277.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5277.p2.r2.development",
+      "name": "Economic Planning, Resources Mobilization and ICT: Economic planning and budgeting coordination support services (development), FY2025/26",
+      "value": 20000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5277.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5277.p2.r2",
+      "name": "Economic Planning, Resources Mobilization and ICT: Economic planning and budgeting coordination support services, FY2025/26",
+      "value": 59480000,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5277",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5277.p2.r2.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5277.p2.r2.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5277.p3.r3.recurrent",
+      "name": "Economic Planning, Resources Mobilization and ICT: Monitoring, evaluation and reporting (recurrent), FY2025/26",
+      "value": 1190000,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5277.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5277.p3.r3",
+      "name": "Economic Planning, Resources Mobilization and ICT: Monitoring, evaluation and reporting, FY2025/26",
+      "value": 1190000,
+      "level": "subprogramme",
+      "page": "Table 9, p.26",
+      "pdfPage": 26,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5277"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5278",
+      "name": "Livestock and Fisheries Services: total budget, FY2025/26",
+      "value": 119417873,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5278.recurrent",
+      "name": "Livestock and Fisheries Services: recurrent budget, FY2025/26",
+      "value": 102917873,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5278"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5278.development",
+      "name": "Livestock and Fisheries Services: development budget, FY2025/26",
+      "value": 16500000,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5278"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5278.compensation",
+      "name": "Livestock and Fisheries Services: staff pay, FY2025/26",
+      "value": 88222873,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5278.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5278.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5278.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5278.operations",
+      "name": "Livestock and Fisheries Services: other running costs, FY2025/26",
+      "value": 14695000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5278.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5278.compensation.employees",
+      "name": "Livestock and Fisheries Services: compensation to employees, FY2025/26",
+      "value": 79171902,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5278.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5278.compensation.social",
+      "name": "Livestock and Fisheries Services: social contributions (employer), FY2025/26",
+      "value": 9050971,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5278.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5278.operations.om",
+      "name": "Livestock and Fisheries Services: operations and maintenance, FY2025/26",
+      "value": 14695000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5278.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p1.r1.recurrent",
+      "name": "Livestock and Fisheries Services: General administration, policy and planning, General administration (recurrent), FY2025/26",
+      "value": 89205183,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p1.r1",
+      "name": "Livestock and Fisheries Services: General administration, policy and planning, General administration, FY2025/26",
+      "value": 89205183,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p1.r2.recurrent",
+      "name": "Livestock and Fisheries Services: General administration, policy and planning, Policy and planning (recurrent), FY2025/26",
+      "value": 1232690,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p1.r2",
+      "name": "Livestock and Fisheries Services: General administration, policy and planning, Policy and planning, FY2025/26",
+      "value": 1232690,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p2.r3.recurrent",
+      "name": "Livestock and Fisheries Services: Fisheries (recurrent), FY2025/26",
+      "value": 1000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p2.r3.development",
+      "name": "Livestock and Fisheries Services: Fisheries (development), FY2025/26",
+      "value": 6000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p2.r3",
+      "name": "Livestock and Fisheries Services: Fisheries, FY2025/26",
+      "value": 7000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5278.p2.r3.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5278.p2.r3.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p3.r4.recurrent",
+      "name": "Livestock and Fisheries Services: Livestock (recurrent), FY2025/26",
+      "value": 10340000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p3.r4.development",
+      "name": "Livestock and Fisheries Services: Livestock (development), FY2025/26",
+      "value": 2500000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p3.r4",
+      "name": "Livestock and Fisheries Services: Livestock, FY2025/26",
+      "value": 12840000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5278.p3.r4.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5278.p3.r4.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p4.r5.recurrent",
+      "name": "Livestock and Fisheries Services: Animal health (recurrent), FY2025/26",
+      "value": 1140000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p4.r5.development",
+      "name": "Livestock and Fisheries Services: Animal health (development), FY2025/26",
+      "value": 8000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p4.r5",
+      "name": "Livestock and Fisheries Services: Animal health, FY2025/26",
+      "value": 9140000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5278",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5278.p4.r5.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5278.p4.r5.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5279",
+      "name": "Primary Healthcare: total budget, FY2025/26",
+      "value": 1143165948,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5279.recurrent",
+      "name": "Primary Healthcare: recurrent budget, FY2025/26",
+      "value": 1102065948,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5279"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5279.development",
+      "name": "Primary Healthcare: development budget, FY2025/26",
+      "value": 41100000,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5279"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5279.compensation",
+      "name": "Primary Healthcare: staff pay, FY2025/26",
+      "value": 975953637,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5279.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5279.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5279.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5279.operations",
+      "name": "Primary Healthcare: other running costs, FY2025/26",
+      "value": 126112311,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5279.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5279.operations.grants",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5279.operations.om"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5279.compensation.employees",
+      "name": "Primary Healthcare: compensation to employees, FY2025/26",
+      "value": 896646635,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5279.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5279.compensation.social",
+      "name": "Primary Healthcare: social contributions (employer), FY2025/26",
+      "value": 79307002,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5279.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5279.operations.grants",
+      "name": "Primary Healthcare: recurrent conditional grants, FY2025/26",
+      "value": 75179711,
+      "level": "economic",
+      "page": "Table 15, p.40-41",
+      "pdfPage": 40,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5279.operations",
+      "note": "Table 15 prints this grant against vote 5267 (Medical Services), but it reconciles only with Primary Healthcare's recurrent total, so it is shown here."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5279.operations.om",
+      "name": "Primary Healthcare: operations and maintenance, FY2025/26",
+      "value": 50932600,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5279.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5279.p1.r1.recurrent",
+      "name": "Primary Healthcare: General administration, policy planning and support services (recurrent), FY2025/26",
+      "value": 975953637,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5279.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5279.p1.r1",
+      "name": "Primary Healthcare: General administration, policy planning and support services, FY2025/26",
+      "value": 975953637,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5279"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5279.p2.r2.recurrent",
+      "name": "Primary Healthcare: Preventive and promotive health care (recurrent), FY2025/26",
+      "value": 126112311,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5279.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5279.p2.r2.development",
+      "name": "Primary Healthcare: Preventive and promotive health care (development), FY2025/26",
+      "value": 41100000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5279.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5279.p2.r2",
+      "name": "Primary Healthcare: Preventive and promotive health care, FY2025/26",
+      "value": 167212311,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5279",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5279.p2.r2.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5279.p2.r2.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5280",
+      "name": "Keroka municipality: total budget, FY2025/26",
+      "value": 48559379,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5280.recurrent",
+      "name": "Keroka municipality: recurrent budget, FY2025/26",
+      "value": 28559379,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5280"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5280.development",
+      "name": "Keroka municipality: development budget, FY2025/26",
+      "value": 20000000,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5280"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5280.compensation",
+      "name": "Keroka municipality: staff pay, FY2025/26",
+      "value": 23959379,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5280.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5280.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5280.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5280.operations",
+      "name": "Keroka municipality: other running costs, FY2025/26",
+      "value": 4600000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5280.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5280.compensation.employees",
+      "name": "Keroka municipality: compensation to employees, FY2025/26",
+      "value": 21535990,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5280.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5280.compensation.social",
+      "name": "Keroka municipality: social contributions (employer), FY2025/26",
+      "value": 2423389,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5280.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5280.operations.om",
+      "name": "Keroka municipality: operations and maintenance, FY2025/26",
+      "value": 4600000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5280.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5280.p1.r1.recurrent",
+      "name": "Keroka municipality: Finance and administration support services, Administrative support services (recurrent), FY2025/26",
+      "value": 25159379,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5280.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5280.p1.r1",
+      "name": "Keroka municipality: Finance and administration support services, Administrative support services, FY2025/26",
+      "value": 25159379,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5280"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5280.p2.r3.recurrent",
+      "name": "Keroka municipality: Environmental support services, Environmental services (recurrent), FY2025/26",
+      "value": 3200000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5280.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5280.p2.r3.development",
+      "name": "Keroka municipality: Environmental support services, Environmental services (development), FY2025/26",
+      "value": 5000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5280.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5280.p2.r3",
+      "name": "Keroka municipality: Environmental support services, Environmental services, FY2025/26",
+      "value": 8200000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5280",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5280.p2.r3.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5280.p2.r3.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5280.p3.r4.recurrent",
+      "name": "Keroka municipality: Municipal infrastructure and disaster management support services, Transport and infrastructure (recurrent), FY2025/26",
+      "value": 200000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5280.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5280.p3.r4.development",
+      "name": "Keroka municipality: Municipal infrastructure and disaster management support services, Transport and infrastructure (development), FY2025/26",
+      "value": 15000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5280.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5280.p3.r4",
+      "name": "Keroka municipality: Municipal infrastructure and disaster management support services, Transport and infrastructure, FY2025/26",
+      "value": 15200000,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5280",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5280.p3.r4.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5280.p3.r4.development"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5281",
+      "name": "Nyamira revenue board: total budget, FY2025/26",
+      "value": 13998185,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5281.recurrent",
+      "name": "Nyamira revenue board: recurrent budget, FY2025/26",
+      "value": 13998185,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5281"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5281.compensation",
+      "name": "Nyamira revenue board: staff pay, FY2025/26",
+      "value": 2498185,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5281.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5281.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5281.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5281.operations",
+      "name": "Nyamira revenue board: other running costs, FY2025/26",
+      "value": 11500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5281.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5281.compensation.employees",
+      "name": "Nyamira revenue board: compensation to employees, FY2025/26",
+      "value": 1775685,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5281.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5281.compensation.social",
+      "name": "Nyamira revenue board: social contributions (employer), FY2025/26",
+      "value": 722500,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5281.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5281.operations.om",
+      "name": "Nyamira revenue board: operations and maintenance, FY2025/26",
+      "value": 11500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5281.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5281.p1.r1.recurrent",
+      "name": "Nyamira revenue board: General administration and support services (recurrent), FY2025/26",
+      "value": 2998185,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5281.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5281.p1.r1",
+      "name": "Nyamira revenue board: General administration and support services, FY2025/26",
+      "value": 2998185,
+      "level": "subprogramme",
+      "page": "Table 9, p.27",
+      "pdfPage": 27,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5281"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5281.p2.r2.recurrent",
+      "name": "Nyamira revenue board: Revenue mobilisation, Revenue mobilization (recurrent), FY2025/26",
+      "value": 11000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5281.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5281.p2.r2",
+      "name": "Nyamira revenue board: Revenue mobilisation, Revenue mobilization, FY2025/26",
+      "value": 11000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5281"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5282",
+      "name": "Nyamira disability board: total budget, FY2025/26",
+      "value": 4998185,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5282.recurrent",
+      "name": "Nyamira disability board: recurrent budget, FY2025/26",
+      "value": 4998185,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5282"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5282.compensation",
+      "name": "Nyamira disability board: staff pay, FY2025/26",
+      "value": 2498185,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5282.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5282.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5282.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5282.operations",
+      "name": "Nyamira disability board: other running costs, FY2025/26",
+      "value": 2500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5282.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5282.compensation.employees",
+      "name": "Nyamira disability board: compensation to employees, FY2025/26",
+      "value": 1775685,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5282.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5282.compensation.social",
+      "name": "Nyamira disability board: social contributions (employer), FY2025/26",
+      "value": 722500,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5282.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5282.operations.om",
+      "name": "Nyamira disability board: operations and maintenance, FY2025/26",
+      "value": 2500000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5282.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5282.p1.r1.recurrent",
+      "name": "Nyamira disability board: General administration and support services (recurrent), FY2025/26",
+      "value": 3998185,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5282.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5282.p1.r1",
+      "name": "Nyamira disability board: General administration and support services, FY2025/26",
+      "value": 3998185,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5282"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5282.p1.r2.recurrent",
+      "name": "Nyamira disability board: General administration and support services (recurrent), FY2025/26",
+      "value": 1000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "note": "Printed with no name. Shown under the programme above it until the county says what it is.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5282.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5282.p1.r2",
+      "name": "Nyamira disability board: General administration and support services, FY2025/26",
+      "value": 1000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "note": "Printed with no name. Shown under the programme above it until the county says what it is.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5282"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5283",
+      "name": "Nyamira Investment Board: total budget, FY2025/26",
+      "value": 5498185,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5283.recurrent",
+      "name": "Nyamira Investment Board: recurrent budget, FY2025/26",
+      "value": 5498185,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5283"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5283.compensation",
+      "name": "Nyamira Investment Board: staff pay, FY2025/26",
+      "value": 2498185,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5283.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5283.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5283.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5283.operations",
+      "name": "Nyamira Investment Board: other running costs, FY2025/26",
+      "value": 3000000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5283.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5283.compensation.employees",
+      "name": "Nyamira Investment Board: compensation to employees, FY2025/26",
+      "value": 1775685,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5283.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5283.compensation.social",
+      "name": "Nyamira Investment Board: social contributions (employer), FY2025/26",
+      "value": 722500,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5283.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5283.operations.om",
+      "name": "Nyamira Investment Board: operations and maintenance, FY2025/26",
+      "value": 3000000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5283.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5283.p1.r1.recurrent",
+      "name": "Nyamira Investment Board: General administration and policy services, General administration (recurrent), FY2025/26",
+      "value": 2000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5283.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5283.p1.r1",
+      "name": "Nyamira Investment Board: General administration and policy services, General administration, FY2025/26",
+      "value": 2000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5283"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5283.p1.r2.recurrent",
+      "name": "Nyamira Investment Board: General administration and policy services, Policy services (recurrent), FY2025/26",
+      "value": 498185,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5283.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5283.p1.r2",
+      "name": "Nyamira Investment Board: General administration and policy services, Policy services, FY2025/26",
+      "value": 498185,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5283"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5283.p2.r3.recurrent",
+      "name": "Nyamira Investment Board: Establishment and operationalization of investment (recurrent), FY2025/26",
+      "value": 3000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "note": "Printed with no programme code.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5283.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5283.p2.r3",
+      "name": "Nyamira Investment Board: Establishment and operationalization of investment, FY2025/26",
+      "value": 3000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "note": "Printed with no programme code.",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5283"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5284",
+      "name": "Nyamira Water and sanitation company: total budget, FY2025/26",
+      "value": 60501185,
+      "level": "vote",
+      "page": "Table 8, p.19-20",
+      "pdfPage": 19,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.total"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5284.recurrent",
+      "name": "Nyamira Water and sanitation company: recurrent budget, FY2025/26",
+      "value": 30501185,
+      "level": "vote",
+      "page": "Table 12, p.37-38",
+      "pdfPage": 37,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5284"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5284.development",
+      "name": "Nyamira Water and sanitation company: development budget, FY2025/26",
+      "value": 30000000,
+      "level": "vote",
+      "page": "Table 19, p.51-52",
+      "pdfPage": 51,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5284"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5284.compensation",
+      "name": "Nyamira Water and sanitation company: staff pay, FY2025/26",
+      "value": 22498185,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5284.recurrent",
+      "calc": {
+        "formula": "a + b",
+        "inputs": [
+          "ke.fy2025-26.estimates.county.nyamira.vote.5284.compensation.employees",
+          "ke.fy2025-26.estimates.county.nyamira.vote.5284.compensation.social"
+        ],
+        "round": 0
+      },
+      "note": "Worked out: compensation to employees (Table 13) plus employer social contributions (Table 14), the budget's own wage-bill definition."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5284.operations",
+      "name": "Nyamira Water and sanitation company: other running costs, FY2025/26",
+      "value": 8003000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5284.recurrent",
+      "note": "Worked out: conditional grants (Table 15), funds (Table 16) and operations and maintenance (Table 17)."
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5284.compensation.employees",
+      "name": "Nyamira Water and sanitation company: compensation to employees, FY2025/26",
+      "value": 20000000,
+      "level": "economic",
+      "page": "Table 13, p.38-39",
+      "pdfPage": 38,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5284.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5284.compensation.social",
+      "name": "Nyamira Water and sanitation company: social contributions (employer), FY2025/26",
+      "value": 2498185,
+      "level": "economic",
+      "page": "Table 14, p.39-40",
+      "pdfPage": 39,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5284.compensation"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.vote.5284.operations.om",
+      "name": "Nyamira Water and sanitation company: operations and maintenance, FY2025/26",
+      "value": 8003000,
+      "level": "economic",
+      "page": "Table 17, p.41-42",
+      "pdfPage": 41,
+      "parent": "ke.fy2025-26.estimates.county.nyamira.vote.5284.operations"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5284.p1.r1.recurrent",
+      "name": "Nyamira Water and sanitation company: General administration, policy and planning, General administration (recurrent), FY2025/26",
+      "value": 30501185,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5284.recurrent"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5284.p1.r1.development",
+      "name": "Nyamira Water and sanitation company: General administration, policy and planning, General administration (development), FY2025/26",
+      "value": 30000000,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5284.development"
+    },
+    {
+      "id": "ke.fy2025-26.estimates.county.nyamira.programme.5284.p1.r1",
+      "name": "Nyamira Water and sanitation company: General administration, policy and planning, General administration, FY2025/26",
+      "value": 60501185,
+      "level": "subprogramme",
+      "page": "Table 9, p.28",
+      "pdfPage": 28,
+      "grouping": "programme",
+      "within": "ke.fy2025-26.estimates.county.nyamira.vote.5284",
+      "parts": [
+        "ke.fy2025-26.estimates.county.nyamira.programme.5284.p1.r1.recurrent",
+        "ke.fy2025-26.estimates.county.nyamira.programme.5284.p1.r1.development"
+      ]
+    }
+  ]
+}

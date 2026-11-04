@@ -1,0 +1,14 @@
+document,where,problem,what_we_do
+pbb-2025-26,"Table 9, p.20",The County Assembly's total line prints 921414382; its three programmes add to 921414409 and Table 8 prints 921414409,Table 8's total is used; the misprint is not loaded
+pbb-2025-26,"Table 17, p.42",Keroka Municipality is 5282 and the Disability Board 5280; Tables 9 11 and 12 give 5280 and 5282,Tables 9 11 and 12 are followed; budget-sectors.json had followed Table 17
+pbb-2025-26,"Table 15, p.40-41","The 75,179,711 recurrent conditional grant is printed against vote 5267 (Medical Services) but reconciles only with Primary Healthcare's recurrent total",Shown under Primary Healthcare with a note (as in budget-sectors.json)
+pbb-2025-26,"Table 12, p.38",Medical Services' recurrent parts add to 1 shilling more than its printed recurrent total,Within the document's 1 shilling tolerance
+pbb-2025-26,p.19,"The narrative gives development as 3,280,990,391; every table prints 3,280,990,777",The tables are used
+pbb-2025-26,p.29,"The narrative gives operations and maintenance as 1,496,846,549; Table 17 prints 1,496,846,550",Table 17 is used; noted on the figure
+pbb-2025-26,"Table 9, pp.20-28","Programme codes repeat (2020052 70 for two roads programmes), carry other votes' endings (irrigation ends 64 under Water; trade's first two end 70) or end 60, which is not a vote",Codes kept as printed; programmes are numbered in printed order instead of by code
+pbb-2025-26,"Table 9, p.28","A row of 1,000,000 under the Disability Board has no name",Shown under the programme above it with a note
+pbb-2025-26 (scan),posted 24 Sep 2026,The county's second copy is a stamped scan of the same July 2025 document; its cover letter cites PFM Act s.135 (supplementary budgets),Not loaded; the text copy is used. Approval status is on person-checks.csv
+bir-2025-26-q4,"Table 4, p.82 and p.83","The report's budget column differs from the Programme Based Budget by 1 shilling for Finance (187,485,390 against 187,485,391) and Medical Services (926,620,438 against 926,620,437)",Within the 1 shilling tolerance
+bir-2025-26-q4,"Table 4, p.85","The county reports 7,105,627,509 spent in FY2025/26; the Controller of Budget reports 7,009.26 million",Both kept with their sources; to be shown as a question to ask
+src/data/money.json,eqShare column,"The 'Equitable share reported' column is the allocation in seven years and the amount received in five",Filed by year as equitable-share-allocated or equitable-share-received; the Money page's column needs fixing in phase C2 and a corrections note
+src/data/money.json,FY2024/25,"County Budget Review and Outlook Paper (Oct 2025) reports 7.41B spent and 2.43B on development, against the Controller of Budget's 5.65B and 1.05B",Unchanged from money.json's caveat; both to be shown in phase C2

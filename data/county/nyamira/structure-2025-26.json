@@ -1,0 +1,1435 @@
+{
+  "fy": "2025/26",
+  "stage": "estimates",
+  "source": "nyamira-pbb-2025-26",
+  "votes": [
+    {
+      "vote": "5261",
+      "name": "County Assembly",
+      "short": "County Assembly",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5261",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "Administration, policy planning and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "Administration, policy planning and support services",
+              "printedCode": "1011005 261",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5261.p1.r1",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Oversight and management services",
+          "rows": [
+            {
+              "row": 2,
+              "name": "Oversight and management services",
+              "printedCode": "7080052 61",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5261.p2.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Legislation and representation services",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Legislation and representation services",
+              "printedCode": "7090052 61",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5261.p3.r3",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5262",
+      "name": "County Executive",
+      "short": "Governor's office / Executive",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5262",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "Policy planning, general administration and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration",
+              "printedCode": "7010052 62",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": "Policy planning and support services",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p1.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "County results and delivery support services",
+          "rows": [
+            {
+              "row": 3,
+              "name": "County results and delivery support services",
+              "printedCode": "7010025 62",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p2.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Governance advisory, liaison, communication support services",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Governor's advisory, liaison, communication and support services",
+              "printedCode": "7010752 62",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p3.r4",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "name": "Coordination and management of county executive affairs and support services",
+          "rows": [
+            {
+              "row": 5,
+              "name": "Executive management services",
+              "printedCode": "7060052 62",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5262.p4.r5",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5263",
+      "name": "Finance and Accounting services",
+      "short": "Finance",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5263",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy planning and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration, policy planning and support services",
+              "printedCode": "7010052 63",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p1.r1",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Accounting services",
+          "rows": [
+            {
+              "row": 2,
+              "name": "Accounting services",
+              "printedCode": "7040152 63",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p2.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Audit and risk management services",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Audit and risk management services",
+              "printedCode": "7040252 63",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p3.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "name": "Supply chain management services",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Supply chain management services",
+              "printedCode": "7010352 63",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5263.p4.r4",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5264",
+      "name": "Crop Development",
+      "short": "Agriculture (crops)",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5264",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy and planning",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration",
+              "printedCode": "1010052 64",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5264.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": "Policy and planning",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5264.p1.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Crop, agribusiness and land development",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Crops",
+              "printedCode": "1020052 64",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5264.p2.r3",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5265",
+      "name": "Environment, Water, Energy & Natural Resources",
+      "short": "Environment & energy",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5265",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy planning and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration, policy planning and support services",
+              "printedCode": "1001052 65",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p1.r1",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Environment and natural resources",
+          "rows": [
+            {
+              "row": 2,
+              "name": "Environment and natural resources",
+              "printedCode": "1004052 65",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p2.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Climate change mitigation and adaptation measures",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Climate change mitigation and adaptation measures",
+              "printedCode": "1005052 65",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p3.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "name": "Energy and mineral resources",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Energy and mineral resources",
+              "printedCode": "1002052 65",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5265.p4.r4",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5266",
+      "name": "Education & Vocational Training",
+      "short": "Education",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5266",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration and policy planning support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration services and policy support services",
+              "printedCode": "5010052 66",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p1.r1",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Early childhood development and management services",
+          "rows": [
+            {
+              "row": 2,
+              "name": "ECDE management services",
+              "printedCode": "5020052 66",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p2.r2",
+              "note": null
+            },
+            {
+              "row": 3,
+              "name": "School feeding programme",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p2.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Information, communication and technology",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Information, communication and technology",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p3.r4",
+              "note": "Printed with no programme code."
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "name": "Vocational training and management services",
+          "rows": [
+            {
+              "row": 5,
+              "name": "Vocational training",
+              "printedCode": "5030052 66",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5266.p4.r5",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5267",
+      "name": "Medical Services",
+      "short": "Hospitals (medical services)",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5267",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy planning and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration and support services",
+              "printedCode": "4010052 67",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5267.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": "Policy planning",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Medical support services",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Medical support services",
+              "printedCode": "4020052 67",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5267.p2.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Health products and technologies support services",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Health products and technologies support services",
+              "printedCode": "4030052 67",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5267.p3.r4",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5268",
+      "name": "Land, Physical Planning, Housing and Urban Development",
+      "short": "Lands & housing",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5268",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy planning and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration and support services",
+              "printedCode": "1010052 68",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": "Policy planning and support services",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p1.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Physical planning and survey services support services",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Physical planning and survey services",
+              "printedCode": "1050052 68",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p2.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Land management support services",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Land management support services",
+              "printedCode": "1070152 68",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p3.r4",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "name": "Housing and urban development",
+          "rows": [
+            {
+              "row": 5,
+              "name": "Housing and urban development",
+              "printedCode": "1060052 68",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5268.p4.r5",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5269",
+      "name": "Water Sanitation and Irrigation",
+      "short": "Water",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5269",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy and planning",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration",
+              "printedCode": "1001052 69",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5269.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": "Policy and planning",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Water supplies and management services",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Water supplies",
+              "printedCode": "1003052 69",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5269.p2.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Irrigation, drainage and storage services",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Irrigation",
+              "printedCode": "1030052 64",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5269.p3.r4",
+              "note": "Printed with a code ending 64, the crop development vote."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5270",
+      "name": "Transport & Public Works",
+      "short": "Roads & public works",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5270",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy planning and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration, policy planning and support services",
+              "printedCode": "2010052 70",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p1.r1",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Roads development and management support services",
+          "rows": [
+            {
+              "row": 2,
+              "name": "Roads development and management support services",
+              "printedCode": "2020052 70",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p2.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Transport and mechanical support services",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Transport and mechanical support services",
+              "printedCode": "2020352 70",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p3.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "name": "Public works and disaster management support services",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Public works and disaster management support services",
+              "printedCode": "2020052 70",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p4.r4",
+              "note": "Printed with the same code as roads development."
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "name": "Integrated road construction and maintenance services",
+          "rows": [
+            {
+              "row": 5,
+              "name": "Integrated road construction and maintenance services",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5270.p5.r5",
+              "note": "Printed with no programme code."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5271",
+      "name": "Trade, Tourism and Co-operatives Development",
+      "short": "Trade & co-ops",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5271",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration and policy services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration",
+              "printedCode": "3010052 70",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p1.r1",
+              "note": "Printed with a code ending 70, the roads vote."
+            },
+            {
+              "row": 2,
+              "name": "Policy services",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p1.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Cooperative development",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Cooperative promotion",
+              "printedCode": "3020152 70",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p2.r3",
+              "note": "Printed with a code ending 70, the roads vote."
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Industrialization",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Industrialization",
+              "printedCode": "3030152 71",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p3.r4",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "name": "Trade",
+          "rows": [
+            {
+              "row": 5,
+              "name": "Trade development and promotion",
+              "printedCode": "3020052 71",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p4.r5",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "name": "Weights and measures",
+          "rows": [
+            {
+              "row": 6,
+              "name": "Fair customer practices",
+              "printedCode": "3040052 71",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5271.p5.r6",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 6,
+          "name": "Tourism",
+          "rows": [
+            {
+              "row": 7,
+              "name": "Tourism promotion and development",
+              "printedCode": "3030052 71",
+              "groupedBy": "code",
+              "figure": null,
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5272",
+      "name": "Youth, Gender, Culture and Social services",
+      "short": "Youth, gender & culture",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5272",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration and policy planning",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration and policy planning",
+              "printedCode": "7010052 72",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p1.r1",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Cultural development and promotion, heritage",
+          "rows": [
+            {
+              "row": 2,
+              "name": "Cultural development and promotion, heritage",
+              "printedCode": "9030052 72",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p2.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Gender and social support services",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Gender and social support services",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p3.r3",
+              "note": "Printed with no programme code."
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "name": "Youth affairs development and promotion support services",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Youth affairs development and promotion support services",
+              "printedCode": "9050052 72",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p4.r4",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "name": "Promotion and development of sports",
+          "rows": [
+            {
+              "row": 5,
+              "name": "Promotion and development of sports",
+              "printedCode": "9020052 72",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p5.r5",
+              "note": null
+            },
+            {
+              "row": 6,
+              "name": "Liqour licencing",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5272.p5.r6",
+              "note": "Spelling as printed. Printed with no programme name of its own, so it is shown under the programme above it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5273",
+      "name": "CPSB",
+      "short": "Public Service Board",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5273",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy planning and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration and support services",
+              "printedCode": "1001052 73",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5273.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": "Policy planning and support services",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5273.p1.r2",
+              "note": null
+            },
+            {
+              "row": 3,
+              "name": "Legal governance and compliance",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5273.p1.r3",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5274",
+      "name": "Public Service Management",
+      "short": "Public service & administration",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5274",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "County administration and field coordination support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration and support services",
+              "printedCode": "1010052 74",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": "Policy development and planning",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p1.r2",
+              "note": null
+            },
+            {
+              "row": 3,
+              "name": "Field coordination and administration",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p1.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Human resources management and development support services",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Human resource management",
+              "printedCode": "7100052 74",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p2.r4",
+              "note": null
+            },
+            {
+              "row": 5,
+              "name": "Human resource development",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p2.r5",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Public participation and civic education support services",
+          "rows": [
+            {
+              "row": 6,
+              "name": "Public participation and civic education support services",
+              "printedCode": "7020152 74",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p3.r6",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "name": "Corporate communication support services",
+          "rows": [
+            {
+              "row": 7,
+              "name": "Corporate communication support services",
+              "printedCode": "7020052 74",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p4.r7",
+              "note": "The programme column prints \"orporate\"."
+            }
+          ]
+        },
+        {
+          "n": 5,
+          "name": "Security enforcement and compliance support services",
+          "rows": [
+            {
+              "row": 8,
+              "name": "Security enforcement and compliance support services",
+              "printedCode": "1010052 60",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p5.r8",
+              "note": "Printed with a code ending 60, which is not a vote in this budget."
+            }
+          ]
+        },
+        {
+          "n": 6,
+          "name": "Special programme",
+          "rows": [
+            {
+              "row": 9,
+              "name": "Special programme",
+              "printedCode": "7100052 60",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5274.p6.r9",
+              "note": "Printed with a code ending 60, which is not a vote in this budget."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5275",
+      "name": "Nyamira Municipality",
+      "short": "Nyamira Municipality",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5275",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy planning and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration and support services",
+              "printedCode": "1010052 75",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5275.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": "Policy planning and support services",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Environmental support services",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Environmental services",
+              "printedCode": "1004052 75",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5275.p2.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Municipal infrastructure and disaster management support services",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Municipal infrastructure and disaster management",
+              "printedCode": "1060052 75",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5275.p3.r4",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5276",
+      "name": "The County Attorney",
+      "short": "County Attorney",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5276",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration",
+              "printedCode": "7010052 76",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5276.p1.r1",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Legal governance, legal training, integrity affairs management and support services",
+          "rows": [
+            {
+              "row": 2,
+              "name": "Legal governance, legal training, integrity affairs management and support services",
+              "printedCode": "7020052 76",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5276.p2.r2",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5277",
+      "name": "Economic Planning, Resources Mobilization and ICT",
+      "short": "Planning, revenue & ICT",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5277",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration and policy planning",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration and policy planning",
+              "printedCode": "7010052 77",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5277.p1.r1",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Economic planning and budgeting coordination support services",
+          "rows": [
+            {
+              "row": 2,
+              "name": "Economic planning and budgeting coordination support services",
+              "printedCode": "7020152 77",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5277.p2.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Monitoring, evaluation and reporting",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Monitoring, evaluation and reporting",
+              "printedCode": "7020252 77",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5277.p3.r3",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5278",
+      "name": "Livestock and Fisheries Services",
+      "short": "Livestock & fisheries",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5278",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy and planning",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration",
+              "printedCode": "1010052 78",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": "Policy and planning",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p1.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Fisheries",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Fisheries",
+              "printedCode": "1030052 78",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p2.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Livestock",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Livestock",
+              "printedCode": "1040052 78",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p3.r4",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "name": "Animal health",
+          "rows": [
+            {
+              "row": 5,
+              "name": "Animal health",
+              "printedCode": "1040252 78",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5278.p4.r5",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5279",
+      "name": "Primary Healthcare",
+      "short": "Primary healthcare",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5279",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy planning and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration, policy planning and support services",
+              "printedCode": "4010052 79",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5279.p1.r1",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Preventive and promotive health care",
+          "rows": [
+            {
+              "row": 2,
+              "name": "Preventive and promotive health care",
+              "printedCode": "4010952 79",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5279.p2.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Health administration, planning, budgeting and M&E",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Health administration, planning, budgeting and M&E",
+              "printedCode": "4010152 79",
+              "groupedBy": "code",
+              "figure": null,
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5280",
+      "name": "Keroka municipality",
+      "short": "Keroka Municipality",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5280",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "Finance and administration support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "Administrative support services",
+              "printedCode": "1010052 80",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5280.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": "Finance and planning",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Environmental support services",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Environmental services",
+              "printedCode": "1004052 80",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5280.p2.r3",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "name": "Municipal infrastructure and disaster management support services",
+          "rows": [
+            {
+              "row": 4,
+              "name": "Transport and infrastructure",
+              "printedCode": "1060052 80",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5280.p3.r4",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5281",
+      "name": "Nyamira revenue board",
+      "short": "Revenue Board",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5281",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration and support services",
+              "printedCode": "7010052 81",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5281.p1.r1",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Revenue mobilisation",
+          "rows": [
+            {
+              "row": 2,
+              "name": "Revenue mobilization",
+              "printedCode": "7050052 81",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5281.p2.r2",
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5282",
+      "name": "Nyamira disability board",
+      "short": "Disability Board",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5282",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration and support services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration and support services",
+              "printedCode": "7010052 82",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5282.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": null,
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5282.p1.r2",
+              "note": "Printed with no name. Shown under the programme above it until the county says what it is."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5283",
+      "name": "Nyamira Investment Board",
+      "short": "Investment Board",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5283",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration and policy services",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration",
+              "printedCode": "7010052 83",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5283.p1.r1",
+              "note": null
+            },
+            {
+              "row": 2,
+              "name": "Policy services",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5283.p1.r2",
+              "note": null
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "name": "Establishment and operationalization of investment",
+          "rows": [
+            {
+              "row": 3,
+              "name": "Establishment and operationalization of investment",
+              "printedCode": null,
+              "groupedBy": "layout",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5283.p2.r3",
+              "note": "Printed with no programme code."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "vote": "5284",
+      "name": "Nyamira Water and sanitation company",
+      "short": "NYAWASCO (water company)",
+      "figure": "ke.fy2025-26.estimates.county.nyamira.vote.5284",
+      "programmes": [
+        {
+          "n": 1,
+          "name": "General administration, policy and planning",
+          "rows": [
+            {
+              "row": 1,
+              "name": "General administration",
+              "printedCode": "7010052 84",
+              "groupedBy": "code",
+              "figure": "ke.fy2025-26.estimates.county.nyamira.programme.5284.p1.r1",
+              "note": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
