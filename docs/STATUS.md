@@ -29,6 +29,11 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
   - Department budgets FY2021/22 to FY2024/25 from each year's Programme Based Budget (7 of 8 tables proved to the shilling), with a reviewed map of renamed and combined departments. Department pages show the change on FY2024/25 and five years of budgets; the year page charts the county's printed budget since FY2021/22; the department list has a change column. Registry: 876 county figures.
   - Found: FY2024/25's recurrent table does not add up to its own total (KSh 22.4 million apart); a C1 evidence note for FY2015/16 quoted the next county and is corrected.
   - Next: phase C4, hardening, and the person checks in `data-src/county/nyamira/person-checks.csv`. Earlier programme rows and budgets before FY2021/22 are not loaded.
+- **Phase C4, hardening, built** on branch `feat/county-phase-4-hardening` (stacked on C3), not pushed. Decision #109, for the owner to review.
+  - Checked on the money pages: 0 broken internal links (26,461 on 108 pages); 0 axe problems (WCAG 2.2 AA, 8 page types at 390 and 1280, light and dark); every page type works with JavaScript off; HTML median 13 KB compressed, largest 55 KB (`/data/money/`, with its toggles). New: `npm run check:county:pages` after a build.
+  - The budget simulator and site search now read the registry; no page reads `money.json` or `budget-sectors.json`. Deleting those two files waits for the owner's go-ahead.
+  - Small tap targets in shared components (breadcrumbs, CSV links, the history table's source links) pass WCAG 2.2 but not the national product's 44px aim; left for a site-wide pass.
+  - Waiting for people: the usability round (`docs/county-budget/USABILITY.md`) and the person checks. The county plan's phases C1 to C4 are otherwise built; nothing is pushed or merged.
 
 ## Changes on 3 Nov 2026
 
