@@ -1,0 +1,2720 @@
+{
+  "defaults": {
+    "fy": "2025/26",
+    "stage": "spent",
+    "unit": "KSh",
+    "grouping": "vote-spending",
+    "money": "county",
+    "label": "official",
+    "source": "nyamira-bir-2025-26-q4",
+    "checkedOn": "2026-11-04",
+    "checkedBy": "claude-code"
+  },
+  "figures": [
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.recurrent.target",
+      "name": "County Assembly: recurrent budget in the Q4 report, FY2025/26",
+      "value": 689414409,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.recurrent.actual",
+      "name": "County Assembly: recurrent spent by 30 June 2026",
+      "value": 481617284,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.recurrent.share",
+      "name": "County Assembly: share of the recurrent budget spent, FY2025/26",
+      "value": 69.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.development.target",
+      "name": "County Assembly: development budget in the Q4 report, FY2025/26",
+      "value": 232000000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.development.actual",
+      "name": "County Assembly: development spent by 30 June 2026",
+      "value": 35681553,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.development.share",
+      "name": "County Assembly: share of the development budget spent, FY2025/26",
+      "value": 15.4,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.total.target",
+      "name": "County Assembly: total budget in the Q4 report, FY2025/26",
+      "value": 921414409,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.total.actual",
+      "name": "County Assembly: total spent by 30 June 2026",
+      "value": 517298837,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.total.share",
+      "name": "County Assembly: share of the total budget spent, FY2025/26",
+      "value": 56.1,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5261.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5262.recurrent.target",
+      "name": "Executive: recurrent budget in the Q4 report, FY2025/26",
+      "value": 444949706,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5262.recurrent.actual",
+      "name": "Executive: recurrent spent by 30 June 2026",
+      "value": 440202799,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5262.recurrent.share",
+      "name": "Executive: share of the recurrent budget spent, FY2025/26",
+      "value": 98.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5262.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5262.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5262.total.target",
+      "name": "Executive: total budget in the Q4 report, FY2025/26",
+      "value": 444949706,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5262.total.actual",
+      "name": "Executive: total spent by 30 June 2026",
+      "value": 440202799,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5262.total.share",
+      "name": "Executive: share of the total budget spent, FY2025/26",
+      "value": 98.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5262.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5262.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.recurrent.target",
+      "name": "Finance &Accounting services: recurrent budget in the Q4 report, FY2025/26",
+      "value": 187485390,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.recurrent.actual",
+      "name": "Finance &Accounting services: recurrent spent by 30 June 2026",
+      "value": 185445303,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.recurrent.share",
+      "name": "Finance &Accounting services: share of the recurrent budget spent, FY2025/26",
+      "value": 98.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.development.target",
+      "name": "Finance &Accounting services: development budget in the Q4 report, FY2025/26",
+      "value": 261573174,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.development.actual",
+      "name": "Finance &Accounting services: development spent by 30 June 2026",
+      "value": 252360693,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.development.share",
+      "name": "Finance &Accounting services: share of the development budget spent, FY2025/26",
+      "value": 96.5,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.total.target",
+      "name": "Finance &Accounting services: total budget in the Q4 report, FY2025/26",
+      "value": 449058564,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.total.actual",
+      "name": "Finance &Accounting services: total spent by 30 June 2026",
+      "value": 437805996,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.total.share",
+      "name": "Finance &Accounting services: share of the total budget spent, FY2025/26",
+      "value": 97.5,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5263.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.recurrent.target",
+      "name": "Economic planning & Resource mobilization: recurrent budget in the Q4 report, FY2025/26",
+      "value": 178551420,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.recurrent.actual",
+      "name": "Economic planning & Resource mobilization: recurrent spent by 30 June 2026",
+      "value": 179941321,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.recurrent.share",
+      "name": "Economic planning & Resource mobilization: share of the recurrent budget spent, FY2025/26",
+      "value": 100.8,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.development.target",
+      "name": "Economic planning & Resource mobilization: development budget in the Q4 report, FY2025/26",
+      "value": 20000000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.development.actual",
+      "name": "Economic planning & Resource mobilization: development spent by 30 June 2026",
+      "value": 19998053,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.development.share",
+      "name": "Economic planning & Resource mobilization: share of the development budget spent, FY2025/26",
+      "value": 100,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.total.target",
+      "name": "Economic planning & Resource mobilization: total budget in the Q4 report, FY2025/26",
+      "value": 198551420,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.total.actual",
+      "name": "Economic planning & Resource mobilization: total spent by 30 June 2026",
+      "value": 199939374,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.total.share",
+      "name": "Economic planning & Resource mobilization: share of the total budget spent, FY2025/26",
+      "value": 100.7,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5277.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.recurrent.target",
+      "name": "Agriculture Crop Development: recurrent budget in the Q4 report, FY2025/26",
+      "value": 60529200,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.recurrent.actual",
+      "name": "Agriculture Crop Development: recurrent spent by 30 June 2026",
+      "value": 58676089,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.recurrent.share",
+      "name": "Agriculture Crop Development: share of the recurrent budget spent, FY2025/26",
+      "value": 96.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.development.target",
+      "name": "Agriculture Crop Development: development budget in the Q4 report, FY2025/26",
+      "value": 317668919,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.development.actual",
+      "name": "Agriculture Crop Development: development spent by 30 June 2026",
+      "value": 308664597,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.development.share",
+      "name": "Agriculture Crop Development: share of the development budget spent, FY2025/26",
+      "value": 97.2,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.total.target",
+      "name": "Agriculture Crop Development: total budget in the Q4 report, FY2025/26",
+      "value": 378198119,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.total.actual",
+      "name": "Agriculture Crop Development: total spent by 30 June 2026",
+      "value": 367340686,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.total.share",
+      "name": "Agriculture Crop Development: share of the total budget spent, FY2025/26",
+      "value": 97.1,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5264.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.recurrent.target",
+      "name": "Livestock and Fisheries Services: recurrent budget in the Q4 report, FY2025/26",
+      "value": 102917873,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.recurrent.actual",
+      "name": "Livestock and Fisheries Services: recurrent spent by 30 June 2026",
+      "value": 90700738,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.recurrent.share",
+      "name": "Livestock and Fisheries Services: share of the recurrent budget spent, FY2025/26",
+      "value": 88.1,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.development.target",
+      "name": "Livestock and Fisheries Services: development budget in the Q4 report, FY2025/26",
+      "value": 16500000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.development.actual",
+      "name": "Livestock and Fisheries Services: development spent by 30 June 2026",
+      "value": 12188158,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.development.share",
+      "name": "Livestock and Fisheries Services: share of the development budget spent, FY2025/26",
+      "value": 73.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.total.target",
+      "name": "Livestock and Fisheries Services: total budget in the Q4 report, FY2025/26",
+      "value": 119417873,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.total.actual",
+      "name": "Livestock and Fisheries Services: total spent by 30 June 2026",
+      "value": 102888896,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.total.share",
+      "name": "Livestock and Fisheries Services: share of the total budget spent, FY2025/26",
+      "value": 86.2,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5278.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.recurrent.target",
+      "name": "Environment, natural resources and mining: recurrent budget in the Q4 report, FY2025/26",
+      "value": 72584289,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.recurrent.actual",
+      "name": "Environment, natural resources and mining: recurrent spent by 30 June 2026",
+      "value": 67189325,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.recurrent.share",
+      "name": "Environment, natural resources and mining: share of the recurrent budget spent, FY2025/26",
+      "value": 92.6,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.development.target",
+      "name": "Environment, natural resources and mining: development budget in the Q4 report, FY2025/26",
+      "value": 248710133,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.development.actual",
+      "name": "Environment, natural resources and mining: development spent by 30 June 2026",
+      "value": 244967348,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.82",
+      "pdfPage": 92
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.development.share",
+      "name": "Environment, natural resources and mining: share of the development budget spent, FY2025/26",
+      "value": 98.5,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.82",
+      "pdfPage": 92,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.total.target",
+      "name": "Environment, natural resources and mining: total budget in the Q4 report, FY2025/26",
+      "value": 321294422,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.total.actual",
+      "name": "Environment, natural resources and mining: total spent by 30 June 2026",
+      "value": 312156673,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.total.share",
+      "name": "Environment, natural resources and mining: share of the total budget spent, FY2025/26",
+      "value": 97.2,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5265.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.recurrent.target",
+      "name": "Education, Vocational Training and ICT: recurrent budget in the Q4 report, FY2025/26",
+      "value": 470265561,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.recurrent.actual",
+      "name": "Education, Vocational Training and ICT: recurrent spent by 30 June 2026",
+      "value": 460128490,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.recurrent.share",
+      "name": "Education, Vocational Training and ICT: share of the recurrent budget spent, FY2025/26",
+      "value": 97.8,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.development.target",
+      "name": "Education, Vocational Training and ICT: development budget in the Q4 report, FY2025/26",
+      "value": 108900000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.development.actual",
+      "name": "Education, Vocational Training and ICT: development spent by 30 June 2026",
+      "value": 104141730,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.development.share",
+      "name": "Education, Vocational Training and ICT: share of the development budget spent, FY2025/26",
+      "value": 95.6,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.total.target",
+      "name": "Education, Vocational Training and ICT: total budget in the Q4 report, FY2025/26",
+      "value": 579165561,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.total.actual",
+      "name": "Education, Vocational Training and ICT: total spent by 30 June 2026",
+      "value": 564270220,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.total.share",
+      "name": "Education, Vocational Training and ICT: share of the total budget spent, FY2025/26",
+      "value": 97.4,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5266.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.recurrent.target",
+      "name": "Medical Services: recurrent budget in the Q4 report, FY2025/26",
+      "value": 926620438,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.recurrent.actual",
+      "name": "Medical Services: recurrent spent by 30 June 2026",
+      "value": 810662988,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.recurrent.share",
+      "name": "Medical Services: share of the recurrent budget spent, FY2025/26",
+      "value": 87.5,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.development.target",
+      "name": "Medical Services: development budget in the Q4 report, FY2025/26",
+      "value": 419302600,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.development.actual",
+      "name": "Medical Services: development spent by 30 June 2026",
+      "value": 16845242,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.development.share",
+      "name": "Medical Services: share of the development budget spent, FY2025/26",
+      "value": 4,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.total.target",
+      "name": "Medical Services: total budget in the Q4 report, FY2025/26",
+      "value": 1345923038,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.total.actual",
+      "name": "Medical Services: total spent by 30 June 2026",
+      "value": 827508230,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.total.share",
+      "name": "Medical Services: share of the total budget spent, FY2025/26",
+      "value": 61.5,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5267.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.recurrent.target",
+      "name": "Primary Health Care: recurrent budget in the Q4 report, FY2025/26",
+      "value": 1102065948,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.recurrent.actual",
+      "name": "Primary Health Care: recurrent spent by 30 June 2026",
+      "value": 1090020033,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.recurrent.share",
+      "name": "Primary Health Care: share of the recurrent budget spent, FY2025/26",
+      "value": 98.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.development.target",
+      "name": "Primary Health Care: development budget in the Q4 report, FY2025/26",
+      "value": 41100000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.development.actual",
+      "name": "Primary Health Care: development spent by 30 June 2026",
+      "value": 40458930,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.development.share",
+      "name": "Primary Health Care: share of the development budget spent, FY2025/26",
+      "value": 98.4,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.total.target",
+      "name": "Primary Health Care: total budget in the Q4 report, FY2025/26",
+      "value": 1143165948,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.total.actual",
+      "name": "Primary Health Care: total spent by 30 June 2026",
+      "value": 1130478963,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.total.share",
+      "name": "Primary Health Care: share of the total budget spent, FY2025/26",
+      "value": 98.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5279.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.recurrent.target",
+      "name": "Lands Housing and urban development: recurrent budget in the Q4 report, FY2025/26",
+      "value": 92428464,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.recurrent.actual",
+      "name": "Lands Housing and urban development: recurrent spent by 30 June 2026",
+      "value": 90703028,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.recurrent.share",
+      "name": "Lands Housing and urban development: share of the recurrent budget spent, FY2025/26",
+      "value": 98.1,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.development.target",
+      "name": "Lands Housing and urban development: development budget in the Q4 report, FY2025/26",
+      "value": 291023322,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.development.actual",
+      "name": "Lands Housing and urban development: development spent by 30 June 2026",
+      "value": 263229081,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.development.share",
+      "name": "Lands Housing and urban development: share of the development budget spent, FY2025/26",
+      "value": 90.4,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.total.target",
+      "name": "Lands Housing and urban development: total budget in the Q4 report, FY2025/26",
+      "value": 383451786,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.total.actual",
+      "name": "Lands Housing and urban development: total spent by 30 June 2026",
+      "value": 353932109,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.total.share",
+      "name": "Lands Housing and urban development: share of the total budget spent, FY2025/26",
+      "value": 92.3,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5268.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.recurrent.target",
+      "name": "Roads Transport and Public Works: recurrent budget in the Q4 report, FY2025/26",
+      "value": 107959995,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.recurrent.actual",
+      "name": "Roads Transport and Public Works: recurrent spent by 30 June 2026",
+      "value": 107374421,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.recurrent.share",
+      "name": "Roads Transport and Public Works: share of the recurrent budget spent, FY2025/26",
+      "value": 99.5,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.development.target",
+      "name": "Roads Transport and Public Works: development budget in the Q4 report, FY2025/26",
+      "value": 435716791,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.development.actual",
+      "name": "Roads Transport and Public Works: development spent by 30 June 2026",
+      "value": 397068340,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.development.share",
+      "name": "Roads Transport and Public Works: share of the development budget spent, FY2025/26",
+      "value": 91.1,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.total.target",
+      "name": "Roads Transport and Public Works: total budget in the Q4 report, FY2025/26",
+      "value": 543676786,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.total.actual",
+      "name": "Roads Transport and Public Works: total spent by 30 June 2026",
+      "value": 504442761,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.total.share",
+      "name": "Roads Transport and Public Works: share of the total budget spent, FY2025/26",
+      "value": 92.8,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5270.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.recurrent.target",
+      "name": "Trade, Tourism and Cooperative development: recurrent budget in the Q4 report, FY2025/26",
+      "value": 45348475,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.recurrent.actual",
+      "name": "Trade, Tourism and Cooperative development: recurrent spent by 30 June 2026",
+      "value": 41508704,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.recurrent.share",
+      "name": "Trade, Tourism and Cooperative development: share of the recurrent budget spent, FY2025/26",
+      "value": 91.5,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.development.target",
+      "name": "Trade, Tourism and Cooperative development: development budget in the Q4 report, FY2025/26",
+      "value": 256200000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.development.actual",
+      "name": "Trade, Tourism and Cooperative development: development spent by 30 June 2026",
+      "value": 241779218,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.development.share",
+      "name": "Trade, Tourism and Cooperative development: share of the development budget spent, FY2025/26",
+      "value": 94.4,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.total.target",
+      "name": "Trade, Tourism and Cooperative development: total budget in the Q4 report, FY2025/26",
+      "value": 301548475,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.total.actual",
+      "name": "Trade, Tourism and Cooperative development: total spent by 30 June 2026",
+      "value": 283287922,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.total.share",
+      "name": "Trade, Tourism and Cooperative development: share of the total budget spent, FY2025/26",
+      "value": 93.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5271.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.recurrent.target",
+      "name": "Gender Youth and Social services: recurrent budget in the Q4 report, FY2025/26",
+      "value": 79788718,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.recurrent.actual",
+      "name": "Gender Youth and Social services: recurrent spent by 30 June 2026",
+      "value": 77377213,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.recurrent.share",
+      "name": "Gender Youth and Social services: share of the recurrent budget spent, FY2025/26",
+      "value": 97,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.development.target",
+      "name": "Gender Youth and Social services: development budget in the Q4 report, FY2025/26",
+      "value": 26800000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.development.actual",
+      "name": "Gender Youth and Social services: development spent by 30 June 2026",
+      "value": 26435024,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.development.share",
+      "name": "Gender Youth and Social services: share of the development budget spent, FY2025/26",
+      "value": 98.6,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.total.target",
+      "name": "Gender Youth and Social services: total budget in the Q4 report, FY2025/26",
+      "value": 106588718,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.total.actual",
+      "name": "Gender Youth and Social services: total spent by 30 June 2026",
+      "value": 103812237,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.total.share",
+      "name": "Gender Youth and Social services: share of the total budget spent, FY2025/26",
+      "value": 97.4,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5272.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5273.recurrent.target",
+      "name": "Public Service Board: recurrent budget in the Q4 report, FY2025/26",
+      "value": 57300102,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5273.recurrent.actual",
+      "name": "Public Service Board: recurrent spent by 30 June 2026",
+      "value": 50127343,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5273.recurrent.share",
+      "name": "Public Service Board: share of the recurrent budget spent, FY2025/26",
+      "value": 87.5,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5273.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5273.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5273.total.target",
+      "name": "Public Service Board: total budget in the Q4 report, FY2025/26",
+      "value": 57300102,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5273.total.actual",
+      "name": "Public Service Board: total spent by 30 June 2026",
+      "value": 50127343,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5273.total.share",
+      "name": "Public Service Board: share of the total budget spent, FY2025/26",
+      "value": 87.5,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5273.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5273.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.recurrent.target",
+      "name": "Public Service Management: recurrent budget in the Q4 report, FY2025/26",
+      "value": 508085294,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.recurrent.actual",
+      "name": "Public Service Management: recurrent spent by 30 June 2026",
+      "value": 506511195,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.83",
+      "pdfPage": 93
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.recurrent.share",
+      "name": "Public Service Management: share of the recurrent budget spent, FY2025/26",
+      "value": 99.7,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.83",
+      "pdfPage": 93,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.development.target",
+      "name": "Public Service Management: development budget in the Q4 report, FY2025/26",
+      "value": 372500000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.development.actual",
+      "name": "Public Service Management: development spent by 30 June 2026",
+      "value": 2351784,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.development.share",
+      "name": "Public Service Management: share of the development budget spent, FY2025/26",
+      "value": 0.6,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.total.target",
+      "name": "Public Service Management: total budget in the Q4 report, FY2025/26",
+      "value": 880585294,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.total.actual",
+      "name": "Public Service Management: total spent by 30 June 2026",
+      "value": 508862979,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.total.share",
+      "name": "Public Service Management: share of the total budget spent, FY2025/26",
+      "value": 57.8,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5274.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.recurrent.target",
+      "name": "Nyamira Municipality: recurrent budget in the Q4 report, FY2025/26",
+      "value": 86783593,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.recurrent.actual",
+      "name": "Nyamira Municipality: recurrent spent by 30 June 2026",
+      "value": 78246815,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.recurrent.share",
+      "name": "Nyamira Municipality: share of the recurrent budget spent, FY2025/26",
+      "value": 90.2,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.development.target",
+      "name": "Nyamira Municipality: development budget in the Q4 report, FY2025/26",
+      "value": 94295838,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.development.actual",
+      "name": "Nyamira Municipality: development spent by 30 June 2026",
+      "value": 62022005,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.development.share",
+      "name": "Nyamira Municipality: share of the development budget spent, FY2025/26",
+      "value": 65.8,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.total.target",
+      "name": "Nyamira Municipality: total budget in the Q4 report, FY2025/26",
+      "value": 181079431,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.total.actual",
+      "name": "Nyamira Municipality: total spent by 30 June 2026",
+      "value": 140268820,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.total.share",
+      "name": "Nyamira Municipality: share of the total budget spent, FY2025/26",
+      "value": 77.5,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5275.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5276.recurrent.target",
+      "name": "county attorney: recurrent budget in the Q4 report, FY2025/26",
+      "value": 24447242,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5276.recurrent.actual",
+      "name": "county attorney: recurrent spent by 30 June 2026",
+      "value": 14171503,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5276.recurrent.share",
+      "name": "county attorney: share of the recurrent budget spent, FY2025/26",
+      "value": 58,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5276.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5276.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5276.total.target",
+      "name": "county attorney: total budget in the Q4 report, FY2025/26",
+      "value": 24447242,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5276.total.actual",
+      "name": "county attorney: total spent by 30 June 2026",
+      "value": 14171503,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5276.total.share",
+      "name": "county attorney: share of the total budget spent, FY2025/26",
+      "value": 58,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5276.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5276.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.recurrent.target",
+      "name": "Keroka municipality: recurrent budget in the Q4 report, FY2025/26",
+      "value": 28559379,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.recurrent.actual",
+      "name": "Keroka municipality: recurrent spent by 30 June 2026",
+      "value": 28252012,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.recurrent.share",
+      "name": "Keroka municipality: share of the recurrent budget spent, FY2025/26",
+      "value": 98.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.development.target",
+      "name": "Keroka municipality: development budget in the Q4 report, FY2025/26",
+      "value": 20000000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.development.actual",
+      "name": "Keroka municipality: development spent by 30 June 2026",
+      "value": 19998783,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.development.share",
+      "name": "Keroka municipality: share of the development budget spent, FY2025/26",
+      "value": 100,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.total.target",
+      "name": "Keroka municipality: total budget in the Q4 report, FY2025/26",
+      "value": 48559379,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.total.actual",
+      "name": "Keroka municipality: total spent by 30 June 2026",
+      "value": 48250795,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.total.share",
+      "name": "Keroka municipality: share of the total budget spent, FY2025/26",
+      "value": 99.4,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5280.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5281.recurrent.target",
+      "name": "Nyamira Revenue Board: recurrent budget in the Q4 report, FY2025/26",
+      "value": 13998185,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5281.recurrent.actual",
+      "name": "Nyamira Revenue Board: recurrent spent by 30 June 2026",
+      "value": 12615971,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5281.recurrent.share",
+      "name": "Nyamira Revenue Board: share of the recurrent budget spent, FY2025/26",
+      "value": 90.1,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5281.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5281.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5281.total.target",
+      "name": "Nyamira Revenue Board: total budget in the Q4 report, FY2025/26",
+      "value": 13998185,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5281.total.actual",
+      "name": "Nyamira Revenue Board: total spent by 30 June 2026",
+      "value": 12615971,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5281.total.share",
+      "name": "Nyamira Revenue Board: share of the total budget spent, FY2025/26",
+      "value": 90.1,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5281.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5281.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.recurrent.target",
+      "name": "Water and sanitation: recurrent budget in the Q4 report, FY2025/26",
+      "value": 44226378,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.recurrent.actual",
+      "name": "Water and sanitation: recurrent spent by 30 June 2026",
+      "value": 42094246,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.recurrent.share",
+      "name": "Water and sanitation: share of the recurrent budget spent, FY2025/26",
+      "value": 95.2,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.development.target",
+      "name": "Water and sanitation: development budget in the Q4 report, FY2025/26",
+      "value": 88700000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.development.actual",
+      "name": "Water and sanitation: development spent by 30 June 2026",
+      "value": 87719760,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.development.share",
+      "name": "Water and sanitation: share of the development budget spent, FY2025/26",
+      "value": 98.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.total.target",
+      "name": "Water and sanitation: total budget in the Q4 report, FY2025/26",
+      "value": 132926378,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.total.actual",
+      "name": "Water and sanitation: total spent by 30 June 2026",
+      "value": 129814006,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.total.share",
+      "name": "Water and sanitation: share of the total budget spent, FY2025/26",
+      "value": 97.7,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5269.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5282.recurrent.target",
+      "name": "Nyamira Disability Board: recurrent budget in the Q4 report, FY2025/26",
+      "value": 4998185,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5282.recurrent.actual",
+      "name": "Nyamira Disability Board: recurrent spent by 30 June 2026",
+      "value": 1001800,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5282.recurrent.share",
+      "name": "Nyamira Disability Board: share of the recurrent budget spent, FY2025/26",
+      "value": 20,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5282.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5282.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5282.total.target",
+      "name": "Nyamira Disability Board: total budget in the Q4 report, FY2025/26",
+      "value": 4998185,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5282.total.actual",
+      "name": "Nyamira Disability Board: total spent by 30 June 2026",
+      "value": 1001800,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5282.total.share",
+      "name": "Nyamira Disability Board: share of the total budget spent, FY2025/26",
+      "value": 20,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5282.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5282.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5283.recurrent.target",
+      "name": "Nyamira Investment corporation: recurrent budget in the Q4 report, FY2025/26",
+      "value": 5498185,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5283.recurrent.actual",
+      "name": "Nyamira Investment corporation: recurrent spent by 30 June 2026",
+      "value": 1690900,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5283.recurrent.share",
+      "name": "Nyamira Investment corporation: share of the recurrent budget spent, FY2025/26",
+      "value": 30.8,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5283.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5283.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5283.total.target",
+      "name": "Nyamira Investment corporation: total budget in the Q4 report, FY2025/26",
+      "value": 5498185,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5283.total.actual",
+      "name": "Nyamira Investment corporation: total spent by 30 June 2026",
+      "value": 1690900,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5283.total.share",
+      "name": "Nyamira Investment corporation: share of the total budget spent, FY2025/26",
+      "value": 30.8,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5283.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5283.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.recurrent.target",
+      "name": "Nyamira water & sanitation company: recurrent budget in the Q4 report, FY2025/26",
+      "value": 30501185,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.recurrent.actual",
+      "name": "Nyamira water & sanitation company: recurrent spent by 30 June 2026",
+      "value": 23457689,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.recurrent.share",
+      "name": "Nyamira water & sanitation company: share of the recurrent budget spent, FY2025/26",
+      "value": 76.9,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.development.target",
+      "name": "Nyamira water & sanitation company: development budget in the Q4 report, FY2025/26",
+      "value": 30000000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.development.actual",
+      "name": "Nyamira water & sanitation company: development spent by 30 June 2026",
+      "value": 30000000,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.development.share",
+      "name": "Nyamira water & sanitation company: share of the development budget spent, FY2025/26",
+      "value": 100,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.total.target",
+      "name": "Nyamira water & sanitation company: total budget in the Q4 report, FY2025/26",
+      "value": 60501185,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.total.actual",
+      "name": "Nyamira water & sanitation company: total spent by 30 June 2026",
+      "value": 53457689,
+      "level": "vote",
+      "parent": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.total.share",
+      "name": "Nyamira water & sanitation company: share of the total budget spent, FY2025/26",
+      "value": 88.4,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.84",
+      "pdfPage": 94,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.vote.5284.total.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+      "name": "Nyamira, all departments: recurrent budget in the Q4 report, FY2025/26",
+      "value": 5365307614,
+      "level": "total",
+      "parent": null,
+      "page": "Table 4, p.85",
+      "pdfPage": 95
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+      "name": "Nyamira, all departments: recurrent spent by 30 June 2026",
+      "value": 4939717210,
+      "level": "total",
+      "parent": null,
+      "page": "Table 4, p.85",
+      "pdfPage": 95
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.recurrent.share",
+      "name": "Nyamira, all departments: share of the recurrent budget spent, FY2025/26",
+      "value": 92.1,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.85",
+      "pdfPage": 95,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.development.target",
+      "name": "Nyamira, all departments: development budget in the Q4 report, FY2025/26",
+      "value": 3280990777,
+      "level": "total",
+      "parent": null,
+      "page": "Table 4, p.85",
+      "pdfPage": 95
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+      "name": "Nyamira, all departments: development spent by 30 June 2026",
+      "value": 2165910299,
+      "level": "total",
+      "parent": null,
+      "page": "Table 4, p.85",
+      "pdfPage": 95
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.development.share",
+      "name": "Nyamira, all departments: share of the development budget spent, FY2025/26",
+      "value": 66,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.85",
+      "pdfPage": 95,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.development.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.development.target"
+        ],
+        "round": 1
+      }
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.total.target",
+      "name": "Nyamira, all departments: total budget in the Q4 report, FY2025/26",
+      "value": 8646298391,
+      "level": "total",
+      "parent": null,
+      "page": "Table 4, p.85",
+      "pdfPage": 95,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.recurrent.target",
+        "ke.fy2025-26.spent.county.nyamira.q4.development.target"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+      "name": "Nyamira, all departments: total spent by 30 June 2026",
+      "value": 7105627509,
+      "level": "total",
+      "parent": null,
+      "page": "Table 4, p.85",
+      "pdfPage": 95,
+      "parts": [
+        "ke.fy2025-26.spent.county.nyamira.q4.recurrent.actual",
+        "ke.fy2025-26.spent.county.nyamira.q4.development.actual"
+      ]
+    },
+    {
+      "id": "ke.fy2025-26.spent.county.nyamira.q4.total.share",
+      "name": "Nyamira, all departments: share of the total budget spent, FY2025/26",
+      "value": 82.2,
+      "unit": "%",
+      "level": "measure",
+      "grouping": "measure",
+      "parent": null,
+      "page": "Table 4, p.85",
+      "pdfPage": 95,
+      "calc": {
+        "formula": "a / b * 100",
+        "inputs": [
+          "ke.fy2025-26.spent.county.nyamira.q4.total.actual",
+          "ke.fy2025-26.spent.county.nyamira.q4.total.target"
+        ],
+        "round": 1
+      }
+    }
+  ]
+}

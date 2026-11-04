@@ -1,4 +1,4 @@
-# Status and handover (3 Nov 2026)
+# Status and handover (4 Nov 2026)
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md`, then this page, then `docs/DECISIONS.md`. Older handover notes, with the history of each feature, are in `docs/STATUS_ARCHIVE.md`.
 
@@ -7,6 +7,33 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **The site:** a static Astro 7 site in eight sections (`src/nav.js`), with real data for money (12 years), ward pages, projects and the project tracker, services, census, leaders, the Assembly, county laws, fees, opportunities, constitution summaries, search and open data. Text content lives in `src/content/`; only one explainer and one number of the week are published so far, and two money explainers are drafted.
 - **Who runs it (decision #73):** built and published by Underdogs Rising Group Limited, editorially independent, with a commitment to spin out into a non-profit. Trust pages: `/who-runs-us/`, `/right-of-reply/`, `/privacy/`, `/terms/`.
 - **NY Watch (decision #79):** the founder's data review podcast. No episodes published yet.
+
+## Changes on 4 Nov 2026
+
+- **County budget on the national model (decision #105).** The owner approved `docs/county-budget/SITEMAP.md`: Nyamira's money figures move into a registry in `data/county/nyamira/`, then the money section grows into year, department, programme, revenue, track and history pages under `/data/money/`, in Nyamira's own look. Next: phase C1, data, on `feat/county-phase-1-data`.
+- Found while planning: the Money page ends at FY2024/25, while the national registry already holds Nyamira's FY2025/26 Controller of Budget figures. The county's website has Programme Based Budgets FY2015/16 to FY2025/26, the FY2025/26 quarterly reports, and no FY2026/27 budget yet.
+- **Phase C1, data, built** on branch `feat/county-phase-1-data` (from `3c3bd02`), not pushed. Details in `docs/county-budget/DATA.md`; choices in decision #106, for the owner to review.
+  - `data/county/nyamira/`: 717 figures from 13 documents. FY2025/26 budget for 24 votes and 96 programme rows (proved to the shilling against Tables 8, 12 and 19); FY2025/26 spending by department from the county's Q4 report; FY2013/14 to FY2024/25 from the Controller of Budget.
+  - 96 of 97 history figures carried over from `money.json` were found on their page in the 11 stored reports. `money.json`'s equitable share column mixes the allocation (seven years) and the amount received (five years); the registry separates them.
+  - `npm run check:county` and 11 tests (`npm test`: 322 pass). No page changed: the main site builds the same 2,817 pages.
+  - Waiting for a person: `data-src/county/nyamira/person-checks.csv` (programme names and grouping, the budget's approval status, one history figure, the equitable share years).
+  - Next: phase C2, pages. It must also fix the Money page's equitable share column, with a corrections note.
+- **Phase C2, pages, built** on branch `feat/county-phase-2-pages` (stacked on C1), not pushed. Choices in decision #107, for the owner to review.
+  - New under `/data/money/`: `2025-26/` (the year: total, where each KSh 100 goes and comes from, departments), `2025-26/departments/` and one page per department (24) and per programme (78), `revenue/`, `track/` (spending to 30 June 2026, with questions for departments under 75%), `history/` (the twelve-year charts, moved from `/data/money/`). `/data/money/` now opens with a stage strip, the year's budget, both published spending totals and cards to these pages. Menu: four pages under Money. Build: 2,924 pages.
+  - The site now reads `src/lib/county-money.js` (from the registry) wherever it read `money.json`, so the home page, ward pages, embed and APIs all show FY2025/26. The equitable share is two columns (allocated, received), with an entry in the corrections log.
+  - Checked at 390 and 1280, light and dark, on eight page types: no sideways scroll, no script errors. One layout fault found by eye and fixed: long values squeezed the labels in share bars.
+  - One build took 13 minutes while screenshots ran beside it; the next took 34 seconds.
+  - Next: phase C3, history (Programme Based Budgets FY2015/16 to FY2024/25, the department rename map, and the missing equitable share values so allocated and received are complete).
+- **Phase C3, history, built** on branch `feat/county-phase-3-history` (stacked on C2), not pushed. Choices in decision #108, for the owner to review; details in `docs/county-budget/DATA.md`.
+  - Equitable share: allocated and received for every year FY2013/14 to FY2025/26 except FY2018/19 receipts; the revenue page now charts both. The county received less than its allocation in 4 of 12 years.
+  - Department budgets FY2021/22 to FY2024/25 from each year's Programme Based Budget (7 of 8 tables proved to the shilling), with a reviewed map of renamed and combined departments. Department pages show the change on FY2024/25 and five years of budgets; the year page charts the county's printed budget since FY2021/22; the department list has a change column. Registry: 876 county figures.
+  - Found: FY2024/25's recurrent table does not add up to its own total (KSh 22.4 million apart); a C1 evidence note for FY2015/16 quoted the next county and is corrected.
+  - Next: phase C4, hardening, and the person checks in `data-src/county/nyamira/person-checks.csv`. Earlier programme rows and budgets before FY2021/22 are not loaded.
+- **Phase C4, hardening, built** on branch `feat/county-phase-4-hardening` (stacked on C3), not pushed. Decision #109, for the owner to review.
+  - Checked on the money pages: 0 broken internal links (26,461 on 108 pages); 0 axe problems (WCAG 2.2 AA, 8 page types at 390 and 1280, light and dark); every page type works with JavaScript off; HTML median 13 KB compressed, largest 55 KB (`/data/money/`, with its toggles). New: `npm run check:county:pages` after a build.
+  - The budget simulator and site search now read the registry; no page reads `money.json` or `budget-sectors.json`. Deleting those two files waits for the owner's go-ahead.
+  - Small tap targets in shared components (breadcrumbs, CSV links, the history table's source links) pass WCAG 2.2 but not the national product's 44px aim; left for a site-wide pass.
+  - Waiting for people: the usability round (`docs/county-budget/USABILITY.md`) and the person checks. The county plan's phases C1 to C4 are otherwise built; nothing is pushed or merged.
 
 ## Changes on 3 Nov 2026
 

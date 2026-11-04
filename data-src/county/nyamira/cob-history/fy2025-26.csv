@@ -1,0 +1,5 @@
+key,value,page,pdf_page,from,note
+rec-spent,5083.03,"Table 2.5, p.9",43,data-src/national/cob-county-2025-26/extract.csv (rec_spent),
+equitable-share-allocated,6073.43,"Annex I, p.900",934,data-src/national/cob-county-2025-26/annex.csv (equitable_target),Equals the County Allocation of Revenue Act's FY2025/26 equitable share for Nyamira (KSh 6.07 billion).
+equitable-share-received,6073.43,"Annex I, p.900",934,data-src/national/cob-county-2025-26/annex.csv (equitable_actual),The county received its full equitable share.
+osr-fif-actual,483.35,"Table 2.1, p.3",37,data-src/national/cob-county-2025-26/osr.csv (fif_actual),Hospital fees (Facility Improvement Fund) within own-source revenue.

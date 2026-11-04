@@ -1,6 +1,6 @@
 ---
 // 3.2 Then and now: 2013 to today, built only from data we already hold. Each point carries its label.
-import M from '../../data/money.json';
+import M from '../../lib/county-money.js';
 import E from '../../data/elections.json';
 import EvidenceLabel from '../EvidenceLabel.astro';
 import SplitBar from '../viz/SplitBar.astro';
@@ -14,7 +14,7 @@ const reg = (y) => E.registeredByWard.filter((r) => r.year === y).reduce((n, r) 
 const pairs = [
   { t: 'Final approved/revised budget', then: bn(a.budget), now: bn(z.budget), times: x(a.budget, z.budget) },
   { t: 'Actual expenditure reported', then: bn(a.spent), now: bn(z.spent), times: x(a.spent, z.spent) },
-  { t: 'Equitable share reported by CoB', then: bn(a.eqShare), now: bn(z.eqShare), times: x(a.eqShare, z.eqShare), note: 'These are the reported equitable-share amounts; this dataset does not provide a separate cash-release series.' },
+  { t: 'Equitable share allocated', then: bn(a.eqAllocated), now: bn(z.eqAllocated), times: x(a.eqAllocated, z.eqAllocated), note: 'What the county was allocated, as the Controller of Budget reports it. The amount actually received can be lower; see where the money comes from on /data/money/revenue/.' },
   { t: 'Own-source revenue collected', then: mn(a.osr), now: mn(z.osr), times: null, note: 'Not directly comparable: the reporting scope changes from FY2022/23 when hospital fees were included.' },
 ];
 const timeline = [

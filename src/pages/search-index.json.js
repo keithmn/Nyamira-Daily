@@ -5,6 +5,7 @@ import { roads, roadPath, subtypeLabel, wardName } from '../lib/roads.js';
 import leaders from '../data/leaders.json';
 import c from '../data/constitution.json';
 import { topics } from '../data/topics.js';
+import { departments, departmentPath, programmePath, yearPath, FY } from '../lib/county-budget.js';
 import { planned } from '../config.js';
 import F from '../data/fees.json';
 import A from '../data/assembly.json';
@@ -50,6 +51,16 @@ export async function GET() {
   }
   for (const t of topics) if (!planned.has(`/data/${t.slug}/`)) add(t.title, `/data/${t.slug}/`, t.question);
   add('County budget and spending', '/data/money/', 'money budget spending pending bills revenue controller of budget absorption');
+  // The county budget pages (decision #105): each department and programme can be found by name
+  add(`Nyamira's budget ${FY}`, yearPath(), 'budget estimates ksh 100 staff pay wage bill development equitable share', 'Money');
+  add(`The 24 departments, ${FY}`, `${yearPath()}departments/`, 'departments votes ministries staff pay change', 'Money');
+  add('What the county spent this year', '/data/money/track/', 'spending absorption quarter report questions to ask unspent', 'Money');
+  add('Where the money comes from', '/data/money/revenue/', 'revenue equitable share allocated received own source revenue fees grants', 'Money');
+  add("Nyamira's money since 2013", '/data/money/history/', 'history budget spending development pending bills since 2013', 'Money');
+  for (const d of departments()) {
+    add(d.name, departmentPath(d.vote), `vote ${d.vote} ${d.short} department budget ${FY}`, `Department · vote ${d.vote}`);
+    for (const p of d.programmes) add(p.name, programmePath(d.vote, p.slug), `${d.name} ${d.short} programme ${p.rows.map((r) => r.name ?? '').join(' ')}`, `Programme · ${d.short}`);
+  }
   for (const w of wards) {
     const m = leaders.mcas[w.slug];
     add(`${w.name} Ward`, `/ward/${w.slug}/`, `${w.subCounty} ${m?.name ?? ''} ${w.places.map((p) => p.name).join(' ')}`, 'Ward');

@@ -1,0 +1,10 @@
+---
+// Twelve years and more of Nyamira's money, from the Controller of Budget (decision #105: moved here from /data/money/).
+import MoneyShell from '../../../components/money/MoneyShell.astro';
+import MoneyPage from '../../../components/MoneyPage.astro';
+import money from '../../../lib/county-money.js';
+const first = money.years[0].fy, last = money.years.at(-1).fy;
+---
+<MoneyShell title="Nyamira's money since 2013" lead={`What the county budgeted and spent each year from ${first} to ${last}, how much of its development money it used, and what it owed.`} crumbs={[{ href: '/data/money/history/', label: 'History' }]}>
+  <MoneyPage />
+</MoneyShell>

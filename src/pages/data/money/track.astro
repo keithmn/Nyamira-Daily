@@ -1,0 +1,73 @@
+---
+// What was spent this year (decision #105): each department's spending to 30 June 2026 from the county's own
+// fourth-quarter report, the Controller of Budget's totals beside it, and questions for every department that
+// spent under three quarters of a budget (the national rule, decision #104).
+import MoneyShell from '../../../components/money/MoneyShell.astro';
+import Questions from '../../../components/money/Questions.astro';
+import EvidenceLabel from '../../../components/EvidenceLabel.astro';
+import ChartFrame from '../../../components/charts/ChartFrame.astro';
+import ShareBars from '../../../components/charts/ShareBars.astro';
+import { ksh } from '../../../lib/fmt.js';
+import { full } from '@kbe/engine/fmt';
+import { track, departmentPath, pct, FY, QUESTION_BELOW } from '../../../lib/county-budget.js';
+import { shortTitle } from '../../../lib/county-registry.js';
+
+const t = track();
+const c = t.county, cob = t.cob;
+const q4 = c.spent.doc;
+const devRows = [...t.list].filter((d) => d.development.budget).sort((a, b) => a.development.share - b.development.share);
+const allRows = t.list.map((d) => ({ label: d.short, value: d.total.share, display: `${pct(d.total.share)}` }));
+// Share bars print their value large, so the value stays short and the amounts go in the label.
+const devBars = devRows.map((d) => ({ label: `${d.short}: ${ksh(d.development.spent)} of ${ksh(d.development.budget)}`, value: d.development.share, display: pct(d.development.share) }));
+const lowest = devRows[0];
+const questions = t.list.flatMap((d) => d.questions);
+const tAll = { columns: ['Vote', 'Department', 'Budget (KSh)', 'Spent (KSh)', 'Share spent'], rows: t.list.map((d) => [d.vote, d.name, d.total.budget, d.total.spent, d.total.share + '%']) };
+const tDev = { columns: ['Vote', 'Department', 'Development budget (KSh)', 'Spent (KSh)', 'Share spent'], rows: devRows.map((d) => [d.vote, d.name, d.development.budget, d.development.spent, d.development.share + '%']) };
+const m = (v) => ksh(v * 1e6);
+---
+<MoneyShell title={`What Nyamira spent in ${FY}`} lead={`How much of its ${FY} budget each department had spent by 30 June 2026, when the year ended.`} crumbs={[{ href: '/data/money/track/', label: 'What was spent' }]}>
+  <div class="two-figures">
+    <section class="figure">
+      <span class="eyebrow">Spent by 30 June 2026</span>
+      <span class="num is-lead">{pct(c.share.value)}</span>
+      <p class="say">of the {ksh(c.budget.value)} budget was spent: <strong>{ksh(c.spent.value)}</strong>, says the county. <strong class="hot">{ksh(c.budget.value - c.spent.value)}</strong> was not spent.</p>
+      <p class="source"><EvidenceLabel kind={c.spent.label} /> Source: <a href={q4.url} rel="noopener">{shortTitle(q4)}</a>, {c.spent.page}</p>
+    </section>
+    <section class="figure">
+      <span class="eyebrow">Development · building things that last</span>
+      <span class="num">{c.devShare.value}%</span>
+      <p class="say">of the {ksh(c.devBudget.value)} development budget was spent: <strong>{ksh(c.devSpent.value)}</strong>.</p>
+      <p class="source"><EvidenceLabel kind={c.devSpent.label} /> Source: <a href={q4.url} rel="noopener">{shortTitle(q4)}</a>, {c.devSpent.page}</p>
+    </section>
+  </div>
+
+  <section aria-labelledby="two-h">
+    <h2 id="two-h">Two totals for one year</h2>
+    <div class="table-box">
+      <table>
+        <thead><tr><th></th><th class="num">The county's report</th><th class="num">Controller of Budget</th></tr></thead>
+        <tbody>
+          <tr><td>Spent</td><td class="num">{full(c.spent.value)}</td><td class="num">{m(cob.spent.value)}</td></tr>
+          <tr><td>Development spent</td><td class="num">{full(c.devSpent.value)}</td><td class="num">{m(cob.devSpent.value)}</td></tr>
+          <tr><td>Share of the budget spent</td><td class="num">{pct(c.share.value)}</td><td class="num">{pct(cob.absorption.value)}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">The Controller of Budget reports <strong>{ksh(c.spent.value - cob.spent.value * 1e6)}</strong> less spending than the county does. Both are official figures. Why do they differ? That is a question for the county.</p>
+    <p class="source small"><EvidenceLabel kind="official" /> <a href={q4.url} rel="noopener">{shortTitle(q4)}</a>, {c.spent.page}; <a href={cob.spent.doc.url} rel="noopener">{shortTitle(cob.spent.doc)}</a>, {cob.spent.page}.</p>
+  </section>
+
+  <ChartFrame title={`${lowest.short} spent ${pct(lowest.development.share)} of its development budget, the least of any department`} sub={`Share of each department's ${FY} development budget spent by 30 June 2026`} evidence="official" source={`${shortTitle(q4)}, Table 4`} note="Departments with no development budget are left out." table={tDev} csvName={`nyamira-development-spent-${FY.replace('/', '-')}`}>
+    <ShareBars rows={devBars} label={`Development budget spent by department, ${FY}`} />
+  </ChartFrame>
+
+  <Questions questions={questions} title={`Questions to ask: departments that spent under ${QUESTION_BELOW}%`} />
+
+  <ChartFrame title={`Every department's spending, lowest share first`} sub={`Share of each department's whole ${FY} budget spent by 30 June 2026`} evidence="official" source={`${shortTitle(q4)}, Table 4`} table={tAll} csvName={`nyamira-department-spending-${FY.replace('/', '-')}`}>
+    <ShareBars rows={allRows} label={`Budget spent by department, ${FY}`} />
+  </ChartFrame>
+
+  <ul class="rows">
+    {t.list.map((d) => <li><a class="row-link" href={departmentPath(d.vote)}><span><span class="t">{d.name}</span><span class="d">{pct(d.total.share)} spent · {ksh(d.total.spent)} of {ksh(d.total.budget)}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
+  </ul>
+</MoneyShell>

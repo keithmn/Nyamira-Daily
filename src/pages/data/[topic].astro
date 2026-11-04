@@ -6,7 +6,7 @@ import PageHead from '../../components/PageHead.astro';
 import Toggle from '../../components/Toggle.astro';
 import { topics } from '../../data/topics.js';
 import MyWard from '../../components/MyWard.astro';
-import MoneyPage from '../../components/MoneyPage.astro';
+import MoneyOverview from '../../components/money/MoneyOverview.astro';
 import ProjectsPage from '../../components/ProjectsPage.astro';
 import ComparePage from '../../components/data/ComparePage.astro';
 import TeaMilkPage from '../../components/data/TeaMilkPage.astro';
@@ -30,7 +30,7 @@ const healthCount = wards.reduce((n, w) => n + (w.counts.Health ?? 0), 0);
 
     {t.slug === 'money' && (
       <>
-        <MoneyPage />
+        <MoneyOverview />
         <div class="stack" style="margin-top:32px">
           <Toggle id="projects" title="Ward projects: what each ward was promised" meta="FY2025/26 budget lines, progress, questions to ask"><ProjectsPage /></Toggle>
           <Toggle id="audit" title="What the Auditor-General found" meta="Audit opinion every year, 354 findings"><AuditPage /></Toggle>

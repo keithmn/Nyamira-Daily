@@ -1,0 +1,11 @@
+table,what,rows,status,checked_by,checked_on
+pbb-2025-26/programmes.csv,"Programme and sub-programme names, typed from Table 9 (pp.20-28) where the text layer wraps every column. Amounts come from the machine reading and are proved against Tables 8, 12 and 19",96,waiting,,
+pbb-2025-26/programmes.csv,"Rows whose programme was read from the layout because no code is printed on them (basis = layout); check each against the department chapters' Part F tables",22,waiting,,
+pbb-2025-26/departments.csv,"The 24 votes, carried over from budget-sectors.json (checked 24 Oct 2026). Vote codes for Keroka (5280) and the Disability Board (5282) follow Tables 9, 11 and 12, not Table 17",24,waiting,,
+pbb-2025-26 (stage),"Whether the Programme Based Budget 2025/26 is the approved budget. Its columns say 'Printed Estimates'; the scanned copy's cover letter cites PFM Act s.135 (supplementary budgets). Ask the county for the Appropriation Act 2025 or the approved estimates",1,waiting,,
+cob-history/history.csv,"FY2018/19 own-source revenue target (255.57): not found in the report's text, probably printed only in a chart",1,waiting,,
+cob-history/equitable-share.csv,"Equitable share allocated and received, FY2013/14 to FY2024/25, read from each report's text or table (page and printed words on each figure). FY2018/19 received is not readable from the text layer",23,waiting,,
+cob-history/checked.json,"Figures found by searching each report's text: percentages and one bare table cell (FY2018/19 own-source revenue 165.45) are the weakest matches",13,waiting,,
+bir-2025-26-q4/departments.csv,"Q4 FY2025/26 Table 4 (pp.82-85), read by machine and proved by its own deviations and subtotals",75,waiting,,
+department-map.csv,"Which of today's votes each printed department name in FY2021/22 to FY2024/25 is, and whether it was the same department or a combined one. The FY2023/24 lines marked same despite their old names (Finance and planning, Agriculture, Livestock and Fisheries, Health Services) matter most",86,waiting,,
+pbb-history/departments.csv,"Each earlier budget's printed estimates by department, read by machine; seven of the eight tables add up to their printed totals, FY2024/25 recurrent does not",137,waiting,,

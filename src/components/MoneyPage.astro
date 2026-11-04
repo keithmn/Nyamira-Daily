@@ -1,5 +1,5 @@
 ---
-import money from '../data/money.json';
+import money from '../lib/county-money.js';
 import ChartFrame from './charts/ChartFrame.astro';
 import LineChart from './charts/LineChart.astro';
 import ColumnChart from './charts/ColumnChart.astro';
@@ -10,6 +10,9 @@ import EmbedCode from './EmbedCode.astro';
 import Toggle from './Toggle.astro';
 const ys = money.years;
 const last = ys[ys.length - 1];
+// The latest report may not give pending bills (FY2025/26 gives trade payables, counted differently), so the card
+// shows the latest year that does, and says which year it is.
+const lastPend = [...ys].reverse().find((y) => y.pending != null);
 const bn = (m: number) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
 const mn = (m: number) => m >= 1000 ? bn(m) : `KSh ${m.toLocaleString('en-KE', { maximumFractionDigits: 1 })}M`;
 const totalSpent = ys.reduce((n, y) => n + y.spent, 0);
@@ -70,11 +73,11 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
       <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget annual reports</p>
     </div>
     <div class="figure">
-      <span class="eyebrow">Unpaid bills · {last.fy}</span>
-      <span class="num hot">{mn(last.pending)}</span>
+      <span class="eyebrow">Unpaid bills · {lastPend.fy}</span>
+      <span class="num hot">{mn(lastPend.pending)}</span>
       <p class="say">owed to suppliers and contractors at the end of the year.</p>
-      <p class="small muted">{last.pendingNote}</p>
-      <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{last.fy} report</p>
+      <p class="small muted">{lastPend.pendingNote}{lastPend.fy !== last.fy ? ` The FY${last.fy} report gives trade payables instead, which are counted differently.` : ''}</p>
+      <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, FY{lastPend.fy} report</p>
     </div>
     <div class="figure">
       <span class="eyebrow">Raised locally · {last.fy}</span>
@@ -92,7 +95,7 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
     <ColumnChart label={`Share of the development budget used each year, ${labels[0]} to ${last.fy}`} labels={labels} values={devVals} max={100} format={fmtPct} tone="gap" also={devLowIdx} />
   </ChartFrame>
 
-  <p class="callout"><span><strong>What did the Auditor-General find?</strong> See the audit opinion on the county's accounts for every year, and the findings behind it: <a href="#audit">What the Auditor-General found</a>.</span></p>
+  <p class="callout"><span><strong>What did the Auditor-General find?</strong> See the audit opinion on the county's accounts for every year, and the findings behind it: <a href="/data/money/#audit">What the Auditor-General found</a>.</span></p>
 
   <div class="sw" lang="sw">
     <span class="eyebrow">Muhtasari kwa Kiswahili</span>
@@ -125,7 +128,7 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
     <p class="small muted" style="margin:4px 0 12px">{money.note} All amounts in KSh.</p>
     <div class="table-box">
       <table class="cards">
-        <thead><tr><th>Year</th><th class="num">Approved/revised budget</th><th class="num">Actual expenditure</th><th class="num">Development expenditure</th><th class="num">Dev. budget used</th><th class="num">Own-source revenue collected</th><th class="num">Equitable share reported</th><th class="num">Pending bills</th><th>Source</th></tr></thead>
+        <thead><tr><th>Year</th><th class="num">Approved/revised budget</th><th class="num">Actual expenditure</th><th class="num">Development expenditure</th><th class="num">Dev. budget used</th><th class="num">Own-source revenue collected</th><th class="num">Equitable share allocated</th><th class="num">Equitable share received</th><th class="num">Pending bills</th><th>Source</th></tr></thead>
         <tbody>
           {ys.map((y) => (
             <tr>
@@ -135,7 +138,8 @@ const date = new Date(money.updated).toLocaleDateString('en-GB', { day: 'numeric
               <td class="num" data-label="Development expenditure">{mn(y.dev)}</td>
               <td class="num" data-label="Dev. budget used">{y.devAbs}%</td>
               <td class="num" data-label="Raised locally">{mn(y.osr)}{y.osrNote ? ' *' : ''}</td>
-              <td class="num" data-label="Equitable share reported">{mn(y.eqShare)}</td>
+              <td class="num" data-label="Equitable share allocated">{y.eqAllocated != null ? mn(y.eqAllocated) : 'Not given'}</td>
+              <td class="num" data-label="Equitable share received">{y.eqReceived != null ? mn(y.eqReceived) : 'Not given'}</td>
               <td class="num" data-label="Pending bills">{y.pending != null ? mn(y.pending) : 'Not reported'}{y.pendingNote ? ' *' : ''}</td>
               <td data-label="Source"><a href={y.src} rel="noopener">CoB {y.fy}</a> <span class="small muted">{y.page}</span></td>
             </tr>

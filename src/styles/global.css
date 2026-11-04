@@ -1648,3 +1648,27 @@ main details.tk-year > summary { font-family: var(--title-font); font-weight: 40
 .dl-rows > div { display: grid; grid-template-columns: minmax(120px, 220px) minmax(0, 1fr); gap: 4px 16px; padding: 10px 0; border-bottom: var(--edge); }
 .dl-rows dt { color: var(--muted); font-size: var(--fs-s); } .dl-rows dd { margin: 0; font-weight: 700; overflow-wrap: anywhere; }
 @media (max-width: 520px) { .dl-rows > div { grid-template-columns: minmax(0, 1fr); } }
+
+/* County budget pages (decision #105): stage strip, questions to ask, the money cards */
+.stage-strip ol { list-style: none; margin: 8px 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.stage-strip li { display: flex; flex-direction: column; gap: 6px; max-width: none; border-top: 3px solid var(--line); padding-top: 8px; }
+.stage-strip .st-done { border-top-color: var(--ink); }
+.stage-strip .st-dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--ink); display: grid; place-items: center; font-size: 13px; font-weight: 700; line-height: 1; }
+.stage-strip .st-done .st-dot { background: var(--ink); color: var(--bg); }
+.stage-strip .st-todo .st-dot { border-color: var(--line); }
+.stage-strip .st-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.stage-strip .st-when, .stage-strip .st-said { font-size: var(--fs-s); color: var(--muted); overflow-wrap: anywhere; }
+.stage-strip .st-said a { color: var(--ink); }
+@media (max-width: 760px) {
+  .stage-strip ol { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .stage-strip li { flex-direction: row; align-items: flex-start; gap: 12px; border-top: 0; border-left: 3px solid var(--line); padding: 0 0 12px 12px; }
+  .stage-strip .st-done { border-left-color: var(--ink); }
+}
+.q-list ol { margin: 8px 0; padding-left: 22px; display: flex; flex-direction: column; gap: 12px; }
+.q-list li { max-width: 68ch; }
+.q-list li p { margin: 0; }
+.money-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 12px; list-style: none; margin: 0; padding: 0; }
+.money-cards a { display: flex; flex-direction: column; gap: 4px; min-height: 44px; height: 100%; padding: 14px 16px; border: var(--edge); border-radius: 14px; color: var(--ink); text-decoration: none; }
+.money-cards a:hover, .money-cards a:focus-visible { border-color: var(--ink); }
+.money-cards b { font-size: 17px; } .money-cards span { color: var(--muted); font-size: var(--fs-s); }
+.two-figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }

@@ -1,0 +1,132 @@
+---
+// One department (decision #105): what it was given, how it splits, what it spent by 30 June 2026, its programmes,
+// the ward projects its development money lists, and questions to ask.
+import MoneyShell from '../../../../../../components/money/MoneyShell.astro';
+import Questions from '../../../../../../components/money/Questions.astro';
+import EvidenceLabel from '../../../../../../components/EvidenceLabel.astro';
+import ShareBars from '../../../../../../components/charts/ShareBars.astro';
+import HBars from '../../../../../../components/viz/HBars.astro';
+import { ksh } from '../../../../../../lib/fmt.js';
+import { full } from '@kbe/engine/fmt';
+import ChartFrame from '../../../../../../components/charts/ChartFrame.astro';
+import ColumnChart from '../../../../../../components/charts/ColumnChart.astro';
+import { changeOnLastYear, countyYears, departmentYears, departments, programmePath, questionsFor, pct, FY, FY_PATH } from '../../../../../../lib/county-budget.js';
+import { shortTitle, sourceDoc } from '../../../../../../lib/county-registry.js';
+import wards from '../../../../../../data/wards.js';
+
+export function getStaticPaths() {
+  return departments().map((d) => ({ params: { fy: FY_PATH, vote: d.vote }, props: { d } }));
+}
+
+const { d } = Astro.props;
+const pbb = sourceDoc('nyamira-pbb-2025-26');
+const q4 = d.spending.source.doc;
+const s = d.spending;
+const wardName = Object.fromEntries(wards.map((w) => [w.slug, w.name]));
+const split = [
+  { label: 'Staff pay', value: d.staff },
+  { label: 'Other running costs', value: d.running },
+  { label: 'Development', value: d.development },
+].filter((p) => p.value).map((p) => ({ label: `${p.label}: ${ksh(p.value)}`, value: (p.value / d.total) * 100, display: `${Math.round((p.value / d.total) * 100)}%` }));
+const spentRows = [['Recurrent', s.recurrent], ['Development', s.development]].filter(([, r]) => r.budget).map(([label, r]) => ({ label: `${label}: ${ksh(r.spent)} of ${ksh(r.budget)}`, value: r.share, display: `${pct(r.share)}` }));
+const notSpent = s.total.budget && s.total.spent != null ? s.total.budget - s.total.spent : null;
+const questions = questionsFor(d);
+const wp = d.wardProjects;
+// Its budget each year since FY2021/22, as printed in each year's own budget. Only years when the department was the
+// same as today are drawn; the others are explained in the table.
+const years = departmentYears(d.vote);
+const change = changeOnLastYear(d.vote);
+const same = years.filter((y) => y.scope === 'same');
+// The title states the latest change first, so a fall from last year is never hidden behind a longer rise.
+const trendTitle = change
+  ? `${d.short}'s budget is ${ksh(change.now)} for ${FY}, ${change.pct >= 0 ? 'up' : 'down'} ${Math.abs(change.pct).toFixed(1)}% on ${change.fy}`
+  : same.length > 1
+    ? `${d.short}'s budget went from ${ksh(same[0].total)} in ${same[0].fy} to ${ksh(same.at(-1).total)} in ${same.at(-1).fy}`
+    : `${d.short} has had a budget of its own only since ${same[0].fy}`;
+const tYears = { columns: ['Financial year', 'Recurrent (KSh)', 'Development (KSh)', 'Total (KSh)', 'As printed'], rows: years.map((y) => [y.fy, y.scope === 'absent' ? '' : y.recurrent, y.scope === 'absent' ? '' : y.development, y.scope === 'absent' ? '' : y.total, y.scope === 'absent' ? 'No vote of its own' : y.name ?? d.name]) };
+const others = years.find((y) => y.scope === 'combined');
+// Billions for the largest departments, so the axis numbers stay short enough for a phone.
+const inBn = Math.max(...same.map((y) => y.total)) >= 5e8; // an axis that tops out at 1,000 million is too wide too
+const unit = inBn ? 'KSh billion' : 'KSh million';
+const scaled = years.map((y) => (y.scope === 'same' ? (inBn ? Math.round(y.total / 1e7) / 100 : Math.round(y.total / 1e5) / 10) : null));
+const unbalanced = countyYears().filter((y) => y.note).map((y) => `In ${y.fy}, ${y.note.charAt(0).toLowerCase()}${y.note.slice(1)}`).join(' ');
+const trendNote = [
+  others && `Years left blank are when this department was part of a larger one (${others.name}), or had no vote of its own, so they cannot be compared.`,
+  "Each year is that year's printed estimates, not what was approved or spent.",
+  unbalanced,
+].filter(Boolean).join(' ');
+---
+<MoneyShell title={`${d.name}: budget ${FY}`} heading={d.name} lead={`Vote ${d.vote}. What the department was given in ${FY}, what it spent, and what the money is for.`} crumbs={[{ href: `/data/money/${FY_PATH}/`, label: `Budget ${FY}` }, { href: `/data/money/${FY_PATH}/departments/`, label: 'Departments' }, { href: `/data/money/${FY_PATH}/departments/${d.vote}/`, label: d.short }]}>
+  <div class="two-figures">
+    <section class="figure">
+      <span class="eyebrow">Budget · {FY}</span>
+      <span class="num is-lead">{ksh(d.total)}</span>
+      <p class="say">for {d.name}: <strong>{d.shareOfCounty.toFixed(1)}%</strong> of the county's budget ({full(d.total)}).{change && <> That is <strong>{change.pct >= 0 ? `${change.pct.toFixed(1)}% more` : `${Math.abs(change.pct).toFixed(1)}% less`}</strong> than the {ksh(change.before)} printed for {change.fy}.</>}</p>
+      <p class="source"><EvidenceLabel kind={d.figure.label} /> Source: <a href={pbb.url} rel="noopener">{shortTitle(pbb)}</a>, {d.figure.page}. Printed estimates.</p>
+    </section>
+    {s.total.share != null && (
+      <section class="figure">
+        <span class="eyebrow">Spent by 30 June 2026</span>
+        <span class="num">{pct(s.total.share)}</span>
+        <p class="say">of the budget was spent: <strong>{ksh(s.total.spent)}</strong>.{notSpent > 0 && <> <strong class="hot">{ksh(notSpent)}</strong> was not spent.</>}</p>
+        <p class="source"><EvidenceLabel kind="official" /> Source: <a href={q4.url} rel="noopener">{shortTitle(q4)}</a>, {s.source.page}. The county's own report.</p>
+      </section>
+    )}
+  </div>
+
+  <section aria-labelledby="split-h">
+    <h2 id="split-h">What the money is for</h2>
+    <ShareBars rows={split} label={`How ${d.name}'s ${FY} budget splits`} />
+    <p class="source small"><EvidenceLabel kind="official" /> {shortTitle(pbb)}: staff pay from Tables 13 and 14, other running costs from Tables 15 to 17, development from Table 19.</p>
+  </section>
+
+  {spentRows.length > 0 && (
+    <section aria-labelledby="spent-h">
+      <h2 id="spent-h">What it spent by 30 June 2026</h2>
+      <ShareBars rows={spentRows} label={`Share of ${d.name}'s budget spent by 30 June 2026`} />
+      <p class="source small"><EvidenceLabel kind="official" /> {shortTitle(q4)}, {s.source.page}. The Controller of Budget does not report spending by department in the figures we have loaded.</p>
+    </section>
+  )}
+
+  <Questions questions={questions} />
+
+  <ChartFrame title={trendTitle} sub={`${d.name}'s budget in each year's printed estimates, ${unit}, ${years[0].fy} to ${FY}`} evidence="official" source={`The county's Programme Based Budgets, ${years[0].fy} to ${FY}: department recurrent and development tables`} note={trendNote} table={tYears} csvName={`nyamira-${d.vote}-budgets`}>
+    <ColumnChart label={`${d.name}: budget each year, ${unit}`} labels={years.map((y) => y.fy)} values={scaled} format={(v) => (inBn ? v.toFixed(2) : v.toLocaleString('en-KE'))} />
+  </ChartFrame>
+
+  <section aria-labelledby="prog-h">
+    <h2 id="prog-h">Its programmes</h2>
+    <ul class="rows">
+      {d.programmes.map((p) => (
+        <li><a class="row-link" href={programmePath(d.vote, p.slug)}><span><span class="t">{p.name}</span><span class="d">{p.total ? ksh(p.total) : 'No money budgeted'}{p.rows.length > 1 ? ` · ${p.rows.length} sub-programmes` : ''}</span></span><span class="go" aria-hidden="true">→</span></a></li>
+      ))}
+    </ul>
+    <p class="source small"><EvidenceLabel kind="official" /> {shortTitle(pbb)}, Table 9. Programme names are as printed; a person is still checking how some rows are grouped.</p>
+  </section>
+
+  {wp.lines > 0 && (
+    <section aria-labelledby="ward-h">
+      <h2 id="ward-h">Ward projects in this budget</h2>
+      <p>The budget lists <strong>{wp.lines}</strong> projects in the wards for this department, worth <strong>{ksh(wp.amount)}</strong>. Pick your ward at the top of the page to find it here.</p>
+      <HBars title={`${d.short}: ward projects budgeted ${FY}`} rows={wp.wards.map((w) => ({ label: wardName[w.ward] ?? w.ward, value: w.amount, display: `${ksh(w.amount)} · ${w.lines} ${w.lines === 1 ? 'project' : 'projects'}`, href: `/ward/${w.ward}/#projects`, ward: w.ward }))} />
+      <p class="source small"><EvidenceLabel kind="official" /> {shortTitle(pbb)}, Table 18. A budget line is planned money, not proof that work was done.{wp.wards.some((w) => w.zero) && ' Some lines are printed as KSh 0.'}</p>
+    </section>
+  )}
+
+  <details>
+    <summary>Every figure, with its source</summary>
+    <div class="table-box">
+      <table class="cards">
+        <thead><tr><th>Figure</th><th class="num">KSh</th><th>Where</th></tr></thead>
+        <tbody>
+          <tr><td>Total budget</td><td class="num" data-label="KSh">{full(d.total)}</td><td data-label="Where">{d.figure.page}</td></tr>
+          <tr><td>Recurrent</td><td class="num" data-label="KSh">{full(d.recurrent)}</td><td data-label="Where">Table 12, p.37-38</td></tr>
+          <tr><td>Development</td><td class="num" data-label="KSh">{d.development ? full(d.development) : 'None budgeted'}</td><td data-label="Where">Table 19, p.51-52</td></tr>
+          <tr><td>Staff pay</td><td class="num" data-label="KSh">{full(d.staff)}</td><td data-label="Where">Tables 13 and 14</td></tr>
+          <tr><td>Other running costs</td><td class="num" data-label="KSh">{full(d.running)}</td><td data-label="Where">Tables 15 to 17</td></tr>
+          {s.total.spent != null && <tr><td>Spent by 30 June 2026</td><td class="num" data-label="KSh">{full(s.total.spent)}</td><td data-label="Where">Q4 report, {s.source.page}</td></tr>}
+        </tbody>
+      </table>
+    </div>
+  </details>
+</MoneyShell>
