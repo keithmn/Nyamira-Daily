@@ -1,0 +1,121 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import { alertItems, activeAlerts, monitoringAlerts, resolvedAlerts, emergencies, disruptions, notices, levelLabel, levelIcon } from '../../lib/alerts.js';
+import { date } from '../../lib/fmt.js';
+
+const all = await alertItems();
+const active = activeAlerts(all);
+const monitoring = monitoringAlerts(all);
+const resolved = resolvedAlerts(all);
+const statusLabel = { active: 'Active', monitoring: 'Monitoring', resolved: 'Resolved' };
+---
+<Base title="Alerts" description="Confirmed incidents and public notices affecting Nyamira County.">
+  <PageHead eyebrow="Places · Safety & Services" title="Alerts" lead="Confirmed incidents and public notices affecting Nyamira County. Each shows its source and evidence label." crumbs={[{ href: '/map/', label: 'Places' }]} />
+  <div class="stack-lg">
+    {all.length > 0 ? (
+      <>
+        <section class="fg-sheet">
+          <div class="fg-sec-head is-compact">
+            <span class="fg-kicker">OVERVIEW</span>
+            <h2>Current situation</h2>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center; padding:8px 0 16px">
+            <div class="fg-stat-tile"><span class="fg-stat-num">{active.length}</span><span class="fg-stat-label">active</span></div>
+            <div class="fg-stat-tile"><span class="fg-stat-num">{monitoring.length}</span><span class="fg-stat-label">monitoring</span></div>
+            <div class="fg-stat-tile"><span class="fg-stat-num">{resolved.length}</span><span class="fg-stat-label">resolved</span></div>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; padding-bottom:16px">
+            <div class="fg-stat-tile"><span class="fg-stat-num">{emergencies(all).length}</span><span class="fg-stat-label">{levelIcon.emergency} emergencies</span></div>
+            <div class="fg-stat-tile"><span class="fg-stat-num">{disruptions(all).length}</span><span class="fg-stat-label">{levelIcon.disruption} disruptions</span></div>
+            <div class="fg-stat-tile"><span class="fg-stat-num">{notices(all).length}</span><span class="fg-stat-label">{levelIcon.notice} notices</span></div>
+          </div>
+        </section>
+
+        {active.length > 0 && (
+          <section class="fg-sheet">
+            <details open>
+              <summary><h2 style="display:inline">Active ({active.length})</h2></summary>
+              <ul class="rows">
+                {active.map((e) => (
+                  <li><a class="row-link" href={`/alerts/${e.id}/`}>
+                    <span>
+                      <span class="eyebrow">{levelIcon[e.data.level]} {levelLabel[e.data.level]} · {e.data.type}</span>
+                      <span class="t">{e.data.title}</span>
+                      <span class="d">{e.data.summary}</span>
+                      <span class="d">
+                        <EvidenceLabel kind={e.data.evidenceLabel} />
+                        {e.data.wards.length > 0 && <> · {e.data.wards.join(', ')}</>}
+                        {' '}· Updated {date(e.data.updatedAt.toISOString())}
+                      </span>
+                    </span>
+                    <span class="go" aria-hidden="true">→</span>
+                  </a></li>
+                ))}
+              </ul>
+            </details>
+          </section>
+        )}
+
+        {monitoring.length > 0 && (
+          <section class="fg-sheet">
+            <details open>
+              <summary><h2 style="display:inline">Monitoring ({monitoring.length})</h2></summary>
+              <ul class="rows">
+                {monitoring.map((e) => (
+                  <li><a class="row-link" href={`/alerts/${e.id}/`}>
+                    <span>
+                      <span class="eyebrow">{levelIcon[e.data.level]} {levelLabel[e.data.level]} · {e.data.type}</span>
+                      <span class="t">{e.data.title}</span>
+                      <span class="d">{e.data.summary}</span>
+                      <span class="d">
+                        <EvidenceLabel kind={e.data.evidenceLabel} />
+                        {e.data.wards.length > 0 && <> · {e.data.wards.join(', ')}</>}
+                        {' '}· Updated {date(e.data.updatedAt.toISOString())}
+                      </span>
+                    </span>
+                    <span class="go" aria-hidden="true">→</span>
+                  </a></li>
+                ))}
+              </ul>
+            </details>
+          </section>
+        )}
+
+        {resolved.length > 0 && (
+          <section class="fg-sheet">
+            <details>
+              <summary><h2 style="display:inline">Resolved ({resolved.length})</h2></summary>
+              <ul class="rows">
+                {resolved.map((e) => (
+                  <li><a class="row-link" href={`/alerts/${e.id}/`}>
+                    <span>
+                      <span class="eyebrow">{levelIcon[e.data.level]} {levelLabel[e.data.level]} · {e.data.type}</span>
+                      <span class="t">{e.data.title}</span>
+                      <span class="d">{e.data.summary}</span>
+                      <span class="d">
+                        <EvidenceLabel kind={e.data.evidenceLabel} />
+                        {e.data.wards.length > 0 && <> · {e.data.wards.join(', ')}</>}
+                        {' '}· Resolved {e.data.resolvedAt && date(e.data.resolvedAt.toISOString())}
+                      </span>
+                    </span>
+                    <span class="go" aria-hidden="true">→</span>
+                  </a></li>
+                ))}
+              </ul>
+            </details>
+          </section>
+        )}
+
+        <div class="fg-cta-row" style="justify-content:center">
+          <a class="fg-outline-btn" href="/alerts/rss.xml">RSS feed</a>
+        </div>
+      </>
+    ) : (
+      <section class="fg-sheet">
+        <p class="callout"><span><strong>No alerts.</strong> When a confirmed incident or public notice affects Nyamira, it will appear here with its source.</span></p>
+      </section>
+    )}
+  </div>
+</Base>

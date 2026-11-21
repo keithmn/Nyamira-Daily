@@ -6,8 +6,8 @@ import CommunityRules from '../../../components/CommunityRules.astro';
 import { archiveItems } from '../../../lib/archive.js';
 import { date } from '../../../lib/fmt.js';
 const items = await archiveItems();
-const kindLabel = { story: 'Story', song: 'Song', proverb: 'Proverb', custom: 'Custom', craft: 'Craft', food: 'Food', history: 'History', name: 'Names', other: 'Other' };
-const kinds = ['Stories', 'Songs', 'Proverbs', 'Customs', 'Crafts', 'Food', 'History', 'Naming'];
+const kindLabel = { story: 'Story', song: 'Song', proverb: 'Proverb', custom: 'Custom', craft: 'Craft', food: 'Food', history: 'History', name: 'Names', riddle: 'Riddle', lullaby: 'Lullaby', ceremony: 'Ceremony', medicine: 'Traditional medicine', other: 'Other' };
+const kinds = ['Stories', 'Songs', 'Proverbs', 'Riddles', 'Lullabies', 'Customs', 'Ceremonies', 'Crafts', 'Food', 'Medicine', 'History', 'Naming'];
 ---
 <Base title="Culture archive" description="Stories, songs, proverbs and knowledge of the Abagusii, recorded with consent.">
   <PageHead eyebrow="Community · Recordings & Knowledge" title="Culture archive" lead="Stories, songs, proverbs and customs, shared by the people who hold them — each showing who shared it, when, where, and who reviewed it." crumbs={[{ href: '/community/', label: 'Community' }]} />
@@ -15,7 +15,7 @@ const kinds = ['Stories', 'Songs', 'Proverbs', 'Customs', 'Crafts', 'Food', 'His
     <section class="fg-sheet">
       <div class="fg-sec-head" style="margin-bottom:18px">
         <span class="fg-kicker">ARCHIVE CATALOGUE</span>
-        <h2>Consent-first recordings across <em>eight traditions</em></h2>
+        <h2>Consent-first recordings across <em>twelve traditions</em></h2>
       </div>
       <div class="fg-search-starters" style="justify-content:center; margin-bottom:20px">
         {kinds.map((k) => <span class="fg-pop-tag">{k}</span>)}
@@ -35,6 +35,11 @@ const kinds = ['Stories', 'Songs', 'Proverbs', 'Customs', 'Crafts', 'Food', 'His
       ) : (
         <p class="callout"><span><strong>The archive is not open yet.</strong> The first recordings are being made and reviewed. Each one will show who shared it, when and where, and who reviewed it.</span></p>
       )}
+      <!-- Ekegusii summary (marked for native-speaker review) -->
+      <div class="sw" lang="guz" style="margin-top:12px">
+        <span class="eyebrow">Okoandikwa kw'Ekegusii</span>
+        <p>Amang'ana, ebitanyi, emechango n'amasiko — ebinto ebi abanto baramanyete, biandikire koerekanwa aine ko oboisanio n'obomu.</p>
+      </div>
       <div class="fg-cta-row">
         <a class="fg-cta-btn" href="/community/share/">Share a story, a song or a record</a>
         <a class="fg-outline-btn" href="/community/language/">Ekegusii language dataset</a>

@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { heritageItems } from '../../lib/stories.js';
+const items = await heritageItems();
+---
+<Base title="Heritage" description="Heritage places, traditions and knowledge of Nyamira and the Abagusii, from named sources.">
+  <PageHead eyebrow="Stories · Heritage" title="Heritage" lead="Places, traditions and knowledge worth preserving — each entry names its source and contributor." crumbs={[{ href: '/watch/', label: 'Stories' }]} />
+  <div class="stack-lg">
+    <section class="fg-sheet">
+      <div class="fg-sec-head" style="margin-bottom:18px">
+        <span class="fg-kicker">SOURCED HERITAGE</span>
+        <h2>Places and traditions that <em>define Nyamira</em></h2>
+      </div>
+      {items.length > 0 ? (
+        <div class="fg-data-grid">
+          {items.map((e) => (
+            <div class="fg-data-card" id={e.id}>
+              <h3>{e.data.title}</h3>
+              <p class="muted">{[e.data.place, e.data.ward].filter(Boolean).join(', ')}</p>
+              <p>{e.data.story}</p>
+              {e.data.photos.length > 0 && e.data.photos[0].consent && (
+                <img src={e.data.photos[0].src} alt={e.data.photos[0].alt} loading="lazy" style="max-width:100%; border-radius:6px; margin-top:8px" />
+              )}
+              <p class="small muted">Source: {e.data.sources.map((s) => s.name).join('; ')}{e.data.contributor && ` · Contributor: ${e.data.contributor}`}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p class="callout"><span><strong>No heritage entries published yet.</strong> We are documenting places, traditions and cultural knowledge — the soapstone of Tabaka, the dances, the sacred sites — each from a named source.</span></p>
+      )}
+      <div class="fg-cta-row" style="margin-top:16px">
+        <a class="fg-cta-btn" href="/community/share/">Share a heritage story or place</a>
+        <a class="fg-outline-btn" href="/community/abagusii/">The Abagusii</a>
+      </div>
+    </section>
+  </div>
+</Base>

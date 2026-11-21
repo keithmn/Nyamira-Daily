@@ -8,6 +8,37 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Who runs it:** the publisher is not named on the site for now (decision #125, replacing the public parts of #73). Rules and legal are one page, `/about/rules/`.
 - **NY Watch (decision #79):** the founder's data review podcast. No episodes published yet.
 
+## Changes on 21 Nov 2026
+
+- **Expansion build: seven tools and four new content collections** (decision #130) on branch `feat/ekegusii-language-framework` (from `6ae010c`).
+  - Four new content collections with schemas, helpers, list pages, example entries and search integration:
+    - `factchecks` at `/fact-check/`: claims checked against the record (true/mostly true/misleading/false/unproven), with evidence and sources.
+    - `stories` at `/whats-working/`: evidence-backed stories, with ward, sector, photos, evidence labels.
+    - `people` at `/people/`: consent-required profiles of residents (never politicians), with photo, role and story.
+    - `heritage` at `/heritage/`: heritage places and traditions, with named sources.
+  - **Ask Nyamira** (`/ask/`): RTI explainer citing Constitution Art 35 and AIA 2016, a client-side request-letter builder (copy/print/WhatsApp, no data sent), and a public tracker.
+  - **Submission helper** (`/take-part/submission/`): generates structured submissions for budget forums, development plans and Assembly petitions. Client-side only.
+  - **Alerts and incidents** (`/alerts/`): `alerts` content collection (19 event types, 3 levels, 3 statuses), hub page, individual alert pages, AlertBanner in Base.astro (emergencies everywhere, disruptions on affected ward pages, dismissible via localStorage), RSS feed, two JSON API endpoints, Open Data page updated.
+  - **Budget simulator** (`/tools/budget-simulator/`): interactive tool with 8 grouped sectors from the real 24-department budget, range sliders that balance, fixed wage bill, trade-off warnings, comparison table, WhatsApp share.
+  - Navigation updated: Stories gains fact-checks, what's working, people, heritage; Places gains alerts; About gains Ask Nyamira, Submission helper, Budget simulator.
+  - Search index includes all new collections and tool pages.
+  - Checked: the build (871 pages), `npm test` (340 pass), all new pages built.
+  - All content starts empty (example entries are `draft: true`); the tools work without data.
+  - Waiting for a person: the first real entries for each collection; the contact channel for Ask Nyamira requests; native-speaker review of the submission helper's template text.
+
+- **Ekegusii language documentation and AI digitization framework** (decision #129) on branch `feat/ekegusii-language-framework` (from `6ae010c`).
+  - New `language` content collection (`src/content/language/`): words, phrases, grammar notes and sentences with English and Kiswahili translations, phonetic guide, tonal marking, usage examples, audio, noun class, dialect, and consent fields (publication and AI training are separate, following the same model as the archive).
+  - Language metadata (`src/data/language-meta.json`): ISO 639-3 code `guz`, Bantu classification, speaker estimate, ten noun classes with examples, all from Cammenga (2002), Whiteley (1960), Ethnologue and the 2019 Kenya census.
+  - Helper (`src/lib/language.js`): mirrors `src/lib/archive.js` with `visible`, `forTraining`, `languageItems`, `wordItems`, `grammarItems` and category labels.
+  - Hub page expanded (`/community/language/`): dataset statistics, the four-stage workflow, noun classes table, AI-use explainer and links to the word list and grammar reference.
+  - New `/community/language/words/`: a browsable word list by category with translations, phonetics and full details behind `<details>`.
+  - New `/community/language/grammar/`: grammar reference with the Bantu noun class system, documented patterns and published sources.
+  - New `/api/language.json`: AI training export endpoint, returning only entries whose contributors gave the separate AI-training consent.
+  - Navigation updated: words and grammar pages sit under the Ekegusii language entry in the Community section.
+  - Three EXAMPLE draft entries (a noun, a grammar note, a greeting) show the schema; nothing is published.
+  - Checked: the build (870 pages), `npm test` (340 pass), all new pages built.
+  - Waiting for a person: the first real recordings and entries; the licence for the AI training export; native-speaker review of the noun class examples.
+
 ## Changes on 18 Nov 2026
 
 - **Civic Field Guide redesign** on branch `maltilda` (from `b7ec83b`), for review. Reimagines information presentation across the entire site with visual structure inspired by `civictech.guide`, while strictly preserving Nyamira Daily's original `:root` colour tokens (Signal Green, deep green, soft mint, charcoal, paper, white; zero raw colour literals outside `:root`; no red; no dark mode), self-hosted fonts (`Varela Round` + `League Spartan` 500/700), active `Nyamira-Daily_*` logos, canonical 5 sections, and every real dataset, source citation and evidence label.

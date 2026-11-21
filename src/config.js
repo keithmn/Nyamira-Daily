@@ -46,7 +46,7 @@ export const adoptSignupUrl = '';
 // link, are tagged "Planned" in menus, and are left out of the home page.
 export const planned = new Set([
   '/tell-us/', '/subscribe/',
-  // Phase 1 scaffolding (docs/EXPANSION_SPEC.md 1.7): planned until real, consented entries exist
+  // Phase 1 scaffolding (docs/EXPANSION_SPEC.md 1.7): planned until real entries exist
   '/whats-working/', '/people/', '/heritage/', '/fact-check/',
   '/diaspora/', '/schools-programme/', '/fellowship/', '/state-of-nyamira/',
   // Media, news and heritage databases (decisions #63-#65): planned until their first checked entries
@@ -56,4 +56,8 @@ export const planned = new Set([
   ...(adoptSignupUrl ? [] : ['/adopt/']),
   // Impact log (decision #76): planned until the first entry is logged
   ...(impact.entries.length > 0 ? [] : ['/impact/']),
+  // Tools (Phase 4): live from the start — the client-side tools work without data
+  // '/ask/', '/take-part/submission/', '/tools/budget-simulator/' — these are live
+  // Alerts: live from the start, starts empty
+  // '/alerts/' — live
 ]);

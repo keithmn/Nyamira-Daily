@@ -30,6 +30,22 @@ const datasets = [
     cta: 'Download v2 CSV ↓',
     legacy: '/files/facilities-v1.csv',
   },
+  {
+    badge: 'CSV + JSON · EKEGUSII',
+    title: 'Ekegusii language dataset',
+    desc: 'Words, phrases, grammar notes and sentences in Ekegusii with English and Kiswahili translations, phonetics and grammatical category. Only entries with publication consent. The JSON endpoint also offers an AI-training subset (separate consent).',
+    href: '/files/language.csv',
+    cta: 'Download CSV ↓',
+    json: '/api/language.json',
+  },
+  {
+    badge: 'JSON + RSS · ALERTS',
+    title: 'Alerts and incidents',
+    desc: 'Confirmed incidents and public notices affecting Nyamira County: emergencies, disruptions and notices, each with its source and evidence label. Active alerts also available as RSS.',
+    href: '/api/alerts.json',
+    cta: 'JSON (all alerts) →',
+    json: '/alerts/rss.xml',
+  },
 ];
 ---
 <div class="stack-lg fg-data-wrap">
@@ -42,6 +58,7 @@ const datasets = [
         <div class="fg-data-actions">
           <a class="fg-cta-btn" href={d.href} download>{d.cta}</a>
           {d.legacy && <a class="small" href={d.legacy} download>Download version 1 (legacy)</a>}
+          {d.json && <a class="small" href={d.json}>JSON (AI-training subset) →</a>}
         </div>
       </article>
     ))}
@@ -63,6 +80,10 @@ const datasets = [
           <tr><td><a href="/api/facilities.json"><code>/api/facilities.json</code></a></td><td data-label="Holds">Listed facility records with stable profile URLs; unknown dates/capabilities remain null and unreviewed coordinates are omitted</td></tr>
           <tr><td><a href="/api/money.json"><code>/api/money.json</code></a></td><td data-label="Holds">County money by year</td></tr>
           <tr><td><a href="/api/contracts.json"><code>/api/contracts.json</code></a></td><td data-label="Holds">County tenders and national/NG-CDF records with scope labels</td></tr>
+          <tr><td><a href="/api/language.json"><code>/api/language.json</code></a></td><td data-label="Holds">Ekegusii language entries consented for AI training: term, translations, phonetics, category and source</td></tr>
+          <tr><td><a href="/api/alerts.json"><code>/api/alerts.json</code></a></td><td data-label="Holds">All alerts and incidents with type, level, status, sources and evidence label</td></tr>
+          <tr><td><a href="/api/alerts-active.json"><code>/api/alerts-active.json</code></a></td><td data-label="Holds">Active alerts only (emergencies, disruptions, notices in progress)</td></tr>
+          <tr><td><a href="/alerts/rss.xml"><code>/alerts/rss.xml</code></a></td><td data-label="Holds">RSS feed of active and monitoring alerts</td></tr>
         </tbody>
       </table>
     </div>

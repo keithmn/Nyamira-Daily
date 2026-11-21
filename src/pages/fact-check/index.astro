@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import { factcheckItems, ratingLabel, ratingShape } from '../../lib/factchecks.js';
+import { date } from '../../lib/fmt.js';
+const items = await factcheckItems();
+---
+<Base title="Fact-check" description="Claims about Nyamira checked against primary sources, with the evidence shown.">
+  <PageHead eyebrow="Stories · Myth or Fact" title="Fact-check" lead="Claims about Nyamira County checked against official documents, budget records and primary sources. Every rating shows its evidence." crumbs={[{ href: '/watch/', label: 'Stories' }]} />
+  <div class="stack-lg">
+    <section class="fg-sheet">
+      <div class="fg-sec-head" style="margin-bottom:18px">
+        <span class="fg-kicker">CHECKED CLAIMS</span>
+        <h2>Every claim rated with <em>its evidence</em></h2>
+      </div>
+      {items.length > 0 ? (
+        <ul class="latest">
+          {items.map((e) => (
+            <li id={e.id}><div style="padding:16px 0; display:flex; flex-direction:column; gap:6px">
+              <span class="eyebrow">{ratingShape[e.data.rating]} {ratingLabel[e.data.rating]} · Checked {date(e.data.checkedOn.toISOString())}</span>
+              <span class="t">"{e.data.claim}"</span>
+              <span class="d">Claim source: {e.data.claimSource}</span>
+              <p>{e.data.summary}</p>
+              <span class="d">Evidence: {e.data.evidence.map((s, i) => <>{i > 0 && '; '}{s.url ? <a href={s.url} rel="noopener">{s.name}</a> : s.name}{s.page && `, ${s.page}`}</>)}</span>
+            </div></li>
+          ))}
+        </ul>
+      ) : (
+        <p class="callout"><span><strong>No claims checked yet.</strong> When we check a claim, it will appear here with the full evidence for every rating. We check claims about every side equally.</span></p>
+      )}
+      <div class="fg-cta-row" style="margin-top:16px">
+        <a class="fg-outline-btn" href="/about/contact/">Send us a claim to check</a>
+      </div>
+    </section>
+  </div>
+</Base>

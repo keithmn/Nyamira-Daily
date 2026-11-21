@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { peopleItems } from '../../lib/stories.js';
+const items = await peopleItems();
+---
+<Base title="Nyamira's people" description="Ordinary residents doing things for their community, profiled with their consent.">
+  <PageHead eyebrow="Stories · People" title="Nyamira's people" lead="Ordinary residents doing something for their community. Never politicians, officeholders or candidates — and never without recorded consent." crumbs={[{ href: '/watch/', label: 'Stories' }]} />
+  <div class="stack-lg">
+    <section class="fg-sheet">
+      <div class="fg-sec-head" style="margin-bottom:18px">
+        <span class="fg-kicker">CONSENTED PROFILES</span>
+        <h2>People making a difference <em>in their community</em></h2>
+      </div>
+      {items.length > 0 ? (
+        <div class="fg-data-grid">
+          {items.map((e) => (
+            <div class="fg-data-card" id={e.id}>
+              {e.data.photo && e.data.photo.consent && (
+                <img src={e.data.photo.src} alt={e.data.photo.alt} loading="lazy" style="max-width:100%; border-radius:6px; margin-bottom:8px" />
+              )}
+              <h3>{e.data.name}</h3>
+              <p class="muted">{e.data.role}{e.data.ward && `, ${e.data.ward}`}</p>
+              <p>{e.data.story}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p class="callout"><span><strong>No profiles published yet.</strong> We are looking for ordinary residents — teachers, farmers, health workers, volunteers — willing to share their story with their consent. We never profile politicians or officeholders.</span></p>
+      )}
+      <p class="small muted" style="margin-top:12px">Every profile is published only with the person's recorded consent. No one is profiled without agreeing first.</p>
+      <div class="fg-cta-row" style="margin-top:16px">
+        <a class="fg-cta-btn" href="/about/contact/">Suggest someone to profile</a>
+      </div>
+    </section>
+  </div>
+</Base>
