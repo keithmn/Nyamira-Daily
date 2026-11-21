@@ -1,0 +1,252 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import sectors from '../../../data/budget-sectors.json' with { type: 'json' };
+import { ksh } from '../../../lib/fmt.js';
+
+const d = sectors.departments;
+const find = (short) => d.find((x) => x.short === short);
+const devOf = (...shorts) => shorts.reduce((s, n) => s + (find(n)?.development ?? 0), 0);
+
+const groups = [
+  { key: 'health', label: 'Health', dev: devOf('Hospitals (medical services)', 'Primary healthcare'),
+    warn: 'Fewer new wards, delayed hospital equipment' },
+  { key: 'education', label: 'Education', dev: devOf('Education'),
+    warn: 'Fewer ECDE classrooms and polytechnic upgrades' },
+  { key: 'roads', label: 'Roads & public works', dev: devOf('Roads & public works'),
+    warn: 'Fewer new roads this year' },
+  { key: 'water', label: 'Water & environment', dev: devOf('Water', 'Environment & energy'),
+    warn: 'Fewer boreholes and water projects' },
+  { key: 'agriculture', label: 'Agriculture', dev: devOf('Agriculture (crops)', 'Livestock & fisheries'),
+    warn: 'Less support for farmers and cooperatives' },
+  { key: 'admin', label: 'Administration', dev: devOf('County Assembly', "Governor's office / Executive", 'Public Service Board',
+    'Public service & administration', 'Finance', 'Planning, revenue & ICT', 'County Attorney', 'Revenue Board',
+    'Disability Board', 'Investment Board', 'NYAWASCO (water company)'),
+    warn: '' },
+  { key: 'towns', label: 'Nyamira & Keroka towns', dev: devOf('Nyamira Municipality', 'Keroka Municipality'),
+    warn: 'Fewer town infrastructure projects' },
+  { key: 'youth', label: 'Youth, trade & land', dev: devOf('Youth, gender & culture', 'Trade & co-ops', 'Lands & housing'),
+    warn: 'Less for markets, housing and youth programmes' },
+];
+
+const totalDev = sectors.countyTotal.development;
+const wageBill = sectors.countyTotal.compensation;
+const totalBudget = sectors.countyTotal.total;
+const wagePct = sectors.wageBill.sharePct;
+const fy = sectors.fy;
+---
+<Base title="Budget simulator" description="Move money between sectors and see the trade-offs. Based on the real Nyamira County budget.">
+  <PageHead eyebrow="Take Part · Tools" title="Budget simulator" lead={`Move money between sectors and see the trade-offs. The wage bill is fixed — you can only change how the development budget (${ksh(totalDev)}) is split.`} crumbs={[{ href: '/money/', label: 'Money' }]} />
+
+  <div class="stack-lg">
+    <section class="fg-sheet" id="sim">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">Development Budget {fy}</span>
+        <h2>Your budget: <span id="sim-total">{ksh(totalDev)}</span></h2>
+      </div>
+
+      <div class="sim-fixed" style="padding:12px 16px; border:1px dashed var(--nd-charcoal); border-radius:8px; margin-bottom:20px">
+        <span class="eyebrow">Fixed: staff pay</span>
+        <strong>{ksh(wageBill)}</strong>
+        <span class="small muted"> — {wagePct}% of the total {ksh(totalBudget)} budget. Staff pay is set by contract and cannot be moved.</span>
+      </div>
+
+      <div id="sim-rows">
+        {groups.map((g) => (
+          <div class="sim-row" data-key={g.key} data-base={g.dev} data-warn={g.warn}>
+            <div class="sim-label">
+              <strong>{g.label}</strong>
+              <span class="sim-amt small" data-role="amount">{ksh(g.dev)}</span>
+              <span class="sim-diff small muted" data-role="diff"></span>
+            </div>
+            <input type="range" min="0" max={totalDev} value={g.dev} step={1000000} class="sim-slider" aria-label={`Development spending on ${g.label}`} />
+            <span class="sim-pct small muted" data-role="pct">{(g.dev / totalDev * 100).toFixed(1)}%</span>
+          </div>
+        ))}
+      </div>
+
+      <div id="sim-warnings" style="margin-top:16px"></div>
+
+      <div class="fg-cta-row" style="margin-top:20px">
+        <button class="fg-outline-btn" id="sim-reset" type="button">Reset to actual budget</button>
+        <a class="fg-cta-btn" id="sim-share" href="#" rel="noopener">Share on WhatsApp</a>
+      </div>
+
+      <details style="margin-top:20px">
+        <summary>Compare with the actual budget</summary>
+        <table class="cards" id="sim-compare">
+          <thead><tr><th>Sector</th><th>Actual</th><th>Yours</th><th>Difference</th></tr></thead>
+          <tbody>
+            {groups.map((g) => (
+              <tr data-key={g.key}>
+                <td data-label="Sector">{g.label}</td>
+                <td data-label="Actual">{ksh(g.dev)}</td>
+                <td data-label="Yours" data-role="yours">{ksh(g.dev)}</td>
+                <td data-label="Difference" data-role="diff-compare">—</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </details>
+
+      <p class="small muted" style="margin-top:16px">Source: {sectors.source.title}. {sectors.stage}. Only the development budget is adjustable here; recurrent spending (wages, operations, grants) is fixed. Amounts are rounded to the nearest million.</p>
+    </section>
+
+    <section class="fg-sheet stack" aria-labelledby="sim-about">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">How This Works</span>
+        <h2 id="sim-about">What you can and cannot change</h2>
+      </div>
+      <p>Nyamira County's total budget for {fy} is <strong>{ksh(totalBudget)}</strong>. Of that, <strong>{ksh(wageBill)}</strong> ({wagePct}%) goes to staff pay. That is fixed by employment contracts and cannot be moved in a single year.</p>
+      <p>The remaining money is split between running costs (operations, maintenance, grants) and <strong>development</strong> — the new things the county builds. This simulator lets you redistribute the development budget of <strong>{ksh(totalDev)}</strong> across eight sectors.</p>
+      <p>Every choice has a trade-off. More for roads means less for health or schools. This tool does not show running costs, which also differ by sector.</p>
+      <div class="fg-cta-row">
+        <a class="fg-outline-btn" href="/money/2025-26/">See the full budget breakdown</a>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>{`
+.sim-row { display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--ch-200, #e5e5e5); flex-wrap:wrap }
+.sim-label { min-width:180px; flex:1 1 180px; display:flex; flex-direction:column; gap:2px }
+.sim-slider { flex:2 1 200px; accent-color:var(--nd-green); height:6px }
+.sim-pct { min-width:48px; text-align:right }
+.sim-diff { font-size:0.85em }
+.sim-warn { padding:8px 12px; border-left:3px solid var(--nd-charcoal); margin-bottom:6px; font-size:0.9em }
+@media(max-width:600px) { .sim-label { min-width:100%; } .sim-slider { flex:1 1 100%; } }
+`}</style>
+
+<script>
+(function () {
+  function ksh(n) {
+    if (n == null) return '—';
+    if (n >= 1e9) return 'KSh ' + parseFloat((n / 1e9).toFixed(2)) + 'B';
+    if (n >= 1e6) return 'KSh ' + parseFloat((n / 1e6).toFixed(1)) + 'M';
+    return 'KSh ' + Math.round(n).toLocaleString('en-KE');
+  }
+
+  var rows = document.querySelectorAll('.sim-row');
+  var sliders = document.querySelectorAll('.sim-slider');
+  var totalEl = document.getElementById('sim-total');
+  var warningsEl = document.getElementById('sim-warnings');
+  var shareEl = document.getElementById('sim-share');
+  var resetEl = document.getElementById('sim-reset');
+
+  var base = {};
+  var current = {};
+  var totalDev = 0;
+  rows.forEach(function (r) {
+    var k = r.dataset.key;
+    var v = parseInt(r.dataset.base, 10);
+    base[k] = v;
+    current[k] = v;
+    totalDev += v;
+  });
+
+  function update(changedKey) {
+    var changedVal = current[changedKey];
+    var remaining = totalDev - changedVal;
+    var othersBase = 0;
+    rows.forEach(function (r) {
+      if (r.dataset.key !== changedKey) othersBase += current[r.dataset.key];
+    });
+
+    if (othersBase > 0) {
+      var scale = remaining / othersBase;
+      rows.forEach(function (r) {
+        var k = r.dataset.key;
+        if (k !== changedKey) {
+          current[k] = Math.round(current[k] * scale / 1e6) * 1e6;
+        }
+      });
+    }
+
+    // Fix rounding to match total exactly
+    var sum = 0;
+    rows.forEach(function (r) { sum += current[r.dataset.key]; });
+    var diff = totalDev - sum;
+    if (diff !== 0) {
+      // Add the rounding remainder to the largest sector that isn't the changed one
+      var largest = null, largestVal = 0;
+      rows.forEach(function (r) {
+        var k = r.dataset.key;
+        if (k !== changedKey && current[k] > largestVal) { largest = k; largestVal = current[k]; }
+      });
+      if (largest) current[largest] += diff;
+    }
+
+    render();
+  }
+
+  function render() {
+    var warnings = [];
+    rows.forEach(function (r) {
+      var k = r.dataset.key;
+      var v = current[k];
+      var b = base[k];
+      r.querySelector('[data-role="amount"]').textContent = ksh(v);
+      r.querySelector('.sim-slider').value = v;
+      r.querySelector('[data-role="pct"]').textContent = (v / totalDev * 100).toFixed(1) + '%';
+
+      var d = v - b;
+      var diffEl = r.querySelector('[data-role="diff"]');
+      if (Math.abs(d) >= 1e6) {
+        diffEl.textContent = (d > 0 ? '+' : '') + ksh(d);
+        diffEl.style.color = d > 0 ? 'var(--nd-green-deep)' : 'var(--nd-charcoal)';
+      } else {
+        diffEl.textContent = '';
+      }
+
+      if (r.dataset.warn && b > 0 && v < b * 0.5) {
+        warnings.push(r.dataset.warn);
+      }
+
+      // Update comparison table
+      var tr = document.querySelector('#sim-compare tr[data-key="' + k + '"]');
+      if (tr) {
+        tr.querySelector('[data-role="yours"]').textContent = ksh(v);
+        var dc = tr.querySelector('[data-role="diff-compare"]');
+        if (Math.abs(d) >= 1e6) {
+          dc.textContent = (d > 0 ? '+' : '') + ksh(d);
+        } else {
+          dc.textContent = '—';
+        }
+      }
+    });
+
+    warningsEl.innerHTML = '';
+    warnings.forEach(function (w) {
+      var div = document.createElement('div');
+      div.className = 'sim-warn';
+      div.textContent = '⚠ ' + w;
+      warningsEl.appendChild(div);
+    });
+
+    // WhatsApp share
+    var lines = ['My Nyamira budget (' + totalDev / 1e9 + 'B development):'];
+    rows.forEach(function (r) {
+      var k = r.dataset.key;
+      lines.push(r.querySelector('strong').textContent + ': ' + ksh(current[k]));
+    });
+    lines.push('', 'Try it: ' + location.href);
+    shareEl.href = 'https://wa.me/?text=' + encodeURIComponent(lines.join('\n'));
+  }
+
+  sliders.forEach(function (slider) {
+    var row = slider.closest('.sim-row');
+    slider.addEventListener('input', function () {
+      var k = row.dataset.key;
+      current[k] = parseInt(slider.value, 10);
+      update(k);
+    });
+  });
+
+  resetEl.addEventListener('click', function () {
+    rows.forEach(function (r) { current[r.dataset.key] = base[r.dataset.key]; });
+    render();
+  });
+
+  render();
+})();
+</script>

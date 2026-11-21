@@ -1,0 +1,62 @@
+---
+// Alert banner: active emergencies on every page, disruptions on affected ward pages only.
+// Dismissible per alert id via localStorage. Renders nothing when there are no active alerts.
+import { alertItems, activeAlerts, emergencies, disruptions } from '../lib/alerts.js';
+
+interface Props { wardSlug?: string }
+const { wardSlug } = Astro.props;
+
+const all = await alertItems();
+const active = activeAlerts(all);
+const emerg = emergencies(active);
+const disrupt = wardSlug ? disruptions(active).filter((e) => e.data.wards.includes(wardSlug)) : [];
+const show = [...emerg, ...disrupt];
+---
+{show.length > 0 && (
+  <div class="alert-banner" role="alert" aria-live="polite">
+    {show.length === 1 ? (
+      <a href={`/alerts/${show[0].id}/`} class="alert-banner-link" data-alert-id={show[0].id}>
+        <span class="alert-banner-icon" aria-hidden="true">&#x25B2;</span>
+        <span><strong>{show[0].data.title}</strong> — {show[0].data.summary}</span>
+      </a>
+    ) : (
+      <a href="/alerts/" class="alert-banner-link">
+        <span class="alert-banner-icon" aria-hidden="true">&#x25B2;</span>
+        <span><strong>{show[0].data.title}</strong> +{show.length - 1} more</span>
+      </a>
+    )}
+    <button class="alert-banner-dismiss" aria-label="Dismiss alert" data-dismiss-ids={JSON.stringify(show.map((e) => e.id))}>&#x2715;</button>
+  </div>
+)}
+
+<style>
+  .alert-banner {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 16px;
+    background: var(--nd-charcoal); color: #fff;
+    font-size: 0.875rem; line-height: 1.4;
+  }
+  .alert-banner-link { color: #fff; text-decoration: none; flex: 1; display: flex; align-items: center; gap: 8px; }
+  .alert-banner-link:hover { text-decoration: underline; }
+  .alert-banner-icon { font-size: 1rem; }
+  .alert-banner-dismiss {
+    background: none; border: none; color: #fff; cursor: pointer;
+    font-size: 1rem; padding: 4px 8px; min-width: 32px; min-height: 32px;
+  }
+</style>
+
+<script>
+  try {
+    const banner = document.querySelector('.alert-banner');
+    if (banner) {
+      const btn = banner.querySelector('.alert-banner-dismiss');
+      const ids = JSON.parse(btn?.getAttribute('data-dismiss-ids') ?? '[]');
+      const dismissed = ids.every((id) => { try { return localStorage.getItem('nd-alert-' + id) === '1'; } catch { return false; } });
+      if (dismissed) banner.style.display = 'none';
+      btn?.addEventListener('click', () => {
+        ids.forEach((id) => { try { localStorage.setItem('nd-alert-' + id, '1'); } catch {} });
+        banner.style.display = 'none';
+      });
+    }
+  } catch {}
+</script>

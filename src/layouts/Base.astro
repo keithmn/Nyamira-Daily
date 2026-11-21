@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { toneFor, sectionFor } from '../nav.js';
 import SiteHeader from '../components/SiteHeader.astro';
+import AlertBanner from '../components/AlertBanner.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SectionNav from '../components/SectionNav.astro';
 import PageTools from '../components/PageTools.astro';
@@ -63,6 +64,7 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
 <body id="top" class={isHome ? 'fg-home' : 'fg-inner'}>
   <a class="skip" href="#main">Skip to content</a>
   <SiteHeader path={path} />
+  <AlertBanner wardSlug={path.startsWith('/ward/') && path !== '/ward/' ? path.split('/')[2] : undefined} />
 
   <main id="main" class={`sec-${toneFor(path)}`}>
     <slot name="hero" />
