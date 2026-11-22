@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { toneFor, sectionFor } from '../nav.js';
+import { analytics } from '../config.js';
 import SiteHeader from '../components/SiteHeader.astro';
 import AlertBanner from '../components/AlertBanner.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -88,6 +89,8 @@ const websiteLd = isHome ? JSON.stringify({
   </script>
   {!isHome && <script type="application/ld+json" set:html={breadcrumbLd} />}
   {websiteLd && <script type="application/ld+json" set:html={websiteLd} />}
+  {analytics.provider === 'plausible' && analytics.src && <script defer data-domain="nyamiradaily.org" src={analytics.src} />}
+  {analytics.provider === 'umami' && analytics.src && <script defer data-website-id={analytics.websiteId} src={analytics.src} />}
   <noscript><style>{`main .sw { display: block !important; } [data-sw-switch] { display: none; }`}</style></noscript>
 </head>
 <body id="top" class={isHome ? 'fg-home' : 'fg-inner'}>

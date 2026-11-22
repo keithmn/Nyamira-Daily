@@ -8,9 +8,34 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Who runs it:** the publisher is not named on the site for now (decision #125, replacing the public parts of #73). Rules and legal are one page, `/about/rules/`.
 - **NY Watch (decision #79):** the founder's data review podcast. No episodes published yet.
 
-## Changes on 22 Nov 2026 (page optimization + MCA verification research)
+## Changes on 22 Nov 2026 (open-source prep: endpoints, schemas, analytics, PDF scaffold)
 
-On branch `feat/data-architecture-improvements` (from `ee970ce`). Not committed.
+On branch `feat/data-architecture-improvements`. Structural prep for open-source tools and standards (strategy in `docs/strategy/OPEN_SOURCE_TOOLS.md`).
+
+### New API endpoints
+- **`/api/ocds.json`** — County contracts in Open Contracting Data Standard (OCDS 1.1) release format. 271 county releases; national contracts excluded per OCDS publisher rules. Spec: https://standard.open-contracting.org/
+- **`/api/leaders.json`** — County and national leaders in Popolo format (persons, organizations, memberships). 29 persons, 4 organizations. Spec: https://www.popoloproject.com/
+- **`/api/meta.json`** — Data freshness metadata: 13 datasets, each with its last-checked date, record count, refresh trigger and API endpoints. For monitoring crons, Datasette, or dashboards.
+- **`/api/budget.txt`** — County budget summary as plain text under 900 characters, for SMS/USSD/WhatsApp bot.
+- **`/api/facilities.txt`** — Facility summary as plain text, for SMS/USSD/WhatsApp bot.
+- **`/api/leaders.txt`** — Leaders summary as plain text, for SMS/USSD/WhatsApp bot.
+- All new endpoints listed on the Open Data page (`OpenData.astro`).
+
+### Schema and infrastructure changes
+- **Analytics placeholder** in `config.js` and `Base.astro`: set `analytics.provider` to `'plausible'` or `'umami'` and fill in `src` to enable. Zero weight until enabled.
+- **DocumentCloud URL field** (`documentCloud`) added to the registry `Source` schema (`packages/engine/src/schema.js`) and the facility API output. Optional, defaults to null.
+- **Whisper-ready transcript fields** (`transcript`, `transcriptLang`) added to the `archive` and `language` content collection schemas (`src/content.config.ts`). Ready for Whisper output.
+- **PDF ingest scaffold** (`scripts/ingest-pdf.py`): table extraction from county PDFs, with templates for PBB Table 18, CoB Table 2.1 and gazette MCAs. Falls back gracefully when tabula-py is not installed.
+- **Strategy doc** saved at `docs/strategy/OPEN_SOURCE_TOOLS.md`: three tiers of tools, open data standards, and a quarterly investment sequence.
+
+### Build
+- `npm run build` (871 pages) passes.
+
+---
+
+## Earlier on 22 Nov 2026 (page optimization + MCA verification research)
+
+On branch `feat/data-architecture-improvements` (from `ee970ce`).
 
 ### Page content/copy optimization
 

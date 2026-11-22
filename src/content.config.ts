@@ -80,7 +80,9 @@ const archive = defineCollection({ loader: md('archive'), schema: z.object({
   consentRecord: z.string().min(1), // where the signed or recorded consent is kept (a file reference, never the file)
   withdrawn: z.boolean().default(false),
   reviewedBy: z.string().min(1), reviewedOn: z.coerce.date(),
-  sources: z.array(source).min(1), audio: z.string().optional(), translation: z.string().optional(), ...publication,
+  sources: z.array(source).min(1), audio: z.string().optional(), translation: z.string().optional(),
+  transcript: z.string().optional(), transcriptLang: z.enum(['guz', 'sw', 'en']).optional(),
+  ...publication,
 }).refine((d) => d.consentPublish, { message: 'An archive item cannot be published without consentPublish: true' }) });
 
 // Ekegusii language dataset (decision #129): words, phrases, grammar notes and sentences, each with
@@ -98,6 +100,7 @@ const language = defineCollection({ loader: md('language'), schema: z.object({
   usageTranslationEn: z.string().optional(),
   dialect: z.string().optional(),
   audio: z.string().optional(),
+  transcript: z.string().optional(), transcriptLang: z.enum(['guz', 'sw', 'en']).optional(),
   credit: z.string().default('Name withheld at the contributor\'s request'),
   consentPublish: z.boolean(), consentAiTraining: z.boolean().default(false),
   consentRecord: z.string().min(1),

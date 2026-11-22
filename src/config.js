@@ -1,5 +1,15 @@
 // Site-wide switches. Fill these in before launch.
 import impact from './data/impact.json' with { type: 'json' };
+
+// Privacy-respecting analytics (strategy doc: docs/strategy/OPEN_SOURCE_TOOLS.md).
+// Set `provider` to 'plausible' or 'umami' and fill in `src` and (for Umami) `websiteId`.
+// Leave provider empty to disable. The script tag is added to Base.astro only when enabled.
+export const analytics = {
+  provider: '',       // 'plausible' | 'umami' | '' (disabled)
+  src: '',            // e.g. 'https://plausible.io/js/script.js' or 'https://analytics.nyamiradaily.org/script.js'
+  websiteId: '',      // Umami only: the site's data-website-id
+};
+
 export const contact = {
   whatsapp: '',  // e.g. '2547XXXXXXXX' — turns on "Tell us" and "Get updates"
   email: '',

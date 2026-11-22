@@ -72,7 +72,23 @@ Markdown files, one per entry, checked against `src/content.config.ts` at build 
 
 ## Machine-readable outputs
 
-Built with the site and documented on `/about/data/`: `/api/wards.json`, `/api/ward/<slug>.json`, `/api/ward/<slug>.txt` (plain text under 900 characters, for a future WhatsApp/SMS bot: `TODO(service)`), `/api/money.json`, `/api/facilities.json`, `/api/contracts.json`, and the CSV files in `public/files/`. The facts, projects, opportunities and alerts APIs were removed in decision #112. `/money/contracts/search.json` is the compact list the contracts search loads.
+Built with the site and documented on `/about/data/`:
+
+**Core JSON endpoints:** `/api/wards.json`, `/api/ward/<slug>.json`, `/api/money.json`, `/api/facilities.json`, `/api/contracts.json`, `/api/language.json`, `/api/alerts.json`, `/api/alerts-active.json`. CSV files in `public/files/`.
+
+**Open standard endpoints:**
+- `/api/ocds.json` — County contracts in Open Contracting Data Standard (OCDS 1.1) release format. National contracts excluded per OCDS publisher rules.
+- `/api/leaders.json` — County and national leaders in Popolo format (persons, organizations, memberships).
+
+**SMS/USSD text endpoints (under 900 characters each):**
+- `/api/ward/<slug>.txt` — One ward's receipt as plain text (for WhatsApp/SMS/USSD bot).
+- `/api/budget.txt` — County budget summary.
+- `/api/facilities.txt` — Facility count summary.
+- `/api/leaders.txt` — Leaders summary.
+
+**Metadata:** `/api/meta.json` — Data freshness for all 13 datasets: last-checked date, record count, refresh trigger, API endpoints.
+
+The facts, projects, opportunities and alerts APIs were removed in decision #112. `/money/contracts/search.json` is the compact list the contracts search loads.
 
 ## Known caveats (do not remove from the site)
 
