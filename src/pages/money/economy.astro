@@ -36,7 +36,7 @@ const teaSrc = (id) => T.sources.find((s) => s.id === id);
 // Market prices from the field form (fieldwork/README.md): the latest price per item and unit
 const latestPrices = Object.values(prices.reduce((acc, p) => { const k = `${p.item}|${p.unit}`; if (!acc[k] || p.observed_on > acc[k].observed_on) acc[k] = p; return acc; }, {}));
 ---
-<MoneyShell title="The Nyamira economy" lead="The money that comes into Nyamira, where it comes from, and how it moves. Each figure has its source. County money, national money and what households earn are different things, so we never add them together." crumbs={[{ href: '/money/economy/', label: 'The economy' }]}>
+<MoneyShell title="The Nyamira economy: county and national money" lead="The money that comes into Nyamira, where it comes from, and how it moves. Each figure has its source. County money, national money and what households earn are different things, so we never add them together." crumbs={[{ href: '/money/economy/', label: 'The economy' }]}>
   <section class="stack" aria-labelledby="in">
     <h2 id="in">Money coming in</h2>
     <div class="table-box"><table class="cards">
@@ -72,6 +72,7 @@ const latestPrices = Object.values(prices.reduce((acc, p) => { const k = `${p.it
 
   <section class="stack" style="margin-top:32px" aria-labelledby="prices">
     <h2 id="prices">Market prices</h2>
+    <p class="small muted">Market prices are collected by our field team on market days. The national KAMIS system (kamis.kilimo.go.ke) is not publicly accessible without a Kenyan IP address, so this section updates only when our team visits a market.</p>
     {latestPrices.length === 0 ? (
       <p>No market prices recorded yet. Our field team records them on market days with the market prices form.</p>
     ) : (
@@ -92,4 +93,7 @@ const latestPrices = Object.values(prices.reduce((acc, p) => { const k = `${p.it
     </ul>
     <p class="small">Know a source for one of these? <a href="/about/rules/#corrections">Tell us</a>.</p>
   </section>
+
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Pesa zinazoingia Kaunti ya Nyamira — mgao sawa kutoka serikali kuu, mapato ya ndani, mikataba ya kitaifa, na bonasi za chai kwa wakulima. Kila takwimu inataja chanzo chake.</p></div>
 </MoneyShell>

@@ -118,7 +118,7 @@ main p, main li { max-width: var(--measure); }
 .lead { font-size: 17px; color: var(--ink-2); max-width: var(--measure); }
 .muted { color: var(--muted); }
 .small { font-size: 14px; }
-.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+.eyebrow { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
 .eyebrow::before { content: ""; display: inline-block; width: 0.6em; height: 0.6em; margin-right: 0.5em; background: var(--brand); vertical-align: 0.05em; }
 
 .skip { position: absolute; left: -999px; }
@@ -144,7 +144,7 @@ a.card:hover { border-color: var(--brand); }
 .panel { background: var(--surface); border-radius: var(--radius); padding: 20px; }
 
 /* Evidence labels */
-.label { display: inline-block; align-self: flex-start; white-space: nowrap; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 500; }
+.label { display: inline-block; align-self: flex-start; white-space: nowrap; padding: 2px 10px; border-radius: 999px; font-size: 14px; font-weight: 500; }
 /* Two colours can't tell four labels apart, so each has its word and a shape (decision #110):
    verified green filled, audit charcoal filled, official charcoal outline, unverified dashed outline.
    On charcoal panels, --ink and --bg swap, so the same rules invert. */
@@ -203,7 +203,7 @@ tr.mine td { background: var(--brand-soft); font-weight: 700; }
 .wardmap .ward.mine { fill: var(--brand); }
 .wardmap .ward.other { fill: var(--line); }
 .wardmap .ward.this { fill: var(--brand-soft); stroke: var(--brand); stroke-width: 2.5; }
-.wardmap .wlabel { font-size: 13px; font-weight: 700; fill: var(--ink); pointer-events: none; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
+.wardmap .wlabel { font-size: 14px; font-weight: 700; fill: var(--ink); pointer-events: none; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .wardmap .wlabel.faint { fill: var(--muted); font-weight: 500; stroke-width: 0; }
 .wardmap .pt { stroke: var(--bg); stroke-width: 1; vector-effect: non-scaling-stroke; }
 .pt.school, .dot.school { fill: var(--pt-school); background: var(--pt-school); }
@@ -235,9 +235,9 @@ tr.mine td { background: var(--brand-soft); font-weight: 700; }
 }
 
 /* Planned (not ready) tag */
-.tag-planned { display: inline-block; font-size: 13px; font-weight: 500; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; vertical-align: middle; }
+.tag-planned { display: inline-block; font-size: 14px; font-weight: 500; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; vertical-align: middle; }
 
-.updated { font-size: 13px; color: var(--muted); }
+.updated { font-size: 14px; color: var(--muted); }
 .page-head + .updated { margin-top: 12px; }
 .sw { border-left: 4px solid var(--brand); padding: 10px 14px; background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0; }
 .sw .eyebrow { display: block; margin-bottom: 4px; }
@@ -331,7 +331,7 @@ input.field { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; 
 .page-head { padding: 20px 0 8px; gap: 10px; }
 .page-head h1 { font-size: clamp(28px, 4.2vw, 40px); line-height: 1.08; text-wrap: balance; }
 .page-head .lead { margin: 0; color: var(--muted); font-size: 17px; max-width: 62ch; }
-.ph-detail { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.ph-detail { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 
 /* One number, then the detail: big figure, a meter for scale, the label right under it */
 .figure { display: flex; flex-direction: column; gap: 10px; }
@@ -342,7 +342,7 @@ input.field { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; 
 .meter > i { display: block; height: 100%; border-radius: 999px; background: var(--brand); }
 .meter.sm { height: 6px; }
 
-.source { font-size: 13px; line-height: 1.7; color: var(--muted); }
+.source { font-size: 14px; line-height: 1.7; color: var(--muted); }
 .source > .label { margin-right: 4px; }
 .callout { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 14px; background: var(--surface); }
 .callout b { font-size: 20px; line-height: 1; }
@@ -357,7 +357,7 @@ a.tile:hover { border-color: var(--ink); }
   .tiles.three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
   .tiles.three .tile { padding: 12px 10px; }
   .tiles.three .tile b { font-size: 18px; }
-  .tiles.three .tile span { font-size: 13px; }
+  .tiles.three .tile span { font-size: 14px; }
   .tiles.three .label { font-size: 11px; padding: 1px 7px; }
 }
 
@@ -378,7 +378,7 @@ a.tile:hover { border-color: var(--ink); }
 .ask .eyebrow { color: var(--ink); }
 .ask .eyebrow::before { content: "?"; width: auto; height: auto; margin-right: 8px; background: none; color: var(--nd-green); font-size: 15px; }
 .ask p { max-width: 40em; }
-.ask .note { font-size: 13px; color: var(--muted); }
+.ask .note { font-size: 14px; color: var(--muted); }
 .ask a { color: var(--ink); }
 
 /* NY Watch band */
@@ -409,7 +409,7 @@ a.tile:hover { border-color: var(--ink); }
 .prows li:first-child { border-top: 0; }
 .prows .pn { font-weight: 700; line-height: 1.3; overflow-wrap: anywhere; }
 .prows .pa { font-weight: 700; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.prows .pm { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; font-size: 13px; color: var(--muted); }
+.prows .pm { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; font-size: 14px; color: var(--muted); }
 .prows .pm .meter { width: 72px; flex: none; }
 .prows .pm .st { color: var(--ink-2); }
 
@@ -452,7 +452,7 @@ a.tile:hover { border-color: var(--ink); }
 .hc-top .eyebrow { color: var(--nd-white); display: flex; align-items: center; gap: 8px; }
 .hc-top .eyebrow::before { display: none; }
 .hc-ctl { display: flex; align-items: center; gap: 6px; flex: none; }
-.hc-count { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.hc-count { font-size: 14px; color: var(--muted); white-space: nowrap; }
 .hc-btn {
   width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--ch-600); background: transparent; color: var(--ink);
   font: inherit; font-size: 18px; line-height: 1; cursor: pointer; display: grid; place-items: center; padding: 0;
@@ -464,12 +464,12 @@ a.tile:hover { border-color: var(--ink); }
 .hc-title.big { font-size: 21px; line-height: 1; }
 .hero-card p { color: var(--ink-2); max-width: 40em; }
 .hero-card .source a { color: var(--ink-2); }
-.hc-note { font-size: 13px; margin-top: auto; }
+.hc-note { font-size: 14px; margin-top: auto; }
 .hc-note a { color: var(--ink); }
 .hc-figs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .hc-figs > div { display: flex; flex-direction: column; gap: 4px; }
 .hc-figs b { font-size: 18px; line-height: 1; }
-.hc-figs span:not(.label) { font-size: 13px; color: var(--muted); }
+.hc-figs span:not(.label) { font-size: 14px; color: var(--muted); }
 .hc-flag { font-size: 15px; }
 .hero-card .pill-btn { align-self: flex-start; margin-top: auto; }
 .live { position: relative; width: 10px; height: 10px; border-radius: 50%; background: var(--nd-green); flex: none; display: inline-block; }
@@ -495,7 +495,7 @@ a.tile:hover { border-color: var(--ink); }
 @keyframes nd-ping { 0% { transform: scale(1); opacity: 0.95; } 80%, 100% { transform: scale(4.2); opacity: 0; } }
 .hm-label rect { fill: var(--nd-white); stroke: var(--nd-ink); stroke-width: 3; }
 .hm-label text { font-size: 25px; font-weight: 700; fill: var(--nd-ink); font-family: var(--font); }
-.hero-map figcaption { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; font-size: 13px; color: var(--muted); }
+.hero-map figcaption { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; font-size: 14px; color: var(--muted); }
 .hm-key { background: var(--nd-green); }
 .hint-touch { display: none; }
 @media (hover: none) { .hint-hover { display: none; } .hint-touch { display: inline; } }
@@ -504,7 +504,7 @@ a.tile:hover { border-color: var(--ink); }
   .hm-w { transition: none; }
 }
 .myward.panel { background: var(--brand-soft); }
-.hc-ward { font-size: 13px; font-weight: 700; color: var(--nd-green); letter-spacing: 0.02em; margin-bottom: -6px; }
+.hc-ward { font-size: 14px; font-weight: 700; color: var(--nd-green); letter-spacing: 0.02em; margin-bottom: -6px; }
 
 /* Charts on phones: the SVG shrinks to about half size, so draw its text larger to stay readable */
 @media (max-width: 640px) { .chart text { font-size: 17px; } }
@@ -658,7 +658,7 @@ body.embed { padding: 12px; }
 .alist a.al { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; padding: 14px 4px; text-decoration: none; color: var(--ink); }
 .alist a.al:hover { background: var(--surface); }
 .alist .al-t { font-weight: 700; font-size: 17px; }
-.alist .al-m { grid-column: 2; display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 13px; color: var(--muted); align-items: center; }
+.alist .al-m { grid-column: 2; display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 14px; color: var(--muted); align-items: center; }
 .alist .al-s { grid-column: 2; font-size: 15px; }
 .counts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .counts > div { border-radius: 14px; padding: 12px; background: var(--surface); display: flex; flex-direction: column; gap: 4px; }
@@ -696,7 +696,7 @@ ol.timeline img { border-radius: 12px; }
 
 /* Audit opinions */
 table.ops td, table.ops th { white-space: nowrap; }
-.op { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; border: 1.5px solid var(--ink); }
+.op { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 14px; font-weight: 700; border: 1.5px solid var(--ink); }
 .op-unqualified { background: var(--brand-soft); border-color: var(--brand); }
 .op-qualified { background: var(--surface); }
 .op-adverse, .op-disclaimer { background: var(--ink); color: var(--bg); }
@@ -714,7 +714,7 @@ details.toggle > summary:hover { background: var(--surface); }
 details.toggle[open] > summary .tg-caret::after { transform: rotate(90deg); }
 .tg-title { font-size: 20px; margin: 0; flex: 1; }
 h3.tg-title { font-size: 17px; }
-.tg-meta { font-size: 13px; color: var(--muted); font-weight: 500; }
+.tg-meta { font-size: 14px; color: var(--muted); font-weight: 500; }
 .tg-body { padding: 8px 0 28px 40px; }
 @media (max-width: 640px) {
   .tg-body { padding-left: 0; }
@@ -913,7 +913,7 @@ main .receipt h2 { text-decoration: none; }
 .at-card dt { color: var(--muted); } .at-card dd { margin: 0; font-weight: 700; text-align: right; }
 .at-card .pill-btn { align-self: flex-start; margin-top: 4px; }
 .at-x { position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--surface); color: var(--ink); font-size: 22px; cursor: pointer; }
-@media (max-width: 600px) { .at-card { position: static; width: auto; margin: 0; border-radius: 0 0 var(--radius) var(--radius); box-shadow: none; border-top: 1px solid var(--line); } .at-views { right: 62px; } .at-chip { min-height: 34px; padding: 0 10px; font-size: 13px; } }
+@media (max-width: 600px) { .at-card { position: static; width: auto; margin: 0; border-radius: 0 0 var(--radius) var(--radius); box-shadow: none; border-top: 1px solid var(--line); } .at-views { right: 62px; } .at-chip { min-height: 34px; padding: 0 10px; font-size: 14px; } }
 .at-panel { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: var(--radius); background: var(--bg); box-shadow: inset 0 0 0 1px var(--line); }
 .at-key { display: none; flex-direction: column; gap: 10px; }
 .atlas[data-view="wards"] .at-key.v-wards, .atlas[data-view="facilities"] .at-key.v-facilities, .atlas[data-view="money"] .at-key.v-money { display: flex; }
@@ -1088,7 +1088,7 @@ details.sec-switch[open] { padding-bottom: 0; }
 /* Narrow phones: a tighter ward pill so "Whole county" fits between the logo and the menu */
 @media (max-width: 420px) {
   .hdr { gap: 8px; }
-  .hdr .ward-pill { gap: 4px; padding: 0 10px; font-size: 13px; }
+  .hdr .ward-pill { gap: 4px; padding: 0 10px; font-size: 14px; }
   .hdr .ward-pill select { padding-right: 16px; }
   .hdr .ward-pill::after { right: 10px; width: 6px; height: 6px; }
 }
@@ -1218,7 +1218,7 @@ main details.cf-table > summary { min-height: 36px; font-size: var(--fs-s); font
 main details.cf-table > summary::before { width: 20px; height: 20px; font-size: 14px; }
 .cf-csv { display: inline-block; margin-top: 8px; font-size: var(--fs-s); font-weight: 700; color: var(--ink); }
 .kc { width: 100%; height: auto; display: block; overflow: visible; }
-.kc text { font-family: var(--font); font-size: 13px; fill: var(--muted); }
+.kc text { font-family: var(--font); font-size: 14px; fill: var(--muted); }
 .kc .kc-grid { stroke: var(--line); stroke-width: 1; }
 .kc .kc-zero { stroke: var(--ink); stroke-width: 1.5; }
 .kc .kc-gap { fill: color-mix(in srgb, var(--accent) 14%, transparent); }
@@ -1324,7 +1324,7 @@ main details.tk-year > summary { font-family: var(--title-font); font-weight: 40
 .stage-strip ol { list-style: none; margin: 8px 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
 .stage-strip li { display: flex; flex-direction: column; gap: 6px; max-width: none; border-top: 3px solid var(--line); padding-top: 8px; }
 .stage-strip .st-done { border-top-color: var(--ink); }
-.stage-strip .st-dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--ink); display: grid; place-items: center; font-size: 13px; font-weight: 700; line-height: 1; }
+.stage-strip .st-dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--ink); display: grid; place-items: center; font-size: 14px; font-weight: 700; line-height: 1; }
 .stage-strip .st-done .st-dot { background: var(--ink); color: var(--bg); }
 .stage-strip .st-todo .st-dot { border-color: var(--line); }
 .stage-strip .st-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
@@ -1361,7 +1361,7 @@ main details.tk-year > summary { font-family: var(--title-font); font-weight: 40
 .now-strip ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 240px; }
 .now-strip li { max-width: none; }
 .now-strip a { color: var(--nd-white); display: inline-flex; min-height: 44px; align-items: center; }
-.now-meta { font-size: 13px; color: var(--ch-300); }
+.now-meta { font-size: 14px; color: var(--ch-300); }
 .front { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 3px solid var(--nd-charcoal); }
 .front-door { display: flex; flex-direction: column; gap: 8px; padding: 20px 22px 22px; color: var(--ink); text-decoration: none; border-right: 1px solid var(--line); }
 .front-door:first-child { padding-left: 0; }
@@ -2089,7 +2089,7 @@ main .btn.quiet {
   transform: translate(-1px, -1px);
 }
 .fg-ne {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   opacity: 0.75;
   flex: none;
@@ -2165,7 +2165,7 @@ main .btn.quiet {
   border-radius: 999px;
   background: var(--nd-paper);
   border: 1px solid var(--line);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--ch-900);
   text-decoration: none;
@@ -2189,7 +2189,7 @@ main .btn.quiet {
   display: flex; flex-direction: column; gap: 2px;
 }
 .fg-sw-stats b { font-size: 26px; line-height: 1; color: var(--ch-900); }
-.fg-sw-stats span { font-size: 13px; color: var(--ink-2); }
+.fg-sw-stats span { font-size: 14px; color: var(--ink-2); }
 
 /* 4-Card Preview Deck on Mint Topographic Wash (civictech.guide home-3 signature) */
 .fg-peek-grid {
@@ -2863,7 +2863,7 @@ a.fg-ft-pill {
   border: 1.5px solid var(--ch-900);
   background: var(--nd-white);
   color: var(--ch-900);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   text-decoration: none;
   box-shadow: var(--fg-shadow-sm);
@@ -2945,7 +2945,7 @@ a.fg-pop-all {
   padding: 10px 14px;
   border-top: 1px dashed var(--ch-200);
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--nd-green-deep);
   text-decoration: none;
@@ -2999,7 +2999,7 @@ button.fg-ward-chip {
   background: var(--nd-white);
   color: var(--ch-900);
   font-family: inherit;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.12s ease, transform 0.12s ease;

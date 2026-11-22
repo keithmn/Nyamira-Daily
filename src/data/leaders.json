@@ -79,10 +79,10 @@
    "src": "https://capitalfm.africa/amos-nyaribo-takes-charge-as-nyamira-governor-to-serve-until-august-2022/"
   }
  ],
- "mcaSource": "https://educationnewshub.co.ke/iebc-list-of-elected-and-gazetted-mcas-2022-per-county-nyamira-plus-votes-garnered/",
- "mcaSourceName": "Education News Hub (a republished copy of the IEBC list, not the IEBC itself)",
+ "mcaSource": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+ "mcaSourceName": "IEBC Gazette Notice No. 9956 (2022 baseline; current changes still being checked)",
  "mcaGazetteChecked": false,
- "mcaGazetteNote": "To do: check each 2022 name against the IEBC's Kenya Gazette notice of elected MCAs and each by-election winner against its own gazette notice, then replace mcaSource with the gazette references.",
+ "mcaGazetteNote": "Checked 22 Nov 2026: the 2022 Nyamira ward roster was compared with Gazette Notice No. 9956, Kenya Gazette Vol. CXXIV, No. 170, 24 Aug 2022, p. 6747. The current records for Nyansiongo, Nyamaiya and Ekerenyo reflect later by-elections whose official result notices still need checking; the final court status for Rigoma and Bokeira also needs an official source. Keep mcaGazetteChecked false until all current entries and changes are verified.",
  "mcas": {
   "esise": {
    "name": "Josiah Obegi Mang'era",

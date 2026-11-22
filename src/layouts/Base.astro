@@ -26,6 +26,32 @@ const pageTitle = title === 'Today' ? 'Nyamira Daily' : `${title} · Nyamira Dai
 const shareTitle = title === 'Today' ? 'Nyamira Daily' : title;
 const pageUrl = new URL(path, Astro.site).toString();
 const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toString();
+
+// Structured data: BreadcrumbList from URL segments, WebSite with SearchAction on home
+const crumbs = [{ name: 'Nyamira Daily', url: new URL('/', Astro.site).toString() }];
+if (!isHome) {
+  const segs = path.replace(/\/$/, '').split('/').filter(Boolean);
+  let built = '';
+  for (const seg of segs) {
+    built += `/${seg}`;
+    crumbs.push({ name: seg.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()), url: new URL(`${built}/`, Astro.site).toString() });
+  }
+  // Replace last crumb name with the actual page title
+  crumbs[crumbs.length - 1].name = title;
+}
+const breadcrumbLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+});
+const websiteLd = isHome ? JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Nyamira Daily',
+  url: new URL('/', Astro.site).toString(),
+  description: 'The civic field guide for Nyamira County, Kenya — every public place mapped, every shilling sourced.',
+  potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: new URL('/search/?q={search_term_string}', Astro.site).toString() }, 'query-input': 'required name=search_term_string' },
+}) : null;
 ---
 <!doctype html>
 <html lang="en">
@@ -60,6 +86,9 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
   <script is:inline>
   (function () { var r = document.documentElement; r.classList.add('sw-js'); try { if (localStorage.getItem('nd-sw') === '1') r.classList.add('sw-on'); } catch (e) {} })();
   </script>
+  {!isHome && <script type="application/ld+json" set:html={breadcrumbLd} />}
+  {websiteLd && <script type="application/ld+json" set:html={websiteLd} />}
+  <noscript><style>{`main .sw { display: block !important; } [data-sw-switch] { display: none; }`}</style></noscript>
 </head>
 <body id="top" class={isHome ? 'fg-home' : 'fg-inner'}>
   <a class="skip" href="#main">Skip to content</a>

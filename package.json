@@ -27,13 +27,17 @@
     "build:national": "npm run build -w @kbe/national",
     "test:national:site": "npm run test:site -w @kbe/national",
     "test:national:visual": "npm run test:visual -w @kbe/national",
+    "check:wards": "node scripts/check-ward-slugs.mjs",
+    "check:data-deps": "node scripts/check-data-deps.mjs",
     "check:county": "node scripts/county/check-county.mjs",
+    "generate:legacy-money": "node scripts/county/generate-legacy.mjs",
     "build:county-data": "node scripts/county/build-figures.mjs",
     "check:county:pages": "node scripts/county/check-pages.mjs",
     "fieldwork:forms": "node scripts/fieldwork/build-forms.mjs",
     "living:sync": "node scripts/living/sync.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.6",
     "astro": "7.4.4",
     "qrcode": "1.5.4"
   },

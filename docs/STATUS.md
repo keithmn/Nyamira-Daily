@@ -1,4 +1,4 @@
-# Status and handover (16 Nov 2026)
+# Status and handover (22 Nov 2026)
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md`, then this page, then `docs/DECISIONS.md`. Older handover notes, with the history of each feature, are in `docs/STATUS_ARCHIVE.md`.
 
@@ -8,7 +8,71 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Who runs it:** the publisher is not named on the site for now (decision #125, replacing the public parts of #73). Rules and legal are one page, `/about/rules/`.
 - **NY Watch (decision #79):** the founder's data review podcast. No episodes published yet.
 
-## Changes on 21 Nov 2026
+## Changes on 22 Nov 2026 (page optimization + MCA verification research)
+
+On branch `feat/data-architecture-improvements` (from `ee970ce`). Not committed.
+
+### Page content/copy optimization
+
+- **Footer trimmed:** removed the `fg-ft-meta` bottom section (Open Licence, Independence, Evidence Standard, Quick Jump blocks) from `SiteFooter.astro`.
+- **Hero cleaned up:** removed the decorative topographic SVG contour lines (`fg-hero-topo`) from `HeroMap.astro`.
+- **14px minimum font size:** all `font-size: 13px` declarations in `global.css` changed to `14px` (~28 instances across `.eyebrow`, `.label`, `.source`, `.updated`, `.small`, `.hc-note`, `.tg-meta`, `.now-meta`, etc.) for readability on budget phones.
+- **Structured data (JSON-LD):** `Base.astro` now outputs a `BreadcrumbList` on every non-home page (built from URL segments, last crumb uses the page title) and a `WebSite` with `SearchAction` on the home page.
+- **Noscript fallback for Kiswahili:** `<noscript>` block in `Base.astro` ensures Kiswahili summaries are visible and the toggle button is hidden when JavaScript is off (Opera Mini, feature phones).
+- **Sitemap:** `@astrojs/sitemap` integration added in `astro.config.mjs`, generating `sitemap-index.xml`.
+- **RSS feeds:** new `src/pages/explainers/rss.xml.js` and `src/pages/number-of-the-week/rss.xml.js`.
+- **Glossary expanded:** from 11 to 30 terms (added ADP, CARA, CIDP, ECDE, FIF, Gazette, KCSE, KDHS, KeNHA, KeRRA, KHIS, KNEC, KURA, NG-CDF, PBB, PPIP, Supplementary budget, Ward, Ward Development Fund).
+- **"What we do not measure yet" sections** added to HealthPage (5 items), SchoolsPage (4 items) and TeaMilkPage (4 items).
+- **Freshness labels** added to revenue, contracts and history pages.
+- **Kiswahili summaries** added to 9 pages: index (home), map/index, ward/index, administration/index, administration/duties, money/economy, money/track, money/revenue, money/contracts/index. All marked `<!-- Kiswahili: needs native-speaker review -->`.
+- Remaining Kiswahili summaries (~18 pages) were not completed (rate limit). Missing: about/, about/nyamira/, about/glossary/, about/contact/, about/careers/, about/partners/, watch/, ask/, take-part/submission/, tools/budget-simulator/, fact-check/, whats-working/, people/, heritage/, number-of-the-week/, search/, money/history/.
+- CSS audit found ~110 potentially unused classes but they were not removed (rate limit). Left for a future pass.
+
+### MCA verification research
+
+Searched official IEBC and court records for the five MCA entries that need primary-source verification. No roster entries were changed; `mcaGazetteChecked` stays `false`.
+
+**By-elections (Nyansiongo, Nyamaiya, Ekerenyo — Nov 2025):**
+- The August 2025 Kenya Gazette (Vol. CXXVII—No. 169, Gazette Notice No. 11159, p. 4864) confirms the IEBC appointed Returning Officers for Nyamaiya (ward code 1352, West Mugirango), Ekerenyo (ward code 1361, North Mugirango) and Nyansiongo (ward code 1364, Borabu) for 27 Nov 2025 by-elections.
+- Gazette Notice No. 11160 (same issue, p. 4864) is the official by-election schedule notice.
+- Multiple news sources report the winners as Jackson Mogusu Mochumbe (PDP, Nyansiongo), Christopher Moturi Osiemo (UPA, Nyamaiya) and Jeremiah Njenga Ongaro (UPA, Ekerenyo) — matching the current `leaders.json` entries.
+- The official results gazette (reported as Gazette Notice No. 17611, December 2025 special issue) has not been directly verified. The IEBC website's by-elections resources page lists only two documents, neither of which is the results gazette. The Kenya Gazette archive at kenyalaw.org blocked automated access (HTTP 403).
+- **Status: corroborated by multiple news sources and the official appointments gazette, but the results gazette PDF has not been fetched and read.**
+
+**Court status (Rigoma and Bokeira — expelled MCAs):**
+- In July 2025, the Nyamira County Assembly expelled 10 MCAs (including Rigoma's Emmanuel Nyambega Gisesa and Bokeira's Joel Ombongi Nyang'au) for missing 8 consecutive sittings.
+- The High Court at Nyamira (Judge Wilfrida Okwany) granted interim relief reinstating them, with the substantive hearing set for 30 July 2025.
+- No final judgment has been found in any search (web search, news, Kenya Law — the latter blocked automated fetches with HTTP 403).
+- **Status: interim relief only. The final ruling is unresolved. The roster notes say "Final ruling not yet confirmed" and that is still accurate.**
+
+**What remains for a person:**
+1. Visit kenyalaw.org in a browser to search for the final Rigoma/Bokeira court ruling (search: "Nyamira County Assembly", "Okwany", "MCA absenteeism 2025").
+2. Visit the IEBC Gazette Notices page (iebc.or.ke/electionlaws/?Gazette_Notices) to find and download the December 2025 results gazette (Gazette Notice No. 17611).
+3. When both are verified, update `leaders.json` with the gazette citation and set `mcaGazetteChecked: true`.
+
+### Build and tests
+
+- `npm run build` (871 pages) passes.
+- `npm test` (342 tests) passes.
+- Sitemap generated at `sitemap-index.xml`.
+
+## Changes on 21-22 Nov 2026
+
+- **Data architecture improvements** (decision #131) on branch `feat/data-architecture-improvements` (from `ee970ce`).
+  - **Ward-slug validator** (`npm run check:wards`): catches typos in ward references across all data files and content collections. 935 references checked.
+  - **Flattened wards.json**: pure 20-row identity lookup. Places extracted to `ward-places.json`. Facility references derived from `facilities.json` at build time. No more double-edits.
+  - **Geo boundaries built**: `geo.json` (20 wards, 103 OSM points) and `neighbours.json` (10 counties) populated from geoBoundaries Kenya ADM3. The entire Map section is now unblocked.
+  - **Legacy money auto-generation** (`npm run generate:legacy-money`): `money.json` and `budget-sectors.json` generated from the county registry, guaranteed to match.
+  - **Hybrid alerts**: narrative as Markdown, status changes as living events (`alert:<id>` in `events.json`). Field reporters can update status from a phone form without touching git.
+  - **Contract-project triage**: 176 candidates sorted into confident (8), likely (8), ambiguous (29), reject (131). Six new contract groups produced seven proposed pairs. Manual source-level review did not confirm any new pair; the live `project-links.json` remains unchanged. Findings are in `data-src/contracts/RECONCILIATION_TRIAGE.md`.
+  - **Data dependency graph** (`npm run check:data-deps`): 56 source files, 36 data files, all validated.
+  - **Data-freshness labels** on health, education and economy pages.
+  - **Intake plan** (`docs/INTAKE_PLAN.md`): three-phase plan — Google Forms now, KoboToolbox at 3-6 months, D1 at 6+.
+  - Checked during continuation: `npm test` (342 passed), `npm run build` (871 pages; with the documented `ND_SITE_URL`), `npm run check:wards`, and `npm run check:data-deps` pass. The home page, map and contracts page have no horizontal overflow at 390px; the home page also has none at 1280px. The Administration page was checked at 390px and 1280px with no horizontal overflow.
+  - Waiting for a person: (1) Check the source documents for the seven unconfirmed contract-project pairs if stronger evidence is available. (2) Create and publish the Google Sheet from the fieldwork tab templates; the Google Drive/Sheets connector was not available in this chat. (3) The geoBoundaries source files are in `data-src/` for reproducibility.
+  - **Places facility research (registry unchanged):** the 27 Oct 2026 facility inventory has five police-tagged entries, all unverified; only Keroka has candidate coordinates. Sixteen wards have no police-tagged entry, which is a listing gap, not evidence that they lack police coverage. The 2018-22 CIDP names seven stations/posts/patrol bases, but is historical; the 2023-27 CIDP does not provide a current point-level roster. The current NPS/Kenya Police public sources checked did not yield one; the February 2026 police-hotlines document contains general hotlines, not a local station list.
+  - Other facility leads: the 2026/27 ADP identifies planned fire/ECDE works, not proof of operating facilities. WASREB's provider register can verify water-service providers, not individual water points. Next: complete and submit the drafted records request to NPS/County Commissioner; then verify locations and operating status before changing `facilities.json`. No request has been sent.
+  - **MCA source check:** the 2022 Nyamira ward roster was compared with IEBC Gazette Notice No. 9956, Kenya Gazette Vol. CXXIV, No. 170, 24 Aug 2022, p. 6747. Three current ward entries reflect later by-elections; their official result notices and the final court status for Rigoma and Bokeira remain to be verified, so `mcaGazetteChecked` stays `false`.
 
 - **Expansion build: seven tools and four new content collections** (decision #130) on branch `feat/ekegusii-language-framework` (from `6ae010c`).
   - Four new content collections with schemas, helpers, list pages, example entries and search integration:

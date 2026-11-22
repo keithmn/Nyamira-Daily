@@ -8,7 +8,7 @@ import leaders from '../../data/leaders.json';
 import WardMap from '../../components/WardMap.astro';
 import { subCounties, anchorFor } from '../../nav.js';
 ---
-<Base title="Wards">
+<Base title="All 20 wards of Nyamira County">
   <div class="sec-tea">
     <PageHead eyebrow="All 20 Wards · 4 Constituencies" title="Choose your ward" lead="Nyamira has 20 wards in four constituencies. Tap yours on the map, filter by name, or open a constituency below." tone="tea" tools={false} />
   </div>
@@ -44,6 +44,9 @@ import { subCounties, anchorFor } from '../../nav.js';
         })}
       </div>
     </div>
+
+    <!-- Kiswahili: needs native-speaker review -->
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Orodha ya wodi 20 za Kaunti ya Nyamira, zilizopangwa kwa majimbo. Chagua wodi yako ili kuona hospitali, shule, miradi, mikataba na bajeti yake.</p></div>
   </div>
   <script is:inline>
   (function () {

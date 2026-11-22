@@ -1,0 +1,415 @@
+[
+  {
+    "id": "NYM-P0001",
+    "name": "Manga Rogoro Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "esise"
+  },
+  {
+    "id": "NYM-P0002",
+    "name": "Raitigo Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "esise"
+  },
+  {
+    "id": "NYM-P0003",
+    "name": "Mokomoni",
+    "type": "Locality",
+    "source": "Google Maps (discovery)",
+    "ward": "kiabonyoru"
+  },
+  {
+    "id": "NYM-P0004",
+    "name": "Kipkebe Tea Estate and Factory",
+    "type": "Farm",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "mekenene"
+  },
+  {
+    "id": "NYM-P0005",
+    "name": "Kipkebe Tea Factory",
+    "type": "Tea factory",
+    "source": "Google Maps (discovery)",
+    "ward": "mekenene"
+  },
+  {
+    "id": "NYM-P0006",
+    "name": "Kijauri Sub-County Hospital",
+    "type": "Health facility",
+    "source": "Google Maps (discovery)",
+    "ward": "nyansiongo"
+  },
+  {
+    "id": "NYM-P0007",
+    "name": "Nyansiongo",
+    "type": "Town",
+    "source": "Google Maps (discovery)",
+    "ward": "nyansiongo"
+  },
+  {
+    "id": "NYM-P0008",
+    "name": "Gachuba Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "gachuba"
+  },
+  {
+    "id": "NYM-P0009",
+    "name": "Girango",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "gachuba"
+  },
+  {
+    "id": "NYM-P0010",
+    "name": "Gesima",
+    "type": "Town",
+    "source": "Google Maps (discovery)",
+    "ward": "gesima"
+  },
+  {
+    "id": "NYM-P0011",
+    "name": "Mosobeti Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "gesima"
+  },
+  {
+    "id": "NYM-P0012",
+    "name": "Nyamakoroto Sokobe Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "gesima"
+  },
+  {
+    "id": "NYM-P0013",
+    "name": "Kemera Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "kemera"
+  },
+  {
+    "id": "NYM-P0014",
+    "name": "Nyangina",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "kemera"
+  },
+  {
+    "id": "NYM-P0015",
+    "name": "Magombo Trading Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "magombo"
+  },
+  {
+    "id": "NYM-P0016",
+    "name": "Manga",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "manga"
+  },
+  {
+    "id": "NYM-P0017",
+    "name": "Manga Stadium (under construction)",
+    "type": "Sports facility",
+    "source": "Google Maps (discovery)",
+    "ward": "manga"
+  },
+  {
+    "id": "NYM-P0018",
+    "name": "Nyabioto",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "manga"
+  },
+  {
+    "id": "NYM-P0019",
+    "name": "Tombe Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "manga"
+  },
+  {
+    "id": "NYM-P0020",
+    "name": "Zacharia",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "manga"
+  },
+  {
+    "id": "NYM-P0021",
+    "name": "Keroka Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "rigoma"
+  },
+  {
+    "id": "NYM-P0022",
+    "name": "Kitutu Masaba Technical and Vocational College",
+    "type": "Vocational centre",
+    "source": "Google Maps (discovery)",
+    "ward": "rigoma"
+  },
+  {
+    "id": "NYM-P0023",
+    "name": "Metamaywa Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "rigoma"
+  },
+  {
+    "id": "NYM-P0024",
+    "name": "Mochenwa Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "rigoma"
+  },
+  {
+    "id": "NYM-P0025",
+    "name": "Rigoma Market Centre",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "rigoma"
+  },
+  {
+    "id": "NYM-P0026",
+    "name": "Kiomara",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "bokeira"
+  },
+  {
+    "id": "NYM-P0027",
+    "name": "Nyambambo Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "bokeira"
+  },
+  {
+    "id": "NYM-P0028",
+    "name": "Nyamoti Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "bokeira"
+  },
+  {
+    "id": "NYM-P0029",
+    "name": "Nyamuse",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "bokeira"
+  },
+  {
+    "id": "NYM-P0030",
+    "name": "Mabariri",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "bomwagamo"
+  },
+  {
+    "id": "NYM-P0031",
+    "name": "Ikonge Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "ekerenyo"
+  },
+  {
+    "id": "NYM-P0032",
+    "name": "Ekerenyo",
+    "type": "Town",
+    "source": "Google Maps (discovery)",
+    "ward": "itibo"
+  },
+  {
+    "id": "NYM-P0033",
+    "name": "Ikonge",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "itibo"
+  },
+  {
+    "id": "NYM-P0034",
+    "name": "Nyaramba Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "itibo"
+  },
+  {
+    "id": "NYM-P0035",
+    "name": "Magwagwa",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "magwagwa"
+  },
+  {
+    "id": "NYM-P0036",
+    "name": "Magwagwa Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "magwagwa"
+  },
+  {
+    "id": "NYM-P0037",
+    "name": "Maraagwa",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "magwagwa"
+  },
+  {
+    "id": "NYM-P0038",
+    "name": "Maragwa",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "magwagwa"
+  },
+  {
+    "id": "NYM-P0039",
+    "name": "Kiambere Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "bogichora"
+  },
+  {
+    "id": "NYM-P0040",
+    "name": "Nyairasa Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "bogichora"
+  },
+  {
+    "id": "NYM-P0041",
+    "name": "Sironga Girls High School",
+    "type": "School",
+    "source": "Google Maps (discovery)",
+    "ward": "bogichora"
+  },
+  {
+    "id": "NYM-P0042",
+    "name": "County Government of Nyamira (Gesima listing)",
+    "type": "Public office",
+    "source": "Google Maps (discovery)",
+    "ward": "bonyamatuta"
+  },
+  {
+    "id": "NYM-P0043",
+    "name": "Kebirigo",
+    "type": "Town",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "bonyamatuta"
+  },
+  {
+    "id": "NYM-P0044",
+    "name": "Kebirigo Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "bonyamatuta"
+  },
+  {
+    "id": "NYM-P0045",
+    "name": "Konate Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "bonyamatuta"
+  },
+  {
+    "id": "NYM-P0046",
+    "name": "St. Peter's Nyakemincha Secondary School",
+    "type": "School",
+    "source": "Google Maps (discovery)",
+    "ward": "bonyamatuta"
+  },
+  {
+    "id": "NYM-P0062",
+    "name": "Bosamaro Masaba",
+    "type": "Location (administrative)",
+    "source": "Google Maps (school listing address)",
+    "ward": "bosamaro"
+  },
+  {
+    "id": "NYM-P0063",
+    "name": "Bosamaro Chache",
+    "type": "Location (administrative)",
+    "source": "Google Maps (school listing address)",
+    "ward": "bosamaro"
+  },
+  {
+    "id": "NYM-P0047",
+    "name": "Bonyunyu",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "nyamaiya"
+  },
+  {
+    "id": "NYM-P0048",
+    "name": "Bunyunya",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "nyamaiya"
+  },
+  {
+    "id": "NYM-P0049",
+    "name": "Miruka",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "nyamaiya"
+  },
+  {
+    "id": "NYM-P0050",
+    "name": "Miruka Market",
+    "type": "Market",
+    "source": "Google Maps (discovery)",
+    "ward": "nyamaiya"
+  },
+  {
+    "id": "NYM-P0051",
+    "name": "Nyamaiya Shopping Centre",
+    "type": "Trading centre",
+    "source": "Google Maps (discovery)",
+    "ward": "nyamaiya"
+  },
+  {
+    "id": "NYM-P0052",
+    "name": "Nyamaiya Tea Buying Centre",
+    "type": "Tea buying centre",
+    "source": "Google Maps (discovery)",
+    "ward": "nyamaiya"
+  },
+  {
+    "id": "NYM-P0053",
+    "name": "Nyasore",
+    "type": "Village",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "nyamaiya"
+  },
+  {
+    "id": "NYM-P0054",
+    "name": "Nyamira",
+    "type": "Town",
+    "source": "OpenStreetMap (ODbL)",
+    "ward": "township"
+  },
+  {
+    "id": "NYM-P0055",
+    "name": "Nyamira County Assembly",
+    "type": "Public office",
+    "source": "Google Maps (discovery)",
+    "ward": "township"
+  },
+  {
+    "id": "NYM-P0056",
+    "name": "Nyamira Huduma Centre",
+    "type": "Public office",
+    "source": "Google Maps (discovery)",
+    "ward": "township"
+  },
+  {
+    "id": "NYM-P0057",
+    "name": "Nyamira town",
+    "type": "Town",
+    "source": "Google Maps (discovery)",
+    "ward": "township"
+  }
+]

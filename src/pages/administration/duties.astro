@@ -6,7 +6,7 @@ import PageHead from '../../components/PageHead.astro';
 import C from '../../data/constitution.json';
 const F = C.fourthSchedule;
 ---
-<Base title="What the county must do" description="The county government's functions under Kenya's Constitution (Fourth Schedule, Part 2), in plain words.">
+<Base title="How Nyamira County is governed" description="The county government's functions under Kenya's Constitution (Fourth Schedule, Part 2), in plain words.">
   <PageHead eyebrow="The county" title="What the county must do" lead={F.summary} crumbs={[{ href: '/map/', label: 'Places' }, { href: '/administration/duties/', label: 'What the county must do' }]} />
   <div class="stack" style="margin-top:16px; max-width:760px">
     <p>When a place page says who is responsible for a clinic, a market or a road, it points to an item on this list. If a service is not on it, it is usually the national government's job: for example primary and secondary schools, and national roads.</p>
@@ -19,5 +19,8 @@ const F = C.fourthSchedule;
       ))}
     </ol>
     <p class="small muted">These are short summaries to help you find your way, not the legal text. Read the official text in <a href={C.officialUrl} rel="noopener">the Constitution of Kenya, 2010</a> (Fourth Schedule, Part 2). Something wrong? <a href="/about/rules/#corrections">Tell us</a>.</p>
+
+    <!-- Kiswahili: needs native-speaker review -->
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Majukumu ya serikali ya kaunti kama yalivyoainishwa katika Katiba ya Kenya (Ratiba ya Nne, Sehemu ya 2) — afya, elimu, barabara, maji, kilimo na mengineyo.</p></div>
   </div>
 </Base>
