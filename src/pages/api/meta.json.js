@@ -53,6 +53,7 @@ const datasets = [
     id: 'facilities',
     name: 'Public facilities',
     checked: '2026-10-27',
+    sourceDate: 'Health: KMHFL 2017 export; schools and others: OpenStreetMap/Google Maps (various dates)',
     refresh: 'When reviewed evidence is added; living events update conditions',
     records: wards.reduce((n, w) => n + (w.facilities?.length ?? 0), 0),
     endpoints: ['/api/facilities.json', '/api/facilities.txt'],
@@ -82,6 +83,7 @@ const datasets = [
     id: 'schools',
     name: 'Schools and education',
     checked: '2026-10-24',
+    sourceDate: 'MoE statistical booklet 2020; KNEC KCSE 2024–2025',
     refresh: 'When a newer MoE statistical booklet appears',
     records: schools.items?.length ?? 0,
   },
@@ -89,6 +91,7 @@ const datasets = [
     id: 'health',
     name: 'Health indicators',
     checked: '2026-10-24',
+    sourceDate: 'KDHS 2022; CIDP 2023–2027',
     refresh: 'Next KDHS or CIDP',
   },
   {
@@ -102,6 +105,7 @@ const datasets = [
     id: 'census',
     name: 'Census 2019',
     checked: '2026-10-22',
+    sourceDate: 'KNBS Kenya Population and Housing Census 2019',
     refresh: 'Next census (expected 2029)',
     records: census.wards?.length ?? 0,
   },
@@ -116,7 +120,7 @@ const datasets = [
 
 export function GET({ site }) {
   return json({
-    description: 'Data freshness metadata for all Nyamira Daily datasets. Each entry gives the last check date, the expected refresh trigger, the record count and the API endpoints that serve it. Use this to monitor what is stale.',
+    description: 'Data freshness metadata for all Nyamira Daily datasets. "checked" is when the site last loaded or reviewed this dataset. "sourceDate", where present, is the date of the underlying source data (which may be much older). Use this to monitor what is stale.',
     datasets,
   }, site);
 }
