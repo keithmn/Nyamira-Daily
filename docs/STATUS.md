@@ -51,6 +51,14 @@ Built a four-script geographic data pipeline in `scripts/geo/` to systematically
 
 **Biggest gaps identified:** ~542 missing schools (available from energydata.info Kenya schools dataset), 178 facilities with no coordinates, 0 of 247 facilities field-verified, water points almost entirely unmapped.
 
+**Additional scripts added (Phase G1 enrichment):**
+- **`geo:geocode`** — resolves coordinates for 58 facilities with Google Place IDs (needs `GOOGLE_PLACES_KEY`).
+- **`geo:discover`** — searches each ward centroid for schools/clinics/markets via Google Places Text Search (needs `GOOGLE_PLACES_KEY`).
+- **`geo:ingest-schools`** — imports any school CSV into the reconcile pipeline format, auto-detecting columns and filtering to Nyamira. Ready for when the Kenya schools dataset is downloaded manually.
+- **`geo:reconcile-roads`** — cross-references 90 budget roads against 122 OSM roads. Found 8 fuzzy matches; the two layers are mostly complementary. Output: `data-src/road-review.json`.
+
+**Data source availability (26 Nov 2026):** energydata.info (403), opendata.go.ke (404), HDX (403), KMHFL API (connection refused). All need manual browser download or retry later. The Google Places API is the fastest path to coordinates — it needs an API key from Google Cloud Console.
+
 ### Still needs a person
 - Open the Gazette Notice 9956 PDF and check each 2022 MCA name character-by-character.
 - Check Kenya Law or Nyamira HC registry for the Rigoma/Bokeira full hearing outcome.

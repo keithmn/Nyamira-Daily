@@ -61,14 +61,19 @@ Ekerenyo has 3 facilities listed; Mekenene and Kiabonyoru have 20 each. This is 
 
 ## The pipeline
 
-Four scripts in `scripts/geo/`:
+Eight scripts in `scripts/geo/`:
 
 ```
-npm run geo:pull-osm       # 1. Pull fresh OSM data → data-src/osm-fresh.json
-npm run geo:reconcile       # 2. Match against facilities.json → data-src/geo-review.json
-                            #    (a person reviews and sets approve: true/false)
-npm run geo:apply           # 3. Apply reviewed decisions → updates facilities.json
-npm run geo:coverage        # 4. Print the coverage report
+npm run geo:pull-osm         # 1. Pull fresh OSM data → data-src/osm-fresh.json
+npm run geo:reconcile        # 2. Match against facilities.json → data-src/geo-review.json
+                             #    (a person reviews and sets approve: true/false)
+npm run geo:apply            # 3. Apply reviewed decisions → updates facilities.json
+npm run geo:coverage         # 4. Print the coverage report
+
+npm run geo:geocode          # Resolve coords for 58 Google Place ID facilities (needs GOOGLE_PLACES_KEY)
+npm run geo:discover         # Search for new facilities by ward via Google Places (needs GOOGLE_PLACES_KEY)
+npm run geo:ingest-schools   # Import any school CSV into the reconcile pipeline
+npm run geo:reconcile-roads  # Cross-reference budget roads against OSM roads
 ```
 
 ### The workflow
@@ -100,12 +105,31 @@ The same workflow works for any new data source: convert it to the same format a
 
 **Goal:** go from 247 to ~800+ facilities with coordinates for most.
 
-1. **Fresh OSM pull** — done. 329 features, 18 new candidates (mostly markets). Review and approve.
-2. **Kenya schools dataset** — download from energydata.info, filter to Nyamira subcounties (Borabu, Kitutu Masaba, West Mugirango, North Mugirango). This should add ~400+ schools with coordinates.
-3. **Google Places geocoding** — use the 58 Google Place IDs already in facilities.json to get coordinates. 10,000 free requests/month is more than enough. Write a `scripts/geo/geocode-google.mjs` that reads Place IDs and returns lat/lon.
-4. **KMHFL API** — if reachable, pull the current registry. Even if not, the KMHFL codes in facilities.json (e.g. "KMHFL 16256") can be used to look up coordinates from other mirrors.
+**Status (26 Nov 2026):** OSM pull done; geocoding and discovery scripts ready; school data sources offline (need manual browser download).
+
+1. **Fresh OSM pull** — done. 329 features, 18 new candidates (10 schools, 5 markets, 1 hospital, 1 stadium, 1 duplicate). Review `data-src/geo-review.json` and approve.
+2. **Google Places geocoding** — `npm run geo:geocode` resolves coordinates for the 58 facilities with Google Place IDs. Needs `GOOGLE_PLACES_KEY` environment variable. Script ready.
+3. **Google Places discovery** — `npm run geo:discover` searches each ward centroid for schools, clinics and markets. Needs `GOOGLE_PLACES_KEY`. Can find hundreds of schools. Script ready.
+4. **Kenya schools dataset** — energydata.info, opendata.go.ke and HDX all returned 403/404 to automated requests (26 Nov 2026). **Download manually in a browser**, save the CSV to `data-src/`, then run `npm run geo:ingest-schools data-src/<file>.csv`. The ingest script auto-detects columns and filters to Nyamira. Try:
+   - https://energydata.info/dataset/kenya-schools
+   - https://open.africa/dataset/kenya-primary-schools (CSV link on the page)
+   - https://open.africa/dataset/kenya-secondary-schools-2007
+5. **KMHFL API** — kmhfr.health.go.ke refused connections (26 Nov 2026). Try in a browser: `https://kmhfr.health.go.ke/api/facilities/facilities/?county=nyamira&format=json`.
 
 **Expected result:** ~800+ facilities, ~600+ with coordinates.
+
+### Phase G1.5: Road network (new)
+
+**Goal:** a complete classified road registry with coordinates.
+
+**Status (26 Nov 2026):** OSM pull has 122 road segments (115 named). Road reconciliation done: 8 fuzzy matches with budget roads, 82 budget-only, 104 OSM-only. Review `data-src/road-review.json`.
+
+The OSM classified network for Nyamira:
+- **Trunk (A-roads):** A1 Kisii–Keroka–Sotik, Kebirigo–Keroka, Kadongo–Nyamira–Kebirigo, Birongo–Kisii, Kendu–Kandongo–Nyamira
+- **Primary (B-roads):** Chabera–Ikonge, Ikonge–Chelibat, Kendu Bay–Oyugis–Rioma–Marani–Nyabioto
+- **Secondary (C-roads):** Kisii–Kegogi–Miruka–Nyamusi–Chabera, Sotik–Ikonge
+- **Tertiary:** Magombo, Tombe–Nyaikuro, Miriri–Tombe, Amabuko–Rigoma, Bonyunyu–Mokomoni–Ikonge, Mokomoni–Chepilat
+- **Local (28 unclassified + 11 residential):** mostly in Gachuba, Kemera, Mekenene wards
 
 ### Phase G2: Named roads and places
 
