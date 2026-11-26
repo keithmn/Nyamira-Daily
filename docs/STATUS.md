@@ -25,12 +25,23 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - `mcaGazetteChecked` remains false until every name is verified and Rigoma/Bokeira resolved.
 - `updated` date set to 2026-11-26.
 
+### Phase 3: Ground-truth the places (26 Nov 2026)
+- **Facility data audit:** 247 facilities in `facilities.json`. 120 sourced from the Kenya Master Health Facility List (2017 export, labelled "official"); 69 from OpenStreetMap and 58 from Google Maps (both labelled "unverified"). 127 of 247 are unverified. Zero living data events, zero field observations, zero road conditions — no correspondent has visited any place yet.
+- **Fixed misleading freshness language** on ward pages (`ward/[slug].astro`): replaced "Last updated 22 Oct 2026" (which implied recent verification) with honest source dates: "Health facilities from the Kenya Master Health Facility List (2017 export); schools and other places from OpenStreetMap and Google Maps." Added a "Report a change" link.
+- **Updated facilities dataset description** on the Open Data page (`OpenData.astro`): now states the actual sources and that most have not been visited.
+- **Health and Education pages already honest:** HealthPage cites KDHS 2022 and CIDP; SchoolsPage cites KNEC KCSE 2024–2025 and the Ministry of Education statistical booklet (2020). No changes needed.
+- **Map page already honest:** shows facility counts and "Checked on site: 0/247" without claiming a date. No changes needed.
+- **KMHFR unreachable:** kmhfr.health.go.ke timed out and refused connections — cannot check for newer facility data online. A person should try in a browser.
+- **Fieldwork pipeline documented but not set up:** `fieldwork/README.md` describes three Kobo forms, a four-tab Google Sheet and the sync script, but no forms have been uploaded to KoboToolbox, no sheet has been created, and no environment variables are configured. The pipeline is code-complete but needs a person to provision the accounts.
+
 ### Still needs a person
 - Open the Gazette Notice 9956 PDF and check each 2022 MCA name character-by-character.
 - Check Kenya Law or Nyamira HC registry for the Rigoma/Bokeira full hearing outcome.
 - Check whether Okero's appeal (Speaker case) has been decided.
 - Register with the Data Protection Commissioner if collecting personal data.
 - Set up a working contact form or email for corrections/right of reply.
+- Try kmhfr.health.go.ke in a browser for newer facility data.
+- Create a KoboToolbox account, upload the three forms, create the Google Sheet with four tabs, publish tabs as CSV, and set environment variables per `fieldwork/README.md`.
 
 ---
 
