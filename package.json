@@ -38,7 +38,10 @@
     "geo:pull-osm": "node scripts/geo/pull-osm.mjs",
     "geo:reconcile": "node scripts/geo/reconcile.mjs",
     "geo:apply": "node scripts/geo/apply-review.mjs",
-    "geo:coverage": "node scripts/geo/coverage.mjs"
+    "geo:coverage": "node scripts/geo/coverage.mjs",
+    "geo:geocode": "node scripts/geo/geocode-google.mjs",
+    "geo:discover": "node scripts/geo/discover-google.mjs",
+    "geo:ingest-schools": "node scripts/geo/ingest-schools.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.6",
