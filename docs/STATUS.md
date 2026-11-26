@@ -8,6 +8,32 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Who runs it:** the publisher is not named on the site for now (decision #125, replacing the public parts of #73). Rules and legal are one page, `/about/rules/`.
 - **NY Watch (decision #79):** the founder's data review podcast. No episodes published yet.
 
+## Launch readiness — Phase 1 & 2 (26 Nov 2026)
+
+### Phase 1: Remove what could hurt us
+- Deleted all 15 EXAMPLE content files (alerts, factchecks, heritage, language, people, stories). These were draft fiction marked `draft: true` but could have been indexed if deployed with `ND_DRAFTS=1`.
+- Added site-wide **public beta banner** (BetaBanner.astro): "We are verifying data across all pages." Dismissible, controlled by `beta = true` in config.js.
+- Added **MCA gazette-check disclosure** on all 20 ward pages when `mcaGazetteChecked` is false.
+- Existing disclosures confirmed adequate: ward spending reconciliation (KSh 15.5M gap explained in ProjectsPage), "Mostly unverified" evidence labels, administration page gazette note.
+
+### Phase 2: Verify the people
+- **Governor Nyaribo:** Updated impeachment note — Senate terminated proceedings 3 Dec 2025 on procedural grounds (Assembly threshold not met). Charges never tested. Source updated to The Star.
+- **Speaker Nyabaro:** Updated note — Bomet HC (Justice Ngarngar) affirmed Okero's impeachment and recognised Nyabaro. Okero appealed; no outcome found as of Nov 2026. Labour Court reportedly found Okero's removal unlawful (Mar 2026). Nyabaro chairs all 2025–2026 sittings.
+- **By-election MCAs (3 wards):** Nyansiongo (Jackson Mogusu Mochumbe, PDP), Nyamaiya (Christopher Moturi Osiemo, UPA), Ekerenyo (Jeremiah Njenga Ongaro, UPA) — all now gazette-verified. IEBC gazetted winners 1 Dec 2025 (PDF: iebc.or.ke/uploads/resources/EHWTStffeC.pdf). Source links updated from news to gazette.
+- **Rigoma/Bokeira:** Notes updated with detail — expelled Jul 2025 for absenteeism, reinstated by interim HC order (Judge Okwany), full hearing set 30 Jul 2025, no published outcome found. No by-election held for these wards.
+- **2022 baseline MCAs (15 wards):** Added the IEBC Gazette Notice 9956 PDF as individual `src` for each. Names should still be checked character-by-character against the PDF.
+- `mcaGazetteChecked` remains false until every name is verified and Rigoma/Bokeira resolved.
+- `updated` date set to 2026-11-26.
+
+### Still needs a person
+- Open the Gazette Notice 9956 PDF and check each 2022 MCA name character-by-character.
+- Check Kenya Law or Nyamira HC registry for the Rigoma/Bokeira full hearing outcome.
+- Check whether Okero's appeal (Speaker case) has been decided.
+- Register with the Data Protection Commissioner if collecting personal data.
+- Set up a working contact form or email for corrections/right of reply.
+
+---
+
 ## Changes on 26 Nov 2026 (Kiswahili summaries + CSS cleanup)
 
 On branch `feat/data-architecture-improvements`. Completing the two leftovers from 22 Nov.
