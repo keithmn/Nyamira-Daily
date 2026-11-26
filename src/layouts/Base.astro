@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { toneFor, sectionFor } from '../nav.js';
 import { analytics } from '../config.js';
 import SiteHeader from '../components/SiteHeader.astro';
+import BetaBanner from '../components/BetaBanner.astro';
 import AlertBanner from '../components/AlertBanner.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SectionNav from '../components/SectionNav.astro';
@@ -96,6 +97,7 @@ const websiteLd = isHome ? JSON.stringify({
 <body id="top" class={isHome ? 'fg-home' : 'fg-inner'}>
   <a class="skip" href="#main">Skip to content</a>
   <SiteHeader path={path} />
+  <BetaBanner />
   <AlertBanner wardSlug={path.startsWith('/ward/') && path !== '/ward/' ? path.split('/')[2] : undefined} />
 
   <main id="main" class={`sec-${toneFor(path)}`}>

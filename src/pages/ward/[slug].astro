@@ -84,6 +84,7 @@ const constSlug = w.subCounty.toLowerCase().split(' ').join('-');
           <span class="small" data-ward-only={w.slug} hidden><strong>This is your ward.</strong></span>
         </div>
         {mca?.note && <p class="small"><strong>Note on the MCA seat:</strong> {mca.note} {mca.src && <a href={mca.src} rel="noopener">Source</a>}</p>}
+        {!leaders.mcaGazetteChecked && <p class="small muted">MCA names are from IEBC results and news reports; not yet checked against the Kenya Gazette. <a href="/administration/">Full list with sources</a></p>}
       </div>
       <section class="stack ward-map">
         <h2 class="vh">Ward map</h2>

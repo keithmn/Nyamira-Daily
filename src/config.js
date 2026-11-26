@@ -1,6 +1,9 @@
 // Site-wide switches. Fill these in before launch.
 import impact from './data/impact.json' with { type: 'json' };
 
+// Public beta banner. Set to false when you are confident in the data and ready for full launch.
+export const beta = true;
+
 // Privacy-respecting analytics (strategy doc: docs/strategy/OPEN_SOURCE_TOOLS.md).
 // Set `provider` to 'plausible' or 'umami' and fill in `src` and (for Umami) `websiteId`.
 // Leave provider empty to disable. The script tag is added to Base.astro only when enabled.
