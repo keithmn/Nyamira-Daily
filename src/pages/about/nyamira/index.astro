@@ -16,6 +16,9 @@ const centres = towns.places.filter((p) => p.kind === 'centre').sort((a, b) => a
 ---
 <Base title="About Nyamira County" description="Nyamira County in figures: population, households, area, wards, towns, and how the county is governed.">
   <PageHead title="About Nyamira County" lead={`${county.countyName} in figures: its people, its wards and its towns, with a source for each.`} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Kaunti ya Nyamira ina wodi 20 katika majimbo 5. Idadi ya watu ni zaidi ya 605,000 (sensa ya 2019) katika eneo la kilomita za mraba 899. Hapa unapata takwimu za watu, miji na jinsi kaunti inavyosimamiwa.</p></div>
+
   <div class="stack-lg" style="margin-top:16px">
     <section class="stack" aria-labelledby="facts">
       <h2 id="facts">Facts and figures</h2>

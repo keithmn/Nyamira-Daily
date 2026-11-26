@@ -36,6 +36,9 @@ const terms = [
 ---
 <Base title="Civic glossary: county government terms explained">
   <PageHead eyebrow="The county" title="Glossary" lead="Plain meanings of words you will meet on this site." crumbs={[{ href: '/map/', label: 'Places' }, { href: '/about/glossary/', label: 'Glossary' }]} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Maneno 30 ya bajeti na serikali ya kaunti yaliyoelezwa kwa lugha nyepesi — kama vile bajeti ya maendeleo, mgao sawa, PBB, NG-CDF na madeni yanayosubiri.</p></div>
+
   <dl class="stack" style="margin-top:16px">
     {terms.map(([t, d]) => (<div class="card"><dt><strong>{t}</strong></dt><dd style="margin:0">{d}</dd></div>))}
   </dl>

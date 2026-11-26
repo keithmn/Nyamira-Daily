@@ -1,4 +1,4 @@
-# Status and handover (22 Nov 2026)
+# Status and handover (26 Nov 2026)
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md`, then this page, then `docs/DECISIONS.md`. Older handover notes, with the history of each feature, are in `docs/STATUS_ARCHIVE.md`.
 
@@ -7,6 +7,21 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **The site:** a static Astro 7 site in eight sections (`src/nav.js`), with real data for money (12 years), ward pages, projects and the project tracker, services, census, leaders, the Assembly, county laws, fees, opportunities, constitution summaries, search and open data. Text content lives in `src/content/`; only one explainer and one number of the week are published so far, and two money explainers are drafted.
 - **Who runs it:** the publisher is not named on the site for now (decision #125, replacing the public parts of #73). Rules and legal are one page, `/about/rules/`.
 - **NY Watch (decision #79):** the founder's data review podcast. No episodes published yet.
+
+## Changes on 26 Nov 2026 (Kiswahili summaries + CSS cleanup)
+
+On branch `feat/data-architecture-improvements`. Completing the two leftovers from 22 Nov.
+
+### Kiswahili summaries completed
+Added Kiswahili summaries to the 17 pages that were missing them. All follow the existing pattern (`<div class="sw" lang="sw">`) and are marked `<!-- Kiswahili: needs native-speaker review -->`. Pages: about/, about/nyamira/, about/glossary/, about/contact/, about/careers/, about/partners/, watch/, ask/, take-part/submission/, tools/budget-simulator/, fact-check/, whats-working/, people/, heritage/, number-of-the-week/, search/, money/history/.
+
+### CSS cleanup (partial)
+Removed ~80 lines of confirmed dead CSS from `src/styles/global.css`: `.front-door`, `.list-filter`, `.chip-btn`, `.home-ward`/`.home-help`, `.ward-facts`, `.home-two`, `.next-steps`, `.h-name`/`.h-bar`, `.tk-year`, `.sheet-inner`/`.sheet-search`, `.ph-detail`, `.fg-ft-meta`, `.fg-cc-badge`, `a.fg-ft-pill`. Many other candidates from the original ~110 audit turned out to be false positives (dynamically generated class names like `st-${state}`, `sb-${tone}`, `op-${opinion}`, `sc${index}`). Remaining old-design CSS (`.site-header`, `.desk-nav`, `.hero-grid`, `.sec-switch`, etc.) is harmless dead weight but tangled with live code — safe removal would need a more careful refactor.
+
+### Build
+- `npm run build` (871 pages) passes.
+
+---
 
 ## Changes on 22 Nov 2026 (open-source prep: endpoints, schemas, analytics, PDF scaffold)
 
@@ -50,8 +65,8 @@ On branch `feat/data-architecture-improvements` (from `ee970ce`).
 - **"What we do not measure yet" sections** added to HealthPage (5 items), SchoolsPage (4 items) and TeaMilkPage (4 items).
 - **Freshness labels** added to revenue, contracts and history pages.
 - **Kiswahili summaries** added to 9 pages: index (home), map/index, ward/index, administration/index, administration/duties, money/economy, money/track, money/revenue, money/contracts/index. All marked `<!-- Kiswahili: needs native-speaker review -->`.
-- Remaining Kiswahili summaries (~18 pages) were not completed (rate limit). Missing: about/, about/nyamira/, about/glossary/, about/contact/, about/careers/, about/partners/, watch/, ask/, take-part/submission/, tools/budget-simulator/, fact-check/, whats-working/, people/, heritage/, number-of-the-week/, search/, money/history/.
-- CSS audit found ~110 potentially unused classes but they were not removed (rate limit). Left for a future pass.
+- Remaining Kiswahili summaries completed on 26 Nov (see above).
+- CSS audit: ~80 lines of confirmed dead classes removed on 26 Nov (see above). Many candidates were false positives; remaining old-design CSS is harmless dead weight.
 
 ### MCA verification research
 

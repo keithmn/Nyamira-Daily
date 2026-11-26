@@ -12,6 +12,9 @@ const ways = [
 ---
 <Base title="Tell us" description="Tell Nyamira Daily about a place, send a tip, a concern, a story or a correction.">
   <PageHead eyebrow="About · Reach the Desk" title="Tell us" lead="What would you like to tell us? Pick one below and we will take you straight to the right place. We read every message and reply as soon as we can." crumbs={[{ href: '/about/', label: 'About' }]} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Tuambie kuhusu sehemu ya umma, tuma habari, marekebisho au pendekezo. Unaweza kutuma ujumbe bila kutaja jina lako.</p></div>
+
   <div class="stack-lg">
     <div class="fg-data-grid">
       {ways.map(([href, tag, t, d]) => (

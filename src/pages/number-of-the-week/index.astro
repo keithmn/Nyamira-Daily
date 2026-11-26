@@ -8,6 +8,9 @@ const [latest, ...past] = list;
 ---
 <Base title="Number of the week">
   <PageHead eyebrow="Stories · Weekly Figure" title="Number of the week" lead="One checked figure each week, what it means, and where it comes from. Radio stations may read the script on air with credit to Nyamira Daily." crumbs={[{ href: '/watch/', label: 'Stories' }]} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Nambari moja iliyothibitishwa kila wiki — maana yake na chanzo chake. Vituo vya redio vinaweza kusoma hati ya redio hewani kwa kumtaja Nyamira Daily.</p></div>
+
   {latest && <div class="fg-article-sheet"><NumberCard e={latest} /></div>}
   {past.length > 0 && (
     <section class="stack" style="margin-top:40px">
