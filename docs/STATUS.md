@@ -34,12 +34,19 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **KMHFR unreachable:** kmhfr.health.go.ke timed out and refused connections — cannot check for newer facility data online. A person should try in a browser.
 - **Fieldwork pipeline documented but not set up:** `fieldwork/README.md` describes three Kobo forms, a four-tab Google Sheet and the sync script, but no forms have been uploaded to KoboToolbox, no sheet has been created, and no environment variables are configured. The pipeline is code-complete but needs a person to provision the accounts.
 
+### Phase 4: Legal infrastructure (26 Nov 2026)
+- **Data sources disclosure added** to `/about/rules/#data-sources` (`HowWeWork.astro`): a table listing every main dataset, its source, its date and its evidence label. This makes the age of each dataset explicit (e.g. "2017 export" for health facilities, "2022" for leaders) and notes that no field observations exist yet. Navigation link added.
+- **Privacy notice updated** (`Privacy.astro`): added the beta banner localStorage key to the list of things the browser remembers. Date updated to 26 Nov 2026.
+- **Terms date updated** (`Terms.astro`): date updated to 26 Nov 2026 to reflect the current state.
+- **Already in place (no changes needed):** corrections log with one entry (equitable share split, Nov 2026); right of reply with pre- and post-publication process; contact form gracefully disabled with a "being set up" notice; correction form similarly gated; report forms show honest "not sent" messaging; CC BY 4.0 licence stated; Data Protection Act 2019 referenced; ODPC complaints avenue documented.
+
 ### Still needs a person
 - Open the Gazette Notice 9956 PDF and check each 2022 MCA name character-by-character.
 - Check Kenya Law or Nyamira HC registry for the Rigoma/Bokeira full hearing outcome.
 - Check whether Okero's appeal (Speaker case) has been decided.
-- Register with the Data Protection Commissioner if collecting personal data.
-- Set up a working contact form or email for corrections/right of reply.
+- **Register with the Data Protection Commissioner** (odpc.go.ke) if collecting personal data — required before any form is switched on.
+- **Set up a working contact channel** (email or WhatsApp) and fill in `contact` in `src/config.js` — this unlocks the right-of-reply and corrections paths.
+- **Lawyer review** of the privacy notice, terms and right of reply before launch (noted in the code).
 - Try kmhfr.health.go.ke in a browser for newer facility data.
 - Create a KoboToolbox account, upload the three forms, create the Google Sheet with four tabs, publish tabs as CSV, and set environment variables per `fieldwork/README.md`.
 

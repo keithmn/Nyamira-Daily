@@ -17,7 +17,7 @@ const hasRetention = Number.isSafeInteger(retention) && retention >= 1 && retent
     <ul>
       <li>We use no advertising, no tracking cookies and no visitor analytics.</li>
       <li>Our host (Cloudflare) keeps short technical logs, such as your internet address, to deliver pages and block attacks.</li>
-      <li>Your phone or browser remembers a few choices, on your device only: your ward and whether you read the Kiswahili summaries. We never receive these. Clearing your browser's site data removes them.</li>
+      <li>Your phone or browser remembers a few choices, on your device only: your ward, whether you read the Kiswahili summaries, and whether you dismissed the beta notice. We never receive these. Clearing your browser's site data removes them.</li>
       <li>Videos load from YouTube's privacy-enhanced player only when you tap play.</li>
     </ul>
 
@@ -44,7 +44,7 @@ const hasRetention = Number.isSafeInteger(retention) && retention >= 1 && retent
       ? <p>To ask: {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}{contact.email && contact.whatsapp && ' or '}{contact.whatsapp && <a href={`https://wa.me/${contact.whatsapp}`} rel="noopener">WhatsApp</a>}.</p>
       : <p class="muted">Our public contact channel is being set up and will be listed here.</p>}
 
-    <p class="small muted">Updated 31 Oct 2026.</p>
+    <p class="small muted">Updated 26 Nov 2026.</p>
     <div class="sw" lang="sw">
       <span class="eyebrow">Muhtasari kwa Kiswahili</span>
       <p>Hatukufuatilii unaposoma tovuti hii. Hatutumii matangazo wala vidakuzi vya kufuatilia. Ukitutumia ripoti, huhitaji kutoa jina wala nambari ya simu. Unaweza kuomba kuona, kusahihisha au kufuta data yako.</p>
