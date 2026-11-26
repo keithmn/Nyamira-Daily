@@ -42,7 +42,9 @@
     "geo:geocode": "node scripts/geo/geocode-google.mjs",
     "geo:discover": "node scripts/geo/discover-google.mjs",
     "geo:ingest-schools": "node scripts/geo/ingest-schools.mjs",
-    "geo:reconcile-roads": "node scripts/geo/reconcile-roads.mjs"
+    "geo:reconcile-roads": "node scripts/geo/reconcile-roads.mjs",
+    "geo:nominatim": "node scripts/geo/geocode-nominatim.mjs",
+    "geo:lookup-links": "node scripts/geo/make-lookup-links.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.6",
