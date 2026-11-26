@@ -41,7 +41,8 @@
     "geo:coverage": "node scripts/geo/coverage.mjs",
     "geo:geocode": "node scripts/geo/geocode-google.mjs",
     "geo:discover": "node scripts/geo/discover-google.mjs",
-    "geo:ingest-schools": "node scripts/geo/ingest-schools.mjs"
+    "geo:ingest-schools": "node scripts/geo/ingest-schools.mjs",
+    "geo:reconcile-roads": "node scripts/geo/reconcile-roads.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.6",
