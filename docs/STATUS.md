@@ -40,6 +40,17 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Terms date updated** (`Terms.astro`): date updated to 26 Nov 2026 to reflect the current state.
 - **Already in place (no changes needed):** corrections log with one entry (equitable share split, Nov 2026); right of reply with pre- and post-publication process; contact form gracefully disabled with a "being set up" notice; correction form similarly gated; report forms show honest "not sent" messaging; CC BY 4.0 licence stated; Data Protection Act 2019 referenced; ODPC complaints avenue documented.
 
+### Mapping infrastructure (26 Nov 2026)
+Built a four-script geographic data pipeline in `scripts/geo/` to systematically fill the map:
+- **`geo:pull-osm`** — pulls all mapped features in Nyamira County from the Overpass API. First run: 329 features (122 roads, 39 waterways, 33 education, 30 places, 30 markets, 17 water, 15 worship, 7 health, 5 leisure, 3 public office). Output: `data-src/osm-fresh.json`.
+- **`geo:reconcile`** — matches OSM data against `facilities.json` using three strategies (exact sourceRef, fuzzy name within ward, containment). Found 58 matches (coordinate enrichment candidates) and 18 new facilities (mostly markets). Output: `data-src/geo-review.json` for human review.
+- **`geo:apply`** — applies reviewed decisions from `geo-review.json` to `facilities.json`. Supports `--dry-run`.
+- **`geo:coverage`** — prints a ward × category coverage matrix with benchmarks. Key finding: 59 of ~601 schools listed (10% completeness), 125 of ~150 health facilities (83%).
+
+**Strategy document:** `docs/MAPPING_STRATEGY.md` lays out four phases (G1–G4): bulk data enrichment from Kenya schools dataset + Google Places geocoding, named roads and places, field verification with Plus Codes, and continuous improvement via monthly OSM re-pulls and resident reports.
+
+**Biggest gaps identified:** ~542 missing schools (available from energydata.info Kenya schools dataset), 178 facilities with no coordinates, 0 of 247 facilities field-verified, water points almost entirely unmapped.
+
 ### Still needs a person
 - Open the Gazette Notice 9956 PDF and check each 2022 MCA name character-by-character.
 - Check Kenya Law or Nyamira HC registry for the Rigoma/Bokeira full hearing outcome.
@@ -49,6 +60,9 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Lawyer review** of the privacy notice, terms and right of reply before launch (noted in the code).
 - Try kmhfr.health.go.ke in a browser for newer facility data.
 - Create a KoboToolbox account, upload the three forms, create the Google Sheet with four tabs, publish tabs as CSV, and set environment variables per `fieldwork/README.md`.
+- **Review `data-src/geo-review.json`**: 18 new facility candidates (mostly markets) and 58 coordinate-enrichment matches from OSM. Set `approve: true/false` on each, then run `npm run geo:apply`.
+- **Download the Kenya schools dataset** from energydata.info and filter to Nyamira subcounties — this closes the biggest gap (~542 missing schools).
+- **Try maps.krb.go.ke** in a browser — if the KRB road map allows feature export, it would give classified road data with condition ratings.
 
 ---
 

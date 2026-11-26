@@ -34,7 +34,11 @@
     "build:county-data": "node scripts/county/build-figures.mjs",
     "check:county:pages": "node scripts/county/check-pages.mjs",
     "fieldwork:forms": "node scripts/fieldwork/build-forms.mjs",
-    "living:sync": "node scripts/living/sync.mjs"
+    "living:sync": "node scripts/living/sync.mjs",
+    "geo:pull-osm": "node scripts/geo/pull-osm.mjs",
+    "geo:reconcile": "node scripts/geo/reconcile.mjs",
+    "geo:apply": "node scripts/geo/apply-review.mjs",
+    "geo:coverage": "node scripts/geo/coverage.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.6",

@@ -1,0 +1,213 @@
+{
+  "generated": "2026-11-26",
+  "summary": {
+    "existingFacilities": 247,
+    "osmTracked": 76,
+    "matched": 58,
+    "coordinateEnrichment": 0,
+    "newCandidates": 18,
+    "ambiguous": 0
+  },
+  "coordinateEnrichment": [],
+  "newCandidates": [
+    {
+      "osmId": "node/6105571209",
+      "name": "Amabuko Secondary School",
+      "category": "Education",
+      "subtype": "secondary school",
+      "ward": null,
+      "lat": -0.7668563,
+      "lon": 34.931164,
+      "reason": "no ward assigned",
+      "approve": null
+    },
+    {
+      "osmId": "node/6105930810",
+      "name": "Susan Momanyi",
+      "category": "Market",
+      "subtype": "mall",
+      "ward": "nyansiongo",
+      "lat": -0.7618877,
+      "lon": 35.0086579,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "node/6105930818",
+      "name": "Sunrise Supermarket",
+      "category": "Market",
+      "subtype": "supermarket",
+      "ward": "nyansiongo",
+      "lat": -0.7602657,
+      "lon": 35.0147145,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "node/6105930824",
+      "name": "Amakara",
+      "category": "Market",
+      "subtype": "mall",
+      "ward": "nyansiongo",
+      "lat": -0.7412319,
+      "lon": 35.0232702,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "node/6118527428",
+      "name": "Mwongori shopping centre",
+      "category": "Market",
+      "subtype": "yes",
+      "ward": "mekenene",
+      "lat": -0.6912811,
+      "lon": 35.0497727,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "node/7984760720",
+      "name": "Shivling",
+      "category": "Market",
+      "subtype": "supermarket",
+      "ward": "rigoma",
+      "lat": -0.7766109,
+      "lon": 34.9461726,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "node/10745189040",
+      "name": "Shivling Supermarket",
+      "category": "Market",
+      "subtype": "supermarket",
+      "ward": "township",
+      "lat": -0.5632131,
+      "lon": 34.9366077,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "way/626489438",
+      "name": "Manga Stadium",
+      "category": "Leisure",
+      "subtype": "stadium",
+      "ward": "manga",
+      "lat": -0.6177724,
+      "lon": 34.8339627,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "way/798272190",
+      "name": "Masaba District Hospital",
+      "category": "Health",
+      "subtype": "hospital",
+      "ward": null,
+      "lat": -0.7809695,
+      "lon": 34.9481325,
+      "reason": "no ward assigned",
+      "approve": null
+    },
+    {
+      "osmId": "way/1145620055",
+      "name": "Nyaricha special school",
+      "category": "Market",
+      "subtype": "commercial",
+      "ward": "township",
+      "lat": -0.5640277,
+      "lon": 34.9414057,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "way/1145621049",
+      "name": "nyairicha primary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "ward": "township",
+      "lat": -0.56339,
+      "lon": 34.9426331,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "way/1145621050",
+      "name": "nyairicha primary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "ward": "township",
+      "lat": -0.5634371,
+      "lon": 34.9419638,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "way/1145621997",
+      "name": "bomondo primary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "ward": "township",
+      "lat": -0.5734343,
+      "lon": 34.9420025,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "way/1145622533",
+      "name": "Senato kebaso secondary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "ward": "township",
+      "lat": -0.5745834,
+      "lon": 34.9425622,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "way/1145623255",
+      "name": "Down forest academy",
+      "category": "Market",
+      "subtype": "commercial",
+      "ward": "township",
+      "lat": -0.5741143,
+      "lon": 34.935265,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "way/1145624256",
+      "name": "tente primary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "ward": "township",
+      "lat": -0.5744799,
+      "lon": 34.9318785,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "way/1145624257",
+      "name": "tente primary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "ward": "township",
+      "lat": -0.5741751,
+      "lon": 34.9316001,
+      "reason": "no name match in ward",
+      "approve": null
+    },
+    {
+      "osmId": "way/1214155899",
+      "name": "Bugo D.O.K. Primary School",
+      "category": "Education",
+      "subtype": "primary school",
+      "ward": null,
+      "lat": -0.4922451,
+      "lon": 34.8769494,
+      "reason": "no ward assigned",
+      "approve": null
+    }
+  ],
+  "ambiguous": []
+}
