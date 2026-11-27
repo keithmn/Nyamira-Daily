@@ -1,0 +1,41 @@
+---
+// Home figures band (design direction 2026-11): three real numbers from the Money page,
+// one large figure per tile, the source line under each. Figures come from the same helpers as /money.
+import { budgetYear, track } from '../lib/county-budget.js';
+import { ksh } from '../lib/fmt.js';
+import wards from '../data/wards.js';
+
+const y = budgetYear();
+const t = track();
+const total = y.total.value;
+const spent = t.county.spent.value;
+const share = Math.round((spent * 100) / total);
+---
+<section class="figures" aria-label="The year in figures">
+  <a class="fig-tile" href="/money/">
+    <span class="fig-k">Budget 2025/26</span>
+    <span class="fig-v">{ksh(total)}</span>
+    <span class="fig-s">What the county planned to spend this year</span>
+  </a>
+  <a class="fig-tile" href="/money/">
+    <span class="fig-k">Spent by 30 June 2026</span>
+    <span class="fig-v">{ksh(spent)}</span>
+    <span class="fig-s">{share}% of the budget, per the county's year-end report</span>
+  </a>
+  <a class="fig-tile fig-accent" href="/places/">
+    <span class="fig-k">Wards covered</span>
+    <span class="fig-v">{wards.length}</span>
+    <span class="fig-s">Each with its own schools, clinics and roads</span>
+  </a>
+</section>
+
+<style>
+  .figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; }
+  .fig-tile { display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: 20px; background: var(--nd-white); border: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+  .fig-tile:hover { border-color: var(--nd-green); }
+  .fig-k { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--nd-green-deep); }
+  .fig-v { font-family: var(--title-font); font-weight: 600; font-size: clamp(34px, 5vw, 48px); line-height: 1; letter-spacing: -0.01em; }
+  .fig-s { font-size: 15px; color: var(--muted); line-height: 1.4; }
+  .fig-accent { background: var(--nd-green); border-color: var(--nd-green); color: var(--nd-charcoal); }
+  .fig-accent .fig-k, .fig-accent .fig-s { color: var(--nd-charcoal); }
+</style>
