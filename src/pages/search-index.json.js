@@ -1,3 +1,4 @@
+import { departmentCount } from '../lib/counts.js';
 // Builds a small search index at build time: the pages of the five sections (decision #110), wards, places,
 // roads, county projects, money pages, fees, seat holders and published explainers.
 import wards from '../data/wards.js';
@@ -34,7 +35,7 @@ export async function GET() {
   add('County budget and spending', '/money/', 'money budget spending pending bills revenue controller of budget absorption');
   // The county budget pages (decision #105): each department and programme can be found by name
   add(`Nyamira's budget ${FY}`, yearPath(), 'budget estimates ksh 100 staff pay wage bill development equitable share', 'Money');
-  add(`The 24 departments, ${FY}`, `${yearPath()}departments/`, 'departments votes ministries staff pay change', 'Money');
+  add(`The ${departmentCount} departments, ${FY}`, `${yearPath()}departments/`, 'departments votes ministries staff pay change', 'Money');
   add('What the county spent this year', '/money/track/', 'spending absorption quarter report questions to ask unspent', 'Money');
   add('Where the money comes from', '/money/revenue/', 'revenue equitable share allocated received own source revenue fees grants', 'Money');
   add("Nyamira's money since 2013", '/money/history/', 'history budget spending development pending bills since 2013', 'Money');

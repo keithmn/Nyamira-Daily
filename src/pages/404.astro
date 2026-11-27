@@ -1,11 +1,12 @@
 ---
+import { wardCount } from '../lib/counts.js';
 import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import Icon from '../components/Icon.astro';
 const links = [
   ['/', 'Home — the full field guide'],
   ['/map/', 'Places & county facility map'],
-  ['/ward/', 'All 20 wards in Nyamira'],
+  ['/ward/', `All ${wardCount} wards`],
   ['/money/', 'Money — budgets, spending & audit'],
   ['/community/', 'Community, Abagusii & Ekegusii'],
   ['/watch/', 'Stories & plain-language explainers'],

@@ -1,4 +1,5 @@
 ---
+import { wardCount } from '../../lib/counts.js';
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import EvidenceLabel from '../../components/EvidenceLabel.astro';
@@ -29,7 +30,7 @@ const links = [
       <a class="fg-block-card is-charcoal" href="/map/">
         <span class="fg-bc-icon"><Icon name="map" size={24} /></span>
         <h3>Map &amp; verify</h3>
-        <p>Schools, clinics, water points, markets and roads mapped across all 20 wards and verified through field checks.</p>
+        <p>Schools, clinics, water points, markets and roads mapped across all {wardCount} wards and verified through field checks.</p>
       </a>
       <a class="fg-block-card is-white" href="/money/">
         <span class="fg-bc-icon"><Icon name="money" size={24} /></span>

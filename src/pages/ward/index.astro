@@ -1,4 +1,5 @@
 ---
+import { wardCount, constituencyCount, nyamiraWardCount } from '../../lib/counts.js';
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import Toggle from '../../components/Toggle.astro';
@@ -8,18 +9,18 @@ import leaders from '../../data/leaders.json';
 import WardMap from '../../components/WardMap.astro';
 import { subCounties, anchorFor } from '../../nav.js';
 ---
-<Base title="All 20 wards of Nyamira County">
+<Base title={`All ${wardCount} wards in Nyamira and Kisii`}>
   <div class="sec-tea">
-    <PageHead cover="statement" figure={{ value: String(wards.length), source: "IEBC county assembly wards for Nyamira County" }} eyebrow="Wards · Nyamira County" title="Choose your ward" lead="Nyamira has 20 wards in four constituencies. Tap yours on the map, filter by name, or open a constituency below." tone="tea" tools={false} />
+    <PageHead cover="statement" figure={{ value: String(nyamiraWardCount), source: "IEBC county assembly wards for Nyamira County" }} eyebrow="Wards · Nyamira and Kisii" title="Choose your ward" lead={`The map shows all ${wardCount} wards in ${constituencyCount} constituencies across both counties. Nyamira's ${nyamiraWardCount} wards are listed below by constituency; tap any ward on the map to open its page.`} tone="tea" tools={false} />
   </div>
   <div class="stack-lg" style="margin-top:16px">
     <div class="cols-2 fg-wards-layout">
       <WardMap mode="county" />
       <div class="stack sec-tea" data-ward-directory>
         <div class="fg-ward-filter">
-          <label class="vh" for="ward-filter-q">Filter the 20 wards</label>
+          <label class="vh" for="ward-filter-q">Filter the Nyamira wards</label>
           <Icon name="search" size={16} />
-          <input id="ward-filter-q" type="search" placeholder="Filter 20 wards by name or constituency..." autocomplete="off" />
+          <input id="ward-filter-q" type="search" placeholder="Filter the Nyamira wards by name or constituency..." autocomplete="off" />
         </div>
         {subCounties.map((s, idx) => {
           const mp = leaders.national.find((l) => l.office === `MP, ${s}`);

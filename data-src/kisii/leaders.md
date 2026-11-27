@@ -66,3 +66,31 @@ Confirm against the County Assembly member list before setting `mcaGazetteChecke
 4. Outcome of Monda's appeal and petition; whether Obebo's gazettement is complete.
 5. Nyacheki by-election: date, candidates, and whether it changed the ward's MCA.
 6. Party changes since 2022 for MCAs; the file gives 2022 parties only.
+
+
+## Gap pass (after the first pass)
+
+Seats still open are set to null with the reason in each note. Names are set only where two sources agree.
+
+| Seat | Result | Source |
+|---|---|---|
+| Governor, Paul Simba Arati | Confirmed: sworn in (Kisii County Government) and reported in Capital FM | kisii.go.ke/?p=13673; capitalfm.africa |
+| MP, Bobasi: Innocent Momanyi Obiri | Confirmed: Star and IEBC-based list (middle name from Mzalendo) | the-star.co.ke 2022-08-11; educationnewshub |
+| MP, Kitutu Chache North: Japheth Mokaya Nyakundi | Confirmed: Star and IEBC-based list | same |
+| MP, Nyaribari Masaba: Daniel Ogwoka Manduku | Confirmed: Star and IEBC-based list | same |
+| MP, South Mugirango: Silvanus Osoro | Confirmed: Star and IEBC-based list. The Star places him under Nyamira; the IEBC code (262) places South Mugirango in Kisii | same |
+| MCA Kiogoro: Obare Mochache Walter (Wiper, 3,766) | Confirmed: gazette 9956 and Mzalendo (same person, name order differs) | iebc gazette 9956; mzalendo |
+| MCA Kiamokama | Open: 2022 MCA recorded; later by-election after a vacancy, winner reported as Malachi Matara (ODM). Date and gazetted result not confirmed | standardmedia 2001405389 |
+| MCA Sensi | Open: gazette names Saisi Nyagaka Onchonga (PDP); Nation report lists ODM. Conflict | nation.africa 439326 |
+| MCA Marani | Open: gazette surname Ochwangi; news list surname Marani. Conflict | educationnewshub |
+| MCA Monyerero | Open: gazette Otachi Peter Gichana (ODM); news list omits first name | educationnewshub |
+| MCA Kitutu Central | Open: gazette Duke Samwel Nyarango (ODM); news list omits middle name | educationnewshub |
+| MCA Nyakoe | Open: gazette Asimundi Cosmas Oyagi (KNC); news list gives surname only | educationnewshub |
+| MCA Nyatieko | Open: gazette Amos Omweri Mokaya (KSC); no second source | gazette 9956 |
+| MCA Bogusero | Open: gazette Abuga Vincent Onyangore (ODM); no second source | gazette 9956 |
+| MCA Bogeka | Open: gazette Manani Richmond Rayori (DAP-K); news lists ODM. Conflict | nation.africa 439326 |
+| MCA Kegogi | Open: gazette Masieka Jared Kimori (UDA); no second source | gazette 9956 |
+
+Notes on the gazette: the schedule defines column 7 as surname and column 8 as other names (Kenya Gazette, 24 Aug 2022). The earlier "unclear order" note was a guess, not a finding, and the name order used throughout is other names then surname.
+
+Other finding: the gazette and a news list disagree on Bogiakumu (gazette: Ismael Bosire, ODM; news list: Ishmael Omwongo). That seat is already set, so it is flagged here for checking.

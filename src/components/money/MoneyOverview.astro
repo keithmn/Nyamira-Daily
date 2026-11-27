@@ -1,4 +1,5 @@
 ---
+import { departmentCount } from '../../lib/counts.js';
 // The front of the Money section (decision #105): where this year's budget is, its total, what was spent, and the
 // pages one tap deeper. The twelve-year charts moved to /money/history/.
 import EvidenceLabel from '../EvidenceLabel.astro';
@@ -24,7 +25,7 @@ const swatchRows = [
 ];
 const cards = [
   { href: yearPath(), t: `Budget ${FY}`, d: `${ksh(y.total.value)}: where each KSh 100 goes and comes from` },
-  { href: `${yearPath()}departments/`, t: 'The 24 departments', d: `${top.short} gets the most: ${ksh(top.total)}. Each with its programmes` },
+  { href: `${yearPath()}departments/`, t: `The ${departmentCount} departments`, d: `${top.short} gets the most: ${ksh(top.total)}. Each with its programmes` },
   { href: '/money/track/', t: 'What was spent this year', d: `Each department's spending to 30 June 2026, and questions to ask` },
   { href: '/money/revenue/', t: 'Where the money comes from', d: 'Equitable share, local revenue and grants since 2013' },
   { href: '/money/history/', t: 'Twelve years of money', d: 'Budget and spending, development, unpaid bills since 2013/14' },
@@ -38,7 +39,7 @@ const cards = [
     <div class="figure">
       <span class="eyebrow">Budget · {FY}</span>
       <span class="num is-lead">{ksh(y.total.value)}</span>
-      <p class="say">is what Nyamira planned to spend in {FY}, on 24 departments. <strong>{Math.round(y.out.find((p) => p.key === 'staff').share)}%</strong> of it is staff pay.</p>
+      <p class="say">is what Nyamira planned to spend in {FY}, on {departmentCount} departments. <strong>{Math.round(y.out.find((p) => p.key === 'staff').share)}%</strong> of it is staff pay.</p>
       <p class="source"><EvidenceLabel kind={y.total.label} /> Source: <a href={y.total.doc.url} rel="noopener">{shortTitle(y.total.doc)}</a>, {y.total.page}. Printed estimates.</p>
     </div>
     <div class="figure is-statement">

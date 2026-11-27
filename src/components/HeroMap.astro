@@ -1,4 +1,5 @@
 ---
+import { departmentCount } from '../lib/counts.js';
 // Field-guide home hero inspired by civictech.guide: luminous soft-mint topographic wash, giant dark charcoal
 // headline, 2x2 live metric grid, graphic Nyamira 20-ward interactive map with geometric arrow motif, and an
 // overlapping floating white ward-picker card with crisp charcoal offset shadow. Zero raw colours; real data only.
@@ -78,7 +79,7 @@ const dataJson = JSON.stringify(info).split('<').join('\\u003c');
           <b class="fg-sq-num">{bn(last.budget)}</b>
           <strong class="fg-sq-label">Nyamira county budget ({last.fy})</strong>
           <p class="fg-sq-sub">
-            Follow <a href="/money/2025-26/departments/">24 departments</a> &amp; <a href="/money/track/">what was spent</a>
+            Follow <a href="/money/2025-26/departments/">{departmentCount} departments</a> &amp; <a href="/money/track/">what was spent</a>
           </p>
         </div>
       </div>

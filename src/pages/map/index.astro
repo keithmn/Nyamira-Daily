@@ -1,4 +1,5 @@
 ---
+import { wardCount } from '../../lib/counts.js';
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import AtlasMap from '../../components/AtlasMap.astro';
@@ -12,7 +13,7 @@ import register from '../../data/ward-register.json';
 const facilities = places.filter((p) => p.kind === 'facility');
 const checked = facilities.filter((p) => currentState(p).lastChecked).length;
 const sectorPills = [
-  { href: '/ward/', label: `All ${wards.length} wards` },
+  { href: '/ward/', label: `All ${wardCount} wards` },
   { href: '/map/health/', label: `Health facilities (${facilities.filter((f) => f.type === 'Health').length})` },
   { href: '/map/education/', label: `Schools & education (${facilities.filter((f) => f.type === 'Education').length})` },
   { href: '/money/farming/', label: `Farming & markets (${facilities.filter((f) => f.type === 'Market').length})` },
@@ -30,7 +31,7 @@ const sectorPills = [
   <div class="stack-lg">
     <ul class="fg-kpi-strip" aria-label="Places summary">
       <li class="fg-ticket-kpi">
-        <div class="fg-tk-stub"><b>{wards.length}</b></div>
+        <div class="fg-tk-stub"><b>{wardCount}</b></div>
         <div class="fg-tk-body"><strong>Wards mapped</strong><span>Across {register.constituencies.length} constituencies in two counties</span></div>
       </li>
       <li class="fg-ticket-kpi">
