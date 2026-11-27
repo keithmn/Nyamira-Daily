@@ -7,6 +7,7 @@ import Roads from '../../components/folded/Roads.astro';
 import { places, currentState } from '../../lib/places.js';
 import { roads } from '../../lib/roads.js';
 import wards from '../../data/wards.js';
+import register from '../../data/ward-register.json';
 
 const facilities = places.filter((p) => p.kind === 'facility');
 const checked = facilities.filter((p) => currentState(p).lastChecked).length;
@@ -20,7 +21,7 @@ const sectorPills = [
 <Base title="Places in Nyamira County" description="Find any ward, school, clinic, market or road in Nyamira. Tap the map to see what is there and what condition it is in.">
   <PageHead
     eyebrow="Geospatial Field Guide"
-    title="Explore places, wards & roads across Nyamira"
+    title="Explore places, wards & roads across the Gusii counties"
     lead="Tap any ward or switch to facilities and ward money to inspect schools, clinics, water points, markets and roads — with source and verification status on every listing."
   />
 
@@ -28,7 +29,7 @@ const sectorPills = [
     <ul class="fg-kpi-strip" aria-label="Places summary">
       <li class="fg-ticket-kpi">
         <div class="fg-tk-stub"><b>{wards.length}</b></div>
-        <div class="fg-tk-body"><strong>Wards mapped</strong><span>Across 4 constituencies</span></div>
+        <div class="fg-tk-body"><strong>Wards mapped</strong><span>Across {register.constituencies.length} constituencies in two counties</span></div>
       </li>
       <li class="fg-ticket-kpi">
         <div class="fg-tk-stub"><b>{facilities.length}</b></div>

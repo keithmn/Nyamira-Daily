@@ -2,6 +2,23 @@
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md`, then this page, then `docs/DECISIONS.md`. Older handover notes, with the history of each feature, are in `docs/STATUS_ARCHIVE.md`.
 
+## Kisii build: state at 27 Nov 2026, evening
+
+- **Built:** one map for both counties (home hero, Places atlas, ward index); 45 Kisii ward pages (`src/components/ward/CountyWard.astro`) with voters, map and services; Kisii facilities (159 health from the 2017 KMHFL list, 131 other public places from OpenStreetMap, all unverified) in `src/data/counties/kisii/facilities.json`; census in `src/data/counties/kisii/census.json`; 163 Kisii map points in `geo.json`. Build: 917 pages; `npm test` 345 pass.
+- **Leaders (checked):** `src/data/counties/kisii/leaders.json`: 34 of 45 MCAs named, 4 of 9 MPs and the Governor-listed seat confirmed in the file. 11 MCA names and 4 MP names are blank because the gazette name order is unclear or only one source was found; those show as "Not confirmed". Changes since 2022 are in `data-src/kisii/leaders.md`.
+- **Money (checked, on About Kisii):** `src/data/counties/kisii/money.json`, FY2013/14 to FY2025/26 as printed, with unprinted values shown as "Not printed". FY2024/25 is rounded in the report; the precise figures from `compare.json` are used for the headline tiles. Sources and checks: `data-src/kisii/money.md`.
+- **Not yet:** Kisii ward-level budgets and projects; the Governor is not shown on a page.
+- **Not yet counted:** the Places "listed facilities" total and the Money pages still show Nyamira only.
+- **Check before publishing:** Basi Central, Basi Bogetaorio and Majoge spellings differ between the IEBC and the boundary data.
+- **Uncommitted:** all of the above is on the working tree, not committed.
+
+$1 County: multi-county schema, phase 3)
+
+- **Schema (decision #134):** `src/county.js` exports `site`, `counties` (Nyamira, Kisii) and `countyBySlug`; `county` is still Nyamira. New `src/data/ward-register.json` holds all 65 Gusii wards from the IEBC 2022 register (source rows in `data-src/iebc/`, built by `scripts/build-ward-register.mjs`, tested by `scripts/build-ward-register.test.js`). `wards.json` records carry `county: "nyamira"`.
+- **Kisii on the site:** `/about/kisii/` (2019 population, 2022 voters, FY2024/25 budget, spending and own revenue, all 45 wards by constituency), linked from the Places menu, the footer and `/ward/`. Open data: `/api/ward-register.json`, listed on `/about/data/` and in `/api/meta.json`.
+- **Checks:** `npm test` 345 pass; build 872 pages; Playwright at 390×844 and 1280×900 on `/about/kisii/` and `/ward/`: no sideways scroll, no errors, ward names show on phone cards.
+- **Next for Kisii (phase 4):** confirm the three ward spellings that differ from the boundary data against the 2012 wards order; Kisii facilities from KMHFL; county leaders and MCAs from IEBC gazette notices; Kisii ward boundaries in `geo.json` and a two-county map; a `county` field on facilities, contracts and money so Kisii records can sit beside Nyamira's; then Kisii ward pages. FY2025/26 CoB figures for Kisii are in `data-src/national/cob-county-2025-26/` but their check status is not recorded; confirm before using.
+
 ## Changes on 27 Nov 2026 (rebrand to Gusii Daily, phases 1 and 2)
 
 - **Rebrand (phase 1):** "Nyamira Daily" is now "Gusii Daily" across code, docs, tests and Kobo form titles; `nyamiradaily.org` is now `gusiidaily.org`; `package.json` name is `gusii-daily`. "Nyamira" stays wherever it means the county. Reason: the language and cultural work covers the Abagusii across Nyamira and Kisii counties.

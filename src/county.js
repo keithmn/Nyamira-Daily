@@ -1,20 +1,11 @@
-// County settings and publisher details, in one place (decision #74, the "county kit").
-// The aim: a second county edition (Kisii first) is mostly a change of this file and of src/data/, not of every
-// page. New code should read the county's names from here instead of hard-coding them. Older pages still have the
-// name written in; move them over as they are touched (see docs/DECISIONS.md #74 for the list of what is left).
+// Site, county and publisher settings, in one place (decision #74, the "county kit"; made multi-county by #134).
+// New code reads names from here instead of hard-coding them. Older pages still have "Nyamira" written in; move
+// them over as they are touched.
 
-export const county = {
-  slug: 'nyamira',
-  name: 'Nyamira',
-  countyName: 'Nyamira County',
-  government: 'County Government of Nyamira',
-  assembly: 'County Assembly of Nyamira',
-  siteName: 'Gusii Daily',
+// The site itself, across the Gusii counties.
+export const site = {
+  name: 'Gusii Daily',
   domain: 'gusiidaily.org',
-  // The county's sub-county units under the County Governments Act (s.48) are its constituencies. Use these for
-  // county budgets, wards and leaders. The national government's administrative sub-counties are a different map:
-  // always say "constituency" or "administrative sub-county", never just "sub-county" (decision #75).
-  constituencies: ['Borabu', 'Kitutu Masaba', 'North Mugirango', 'West Mugirango'],
   // Languages for summaries and audio. Ekegusii (ISO 639-3 "guz") is planned; see decision #78.
   languages: [
     { code: 'en', name: 'English', status: 'live' },
@@ -22,6 +13,42 @@ export const county = {
     { code: 'guz', name: 'Ekegusii', status: 'planned' },
   ],
 };
+
+// The Gusii counties. A county's sub-county units under the County Governments Act (s.48) are its constituencies:
+// use these for county budgets, wards and leaders. The national government's administrative sub-counties are a
+// different map: always say "constituency" or "administrative sub-county", never just "sub-county" (decision #75).
+// Constituencies are listed A to Z and must match src/data/ward-register.json (checked by npm test).
+// `coverage`: 'full' = wards, places, money and leaders on the site; 'register' = the IEBC ward register and
+// county-level figures only, so far.
+export const counties = [
+  {
+    slug: 'nyamira',
+    name: 'Nyamira',
+    countyName: 'Nyamira County',
+    government: 'County Government of Nyamira',
+    assembly: 'County Assembly of Nyamira',
+    iebcCode: '046',
+    iso: 'KE-34',
+    constituencies: ['Borabu', 'Kitutu Masaba', 'North Mugirango', 'West Mugirango'],
+    coverage: 'full',
+  },
+  {
+    slug: 'kisii',
+    name: 'Kisii',
+    countyName: 'Kisii County',
+    government: 'County Government of Kisii',
+    assembly: 'County Assembly of Kisii',
+    iebcCode: '045',
+    iso: 'KE-16',
+    constituencies: ['Bobasi', 'Bomachoge Borabu', 'Bomachoge Chache', 'Bonchari', 'Kitutu Chache North', 'Kitutu Chache South', 'Nyaribari Chache', 'Nyaribari Masaba', 'South Mugirango'],
+    coverage: 'register',
+  },
+];
+export const countyBySlug = Object.fromEntries(counties.map((c) => [c.slug, c]));
+
+// The county whose civic data the money, places, ward and leaders pages show today. Pages that cover one county's
+// civic records read this; pages that cover the Gusii community read `site` and `counties`.
+export const county = countyBySlug.nyamira;
 
 // Who builds and publishes the site (decision #73). Use the exact name on the certificate of incorporation.
 // CHECK BEFORE LAUNCH: confirm legalName against the certificate; spelling has varied in earlier drafts.

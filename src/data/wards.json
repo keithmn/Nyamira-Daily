@@ -2,101 +2,121 @@
   {
     "slug": "esise",
     "name": "Esise",
+    "county": "nyamira",
     "subCounty": "Borabu"
   },
   {
     "slug": "kiabonyoru",
     "name": "Kiabonyoru",
+    "county": "nyamira",
     "subCounty": "Borabu"
   },
   {
     "slug": "mekenene",
     "name": "Mekenene",
+    "county": "nyamira",
     "subCounty": "Borabu"
   },
   {
     "slug": "nyansiongo",
     "name": "Nyansiongo",
+    "county": "nyamira",
     "subCounty": "Borabu"
   },
   {
     "slug": "gachuba",
     "name": "Gachuba",
+    "county": "nyamira",
     "subCounty": "Kitutu Masaba"
   },
   {
     "slug": "gesima",
     "name": "Gesima",
+    "county": "nyamira",
     "subCounty": "Kitutu Masaba"
   },
   {
     "slug": "kemera",
     "name": "Kemera",
+    "county": "nyamira",
     "subCounty": "Kitutu Masaba"
   },
   {
     "slug": "magombo",
     "name": "Magombo",
+    "county": "nyamira",
     "subCounty": "Kitutu Masaba"
   },
   {
     "slug": "manga",
     "name": "Manga",
+    "county": "nyamira",
     "subCounty": "Kitutu Masaba"
   },
   {
     "slug": "rigoma",
     "name": "Rigoma",
+    "county": "nyamira",
     "subCounty": "Kitutu Masaba"
   },
   {
     "slug": "bokeira",
     "name": "Bokeira",
+    "county": "nyamira",
     "subCounty": "North Mugirango"
   },
   {
     "slug": "bomwagamo",
     "name": "Bomwagamo",
+    "county": "nyamira",
     "subCounty": "North Mugirango"
   },
   {
     "slug": "ekerenyo",
     "name": "Ekerenyo",
+    "county": "nyamira",
     "subCounty": "North Mugirango"
   },
   {
     "slug": "itibo",
     "name": "Itibo",
+    "county": "nyamira",
     "subCounty": "North Mugirango"
   },
   {
     "slug": "magwagwa",
     "name": "Magwagwa",
+    "county": "nyamira",
     "subCounty": "North Mugirango"
   },
   {
     "slug": "bogichora",
     "name": "Bogichora",
+    "county": "nyamira",
     "subCounty": "West Mugirango"
   },
   {
     "slug": "bonyamatuta",
     "name": "Bonyamatuta",
+    "county": "nyamira",
     "subCounty": "West Mugirango"
   },
   {
     "slug": "bosamaro",
     "name": "Bosamaro",
+    "county": "nyamira",
     "subCounty": "West Mugirango"
   },
   {
     "slug": "nyamaiya",
     "name": "Nyamaiya",
+    "county": "nyamira",
     "subCounty": "West Mugirango"
   },
   {
     "slug": "township",
     "name": "Township",
+    "county": "nyamira",
     "subCounty": "West Mugirango"
   }
 ]

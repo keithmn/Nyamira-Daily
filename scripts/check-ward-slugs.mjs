@@ -1,5 +1,6 @@
 // Build-time ward-slug validator: every ward reference in data files and content collections
-// must match one of the 20 canonical slugs in wards.json, or the check fails.
+// must match a civic ward record in wards.json (each of which is checked against the IEBC ward register by
+// scripts/build-ward-register.test.js), or the check fails.
 //   node scripts/check-ward-slugs.mjs
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';

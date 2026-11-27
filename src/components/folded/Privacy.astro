@@ -1,7 +1,7 @@
 ---
 // Privacy (decision #73). Describes what the site actually does today; update it whenever a form, a tool or a
 // host changes. Needs the lawyer's review before launch (Data Protection Act 2019).
-import { county, publisher } from '../../county.js';
+import { site, publisher } from '../../county.js';
 import { contact, hasContact } from '../../config.js';
 const retention = Number(import.meta.env.PUBLIC_CORRECTION_RETENTION_DAYS);
 const hasRetention = Number.isSafeInteger(retention) && retention >= 1 && retention <= 3650;
@@ -10,7 +10,7 @@ const hasRetention = Number.isSafeInteger(retention) && retention >= 1 && retent
 <p class="lead">Reading this site does not need an account, and we do not track you. Here is the little we do keep.</p>
   <div class="stack" style="margin-top:16px; max-width:720px">
     <h3>Who is responsible</h3>
-    <p>{county.siteName} is responsible for the personal data described here, under Kenya's Data Protection Act, 2019.</p>
+    <p>{site.name} is responsible for the personal data described here, under Kenya's Data Protection Act, 2019.</p>
     {/* Before any form that collects personal data is switched on, name the legal entity (the data controller) here: decision #125. */}
 
     <h3>Just reading the site</h3>

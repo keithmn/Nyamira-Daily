@@ -2,7 +2,7 @@
 // Field-guide soft-mint footer with dashed charcoal dividers, inline search capsule, directory columns & CC BY 4.0 row.
 import Icon from './Icon.astro';
 import { social } from '../config.js';
-import { county } from '../county.js';
+import { site } from '../county.js';
 
 const names = { whatsapp: 'WhatsApp Channel', youtube: 'YouTube', facebook: 'Facebook', x: 'X', instagram: 'Instagram', tiktok: 'TikTok' };
 const order = ['youtube', 'tiktok', 'instagram', 'whatsapp', 'x', 'facebook'];
@@ -14,6 +14,7 @@ const columns = [
     links: [
       { href: '/about/', label: 'About Gusii Daily' },
       { href: '/about/nyamira/', label: 'About Nyamira County' },
+      { href: '/about/kisii/', label: 'About Kisii County' },
       { href: '/about/rules/', label: 'Guiding rules & labels' },
       { href: '/about/contact/', label: 'Tell us / contact' },
       { href: '/about/data/', label: 'Open data & API' },
@@ -59,7 +60,7 @@ const columns = [
         <input id="fg-ft-q" type="search" name="q" placeholder="Type a ward, school, clinic, department or law..." />
         <button type="submit">Search <span aria-hidden="true">→</span></button>
       </form>
-      <ul class="fg-ft-socials" aria-label={`${county.siteName} on social media`}>
+      <ul class="fg-ft-socials" aria-label={`${site.name} on social media`}>
         {icons.map((s) => (
           <li>
             {s.href

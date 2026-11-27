@@ -4,6 +4,7 @@ import money from '../../lib/county-money.js';
 import { notes as registryNotes } from '../../lib/county-registry.js';
 import L from '../../data/leaders.json' with { type: 'json' };
 import wardsRaw from '../../data/wards.json' with { type: 'json' };
+import register from '../../data/ward-register.json' with { type: 'json' };
 import wards from '../../data/wards.js';
 import contracts from '../../data/contracts.json' with { type: 'json' };
 import audit from '../../data/audit.json' with { type: 'json' };
@@ -40,6 +41,15 @@ const datasets = [
     refresh: 'When reviewed facility evidence is added',
     records: wardsRaw.length,
     endpoints: ['/api/wards.json', '/api/ward/<slug>.json', '/api/ward/<slug>.txt'],
+  },
+  {
+    id: 'ward-register',
+    name: 'Gusii ward register (Kisii and Nyamira)',
+    checked: '2026-11-27',
+    sourceDate: 'IEBC register of voters for the 2022 General Election',
+    refresh: 'When the IEBC publishes a new register or changes ward boundaries',
+    records: register.wards.length,
+    endpoints: ['/api/ward-register.json'],
   },
   {
     id: 'contracts',

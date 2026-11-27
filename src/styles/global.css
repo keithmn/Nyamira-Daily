@@ -70,6 +70,7 @@
 
   /* Map points by place type: green and charcoal steps (R3 adds a shape per type) */
   --map-1: var(--ch-100); --map-2: var(--ch-200); --map-3: var(--ch-100); --map-4: var(--ch-200);
+  --map-county-2: var(--ch-300); /* wards of the second Gusii county (Kisii) on the one map */
   --pt-school: var(--nd-charcoal); --pt-health: var(--nd-green-deep); --pt-worship: var(--ch-500); --pt-market: var(--ch-600); --pt-place: var(--ch-300);
 
   --series-1: var(--nd-charcoal); --series-2: var(--nd-green);
@@ -200,6 +201,7 @@ tr.mine td { background: var(--brand-soft); font-weight: 700; }
 .wardmap .ward { stroke: var(--bg); stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
 .wardmap .s1 { fill: var(--map-1); } .wardmap .s2 { fill: var(--map-2); }
 .wardmap .s3 { fill: var(--map-3); } .wardmap .s4 { fill: var(--map-4); }
+.wardmap .k { fill: var(--map-county-2); }
 .wardmap a:hover .ward, .wardmap a:focus .ward { fill: var(--brand); }
 .wardmap .ward.mine { fill: var(--brand); }
 .wardmap .ward.other { fill: var(--line); }
@@ -218,6 +220,7 @@ tr.mine td { background: var(--brand-soft); font-weight: 700; }
 .key i.dot { border-radius: 50%; }
 .key i.s1 { background: var(--map-1); } .key i.s2 { background: var(--map-2); }
 .key i.s3 { background: var(--map-3); } .key i.s4 { background: var(--map-4); }
+.key i.k { background: var(--map-county-2); }
 
 /* Phones: keep the header short */
 @media (max-width: 640px) {
@@ -870,6 +873,7 @@ main .receipt h2 { text-decoration: none; }
 :root { --sc1: var(--ch-900); --sc2: var(--ch-700); --sc3: var(--ch-600); --sc4: var(--ch-500);
   --f0: var(--ch-100); --f1: color-mix(in srgb, var(--nd-green) 18%, var(--nd-white)); --f2: color-mix(in srgb, var(--nd-green) 45%, var(--nd-white)); --f3: var(--nd-green); --f4: color-mix(in srgb, var(--nd-green) 50%, var(--nd-green-deep)); --f5: var(--nd-green-deep);
   --m1: var(--ch-100); --m2: var(--ch-200); --m3: var(--ch-300); --m4: var(--ch-500); --m5: color-mix(in srgb, var(--ch-500) 50%, var(--ch-600)); --mu: var(--nd-white); }
+.atlas[data-view="wards"] .at-w.k { fill: var(--map-county-2); }
 .atlas[data-view="wards"] .at-w.sc1 { fill: var(--sc1); } .atlas[data-view="wards"] .at-w.sc2 { fill: var(--sc2); }
 .atlas[data-view="wards"] .at-w.sc3 { fill: var(--sc3); } .atlas[data-view="wards"] .at-w.sc4 { fill: var(--sc4); }
 .atlas[data-view="wards"] .at-name { fill: var(--nd-white); stroke: rgb(30 30 28 / 0.45); }
@@ -1849,6 +1853,7 @@ main .btn.quiet {
 .fg-nb path { fill: none; stroke: var(--ch-600); stroke-width: 1.4; stroke-dasharray: 5 5; opacity: 0.6; }
 .fg-nb text { fill: var(--ch-300); font-size: 18px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-anchor: middle; opacity: 0.7; }
 .fg-w { stroke: var(--nd-white); stroke-width: 2.2; stroke-linejoin: round; transition: fill 0.14s ease; }
+.fg-w.k { fill: var(--map-county-2); }
 .fg-w.s1 { fill: var(--ch-700); }
 .fg-w.s2 { fill: var(--ch-600); }
 .fg-w.s3 { fill: color-mix(in srgb, var(--nd-green-deep) 72%, var(--ch-900)); }

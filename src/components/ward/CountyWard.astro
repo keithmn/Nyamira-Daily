@@ -1,0 +1,92 @@
+---
+// A ward page for a county that so far has the ward register and some civic datasets, not full coverage
+// (decision #134). It shows only what is sourced for this ward; a dataset not yet collected is said to be missing,
+// never shown as zero. Rendered by src/pages/ward/[slug].astro.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../PageHead.astro';
+import EvidenceLabel from '../EvidenceLabel.astro';
+import WardMap from '../WardMap.astro';
+import Icon from '../Icon.astro';
+import { categoryIcon } from '../../lib/icons.js';
+import register from '../../data/ward-register.json';
+import { countyBySlug } from '../../county.js';
+import { countyData, wardFacilities, wardMca, constituencyMp } from '../../lib/gusii.js';
+import { num } from '../../lib/fmt.js';
+
+interface Props { r: (typeof register.wards)[number] }
+const { r } = Astro.props;
+const c = countyBySlug[r.county];
+const iebc = register.source;
+const leaders = countyData(r.county, 'leaders');
+const facilitiesFile = countyData(r.county, 'facilities');
+const facilities = wardFacilities(r);
+const mca = wardMca(r);
+const mp = constituencyMp(r);
+const order = ['Health', 'Education', 'Worship', 'Market', 'Water', 'Public office', 'Community centre', 'Agriculture'];
+const byCat = facilities.reduce((m, f) => { (m[f.category] ??= []).push(f); return m; }, {});
+const cats = order.filter((k) => byCat[k]);
+const siblings = register.wards.filter((w) => w.county === r.county && w.constituency === r.constituency && w.slug !== r.slug);
+const constAnchor = r.constituency.toLowerCase().split(' ').join('-');
+const share = Math.round((r.registeredVoters2022 * 1000) / register.counties[r.county].registeredVoters2022) / 10;
+---
+<Base title={`${r.name} Ward`} description={`${r.name} Ward, ${r.constituency} Constituency, ${c.countyName}: registered voters, its MCA and listed public services, each with a source.`}>
+  <PageHead eyebrow={`${r.constituency} Constituency · ${c.countyName}`} title={`${r.name} Ward`} crumbs={[{ href: '/ward/', label: 'Wards' }, { href: `/ward/${r.slug}/`, label: r.name }]} />
+
+  <div class="stack-lg" style="margin-top:8px">
+    <div class="ward-top">
+      <div class="stack">
+        <div class="tiles ward-figs">
+          <div class="tile"><b>{num(r.registeredVoters2022)}</b><span>registered voters, 2022 ({share}% of the county)</span><span class="label official">Official claim</span></div>
+          {facilitiesFile && <a class="tile" href="#services"><b>{facilities.length}</b><span>services listed</span><span class="label unverified">Unverified</span></a>}
+          <div class="tile tile-text"><b>{mca?.name ?? 'Not confirmed'}</b><span>MCA for {r.name}{mca?.since ? `, since ${mca.since}` : ''}</span></div>
+        </div>
+        <p class="source"><EvidenceLabel kind="official" /> Voters: <a href={iebc.url} rel="noopener">IEBC, {iebc.title}</a> (ward code {r.iebcWardCode}).{mca?.src && <> MCA: <a href={mca.src} rel="noopener">{leaders?.mcaSourceName ?? 'source'}</a>.</>}{mp?.name && <> MP for {r.constituency}: {mp.name}.</>}</p>
+      </div>
+      <WardMap mode="ward" slug={r.slug} />
+    </div>
+
+    {facilitiesFile && (
+      <section class="stack" id="services" aria-labelledby="svc-h">
+        <h2 id="svc-h">Services in {r.name}</h2>
+        {facilities.length === 0 ? (
+          <p>No public services are listed for this ward in the sources we have used so far.</p>
+        ) : (
+          <>
+            <p class="muted small">Listed from public sources: health facilities from the Kenya Master Health Facility List, other places from OpenStreetMap. "Unverified" means no one has checked them on site yet. <a href="/report/">Report a change</a>.</p>
+            {cats.map((k) => (
+              <details id={`svc-${k.toLowerCase().split(' ').join('-')}`}>
+                <summary><Icon name={categoryIcon[k] ?? 'source'} size={20} />{k} ({byCat[k].length})</summary>
+                <div class="table-box">
+                  <table class="cards">
+                    <thead><tr><th>Name</th><th>Type</th><th>Evidence</th><th>Source</th></tr></thead>
+                    <tbody>
+                      {byCat[k].map((f) => (
+                        <tr>
+                          <td>{f.name}</td>
+                          <td data-label="Type">{f.subtype}{f.level ? ` · ${f.level}` : ''}{f.owner ? ` · ${f.owner}` : ''}</td>
+                          <td data-label="Evidence"><EvidenceLabel kind={f.evidence} /></td>
+                          <td class="small muted" data-label="Source">{f.source}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </details>
+            ))}
+          </>
+        )}
+      </section>
+    )}
+
+    <section class="stack" aria-labelledby="more-h">
+      <h2 id="more-h">More about {r.name}</h2>
+      <p>Ward projects, budgets, roads and contracts for {c.countyName} are not on Gusii Daily yet{facilitiesFile ? '' : ', and neither are its listed public services'}. <a href={`/about/${r.county}/`}>About {c.countyName}</a> has the county's budget and spending.</p>
+      {siblings.length > 0 && (
+        <p><strong>Other wards in {r.constituency}:</strong> {siblings.map((s, i) => <>{i > 0 && ', '}<a href={`/ward/${s.slug}/`}>{s.name}</a></>)}. <a href={`/about/${r.county}/#${constAnchor}`}>All {r.constituency} wards and voters</a>.</p>
+      )}
+    </section>
+
+    <!-- Kiswahili: needs native-speaker review -->
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Wodi ya {r.name} iko katika Jimbo la {r.constituency}, {c.countyName}. Ina wapiga kura {num(r.registeredVoters2022)} waliosajiliwa mwaka 2022. Kila takwimu ina chanzo chake.</p></div>
+  </div>
+</Base>

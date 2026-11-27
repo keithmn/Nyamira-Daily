@@ -1,0 +1,95 @@
+---
+// About Kisii County (decision #134): the official ward register and county-level figures, with sources.
+// Every figure is from src/data; nothing is typed in here.
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import EvidenceLabel from '../../../components/EvidenceLabel.astro';
+import register from '../../../data/ward-register.json';
+import compare from '../../../data/compare.json';
+import history from '../../../data/counties/kisii/money.json';
+import { countyBySlug } from '../../../county.js';
+import { ksh, num } from '../../../lib/fmt.js';
+
+const kisii = countyBySlug.kisii;
+const reg = register.counties.kisii;
+const iebc = register.source;
+const money = compare.counties.find((c) => c.county === 'Kisii');
+const cob = compare.sources.find((s) => s.id.startsWith('cob'));
+const knbs = compare.sources.find((s) => s.id.startsWith('knbs'));
+const spentPct = Math.round((money.spent * 100) / money.budget);
+const groups = register.constituencies
+  .filter((c) => c.county === 'kisii')
+  .sort((a, b) => a.name.localeCompare(b.name))
+  .map((c) => ({ ...c, wards: register.wards.filter((w) => w.county === 'kisii' && w.constituency === c.name) }));
+const anchor = (s) => s.toLowerCase().split(' ').join('-');
+---
+<Base title="About Kisii County" description="Kisii County in figures: its 45 wards and 9 constituencies, registered voters, population, and the county's budget and spending, each with its source.">
+  <PageHead title="About Kisii County" lead={`${kisii.countyName} in figures: its wards, its voters, its people and its money, with a source for each.`} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Kaunti ya Kisii ina wodi 45 katika majimbo 9, na wapiga kura {num(reg.registeredVoters2022)} waliosajiliwa mwaka 2022. Hapa unapata idadi ya watu, bajeti na matumizi ya kaunti, na orodha ya wodi zote, kila takwimu na chanzo chake.</p></div>
+
+  <div class="stack-lg" style="margin-top:16px">
+    <section class="stack" aria-labelledby="facts">
+      <h2 id="facts">Facts and figures</h2>
+      <div class="tiles">
+        <div class="tile"><b>{num(money.population2019)}</b><span>people (2019 census)</span></div>
+        <div class="tile"><b>{num(reg.registeredVoters2022)}</b><span>registered voters (2022)</span></div>
+        <div class="tile"><b>{reg.wards}</b><span>wards, in {kisii.constituencies.length} constituencies</span></div>
+      </div>
+      <p class="source"><EvidenceLabel kind="official" /> Sources: <a href={knbs.url} rel="noopener">{knbs.title}</a>, {money.pages.population2019}; <a href={iebc.url} rel="noopener">IEBC, {iebc.title}</a>.</p>
+    </section>
+
+    <section class="stack" aria-labelledby="money">
+      <h2 id="money">The county's money, {money.fy}</h2>
+      <div class="tiles">
+        <div class="tile"><b>{ksh(money.spent)}</b><span>spent, of a {ksh(money.budget)} budget ({spentPct}%)</span></div>
+        <div class="tile"><b>{money.devAbsorptionPct}%</b><span>of the development budget (roads, buildings, water) was spent</span></div>
+        <div class="tile"><b>{ksh(money.osrActual)}</b><span>raised by the county itself (own-source revenue)</span></div>
+      </div>
+      <p class="small muted">The budget is the second supplementary budget. The report's own-revenue rate of {money.osrPerformancePct}% compares all revenue, including hospital fees, with a target that leaves hospital fees out; on ordinary revenue alone the county collected {money.osrComparablePct}% of its target ({money.pages.osrComparablePct}).</p>
+      <p class="source"><EvidenceLabel kind="official" /> Source: <a href={cob.url} rel="noopener">{cob.title}</a>, {money.pages.budget} and {money.pages.osrActual}.</p>
+      <details>
+        <summary>Thirteen years, FY2013/14 to FY2025/26 (KSh million)</summary>
+        <div class="table-box">
+          <table class="cards">
+            <thead><tr><th>Year</th><th>Budget</th><th>Spent</th><th>Development used</th><th>Own revenue</th></tr></thead>
+            <tbody>
+              {history.map((y) => (
+                <tr>
+                  <td data-label="Year">{y.fy}</td>
+                  <td data-label="Budget">{y.budget == null ? 'Not printed' : num(y.budget)}</td>
+                  <td data-label="Spent">{y.spent == null ? 'Not printed' : num(y.spent)}</td>
+                  <td data-label="Development used">{y.devAbs == null ? 'Not printed' : `${y.devAbs}%`}</td>
+                  <td data-label="Own revenue">{y.osr == null ? 'Not printed' : num(y.osr)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <p class="small muted">Figures are as printed in each year's Controller of Budget report, so some are rounded. The FY2013/14 parts add up to 4.70bn against a printed total of 4.8bn; both are kept as printed.</p>
+      <p class="source"><EvidenceLabel kind="official" /> Source: Controller of Budget, County Governments Budget Implementation Review Reports, FY2013/14 to FY2025/26 (one per year).</p>
+      <p><a href="/money/#compare">See how Kisii and Nyamira compare with their neighbours</a></p>
+    </section>
+
+    <section class="stack" aria-labelledby="wards">
+      <h2 id="wards">The {reg.wards} wards</h2>
+      <p>Each ward elects one Member of the County Assembly. Every ward has a page with its voters, its map and its listed public services. Ward budgets, projects and MCAs for Kisii are not yet on Gusii Daily; the list below is the official IEBC register.</p>
+      {groups.map((g) => (
+        <details id={anchor(g.name)}>
+          <summary>{g.name} Constituency · {g.wards.length} wards · {num(g.registeredVoters2022)} voters</summary>
+          <table class="cards">
+            <thead><tr><th scope="col">Ward</th><th scope="col">IEBC code</th><th scope="col">Registered voters, 2022</th></tr></thead>
+            <tbody>
+              {g.wards.map((w) => (
+                <tr><td data-label="Ward">{w.name}</td><td data-label="IEBC code">{w.iebcWardCode}</td><td data-label="Registered voters, 2022">{num(w.registeredVoters2022)}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </details>
+      ))}
+      <p class="small muted">{iebc.note}</p>
+      <p class="source"><EvidenceLabel kind="official" /> Source: <a href={iebc.url} rel="noopener">IEBC, {iebc.title}</a>. {iebc.checked}</p>
+    </section>
+  </div>
+</Base>

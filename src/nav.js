@@ -30,7 +30,7 @@ export const sections = [
     { href: '/community/abagusii/', label: 'The Abagusii', group: 'Heritage', icon: 'people', desc: 'History and culture, with sources' },
     { href: '/community/archive/', label: 'Culture archive', group: 'Heritage', icon: 'stories', desc: 'Recordings, stories and knowledge' },
   ] },
-  { href: '/map/', label: 'Places', icon: 'map', overview: 'The county map', groups: ['Find a place', 'By sector', 'The county', 'Safety'],
+  { href: '/map/', label: 'Places', icon: 'map', overview: 'The county map', groups: ['Find a place', 'By sector', 'The counties', 'Safety'],
     desc: 'Every ward and every public place: what is there, and how it is doing.', pages: [
     { href: '/ward/', label: 'Wards', icon: 'ward', group: 'Find a place', desc: 'All 20 wards', also: ['/place/'], pages: subCounties.map((s) => ({
       href: `/ward/#${anchorFor(s)}`, label: s,
@@ -40,11 +40,12 @@ export const sections = [
     { href: '/map/health/', label: topic('health').title, icon: 'health', group: 'By sector', desc: 'Clinics, mothers and children' },
     { href: '/map/education/', label: topic('education').title, icon: 'education', group: 'By sector', desc: 'Schools and learners' },
     { href: '/money/farming/', label: topic('farming').title, icon: 'farming', group: 'By sector', desc: 'Tea bonuses and farm spending' },
-    { href: '/about/nyamira/', label: 'About the county', group: 'The county', icon: 'map', desc: 'Facts, figures and places to know', pages: [
+    { href: '/about/nyamira/', label: 'Nyamira County', group: 'The counties', icon: 'map', desc: 'Facts, figures and places to know', pages: [
       { href: '/administration/duties/', label: 'How it is governed', icon: 'government', desc: 'What the county must do, and how' },
       { href: '/administration/', label: 'Who holds each seat', icon: 'people', desc: 'Each county seat and its holder, with sources' },
       { href: '/about/glossary/', label: 'Glossary', icon: 'learn', desc: 'Terms explained' },
     ] },
+    { href: '/about/kisii/', label: 'Kisii County', group: 'The counties', icon: 'map', desc: 'Its 45 wards, voters and money' },
     { href: '/alerts/', label: 'Alerts', icon: 'source', group: 'Safety', desc: 'Incidents and public notices' },
   ] },
   { href: '/money/', label: 'Money', icon: 'money', overview: 'County money', groups: ['This year', 'Over the years', 'Follow the money'],

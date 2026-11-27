@@ -60,8 +60,8 @@ test('ward-places.json entries all reference valid ward slugs', () => {
   for (const p of wardPlaces) assert.ok(slugs.has(p.ward), `place ${p.id} names unknown ward ${p.ward}`);
 });
 
-test('wards.json is a pure identity lookup (slug, name, subCounty only)', () => {
+test('wards.json is a pure identity lookup (slug, name, county, subCounty only)', () => {
   for (const w of wardRecords) {
-    assert.deepEqual(Object.keys(w).sort(), ['name', 'slug', 'subCounty']);
+    assert.deepEqual(Object.keys(w).sort(), ['county', 'name', 'slug', 'subCounty']);
   }
 });
