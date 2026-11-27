@@ -1607,11 +1607,11 @@ main .btn {
 }
 :is(.fg-cta-btn, main .btn):hover {
   transform: translate(-1px, -1px);
-  box-shadow: 3px 4px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
 }
 :is(.fg-cta-btn, main .btn):active {
   transform: translate(1px, 2px);
-  box-shadow: 1px 1px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
 }
 .fg-outline-btn,
 main .btn.quiet {
@@ -1708,7 +1708,7 @@ main .btn.quiet {
   background: var(--nd-green);
   color: var(--ch-900);
   border: 1.5px solid var(--ch-900);
-  box-shadow: 2px 2px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
 }
 
 /* -----------------------------------------------------------------------------------
@@ -1833,7 +1833,7 @@ main .btn.quiet {
   border: 2px solid var(--ch-900);
   border-radius: var(--fg-r-xl);
   padding: 16px 18px 86px;
-  box-shadow: 8px 8px 0 var(--nd-green);
+  box-shadow: var(--shadow-1);
 }
 .fg-map-caption {
   display: block;
@@ -1944,7 +1944,7 @@ main .btn.quiet {
   box-shadow: var(--fg-shadow-sm);
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
-.fg-fc-btn:hover { transform: translate(-1px, -1px); box-shadow: 3px 4px 0 var(--ch-900); }
+.fg-fc-btn:hover { transform: translate(-1px, -1px); box-shadow: var(--shadow-2); }
 
 /* -----------------------------------------------------------------------------------
    4. FRONT-PAGE BANDS — Directory Pill Stacks, Mint Preview Deck, Dashed Insights, Tickets, Trio
@@ -2182,7 +2182,7 @@ main .btn.quiet {
 }
 .fg-peek-card:hover {
   transform: translate(-2px, -3px);
-  box-shadow: 6px 7px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
 }
 .fg-peek-art {
   border-radius: var(--fg-r-md);
@@ -2298,7 +2298,7 @@ a.fg-insight-card:hover .fg-ins-thumb {
   background: var(--nd-green); color: var(--ch-900);
   border: 1.5px solid var(--ch-900);
   display: grid; place-items: center;
-  box-shadow: 2px 2px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
 }
 .fg-thumb-note { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); }
 .fg-label-quad { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
@@ -2336,7 +2336,7 @@ a.fg-insight-card:hover h3 { text-decoration: underline; text-underline-offset: 
   background: var(--nd-white);
   border: 1.5px dashed var(--ch-900);
   border-radius: var(--fg-r-md);
-  box-shadow: 3px 3px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
   overflow: hidden;
 }
 .fg-ticket.is-next { border-style: solid; }
@@ -2397,7 +2397,7 @@ a.fg-insight-card:hover h3 { text-decoration: underline; text-underline-offset: 
   background: var(--nd-white);
   border: 1.5px solid var(--ch-900);
   border-radius: var(--fg-r-md);
-  box-shadow: 3px 3px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
   overflow: hidden;
 }
 .fg-tk-stub {
@@ -2435,7 +2435,7 @@ a.fg-insight-card:hover h3 { text-decoration: underline; text-underline-offset: 
   box-shadow: var(--fg-shadow-md);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.fg-block-card:hover { transform: translate(-2px, -3px); box-shadow: 6px 7px 0 var(--ch-900); }
+.fg-block-card:hover { transform: translate(-2px, -3px); box-shadow: var(--shadow-2); }
 .fg-bc-icon {
   width: 64px;
   height: 64px;
@@ -2566,14 +2566,14 @@ a.fg-insight-card:hover h3 { text-decoration: underline; text-underline-offset: 
   border: 1.5px dashed var(--ch-900);
   border-radius: var(--fg-r-md);
   padding: 18px 20px;
-  box-shadow: 3px 3px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
   transition: transform 0.13s ease, background-color 0.14s ease, box-shadow 0.13s ease;
 }
 .money-cards a:hover {
   background: var(--nd-green-soft);
   border-style: solid;
   transform: translate(-1px, -2px);
-  box-shadow: 4px 5px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
 }
 .money-cards b { color: var(--nd-green-deep); display: flex; justify-content: space-between; gap: 8px; }
 .money-cards b::after { content: "↗"; color: var(--ch-900); }
@@ -2583,7 +2583,7 @@ main .tile, main .ward-figs .tile {
   border: 1.5px solid var(--ch-900);
   border-radius: var(--fg-r-md);
   padding: 18px;
-  box-shadow: 3px 3px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
 }
 main a.tile:hover { background: var(--nd-green-soft); transform: translate(-1px, -2px); }
 .ward-figs { gap: 14px; }
@@ -2610,7 +2610,7 @@ details.toggle {
   border: 1.5px dashed var(--ch-900);
   border-radius: var(--fg-r-md);
   padding: 0 18px;
-  box-shadow: 3px 3px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
 }
 details.toggle + details.toggle { margin-top: 12px; }
 details.toggle:last-of-type { border-bottom: 1.5px dashed var(--ch-900); }
@@ -2625,7 +2625,7 @@ details:not(.menu):not(.toggle):not(.cf-table):not(.sheet-sec) {
   border: 1.5px solid var(--ch-900);
   border-radius: var(--fg-r-md);
   padding: 2px 18px;
-  box-shadow: 2px 3px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
 }
 
 .rows {
@@ -2638,13 +2638,13 @@ details:not(.menu):not(.toggle):not(.cf-table):not(.sheet-sec) {
   border: 1.5px solid var(--ch-900);
   border-radius: var(--fg-r-md);
   padding: 16px 20px;
-  box-shadow: 2px 3px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
   transition: transform 0.13s ease, background-color 0.14s ease, box-shadow 0.13s ease;
 }
 .rows a.row-link:hover {
   background: var(--nd-green-soft);
   transform: translate(-1px, -2px);
-  box-shadow: 4px 5px 0 var(--ch-900);
+  box-shadow: var(--shadow-1);
 }
 .rows .go {
   background: var(--nd-green);
@@ -2764,7 +2764,7 @@ input.field, .builder input, .builder select, .builder select.field, .builder te
   color: var(--ch-900);
   text-decoration: none;
 }
-.fg-ft-socials a:hover { background: var(--nd-white); box-shadow: 2px 2px 0 var(--ch-900); }
+.fg-ft-socials a:hover { background: var(--nd-white); box-shadow: var(--shadow-2); }
 .fg-ft-socials .is-soon { opacity: 0.65; }
 
 .fg-ft-cols {
