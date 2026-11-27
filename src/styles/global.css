@@ -3211,3 +3211,10 @@ section.figure {
 .figure .num { font-family: var(--title-font); font-weight: 600; }
 .card, .fig-tile { border-radius: 20px; box-shadow: var(--shadow-1); }
 .card:hover, .fig-tile:hover { box-shadow: var(--shadow-2); }
+
+/* Soft Canva shadows everywhere: the Field Guide's hard offset shadow tokens now point at the soft scale. */
+:root {
+  --fg-shadow-sm: var(--shadow-1);
+  --fg-shadow-md: var(--shadow-2);
+  --fg-shadow-green: var(--shadow-1);
+}
