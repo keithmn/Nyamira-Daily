@@ -60,7 +60,7 @@
   },
   "cobyears": {
    "title": "Controller of Budget, County Governments Budget Implementation Review Reports, FY2013/14 to FY2024/25 (Nyamira section)",
-   "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/?wpdmdl=16263",
+   "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-2025-26/?wpdmdl=16482",
    "stage": "spent",
    "date": "2014–2025"
   }
@@ -1256,6 +1256,14 @@
    "spent": 5656.74,
    "devAbs": 37,
    "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/?wpdmdl=16263",
+   "page": "Table 2.5, p.9"
+  },
+  {
+   "fy": "2025/26",
+   "budget": 8646.3,
+   "spent": 7009.26,
+   "devAbs": 58.71,
+   "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-2025-26/?wpdmdl=16482",
    "page": "Table 2.5, p.9"
   }
  ],

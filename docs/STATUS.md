@@ -16,17 +16,16 @@ $1 (27 Nov 2026)
 
 - **Added:** `scripts/data-integrity.test.js` (six checks, in `npm test`: 351 pass) and `src/lib/counts.js`. Decision #136.
 - **Copy:** Gusii-wide pages (menu, footer, home, About, 404, the ward index and the Places KPI) now read 65 wards; Nyamira-only pages read 20 wards and 4 constituencies. The ward index now says Nyamira's directory and the Gusii map separately.
-- **Found and not yet fixed:** Nyamira money stops at FY2024/25 while Kisii runs to FY2025/26; the living-events file is empty; 11 Kisii MCA names are unpublished pending a check; three ward spellings to confirm; three topic titles still say "in Nyamira County" (Health, Schools, Money) pending the county switch.
+- **Found and not yet fixed:** the living-events file is empty (needs fieldwork setup — KoboToolbox forms, Google Sheet, env vars; cannot fabricate events). Ward spellings Basi Central/Bobasi Central, Basi Bogetaorio/Bobasi Bogetaorio, Majoge Basi/Majoge are recorded as boundaryName aliases in `src/data/ward-register.json`; IEBC names are kept as primary.
 - **Uncommitted.**
 
 $1: state at 27 Nov 2026, evening
 
 - **Built:** one map for both counties (home hero, Places atlas, ward index); 45 Kisii ward pages (`src/components/ward/CountyWard.astro`) with voters, map and services; Kisii facilities (159 health from the 2017 KMHFL list, 131 other public places from OpenStreetMap, all unverified) in `src/data/counties/kisii/facilities.json`; census in `src/data/counties/kisii/census.json`; 163 Kisii map points in `geo.json`. Build: 917 pages; `npm test` 345 pass.
-- **Leaders (checked):** `src/data/counties/kisii/leaders.json`: 34 of 45 MCAs named, 4 of 9 MPs and the Governor-listed seat confirmed in the file. 11 MCA names and 4 MP names are blank because the gazette name order is unclear or only one source was found; those show as "Not confirmed". Changes since 2022 are in `data-src/kisii/leaders.md`.
+- **Leaders (checked):** `src/data/counties/kisii/leaders.json`: all 45 MCAs named (10 confirmed against the Kisii County Assembly member list, kisiiassembly.go.ke, updated 27 Nov 2026), 4 of 9 MPs and the Governor-listed seat confirmed. 4 MP names are blank (only one source found); those show as "Not confirmed". Changes since 2022 are in `data-src/kisii/leaders.md`.
 - **Money (checked, on About Kisii):** `src/data/counties/kisii/money.json`, FY2013/14 to FY2025/26 as printed, with unprinted values shown as "Not printed". FY2024/25 is rounded in the report; the precise figures from `compare.json` are used for the headline tiles. Sources and checks: `data-src/kisii/money.md`.
 - **Not yet:** Kisii ward-level budgets and projects; the Governor is not shown on a page.
 - **Not yet counted:** the Places "listed facilities" total and the Money pages still show Nyamira only.
-- **Check before publishing:** Basi Central, Basi Bogetaorio and Majoge spellings differ between the IEBC and the boundary data.
 - **Uncommitted:** all of the above is on the working tree, not committed.
 
 $1 County: multi-county schema, phase 3)
@@ -460,7 +459,7 @@ Committed as `b2cb102` on `feat/trust-and-launch-prep` and merged to `main` in P
 2. Confirm the exact registered company name against the certificate (`src/county.js`, `publisher.legalName`).
 3. Lawyer review of `/who-runs-us/`, `/privacy/` and `/terms/`; set the spin-out date and criteria in `src/county.js` (`spinOut`).
 4. Editor review and publication of the two money explainers (Sigma Awards deadline mid-January 2027), then the first ward receipts series.
-5. Check every MCA against the Kenya Gazette; then set `mcaGazetteChecked: true` and replace `mcaSource`.
+5. All 45 Kisii MCA names confirmed against the County Assembly list; mcaGazetteChecked stays false pending Rigoma/Bokeira resolution (Nyamira wards) and character-by-character gazette PDF check.
 6. Refresh the health facility count from the current Kenya Master Health Facility List.
 7. Page weight: done for the NG-CDF list (decision #81). The stylesheet stays as one file (about 20 KB compressed, cached).
 8. County kit: move hard-coded "Nyamira" in older files to `src/county.js` as they are touched (#74).

@@ -16,8 +16,8 @@ Working document for the Gusii Daily navigation. It records where every sector a
 |---|---|---|---|
 | Wards | 20 / 45 wards (`wards.json`, `ward-register.json`) | Places › Wards (`/ward/`) | Places › Wards |
 | Roads | 90 roads, Nyamira only (`roads.json`) | Places › Roads (`/map/#roads`) | Places › Roads |
-| Health | 125 / 159 facilities (`facilities.json`, `counties/kisii/facilities.json`) | Places › Health in Nyamira County (`/map/health/`) | Places › Health |
-| Education | 59 / 60 facilities | Places › Schools in Nyamira County (`/map/education/`) | Places › Education |
+| Health | 125 / 159 facilities (`facilities.json`, `counties/kisii/facilities.json`) | Places › Health (`/map/health/`) | Places › Health |
+| Education | 59 / 60 facilities | Places › Schools (`/map/education/`) | Places › Education |
 | Farming and agriculture | 6 / 3 facilities; tea bonuses and farm projects | Listed under Places, but the page is `/money/farming/` | Places › Farming and markets |
 | Markets | 10 / 8 facilities | None | Places › Markets |
 | Water | 5 / 0 facilities | None | Places › Water |
@@ -34,7 +34,7 @@ Working document for the Gusii Daily navigation. It records where every sector a
 ## Current menu (from `src/nav.js`)
 
 - **Gusii:** Ekegusii language, The Abagusii, Culture archive.
-- **Places:** Wards (with constituencies), Roads, Health in Nyamira County, Schools in Nyamira County, Farming, Nyamira County (with How it is governed, Who holds each seat, Glossary), Kisii County, Alerts.
+- **Places:** Wards (with constituencies), Roads, Health, Schools, Farming, Nyamira County (with How it is governed, Who holds each seat, Glossary), Kisii County, Alerts.
 - **Money:** Budget 2025/26, What was spent, Where it comes from, Since 2013, Contracts, The economy.
 - **Stories:** Explainers, Number of the week, Fact check, What's working, People, Heritage.
 - **About:** Tell us, Careers and volunteering, Partner with us, Open data, Rules and legal, Ask your county, Submission helper, Budget simulator.
