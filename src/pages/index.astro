@@ -3,6 +3,7 @@
 // using 100% Gusii Daily colours, self-hosted fonts, real records, evidence labels and official sources.
 import Base from '../layouts/Base.astro';
 import HeroMap from '../components/HeroMap.astro';
+import HomeFigures from '../components/HomeFigures.astro';
 import EvidenceLabel from '../components/EvidenceLabel.astro';
 import Icon from '../components/Icon.astro';
 import { getNumbers } from '../lib/numbers.js';
@@ -110,6 +111,7 @@ const wardRows = wards.map((w) => ({
 ---
 <Base title="Today" description="Gusii Daily: the Ekegusii language and cultural database, plus county data for every ward, budget and contract — all with sources." tools={false}>
   <Fragment slot="hero">
+   <div class="home-ink">
     {nowItems.length > 0 && (
       <aside class="now-strip" aria-label="Happening now">
         <div class="wrap now-inner">
@@ -121,6 +123,16 @@ const wardRows = wards.map((w) => ({
       </aside>
     )}
     <HeroMap />
+    <section class="ink-statement" aria-labelledby="fig-h">
+      <div class="wrap">
+        <header class="ink-head">
+          <span class="seed-kicker"><span class="seed" aria-hidden="true"></span>The year in figures</span>
+          <h2 id="fig-h">County money, <span class="ink-hl">2025/26</span></h2>
+        </header>
+        <HomeFigures />
+      </div>
+    </section>
+   </div>
   </Fragment>
 
   <!-- BAND 1: THE DIRECTORY — 3-column curated category pill stacks + floating search/ward box -->
@@ -399,34 +411,31 @@ const wardRows = wards.map((w) => ({
         <h2 id="cal-h">Mark your calendar for <span class="fg-hl">public budget<br />deadlines</span> &amp; hearing milestones</h2>
       </header>
 
-      <ul class="fg-ticket-grid">
+      <ol class="gd-steps">
         {orderedSteps.map((step, i) => (
-          <li class={`fg-ticket${i === 0 ? ' is-next' : ''}`}>
-            <div class="fg-ticket-stub">
-              <span class="fg-stub-by">By</span>
-              <b>{step.d} {shortMonths[step.m]}</b>
-              {i === 0
-                ? <span class="fg-stub-pill">{step.days === 0 ? 'Today' : `In ${step.days}d`}</span>
-                : <span class="fg-stub-yr">{step.year}</span>}
-            </div>
-            <div class="fg-ticket-body">
+          <li class={`gd-step${i === 0 ? ' is-next' : ''}`}>
+            <span class="gd-num" aria-hidden="true">{i + 1}</span>
+            <div class="gd-step-body">
+              <div class="gd-step-top">
+                <span class="gd-pill">By {step.d} {shortMonths[step.m]}</span>
+                {i === 0
+                  ? <span class="gd-pill is-soft">{step.days === 0 ? 'Today' : `In ${step.days} days`}</span>
+                  : <span class="gd-pill is-soft">{step.year}</span>}
+              </div>
               <a href="/money/2025-26/#calendar">{step.what}</a>
               <p>{step.note}</p>
             </div>
           </li>
         ))}
-        <li class="fg-ticket">
-          <div class="fg-ticket-stub">
-            <span class="fg-stub-by">Every</span>
-            <b>Quarter</b>
-            <span class="fg-stub-yr">s.166(4)</span>
-          </div>
-          <div class="fg-ticket-body">
+        <li class="gd-step is-every">
+          <span class="gd-num" aria-hidden="true">{orderedSteps.length + 1}</span>
+          <div class="gd-step-body">
+            <div class="gd-step-top"><span class="gd-pill">Every quarter</span><span class="gd-pill is-soft">PFM Act s.166(4)</span></div>
             <a href="/money/track/">Quarterly spending reports</a>
             <p>County Treasury and Controller of Budget publish what each of the 24 departments spent.</p>
           </div>
         </li>
-      </ul>
+      </ol>
 
       <p class="fg-cal-foot">Deadlines set by the Public Finance Management Act, 2012 (financial year 1 July – 30 June).</p>
       <div class="fg-center-actions">

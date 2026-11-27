@@ -3,6 +3,9 @@
 // Each opens with its headline figures; the rest sits in Notion-style toggles.
 import Base from '../layouts/Base.astro';
 import PageHead from './PageHead.astro';
+import { budgetYear } from '../lib/county-budget.js';
+import { ksh } from '../lib/fmt.js';
+import { shortTitle } from '../lib/county-registry.js';
 import Toggle from './Toggle.astro';
 import { topics, topicPath } from '../data/topics.js';
 import MyWard from './MyWard.astro';
@@ -20,11 +23,13 @@ import wards from '../data/wards.js';
 
 // One topic page (Money, Farming, Health, Education, Open data), rendered by its route file (decision #110).
 const t = topics.find((x) => x.slug === Astro.props.slug);
+const by = budgetYear();
+const moneyFigure = { value: ksh(by.total.value), source: `${shortTitle(by.total.doc)}, ${by.total.page}`, sourceHref: by.total.doc.url };
 const hub = ['health', 'education'].includes(t.slug) ? { href: '/map/', label: 'Places' } : t.slug === 'open-data' ? { href: '/about/', label: 'About' } : { href: '/money/', label: 'Money' };
 ---
 <Base title={t.title}>
   <div class={`sec-${t.tone}`}>
-    <PageHead eyebrow={hub.label} title={t.title} lead={t.question} tone={t.tone} crumbs={t.slug === 'money' ? [hub] : [hub, { href: topicPath[t.slug], label: t.title }]} />
+    <PageHead cover={t.slug === 'money' ? 'statement' : 'ink'} figure={t.slug === 'money' ? moneyFigure : undefined} eyebrow={t.slug === 'money' ? `Money · Budget ${by.fy}` : hub.label} title={t.title} lead={t.question} tone={t.tone} crumbs={t.slug === 'money' ? [hub] : [hub, { href: topicPath[t.slug], label: t.title }]} />
 
     {t.slug === 'money' && (
       <>
