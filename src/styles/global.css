@@ -3218,3 +3218,8 @@ section.figure {
   --fg-shadow-md: var(--shadow-2);
   --fg-shadow-green: var(--shadow-1);
 }
+
+/* Canva cards instead of the Field Guide's dashed panels: white, rounded, 1px line edge, soft shadow. Status labels and footer dividers keep their dashes. */
+.fg-dashed-sheet, .at-panel, .tk-filters {
+  background: var(--nd-white); border: 1px solid var(--line); border-radius: var(--radius-card); box-shadow: var(--shadow-1); padding: clamp(18px, 3vw, 28px);
+}
