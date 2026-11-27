@@ -1,0 +1,29 @@
+---
+// Swatch stack (from the guide's "Colour roles" page) used as a data breakdown: one solid block per row, then the
+// label, the value and one line of meaning. Colours follow the guide's order of impact: Ink, Green, Brown,
+// Deep cream, White. Rows past five are grouped by the caller.
+interface Row { name: string; value: string; note?: string }
+interface Props { title: string; lead?: string; rows: Row[]; source: string; sourceHref?: string; kicker?: string }
+const { title, lead, rows, source, sourceHref, kicker } = Astro.props;
+const tones = ['ink', 'green', 'brown', 'cream', 'white'];
+---
+<section class="gd-swatch-sec">
+  <header class="gd-swatch-head">
+    {kicker && <span class="fg-kicker">{kicker}</span>}
+    <h2>{title}</h2>
+    {lead && <p>{lead}</p>}
+  </header>
+  <ol class="gd-swatches">
+    {rows.map((r, i) => (
+      <li class={`gd-sw is-${tones[i % tones.length]}`}>
+        <span class="gd-sw-block" aria-hidden="true"></span>
+        <div class="gd-sw-text">
+          <span class="gd-sw-name">{r.name}</span>
+          <b class="gd-sw-val">{r.value}</b>
+          {r.note && <span class="gd-sw-note">{r.note}</span>}
+        </div>
+      </li>
+    ))}
+  </ol>
+  <p class="gd-sw-src"><b>Source</b> {sourceHref ? <a href={sourceHref} rel="noopener">{source}</a> : source}</p>
+</section>

@@ -16,7 +16,7 @@ const read = (p) => readFileSync(new URL(`../${p}`, import.meta.url));
 const wards = JSON.parse(read('src/data/wards.json'));
 const projects = JSON.parse(read('src/data/wardspend.json')).projects;
 const font = (f) => `data:font/woff2;base64,${read(`public/brand/fonts/${f}`).toString('base64')}`;
-const logo = `data:image/svg+xml;base64,${read('public/brand/Nyamira-Daily_horizontal_full-colour.svg').toString('base64')}`;
+const logo = `data:image/svg+xml;base64,${read('public/brand/Gusii-Daily_horizontal_full-colour.svg').toString('base64')}`;
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 
 export function headline(slug) {
@@ -32,17 +32,17 @@ export function headline(slug) {
 function html(w) {
   const h = headline(w.slug);
   return `<!doctype html><html><head><meta charset="utf-8"><style>
-@font-face { font-family: LS; font-weight: 500; src: url(${font('LeagueSpartan-Medium.woff2')}); }
-@font-face { font-family: LS; font-weight: 700; src: url(${font('LeagueSpartan-Bold.woff2')}); }
-@font-face { font-family: VR; src: url(${font('VarelaRound-Latin.woff2')}); }
+@font-face { font-family: IN; font-weight: 500; src: url(${font('Inter-Medium-Latin.woff2')}); }
+@font-face { font-family: IN; font-weight: 700; src: url(${font('Inter-Bold-Latin.woff2')}); }
+@font-face { font-family: PO; font-weight: 600; src: url(${font('Poppins-SemiBold-Latin.woff2')}); }
 * { box-sizing: border-box; margin: 0; }
-body { width: 1200px; height: 630px; background: #FFFFFF; color: #111111; font-family: LS, sans-serif; position: relative; overflow: hidden; }
-.logo { position: absolute; top: 56px; left: 72px; height: 58px; }
+body { width: 1200px; height: 630px; background: #FFFFFF; color: #111111; font-family: IN, sans-serif; position: relative; overflow: hidden; }
+.logo { position: absolute; top: 48px; left: 72px; height: 72px; }
 .main { position: absolute; left: 72px; right: 72px; top: 170px; }
 .eyebrow { font-size: 30px; font-weight: 500; color: #45474a; letter-spacing: 0.5px; }
-h1 { font-family: VR, sans-serif; font-weight: 400; font-size: 96px; line-height: 1.05; margin-top: 8px; }
+h1 { font-family: PO, sans-serif; font-weight: 600; font-size: 96px; line-height: 1.05; margin-top: 8px; }
 .fig { margin-top: 34px; display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
-.num { font-family: VR, sans-serif; font-size: 64px; }
+.num { font-family: PO, sans-serif; font-weight: 600; font-size: 64px; }
 .say { font-size: 34px; font-weight: 500; }
 .note { margin-top: 14px; font-size: 26px; font-weight: 500; color: #45474a; }
 .foot { position: absolute; left: 72px; right: 72px; bottom: 48px; display: flex; align-items: center; gap: 16px; font-size: 24px; color: #45474a; }

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22",
+ "updated": "2026-11-26",
  "county": [
   {
    "office": "Governor",
@@ -7,8 +7,8 @@
    "party": "UPA",
    "since": "Dec 2020 (took over after Governor Nyagarama died); elected Aug 2022",
    "src": "https://www.kenyanews.go.ke/incumbents-retain-seats-in-nyamira/",
-   "note": "In November 2025 the County Assembly voted 23–0 to impeach Governor Nyaribo. On 3 December 2025 the Senate upheld his objection to the process, so he was not removed.",
-   "noteSrc": "https://citizen.digital/article/nyamira-governor-amos-nyaribo-survives-impeachment-after-senate-upholds-objections-n373964"
+   "note": "In November 2025 the County Assembly voted to impeach Governor Nyaribo (23 MCAs voted; 19 were physically present). On 3 December 2025 the Senate upheld a preliminary objection that the Assembly had not met the two-thirds threshold. The impeachment was terminated and Nyaribo remains in office. The charges were never tested on their merits.",
+   "noteSrc": "https://www.the-star.co.ke/news/2025-12-03-nyaribo-survives-as-senate-votes-against-ouster"
   },
   {
    "office": "Deputy Governor",
@@ -22,7 +22,7 @@
    "name": "Thaddeus Nyabaro Momanyi",
    "party": "",
    "since": "Elected Dec 2024",
-   "note": "Disputed. In June 2025 the High Court at Bomet found that former Speaker Enock Okero ceased to hold office on 24 October 2024 and dismissed a challenge to Nyabaro's election, but said it could not decide who is Speaker. Okero appealed, and in March 2026 The Standard reported a Labour Court finding that his removal was unlawful. Nyabaro chairs every 2025–2026 sitting in the Hansard.",
+   "note": "Disputed. The Bomet High Court (Justice Ngarngar) affirmed Okero's impeachment was valid and recognised Nyabaro as the legitimate Speaker, with only gazettement outstanding. Okero appealed; no published outcome found as of Nov 2026. In March 2026 The Standard reported a Labour Court finding that Okero's removal was unlawful. Nyabaro chairs every 2025–2026 sitting in the Hansard and expelled 10 MCAs in mid-2025.",
    "src": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2025/7765/eng@2025-06-04"
   }
  ],
@@ -79,120 +79,141 @@
    "src": "https://capitalfm.africa/amos-nyaribo-takes-charge-as-nyamira-governor-to-serve-until-august-2022/"
   }
  ],
- "mcaSource": "https://educationnewshub.co.ke/iebc-list-of-elected-and-gazetted-mcas-2022-per-county-nyamira-plus-votes-garnered/",
- "mcaSourceName": "Education News Hub (a republished copy of the IEBC list, not the IEBC itself)",
+ "mcaSource": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+ "mcaSourceName": "IEBC Gazette Notice No. 9956 (2022 baseline; current changes still being checked)",
  "mcaGazetteChecked": false,
- "mcaGazetteNote": "To do: check each 2022 name against the IEBC's Kenya Gazette notice of elected MCAs and each by-election winner against its own gazette notice, then replace mcaSource with the gazette references.",
+ "mcaGazetteNote": "Updated 26 Nov 2026. 2022 baseline: 15 MCAs from IEBC Gazette Notice No. 9956 (Vol. CXXIV, No. 170, 24 Aug 2022); each now has the gazette PDF as src. Names should still be checked character-by-character against the PDF. By-elections: Nyansiongo, Nyamaiya and Ekerenyo MCAs are gazette-verified (IEBC gazette 1 Dec 2025, PDF linked as src). Rigoma and Bokeira: expelled Jul 2025, reinstated by interim court order; full hearing outcome not found — check Kenya Law or Nyamira HC registry. Keep mcaGazetteChecked false until every name is verified against its gazette and the Rigoma/Bokeira case is resolved.",
  "mcas": {
   "esise": {
    "name": "Josiah Obegi Mang'era",
    "party": "ODM",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "mekenene": {
    "name": "Alfayo Ngeresa Mabera",
    "party": "UPA",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "kiabonyoru": {
    "name": "Thomas Vincent Benecha",
    "party": "ODM",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "nyansiongo": {
    "name": "Jackson Mogusu Mochumbe",
    "party": "PDP",
    "since": "Nov 2025 by-election",
-   "note": "Won the by-election after the 2022 result was overturned on petition.",
-   "src": "https://allafrica.com/stories/202512020074.html"
+   "note": "Won the by-election on 27 Nov 2025 after the 2022 result was overturned on petition. Gazetted 1 Dec 2025.",
+   "src": "https://www.iebc.or.ke/uploads/resources/EHWTStffeC.pdf",
+   "byElection": true,
+   "gazetteVerified": true
   },
   "rigoma": {
    "name": "Emmanuel Nyambega Gisesa",
    "party": "UPA",
    "since": "2022",
-   "note": "Seat declared vacant Jul 2025; reinstated by an interim High Court order. Final ruling not yet confirmed.",
+   "note": "Expelled Jul 2025 for absenteeism; reinstated by interim High Court order (Judge Okwany). Full hearing was set for 30 Jul 2025; no published outcome found as of Nov 2026.",
    "src": "https://citizen.digital/news/relief-for-10-expelled-nyamira-mcas-as-court-reinstates-them-n366140"
   },
   "gachuba": {
    "name": "Henry Onsinyo Obwaya",
    "party": "KNC",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "kemera": {
    "name": "James Matinga Nyachaki",
    "party": "Wiper",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "magombo": {
    "name": "Reuben Miinda Riechi",
    "party": "FORD-Kenya",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "manga": {
    "name": "Samwel G. Ogeto",
    "party": "PPOK",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "gesima": {
    "name": "Kenneth Atuth Nyameino",
    "party": "UDA",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "nyamaiya": {
    "name": "Christopher Moturi Osiemo",
    "party": "UPA",
    "since": "Nov 2025 by-election",
-   "note": "Elected after the death of MCA Elijah Osiemo Thomas in 2024.",
-   "src": "https://www.the-star.co.ke/news/2025-11-28-upa-candidate-wins-nyamaiya-ward-seat"
+   "note": "Elected on 27 Nov 2025 after the death of MCA Elijah Osiemo Thomas in 2024. Gazetted 1 Dec 2025.",
+   "src": "https://www.iebc.or.ke/uploads/resources/EHWTStffeC.pdf",
+   "byElection": true,
+   "gazetteVerified": true
   },
   "bogichora": {
    "name": "George Morara Abuga",
    "party": "ODM",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "bosamaro": {
    "name": "Charles Keganda Nyarango",
    "party": "Jubilee",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "bonyamatuta": {
    "name": "Julius Kimwom Matwere",
    "party": "Independent",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "township": {
    "name": "Duke Oyagi Masira",
    "party": "ODM",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "itibo": {
    "name": "Lameck Nyakianga Sikweya",
    "party": "ANC",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "bomwagamo": {
    "name": "Julius Obonyo Nyangana",
    "party": "FORD-Kenya",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "bokeira": {
    "name": "Joel Ombongi Nyang'au",
    "party": "UPA",
    "since": "2022",
-   "note": "Seat declared vacant Jul 2025; reinstated by an interim High Court order. Final ruling not yet confirmed.",
+   "note": "Expelled Jul 2025 for absenteeism; reinstated by interim High Court order (Judge Okwany). Full hearing was set for 30 Jul 2025; no published outcome found as of Nov 2026.",
    "src": "https://citizen.digital/news/relief-for-10-expelled-nyamira-mcas-as-court-reinstates-them-n366140"
   },
   "magwagwa": {
    "name": "Abel Mokaya Mose",
    "party": "UPA",
-   "since": "2022"
+   "since": "2022",
+   "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
   },
   "ekerenyo": {
    "name": "Jeremiah Njenga Ongaro",
    "party": "UPA",
    "since": "Nov 2025 by-election",
-   "note": "Elected after MCA Thaddeus Nyabaro became Speaker.",
-   "src": "https://www.the-star.co.ke/news/2025-11-28-upa-candidate-wins-nyamaiya-ward-seat"
+   "note": "Elected on 27 Nov 2025 after MCA Thaddeus Nyabaro became Speaker. Gazetted 1 Dec 2025.",
+   "src": "https://www.iebc.or.ke/uploads/resources/EHWTStffeC.pdf",
+   "byElection": true,
+   "gazetteVerified": true
   }
  }
 }

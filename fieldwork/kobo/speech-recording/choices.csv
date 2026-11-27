@@ -1,0 +1,44 @@
+list_name,name,label
+mode,read,Read a sentence aloud
+mode,free,Say something freely
+mode,word,Record a single word
+gender,male,Male
+gender,female,Female
+age_range,18-30,18–30
+age_range,31-45,31–45
+age_range,46-60,46–60
+age_range,61-75,61–75
+age_range,76+,76+
+quality,clear,Clear — quiet room or outdoors
+quality,some_noise,Some background noise
+quality,noisy,Noisy — may need re-recording
+speech_type,word,Single word or phrase
+speech_type,sentence,Sentence
+speech_type,greeting,Greeting or conversation
+speech_type,proverb,Proverb
+speech_type,story,Story or narrative
+speech_type,song,Song or chant
+speech_type,instruction,How-to or instruction
+speech_type,prayer,Prayer or invocation
+yesno,yes,Yes
+yesno,no,No
+sentence_set,basic,Basic phrases (greetings and everyday)
+sentence_set,numbers,Numbers and counting
+sentence_set,nature,Nature and farming
+sentence_set,food,Food and cooking
+sentence_set,family,Family and kinship
+sentence_set,health,Health and body
+sentence_set,market,Market and trade
+sentence_set,school,School and learning
+sentence_set,custom,Custom sentences (you choose)
+noun_class,1-2,Class 1/2 (omo- / aba-)
+noun_class,3-4,Class 3/4 (omo- / eme-)
+noun_class,5-6,Class 5/6 (eri- / ama-)
+noun_class,7-8,Class 7/8 (eke- / ebi-)
+noun_class,9-10,Class 9/10 (eN- / eN-)
+noun_class,11-10,Class 11/10 (oro- / eN-)
+noun_class,12-13,Class 12/13 (aka- / obo-)
+noun_class,14,Class 14 (obo-)
+noun_class,15,Class 15 (oko-)
+noun_class,16,Class 16 (a-)
+noun_class,other,Other or unsure

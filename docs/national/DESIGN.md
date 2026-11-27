@@ -11,12 +11,12 @@
 
 ## What it inherits, and what is its own
 
-A sibling of Nyamira Daily, not a copy.
+A sibling of Gusii Daily, not a copy.
 
 - **Shared:** League Spartan and Varela Round, the neutrals, evidence labels, the Calm rules of decision #69 (one level of container with a hairline edge, one soft shadow only on things you can tap, numbers in Ink), and the chart frame with a title that states the finding.
-- **Its own:** a violet accent, a Dusk panel for the headline where Nyamira Daily uses Ink, the stage strip, and the KSh 100 notes.
+- **Its own:** a violet accent, a Dusk panel for the headline where Gusii Daily uses Ink, the stage strip, and the KSh 100 notes.
 - **No logo yet.** The name is set in Varela Round from `site.name` until the owner chooses it.
-- **Signal Green stays with Nyamira Daily.** It does not appear in the national product.
+- **Signal Green stays with Gusii Daily.** It does not appear in the national product.
 
 ## Accent colour
 
@@ -136,7 +136,7 @@ Fonts are the three self-hosted files, 38 KB in all: League Spartan 500 and 700,
 
 | Component | Decision | Work needed |
 |---|---|---|
-| `EvidenceLabel` | Reuse | Its meaning text says "Nyamira Daily"; take the site name as a prop |
+| `EvidenceLabel` | Reuse | Its meaning text says "Gusii Daily"; take the site name as a prop |
 | `ChartFrame` | Reuse | CSV as a file link. Today's `data:` link repeats every number in the page |
 | `LineChart` | Extend into `TrendLine` | Phone-sized canvas, a stage mark on each point, keyboard layer |
 | `ColumnChart` | Reuse | Keyboard layer |

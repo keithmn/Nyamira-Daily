@@ -9,6 +9,7 @@
 import geo from '../data/geo.json';
 import nb from '../data/neighbours.json';
 import wards from '../data/wards.js';
+import register from '../data/ward-register.json';
 import leaders from '../data/leaders.json';
 import Icon from './Icon.astro';
 import TownMarks from './TownMarks.astro';
@@ -26,34 +27,38 @@ const moneyMax = Math.max(...Object.values(money).filter((v) => v != null));
 const bounds = (max) => [1, 2, 3, 4, 5].map((k) => Math.ceil((k / 5) * max));
 const fb = bounds(facMax), mb = bounds(moneyMax);
 const short = (v) => (v >= 1e6 ? `${parseFloat((v / 1e6).toFixed(1))}M` : v >= 1e3 ? `${Math.round(v / 1e3)}K` : String(v));
-const info = Object.fromEntries(wards.map((w) => {
-  const m = leaders.mcas?.[w.slug];
-  return [w.slug, {
-    name: w.name, sub: w.subCounty, mca: m ? m.name + (m.party ? ` (${m.party})` : '') : null,
-    fac: { all: w.facilities.length, ...w.counts },
-    money: money[w.slug] == null ? null : ksh(money[w.slug]),
-    vb: geo.wards[w.slug].vb,
+// Every ward on the one map. Kisii wards have no facility or money records yet: their values stay null (unknown).
+const civic = Object.fromEntries(wards.map((w) => [w.slug, w]));
+const info = Object.fromEntries(register.wards.map((r) => {
+  const w = civic[r.slug];
+  const m = leaders.mcas?.[r.slug];
+  return [r.slug, {
+    name: r.name, sub: r.constituency, county: r.county,
+    mca: m ? m.name + (m.party ? ` (${m.party})` : '') : null,
+    fac: w ? { all: w.facilities.length, ...w.counts } : { all: null },
+    money: money[r.slug] == null ? null : ksh(money[r.slug]),
+    vb: geo.wards[r.slug].vb,
   }];
 }));
 const data = JSON.stringify({ info, cats }).split('<').join('\\u003c');
 const views = [
   ['wards', 'map', 'Wards'], ['facilities', 'health', 'Facilities'], ['money', 'money', 'Ward money'],
 ];
-const VB = '-60 -40 720 1030';
+const VB = geo.frame;
 ---
-<section class="atlas" data-view="wards" aria-label="Map of Nyamira County">
+<section class="atlas" data-view="wards" aria-label="Map of the Gusii counties">
   <div class="at-stage">
-    <svg class="at-map" viewBox={VB} data-home={VB} role="img" aria-label="Map of Nyamira County's 20 wards. Each ward links to its page.">
+    <svg class="at-map" viewBox={VB} data-home={VB} role="img" aria-label={`Map of the Gusii counties: ${register.wards.length} wards in Nyamira and Kisii. Each ward links to its page.`}>
       <defs><clipPath id="at-clip"><rect x="-400" y="-400" width="1400" height="1800" /></clipPath></defs>
       <g class="at-nb" aria-hidden="true">
-        {Object.entries(nb.counties).filter(([n]) => n !== 'Nyamira').map(([n, c]) => <path d={c.d} />)}
-        {[['Kisumu', 250, -72], ['Homa Bay', -10, 40], ['Kericho', 600, -10], ['Bomet', 640, 620], ['Kisii', -20, 620], ['Narok', 330, 975]].map(([n, x, y]) => <text x={x} y={y}>{n}</text>)}
+        {Object.entries(nb.counties).filter(([n]) => n !== 'Nyamira' && n !== 'Kisii').map(([n, c]) => <path d={c.d} />)}
+        {[['Kisumu', 250, -72], ['Homa Bay', -10, 40], ['Kericho', 600, -10], ['Bomet', 640, 620], ['Narok', 330, 975]].map(([n, x, y]) => <text x={x} y={y}>{n}</text>)}
       </g>
       <g class="at-wards">
         {Object.entries(geo.wards).map(([s, g]) => (
           <a href={`/ward/${s}/`} data-w={s}>
             <title>{info[s].name}</title>
-            <path class={`at-w sc${subIdx[info[s].sub]}`} d={g.d} data-f={step(info[s].fac.all, facMax)} data-m={step(money[s], moneyMax)} />
+            <path class={info[s].county === 'nyamira' ? `at-w sc${subIdx[info[s].sub]}` : 'at-w k'} d={g.d} data-f={step(info[s].fac.all, facMax)} data-m={step(money[s], moneyMax)} />
           </a>
         ))}
       </g>
@@ -62,7 +67,7 @@ const VB = '-60 -40 720 1030';
         {Object.entries(geo.wards).map(([s, g]) => (
           <g data-l={s}>
             <text class="at-name" x={g.cx} y={g.cy}>{info[s].name}</text>
-            <text class="at-val v-facilities" x={g.cx} y={Number(g.cy) + 24} data-n={s}>{info[s].fac.all}</text>
+            <text class="at-val v-facilities" x={g.cx} y={Number(g.cy) + 24} data-n={s}>{info[s].fac.all ?? '?'}</text>
             <text class="at-val v-money" x={g.cx} y={Number(g.cy) + 24}>{money[s] == null ? '?' : short(money[s])}</text>
           </g>
         ))}
@@ -107,7 +112,7 @@ const VB = '-60 -40 720 1030';
         {fb.map((b, i) => <span class="key"><i class={`pm-sw f${i + 1}`}></i>{i === 0 ? `1–${b}` : `${fb[i - 1] + 1}–${b}`}</span>)}
         <span class="key" data-fscale>Facilities listed per ward</span>
       </div>
-      <p class="source small">Source: the Nyamira Daily facility list; see <a href="/about/data/">Open data</a>.</p>
+      <p class="source small">Source: the Gusii Daily facility list; see <a href="/about/data/">Open data</a>.</p>
     </div>
     <div class="at-key v-money">
       <p class="small"><strong>Ward money.</strong> What the county budgeted for each ward's own projects in 2025/26. Some lines are printed as KSh 0 in the budget; see each ward page.</p>
@@ -153,9 +158,9 @@ const VB = '-60 -40 720 1030';
     var key = b.dataset.cat, max = 1, s;
     for (s in D.info) max = Math.max(max, D.info[s].fac[key] || 0);
     root.querySelectorAll('[data-w]').forEach(function (a) {
-      var n = D.info[a.dataset.w].fac[key] || 0;
-      a.querySelector('path').dataset.f = stepOf(n, max);
-      root.querySelector('[data-n="' + a.dataset.w + '"]').textContent = n;
+      var raw = D.info[a.dataset.w].fac[key], n = raw || 0;
+      a.querySelector('path').dataset.f = raw == null ? 'u' : stepOf(n, max);
+      root.querySelector('[data-n="' + a.dataset.w + '"]').textContent = raw == null ? '?' : n;
     });
     var keys = root.querySelectorAll('[data-fkey] .key');
     for (var k = 1; k <= 5; k++) {
@@ -237,7 +242,7 @@ const VB = '-60 -40 720 1030';
     f('sub').textContent = w.sub + ' Constituency';
     f('name').textContent = w.name + ' Ward';
     f('mca').textContent = w.mca || 'Not confirmed';
-    f('fac').textContent = String(w.fac.all);
+    f('fac').textContent = w.fac.all == null ? 'Not yet listed' : String(w.fac.all);
     f('money').textContent = w.money || 'Not found in the budget';
     f('open').href = '/ward/' + s + '/';
     card.hidden = false;

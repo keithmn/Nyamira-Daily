@@ -17,6 +17,6 @@
     "./components/ChartFrame.astro": "./src/components/ChartFrame.astro"
   },
   "peerDependencies": {
-    "astro": "7.4.4"
+    "astro": "^7.4.4"
   }
 }

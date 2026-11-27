@@ -16,7 +16,7 @@ function exportedItem(id, overrides = {}) {
     status: 'reported-available',
     observedOn: '2026-10-20',
     source: 'Resident report',
-    sourceRef: 'Reader report reviewed by Nyamira Daily',
+    sourceRef: 'Reader report reviewed by Gusii Daily',
     evidence: 'unverified',
     reviewedAt: '2026-10-28T09:15:00Z',
     ...overrides,

@@ -3,20 +3,42 @@ import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 const terms = [
   ['Absorption rate', 'The share of the money budgeted that was actually spent.'],
-  ['Development budget', 'Money for building or buying things that last, such as roads, clinics and classrooms.'],
-  ['Recurrent budget', 'Money for running costs, such as salaries, drugs and fuel.'],
-  ['Equitable share', 'The county\'s share of money raised nationally, sent by the national government.'],
-  ['Own-source revenue', 'Money the county collects itself, from fees, permits and charges.'],
-  ['Pending bills', 'Bills the county owes to suppliers and has not yet paid.'],
-  ['MCA', 'Member of the County Assembly, elected by each ward.'],
+  ['ADP', 'Annual Development Plan. A one-year plan the county publishes each year saying which projects it will carry out that financial year, and how much each will cost.'],
+  ['CARA', 'County Allocation of Revenue Act. The national law that sets how much each of Kenya\'s 47 counties gets from the national treasury each financial year.'],
   ['CEC member', 'County Executive Committee member, who heads a county department.'],
+  ['CIDP', 'County Integrated Development Plan. A five-year plan each county must write, listing its goals, projects and budgets for the period.'],
+  ['Development budget', 'Money for building or buying things that last, such as roads, clinics and classrooms.'],
+  ['ECDE', 'Early Childhood Development Education. Pre-primary education for children roughly three to five years old, run by the county government.'],
+  ['Equitable share', 'The county\'s share of money raised nationally, sent by the national government.'],
+  ['FIF', 'Facility Improvement Financing. Money that hospitals and health centres collect from patients, which they keep and spend on their own improvements.'],
+  ['Gazette', 'The Kenya Gazette. The government\'s official newspaper, published weekly. Laws, appointments, procurement notices and other official actions take effect when they appear in it.'],
   ['Hansard', 'The official written record of what was said in the Assembly.'],
+  ['KCSE', 'Kenya Certificate of Secondary Education. The national exam taken at the end of secondary school, set and marked by KNEC.'],
+  ['KDHS', 'Kenya Demographic and Health Survey. A nationwide household survey carried out roughly every five years, covering health, fertility, nutrition and HIV.'],
+  ['KeNHA', 'Kenya National Highways Authority. The national agency responsible for major highways (Class A, B and C roads).'],
+  ['KeRRA', 'Kenya Rural Roads Authority. The national agency responsible for rural roads (Class D and below), including most roads in Nyamira.'],
+  ['KHIS', 'Kenya Health Information System. The national database of health facility records — births, vaccinations, outpatient visits and more — maintained by the Ministry of Health.'],
+  ['KNEC', 'Kenya National Examinations Council. The body that sets and marks national exams, including KCSE and KCPE.'],
+  ['KURA', 'Kenya Urban Roads Authority. The national agency responsible for roads in municipalities and towns.'],
+  ['MCA', 'Member of the County Assembly, elected by each ward.'],
+  ['NG-CDF', 'National Government Constituencies Development Fund. National money sent to each constituency for local projects such as bursaries, classrooms and water tanks. It is national money, not county money.'],
   ['Order paper', 'The list of business for a sitting of the Assembly.'],
+  ['Own-source revenue', 'Money the county collects itself, from fees, permits and charges.'],
+  ['PBB', 'Programme-Based Budget. A budget that groups spending by what it is meant to achieve (programmes and sub-programmes), rather than just listing items.'],
+  ['Pending bills', 'Bills the county owes to suppliers and has not yet paid. They carry over into the next financial year until settled.'],
+  ['PPIP', 'Public Procurement Information Portal. The national website where government bodies must publish their tenders and contract awards.'],
   ['Public participation', 'The legal requirement for the county to involve residents in decisions.'],
+  ['Recurrent budget', 'Money for running costs, such as salaries, drugs and fuel.'],
+  ['Supplementary budget', 'A revised budget passed during the financial year to adjust spending up or down from the original approved budget.'],
+  ['Ward', 'The smallest unit of elected government in Kenya. Each ward elects one MCA. Nyamira has 20 wards in four sub-counties.'],
+  ['Ward Development Fund', 'A share of the county development budget set aside for projects chosen at the ward level, through public participation.'],
 ];
 ---
-<Base title="Glossary">
+<Base title="Civic glossary: county government terms explained">
   <PageHead eyebrow="The county" title="Glossary" lead="Plain meanings of words you will meet on this site." crumbs={[{ href: '/map/', label: 'Places' }, { href: '/about/glossary/', label: 'Glossary' }]} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Maneno 30 ya bajeti na serikali ya kaunti yaliyoelezwa kwa lugha nyepesi — kama vile bajeti ya maendeleo, mgao sawa, PBB, NG-CDF na madeni yanayosubiri.</p></div>
+
   <dl class="stack" style="margin-top:16px">
     {terms.map(([t, d]) => (<div class="card"><dt><strong>{t}</strong></dt><dd style="margin:0">{d}</dd></div>))}
   </dl>

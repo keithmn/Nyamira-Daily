@@ -1,0 +1,5474 @@
+{
+  "generated": "2026-11-26",
+  "source": "OpenStreetMap via Overpass API",
+  "licence": "© OpenStreetMap contributors (ODbL)",
+  "query": "[out:json][timeout:180];\narea(3603486290)->.nyamira;\n(\n  nwr[\"amenity\"](area.nyamira);\n  nwr[\"building\"~\"school|hospital|church|mosque|commercial|public|government\"](area.nyamira);\n  nwr[\"shop\"](area.nyamira);\n  nwr[\"office\"~\"government|ngo|administrative\"](area.nyamira);\n  way[\"highway\"][\"name\"](area.nyamira);\n  way[\"highway\"][\"ref\"](area.nyamira);\n  nwr[\"place\"](area.nyamira);\n  nwr[\"man_made\"~\"water_well|water_tower|water_works|reservoir_covered\"](area.nyamira);\n  nwr[\"waterway\"~\"river|stream\"][\"name\"](area.nyamira);\n  nwr[\"landuse\"=\"reservoir\"](area.nyamira);\n  nwr[\"leisure\"~\"stadium|sports_centre|pitch\"](area.nyamira);\n);\nout center tags;",
+  "count": 329,
+  "features": [
+    {
+      "osmId": "node/44910266",
+      "type": "node",
+      "lat": -0.6333,
+      "lon": 34.8333,
+      "name": "Zacharia",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Zacharia",
+        "place": "village"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "node/44929547",
+      "type": "node",
+      "lat": -0.4833,
+      "lon": 35.0166,
+      "name": "Maragwa",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "created_by": "JOSM",
+        "is_in": "Nyamira,Kenya",
+        "name": "Maragwa",
+        "place": "village"
+      },
+      "ward": "magwagwa"
+    },
+    {
+      "osmId": "node/44929639",
+      "type": "node",
+      "lat": -0.4833,
+      "lon": 35.0166,
+      "name": "Maraagwa",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "created_by": "JOSM",
+        "is_in": "Nyamira,Kenya",
+        "name": "Maraagwa",
+        "place": "village"
+      },
+      "ward": "magwagwa"
+    },
+    {
+      "osmId": "node/44930127",
+      "type": "node",
+      "lat": -0.4833,
+      "lon": 35.0166,
+      "name": "Magwagwa",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "is_in": "Nyamira,Kenya",
+        "name": "Magwagwa",
+        "place": "village",
+        "wikidata": "Q6732558"
+      },
+      "ward": "magwagwa"
+    },
+    {
+      "osmId": "node/44995465",
+      "type": "node",
+      "lat": -0.7781996,
+      "lon": 34.9472145,
+      "name": "Keroka",
+      "category": "Place",
+      "subtype": "town",
+      "tags": {
+        "name": "Keroka",
+        "place": "town",
+        "wikidata": "Q6394255",
+        "wikipedia": "en:Keroka"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "node/44999203",
+      "type": "node",
+      "lat": -0.5333,
+      "lon": 35.0166,
+      "name": "Ikonge",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "is_in": "Nyamira,Kenya",
+        "name": "Ikonge",
+        "place": "village",
+        "wikidata": "Q5996143"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "node/45006094",
+      "type": "node",
+      "lat": -0.5166209,
+      "lon": 34.8832799,
+      "name": "Bonyunyu",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "is_in": "Nyamira,Kenya",
+        "name": "Bonyunyu",
+        "place": "village",
+        "wikidata": "Q4942704"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "node/45006401",
+      "type": "node",
+      "lat": -0.5166,
+      "lon": 34.8833,
+      "name": "Bunyunya",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "created_by": "JOSM",
+        "is_in": "Nyamira,Kenya",
+        "name": "Bunyunya",
+        "place": "village"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "node/2144232821",
+      "type": "node",
+      "lat": -0.6812304,
+      "lon": 34.8219259,
+      "name": null,
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "place": "village"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "node/2844014006",
+      "type": "node",
+      "lat": -0.7636602,
+      "lon": 35.0008202,
+      "name": "Nyansiongo",
+      "category": "Market",
+      "subtype": "marketplace",
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Nyansiongo"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/2858154143",
+      "type": "node",
+      "lat": -0.6143076,
+      "lon": 34.8355267,
+      "name": "Manga",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Manga",
+        "place": "village"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "node/2868220641",
+      "type": "node",
+      "lat": -0.4999505,
+      "lon": 34.8807393,
+      "name": "Miruka",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Miruka",
+        "place": "village"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "node/2987230799",
+      "type": "node",
+      "lat": -0.601181,
+      "lon": 34.962309,
+      "name": "Kebirigo",
+      "category": "Place",
+      "subtype": "town",
+      "tags": {
+        "name": "Kebirigo",
+        "place": "town",
+        "wikidata": "Q657924"
+      },
+      "ward": "bonyamatuta"
+    },
+    {
+      "osmId": "node/3098823940",
+      "type": "node",
+      "lat": -0.7593971,
+      "lon": 35.0145765,
+      "name": "Nyansiongo",
+      "category": "Market",
+      "subtype": "marketplace",
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Nyansiongo"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/3612418873",
+      "type": "node",
+      "lat": -0.6928537,
+      "lon": 35.0723116,
+      "name": "Chepilat Petrol Station",
+      "category": "Other",
+      "subtype": "fuel",
+      "tags": {
+        "addr:city": "Kericho",
+        "addr:street": "B3",
+        "amenity": "fuel",
+        "name": "Chepilat Petrol Station"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "node/4870252485",
+      "type": "node",
+      "lat": -0.566595,
+      "lon": 34.9357117,
+      "name": "Nyamira",
+      "category": "Place",
+      "subtype": "town",
+      "tags": {
+        "name": "Nyamira",
+        "place": "town",
+        "population": "10000"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "node/5300212223",
+      "type": "node",
+      "lat": -0.6650483,
+      "lon": 34.844137,
+      "name": "Kemera",
+      "category": "Other",
+      "subtype": "community_centre",
+      "tags": {
+        "amenity": "community_centre",
+        "name": "Kemera",
+        "opening_hours": "PH,Mo-Su 08:00-18:00+"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "node/5304356421",
+      "type": "node",
+      "lat": -0.5606686,
+      "lon": 34.9722628,
+      "name": "Nyaramba",
+      "category": "Other",
+      "subtype": "community_centre",
+      "tags": {
+        "amenity": "community_centre",
+        "name": "Nyaramba"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "node/5454290321",
+      "type": "node",
+      "lat": -0.5327687,
+      "lon": 35.0265231,
+      "name": "Ikonge",
+      "category": "Other",
+      "subtype": "community_centre",
+      "tags": {
+        "amenity": "community_centre",
+        "name": "Ikonge"
+      },
+      "ward": "ekerenyo"
+    },
+    {
+      "osmId": "node/5733416865",
+      "type": "node",
+      "lat": -0.5586633,
+      "lon": 35.0038407,
+      "name": "Itibo Health Centre S.D.A.",
+      "category": "Health",
+      "subtype": "hospital",
+      "tags": {
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "healthcare:speciality": "general",
+        "name": "Itibo Health Centre S.D.A.",
+        "operator": "www.itibo.cz"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "node/5889724248",
+      "type": "node",
+      "lat": -0.60079,
+      "lon": 35.0248723,
+      "name": "Nyamiranga S.D.A Secondary School",
+      "category": "Education",
+      "subtype": "secondary school",
+      "tags": {
+        "amenity": "school",
+        "name": "Nyamiranga S.D.A Secondary School",
+        "operator": "Seventh Day Adventist Church",
+        "religion": "christian"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "node/5890527863",
+      "type": "node",
+      "lat": -0.6009984,
+      "lon": 35.0237606,
+      "name": "Nyamiranga D.E.B Primary School",
+      "category": "Education",
+      "subtype": "primary school",
+      "tags": {
+        "amenity": "school",
+        "name": "Nyamiranga D.E.B Primary School"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "node/5890534244",
+      "type": "node",
+      "lat": -0.5928913,
+      "lon": 35.0226572,
+      "name": "Bonyunyu Market",
+      "category": "Market",
+      "subtype": "marketplace",
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Bonyunyu Market"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "node/5894566945",
+      "type": "node",
+      "lat": -0.6154752,
+      "lon": 35.0265122,
+      "name": "Mokomoni Market",
+      "category": "Market",
+      "subtype": "marketplace",
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Mokomoni Market"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "node/5898250734",
+      "type": "node",
+      "lat": -0.5967426,
+      "lon": 35.0167801,
+      "name": "Erandi E.L.C.K Church",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "name": "Erandi E.L.C.K Church",
+        "religion": "christian"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "node/5898262129",
+      "type": "node",
+      "lat": -0.5908768,
+      "lon": 35.0291091,
+      "name": "Ekerubo Gietai Technical Training Institute",
+      "category": "Education",
+      "subtype": "college",
+      "tags": {
+        "amenity": "college",
+        "name": "Ekerubo Gietai Technical Training Institute"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "node/5901005077",
+      "type": "node",
+      "lat": -0.6122865,
+      "lon": 35.0262132,
+      "name": "Nyamiranga S.D.A Church",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "name": "Nyamiranga S.D.A Church",
+        "religion": "christian"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "node/5901014578",
+      "type": "node",
+      "lat": -0.610342,
+      "lon": 35.0488986,
+      "name": "Kitaru Centre",
+      "category": "Market",
+      "subtype": "marketplace",
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Kitaru Centre"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "node/5903134603",
+      "type": "node",
+      "lat": -0.615875,
+      "lon": 35.0251118,
+      "name": "Mokomoni Tea Buying Centre",
+      "category": "Market",
+      "subtype": "marketplace",
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Mokomoni Tea Buying Centre"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "node/5928290257",
+      "type": "node",
+      "lat": -0.5299302,
+      "lon": 34.9892633,
+      "name": "Bridge point hotel",
+      "category": "Other",
+      "subtype": "cafe",
+      "tags": {
+        "amenity": "cafe",
+        "name": "Bridge point hotel",
+        "smoking": "no"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "node/6105571209",
+      "type": "node",
+      "lat": -0.7668563,
+      "lon": 34.931164,
+      "name": "Amabuko Secondary School",
+      "category": "Education",
+      "subtype": "secondary school",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:street": "B3",
+        "amenity": "school",
+        "name": "Amabuko Secondary School"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "node/6105571211",
+      "type": "node",
+      "lat": -0.7723695,
+      "lon": 34.9419795,
+      "name": "Regnol Oil K limited",
+      "category": "Other",
+      "subtype": "fuel",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:street": "B3",
+        "amenity": "fuel",
+        "name": "Regnol Oil K limited"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "node/6105571218",
+      "type": "node",
+      "lat": -0.773083,
+      "lon": 34.944272,
+      "name": "Keroka Council",
+      "category": "Public office",
+      "subtype": "government",
+      "tags": {
+        "addr:city": "Keroka",
+        "addr:street": "B3",
+        "name": "Keroka Council",
+        "office": "government"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "node/6105571220",
+      "type": "node",
+      "lat": -0.7740436,
+      "lon": 34.9443827,
+      "name": "Keroka Market",
+      "category": "Market",
+      "subtype": "marketplace",
+      "tags": {
+        "addr:city": "Keroka",
+        "addr:street": "B3",
+        "amenity": "marketplace",
+        "name": "Keroka Market"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "node/6105571221",
+      "type": "node",
+      "lat": -0.7742488,
+      "lon": 34.9452816,
+      "name": "KCB ATM - Keroka",
+      "category": "Other",
+      "subtype": "bank",
+      "tags": {
+        "addr:city": "Keroka",
+        "addr:street": "B3",
+        "amenity": "bank",
+        "atm": "yes",
+        "name": "KCB ATM - Keroka"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "node/6105930788",
+      "type": "node",
+      "lat": -0.7783782,
+      "lon": 34.9475852,
+      "name": "Keroka Police Station",
+      "category": "Public office",
+      "subtype": "police",
+      "tags": {
+        "addr:city": "Keroka",
+        "addr:street": "B3",
+        "amenity": "police",
+        "check_date": "2026-04-21",
+        "name": "Keroka Police Station"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "node/6105930795",
+      "type": "node",
+      "lat": -0.7800839,
+      "lon": 34.9481389,
+      "name": "Equity Bank Keroka",
+      "category": "Other",
+      "subtype": "bank",
+      "tags": {
+        "addr:city": "Keroka",
+        "addr:street": "B3",
+        "amenity": "bank",
+        "atm": "yes",
+        "name": "Equity Bank Keroka"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "node/6105930796",
+      "type": "node",
+      "lat": -0.7802336,
+      "lon": 34.9482646,
+      "name": "Shell",
+      "category": "Other",
+      "subtype": "fuel",
+      "tags": {
+        "addr:city": "Keroka",
+        "addr:street": "B3",
+        "amenity": "fuel",
+        "brand": "Shell",
+        "brand:wikidata": "Q110716465",
+        "brand:wikipedia": "en:Royal Dutch Shell",
+        "compressed_air": "yes",
+        "name": "Shell"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "node/6105930800",
+      "type": "node",
+      "lat": -0.779456,
+      "lon": 34.9591513,
+      "name": "Bunker Hotel",
+      "category": "Other",
+      "subtype": "restaurant",
+      "tags": {
+        "addr:city": "Keroka",
+        "addr:street": "B3",
+        "amenity": "restaurant",
+        "name": "Bunker Hotel"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/6105930810",
+      "type": "node",
+      "lat": -0.7618877,
+      "lon": 35.0086579,
+      "name": "Susan Momanyi",
+      "category": "Market",
+      "subtype": "mall",
+      "tags": {
+        "addr:city": "Nyansiongo",
+        "addr:street": "B3",
+        "name": "Susan Momanyi",
+        "shop": "mall"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/6105930811",
+      "type": "node",
+      "lat": -0.7569049,
+      "lon": 35.0127634,
+      "name": "Co-op Bank ATM - Nyansiongo Branch",
+      "category": "Other",
+      "subtype": "bank",
+      "tags": {
+        "addr:city": "Nyansiongo",
+        "addr:street": "B3",
+        "amenity": "bank",
+        "name": "Co-op Bank ATM - Nyansiongo Branch"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/6105930818",
+      "type": "node",
+      "lat": -0.7602657,
+      "lon": 35.0147145,
+      "name": "Sunrise Supermarket",
+      "category": "Market",
+      "subtype": "supermarket",
+      "tags": {
+        "addr:city": "Nyansiongo",
+        "addr:street": "B3",
+        "name": "Sunrise Supermarket",
+        "shop": "supermarket"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/6105930820",
+      "type": "node",
+      "lat": -0.7564294,
+      "lon": 35.0169125,
+      "name": "KCB Mtaani - Daniel Onkangi Paul",
+      "category": "Other",
+      "subtype": "bank",
+      "tags": {
+        "addr:city": "Nyansiongo",
+        "addr:street": "B3",
+        "amenity": "bank",
+        "name": "KCB Mtaani - Daniel Onkangi Paul"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/6105930824",
+      "type": "node",
+      "lat": -0.7412319,
+      "lon": 35.0232702,
+      "name": "Amakara",
+      "category": "Market",
+      "subtype": "mall",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:street": "B3",
+        "name": "Amakara",
+        "shop": "mall"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/6105930827",
+      "type": "node",
+      "lat": -0.7179521,
+      "lon": 35.0390159,
+      "name": "Damside Bar And Grill",
+      "category": "Other",
+      "subtype": "bar",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:street": "B3",
+        "amenity": "bar",
+        "name": "Damside Bar And Grill"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/6118527428",
+      "type": "node",
+      "lat": -0.6912811,
+      "lon": 35.0497727,
+      "name": "Mwongori shopping centre",
+      "category": "Market",
+      "subtype": "yes",
+      "tags": {
+        "name": "Mwongori shopping centre",
+        "shop": "yes"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "node/6118527430",
+      "type": "node",
+      "lat": -0.6465464,
+      "lon": 35.0533856,
+      "name": "Kipkebe Tea Estate and Factory",
+      "category": "Place",
+      "subtype": "farm",
+      "tags": {
+        "name": "Kipkebe Tea Estate and Factory",
+        "place": "farm"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "node/6118537719",
+      "type": "node",
+      "lat": -0.6719738,
+      "lon": 35.0476443,
+      "name": "Mwamogusii SDA Church",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "name": "Mwamogusii SDA Church",
+        "religion": "christian"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "node/6354040445",
+      "type": "node",
+      "lat": -0.6839607,
+      "lon": 35.049738,
+      "name": "Mosabisabi",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "denomination": "seventh_day_adventist",
+        "name": "Mosabisabi",
+        "religion": "christian",
+        "service_times": "Saturdays"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "node/6354066371",
+      "type": "node",
+      "lat": -0.8407767,
+      "lon": 35.0039701,
+      "name": "Riang'ombe Pri. School",
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "amenity": "school",
+        "name": "Riang'ombe Pri. School",
+        "operator": "D.E.B"
+      },
+      "ward": "esise"
+    },
+    {
+      "osmId": "node/6556138203",
+      "type": "node",
+      "lat": -0.7458921,
+      "lon": 35.0628205,
+      "name": null,
+      "category": "Other",
+      "subtype": "bicycle_parking",
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "building"
+      },
+      "ward": "esise"
+    },
+    {
+      "osmId": "node/6581745651",
+      "type": "node",
+      "lat": -0.5290742,
+      "lon": 34.9888551,
+      "name": "Ekerenyo",
+      "category": "Other",
+      "subtype": "community_centre",
+      "tags": {
+        "amenity": "community_centre",
+        "name": "Ekerenyo"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "node/6776908885",
+      "type": "node",
+      "lat": -0.6870953,
+      "lon": 34.9193552,
+      "name": "Gekano Bricks",
+      "category": "Other",
+      "subtype": "community_centre",
+      "tags": {
+        "amenity": "community_centre",
+        "name": "Gekano Bricks"
+      },
+      "ward": "magombo"
+    },
+    {
+      "osmId": "node/6776908886",
+      "type": "node",
+      "lat": -0.6724804,
+      "lon": 34.9132354,
+      "name": "Magombo Market",
+      "category": "Market",
+      "subtype": "marketplace",
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Magombo Market"
+      },
+      "ward": "magombo"
+    },
+    {
+      "osmId": "node/6776908887",
+      "type": "node",
+      "lat": -0.6749954,
+      "lon": 34.9134954,
+      "name": "To St Theresas Gekano Girls",
+      "category": "Other",
+      "subtype": "community_centre",
+      "tags": {
+        "amenity": "community_centre",
+        "name": "To St Theresas Gekano Girls"
+      },
+      "ward": "magombo"
+    },
+    {
+      "osmId": "node/6776908888",
+      "type": "node",
+      "lat": -0.6539202,
+      "lon": 34.874002,
+      "name": "Tombe Market",
+      "category": "Market",
+      "subtype": "marketplace",
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Tombe Market"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "node/6776908985",
+      "type": "node",
+      "lat": -0.6659689,
+      "lon": 34.9089795,
+      "name": "Nyambaria High School",
+      "category": "Education",
+      "subtype": "secondary school",
+      "tags": {
+        "amenity": "school",
+        "name": "Nyambaria High School"
+      },
+      "ward": "magombo"
+    },
+    {
+      "osmId": "node/7123348485",
+      "type": "node",
+      "lat": -0.6922178,
+      "lon": 34.9607659,
+      "name": "KAMBINI",
+      "category": "Other",
+      "subtype": "community_centre",
+      "tags": {
+        "amenity": "community_centre",
+        "name": "KAMBINI"
+      },
+      "ward": "gesima"
+    },
+    {
+      "osmId": "node/7123349085",
+      "type": "node",
+      "lat": -0.7114241,
+      "lon": 34.9881847,
+      "name": "Gesima",
+      "category": "Other",
+      "subtype": "community_centre",
+      "tags": {
+        "amenity": "community_centre",
+        "name": "Gesima"
+      },
+      "ward": "gesima"
+    },
+    {
+      "osmId": "node/7984760720",
+      "type": "node",
+      "lat": -0.7766109,
+      "lon": 34.9461726,
+      "name": "Shivling",
+      "category": "Market",
+      "subtype": "supermarket",
+      "tags": {
+        "addr:city": "Keroka",
+        "name": "Shivling",
+        "shop": "supermarket"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "node/7984760721",
+      "type": "node",
+      "lat": -0.777538,
+      "lon": 34.9465749,
+      "name": "National Oil",
+      "category": "Other",
+      "subtype": "fuel",
+      "tags": {
+        "amenity": "fuel",
+        "name": "National Oil"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "node/8002985117",
+      "type": "node",
+      "lat": -0.5295004,
+      "lon": 35.024154,
+      "name": null,
+      "category": "Other",
+      "subtype": "bicycle_parking",
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "building"
+      },
+      "ward": "ekerenyo"
+    },
+    {
+      "osmId": "node/8003385790",
+      "type": "node",
+      "lat": -0.5274505,
+      "lon": 35.0134892,
+      "name": null,
+      "category": "Other",
+      "subtype": "bicycle_parking",
+      "tags": {
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "building"
+      },
+      "ward": "ekerenyo"
+    },
+    {
+      "osmId": "node/9152916995",
+      "type": "node",
+      "lat": -0.5577462,
+      "lon": 34.9290872,
+      "name": "Nyamira County Referral Hospital",
+      "category": "Health",
+      "subtype": "hospital",
+      "tags": {
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "name": "Nyamira County Referral Hospital"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "node/9152916996",
+      "type": "node",
+      "lat": -0.5555317,
+      "lon": 34.9257711,
+      "name": "St. Joseph's Catholic Church",
+      "category": "Worship",
+      "subtype": "place_of_worship",
+      "tags": {
+        "amenity": "place_of_worship",
+        "name": "St. Joseph's Catholic Church"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "node/9152916997",
+      "type": "node",
+      "lat": -0.5586818,
+      "lon": 34.9298704,
+      "name": "Nyamira Law Courts",
+      "category": "Public office",
+      "subtype": "courthouse",
+      "tags": {
+        "amenity": "courthouse",
+        "name": "Nyamira Law Courts",
+        "operator": "Judiciary of Kenya",
+        "operator:type": "government",
+        "operator:website": "https://judiciary.go.ke",
+        "operator:wikidata": "Q6303111",
+        "operator:wikipedia": "en:Judiciary of Kenya"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "node/9215245985",
+      "type": "node",
+      "lat": -0.6117161,
+      "lon": 34.8635108,
+      "name": "Nyabioto",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Nyabioto",
+        "place": "village"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "node/9217449860",
+      "type": "node",
+      "lat": -0.457049,
+      "lon": 34.9725359,
+      "name": "Kiomara",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Kiomara",
+        "place": "village"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "node/9217469540",
+      "type": "node",
+      "lat": -0.6770492,
+      "lon": 34.7896033,
+      "name": "Makutano Market",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Makutano Market",
+        "place": "village"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "node/9217469541",
+      "type": "node",
+      "lat": -0.481697,
+      "lon": 34.9713422,
+      "name": "Nyamuse",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Nyamuse",
+        "place": "village"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "node/9217469542",
+      "type": "node",
+      "lat": -0.4826082,
+      "lon": 34.9081687,
+      "name": "Nyasore",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Nyasore",
+        "place": "village"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "node/9222885854",
+      "type": "node",
+      "lat": -0.7604149,
+      "lon": 35.0156721,
+      "name": "Kijauri",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Kijauri",
+        "place": "village"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/9222885863",
+      "type": "node",
+      "lat": -0.7707343,
+      "lon": 34.9688911,
+      "name": "Metamaywa",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Metamaywa",
+        "place": "village"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "node/9222885864",
+      "type": "node",
+      "lat": -0.7646019,
+      "lon": 34.9279828,
+      "name": "Amabuko",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Amabuko",
+        "place": "village"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "node/9222885867",
+      "type": "node",
+      "lat": -0.6888766,
+      "lon": 34.8439108,
+      "name": "Nyangina",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Nyangina",
+        "place": "village"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "node/9222885869",
+      "type": "node",
+      "lat": -0.707702,
+      "lon": 34.8645222,
+      "name": "Girango",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Girango",
+        "place": "village"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "node/9249029929",
+      "type": "node",
+      "lat": -0.6953108,
+      "lon": 35.0545713,
+      "name": null,
+      "category": "Water",
+      "subtype": "water_well",
+      "tags": {
+        "man_made": "water_well"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "node/9249506339",
+      "type": "node",
+      "lat": -0.71293,
+      "lon": 35.0440902,
+      "name": null,
+      "category": "Water",
+      "subtype": "water_well",
+      "tags": {
+        "man_made": "water_well"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/9249507646",
+      "type": "node",
+      "lat": -0.7164267,
+      "lon": 35.0421835,
+      "name": "Mekenene",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Mekenene",
+        "place": "village"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/9252170285",
+      "type": "node",
+      "lat": -0.7157752,
+      "lon": 35.0443704,
+      "name": "Mekenene DEB Primary School",
+      "category": "Education",
+      "subtype": "primary school",
+      "tags": {
+        "amenity": "school",
+        "is_in:division": "Borabu",
+        "is_in:location": "Mekenene",
+        "isced:level": "1",
+        "name": "Mekenene DEB Primary School",
+        "operator": "Nyamira District Education Board",
+        "operator:type": "government"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "node/9808459458",
+      "type": "node",
+      "lat": -0.6646047,
+      "lon": 34.8457766,
+      "name": "Nyamamba",
+      "category": "Other",
+      "subtype": "fuel",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:street": "Tombe",
+        "amenity": "fuel",
+        "check_date:opening_hours": "2022-07-20",
+        "compressed_air": "yes",
+        "fuel:diesel": "yes",
+        "name": "Nyamamba",
+        "opening_hours:signed": "no"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "node/9840449870",
+      "type": "node",
+      "lat": -0.5590995,
+      "lon": 34.9344273,
+      "name": "Nyamira Water Treatment Plant",
+      "category": "Water",
+      "subtype": "water_works",
+      "tags": {
+        "man_made": "water_works",
+        "name": "Nyamira Water Treatment Plant",
+        "operator": "Gusii Water and Sanitation"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "node/10661047916",
+      "type": "node",
+      "lat": -0.5665231,
+      "lon": 34.9390176,
+      "name": "Nyamira Lightgate Academy",
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "amenity": "school",
+        "description": "Located approx 100 meters opposite Equity bank, it's one of the county's next big instituion in Nyamira county",
+        "name": "Nyamira Lightgate Academy",
+        "start_date": "01/01/2007"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "node/10745189038",
+      "type": "node",
+      "lat": -0.5811292,
+      "lon": 34.9354256,
+      "name": "Kinara Hospital",
+      "category": "Health",
+      "subtype": "hospital",
+      "tags": {
+        "amenity": "hospital",
+        "check_date": "2023-03-19",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "healthcare:speciality": "general;paediatrics",
+        "name": "Kinara Hospital",
+        "operator:type": "private"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "node/10745189039",
+      "type": "node",
+      "lat": -0.572024,
+      "lon": 34.935058,
+      "name": "Borabu Inn",
+      "category": "Other",
+      "subtype": "restaurant",
+      "tags": {
+        "amenity": "restaurant",
+        "check_date": "2023-03-19",
+        "cuisine": "regional",
+        "name": "Borabu Inn",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "wheelchair": "yes"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "node/10745189040",
+      "type": "node",
+      "lat": -0.5632131,
+      "lon": 34.9366077,
+      "name": "Shivling Supermarket",
+      "category": "Market",
+      "subtype": "supermarket",
+      "tags": {
+        "check_date": "2023-03-19",
+        "name": "Shivling Supermarket",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "node/13375561601",
+      "type": "node",
+      "lat": -0.7594199,
+      "lon": 35.0148995,
+      "name": null,
+      "category": "Other",
+      "subtype": "fuel",
+      "tags": {
+        "amenity": "fuel"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/33402437",
+      "type": "way",
+      "lat": -0.6492047,
+      "lon": 34.8442202,
+      "name": null,
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "highway": "secondary",
+        "lanes": "2",
+        "ref": "C21",
+        "source": "survey",
+        "surface": "asphalt"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/34358480",
+      "type": "way",
+      "lat": -0.7047247,
+      "lon": 35.0569412,
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "destination:backward": "Kijauni",
+        "destination:forward": "Chepelat",
+        "distance": "10.235",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "good",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "11"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/34358609",
+      "type": "way",
+      "lat": -0.5652227,
+      "lon": 35.0034761,
+      "name": null,
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "highway": "secondary",
+        "ref": "C21",
+        "source": "Africover"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "way/34358800",
+      "type": "way",
+      "lat": -0.6089106,
+      "lon": 34.901653,
+      "name": null,
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "highway": "secondary",
+        "ref": "C21",
+        "source": "survey"
+      },
+      "ward": "bosamaro"
+    },
+    {
+      "osmId": "way/36116614",
+      "type": "way",
+      "lat": -0.6733457,
+      "lon": 34.7985781,
+      "name": null,
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "highway": "secondary",
+        "ref": "C21",
+        "source": "Africover; survey"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/173349376",
+      "type": "way",
+      "lat": -0.5078146,
+      "lon": 35.0289162,
+      "name": "Chabera-Ikonge Road",
+      "category": "Road",
+      "subtype": "primary",
+      "tags": {
+        "highway": "primary",
+        "name": "Chabera-Ikonge Road",
+        "old_ref": "C22",
+        "ref": "C750",
+        "surface": "asphalt"
+      },
+      "ward": "magwagwa"
+    },
+    {
+      "osmId": "way/173349377",
+      "type": "way",
+      "lat": -0.5476033,
+      "lon": 34.9093882,
+      "name": "Kendu-Kandongo-Nyamira Rd",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kendu-Kandongo-Nyamira Rd",
+        "ref": "B5"
+      },
+      "ward": "bogichora"
+    },
+    {
+      "osmId": "way/173359527",
+      "type": "way",
+      "lat": -0.7121785,
+      "lon": 35.0470965,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "landuse": "reservoir",
+        "natural": "water",
+        "water": "reservoir"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/173359528",
+      "type": "way",
+      "lat": -0.6541313,
+      "lon": 35.0641733,
+      "name": "Ikonge-Chelibat road",
+      "category": "Road",
+      "subtype": "primary",
+      "tags": {
+        "highway": "primary",
+        "lanes:backward": "1",
+        "lanes:forward": "1",
+        "name": "Ikonge-Chelibat road",
+        "old_ref": "C22",
+        "ref": "C750",
+        "source": "Bing",
+        "surface": "asphalt"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/173369154",
+      "type": "way",
+      "lat": -0.7393318,
+      "lon": 34.8209257,
+      "name": "Gucha",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "alt_name": "Kuja",
+        "name": "Gucha",
+        "waterway": "river"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/209801128",
+      "type": "way",
+      "lat": -0.5506853,
+      "lon": 35.0697976,
+      "name": "Kipsonoi",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Kipsonoi",
+        "waterway": "river",
+        "wikidata": "Q35529441"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/239553453",
+      "type": "way",
+      "lat": -0.4895093,
+      "lon": 34.9024335,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "Nyasero",
+        "destination:forward": "Miruka",
+        "distance": "1.848",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "good",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "unpaved",
+        "width": "6"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "way/294714840",
+      "type": "way",
+      "lat": -0.7128259,
+      "lon": 34.9884512,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5",
+        "surface": "unpaved"
+      },
+      "ward": "gesima"
+    },
+    {
+      "osmId": "way/294714850",
+      "type": "way",
+      "lat": -0.6921695,
+      "lon": 34.9932442,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5",
+        "surface": "unpaved"
+      },
+      "ward": "gesima"
+    },
+    {
+      "osmId": "way/294714866",
+      "type": "way",
+      "lat": -0.6033669,
+      "lon": 34.9612475,
+      "name": "Kebirigo",
+      "category": "Place",
+      "subtype": "town",
+      "tags": {
+        "landuse": "residential",
+        "name": "Kebirigo",
+        "place": "town"
+      },
+      "ward": "bonyamatuta"
+    },
+    {
+      "osmId": "way/309981529",
+      "type": "way",
+      "lat": -0.8741325,
+      "lon": 35.012075,
+      "name": null,
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "highway": "secondary",
+        "ref": "C14",
+        "source": "Africover"
+      },
+      "ward": "esise"
+    },
+    {
+      "osmId": "way/312918626",
+      "type": "way",
+      "lat": -0.6943911,
+      "lon": 35.0692666,
+      "name": null,
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "building": "commercial"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/312928769",
+      "type": "way",
+      "lat": -0.7699264,
+      "lon": 34.9661524,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/313250148",
+      "type": "way",
+      "lat": -0.5321956,
+      "lon": 34.99123,
+      "name": null,
+      "category": "Leisure",
+      "subtype": "pitch",
+      "tags": {
+        "leisure": "pitch",
+        "sport": "soccer"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "way/313250252",
+      "type": "way",
+      "lat": -0.6733135,
+      "lon": 34.8397868,
+      "name": "Kemera-Kiendege-Kegati Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "lane_markings": "no",
+        "name": "Kemera-Kiendege-Kegati Road",
+        "surface": "asphalt"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/313250258",
+      "type": "way",
+      "lat": -0.6656533,
+      "lon": 34.840554,
+      "name": "Kemera-Ikonge Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Kemera-Ikonge Road",
+        "surface": "compacted"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/313250447",
+      "type": "way",
+      "lat": -0.72812,
+      "lon": 34.8882914,
+      "name": "Nyaibasa Road",
+      "category": "Road",
+      "subtype": "track",
+      "tags": {
+        "access": "yes",
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "track",
+        "motor_vehicle": "yes",
+        "mtb:scale:uphill": "1",
+        "name": "Nyaibasa Road",
+        "surface": "earth",
+        "width": "12"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313267949",
+      "type": "way",
+      "lat": -0.7353262,
+      "lon": 34.9765869,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5"
+      },
+      "ward": "gesima"
+    },
+    {
+      "osmId": "way/313305107",
+      "type": "way",
+      "lat": -0.6146103,
+      "lon": 34.9736703,
+      "name": "Kebirigo - Keroka Road",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Road",
+        "ref": "B5",
+        "surface": "unpaved"
+      },
+      "ward": "bonyamatuta"
+    },
+    {
+      "osmId": "way/313305108",
+      "type": "way",
+      "lat": -0.6509329,
+      "lon": 34.9949412,
+      "name": "Kebirigo - Keroka Road",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Road",
+        "ref": "B5",
+        "surface": "unpaved"
+      },
+      "ward": "bogichora"
+    },
+    {
+      "osmId": "way/313307583",
+      "type": "way",
+      "lat": -0.5402821,
+      "lon": 35.0294995,
+      "name": "Ikonge-Chelibat road",
+      "category": "Road",
+      "subtype": "primary",
+      "tags": {
+        "highway": "primary",
+        "name": "Ikonge-Chelibat road",
+        "old_ref": "C22",
+        "ref": "C750",
+        "surface": "unpaved"
+      },
+      "ward": "ekerenyo"
+    },
+    {
+      "osmId": "way/313307584",
+      "type": "way",
+      "lat": -0.5816443,
+      "lon": 35.0483414,
+      "name": "Ikonge-Chelibat road",
+      "category": "Road",
+      "subtype": "primary",
+      "tags": {
+        "highway": "primary",
+        "name": "Ikonge-Chelibat road",
+        "old_ref": "C22",
+        "ref": "C750"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/313310361",
+      "type": "way",
+      "lat": -0.4518033,
+      "lon": 35.0135867,
+      "name": "Chabera-Ikonge Road",
+      "category": "Road",
+      "subtype": "primary",
+      "tags": {
+        "highway": "primary",
+        "name": "Chabera-Ikonge Road",
+        "old_ref": "C22",
+        "ref": "C750",
+        "source": "Bing;Africover",
+        "surface": "asphalt"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "way/313435658",
+      "type": "way",
+      "lat": -0.6748329,
+      "lon": 34.8989369,
+      "name": "Magombo Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "access": "yes",
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "tertiary",
+        "name": "Magombo Road",
+        "surface": "gravel"
+      },
+      "ward": "magombo"
+    },
+    {
+      "osmId": "way/313435659",
+      "type": "way",
+      "lat": -0.6386284,
+      "lon": 34.8779262,
+      "name": "Tombe-Nyaikuro Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "access": "yes",
+        "highway": "tertiary",
+        "name": "Tombe-Nyaikuro Road",
+        "surface": "gravel"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/313435660",
+      "type": "way",
+      "lat": -0.6775209,
+      "lon": 34.8890799,
+      "name": "Miriri-Tombe Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "tertiary",
+        "maxspeed": "80",
+        "name": "Miriri-Tombe Road",
+        "surface": "fine_gravel"
+      },
+      "ward": "magombo"
+    },
+    {
+      "osmId": "way/313657712",
+      "type": "way",
+      "lat": -0.7026339,
+      "lon": 34.9047986,
+      "name": "Magombo-Gachuba-Kegati Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "access": "yes",
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "maxspeed": "70",
+        "name": "Magombo-Gachuba-Kegati Road",
+        "surface": "gravel"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313768553",
+      "type": "way",
+      "lat": -0.5580901,
+      "lon": 34.9288892,
+      "name": null,
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "building": "commercial"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/313848987",
+      "type": "way",
+      "lat": -0.7099893,
+      "lon": 34.8659981,
+      "name": "Gachuba-Birongo Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "access": "yes",
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "maxspeed": "80",
+        "name": "Gachuba-Birongo Road",
+        "surface": "gravel"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313848988",
+      "type": "way",
+      "lat": -0.7178488,
+      "lon": 34.8713642,
+      "name": "Gachuba-Birongo Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "access": "yes",
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "horse": "no",
+        "maxspeed": "70",
+        "name": "Gachuba-Birongo Road",
+        "oneway": "no",
+        "surface": "sand"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313850956",
+      "type": "way",
+      "lat": -0.7285668,
+      "lon": 34.885143,
+      "name": "Nyabar 4-Birongo Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "maxspeed": "50",
+        "name": "Nyabar 4-Birongo Road",
+        "surface": "earth"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313852221",
+      "type": "way",
+      "lat": -0.7167619,
+      "lon": 34.8887436,
+      "name": "Nyabara4-Moturumesi Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "maxspeed": "50",
+        "name": "Nyabara4-Moturumesi Road",
+        "surface": "earth"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313852496",
+      "type": "way",
+      "lat": -0.7102371,
+      "lon": 34.8841949,
+      "name": "Nyagancha-Bonyunyu Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "maxspeed": "40",
+        "name": "Nyagancha-Bonyunyu Road",
+        "surface": "earth"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313853558",
+      "type": "way",
+      "lat": -0.6977562,
+      "lon": 34.8775214,
+      "name": "Gucha Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "maxspeed": "40",
+        "name": "Gucha Road",
+        "surface": "earth"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313854679",
+      "type": "way",
+      "lat": -0.7216859,
+      "lon": 34.8554524,
+      "name": "Gachuba-Keboba-Keumbu Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "access": "yes",
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "maxspeed": "80",
+        "name": "Gachuba-Keboba-Keumbu Road",
+        "surface": "gravel"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313857131",
+      "type": "way",
+      "lat": -0.7093186,
+      "lon": 34.8641236,
+      "name": "girango dispensary",
+      "category": "Health",
+      "subtype": "hospital",
+      "tags": {
+        "amenity": "hospital",
+        "health_specialty:psychotherapy": "no",
+        "healthcare:counselling": "no",
+        "name": "girango dispensary",
+        "operator": "County government of Nyamira",
+        "operator:type": "public/government"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313857342",
+      "type": "way",
+      "lat": -0.7087173,
+      "lon": 34.8656113,
+      "name": "Gachuba Central SDA",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "church",
+        "denomination": "seventh_day_adventist",
+        "name": "Gachuba Central SDA",
+        "religion": "christian"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313858155",
+      "type": "way",
+      "lat": -0.6940643,
+      "lon": 34.8689057,
+      "name": "Gachuba-Miriri Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "maxspeed": "30",
+        "name": "Gachuba-Miriri Road",
+        "surface": "earth"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313858450",
+      "type": "way",
+      "lat": -0.6890032,
+      "lon": 34.8717616,
+      "name": "nyabigege catholic",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "denomination": "catholic",
+        "name": "nyabigege catholic",
+        "religion": "christian"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313859059",
+      "type": "way",
+      "lat": -0.6854972,
+      "lon": 34.8667143,
+      "name": "Sengereri Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "maxspeed": "30",
+        "name": "Sengereri Road",
+        "surface": "unpaved"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313859745",
+      "type": "way",
+      "lat": -0.6942886,
+      "lon": 34.8700633,
+      "name": "Nyamasebe SDA Church",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "church",
+        "denomination": "seventh_day_adventist",
+        "name": "Nyamasebe SDA Church",
+        "religion": "christian"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313860294",
+      "type": "way",
+      "lat": -0.7124511,
+      "lon": 34.8776915,
+      "name": "Kerongeta Road",
+      "category": "Road",
+      "subtype": "service",
+      "tags": {
+        "highway": "service",
+        "name": "Kerongeta Road"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313860663",
+      "type": "way",
+      "lat": -0.7086496,
+      "lon": 34.8772741,
+      "name": "kerongeta church",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "church",
+        "denomination": "seventh_day_adventist",
+        "name": "kerongeta church",
+        "religion": "christian"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/313861372",
+      "type": "way",
+      "lat": -0.6484762,
+      "lon": 34.8742884,
+      "name": "Tombe Dispensary",
+      "category": "Health",
+      "subtype": "hospital",
+      "tags": {
+        "amenity": "hospital",
+        "healthcare": "counselling",
+        "name": "Tombe Dispensary",
+        "operator": "Ministry of Health",
+        "operator:type": "public"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/313861486",
+      "type": "way",
+      "lat": -0.6483311,
+      "lon": 34.8650251,
+      "name": "Tombe Girls Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Tombe Girls Road"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/313862959",
+      "type": "way",
+      "lat": -0.7226723,
+      "lon": 34.8618531,
+      "name": "Kenani Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Kenani Road",
+        "surface": "unpaved"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/314117760",
+      "type": "way",
+      "lat": -0.6911544,
+      "lon": 35.0473587,
+      "name": "Mwongori Nyaronge Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Mwongori Nyaronge Road",
+        "surface": "unpaved"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/314659322",
+      "type": "way",
+      "lat": -0.7469472,
+      "lon": 34.9651996,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/314659338",
+      "type": "way",
+      "lat": -0.7530555,
+      "lon": 34.9656315,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/314659339",
+      "type": "way",
+      "lat": -0.7494462,
+      "lon": 34.9639745,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/314660297",
+      "type": "way",
+      "lat": -0.7368851,
+      "lon": 34.899752,
+      "name": "Mongoni Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Mongoni Road"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/315819722",
+      "type": "way",
+      "lat": -0.7023534,
+      "lon": 35.0483183,
+      "name": "Mwongori Maziwa-Nyaronge Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Mwongori Maziwa-Nyaronge Road"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/315969096",
+      "type": "way",
+      "lat": -0.6704135,
+      "lon": 34.8537806,
+      "name": "Omogwa-Entanda",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Omogwa-Entanda",
+        "surface": "compacted"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/323408828",
+      "type": "way",
+      "lat": -0.7092517,
+      "lon": 34.8775579,
+      "name": "KERONGETA SECONDARY SCHOOL",
+      "category": "Education",
+      "subtype": "secondary school",
+      "tags": {
+        "amenity": "school",
+        "name": "KERONGETA SECONDARY SCHOOL"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/324426349",
+      "type": "way",
+      "lat": -0.7089545,
+      "lon": 34.8654164,
+      "name": "Gachuba Church grounds",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "name": "Gachuba Church grounds",
+        "religion": "christian"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/324427479",
+      "type": "way",
+      "lat": -0.7084648,
+      "lon": 34.8652443,
+      "name": "Gachuba Street",
+      "category": "Road",
+      "subtype": "service",
+      "tags": {
+        "highway": "service",
+        "name": "Gachuba Street",
+        "service": "driveway"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/370808457",
+      "type": "way",
+      "lat": -0.4924548,
+      "lon": 34.8995406,
+      "name": null,
+      "category": "Leisure",
+      "subtype": "pitch",
+      "tags": {
+        "leisure": "pitch"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "way/370809852",
+      "type": "way",
+      "lat": -0.4969107,
+      "lon": 34.9240007,
+      "name": null,
+      "category": "Leisure",
+      "subtype": "pitch",
+      "tags": {
+        "leisure": "pitch"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "way/426375685",
+      "type": "way",
+      "lat": -0.7417763,
+      "lon": 34.8963275,
+      "name": "Birongo-Rigoma Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Birongo-Rigoma Road"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/426375698",
+      "type": "way",
+      "lat": -0.720812,
+      "lon": 34.9857594,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5"
+      },
+      "ward": "gesima"
+    },
+    {
+      "osmId": "way/426376395",
+      "type": "way",
+      "lat": -0.700043,
+      "lon": 34.8795069,
+      "name": "Kuja",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Kuja",
+        "waterway": "river"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/426442125",
+      "type": "way",
+      "lat": -0.705982,
+      "lon": 34.8644518,
+      "name": "Gucha Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "access": "yes",
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "maxspeed": "40",
+        "name": "Gucha Road",
+        "surface": "earth"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/426442128",
+      "type": "way",
+      "lat": -0.70529,
+      "lon": 34.8635375,
+      "name": "Gucha Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "access": "yes",
+        "bicycle": "yes",
+        "bridge": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "layer": "1",
+        "maxspeed": "40",
+        "name": "Gucha Road",
+        "surface": "earth"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/426442130",
+      "type": "way",
+      "lat": -0.7295366,
+      "lon": 34.9207101,
+      "name": "Amabuko-Rigoma Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "access": "yes",
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "tertiary",
+        "name": "Amabuko-Rigoma Road",
+        "surface": "gravel"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/426442132",
+      "type": "way",
+      "lat": -0.6942075,
+      "lon": 34.9130477,
+      "name": "Magombo Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "access": "yes",
+        "bicycle": "yes",
+        "bridge": "yes",
+        "foot": "yes",
+        "highway": "tertiary",
+        "layer": "1",
+        "name": "Magombo Road",
+        "surface": "gravel"
+      },
+      "ward": "gachuba"
+    },
+    {
+      "osmId": "way/495249653",
+      "type": "way",
+      "lat": -0.5601004,
+      "lon": 34.9276224,
+      "name": "Nyamira Primary School",
+      "category": "Education",
+      "subtype": "primary school",
+      "tags": {
+        "amenity": "school",
+        "name": "Nyamira Primary School"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/501465172",
+      "type": "way",
+      "lat": -0.6388761,
+      "lon": 34.9488733,
+      "name": "Busiango",
+      "category": "Place",
+      "subtype": "village",
+      "tags": {
+        "name": "Busiango",
+        "place": "village"
+      },
+      "ward": "bogichora"
+    },
+    {
+      "osmId": "way/502862487",
+      "type": "way",
+      "lat": -0.6901548,
+      "lon": 35.0334842,
+      "name": "Mwongori Nyaronge Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Mwongori Nyaronge Road",
+        "surface": "unpaved"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/533220831",
+      "type": "way",
+      "lat": -0.6620577,
+      "lon": 34.8444227,
+      "name": "Kemera- Manga Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Kemera- Manga Road",
+        "surface": "compacted"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/535755398",
+      "type": "way",
+      "lat": -0.6171146,
+      "lon": 34.8342619,
+      "name": "New Life Church",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "name": "New Life Church",
+        "religion": "christian",
+        "service_times": "Saturdays"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/536193112",
+      "type": "way",
+      "lat": -0.6160417,
+      "lon": 34.8351578,
+      "name": "Manga Farmers Market",
+      "category": "Market",
+      "subtype": "marketplace",
+      "tags": {
+        "amenity": "marketplace",
+        "name": "Manga Farmers Market"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/536198882",
+      "type": "way",
+      "lat": -0.6238554,
+      "lon": 34.8295164,
+      "name": "Sengera Manga Primary School",
+      "category": "Education",
+      "subtype": "primary school",
+      "tags": {
+        "building": "school",
+        "name": "Sengera Manga Primary School"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/553773122",
+      "type": "way",
+      "lat": -0.7679082,
+      "lon": 34.9672461,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/553773123",
+      "type": "way",
+      "lat": -0.7658853,
+      "lon": 34.9683532,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/553773124",
+      "type": "way",
+      "lat": -0.762378,
+      "lon": 34.9679066,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5",
+        "surface": "unpaved"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/553773125",
+      "type": "way",
+      "lat": -0.7589645,
+      "lon": 34.9668538,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5",
+        "surface": "unpaved"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/553773126",
+      "type": "way",
+      "lat": -0.756361,
+      "lon": 34.9663757,
+      "name": "Kebirigo - Keroka Rd.",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kebirigo - Keroka Rd.",
+        "ref": "B5",
+        "surface": "unpaved"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/553779085",
+      "type": "way",
+      "lat": -0.5923815,
+      "lon": 35.0220604,
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Bonyunyu Mokomoni Ikonge Road",
+        "surface": "unpaved"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "way/553779627",
+      "type": "way",
+      "lat": -0.5781551,
+      "lon": 35.0162943,
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Bonyunyu Mokomoni Ikonge Road",
+        "surface": "unpaved"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "way/553781473",
+      "type": "way",
+      "lat": -0.6133495,
+      "lon": 35.0261038,
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Bonyunyu Mokomoni Ikonge Road",
+        "surface": "unpaved"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "way/553781817",
+      "type": "way",
+      "lat": -0.6020791,
+      "lon": 35.0245468,
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Bonyunyu Mokomoni Ikonge Road",
+        "surface": "unpaved"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "way/587294913",
+      "type": "way",
+      "lat": -0.8322317,
+      "lon": 34.9266583,
+      "name": "Keroka - Masimba Road",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "lanes": "2",
+        "maxspeed": "50",
+        "name": "Keroka - Masimba Road",
+        "ref": "B5",
+        "source": "Bing",
+        "surface": "asphalt"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/590840198",
+      "type": "way",
+      "lat": -0.5219539,
+      "lon": 35.0621436,
+      "name": null,
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "highway": "secondary",
+        "ref": "C21",
+        "source": "Africover"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/592054960",
+      "type": "way",
+      "lat": -0.4436912,
+      "lon": 34.9757834,
+      "name": "Sondu River",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Sondu River",
+        "waterway": "river"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "way/604160021",
+      "type": "way",
+      "lat": -0.5586895,
+      "lon": 35.0038461,
+      "name": "Itibo Health Centre S.D.A.",
+      "category": "Health",
+      "subtype": "hospital",
+      "tags": {
+        "amenity": "hospital",
+        "fee": "no",
+        "healthcare": "counselling",
+        "name": "Itibo Health Centre S.D.A.",
+        "opening_hours": "24/7",
+        "operator": "Christian Health Association of Kenya",
+        "operator:type": "private"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "way/604160028",
+      "type": "way",
+      "lat": -0.5468452,
+      "lon": 35.0098121,
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Bonyunyu Mokomoni Ikonge Road",
+        "surface": "ground"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "way/604598246",
+      "type": "way",
+      "lat": -0.5359385,
+      "lon": 35.0093253,
+      "name": null,
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "building": "school"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "way/623804119",
+      "type": "way",
+      "lat": -0.5928862,
+      "lon": 35.0224068,
+      "name": "Bonyunyu Tea Buying Centre",
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "building": "commercial",
+        "name": "Bonyunyu Tea Buying Centre"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "way/623986811",
+      "type": "way",
+      "lat": -0.6128687,
+      "lon": 35.039306,
+      "name": "Mokomoni Chepilat Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Mokomoni Chepilat Road"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/624224082",
+      "type": "way",
+      "lat": -0.6013522,
+      "lon": 35.0236831,
+      "name": null,
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "building": "school"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "way/624224951",
+      "type": "way",
+      "lat": -0.6013842,
+      "lon": 35.0239126,
+      "name": null,
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "building": "school"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "way/624225167",
+      "type": "way",
+      "lat": -0.6006645,
+      "lon": 35.0237861,
+      "name": null,
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "building": "school"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "way/624307197",
+      "type": "way",
+      "lat": -0.6019707,
+      "lon": 35.0204209,
+      "name": "Riamairima P.A.G Church",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "name": "Riamairima P.A.G Church",
+        "religion": "christian"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "way/624308231",
+      "type": "way",
+      "lat": -0.5964746,
+      "lon": 35.0287127,
+      "name": "Gietai S.D.A Church",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "name": "Gietai S.D.A Church",
+        "religion": "christian"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "way/624605139",
+      "type": "way",
+      "lat": -0.5966548,
+      "lon": 35.0167509,
+      "name": null,
+      "category": "Worship",
+      "subtype": "",
+      "tags": {
+        "building": "church"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "way/626489438",
+      "type": "way",
+      "lat": -0.6177724,
+      "lon": 34.8339627,
+      "name": "Manga Stadium",
+      "category": "Leisure",
+      "subtype": "stadium",
+      "tags": {
+        "leisure": "stadium",
+        "name": "Manga Stadium"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/632068543",
+      "type": "way",
+      "lat": -0.769754,
+      "lon": 34.9993082,
+      "name": "Riensune School Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Riensune School Road"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/640206184",
+      "type": "way",
+      "lat": -0.4633095,
+      "lon": 34.9097975,
+      "name": "Awach Kibuon",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Awach Kibuon",
+        "waterway": "river"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/650597209",
+      "type": "way",
+      "lat": -0.7684075,
+      "lon": 34.9845066,
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "destination:backward": "Metamaywa",
+        "destination:forward": "Kijauri",
+        "distance": "3.036",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "excellent",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "7.5"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/650991280",
+      "type": "way",
+      "lat": -0.7460323,
+      "lon": 34.8959591,
+      "name": "Birongo-Rigoma Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Birongo-Rigoma Road"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/650991281",
+      "type": "way",
+      "lat": -0.7384386,
+      "lon": 34.9009766,
+      "name": "Birongo-Rigoma Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Birongo-Rigoma Road"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/651044997",
+      "type": "way",
+      "lat": -0.7629879,
+      "lon": 34.9931745,
+      "name": "Riensune Church Path",
+      "category": "Road",
+      "subtype": "residential",
+      "tags": {
+        "highway": "residential",
+        "name": "Riensune Church Path"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/651045000",
+      "type": "way",
+      "lat": -0.6953171,
+      "lon": 35.0523848,
+      "name": "Mwongori Nyaronge Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Mwongori Nyaronge Road"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/673265870",
+      "type": "way",
+      "lat": -0.6731234,
+      "lon": 34.7839487,
+      "name": "Stewa Niwa Road",
+      "category": "Road",
+      "subtype": "residential",
+      "tags": {
+        "highway": "residential",
+        "name": "Stewa Niwa Road"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/677858159",
+      "type": "way",
+      "lat": -0.7772333,
+      "lon": 34.946205,
+      "name": "Keroka",
+      "category": "Place",
+      "subtype": "town",
+      "tags": {
+        "name": "Keroka",
+        "place": "town",
+        "wikidata": "Q6394255",
+        "wikipedia": "en:Keroka"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/677860666",
+      "type": "way",
+      "lat": -0.6763296,
+      "lon": 34.7617208,
+      "name": "Kisii",
+      "category": "Place",
+      "subtype": "town",
+      "tags": {
+        "name": "Kisii",
+        "place": "town",
+        "wikidata": "Q1007719",
+        "wikipedia": "en:Kisii, Kenya"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/683651464",
+      "type": "way",
+      "lat": -0.7225632,
+      "lon": 35.0422211,
+      "name": "Mekenene Ecd-Simbi Road 1",
+      "category": "Road",
+      "subtype": "residential",
+      "tags": {
+        "destination:backward": "Simbi Road",
+        "destination:forward": "B6 - Mekenene Primary School",
+        "distance": "1.34",
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Mekenene Ecd-Simbi Road 1",
+        "ref": "G64599",
+        "smoothness": "very_bad",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "unpaved",
+        "width": "4.6"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/683651467",
+      "type": "way",
+      "lat": -0.7205371,
+      "lon": 35.0349093,
+      "name": "Riamanoti Adult Centre-Mekenene Ecd",
+      "category": "Road",
+      "subtype": "residential",
+      "tags": {
+        "destination:backward": "B6 - Melenene Primary School",
+        "destination:forward": "Riamanoti Adult Centre",
+        "distance": "2.11",
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Riamanoti Adult Centre-Mekenene Ecd",
+        "ref": "G64603",
+        "smoothness": "very_bad",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "unpaved",
+        "width": "5"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/694497540",
+      "type": "way",
+      "lat": -0.7800524,
+      "lon": 34.9476991,
+      "name": "Keroka - Masimba Road",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "lanes": "2",
+        "maxspeed": "50",
+        "name": "Keroka - Masimba Road",
+        "oneway": "yes",
+        "ref": "B5",
+        "source": "Bing",
+        "surface": "asphalt"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/694497541",
+      "type": "way",
+      "lat": -0.7800015,
+      "lon": 34.94766,
+      "name": "Keroka - Masimba Road",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "lanes": "2",
+        "maxspeed": "50",
+        "name": "Keroka - Masimba Road",
+        "oneway": "yes",
+        "ref": "B5",
+        "source": "Bing",
+        "surface": "asphalt"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/698411586",
+      "type": "way",
+      "lat": -0.6428257,
+      "lon": 35.0575192,
+      "name": null,
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "building": "school"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/698411630",
+      "type": "way",
+      "lat": -0.6430812,
+      "lon": 35.0576029,
+      "name": null,
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "building": "school"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/698411740",
+      "type": "way",
+      "lat": -0.6434103,
+      "lon": 35.0574857,
+      "name": null,
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "building": "school"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/698581396",
+      "type": "way",
+      "lat": -0.6433998,
+      "lon": 35.0572684,
+      "name": null,
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "building": "school"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/698742996",
+      "type": "way",
+      "lat": -0.6697623,
+      "lon": 34.8487183,
+      "name": "Kemera-Entanda Road",
+      "category": "Road",
+      "subtype": "unclassified",
+      "tags": {
+        "highway": "unclassified",
+        "name": "Kemera-Entanda Road",
+        "surface": "compacted"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/699456987",
+      "type": "way",
+      "lat": -0.5033997,
+      "lon": 34.8732193,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "Miruka",
+        "destination:forward": "Nyakeyo",
+        "distance": "1.142",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "good",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "asphalt",
+        "width": "8"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/699912633",
+      "type": "way",
+      "lat": -0.4464206,
+      "lon": 34.9799446,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "A1 Chabera",
+        "destination:forward": "Kiomara",
+        "distance": "3.439",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "good",
+        "source": "Africover",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "unpaved",
+        "width": "7"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "way/699945939",
+      "type": "way",
+      "lat": -0.4861113,
+      "lon": 34.9522319,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "Nyamuse",
+        "destination:forward": "Nyasero",
+        "distance": "0.037",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "bad",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "unpaved",
+        "width": "10"
+      },
+      "ward": "bomwagamo"
+    },
+    {
+      "osmId": "way/700150452",
+      "type": "way",
+      "lat": -0.5614672,
+      "lon": 35.0098692,
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Bonyunyu Mokomoni Ikonge Road"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "way/700181014",
+      "type": "way",
+      "lat": -0.6154654,
+      "lon": 35.0592302,
+      "name": "Sotik-Ikonge Road",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "bridge": "yes",
+        "highway": "secondary",
+        "layer": "1",
+        "name": "Sotik-Ikonge Road",
+        "ref": "C22"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/700849453",
+      "type": "way",
+      "lat": -0.6618182,
+      "lon": 34.857829,
+      "name": "Irianyi-Goti",
+      "category": "Road",
+      "subtype": "residential",
+      "tags": {
+        "highway": "residential",
+        "name": "Irianyi-Goti",
+        "sidewalk": "no"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/700849454",
+      "type": "way",
+      "lat": -0.6611965,
+      "lon": 34.855367,
+      "name": "Omogwa-Irianyi",
+      "category": "Road",
+      "subtype": "residential",
+      "tags": {
+        "highway": "residential",
+        "name": "Omogwa-Irianyi",
+        "sidewalk": "no",
+        "surface": "compacted"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/700849456",
+      "type": "way",
+      "lat": -0.6632599,
+      "lon": 34.855007,
+      "name": "Irianyi Secondary",
+      "category": "Road",
+      "subtype": "residential",
+      "tags": {
+        "highway": "residential",
+        "name": "Irianyi Secondary",
+        "sidewalk": "no",
+        "surface": "compacted"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/700849457",
+      "type": "way",
+      "lat": -0.6635264,
+      "lon": 34.8525045,
+      "name": "Nyaera-Irianyi Road",
+      "category": "Road",
+      "subtype": "residential",
+      "tags": {
+        "highway": "residential",
+        "lit": "no",
+        "name": "Nyaera-Irianyi Road",
+        "surface": "ground"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/700849460",
+      "type": "way",
+      "lat": -0.6592292,
+      "lon": 34.8527313,
+      "name": "Omogwa",
+      "category": "Road",
+      "subtype": "residential",
+      "tags": {
+        "highway": "residential",
+        "name": "Omogwa",
+        "sidewalk": "no",
+        "surface": "ground"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/701280333",
+      "type": "way",
+      "lat": -0.6568593,
+      "lon": 34.8544553,
+      "name": "Omosocho-Omogwa",
+      "category": "Road",
+      "subtype": "residential",
+      "tags": {
+        "highway": "residential",
+        "name": "Omosocho-Omogwa",
+        "sidewalk": "no",
+        "surface": "compacted"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/701293387",
+      "type": "way",
+      "lat": -0.6565851,
+      "lon": 34.8541401,
+      "name": "Riamaranga",
+      "category": "Road",
+      "subtype": "residential",
+      "tags": {
+        "highway": "residential",
+        "name": "Riamaranga",
+        "sidewalk": "no",
+        "surface": "compacted"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/701866419",
+      "type": "way",
+      "lat": -0.4842249,
+      "lon": 34.9331747,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "Nyamuse",
+        "destination:forward": "Nyasero",
+        "distance": "3.441",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "bad",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "unpaved",
+        "width": "6.5"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "way/701866420",
+      "type": "way",
+      "lat": -0.4832714,
+      "lon": 34.9189399,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "bridge": "yes",
+        "distance": "0.0045",
+        "highway": "secondary",
+        "lanes": "2",
+        "layer": "1",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "bad",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "asphalt",
+        "width": "6.5"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "way/706562268",
+      "type": "way",
+      "lat": -0.6127802,
+      "lon": 35.0519265,
+      "name": "Mokomoni Chepilat Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "bridge": "yes",
+        "highway": "tertiary",
+        "layer": "1",
+        "name": "Mokomoni Chepilat Road"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/706562269",
+      "type": "way",
+      "lat": -0.6139546,
+      "lon": 35.0557349,
+      "name": "Mokomoni Chepilat Road",
+      "category": "Road",
+      "subtype": "tertiary",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Mokomoni Chepilat Road"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/706581414",
+      "type": "way",
+      "lat": -0.4840871,
+      "lon": 34.9621767,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "Nyamuse",
+        "destination:forward": "Nyasero",
+        "distance": "2.515",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "bad",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "unpaved",
+        "width": "6.5"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "way/706833857",
+      "type": "way",
+      "lat": -0.4865804,
+      "lon": 34.947438,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "bridge": "yes",
+        "distance": "0.01",
+        "highway": "secondary",
+        "lanes": "2",
+        "layer": "1",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "good",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "asphalt",
+        "width": "5.8"
+      },
+      "ward": "bomwagamo"
+    },
+    {
+      "osmId": "way/706833858",
+      "type": "way",
+      "lat": -0.4867668,
+      "lon": 34.9498732,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "Nyamuse",
+        "destination:forward": "Nyasero",
+        "distance": "0.625",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "bad",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "unpaved",
+        "width": "7"
+      },
+      "ward": "bomwagamo"
+    },
+    {
+      "osmId": "way/706833859",
+      "type": "way",
+      "lat": -0.4957623,
+      "lon": 34.8971516,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "bridge": "yes",
+        "distance": "0.0075",
+        "highway": "secondary",
+        "lanes": "2",
+        "layer": "1",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "bad",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "asphalt",
+        "width": "4.7"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "way/706833860",
+      "type": "way",
+      "lat": -0.4961668,
+      "lon": 34.8891657,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "Nyasero",
+        "destination:forward": "Miruka",
+        "distance": "1.981",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "bad",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "unpaved",
+        "width": "5.5"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "way/798272190",
+      "type": "way",
+      "lat": -0.7809695,
+      "lon": 34.9481325,
+      "name": "Masaba District Hospital",
+      "category": "Health",
+      "subtype": "hospital",
+      "tags": {
+        "addr:city": "Keroka",
+        "addr:street": "B3",
+        "amenity": "hospital",
+        "counselling:mental_health": "yes",
+        "fee": "yes",
+        "healthcare": "counselling",
+        "healthcare:counselling": "yes",
+        "name": "Masaba District Hospital",
+        "opening_hours": "24/7",
+        "operator": "MOH",
+        "operator:type": "public"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/858454259",
+      "type": "way",
+      "lat": -0.5306719,
+      "lon": 35.0242782,
+      "name": null,
+      "category": "Other",
+      "subtype": "parking",
+      "tags": {
+        "amenity": "parking"
+      },
+      "ward": "ekerenyo"
+    },
+    {
+      "osmId": "way/858456664",
+      "type": "way",
+      "lat": -0.5306176,
+      "lon": 35.0241883,
+      "name": null,
+      "category": "Other",
+      "subtype": "parking",
+      "tags": {
+        "amenity": "parking"
+      },
+      "ward": "ekerenyo"
+    },
+    {
+      "osmId": "way/884579908",
+      "type": "way",
+      "lat": -0.5628481,
+      "lon": 34.9289606,
+      "name": "Nyamira",
+      "category": "Place",
+      "subtype": "town",
+      "tags": {
+        "name": "Nyamira",
+        "place": "town"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/927505800",
+      "type": "way",
+      "lat": -0.5644176,
+      "lon": 34.9769694,
+      "name": null,
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "building": "school"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "way/990531109",
+      "type": "way",
+      "lat": -0.5573901,
+      "lon": 34.9292577,
+      "name": null,
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "building": "commercial"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/990531110",
+      "type": "way",
+      "lat": -0.5577582,
+      "lon": 34.9290824,
+      "name": null,
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "building": "commercial"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/998040720",
+      "type": "way",
+      "lat": -0.4776222,
+      "lon": 34.9424663,
+      "name": "Awach Kibuon",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Awach Kibuon",
+        "waterway": "river"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "way/998040729",
+      "type": "way",
+      "lat": -0.4775373,
+      "lon": 34.9554714,
+      "name": "Awach Kibuon",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Awach Kibuon",
+        "waterway": "stream"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "way/998040730",
+      "type": "way",
+      "lat": -0.4772337,
+      "lon": 34.9565227,
+      "name": "Awach Kibuon",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "layer": "-1",
+        "name": "Awach Kibuon",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "way/998040731",
+      "type": "way",
+      "lat": -0.4793563,
+      "lon": 34.9631448,
+      "name": "Awach Kibuon",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Awach Kibuon",
+        "waterway": "stream"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "way/998040732",
+      "type": "way",
+      "lat": -0.4782122,
+      "lon": 34.9505776,
+      "name": "Awach Kibuon",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "layer": "-1",
+        "name": "Awach Kibuon",
+        "tunnel": "culvert",
+        "waterway": "river"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "way/998040733",
+      "type": "way",
+      "lat": -0.4780972,
+      "lon": 34.9525726,
+      "name": "Awach Kibuon",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Awach Kibuon",
+        "waterway": "river"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "way/998040736",
+      "type": "way",
+      "lat": -0.6136875,
+      "lon": 34.8642426,
+      "name": "Kendu Bay-Kosele- Oyugis-Rioma-Marani- Nyabioto",
+      "category": "Road",
+      "subtype": "primary",
+      "tags": {
+        "destination:backward": "Nyaboto",
+        "destination:forward": "Ngenyi",
+        "distance": "1.042",
+        "highway": "primary",
+        "lanes": "2",
+        "name": "Kendu Bay-Kosele- Oyugis-Rioma-Marani- Nyabioto",
+        "ref": "C864",
+        "smoothness": "bad",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "unpaved",
+        "width": "6.5"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/998040737",
+      "type": "way",
+      "lat": -0.5985496,
+      "lon": 34.8492241,
+      "name": "Kendu Bay-Kosele- Oyugis-Rioma-Marani- Nyabioto",
+      "category": "Road",
+      "subtype": "primary",
+      "tags": {
+        "destination:backward": "Nyaboto",
+        "destination:forward": "Ngenyi",
+        "distance": "1.016",
+        "highway": "primary",
+        "lanes": "2",
+        "name": "Kendu Bay-Kosele- Oyugis-Rioma-Marani- Nyabioto",
+        "ref": "C864",
+        "smoothness": "bad",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "unpaved",
+        "width": "6.5"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/998040739",
+      "type": "way",
+      "lat": -0.6049523,
+      "lon": 34.8572997,
+      "name": "Kendu Bay-Kosele- Oyugis-Rioma-Marani- Nyabioto",
+      "category": "Road",
+      "subtype": "primary",
+      "tags": {
+        "destination:backward": "Nyaboto",
+        "destination:forward": "Ngenyi",
+        "distance": "1.542",
+        "highway": "primary",
+        "lanes": "2",
+        "name": "Kendu Bay-Kosele- Oyugis-Rioma-Marani- Nyabioto",
+        "ref": "C864",
+        "smoothness": "good",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "unpaved",
+        "width": "6.5"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/998289017",
+      "type": "way",
+      "lat": -0.4691395,
+      "lon": 34.969695,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "Kiomara",
+        "destination:forward": "Nyamuse",
+        "distance": "3.231",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "bad",
+        "source": "Africover",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "unpaved",
+        "width": "7"
+      },
+      "ward": "bokeira"
+    },
+    {
+      "osmId": "way/998289018",
+      "type": "way",
+      "lat": -0.4834504,
+      "lon": 34.9133039,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "Nyamuse",
+        "destination:forward": "Nyasero",
+        "distance": "1.335",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "bad",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "unpaved",
+        "width": "6.5"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "way/998289019",
+      "type": "way",
+      "lat": -0.4986975,
+      "lon": 34.8808958,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "Nyasore",
+        "destination:forward": "Miruka",
+        "distance": "0.077",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "intermediate",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "asphalt",
+        "width": "10"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "way/998289020",
+      "type": "way",
+      "lat": -0.4995706,
+      "lon": 34.8788104,
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "category": "Road",
+      "subtype": "secondary",
+      "tags": {
+        "alt_name": "Kisii-Nyatieko Road",
+        "destination:backward": "Miruka",
+        "destination:forward": "Nyakeyo",
+        "distance": "0.429",
+        "highway": "secondary",
+        "lanes": "2",
+        "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+        "ref": "C863",
+        "smoothness": "intermediate",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB); ENERGYDATA.INFO; World Bank Group",
+        "surface": "asphalt",
+        "width": "9.8"
+      },
+      "ward": "nyamaiya"
+    },
+    {
+      "osmId": "way/998289568",
+      "type": "way",
+      "lat": -0.6754435,
+      "lon": 34.7893049,
+      "name": "Riana",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Riana",
+        "waterway": "stream"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/998289569",
+      "type": "way",
+      "lat": -0.6761332,
+      "lon": 34.7899231,
+      "name": "Riana",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "layer": "-1",
+        "name": "Riana",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/998289689",
+      "type": "way",
+      "lat": -0.6846515,
+      "lon": 34.7958171,
+      "name": "Riana",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "layer": "-1",
+        "name": "Riana",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/998289690",
+      "type": "way",
+      "lat": -0.6850166,
+      "lon": 34.7970017,
+      "name": "Riana",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Riana",
+        "waterway": "stream"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/998289691",
+      "type": "way",
+      "lat": -0.6787332,
+      "lon": 34.791256,
+      "name": "Riana",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "layer": "-1",
+        "name": "Riana",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/998289692",
+      "type": "way",
+      "lat": -0.6817128,
+      "lon": 34.7935283,
+      "name": "Riana",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Riana",
+        "waterway": "stream"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/998289693",
+      "type": "way",
+      "lat": -0.6746994,
+      "lon": 34.7884535,
+      "name": "Riana",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "layer": "-1",
+        "name": "Riana",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/998289694",
+      "type": "way",
+      "lat": -0.6774137,
+      "lon": 34.7904798,
+      "name": "Riana",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Riana",
+        "waterway": "stream"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/998625196",
+      "type": "way",
+      "lat": -0.6283046,
+      "lon": 34.8258611,
+      "name": "Kisura",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "intermittent": "yes",
+        "name": "Kisura",
+        "waterway": "stream"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/998625199",
+      "type": "way",
+      "lat": -0.6356369,
+      "lon": 34.8273532,
+      "name": "Kisura",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Kisura",
+        "waterway": "stream"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/998625200",
+      "type": "way",
+      "lat": -0.6416826,
+      "lon": 34.8287709,
+      "name": "Kisura",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "layer": "-1",
+        "name": "Kisura",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      },
+      "ward": "manga"
+    },
+    {
+      "osmId": "way/998625201",
+      "type": "way",
+      "lat": -0.6452938,
+      "lon": 34.8299743,
+      "name": "Kisura",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Kisura",
+        "waterway": "stream"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/998625203",
+      "type": "way",
+      "lat": -0.6519559,
+      "lon": 34.8317508,
+      "name": "Kisura",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Kisura",
+        "waterway": "stream"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/998625204",
+      "type": "way",
+      "lat": -0.6663626,
+      "lon": 34.8329696,
+      "name": "Kisura",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "layer": "-1",
+        "name": "Kisura",
+        "tunnel": "culvert",
+        "waterway": "river"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/998625205",
+      "type": "way",
+      "lat": -0.6606545,
+      "lon": 34.8325738,
+      "name": "Kisura",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Kisura",
+        "waterway": "river"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/998625212",
+      "type": "way",
+      "lat": -0.6853081,
+      "lon": 34.8307839,
+      "name": "Kisura",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Kisura",
+        "waterway": "river"
+      },
+      "ward": "kemera"
+    },
+    {
+      "osmId": "way/998955396",
+      "type": "way",
+      "lat": -0.6917201,
+      "lon": 35.074421,
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "destination:backward": "Chepelat",
+        "destination:forward": "Kaplong",
+        "distance": "0.473",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "intermediate",
+        "source": "Bing",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "9"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/998955397",
+      "type": "way",
+      "lat": -0.7643684,
+      "lon": 34.9987911,
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "destination:backward": "Metamaywa",
+        "destination:forward": "Kijauri",
+        "distance": "0.719",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "intermediate",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "9"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/998955398",
+      "type": "way",
+      "lat": -0.76134,
+      "lon": 35.0083491,
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "destination:backward": "Metamaywa",
+        "destination:forward": "Kijauri",
+        "distance": "1.577",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "good",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "7"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/998955399",
+      "type": "way",
+      "lat": -0.7707283,
+      "lon": 34.9721365,
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "destination:backward": "Metamaywa",
+        "destination:forward": "Kijauri",
+        "distance": "0.245",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "intermediate",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "6.5"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/998955400",
+      "type": "way",
+      "lat": -0.7712409,
+      "lon": 34.9697808,
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "destination:backward": "Metamaywa",
+        "destination:forward": "Kijauri",
+        "distance": "0.306",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "good",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "7.5"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/998955401",
+      "type": "way",
+      "lat": -0.7803243,
+      "lon": 34.9488768,
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "destination:backward": "Keroka",
+        "destination:forward": "Metamaywa",
+        "distance": "0.229",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "intermediate",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "6.5"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/998955402",
+      "type": "way",
+      "lat": -0.7766672,
+      "lon": 34.9591593,
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "destination:backward": "Keroka",
+        "destination:forward": "Metamaywa",
+        "distance": "2.901",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "good",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "6.5"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/998955403",
+      "type": "way",
+      "lat": -0.7662987,
+      "lon": 34.9307495,
+      "name": "Birongo-Kisii Road",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "alt_name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "destination:backward": "Amabuko",
+        "destination:forward": "Keroka",
+        "distance": "0.920",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "Birongo-Kisii Road",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "intermediate",
+        "source": "Africover",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "7.5"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/998955404",
+      "type": "way",
+      "lat": -0.7735852,
+      "lon": 34.9410354,
+      "name": "Birongo-Kisii Road",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "alt_name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "destination:backward": "Amabuko",
+        "destination:forward": "Keroka",
+        "distance": "2.333",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "Birongo-Kisii Road",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "good",
+        "source": "Africover",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "7.5"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/998955406",
+      "type": "way",
+      "lat": -0.7567547,
+      "lon": 34.9118541,
+      "name": "Birongo-Kisii Road",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "alt_name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "destination:backward": "Biringo",
+        "destination:forward": "Amabuko",
+        "distance": "4.115",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "Birongo-Kisii Road",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "excellent",
+        "source": "Africover",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "7"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/1001611524",
+      "type": "way",
+      "lat": -0.5979461,
+      "lon": 34.8459687,
+      "name": null,
+      "category": "Road",
+      "subtype": "primary",
+      "tags": {
+        "highway": "primary",
+        "ref": "C864",
+        "source": "Africover"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/1002172248",
+      "type": "way",
+      "lat": -0.7168901,
+      "lon": 35.0411036,
+      "name": "B6 Mekenene matatu shelter",
+      "category": "Other",
+      "subtype": "shelter",
+      "tags": {
+        "amenity": "shelter",
+        "bench": "yes",
+        "building": "yes",
+        "building:levels": "1",
+        "building:min_level": "1",
+        "height": "2.5",
+        "lockable": "no",
+        "min_height": "2.2",
+        "name": "B6 Mekenene matatu shelter",
+        "roof:colour": "black",
+        "roof:height": "0.3",
+        "roof:levels": "1",
+        "roof:material": "plastic",
+        "roof:orientation": "along",
+        "roof:shape": "skillion",
+        "shelter_type": "public_transport",
+        "source": "survey",
+        "surface": "ground"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172249",
+      "type": "way",
+      "lat": -0.7169809,
+      "lon": 35.0411572,
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "destination:backward": "Kijauni",
+        "destination:forward": "Chepelat",
+        "distance": "10.235",
+        "highway": "trunk",
+        "lanes": "3",
+        "lanes:backward": "1",
+        "lanes:forward": "2",
+        "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "good",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "turn:psv:lanes:forward": "dedicated|none",
+        "width": "11"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172250",
+      "type": "way",
+      "lat": -0.738295,
+      "lon": 35.0279687,
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "destination:backward": "Kijauni",
+        "destination:forward": "Chepelat",
+        "distance": "10.235",
+        "highway": "trunk",
+        "lanes": "2",
+        "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+        "old_ref": "B3",
+        "ref": "B6",
+        "smoothness": "good",
+        "source": "survey",
+        "source:name": "Kenya Roads Board (KRB)",
+        "source:ref": "Kenya Roads Board (KRB);ENERGYDATA.INFO;World Bank Group",
+        "surface": "asphalt",
+        "width": "11"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172432",
+      "type": "way",
+      "lat": -0.7218689,
+      "lon": 35.0353241,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172433",
+      "type": "way",
+      "lat": -0.7218879,
+      "lon": 35.0352626,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172434",
+      "type": "way",
+      "lat": -0.7220625,
+      "lon": 35.0351615,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172435",
+      "type": "way",
+      "lat": -0.7220978,
+      "lon": 35.0352316,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172436",
+      "type": "way",
+      "lat": -0.7221348,
+      "lon": 35.0353279,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172437",
+      "type": "way",
+      "lat": -0.7221701,
+      "lon": 35.0354144,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172438",
+      "type": "way",
+      "lat": -0.7221907,
+      "lon": 35.0355004,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172439",
+      "type": "way",
+      "lat": -0.7224463,
+      "lon": 35.035411,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172440",
+      "type": "way",
+      "lat": -0.7224134,
+      "lon": 35.0353284,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172441",
+      "type": "way",
+      "lat": -0.7223751,
+      "lon": 35.0352322,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172442",
+      "type": "way",
+      "lat": -0.7223365,
+      "lon": 35.0351445,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172443",
+      "type": "way",
+      "lat": -0.7222955,
+      "lon": 35.035054,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002172444",
+      "type": "way",
+      "lat": -0.7222471,
+      "lon": 35.0349662,
+      "name": null,
+      "category": "Water",
+      "subtype": "reservoir",
+      "tags": {
+        "intermittent": "yes",
+        "landuse": "reservoir",
+        "reservoir_type": "sewage"
+      },
+      "ward": "nyansiongo"
+    },
+    {
+      "osmId": "way/1002507322",
+      "type": "way",
+      "lat": -0.6481779,
+      "lon": 35.0569376,
+      "name": "Kroiseet",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "layer": "-1",
+        "name": "Kroiseet",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/1002507323",
+      "type": "way",
+      "lat": -0.6481106,
+      "lon": 35.0567929,
+      "name": "Kroiseet",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Kroiseet",
+        "waterway": "river"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/1002507324",
+      "type": "way",
+      "lat": -0.648077,
+      "lon": 35.0567325,
+      "name": "Kroiseet",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "layer": "-1",
+        "name": "Kroiseet",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/1002507325",
+      "type": "way",
+      "lat": -0.6477142,
+      "lon": 35.0564398,
+      "name": "Kroiseet",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Kroiseet",
+        "waterway": "stream"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/1002507328",
+      "type": "way",
+      "lat": -0.6759539,
+      "lon": 35.0376251,
+      "name": "Kroiseet",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Kroiseet",
+        "waterway": "stream"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/1002507334",
+      "type": "way",
+      "lat": -0.6491209,
+      "lon": 35.0533514,
+      "name": "Kroiseet",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "intermittent": "yes",
+        "name": "Kroiseet",
+        "waterway": "stream"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/1002507335",
+      "type": "way",
+      "lat": -0.6658255,
+      "lon": 35.0439182,
+      "name": "Kroiseet",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Kroiseet",
+        "waterway": "stream"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/1085042598",
+      "type": "way",
+      "lat": -0.580699,
+      "lon": 35.0104923,
+      "name": "Kenyoro Primary School",
+      "category": "Education",
+      "subtype": "primary school",
+      "tags": {
+        "amenity": "school",
+        "isced:level": "1",
+        "name": "Kenyoro Primary School",
+        "operator:type": "public",
+        "wheelchair": "limited"
+      },
+      "ward": "itibo"
+    },
+    {
+      "osmId": "way/1101935345",
+      "type": "way",
+      "lat": -0.7473377,
+      "lon": 34.9207755,
+      "name": "nyanchonori secondary school and church centre",
+      "category": "Education",
+      "subtype": "secondary school",
+      "tags": {
+        "amenity": "school",
+        "name": "nyanchonori secondary school and church centre"
+      },
+      "ward": "rigoma"
+    },
+    {
+      "osmId": "way/1145617456",
+      "type": "way",
+      "lat": -0.5666335,
+      "lon": 34.9388571,
+      "name": "School",
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:housenumber": "314",
+        "addr:postcode": "40500",
+        "addr:street": "Nyamira",
+        "building": "commercial",
+        "building:levels": "1",
+        "name": "School",
+        "smoking": "outside"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/1145617457",
+      "type": "way",
+      "lat": -0.5666414,
+      "lon": 34.9390468,
+      "name": "Nyamira Lightgate Academy",
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:housenumber": "314",
+        "addr:postcode": "40500",
+        "addr:street": "Nyairicha",
+        "amenity": "school",
+        "building": "commercial",
+        "building:levels": "1",
+        "name": "Nyamira Lightgate Academy",
+        "smoking": "outside"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/1145620055",
+      "type": "way",
+      "lat": -0.5640277,
+      "lon": 34.9414057,
+      "name": "Nyaricha special school",
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:postcode": "40500",
+        "addr:street": "nyairicha",
+        "building": "commercial",
+        "building:levels": "1",
+        "name": "Nyaricha special school",
+        "smoking": "outside"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/1145621049",
+      "type": "way",
+      "lat": -0.56339,
+      "lon": 34.9426331,
+      "name": "nyairicha primary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:postcode": "40500",
+        "addr:street": "nyairicha",
+        "building": "commercial",
+        "building:levels": "1",
+        "name": "nyairicha primary school",
+        "smoking": "outside"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/1145621050",
+      "type": "way",
+      "lat": -0.5634371,
+      "lon": 34.9419638,
+      "name": "nyairicha primary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:postcode": "40500",
+        "addr:street": "nyairicha",
+        "building": "commercial",
+        "building:levels": "1",
+        "name": "nyairicha primary school",
+        "smoking": "outside"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/1145621997",
+      "type": "way",
+      "lat": -0.5734343,
+      "lon": 34.9420025,
+      "name": "bomondo primary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:postcode": "40500",
+        "addr:street": "bomondo",
+        "building": "commercial",
+        "building:levels": "1",
+        "name": "bomondo primary school",
+        "smoking": "outside"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/1145622533",
+      "type": "way",
+      "lat": -0.5745834,
+      "lon": 34.9425622,
+      "name": "Senato kebaso secondary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "addr:city": "Nyamira",
+        "addr:postcode": "40500",
+        "addr:street": "bomondo",
+        "building": "commercial",
+        "building:levels": "1",
+        "name": "Senato kebaso secondary school",
+        "smoking": "outside"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/1145623255",
+      "type": "way",
+      "lat": -0.5741143,
+      "lon": 34.935265,
+      "name": "Down forest academy",
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "addr:city": "nyamira",
+        "addr:postcode": "40500",
+        "addr:street": "tente",
+        "building": "commercial",
+        "building:levels": "2",
+        "name": "Down forest academy",
+        "smoking": "outside"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/1145624256",
+      "type": "way",
+      "lat": -0.5744799,
+      "lon": 34.9318785,
+      "name": "tente primary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "addr:city": "nyamira",
+        "addr:postcode": "40500",
+        "addr:street": "tente",
+        "building": "commercial",
+        "building:levels": "1",
+        "name": "tente primary school",
+        "smoking": "outside"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/1145624257",
+      "type": "way",
+      "lat": -0.5741751,
+      "lon": 34.9316001,
+      "name": "tente primary school",
+      "category": "Market",
+      "subtype": "commercial",
+      "tags": {
+        "addr:city": "nyamira",
+        "addr:postcode": "40500",
+        "addr:street": "tente",
+        "building": "commercial",
+        "building:levels": "1",
+        "name": "tente primary school",
+        "smoking": "outside"
+      },
+      "ward": "township"
+    },
+    {
+      "osmId": "way/1168209774",
+      "type": "way",
+      "lat": -0.599497,
+      "lon": 34.9471222,
+      "name": "Kadongo-Nyamira-Kebirigo",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kadongo-Nyamira-Kebirigo",
+        "ref": "B5",
+        "source": "survey"
+      },
+      "ward": "bonyamatuta"
+    },
+    {
+      "osmId": "way/1214155899",
+      "type": "way",
+      "lat": -0.4922451,
+      "lon": 34.8769494,
+      "name": "Bugo D.O.K. Primary School",
+      "category": "Education",
+      "subtype": "primary school",
+      "tags": {
+        "amenity": "school",
+        "name": "Bugo D.O.K. Primary School"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/1332688114",
+      "type": "way",
+      "lat": -0.4773546,
+      "lon": 34.8848353,
+      "name": "Kendu-Kandongo-Nyamira Rd",
+      "category": "Road",
+      "subtype": "trunk",
+      "tags": {
+        "highway": "trunk",
+        "name": "Kendu-Kandongo-Nyamira Rd",
+        "ref": "B5"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "way/1382901993",
+      "type": "way",
+      "lat": -0.6211419,
+      "lon": 34.9990914,
+      "name": null,
+      "category": "Leisure",
+      "subtype": "pitch",
+      "tags": {
+        "leisure": "pitch",
+        "sport": "multi"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "way/1382902005",
+      "type": "way",
+      "lat": -0.6218982,
+      "lon": 34.998512,
+      "name": "St. Peters Nyakemincha Secondary School",
+      "category": "Education",
+      "subtype": "secondary school",
+      "tags": {
+        "amenity": "school",
+        "name": "St. Peters Nyakemincha Secondary School",
+        "website": "https://nyakeminchasecondary.sc.ke/"
+      },
+      "ward": "kiabonyoru"
+    },
+    {
+      "osmId": "way/1417943826",
+      "type": "way",
+      "lat": -0.6951151,
+      "lon": 35.0500511,
+      "name": "Borabu Primary and Junior Secondary School",
+      "category": "Education",
+      "subtype": "secondary school",
+      "tags": {
+        "amenity": "school",
+        "name": "Borabu Primary and Junior Secondary School"
+      },
+      "ward": "mekenene"
+    },
+    {
+      "osmId": "way/1495571263",
+      "type": "way",
+      "lat": -0.4501385,
+      "lon": 35.0247265,
+      "name": "Gitwebe Baptist Church",
+      "category": "Worship",
+      "subtype": "christian",
+      "tags": {
+        "addr:city": "nyamira",
+        "addr:housenumber": "P.O.BOX 326-40500,Nyamira,Kenya.",
+        "addr:postcode": "40500",
+        "addr:street": "North Mugirango, Ikonge Chabera road",
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "denomination": "baptist",
+        "name": "Gitwebe Baptist Church",
+        "religion": "christian"
+      },
+      "ward": "magwagwa"
+    },
+    {
+      "osmId": "way/1501325943",
+      "type": "way",
+      "lat": -0.4497297,
+      "lon": 35.0254089,
+      "name": "Gitwebe Secondary School",
+      "category": "Education",
+      "subtype": "secondary school",
+      "tags": {
+        "addr:city": "nyamira",
+        "addr:postcode": "40500",
+        "building": "school",
+        "building:levels": "0",
+        "height": "0",
+        "name": "Gitwebe Secondary School"
+      },
+      "ward": "magwagwa"
+    },
+    {
+      "osmId": "way/1501325944",
+      "type": "way",
+      "lat": -0.4502276,
+      "lon": 35.0253695,
+      "name": "Gitwebe Secondary Science lab",
+      "category": "Education",
+      "subtype": "secondary school",
+      "tags": {
+        "addr:city": "nyamira",
+        "addr:postcode": "40500",
+        "building": "school",
+        "name": "Gitwebe Secondary Science lab",
+        "office": "educational_institution"
+      },
+      "ward": "magwagwa"
+    },
+    {
+      "osmId": "way/1501325945",
+      "type": "way",
+      "lat": -0.4494093,
+      "lon": 35.0261603,
+      "name": "Gitwebe Primary School",
+      "category": "Education",
+      "subtype": "primary school",
+      "tags": {
+        "addr:city": "nyamira",
+        "addr:postcode": "40500",
+        "building": "school",
+        "name": "Gitwebe Primary School",
+        "office": "educational_institution"
+      },
+      "ward": "magwagwa"
+    },
+    {
+      "osmId": "way/1501325946",
+      "type": "way",
+      "lat": -0.4499052,
+      "lon": 35.0259755,
+      "name": "Gitwebe J.S.S",
+      "category": "Education",
+      "subtype": "school",
+      "tags": {
+        "addr:city": "nyamira",
+        "addr:postcode": "40500",
+        "building": "school",
+        "name": "Gitwebe J.S.S",
+        "office": "educational_institution"
+      },
+      "ward": "magwagwa"
+    },
+    {
+      "osmId": "way/1501325947",
+      "type": "way",
+      "lat": -0.4490681,
+      "lon": 35.0254245,
+      "name": "ECD",
+      "category": "Education",
+      "subtype": "ECDE",
+      "tags": {
+        "addr:city": "nyamira",
+        "addr:postcode": "40500",
+        "building": "school",
+        "name": "ECD",
+        "office": "educational_institution"
+      },
+      "ward": "magwagwa"
+    },
+    {
+      "osmId": "way/1501325948",
+      "type": "way",
+      "lat": -0.4486521,
+      "lon": 35.0256272,
+      "name": "Gitwebe ECD",
+      "category": "Education",
+      "subtype": "ECDE",
+      "tags": {
+        "addr:city": "nyamira",
+        "addr:postcode": "40500",
+        "building": "school",
+        "name": "Gitwebe ECD",
+        "office": "educational_institution"
+      },
+      "ward": "magwagwa"
+    },
+    {
+      "osmId": "way/1521246420",
+      "type": "way",
+      "lat": -0.5942778,
+      "lon": 34.9161748,
+      "name": "Sironga Girls secondary school",
+      "category": "Education",
+      "subtype": "secondary school",
+      "tags": {
+        "amenity": "school",
+        "education": "school",
+        "grades": "10-12",
+        "isced:level": "3",
+        "name": "Sironga Girls secondary school",
+        "operator": "Ministry of Education",
+        "operator:type": "government",
+        "operator:wikidata": "Q30285161"
+      },
+      "ward": "bogichora"
+    },
+    {
+      "osmId": "relation/6762066",
+      "type": "relation",
+      "lat": -0.8238611,
+      "lon": 34.5542752,
+      "name": "Gucha",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "alt_name": "Kuja",
+        "name": "Gucha",
+        "type": "waterway",
+        "waterway": "river",
+        "wikidata": "Q3652178",
+        "wikipedia": "en:Gucha River"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "relation/8873606",
+      "type": "relation",
+      "lat": -0.4605235,
+      "lon": 35.1428748,
+      "name": "Sondu",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Sondu",
+        "type": "waterway",
+        "waterway": "river",
+        "wikidata": "Q3490324"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "relation/13392619",
+      "type": "relation",
+      "lat": -0.4137909,
+      "lon": 34.8022544,
+      "name": "Awach Kibuon",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Awach Kibuon",
+        "type": "waterway",
+        "waterway": "river"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "relation/13396124",
+      "type": "relation",
+      "lat": -0.7028158,
+      "lon": 34.6286147,
+      "name": "Riana",
+      "category": "Waterway",
+      "subtype": "river",
+      "tags": {
+        "name": "Riana",
+        "type": "waterway",
+        "waterway": "river"
+      },
+      "ward": null
+    },
+    {
+      "osmId": "relation/13440875",
+      "type": "relation",
+      "lat": -0.6640145,
+      "lon": 35.0509579,
+      "name": "Kroiseet",
+      "category": "Waterway",
+      "subtype": "stream",
+      "tags": {
+        "name": "Kroiseet",
+        "type": "waterway",
+        "waterway": "stream"
+      },
+      "ward": "mekenene"
+    }
+  ]
+}

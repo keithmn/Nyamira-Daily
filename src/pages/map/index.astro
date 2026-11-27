@@ -7,6 +7,7 @@ import Roads from '../../components/folded/Roads.astro';
 import { places, currentState } from '../../lib/places.js';
 import { roads } from '../../lib/roads.js';
 import wards from '../../data/wards.js';
+import register from '../../data/ward-register.json';
 
 const facilities = places.filter((p) => p.kind === 'facility');
 const checked = facilities.filter((p) => currentState(p).lastChecked).length;
@@ -15,14 +16,14 @@ const sectorPills = [
   { href: '/map/health/', label: `Health facilities (${facilities.filter((f) => f.type === 'Health').length})` },
   { href: '/map/education/', label: `Schools & education (${facilities.filter((f) => f.type === 'Education').length})` },
   { href: '/money/farming/', label: `Farming & markets (${facilities.filter((f) => f.type === 'Market').length})` },
-  { href: '/about/nyamira/', label: 'About Nyamira County' },
-  { href: '/administration/', label: 'Who holds each seat' },
 ];
 ---
-<Base title="Places" description="Find any ward, school, clinic, market or road in Nyamira. Tap the map to see what is there and what condition it is in.">
+<Base title="Places in Nyamira County" description="Find any ward, school, clinic, market or road in Nyamira. Tap the map to see what is there and what condition it is in.">
   <PageHead
-    eyebrow="Geospatial Field Guide"
-    title="Explore places, wards & roads across Nyamira"
+    cover="statement"
+    figure={{ value: String(facilities.length), source: `Gusii Daily list of public places in Nyamira; ${checked} checked on site so far` }}
+    eyebrow="Places · Public places listed"
+    title="Explore places, wards & roads across the Gusii counties"
     lead="Tap any ward or switch to facilities and ward money to inspect schools, clinics, water points, markets and roads — with source and verification status on every listing."
   />
 
@@ -30,7 +31,7 @@ const sectorPills = [
     <ul class="fg-kpi-strip" aria-label="Places summary">
       <li class="fg-ticket-kpi">
         <div class="fg-tk-stub"><b>{wards.length}</b></div>
-        <div class="fg-tk-body"><strong>Wards mapped</strong><span>Across 4 constituencies</span></div>
+        <div class="fg-tk-body"><strong>Wards mapped</strong><span>Across {register.constituencies.length} constituencies in two counties</span></div>
       </li>
       <li class="fg-ticket-kpi">
         <div class="fg-tk-stub"><b>{facilities.length}</b></div>
@@ -66,5 +67,8 @@ const sectorPills = [
     </section>
 
     <section class="fg-solid-sheet stack"><Roads /></section>
+
+    <!-- Kiswahili: needs native-speaker review -->
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Ramani ya vituo vya umma vya Kaunti ya Nyamira — hospitali, shule, masoko, maji na barabara — katika wodi 20. Kila kituo kinaonyesha hali yake na chanzo cha habari.</p></div>
   </div>
 </Base>

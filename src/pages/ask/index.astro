@@ -1,0 +1,179 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { date } from '../../lib/fmt.js';
+import asks from '../../data/asks.json' with { type: 'json' };
+
+const today = new Date().toISOString().slice(0, 10);
+const requests = asks.requests.map((r) => ({
+  ...r,
+  overdue: (r.status === 'sent' || r.status === 'no reply') && r.dueOn < today,
+}));
+---
+<Base title="Ask Nyamira" description="You have the right to any information held by the county government. Here is how to ask.">
+  <PageHead eyebrow="Take Part · Right to Information" title="Ask Nyamira" lead="You have the right to any information held by the county government. Here is how to ask." />
+
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Una haki ya kupata taarifa yoyote inayoshikiliwa na serikali ya kaunti (Katiba, Ibara 35). Ukurasa huu unaeleza jinsi ya kuomba, na una chombo cha kuandika barua ya ombi ambayo huhifadhiwa kwenye simu yako peke yake.</p></div>
+
+  <div class="stack-lg">
+
+    <section class="fg-sheet">
+      <div class="fg-sec-head" style="margin-bottom:16px">
+        <span class="fg-kicker">YOUR RIGHT</span>
+        <h2>The law says the county must answer you</h2>
+      </div>
+      <p><strong>Article 35 of the Constitution</strong> gives every citizen the right to information held by the State. The <strong>Access to Information Act, 2016</strong> sets out how to exercise it.</p>
+      <table class="cards">
+        <tbody>
+          <tr><td data-label="Step 1">Write a letter to the County Information Access Officer at Nyamira County Government. State what information you want and why (optional).</td></tr>
+          <tr><td data-label="Step 2">Keep a copy. Deliver in person and get a receipt, or send by registered post or email.</td></tr>
+          <tr><td data-label="Step 3">The officer has <strong>21 days</strong> to respond (Access to Information Act, Section 9). They may extend by 10 days with a written explanation.</td></tr>
+          <tr><td data-label="Step 4">If refused or ignored, you may complain to the <strong>Commission on Administrative Justice</strong> (the Ombudsman), or apply to the High Court.</td></tr>
+        </tbody>
+      </table>
+      <details style="margin-top:12px">
+        <summary>What you can ask for</summary>
+        <ul>
+          <li>Any document, record or data held by the county government or its agencies</li>
+          <li>Budget documents, contracts, procurement records, audit reports</li>
+          <li>Minutes of public meetings, project status reports, inspection records</li>
+          <li>Staff establishments, payroll summaries (not personal data of individuals)</li>
+          <li>Environmental impact assessments, land records, development plans</li>
+        </ul>
+        <p class="small muted">The Act limits access to information that would endanger life, security or personal privacy, or that is protected by legal privilege. The officer must explain any refusal in writing.</p>
+      </details>
+      <p class="small muted" style="margin-top:8px">Sources: Constitution of Kenya, 2010, Article 35; Access to Information Act, No. 31 of 2016, Sections 4, 9, 14 and 19.</p>
+    </section>
+
+    <section class="fg-solid-sheet" id="write">
+      <div class="fg-sec-head" style="margin-bottom:16px">
+        <span class="fg-kicker">LETTER BUILDER</span>
+        <h2>Write your request now</h2>
+        <p class="small muted">Nothing leaves this page. The letter is built in your browser and stays on your device until you copy, print or share it yourself.</p>
+      </div>
+
+      <form id="ask-form" onsubmit="return false" style="display:flex; flex-direction:column; gap:12px; max-width:560px">
+        <label>
+          <span class="small"><strong>Your name</strong> (optional — you may request anonymously)</span>
+          <input type="text" id="ask-name" placeholder="Your name" style="width:100%; padding:8px; border:1px solid var(--ch-200); border-radius:4px; font:inherit">
+        </label>
+        <label>
+          <span class="small"><strong>To</strong></span>
+          <input type="text" id="ask-to" value="County Information Access Officer, Nyamira County Government" style="width:100%; padding:8px; border:1px solid var(--ch-200); border-radius:4px; font:inherit">
+        </label>
+        <label>
+          <span class="small"><strong>What information do you want?</strong></span>
+          <textarea id="ask-subject" rows="3" required placeholder="Describe the information you are requesting, e.g. 'All contracts awarded by the Department of Roads in FY 2024/25, including contractor names, amounts and completion dates.'" style="width:100%; padding:8px; border:1px solid var(--ch-200); border-radius:4px; font:inherit; resize:vertical"></textarea>
+        </label>
+        <label>
+          <span class="small"><strong>Why do you need it?</strong> (optional)</span>
+          <textarea id="ask-reason" rows="2" placeholder="You do not have to give a reason, but it may help the officer find the right records." style="width:100%; padding:8px; border:1px solid var(--ch-200); border-radius:4px; font:inherit; resize:vertical"></textarea>
+        </label>
+        <button type="button" id="ask-generate" class="btn" style="align-self:flex-start">Generate letter</button>
+      </form>
+
+      <div id="ask-output" style="display:none; margin-top:24px">
+        <h3 style="margin-bottom:8px">Your letter</h3>
+        <pre id="ask-letter" style="white-space:pre-wrap; word-break:break-word; padding:16px; background:var(--nd-paper); border:1px solid var(--ch-200); border-radius:4px; font-size:0.9em; line-height:1.5; max-height:400px; overflow-y:auto"></pre>
+        <div class="page-tools" style="margin-top:12px">
+          <button type="button" id="ask-copy" class="btn">Copy to clipboard</button>
+          <button type="button" id="ask-print" class="btn quiet">Print</button>
+          <a id="ask-wa" class="btn quiet" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
+        </div>
+        <p id="ask-copied" class="small" style="color:var(--nd-green-deep); display:none; margin-top:4px">Copied to clipboard.</p>
+      </div>
+    </section>
+
+    <section class="fg-sheet" id="tracker">
+      <div class="fg-sec-head" style="margin-bottom:16px">
+        <span class="fg-kicker">PUBLIC TRACKER</span>
+        <h2>Information requests we are tracking</h2>
+        <p class="small muted">Only requests by Gusii Daily, or by residents who gave written consent to publish.</p>
+      </div>
+      {requests.length > 0 ? (
+        <div style="overflow-x:auto">
+          <table class="cards">
+            <thead><tr><th>Question</th><th>Asked of</th><th>Sent</th><th>Due</th><th>Status</th></tr></thead>
+            <tbody>
+              {requests.map((r) => (
+                <tr>
+                  <td data-label="Question">{r.question}</td>
+                  <td data-label="Asked of">{r.askedOf}</td>
+                  <td data-label="Sent">{date(r.sentOn)}</td>
+                  <td data-label="Due">{date(r.dueOn)}</td>
+                  <td data-label="Status">
+                    {r.overdue ? <strong style="color:var(--nd-charcoal)">Overdue</strong> : r.status}
+                    {r.answerSummary && <> — {r.answerSummary}</>}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p class="callout"><span><strong>No requests tracked yet.</strong> When we file our first information request, it will appear here with its status and the county's response.</span></p>
+      )}
+    </section>
+
+  </div>
+</Base>
+
+<script is:inline>
+(function () {
+  var gen = document.getElementById('ask-generate');
+  var output = document.getElementById('ask-output');
+  var letterEl = document.getElementById('ask-letter');
+  var copyBtn = document.getElementById('ask-copy');
+  var printBtn = document.getElementById('ask-print');
+  var waLink = document.getElementById('ask-wa');
+  var copiedMsg = document.getElementById('ask-copied');
+  if (!gen) return;
+
+  function buildLetter() {
+    var name = document.getElementById('ask-name').value.trim();
+    var to = document.getElementById('ask-to').value.trim();
+    var subject = document.getElementById('ask-subject').value.trim();
+    var reason = document.getElementById('ask-reason').value.trim();
+    if (!subject) { document.getElementById('ask-subject').focus(); return null; }
+    var d = new Date();
+    var dateStr = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    var lines = [dateStr, '', 'To: ' + (to || 'County Information Access Officer, Nyamira County Government'),
+      'Subject: Request for Information under Article 35 of the Constitution and the Access to Information Act, 2016',
+      '', 'Dear Sir/Madam,', '',
+      'Under Article 35 of the Constitution of Kenya and Section 4 of the Access to Information Act, 2016, I request the following information:',
+      '', subject, ''];
+    if (reason) lines.push('I need this information because: ' + reason, '');
+    lines.push('Under Section 9 of the Act, you are required to respond within 21 days. If you need more time, you must write to me explaining why.',
+      '', 'Yours faithfully,', name || 'A resident of Nyamira County');
+    return lines.join('\n');
+  }
+
+  gen.addEventListener('click', function () {
+    var letter = buildLetter();
+    if (!letter) return;
+    letterEl.textContent = letter;
+    output.style.display = 'block';
+    waLink.href = 'https://wa.me/?text=' + encodeURIComponent(letter);
+    output.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  copyBtn.addEventListener('click', function () {
+    var text = letterEl.textContent;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function () {
+        copiedMsg.style.display = 'block';
+        setTimeout(function () { copiedMsg.style.display = 'none'; }, 2000);
+      });
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+      copiedMsg.style.display = 'block';
+      setTimeout(function () { copiedMsg.style.display = 'none'; }, 2000);
+    }
+  });
+
+  printBtn.addEventListener('click', function () { window.print(); });
+})();
+</script>

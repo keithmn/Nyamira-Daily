@@ -2,6 +2,14 @@
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
 import CommunityRules from '../../../components/CommunityRules.astro';
+import { languageItems, wordItems, grammarItems, categoryLabel } from '../../../lib/language.js';
+import langMeta from '../../../data/language-meta.json' with { type: 'json' };
+
+const all = await languageItems();
+const words = wordItems(all);
+const grammar = grammarItems(all);
+const categories = [...new Set(words.map((e) => e.data.category))];
+const aiCount = all.filter((e) => e.data.consentAiTraining).length;
 
 const steps = [
   ['Step 1', 'Collect', 'Volunteers record stories, proverbs, songs and everyday speech from speakers who agree to take part.'],
@@ -19,6 +27,29 @@ const steps = [
   />
 
   <div class="stack-lg">
+    <section class="fg-sheet">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">Dataset Progress</span>
+        <h2>The Ekegusii record <span class="fg-hl">so far</span></h2>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center; padding:8px 0 16px">
+        <div class="fg-stat-tile"><span class="fg-stat-num">{all.length}</span><span class="fg-stat-label">entries</span></div>
+        <div class="fg-stat-tile"><span class="fg-stat-num">{words.length}</span><span class="fg-stat-label">words & phrases</span></div>
+        <div class="fg-stat-tile"><span class="fg-stat-num">{grammar.length}</span><span class="fg-stat-label">grammar notes</span></div>
+        <div class="fg-stat-tile"><span class="fg-stat-num">{aiCount}</span><span class="fg-stat-label">consented for AI</span></div>
+      </div>
+      {all.length === 0 && <p class="callout"><strong>Nothing published yet.</strong> The first recording rounds are being planned. Each entry will show its contributor, reviewer and consent status.</p>}
+      <!-- Ekegusii summary (marked for native-speaker review) -->
+      <div class="sw" lang="guz" style="margin-top:12px">
+        <span class="eyebrow">Okoandikwa kw'Ekegusii</span>
+        <p>Simu n'ecompyuta tichimanyete Ekegusii korende tigandike. Toramanga ebinto ebi abanto baramanyete n'oboisanio bwabo — amagambo, emechango, ebibareso n'amaremo — tore kositiria Ekegusii.</p>
+      </div>
+      <div class="fg-cta-row">
+        <a class="fg-cta-btn" href="/community/language/words/">Browse the word list</a>
+        <a class="fg-outline-btn" href="/community/language/grammar/">Grammar reference</a>
+      </div>
+    </section>
+
     <section class="fg-solid-sheet stack" aria-labelledby="how">
       <div class="fg-sec-head is-compact">
         <span class="fg-kicker">Four-Stage Workflow</span>
@@ -36,12 +67,118 @@ const steps = [
           </li>
         ))}
       </ul>
-      <p class="callout"><strong>Current status: nothing published yet.</strong> The first recording rounds are being planned.</p>
-      <div class="fg-center-actions">
-        <a class="fg-cta-btn" href="/community/share/">Volunteer to record or share</a>
-        <a class="fg-outline-btn" href="/community/archive/">See the culture archive</a>
+    </section>
+
+    <section class="fg-sheet stack" aria-labelledby="about-lang">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">About the Language</span>
+        <h2 id="about-lang">Ekegusii at a glance</h2>
+      </div>
+      <table class="cards">
+        <tbody>
+          <tr><td data-label="Name">{langMeta.language.endonym} ({langMeta.language.name})</td></tr>
+          <tr><td data-label="ISO 639-3">{langMeta.language.iso639_3}</td></tr>
+          <tr><td data-label="Family">{langMeta.language.family}</td></tr>
+          <tr><td data-label="Speakers">{langMeta.language.speakers}</td></tr>
+          <tr><td data-label="Region">{langMeta.language.region}</td></tr>
+          <tr><td data-label="Writing">{langMeta.language.writingSystem}</td></tr>
+          <tr><td data-label="Tone">{langMeta.language.tpiType}</td></tr>
+        </tbody>
+      </table>
+      <p class="small muted">Sources: {langMeta.sources.map((s) => s.name).join('; ')}.</p>
+    </section>
+
+    <section class="fg-sheet stack" aria-labelledby="noun-classes">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">Reference</span>
+        <h2 id="noun-classes">Noun classes</h2>
+        <p class="small muted">Ekegusii uses the Bantu noun class system. Each class has its own prefix and agreement pattern.</p>
+      </div>
+      <table class="cards">
+        <thead><tr><th>Class</th><th>Prefix</th><th>Example</th><th>Meaning</th></tr></thead>
+        <tbody>
+          {langMeta.nounClasses.map((c) => (
+            <tr>
+              <td data-label="Class">{c.class}</td>
+              <td data-label="Prefix">{c.prefix}</td>
+              <td data-label="Example" lang="guz">{c.example}</td>
+              <td data-label="Meaning">{c.meaning}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="small muted">Prefixes may vary by dialect and source. Based on Cammenga (2002). {langMeta.note}</p>
+    </section>
+
+    <section class="fg-sheet stack" aria-labelledby="ai-use">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">AI & Language Technology</span>
+        <h2 id="ai-use">Using this dataset for <span class="fg-hl">language tools</span></h2>
+      </div>
+      <p>Entries where the contributor gave a <strong>separate yes</strong> to AI training are available as structured JSON at <a href="/api/language.json"><code>/api/language.json</code></a>. Each record includes the Ekegusii text, its English translation, phonetic guide, grammatical category and usage example.</p>
+      <p>The dataset can support:</p>
+      <ul>
+        <li>Spell-checkers and auto-correct for Ekegusii</li>
+        <li>Translation tools (Ekegusii to English and Kiswahili)</li>
+        <li>Text-to-speech and speech recognition</li>
+        <li>Educational apps and language-learning tools</li>
+        <li>Search and input methods for phones and computers</li>
+      </ul>
+      <p class="small muted">The licence is being finalised. Entries without AI-training consent are never included in the export, regardless of their publication status.</p>
+    </section>
+
+    <section class="fg-sheet stack" aria-labelledby="contribute">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">Contributor Guide</span>
+        <h2 id="contribute">How to <span class="fg-hl">add an entry</span></h2>
+      </div>
+      <p>Anyone who speaks Ekegusii can contribute. Each entry needs:</p>
+      <table class="cards">
+        <tbody>
+          <tr><td data-label="Required">The word or phrase in Ekegusii</td></tr>
+          <tr><td data-label="Required">An English translation</td></tr>
+          <tr><td data-label="Required">The grammatical category (noun, verb, adjective, phrase, greeting, proverb, sentence or grammar note)</td></tr>
+          <tr><td data-label="Required">Your consent to publish, recorded on the form</td></tr>
+          <tr><td data-label="Helpful">A Kiswahili translation</td></tr>
+          <tr><td data-label="Helpful">A pronunciation guide (how it sounds, in any spelling that makes it clear)</td></tr>
+          <tr><td data-label="Helpful">An example sentence showing the word in use</td></tr>
+          <tr><td data-label="Helpful">The noun class, for nouns (e.g. 9/10)</td></tr>
+          <tr><td data-label="Helpful">An audio recording of the word spoken clearly</td></tr>
+          <tr><td data-label="For AI tools">A separate yes on the form, allowing the entry to be used for language technology (spell-checkers, translators). This is optional and can be withdrawn.</td></tr>
+        </tbody>
+      </table>
+      <p>A native-speaker reviewer checks every entry before it is published. We credit contributors by name unless they ask not to be named.</p>
+      <details>
+        <summary>What happens to your contribution</summary>
+        <ul>
+          <li>It is reviewed by a native speaker of Ekegusii.</li>
+          <li>Once approved, it appears on the word list or grammar page with your credit.</li>
+          <li>It is included in the CSV and JSON downloads for schools and researchers.</li>
+          <li>If you gave separate AI-training consent, it also appears in the AI training export.</li>
+          <li>You can withdraw your contribution at any time by contacting us.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="fg-sheet stack" aria-labelledby="priority">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">Priority Areas</span>
+        <h2 id="priority">What we need most</h2>
+      </div>
+      <div class="fg-data-grid">
+        <div class="fg-data-card"><h3>Everyday words</h3><p class="muted">Greetings, family terms, body parts, food, animals, colours, numbers, days and months — the words people use every day.</p></div>
+        <div class="fg-data-card"><h3>Verbs with examples</h3><p class="muted">Common verbs in their infinitive form, with a sentence showing each one in use.</p></div>
+        <div class="fg-data-card"><h3>Proverbs & sayings</h3><p class="muted">The proverbs elders use in speech and teaching, with their meaning explained.</p></div>
+        <div class="fg-data-card"><h3>Grammar patterns</h3><p class="muted">How verbs change for tense, person and negation; how noun class prefixes work; word order.</p></div>
+        <div class="fg-data-card"><h3>Audio recordings</h3><p class="muted">Clear recordings of words and sentences spoken by native speakers, for pronunciation and future speech tools.</p></div>
+        <div class="fg-data-card"><h3>Dialect notes</h3><p class="muted">Where a word or pronunciation differs between parts of Nyamira and Kisii, both forms recorded.</p></div>
       </div>
     </section>
+
+    <div class="fg-center-actions">
+      <a class="fg-cta-btn" href="/community/share/">Volunteer to record or share</a>
+      <a class="fg-outline-btn" href="/community/archive/">See the culture archive</a>
+    </div>
 
     <CommunityRules />
   </div>

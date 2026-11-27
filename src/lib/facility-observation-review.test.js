@@ -30,8 +30,8 @@ try {
 
 const intakeEnv = {
   FACILITY_INTAKE_ENABLED: 'true',
-  CORRECTION_SITE_ORIGIN: 'https://nyamiradaily.org',
-  CORRECTION_SITE_HOST: 'nyamiradaily.org',
+  CORRECTION_SITE_ORIGIN: 'https://gusiidaily.org',
+  CORRECTION_SITE_HOST: 'gusiidaily.org',
   CORRECTION_RETENTION_DAYS: '30',
   CORRECTION_RATE_SALT: 's'.repeat(32),
   TURNSTILE_SECRET_KEY: 'test-secret',
@@ -52,10 +52,10 @@ function reportFields(overrides = {}) {
   };
 }
 
-function reportRequest(fields, origin = 'https://nyamiradaily.org') {
+function reportRequest(fields, origin = 'https://gusiidaily.org') {
   const form = new FormData();
   for (const [key, value] of Object.entries(fields)) form.set(key, value);
-  return new Request('https://nyamiradaily.org/api/facility-observations', {
+  return new Request('https://gusiidaily.org/api/facility-observations', {
     method: 'POST',
     headers: { origin, 'cf-connecting-ip': '203.0.113.25' },
     body: form,
@@ -70,7 +70,7 @@ const acceptance = {
   scope: 'One visit by a resident; the clinic on that day only',
   observedOn: '2026-10-20',
   sourceCategory: 'resident',
-  sourceRef: 'Reader report reviewed by Nyamira Daily',
+  sourceRef: 'Reader report reviewed by Gusii Daily',
   evidence: 'unverified',
 };
 
@@ -131,14 +131,14 @@ test('exported observations carry public fields only and pass the published-reco
     public_scope: 'One visit by a resident; the clinic on that day only',
     public_observed_on: '2026-10-20',
     public_source_category: 'field-reporter',
-    public_source_ref: 'Field visit reviewed by Nyamira Daily',
+    public_source_ref: 'Field visit reviewed by Gusii Daily',
     public_evidence: 'verified',
     details: 'Private words from the reporter',
     reviewer: 'editor@example.org',
   };
   const { item } = publicObservationFromRow(row);
   assert.equal(item.category, facility.category);
-  assert.equal(item.source, 'Nyamira Daily field reporter');
+  assert.equal(item.source, 'Gusii Daily field reporter');
   assert.equal(item.reviewedAt, '2026-10-28T09:15:00Z');
   assert.equal(JSON.stringify(item).includes('Private words'), false);
   assert.equal(JSON.stringify(item).includes('editor@example.org'), false);
@@ -149,7 +149,7 @@ test('exported observations carry public fields only and pass the published-reco
 
 test('facility review API denies unauthenticated requests', async () => {
   const response = await onRequestGet({
-    request: new Request('https://nyamiradaily.org/api/review-facilities'),
+    request: new Request('https://gusiidaily.org/api/review-facilities'),
     env: {
       DB: {},
       CORRECTION_RETENTION_DAYS: '30',
@@ -225,7 +225,7 @@ test('a facility report round-trips from intake to review, retention cleanup, ex
   const access = await accessToken('editor@example.org');
   const originalFetch = globalThis.fetch;
   globalThis.fetch = async (url) => (String(url).includes('turnstile')
-    ? Response.json({ success: true, hostname: 'nyamiradaily.org' })
+    ? Response.json({ success: true, hostname: 'gusiidaily.org' })
     : Response.json({ keys: [access.jwk] }));
   try {
     const submitted = await onRequestPost({
@@ -246,7 +246,7 @@ test('a facility report round-trips from intake to review, retention cleanup, ex
       CORRECTION_REVIEWER_EMAILS: 'editor@example.org',
     };
     const patch = (body) => onRequestPatch({
-      request: new Request('https://nyamiradaily.org/api/review-facilities', {
+      request: new Request('https://gusiidaily.org/api/review-facilities', {
         method: 'PATCH',
         headers: { 'content-type': 'application/json', 'cf-access-jwt-assertion': access.token },
         body: JSON.stringify(body),
@@ -258,7 +258,7 @@ test('a facility report round-trips from intake to review, retention cleanup, ex
     assert.equal((await patch({ decision: 'rejected', note: 'Second opinion', id: reference })).status, 409);
 
     const listed = await onRequestGet({
-      request: new Request('https://nyamiradaily.org/api/review-facilities', {
+      request: new Request('https://gusiidaily.org/api/review-facilities', {
         headers: { 'cf-access-jwt-assertion': access.token },
       }),
       env: reviewEnv,

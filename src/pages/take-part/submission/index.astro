@@ -1,0 +1,137 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+---
+<Base title="Submission helper" description="Write a structured submission for a budget hearing, a county plan or a petition to the Assembly. Nothing you type here is sent anywhere.">
+  <PageHead eyebrow="Take Part · Have Your Say" title="Submission helper" lead="Write a structured submission for a budget hearing, a county plan or a petition to the Assembly. Nothing you type here is sent anywhere." crumbs={[{ href: '/about/', label: 'About' }]} />
+
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Chombo cha kuandika maoni yako kwa mkutano wa bajeti, mpango wa maendeleo au ombi kwa Bunge la Kaunti. Unachokiandika hakitumwi popote — kinabaki kwenye simu yako hadi unakopya au kushiriki wewe mwenyewe.</p></div>
+
+  <div class="stack-lg">
+    <section class="fg-sheet">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">What This Tool Does</span>
+        <h2>Prepare a written submission</h2>
+      </div>
+      <p>County residents have a constitutional right to take part in budget hearings, development plans and Assembly petitions (Constitution of Kenya, Article 196; County Governments Act, sections 87 and 115). A clearly structured submission is more likely to be recorded and acted on.</p>
+      <p>This tool formats your points into the structure that county forums expect. <strong>Nothing you type is stored or sent.</strong> Everything stays in your browser until you copy it, share it or print it yourself.</p>
+    </section>
+
+    <section class="fg-sheet">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">Your Submission</span>
+        <h2>Fill in the details</h2>
+      </div>
+      <form id="sub-form" autocomplete="off" style="display:flex;flex-direction:column;gap:16px">
+        <label style="display:flex;flex-direction:column;gap:4px">
+          <span class="eyebrow">Type of submission</span>
+          <select id="sub-type" style="padding:10px;border:1.5px solid var(--nd-charcoal);border-radius:6px;font:inherit;background:var(--paper)">
+            <option value="budget">Budget submission</option>
+            <option value="plan">Development plan comment</option>
+            <option value="petition">Assembly petition</option>
+          </select>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:4px">
+          <span class="eyebrow">Topic</span>
+          <input id="sub-topic" type="text" placeholder="What is this about?" required style="padding:10px;border:1.5px solid var(--nd-charcoal);border-radius:6px;font:inherit;background:var(--paper)" />
+        </label>
+        <label style="display:flex;flex-direction:column;gap:4px">
+          <span class="eyebrow">Ward</span>
+          <select id="sub-ward" style="padding:10px;border:1.5px solid var(--nd-charcoal);border-radius:6px;font:inherit;background:var(--paper)">
+            <option value="">— Select your ward —</option>
+            <option>Esise</option><option>Mekenene</option><option>Kiabonyoru</option><option>Nyansiongo</option>
+            <option>Rigoma</option><option>Gachuba</option><option>Kemera</option><option>Magombo</option>
+            <option>Manga</option><option>Gesima</option><option>Nyamaiya</option><option>Bogichora</option>
+            <option>Bosamaro</option><option>Bonyamatuta</option><option>Township</option><option>Itibo</option>
+            <option>Bomwagamo</option><option>Bokeira</option><option>Magwagwa</option><option>Ekerenyo</option>
+          </select>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:4px">
+          <span class="eyebrow" id="label-problem">The problem</span>
+          <textarea id="sub-problem" rows="5" placeholder="Describe what is wrong or what you want to change" required aria-labelledby="label-problem" style="padding:10px;border:1.5px solid var(--nd-charcoal);border-radius:6px;font:inherit;background:var(--paper);resize:vertical"></textarea>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:4px">
+          <span class="eyebrow" id="label-action">What you want done</span>
+          <textarea id="sub-action" rows="4" placeholder="What should the county do?" required aria-labelledby="label-action" style="padding:10px;border:1.5px solid var(--nd-charcoal);border-radius:6px;font:inherit;background:var(--paper);resize:vertical"></textarea>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:4px">
+          <span class="eyebrow">Your name <span style="font-weight:400">(optional)</span></span>
+          <input id="sub-name" type="text" placeholder="Leave blank to submit anonymously" style="padding:10px;border:1.5px solid var(--nd-charcoal);border-radius:6px;font:inherit;background:var(--paper)" />
+        </label>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:8px">
+          <button type="submit" class="btn">Generate submission</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="fg-sheet" id="output-section" style="display:none">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">Your Formatted Submission</span>
+        <h2>Ready to use</h2>
+      </div>
+      <pre id="sub-output" style="white-space:pre-wrap;word-break:break-word;background:var(--paper);border:1.5px dashed var(--nd-charcoal);border-radius:6px;padding:16px;font:inherit;line-height:1.6;max-height:60vh;overflow-y:auto"></pre>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:12px">
+        <button id="btn-copy" class="btn" type="button">Copy</button>
+        <a id="btn-wa" class="btn" href="#" rel="noopener" target="_blank">Share on WhatsApp</a>
+        <button id="btn-print" class="btn quiet" type="button">Print</button>
+      </div>
+      <p id="copy-msg" class="small muted" style="margin-top:8px;display:none">Copied to clipboard.</p>
+    </section>
+  </div>
+</Base>
+
+<script>
+  const form = document.getElementById('sub-form');
+  const output = document.getElementById('sub-output');
+  const section = document.getElementById('output-section');
+  const btnCopy = document.getElementById('btn-copy');
+  const btnWa = document.getElementById('btn-wa');
+  const btnPrint = document.getElementById('btn-print');
+  const copyMsg = document.getElementById('copy-msg');
+
+  const templates = {
+    budget(d) {
+      return `BUDGET SUBMISSION — ${d.topic}\nWard: ${d.ward || 'Not specified'}\nDate: ${d.date}\n\nProblem:\n${d.problem}\n\nRequest:\n${d.action}\n\nSubmitted by: ${d.name}`;
+    },
+    plan(d) {
+      return `COMMENT ON DEVELOPMENT PLAN — ${d.topic}\nWard: ${d.ward || 'Not specified'}\nDate: ${d.date}\n\nConcern:\n${d.problem}\n\nProposal:\n${d.action}\n\nSubmitted by: ${d.name}`;
+    },
+    petition(d) {
+      return `PETITION TO THE COUNTY ASSEMBLY OF NYAMIRA — ${d.topic}\nWard: ${d.ward || 'Not specified'}\nDate: ${d.date}\n\nStatement of facts:\n${d.problem}\n\nPrayer:\n${d.action}\n\nPetitioner: ${d.name}`;
+    },
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = {
+      type: document.getElementById('sub-type').value,
+      topic: document.getElementById('sub-topic').value.trim(),
+      ward: document.getElementById('sub-ward').value,
+      problem: document.getElementById('sub-problem').value.trim(),
+      action: document.getElementById('sub-action').value.trim(),
+      name: document.getElementById('sub-name').value.trim() || 'A concerned resident of Nyamira County',
+      date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }),
+    };
+    if (!data.topic || !data.problem || !data.action) return;
+    const text = templates[data.type](data);
+    output.textContent = text;
+    section.style.display = '';
+    section.scrollIntoView({ behavior: 'smooth' });
+    btnWa.href = `https://wa.me/?text=${encodeURIComponent(text)}`;
+  });
+
+  btnCopy.addEventListener('click', () => {
+    navigator.clipboard.writeText(output.textContent).then(() => {
+      copyMsg.style.display = '';
+      setTimeout(() => { copyMsg.style.display = 'none'; }, 2000);
+    });
+  });
+
+  btnPrint.addEventListener('click', () => {
+    const w = window.open('', '_blank');
+    w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Submission</title><style>body{font-family:sans-serif;padding:40px;white-space:pre-wrap;line-height:1.7}@page{margin:2cm}</style></head><body>${output.textContent.replace(/</g,'&lt;')}</body></html>`);
+    w.document.close();
+    w.print();
+  });
+</script>

@@ -2,7 +2,7 @@
 // Field-guide soft-mint footer with dashed charcoal dividers, inline search capsule, directory columns & CC BY 4.0 row.
 import Icon from './Icon.astro';
 import { social } from '../config.js';
-import { county } from '../county.js';
+import { site } from '../county.js';
 
 const names = { whatsapp: 'WhatsApp Channel', youtube: 'YouTube', facebook: 'Facebook', x: 'X', instagram: 'Instagram', tiktok: 'TikTok' };
 const order = ['youtube', 'tiktok', 'instagram', 'whatsapp', 'x', 'facebook'];
@@ -12,11 +12,12 @@ const columns = [
   {
     title: 'About',
     links: [
-      { href: '/about/', label: 'About Nyamira Daily' },
+      { href: '/about/', label: 'About Gusii Daily' },
+      { href: '/about/nyamira/', label: 'About Nyamira County' },
+      { href: '/about/kisii/', label: 'About Kisii County' },
       { href: '/about/rules/', label: 'Guiding rules & labels' },
       { href: '/about/contact/', label: 'Tell us / contact' },
-      { href: '/about/careers/', label: 'Careers & volunteering' },
-      { href: '/about/partners/', label: 'Partner with us' },
+      { href: '/about/data/', label: 'Open data & API' },
     ],
   },
   {
@@ -24,11 +25,9 @@ const columns = [
     links: [
       { href: '/map/', label: 'County facility map' },
       { href: '/ward/', label: 'All 20 wards' },
-      { href: '/map/#roads', label: 'Roads tracker' },
       { href: '/map/health/', label: 'Health facilities' },
       { href: '/map/education/', label: 'Schools & education' },
-      { href: '/about/nyamira/', label: 'About Nyamira County' },
-      { href: '/administration/', label: 'Who holds each seat' },
+      { href: '/report/', label: 'Report a place' },
     ],
   },
   {
@@ -36,25 +35,17 @@ const columns = [
     links: [
       { href: '/money/', label: 'Money overview' },
       { href: '/money/2025-26/', label: 'Budget 2025/26' },
-      { href: '/money/2025-26/departments/', label: 'The 24 departments' },
       { href: '/money/track/', label: 'What was spent' },
-      { href: '/money/revenue/', label: 'Where money comes from' },
-      { href: '/money/history/', label: 'Since 2013/14' },
       { href: '/money/contracts/', label: 'Contracts & NG-CDF' },
       { href: '/money/economy/', label: 'Economy & farming' },
     ],
   },
   {
-    title: 'Community & Stories',
+    title: 'Gusii & Stories',
     links: [
-      { href: '/watch/', label: 'Videos & explainers' },
-      { href: '/number-of-the-week/', label: 'Number of the week' },
-      { href: '/community/', label: 'Community overview' },
-      { href: '/community/abagusii/', label: 'The Abagusii' },
-      { href: '/community/archive/', label: 'Culture archive' },
+      { href: '/community/', label: 'Gusii knowledge base' },
       { href: '/community/language/', label: 'Ekegusii language dataset' },
-      { href: '/report/', label: 'Report a place' },
-      { href: '/about/data/', label: 'Open data & API' },
+      { href: '/watch/', label: 'Videos & explainers' },
     ],
   },
 ];
@@ -63,13 +54,13 @@ const columns = [
   <div class="wrap fg-ft-wrap">
     <!-- Top action row: title + offset-shadow pill search + social icon grid -->
     <div class="fg-ft-top">
-      <p class="fg-ft-headline">Look up any ward, clinic or record</p>
+      <p class="fg-ft-headline">Search the Gusii knowledge base &amp; county records</p>
       <form class="fg-ft-capsule" action="/search/" method="get" role="search">
-        <label class="vh" for="fg-ft-q">Search every page on Nyamira Daily</label>
+        <label class="vh" for="fg-ft-q">Search every page on Gusii Daily</label>
         <input id="fg-ft-q" type="search" name="q" placeholder="Type a ward, school, clinic, department or law..." />
         <button type="submit">Search <span aria-hidden="true">→</span></button>
       </form>
-      <ul class="fg-ft-socials" aria-label={`${county.siteName} on social media`}>
+      <ul class="fg-ft-socials" aria-label={`${site.name} on social media`}>
         {icons.map((s) => (
           <li>
             {s.href
@@ -83,10 +74,10 @@ const columns = [
     <!-- Middle directory columns -->
     <div class="fg-ft-cols">
       <div class="fg-ft-mark">
-        <a href="/" aria-label="Nyamira Daily home">
-          <img src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Nyamira Daily" width="184" height="36" />
+        <a href="/" aria-label="Gusii Daily home">
+          <img src="/brand/Gusii-Daily_horizontal_full-colour.svg" alt="Gusii Daily" width="156" height="48" />
         </a>
-        <p>The civic field guide and living public record for Nyamira County — every place mapped, every shilling sourced, written in plain language.</p>
+        <p>The Gusii language and cultural database, and a living public record of the county — every word recorded with consent, every figure sourced, written in plain language.</p>
       </div>
       {columns.map((c) => (
         <nav class="fg-ft-col" aria-label={c.title}>
@@ -98,25 +89,5 @@ const columns = [
       ))}
     </div>
 
-    <!-- Bottom license & editorial bar -->
-    <div class="fg-ft-meta">
-      <div>
-        <span class="fg-ft-h">Open Licence</span>
-        <span class="fg-cc-badge">CC BY 4.0</span>
-        <p>Published data and text are free to share and adapt with attribution. Community recordings follow each speaker's recorded consent.</p>
-      </div>
-      <div>
-        <span class="fg-ft-h">Independence</span>
-        <p>© {year} Nyamira Daily. Non-partisan and editorially independent — not affiliated with the County Government of Nyamira or any political party.</p>
-      </div>
-      <div>
-        <span class="fg-ft-h">Evidence Standard</span>
-        <p>Every figure names its source and date, labelled as Verified, Audit finding, Official claim or Unverified. <a href="/about/rules/">See full rules →</a></p>
-      </div>
-      <div>
-        <span class="fg-ft-h">Quick Jump</span>
-        <a class="fg-ft-pill" href="/ward/">20 Wards →</a>
-      </div>
-    </div>
   </div>
 </footer>

@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import { storyItems } from '../../lib/stories.js';
+import { date } from '../../lib/fmt.js';
+const items = await storyItems();
+---
+<Base title="What's working" description="Stories of things that work in Nyamira, backed by evidence.">
+  <PageHead eyebrow="Stories · On the Ground" title="What's working" lead="Not everything is broken. These are stories of things that work in Nyamira County — each backed by evidence, with photos where we have consent." crumbs={[{ href: '/watch/', label: 'Stories' }]} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Si kila kitu kimevunjika. Hizi ni hadithi za mambo yanayofanya kazi katika Kaunti ya Nyamira — kila moja ikiwa na ushahidi, picha zilizo na kibali, na chanzo chake.</p></div>
+
+  <div class="stack-lg">
+    <section class="fg-sheet">
+      <div class="fg-sec-head" style="margin-bottom:18px">
+        <span class="fg-kicker">EVIDENCE-BACKED STORIES</span>
+        <h2>Projects and services that are <em>actually working</em></h2>
+      </div>
+      {items.length > 0 ? (
+        <ul class="latest">
+          {items.map((e) => (
+            <li id={e.id}><div style="padding:16px 0; display:flex; flex-direction:column; gap:6px">
+              <span class="eyebrow">{e.data.sector}{e.data.ward && ` · ${e.data.ward}`} · {date(e.data.date.toISOString())}</span>
+              <span class="t">{e.data.title}</span>
+              <p><EvidenceLabel kind={e.data.evidenceLabel} /> {e.data.evidence.map((s, i) => <>{i > 0 && '; '}{s.url ? <a href={s.url} rel="noopener">{s.name}</a> : s.name}{s.page && `, ${s.page}`}</>)}</p>
+              {e.data.photos.length > 0 && e.data.photos[0].consent && (
+                <img src={e.data.photos[0].src} alt={e.data.photos[0].alt} loading="lazy" style="max-width:100%; border-radius:6px" />
+              )}
+            </div></li>
+          ))}
+        </ul>
+      ) : (
+        <p class="callout"><span><strong>No stories published yet.</strong> We are collecting stories of things that work — a water point that runs, a clinic that is staffed, a road that holds — each with its evidence and source.</span></p>
+      )}
+      <div class="fg-cta-row" style="margin-top:16px">
+        <a class="fg-cta-btn" href="/about/contact/">Tell us what's working in your area</a>
+      </div>
+    </section>
+  </div>
+</Base>

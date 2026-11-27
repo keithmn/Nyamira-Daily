@@ -16,12 +16,15 @@ const items = [
 ].sort((a, b) => b.when.localeCompare(a.when));
 const types = [['video', 'Videos'], ['explainer', 'Explainers'], ['number', 'Numbers']].filter(([t]) => items.some((i) => i.type === t));
 ---
-<Base title="Stories" description="Nyamira Daily's videos, explainers and the number of the week, each with the figures and sources behind it.">
+<Base title="Stories" description="Gusii Daily's videos, explainers and the number of the week, each with the figures and sources behind it.">
   <PageHead
     eyebrow="Watch & Read"
     title="Stories, video briefings & plain-language explainers"
     lead="Once a dataset is confirmed, we explain what it means in plain language — through YouTube briefings, short articles and a weekly figure, each linked to its source documents."
   />
+
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Video, maelezo na nambari ya wiki kutoka Gusii Daily — kila moja inataja chanzo chake na hati za ushahidi. Tazama kwenye YouTube au soma hapa.</p></div>
 
   <div class="stack-lg">
     <section class="fg-dashed-sheet stack" aria-label="Stories catalogue">

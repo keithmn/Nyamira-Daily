@@ -25,10 +25,26 @@ const datasets = [
   {
     badge: 'CSV · v2 · 247 FACILITIES',
     title: 'Services and facilities (version 2)',
-    desc: 'Listed facility records with stable profile URLs and source evidence. Candidate coordinates are omitted until reviewed. Version 1 remains available with its original columns.',
+    desc: 'Listed facility records with stable profile URLs and source evidence. Health facilities from the Kenya Master Health Facility List (2017 export); schools, markets and other places from OpenStreetMap and Google Maps. Most have not been visited by our correspondents. Candidate coordinates are omitted until reviewed.',
     href: '/files/facilities-v2.csv',
     cta: 'Download v2 CSV ↓',
     legacy: '/files/facilities-v1.csv',
+  },
+  {
+    badge: 'CSV + JSON · EKEGUSII',
+    title: 'Ekegusii language dataset',
+    desc: 'Words, phrases, grammar notes and sentences in Ekegusii with English and Kiswahili translations, phonetics and grammatical category. Only entries with publication consent. The JSON endpoint also offers an AI-training subset (separate consent).',
+    href: '/files/language.csv',
+    cta: 'Download CSV ↓',
+    json: '/api/language.json',
+  },
+  {
+    badge: 'JSON + RSS · ALERTS',
+    title: 'Alerts and incidents',
+    desc: 'Confirmed incidents and public notices affecting Nyamira County: emergencies, disruptions and notices, each with its source and evidence label. Active alerts also available as RSS.',
+    href: '/api/alerts.json',
+    cta: 'JSON (all alerts) →',
+    json: '/alerts/rss.xml',
   },
 ];
 ---
@@ -42,6 +58,7 @@ const datasets = [
         <div class="fg-data-actions">
           <a class="fg-cta-btn" href={d.href} download>{d.cta}</a>
           {d.legacy && <a class="small" href={d.legacy} download>Download version 1 (legacy)</a>}
+          {d.json && <a class="small" href={d.json}>JSON (AI-training subset) →</a>}
         </div>
       </article>
     ))}
@@ -58,14 +75,25 @@ const datasets = [
         <thead><tr><th>Address</th><th>What it holds</th></tr></thead>
         <tbody>
           <tr><td><a href="/api/wards.json"><code>/api/wards.json</code></a></td><td data-label="Holds">Ward receipts for all 20 wards</td></tr>
+          <tr><td><a href="/api/ward-register.json"><code>/api/ward-register.json</code></a></td><td data-label="Holds">The IEBC ward register for Kisii and Nyamira: 65 wards with constituency, IEBC codes and 2022 registered voters</td></tr>
           <tr><td><a href="/api/ward/rigoma.json"><code>/api/ward/&lt;ward&gt;.json</code></a></td><td data-label="Holds">One ward's receipt (ward names as in the web address, e.g. rigoma)</td></tr>
           <tr><td><a href="/api/ward/rigoma.txt"><code>/api/ward/&lt;ward&gt;.txt</code></a></td><td data-label="Holds">The same receipt as plain text under 900 characters, for WhatsApp and SMS replies</td></tr>
           <tr><td><a href="/api/facilities.json"><code>/api/facilities.json</code></a></td><td data-label="Holds">Listed facility records with stable profile URLs; unknown dates/capabilities remain null and unreviewed coordinates are omitted</td></tr>
           <tr><td><a href="/api/money.json"><code>/api/money.json</code></a></td><td data-label="Holds">County money by year</td></tr>
           <tr><td><a href="/api/contracts.json"><code>/api/contracts.json</code></a></td><td data-label="Holds">County tenders and national/NG-CDF records with scope labels</td></tr>
+          <tr><td><a href="/api/language.json"><code>/api/language.json</code></a></td><td data-label="Holds">Ekegusii language entries consented for AI training: term, translations, phonetics, category and source</td></tr>
+          <tr><td><a href="/api/alerts.json"><code>/api/alerts.json</code></a></td><td data-label="Holds">All alerts and incidents with type, level, status, sources and evidence label</td></tr>
+          <tr><td><a href="/api/alerts-active.json"><code>/api/alerts-active.json</code></a></td><td data-label="Holds">Active alerts only (emergencies, disruptions, notices in progress)</td></tr>
+          <tr><td><a href="/alerts/rss.xml"><code>/alerts/rss.xml</code></a></td><td data-label="Holds">RSS feed of active and monitoring alerts</td></tr>
+          <tr><td><a href="/api/leaders.json"><code>/api/leaders.json</code></a></td><td data-label="Holds">County and national leaders in Popolo format (persons, organizations, memberships)</td></tr>
+          <tr><td><a href="/api/ocds.json"><code>/api/ocds.json</code></a></td><td data-label="Holds">County contracts in Open Contracting Data Standard (OCDS 1.1) release format</td></tr>
+          <tr><td><a href="/api/meta.json"><code>/api/meta.json</code></a></td><td data-label="Holds">Data freshness: every dataset, its last-checked date, record count and refresh trigger</td></tr>
+          <tr><td><a href="/api/budget.txt"><code>/api/budget.txt</code></a></td><td data-label="Holds">County budget summary as plain text (under 900 chars, for SMS/USSD)</td></tr>
+          <tr><td><a href="/api/facilities.txt"><code>/api/facilities.txt</code></a></td><td data-label="Holds">Facility summary as plain text (for SMS/USSD)</td></tr>
+          <tr><td><a href="/api/leaders.txt"><code>/api/leaders.txt</code></a></td><td data-label="Holds">Leaders summary as plain text (for SMS/USSD)</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="small muted" style="text-align:center">Licence: <a href="/about/rules/#terms">CC BY 4.0</a>, free to reuse with credit to Nyamira Daily. Data from OpenStreetMap is © OpenStreetMap contributors (ODbL). Ward boundaries: geoBoundaries (CC BY 4.0).</p>
+    <p class="small muted" style="text-align:center">Licence: <a href="/about/rules/#terms">CC BY 4.0</a>, free to reuse with credit to Gusii Daily. Data from OpenStreetMap is © OpenStreetMap contributors (ODbL). Ward boundaries: geoBoundaries (CC BY 4.0).</p>
   </section>
 </div>

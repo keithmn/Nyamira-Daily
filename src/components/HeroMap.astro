@@ -5,29 +5,31 @@
 import geo from '../data/geo.json';
 import nb from '../data/neighbours.json';
 import wards from '../data/wards.js';
+import register from '../data/ward-register.json';
 import leaders from '../data/leaders.json';
 import { places } from '../lib/places.js';
 import { budget2526 } from '../lib/projects.js';
-import { roads } from '../lib/roads.js';
-import { contracts } from '../lib/contracts.js';
 import money from '../lib/county-money.js';
 import { ksh } from '../lib/fmt.js';
-import { subCounties } from '../nav.js';
 import { lead } from '../lib/now.js';
 
 const facilities = places.filter((p) => p.kind === 'facility');
 const last = money.years[money.years.length - 1];
 const bn = (m) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
 const subClass = { Borabu: 's1', 'Kitutu Masaba': 's2', 'North Mugirango': 's3', 'West Mugirango': 's4' };
-const nbLabels = [['Homa Bay', -110, 190], ['Kericho', 610, 80], ['Bomet', 630, 560], ['Kisii', -60, 620]];
+const nbLabels = [['Homa Bay', -110, 190], ['Kericho', 610, 80], ['Bomet', 630, 560]];
 
-const info = Object.fromEntries(wards.map((w) => {
-  const b = budget2526(w.slug);
-  const mca = leaders.mcas[w.slug];
-  return [w.slug, {
-    n: w.name,
-    s: w.subCounty,
-    f: w.facilities.length,
+// Every ward on the one map. Kisii wards have no facility or money records yet: their values stay null (unknown).
+const civic = Object.fromEntries(wards.map((w) => [w.slug, w]));
+const info = Object.fromEntries(register.wards.map((r) => {
+  const w = civic[r.slug];
+  const b = w ? budget2526(r.slug) : null;
+  const mca = leaders.mcas[r.slug];
+  return [r.slug, {
+    n: r.name,
+    s: r.constituency,
+    c: r.county,
+    f: w ? w.facilities.length : null,
     b: b == null ? null : ksh(b),
     m: mca?.name ?? null,
   }];
@@ -36,22 +38,7 @@ const info = Object.fromEntries(wards.map((w) => {
 const leadW = lead && info[lead.ward] ? { slug: lead.ward, name: info[lead.ward].name, cx: Number(geo.wards[lead.ward].cx), cy: Number(geo.wards[lead.ward].cy), title: lead.headline } : null;
 const dataJson = JSON.stringify(info).split('<').join('\\u003c');
 ---
-<section class="fg-hero" aria-label="Nyamira County civic field guide">
-  <svg class="fg-hero-topo" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <g fill="none" stroke="currentColor" stroke-width="1.15">
-      <ellipse cx="120" cy="360" rx="340" ry="260" />
-      <ellipse cx="120" cy="360" rx="250" ry="185" />
-      <ellipse cx="120" cy="360" rx="165" ry="118" />
-      <ellipse cx="120" cy="360" rx="88" ry="60" />
-      <path d="M-80 690 C 180 520, 420 640, 690 430 S 1120 120, 1520 290" />
-      <path d="M-80 610 C 200 440, 440 560, 710 350 S 1140 50, 1520 210" />
-      <path d="M-80 760 C 220 600, 470 710, 740 510 S 1160 220, 1520 380" />
-      <ellipse cx="1310" cy="540" rx="300" ry="220" />
-      <ellipse cx="1310" cy="540" rx="205" ry="145" />
-      <ellipse cx="1310" cy="540" rx="115" ry="78" />
-    </g>
-  </svg>
-
+<section class="fg-hero" aria-label="Gusii Daily: language, heritage and public record">
   <div class="wrap fg-hero-grid">
     <!-- Left column: directional arrow stamp + display headline + 2x2 figure grid -->
     <div class="fg-hero-left">
@@ -59,39 +46,39 @@ const dataJson = JSON.stringify(info).split('<').join('\\u003c');
         <svg class="fg-title-arrow" viewBox="0 0 96 96" aria-hidden="true">
           <path d="M16 16 H80 V80 H58 V53 L26 85 L11 70 L43 38 H16 Z" fill="currentColor" />
         </svg>
-        <h1>Discover Nyamira’s living field guide to places, money &amp; community.</h1>
+        <h1>Recording the Gusii language, heritage &amp; public record.</h1>
       </div>
 
-      <div class="fg-stat-quad" aria-label="Records in the guide">
+      <div class="fg-stat-quad" aria-label="What the database holds">
+        <div class="fg-sq-item">
+          <b class="fg-sq-num">Ekegusii</b>
+          <strong class="fg-sq-label">open language dataset</strong>
+          <p class="fg-sq-sub">
+            <a href="/community/language/words/">Words</a>, <a href="/community/language/grammar/">grammar</a> &amp; <a href="/community/language/">speech</a>, with speaker consent
+          </p>
+        </div>
+
+        <div class="fg-sq-item">
+          <b class="fg-sq-num">10</b>
+          <strong class="fg-sq-label">areas of Gusii knowledge</strong>
+          <p class="fg-sq-sub">
+            Plants, medicine, songs, food &amp; more in the <a href="/community/">knowledge base</a>
+          </p>
+        </div>
+
         <div class="fg-sq-item">
           <b class="fg-sq-num">{facilities.length}</b>
           <strong class="fg-sq-label">listed public places</strong>
           <p class="fg-sq-sub">
-            Browse <a href="/map/health/">Health</a>, <a href="/map/education/">Schools</a>, <a href="/money/farming/">Farming</a> &amp; <a href="/map/">Map</a>
+            Browse <a href="/map/health/">Health</a>, <a href="/map/education/">Schools</a> &amp; <a href="/map/">Map</a>
           </p>
         </div>
 
         <div class="fg-sq-item">
           <b class="fg-sq-num">{bn(last.budget)}</b>
-          <strong class="fg-sq-label">county budget ({last.fy})</strong>
+          <strong class="fg-sq-label">Nyamira county budget ({last.fy})</strong>
           <p class="fg-sq-sub">
             Follow <a href="/money/2025-26/departments/">24 departments</a> &amp; <a href="/money/track/">what was spent</a>
-          </p>
-        </div>
-
-        <div class="fg-sq-item">
-          <b class="fg-sq-num">{contracts.length.toLocaleString('en-GB')}</b>
-          <strong class="fg-sq-label">contracts &amp; NG-CDF</strong>
-          <p class="fg-sq-sub">
-            County tenders &amp; national money in <a href="/money/contracts/">separate lists</a>
-          </p>
-        </div>
-
-        <div class="fg-sq-item">
-          <b class="fg-sq-num">{roads.length}</b>
-          <strong class="fg-sq-label">county roads tracked</strong>
-          <p class="fg-sq-sub">
-            Across all <a href="/ward/">20 wards</a> with status &amp; <a href="/report/">site checks</a>
           </p>
         </div>
       </div>
@@ -105,16 +92,16 @@ const dataJson = JSON.stringify(info).split('<').join('\\u003c');
         </svg>
 
         <div class="fg-map-frame">
-          <span class="fg-map-caption">Tap or point at any of Nyamira’s 20 wards</span>
-          <svg class="fg-hero-svg" viewBox="-150 -40 860 1030" preserveAspectRatio="xMidYMid meet" aria-label={`Interactive map of Nyamira County's 20 wards. Each ward links to its page${leadW ? `; a dot marks ${leadW.name}` : ''}.`}>
+          <span class="fg-map-caption">Tap any of the {register.wards.length} wards</span>
+          <svg class="fg-hero-svg" viewBox={geo.frame} preserveAspectRatio="xMidYMid meet" aria-label={`Interactive map of the Gusii counties: ${register.wards.length} wards in Nyamira and Kisii. Each ward links to its page${leadW ? `; a dot marks ${leadW.name}` : ''}.`}>
             <g class="fg-nb" aria-hidden="true">
-              {Object.entries(nb.counties).filter(([n]) => n !== 'Nyamira').map(([, c]) => <path d={c.d} />)}
+              {Object.entries(nb.counties).filter(([n]) => n !== 'Nyamira' && n !== 'Kisii').map(([, c]) => <path d={c.d} />)}
               {nbLabels.map(([n, x, y]) => <text x={x} y={y}>{n}</text>)}
             </g>
             <g class="fg-county">
               {Object.entries(geo.wards).map(([slug, w]) => (
                 <a href={`/ward/${slug}/`} data-w={slug} aria-label={`${w.name} Ward, ${info[slug].s}`}>
-                  <path class={`fg-w ${subClass[info[slug].s]}`} d={w.d} />
+                  <path class={info[slug].c === 'nyamira' ? `fg-w ${subClass[info[slug].s]}` : 'fg-w k'} d={w.d} />
                 </a>
               ))}
             </g>
@@ -144,14 +131,14 @@ const dataJson = JSON.stringify(info).split('<').join('\\u003c');
             <span class="vh">Choose your ward</span>
             <select data-ward-pick data-hero-pick>
               <option value="">Choose your ward...</option>
-              {subCounties.map((s) => (
-                <optgroup label={`${s} Constituency`}>
-                  {wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}
+              {register.constituencies.map((k) => (
+                <optgroup label={`${k.name} Constituency`}>
+                  {register.wards.filter((w) => w.county === k.county && w.constituency === k.name).map((w) => <option value={w.slug}>{w.name}</option>)}
                 </optgroup>
               ))}
             </select>
           </label>
-          <a class="fg-fc-btn" data-fc-btn href="/ward/">Browse all 20 wards <span aria-hidden="true">→</span></a>
+          <a class="fg-fc-btn" data-fc-btn data-all={register.wards.length} href="/ward/">Browse all {register.wards.length} wards <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -181,11 +168,11 @@ const dataJson = JSON.stringify(info).split('<').join('\\u003c');
       titleEl.textContent = 'Know your ward. Follow the money.';
       subEl.textContent = 'Pick your ward to inspect its clinics, schools, budget & MCA.';
       btnEl.href = '/ward/';
-      btnEl.innerHTML = 'Browse all 20 wards <span aria-hidden="true">\u2192</span>';
+      btnEl.innerHTML = 'Browse all ' + btnEl.dataset.all + ' wards <span aria-hidden="true">\u2192</span>';
       return;
     }
     titleEl.textContent = d.n + ' Ward';
-    var parts = [d.s, d.f + ' places listed'];
+    var parts = [d.s, d.f == null ? 'places not yet listed' : d.f + ' places listed'];
     if (d.b) parts.push(d.b + ' ward budget');
     if (d.m) parts.push('MCA: ' + d.m);
     subEl.textContent = parts.join(' \u00b7 ');

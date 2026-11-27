@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coordinate Lookup — Gusii Daily</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; padding: 16px; max-width: 1000px; margin: 0 auto; background: #fafaf8; color: #1a1a1a; }
+  h1 { font-size: 1.3rem; margin-bottom: 4px; }
+  .subtitle { color: #666; margin-bottom: 16px; }
+  .stats { background: #e8f5e9; padding: 12px; border-radius: 8px; margin-bottom: 16px; font-size: 0.9rem; }
+  .stats strong { font-size: 1.1rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th { text-align: left; padding: 8px; border-bottom: 2px solid #333; position: sticky; top: 0; background: #fafaf8; }
+  td { padding: 6px 8px; border-bottom: 1px solid #ddd; vertical-align: top; }
+  .ward-header td { background: #333; color: #fff; font-weight: 700; padding: 8px; }
+  a { color: #2e7d32; }
+  .coord-input { width: 100%; padding: 4px 6px; border: 1px solid #ccc; border-radius: 4px; font-family: monospace; font-size: 0.85rem; }
+  .coord-input.valid { border-color: #2e7d32; background: #e8f5e9; }
+  .coord-input.invalid { border-color: #c62828; background: #ffebee; }
+  .status-cell { font-size: 0.8rem; min-width: 20px; }
+  .actions { margin: 16px 0; display: flex; gap: 8px; flex-wrap: wrap; }
+  button { padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+  .btn-export { background: #2e7d32; color: #fff; }
+  .btn-export:hover { background: #1b5e20; }
+  .btn-clear { background: #eee; color: #333; }
+  .instructions { background: #fff3e0; padding: 12px; border-radius: 8px; margin-bottom: 16px; font-size: 0.85rem; line-height: 1.5; }
+  .instructions ol { padding-left: 20px; }
+</style>
+</head>
+<body>
+<h1>Coordinate Lookup</h1>
+<p class="subtitle">178 facilities in Nyamira County need coordinates</p>
+
+<div class="instructions">
+<strong>How to use:</strong>
+<ol>
+<li>Click a <strong>Search</strong> or <strong>Place ID</strong> link — Google Maps opens</li>
+<li>Find the correct pin. Right-click it → <strong>"What's here?"</strong> — coordinates appear at the bottom</li>
+<li>Copy the coordinates (e.g. <code>-0.5577, 34.929</code>) and paste them into the input box</li>
+<li>When done, click <strong>Export JSON</strong> to save your work</li>
+</ol>
+<p style="margin-top:8px">Your entries are saved in your browser as you type. The exported JSON can be applied with <code>npm run geo:apply</code>.</p>
+</div>
+
+<div class="stats">
+  <strong id="count">0</strong> of 178 coordinates entered
+</div>
+
+<div class="actions">
+  <button class="btn-export" onclick="exportJSON()">Export JSON</button>
+  <button class="btn-clear" onclick="clearAll()">Clear all</button>
+</div>
+
+<table>
+<thead><tr><th>ID</th><th>Facility</th><th>Map</th><th>Coordinates</th><th></th></tr></thead>
+<tbody>
+<tr class="ward-header"><td colspan="5">Bogichora (8)</td></tr>
+<tr data-id="NYM-F0192">
+  <td>NYM-F0192</td>
+  <td><strong>Sironga Girls High School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJSzUcQbsZKxgREaKfPFEiIDQ" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Sironga%20Girls%20High%20School%2C%20Bogichora%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0192" data-name="Sironga Girls High School" data-ward="bogichora"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0194">
+  <td>NYM-F0194</td>
+  <td><strong>Bosiango Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Bosiango%20Health%20Centre%2C%20Bogichora%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0194" data-name="Bosiango Health Centre" data-ward="bogichora"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0195">
+  <td>NYM-F0195</td>
+  <td><strong>Embonga Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Embonga%20Health%20Centre%2C%20Bogichora%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0195" data-name="Embonga Health Centre" data-ward="bogichora"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0196">
+  <td>NYM-F0196</td>
+  <td><strong>Getiesi Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Getiesi%20Health%20Centre%2C%20Bogichora%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0196" data-name="Getiesi Health Centre" data-ward="bogichora"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0197">
+  <td>NYM-F0197</td>
+  <td><strong>Gianchore Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Gianchore%20Health%20Centre%2C%20Bogichora%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0197" data-name="Gianchore Health Centre" data-ward="bogichora"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0198">
+  <td>NYM-F0198</td>
+  <td><strong>Kenyambi Health Centre (Nyamira)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kenyambi%20Health%20Centre%20(Nyamira)%2C%20Bogichora%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0198" data-name="Kenyambi Health Centre (Nyamira)" data-ward="bogichora"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0199">
+  <td>NYM-F0199</td>
+  <td><strong>Ogango Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Ogango%20Health%20Centre%2C%20Bogichora%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0199" data-name="Ogango Health Centre" data-ward="bogichora"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0200">
+  <td>NYM-F0200</td>
+  <td><strong>Nyamira Catholic Mission</strong><br><small>Worship · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJ7V43rLcZKxgR9PD-ohROmdo" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyamira%20Catholic%20Mission%2C%20Bogichora%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0200" data-name="Nyamira Catholic Mission" data-ward="bogichora"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Bokeira (5)</td></tr>
+<tr data-id="NYM-F0149">
+  <td>NYM-F0149</td>
+  <td><strong>Gekonge Primary</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJ5fyc2h_jKhgRP862nPY6PqE" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Gekonge%20Primary%2C%20Bokeira%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0149" data-name="Gekonge Primary" data-ward="bokeira"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0150">
+  <td>NYM-F0150</td>
+  <td><strong>Esianyi Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Esianyi%20Dispensary%2C%20Bokeira%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0150" data-name="Esianyi Dispensary" data-ward="bokeira"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0151">
+  <td>NYM-F0151</td>
+  <td><strong>Nyamusi Sub-District Hospital</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyamusi%20Sub-District%20Hospital%2C%20Bokeira%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0151" data-name="Nyamusi Sub-District Hospital" data-ward="bokeira"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0152">
+  <td>NYM-F0152</td>
+  <td><strong>Nyamusi Police Station</strong><br><small>Public office · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJRQqzVUbjKhgRFDNnWSRnk5E" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyamusi%20Police%20Station%2C%20Bokeira%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0152" data-name="Nyamusi Police Station" data-ward="bokeira"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0153">
+  <td>NYM-F0153</td>
+  <td><strong>Nyamusi Town PAG</strong><br><small>Worship · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJkwLs4l_jKhgRiccBGHILIS4" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyamusi%20Town%20PAG%2C%20Bokeira%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0153" data-name="Nyamusi Town PAG" data-ward="bokeira"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Bomwagamo (7)</td></tr>
+<tr data-id="NYM-F0154">
+  <td>NYM-F0154</td>
+  <td><strong>Etono SDA Primary</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJZ2kycDcdKxgR1S-DZ5cUYaE" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Etono%20SDA%20Primary%2C%20Bomwagamo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0154" data-name="Etono SDA Primary" data-ward="bomwagamo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0155">
+  <td>NYM-F0155</td>
+  <td><strong>Ntana Mixed Secondary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJVVVV6W0eKxgRrRgxnJudLnE" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Ntana%20Mixed%20Secondary%20School%2C%20Bomwagamo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0155" data-name="Ntana Mixed Secondary School" data-ward="bomwagamo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0156">
+  <td>NYM-F0156</td>
+  <td><strong>St. Francis Gekendo Secondary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJOQcGQsYdKxgRRmkpJsaoZU4" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/St.%20Francis%20Gekendo%20Secondary%20School%2C%20Bomwagamo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0156" data-name="St. Francis Gekendo Secondary School" data-ward="bomwagamo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0157">
+  <td>NYM-F0157</td>
+  <td><strong>Etono Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Etono%20Health%20Centre%2C%20Bomwagamo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0157" data-name="Etono Health Centre" data-ward="bomwagamo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0158">
+  <td>NYM-F0158</td>
+  <td><strong>Kerobo Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kerobo%20Health%20Centre%2C%20Bomwagamo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0158" data-name="Kerobo Health Centre" data-ward="bomwagamo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0159">
+  <td>NYM-F0159</td>
+  <td><strong>Mabariri Medical Clinic (Nyamira North)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Mabariri%20Medical%20Clinic%20(Nyamira%20North)%2C%20Bomwagamo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0159" data-name="Mabariri Medical Clinic (Nyamira North)" data-ward="bomwagamo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0160">
+  <td>NYM-F0160</td>
+  <td><strong>Orwaki Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Orwaki%20Dispensary%2C%20Bomwagamo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0160" data-name="Orwaki Dispensary" data-ward="bomwagamo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Bonyamatuta (10)</td></tr>
+<tr data-id="NYM-F0201">
+  <td>NYM-F0201</td>
+  <td><strong>Kebirigo Tea Factory</strong><br><small>Agriculture · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJLdJb1vcZKxgRoLDdMV3r6WE" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Kebirigo%20Tea%20Factory%2C%20Bonyamatuta%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0201" data-name="Kebirigo Tea Factory" data-ward="bonyamatuta"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0202">
+  <td>NYM-F0202</td>
+  <td><strong>Bosiango ELCK Primary</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJaWtub0AXKxgRf2ugFf5RT2I" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Bosiango%20ELCK%20Primary%2C%20Bonyamatuta%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0202" data-name="Bosiango ELCK Primary" data-ward="bonyamatuta"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0203">
+  <td>NYM-F0203</td>
+  <td><strong>Kebirigo Mixed High School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJq_GElp4bKxgRReclAHxv394" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Kebirigo%20Mixed%20High%20School%2C%20Bonyamatuta%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0203" data-name="Kebirigo Mixed High School" data-ward="bonyamatuta"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0204">
+  <td>NYM-F0204</td>
+  <td><strong>Rirumi SDA Primary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJhbk_BQ0aKxgRXFpuzEu7R0Y" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Rirumi%20SDA%20Primary%20School%2C%20Bonyamatuta%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0204" data-name="Rirumi SDA Primary School" data-ward="bonyamatuta"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0205">
+  <td>NYM-F0205</td>
+  <td><strong>St. Peter's Nyakemincha Secondary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJJa8N2pIXKxgRJUXGp186wEs" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/St.%20Peter's%20Nyakemincha%20Secondary%20School%2C%20Bonyamatuta%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0205" data-name="St. Peter's Nyakemincha Secondary School" data-ward="bonyamatuta"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0206">
+  <td>NYM-F0206</td>
+  <td><strong>Kenyerere Health Centre (Nyamira)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kenyerere%20Health%20Centre%20(Nyamira)%2C%20Bonyamatuta%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0206" data-name="Kenyerere Health Centre (Nyamira)" data-ward="bonyamatuta"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0207">
+  <td>NYM-F0207</td>
+  <td><strong>Medicare Health- Satelitte</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Medicare%20Health-%20Satelitte%2C%20Bonyamatuta%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0207" data-name="Medicare Health- Satelitte" data-ward="bonyamatuta"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0208">
+  <td>NYM-F0208</td>
+  <td><strong>Nyamira Maternity and Nursing Home</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyamira%20Maternity%20and%20Nursing%20Home%2C%20Bonyamatuta%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0208" data-name="Nyamira Maternity and Nursing Home" data-ward="bonyamatuta"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0209">
+  <td>NYM-F0209</td>
+  <td><strong>Riakinaro Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Riakinaro%20Health%20Centre%2C%20Bonyamatuta%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0209" data-name="Riakinaro Health Centre" data-ward="bonyamatuta"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0210">
+  <td>NYM-F0210</td>
+  <td><strong>Riongige Dispensry</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Riongige%20Dispensry%2C%20Bonyamatuta%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0210" data-name="Riongige Dispensry" data-ward="bonyamatuta"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Bosamaro (9)</td></tr>
+<tr data-id="NYM-F0211">
+  <td>NYM-F0211</td>
+  <td><strong>Gesiaga High School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJaS8baM0ZKxgRpORqFZ3qDVA" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Gesiaga%20High%20School%2C%20Bosamaro%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0211" data-name="Gesiaga High School" data-ward="bosamaro"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0212">
+  <td>NYM-F0212</td>
+  <td><strong>Riamandere Primary</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJB9HRrY8RKxgR-AtM4Sy1g50" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Riamandere%20Primary%2C%20Bosamaro%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0212" data-name="Riamandere Primary" data-ward="bosamaro"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0213">
+  <td>NYM-F0213</td>
+  <td><strong>St. Nyantaro Primary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJ_zdgn6oRKxgRemzvLp5SKhc" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/St.%20Nyantaro%20Primary%20School%2C%20Bosamaro%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0213" data-name="St. Nyantaro Primary School" data-ward="bosamaro"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0214">
+  <td>NYM-F0214</td>
+  <td><strong>Igena-Itambe Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Igena-Itambe%20Dispensary%2C%20Bosamaro%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0214" data-name="Igena-Itambe Dispensary" data-ward="bosamaro"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0215">
+  <td>NYM-F0215</td>
+  <td><strong>Joyride Medical Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Joyride%20Medical%20Centre%2C%20Bosamaro%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0215" data-name="Joyride Medical Centre" data-ward="bosamaro"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0216">
+  <td>NYM-F0216</td>
+  <td><strong>Mongorisi Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Mongorisi%20Health%20Centre%2C%20Bosamaro%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0216" data-name="Mongorisi Health Centre" data-ward="bosamaro"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0217">
+  <td>NYM-F0217</td>
+  <td><strong>Nyangweta Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyangweta%20Health%20Centre%2C%20Bosamaro%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0217" data-name="Nyangweta Health Centre" data-ward="bosamaro"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0218">
+  <td>NYM-F0218</td>
+  <td><strong>Nyanturago Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyanturago%20Health%20Centre%2C%20Bosamaro%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0218" data-name="Nyanturago Health Centre" data-ward="bosamaro"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0219">
+  <td>NYM-F0219</td>
+  <td><strong>Tinga Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Tinga%20Health%20Centre%2C%20Bosamaro%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0219" data-name="Tinga Health Centre" data-ward="bosamaro"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Ekerenyo (2)</td></tr>
+<tr data-id="NYM-F0162">
+  <td>NYM-F0162</td>
+  <td><strong>Family Saver Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Family%20Saver%20Clinic%2C%20Ekerenyo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0162" data-name="Family Saver Clinic" data-ward="ekerenyo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0163">
+  <td>NYM-F0163</td>
+  <td><strong>Sere Dispensary (Nyamira north)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Sere%20Dispensary%20(Nyamira%20north)%2C%20Ekerenyo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0163" data-name="Sere Dispensary (Nyamira north)" data-ward="ekerenyo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Esise (14)</td></tr>
+<tr data-id="NYM-F0001">
+  <td>NYM-F0001</td>
+  <td><strong>Ensoko Primary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJMxFzRFhvKxgRLwHws1tH2xw" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Ensoko%20Primary%20School%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0001" data-name="Ensoko Primary School" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0002">
+  <td>NYM-F0002</td>
+  <td><strong>Kineni Primary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJd4SnmL5zKxgR1zl1M7JpFAE" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Kineni%20Primary%20School%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0002" data-name="Kineni Primary School" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0004">
+  <td>NYM-F0004</td>
+  <td><strong>Riang'ombe Secondary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJkeKSqVJuKxgRqUmwSTklbyE" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Riang'ombe%20Secondary%20School%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0004" data-name="Riang'ombe Secondary School" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0005">
+  <td>NYM-F0005</td>
+  <td><strong>Alfa Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Alfa%20Clinic%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0005" data-name="Alfa Clinic" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0006">
+  <td>NYM-F0006</td>
+  <td><strong>Chepngombe Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Chepngombe%20Health%20Centre%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0006" data-name="Chepngombe Health Centre" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0007">
+  <td>NYM-F0007</td>
+  <td><strong>Ensakia Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Ensakia%20Dispensary%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0007" data-name="Ensakia Dispensary" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0008">
+  <td>NYM-F0008</td>
+  <td><strong>Isoge Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Isoge%20Health%20Centre%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0008" data-name="Isoge Health Centre" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0009">
+  <td>NYM-F0009</td>
+  <td><strong>Kahawa Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kahawa%20Dispensary%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0009" data-name="Kahawa Dispensary" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0010">
+  <td>NYM-F0010</td>
+  <td><strong>Kineni Dispensary (Esise)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kineni%20Dispensary%20(Esise)%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0010" data-name="Kineni Dispensary (Esise)" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0011">
+  <td>NYM-F0011</td>
+  <td><strong>Mecheo Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Mecheo%20Dispensary%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0011" data-name="Mecheo Dispensary" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0012">
+  <td>NYM-F0012</td>
+  <td><strong>Nderema Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nderema%20Dispensary%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0012" data-name="Nderema Dispensary" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0013">
+  <td>NYM-F0013</td>
+  <td><strong>Rietago Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Rietago%20Dispensary%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0013" data-name="Rietago Dispensary" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0014">
+  <td>NYM-F0014</td>
+  <td><strong>Rigoko Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Rigoko%20Dispensary%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0014" data-name="Rigoko Dispensary" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0015">
+  <td>NYM-F0015</td>
+  <td><strong>Raitigo Location Chief's Office</strong><br><small>Public office · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJJ0tjNJhvKxgR0kGLClOJGDk" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Raitigo%20Location%20Chief's%20Office%2C%20Esise%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0015" data-name="Raitigo Location Chief's Office" data-ward="esise"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Gachuba (5)</td></tr>
+<tr data-id="NYM-F0077">
+  <td>NYM-F0077</td>
+  <td><strong>Nyaibasa Primary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJF3g8F4AVKxgR3rZ6R0S_Yuk" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyaibasa%20Primary%20School%2C%20Gachuba%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0077" data-name="Nyaibasa Primary School" data-ward="gachuba"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0078">
+  <td>NYM-F0078</td>
+  <td><strong>Girango Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Girango%20Dispensary%2C%20Gachuba%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0078" data-name="Girango Dispensary" data-ward="gachuba"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0079">
+  <td>NYM-F0079</td>
+  <td><strong>Nyagancha Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyagancha%20Dispensary%2C%20Gachuba%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0079" data-name="Nyagancha Dispensary" data-ward="gachuba"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0080">
+  <td>NYM-F0080</td>
+  <td><strong>Nyangori dispensary (Masaba north)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyangori%20dispensary%20(Masaba%20north)%2C%20Gachuba%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0080" data-name="Nyangori dispensary (Masaba north)" data-ward="gachuba"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0081">
+  <td>NYM-F0081</td>
+  <td><strong>Soamam Medical Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Soamam%20Medical%20Clinic%2C%20Gachuba%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0081" data-name="Soamam Medical Clinic" data-ward="gachuba"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Gesima (12)</td></tr>
+<tr data-id="NYM-F0090">
+  <td>NYM-F0090</td>
+  <td><strong>Nyabiosi Secondary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJw-lo0TITKxgR3iK12eKvViI" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyabiosi%20Secondary%20School%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0090" data-name="Nyabiosi Secondary School" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0091">
+  <td>NYM-F0091</td>
+  <td><strong>Riakworo Secondary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJHYs-xEETKxgR9rVawYfXiOI" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Riakworo%20Secondary%20School%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0091" data-name="Riakworo Secondary School" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0092">
+  <td>NYM-F0092</td>
+  <td><strong>St Don Bosco Secondary</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJLTd3u1UTKxgRGqNRkMu583U" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/St%20Don%20Bosco%20Secondary%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0092" data-name="St Don Bosco Secondary" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0093">
+  <td>NYM-F0093</td>
+  <td><strong>Esani Sub-District Hospital</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Esani%20Sub-District%20Hospital%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0093" data-name="Esani Sub-District Hospital" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0094">
+  <td>NYM-F0094</td>
+  <td><strong>Gesima Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Gesima%20Health%20Centre%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0094" data-name="Gesima Health Centre" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0095">
+  <td>NYM-F0095</td>
+  <td><strong>Machururiati Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Machururiati%20Dispensary%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0095" data-name="Machururiati Dispensary" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0096">
+  <td>NYM-F0096</td>
+  <td><strong>Magombo Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Magombo%20Health%20Centre%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0096" data-name="Magombo Health Centre" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0097">
+  <td>NYM-F0097</td>
+  <td><strong>Mochenwa Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Mochenwa%20Dispensary%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0097" data-name="Mochenwa Dispensary" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0098">
+  <td>NYM-F0098</td>
+  <td><strong>Mosobeti Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Mosobeti%20Dispensary%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0098" data-name="Mosobeti Dispensary" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0099">
+  <td>NYM-F0099</td>
+  <td><strong>Nyamakoroto Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyamakoroto%20Dispensary%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0099" data-name="Nyamakoroto Dispensary" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0100">
+  <td>NYM-F0100</td>
+  <td><strong>Riakworo Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Riakworo%20Dispensary%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0100" data-name="Riakworo Dispensary" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0101">
+  <td>NYM-F0101</td>
+  <td><strong>Rigoma Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Rigoma%20Dispensary%2C%20Gesima%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0101" data-name="Rigoma Dispensary" data-ward="gesima"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Itibo (8)</td></tr>
+<tr data-id="NYM-F0167">
+  <td>NYM-F0167</td>
+  <td><strong>The Nyamira National Polytechnic, Bonyunyu</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJbY4Vg9AaKxgRwftUqa6_bFw" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/The%20Nyamira%20National%20Polytechnic%2C%20Bonyunyu%2C%20Itibo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0167" data-name="The Nyamira National Polytechnic, Bonyunyu" data-ward="itibo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0169">
+  <td>NYM-F0169</td>
+  <td><strong>China Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/China%20Dispensary%2C%20Itibo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0169" data-name="China Dispensary" data-ward="itibo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0170">
+  <td>NYM-F0170</td>
+  <td><strong>Ekerenyo Sub-District Hospital</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Ekerenyo%20Sub-District%20Hospital%2C%20Itibo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0170" data-name="Ekerenyo Sub-District Hospital" data-ward="itibo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0171">
+  <td>NYM-F0171</td>
+  <td><strong>Ikonge Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Ikonge%20Dispensary%2C%20Itibo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0171" data-name="Ikonge Dispensary" data-ward="itibo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0173">
+  <td>NYM-F0173</td>
+  <td><strong>Itibo Mission Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Itibo%20Mission%20Health%20Centre%2C%20Itibo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0173" data-name="Itibo Mission Health Centre" data-ward="itibo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0174">
+  <td>NYM-F0174</td>
+  <td><strong>Kenyoro Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kenyoro%20Health%20Centre%2C%20Itibo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0174" data-name="Kenyoro Health Centre" data-ward="itibo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0175">
+  <td>NYM-F0175</td>
+  <td><strong>Riechieri Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Riechieri%20Health%20Centre%2C%20Itibo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0175" data-name="Riechieri Health Centre" data-ward="itibo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0176">
+  <td>NYM-F0176</td>
+  <td><strong>Samora Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Samora%20Clinic%2C%20Itibo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0176" data-name="Samora Clinic" data-ward="itibo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Kemera (8)</td></tr>
+<tr data-id="NYM-F0103">
+  <td>NYM-F0103</td>
+  <td><strong>Frankstar Medical Clinic (Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Frankstar%20Medical%20Clinic%20(Manga)%2C%20Kemera%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0103" data-name="Frankstar Medical Clinic (Manga)" data-ward="kemera"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0104">
+  <td>NYM-F0104</td>
+  <td><strong>Getare Health Centre(Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Getare%20Health%20Centre(Manga)%2C%20Kemera%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0104" data-name="Getare Health Centre(Manga)" data-ward="kemera"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0105">
+  <td>NYM-F0105</td>
+  <td><strong>Holsoms Nursing Home</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Holsoms%20Nursing%20Home%2C%20Kemera%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0105" data-name="Holsoms Nursing Home" data-ward="kemera"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0106">
+  <td>NYM-F0106</td>
+  <td><strong>Kemera Dispensary (Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kemera%20Dispensary%20(Manga)%2C%20Kemera%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0106" data-name="Kemera Dispensary (Manga)" data-ward="kemera"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0107">
+  <td>NYM-F0107</td>
+  <td><strong>Manga District Hospital</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Manga%20District%20Hospital%2C%20Kemera%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0107" data-name="Manga District Hospital" data-ward="kemera"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0108">
+  <td>NYM-F0108</td>
+  <td><strong>Robinson Medical Clinic (Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Robinson%20Medical%20Clinic%20(Manga)%2C%20Kemera%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0108" data-name="Robinson Medical Clinic (Manga)" data-ward="kemera"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0109">
+  <td>NYM-F0109</td>
+  <td><strong>Catholic church (Kemera location)</strong><br><small>Worship · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJaau4NAA9KxgR8Br1BwfL75w" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Catholic%20church%20(Kemera%20location)%2C%20Kemera%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0109" data-name="Catholic church (Kemera location)" data-ward="kemera"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0110">
+  <td>NYM-F0110</td>
+  <td><strong>SDA Nyamira West Field Headquarters</strong><br><small>Worship · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJG4ETLuo9KxgRc6JZR9gYpO8" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/SDA%20Nyamira%20West%20Field%20Headquarters%2C%20Kemera%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0110" data-name="SDA Nyamira West Field Headquarters" data-ward="kemera"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Kiabonyoru (8)</td></tr>
+<tr data-id="NYM-F0019">
+  <td>NYM-F0019</td>
+  <td><strong>Nyamiranga SDA Secondary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJx5nB4P8bKxgRRD3lXkREXpo" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyamiranga%20SDA%20Secondary%20School%2C%20Kiabonyoru%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0019" data-name="Nyamiranga SDA Secondary School" data-ward="kiabonyoru"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0023">
+  <td>NYM-F0023</td>
+  <td><strong>Endiba Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Endiba%20Health%20Centre%2C%20Kiabonyoru%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0023" data-name="Endiba Health Centre" data-ward="kiabonyoru"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0024">
+  <td>NYM-F0024</td>
+  <td><strong>Kebirigo Mission Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kebirigo%20Mission%20Health%20Centre%2C%20Kiabonyoru%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0024" data-name="Kebirigo Mission Health Centre" data-ward="kiabonyoru"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0025">
+  <td>NYM-F0025</td>
+  <td><strong>Mokomoni Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Mokomoni%20Health%20Centre%2C%20Kiabonyoru%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0025" data-name="Mokomoni Health Centre" data-ward="kiabonyoru"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0026">
+  <td>NYM-F0026</td>
+  <td><strong>Nyabikomu Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyabikomu%20Dispensary%2C%20Kiabonyoru%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0026" data-name="Nyabikomu Dispensary" data-ward="kiabonyoru"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0027">
+  <td>NYM-F0027</td>
+  <td><strong>Nyaramba Junction Medical Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyaramba%20Junction%20Medical%20Centre%2C%20Kiabonyoru%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0027" data-name="Nyaramba Junction Medical Centre" data-ward="kiabonyoru"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0028">
+  <td>NYM-F0028</td>
+  <td><strong>St Norah's Clinc</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/St%20Norah's%20Clinc%2C%20Kiabonyoru%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0028" data-name="St Norah's Clinc" data-ward="kiabonyoru"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0029">
+  <td>NYM-F0029</td>
+  <td><strong>St Ruth Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/St%20Ruth%20Clinic%2C%20Kiabonyoru%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0029" data-name="St Ruth Clinic" data-ward="kiabonyoru"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Magombo (6)</td></tr>
+<tr data-id="NYM-F0114">
+  <td>NYM-F0114</td>
+  <td><strong>Bogwendo Health Centre(Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Bogwendo%20Health%20Centre(Manga)%2C%20Magombo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0114" data-name="Bogwendo Health Centre(Manga)" data-ward="magombo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0115">
+  <td>NYM-F0115</td>
+  <td><strong>Gekano Health Centre (Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Gekano%20Health%20Centre%20(Manga)%2C%20Magombo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0115" data-name="Gekano Health Centre (Manga)" data-ward="magombo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0116">
+  <td>NYM-F0116</td>
+  <td><strong>Kiangoso Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kiangoso%20Dispensary%2C%20Magombo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0116" data-name="Kiangoso Dispensary" data-ward="magombo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0117">
+  <td>NYM-F0117</td>
+  <td><strong>Magombo Community Dispensary (Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Magombo%20Community%20Dispensary%20(Manga)%2C%20Magombo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0117" data-name="Magombo Community Dispensary (Manga)" data-ward="magombo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0118">
+  <td>NYM-F0118</td>
+  <td><strong>Nyambari Geke Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyambari%20Geke%20Dispensary%2C%20Magombo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0118" data-name="Nyambari Geke Dispensary" data-ward="magombo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0119">
+  <td>NYM-F0119</td>
+  <td><strong>Roman Maternity and Nursing Home</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Roman%20Maternity%20and%20Nursing%20Home%2C%20Magombo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0119" data-name="Roman Maternity and Nursing Home" data-ward="magombo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Magwagwa (7)</td></tr>
+<tr data-id="NYM-F0184">
+  <td>NYM-F0184</td>
+  <td><strong>Bekam Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Bekam%20Clinic%2C%20Magwagwa%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0184" data-name="Bekam Clinic" data-ward="magwagwa"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0185">
+  <td>NYM-F0185</td>
+  <td><strong>Gisage Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Gisage%20Dispensary%2C%20Magwagwa%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0185" data-name="Gisage Dispensary" data-ward="magwagwa"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0186">
+  <td>NYM-F0186</td>
+  <td><strong>Happy Magwagwa Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Happy%20Magwagwa%20Clinic%2C%20Magwagwa%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0186" data-name="Happy Magwagwa Clinic" data-ward="magwagwa"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0187">
+  <td>NYM-F0187</td>
+  <td><strong>Magwagwa (SDA) Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Magwagwa%20(SDA)%20Dispensary%2C%20Magwagwa%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0187" data-name="Magwagwa (SDA) Dispensary" data-ward="magwagwa"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0188">
+  <td>NYM-F0188</td>
+  <td><strong>Magwagwa Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Magwagwa%20Health%20Centre%2C%20Magwagwa%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0188" data-name="Magwagwa Health Centre" data-ward="magwagwa"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0189">
+  <td>NYM-F0189</td>
+  <td><strong>Matongo Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Matongo%20Health%20Centre%2C%20Magwagwa%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0189" data-name="Matongo Health Centre" data-ward="magwagwa"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0190">
+  <td>NYM-F0190</td>
+  <td><strong>Nyamusi Medical Center</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyamusi%20Medical%20Center%2C%20Magwagwa%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0190" data-name="Nyamusi Medical Center" data-ward="magwagwa"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Manga (10)</td></tr>
+<tr data-id="NYM-F0121">
+  <td>NYM-F0121</td>
+  <td><strong>Nyaisa Manga SDA Mixed Secondary</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJscMo0okjKxgRIsNDX3GD2v0" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyaisa%20Manga%20SDA%20Mixed%20Secondary%2C%20Manga%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0121" data-name="Nyaisa Manga SDA Mixed Secondary" data-ward="manga"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0122">
+  <td>NYM-F0122</td>
+  <td><strong>Riogoro PAG Primary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJ68zfM10XKxgRJkY4mCSGEWU" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Riogoro%20PAG%20Primary%20School%2C%20Manga%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0122" data-name="Riogoro PAG Primary School" data-ward="manga"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0124">
+  <td>NYM-F0124</td>
+  <td><strong>Tombe Faith Academy</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJs-TuIJIXKxgRxk7OleF3D5g" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Tombe%20Faith%20Academy%2C%20Manga%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0124" data-name="Tombe Faith Academy" data-ward="manga"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0125">
+  <td>NYM-F0125</td>
+  <td><strong>Gesure Health Centre (Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Gesure%20Health%20Centre%20(Manga)%2C%20Manga%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0125" data-name="Gesure Health Centre (Manga)" data-ward="manga"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0126">
+  <td>NYM-F0126</td>
+  <td><strong>Ikobe Health Centre(Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Ikobe%20Health%20Centre(Manga)%2C%20Manga%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0126" data-name="Ikobe Health Centre(Manga)" data-ward="manga"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0127">
+  <td>NYM-F0127</td>
+  <td><strong>Manga Getobo Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Manga%20Getobo%20Clinic%2C%20Manga%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0127" data-name="Manga Getobo Clinic" data-ward="manga"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0128">
+  <td>NYM-F0128</td>
+  <td><strong>Medicare Medical Clinic (Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Medicare%20Medical%20Clinic%20(Manga)%2C%20Manga%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0128" data-name="Medicare Medical Clinic (Manga)" data-ward="manga"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0129">
+  <td>NYM-F0129</td>
+  <td><strong>Ogango Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Ogango%20Dispensary%2C%20Manga%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0129" data-name="Ogango Dispensary" data-ward="manga"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0130">
+  <td>NYM-F0130</td>
+  <td><strong>Omosocho Medical Clinic (Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Omosocho%20Medical%20Clinic%20(Manga)%2C%20Manga%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0130" data-name="Omosocho Medical Clinic (Manga)" data-ward="manga"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0132">
+  <td>NYM-F0132</td>
+  <td><strong>Tombe Health Centre (Manga)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Tombe%20Health%20Centre%20(Manga)%2C%20Manga%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0132" data-name="Tombe Health Centre (Manga)" data-ward="manga"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Mekenene (13)</td></tr>
+<tr data-id="NYM-F0036">
+  <td>NYM-F0036</td>
+  <td><strong>Keritor Tea Factory</strong><br><small>Agriculture · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJq6qq3k4DKxgRsyIaMo8B6rs" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Keritor%20Tea%20Factory%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0036" data-name="Keritor Tea Factory" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0037">
+  <td>NYM-F0037</td>
+  <td><strong>Kipkebe Tea Factory</strong><br><small>Agriculture · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJ____28wPKxgRoVQulbGdSw4" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Kipkebe%20Tea%20Factory%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0037" data-name="Kipkebe Tea Factory" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0038">
+  <td>NYM-F0038</td>
+  <td><strong>Borabu DEB Primary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJT1f7upINKxgRzgZZr3_3Sps" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Borabu%20DEB%20Primary%20School%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0038" data-name="Borabu DEB Primary School" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0040">
+  <td>NYM-F0040</td>
+  <td><strong>Nyagacho Primary</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJWcImMVMNKxgRq1bubbi8344" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyagacho%20Primary%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0040" data-name="Nyagacho Primary" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0043">
+  <td>NYM-F0043</td>
+  <td><strong>Keritor Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Keritor%20Dispensary%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0043" data-name="Keritor Dispensary" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0044">
+  <td>NYM-F0044</td>
+  <td><strong>Kerumbe Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kerumbe%20Dispensary%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0044" data-name="Kerumbe Dispensary" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0045">
+  <td>NYM-F0045</td>
+  <td><strong>Kipkebe Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kipkebe%20Health%20Centre%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0045" data-name="Kipkebe Health Centre" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0046">
+  <td>NYM-F0046</td>
+  <td><strong>Kiptenden Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kiptenden%20Dispensary%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0046" data-name="Kiptenden Dispensary" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0047">
+  <td>NYM-F0047</td>
+  <td><strong>Magura Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Magura%20Dispensary%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0047" data-name="Magura Dispensary" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0048">
+  <td>NYM-F0048</td>
+  <td><strong>Mwongori Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Mwongori%20Dispensary%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0048" data-name="Mwongori Dispensary" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0049">
+  <td>NYM-F0049</td>
+  <td><strong>Sotik Highlands Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Sotik%20Highlands%20Dispensary%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0049" data-name="Sotik Highlands Dispensary" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0052">
+  <td>NYM-F0052</td>
+  <td><strong>Mekenene SDA Church</strong><br><small>Worship · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJ76h1rIENKxgRhdQ4K9_gmko" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Mekenene%20SDA%20Church%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0052" data-name="Mekenene SDA Church" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0053">
+  <td>NYM-F0053</td>
+  <td><strong>Mesabisabi SDA Church</strong><br><small>Worship · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJC_zqLvkNKxgRaAi5NiTZn10" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Mesabisabi%20SDA%20Church%2C%20Mekenene%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0053" data-name="Mesabisabi SDA Church" data-ward="mekenene"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Nyamaiya (10)</td></tr>
+<tr data-id="NYM-F0220">
+  <td>NYM-F0220</td>
+  <td><strong>Gianchore Tea Factory</strong><br><small>Agriculture · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJXU2de-IZKxgREUWsOWWT-vg" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Gianchore%20Tea%20Factory%2C%20Nyamaiya%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0220" data-name="Gianchore Tea Factory" data-ward="nyamaiya"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0221">
+  <td>NYM-F0221</td>
+  <td><strong>Mang'ong'o Primary</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJExIJa7HhKhgRfWkf8dYEoPM" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Mang'ong'o%20Primary%2C%20Nyamaiya%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0221" data-name="Mang'ong'o Primary" data-ward="nyamaiya"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0222">
+  <td>NYM-F0222</td>
+  <td><strong>Our Lady of Mercy Rangenyo Secondary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJs94jVh0fKxgRsJg5ZNTHJms" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Our%20Lady%20of%20Mercy%20Rangenyo%20Secondary%20School%2C%20Nyamaiya%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0222" data-name="Our Lady of Mercy Rangenyo Secondary School" data-ward="nyamaiya"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0223">
+  <td>NYM-F0223</td>
+  <td><strong>Motontera Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Motontera%20Dispensary%2C%20Nyamaiya%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0223" data-name="Motontera Dispensary" data-ward="nyamaiya"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0224">
+  <td>NYM-F0224</td>
+  <td><strong>Nyabite Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyabite%20Clinic%2C%20Nyamaiya%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0224" data-name="Nyabite Clinic" data-ward="nyamaiya"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0225">
+  <td>NYM-F0225</td>
+  <td><strong>Nyamaiya Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyamaiya%20Health%20Centre%2C%20Nyamaiya%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0225" data-name="Nyamaiya Health Centre" data-ward="nyamaiya"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0226">
+  <td>NYM-F0226</td>
+  <td><strong>Nyansangio Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyansangio%20Dispensary%2C%20Nyamaiya%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0226" data-name="Nyansangio Dispensary" data-ward="nyamaiya"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0227">
+  <td>NYM-F0227</td>
+  <td><strong>Rangenyo Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Rangenyo%20Health%20Centre%2C%20Nyamaiya%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0227" data-name="Rangenyo Health Centre" data-ward="nyamaiya"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0228">
+  <td>NYM-F0228</td>
+  <td><strong>St John's Nyabite</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/St%20John's%20Nyabite%2C%20Nyamaiya%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0228" data-name="St John's Nyabite" data-ward="nyamaiya"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0229">
+  <td>NYM-F0229</td>
+  <td><strong>Nyamaiya Police Post</strong><br><small>Public office · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJvxAMKeIfKxgRVmM_797w1jk" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyamaiya%20Police%20Post%2C%20Nyamaiya%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0229" data-name="Nyamaiya Police Post" data-ward="nyamaiya"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Nyansiongo (15)</td></tr>
+<tr data-id="NYM-F0056">
+  <td>NYM-F0056</td>
+  <td><strong>Nyansiongo Tea Factory</strong><br><small>Agriculture · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJm3DvFhltKxgRsdEHytrSIG0" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyansiongo%20Tea%20Factory%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0056" data-name="Nyansiongo Tea Factory" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0058">
+  <td>NYM-F0058</td>
+  <td><strong>Rigoko Secondary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJPWIftpttKxgReQt5jJlkA_w" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Rigoko%20Secondary%20School%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0058" data-name="Rigoko Secondary School" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0059">
+  <td>NYM-F0059</td>
+  <td><strong>St James Nyaronde</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJYyD3kQQTKxgRHVlQN-L3kQY" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/St%20James%20Nyaronde%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0059" data-name="St James Nyaronde" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0060">
+  <td>NYM-F0060</td>
+  <td><strong>Tindereti DEB Primary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJbeu0EjhtKxgRygkrEwzjaDs" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Tindereti%20DEB%20Primary%20School%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0060" data-name="Tindereti DEB Primary School" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0061">
+  <td>NYM-F0061</td>
+  <td><strong>Borabu Nursing Home</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Borabu%20Nursing%20Home%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0061" data-name="Borabu Nursing Home" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0062">
+  <td>NYM-F0062</td>
+  <td><strong>Kijauri Sub District Hospital</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Kijauri%20Sub%20District%20Hospital%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0062" data-name="Kijauri Sub District Hospital" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0063">
+  <td>NYM-F0063</td>
+  <td><strong>Matutu Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Matutu%20Dispensary%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0063" data-name="Matutu Dispensary" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0064">
+  <td>NYM-F0064</td>
+  <td><strong>Nyandoche Ibere Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyandoche%20Ibere%20Dispensary%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0064" data-name="Nyandoche Ibere Dispensary" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0065">
+  <td>NYM-F0065</td>
+  <td><strong>Nyansiongo Nursing Home</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyansiongo%20Nursing%20Home%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0065" data-name="Nyansiongo Nursing Home" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0066">
+  <td>NYM-F0066</td>
+  <td><strong>Nyaronde(Borabu)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyaronde(Borabu)%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0066" data-name="Nyaronde(Borabu)" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0067">
+  <td>NYM-F0067</td>
+  <td><strong>St Joseph's Nyansiongo Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/St%20Joseph's%20Nyansiongo%20Health%20Centre%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0067" data-name="St Joseph's Nyansiongo Health Centre" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0068">
+  <td>NYM-F0068</td>
+  <td><strong>Tindereti Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Tindereti%20Dispensary%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0068" data-name="Tindereti Dispensary" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0073">
+  <td>NYM-F0073</td>
+  <td><strong>Nyansiongo Fellowship Church</strong><br><small>Worship · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJjZs2jf1vKxgRZoJRexvZMfI" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyansiongo%20Fellowship%20Church%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0073" data-name="Nyansiongo Fellowship Church" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0074">
+  <td>NYM-F0074</td>
+  <td><strong>Omobirona SDA Church</strong><br><small>Worship · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJN7SlOfUTKxgRjOkOVdPV_fI" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Omobirona%20SDA%20Church%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0074" data-name="Omobirona SDA Church" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0075">
+  <td>NYM-F0075</td>
+  <td><strong>Valley SDA Church</strong><br><small>Worship · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJxZtJX5BtKxgRuRDylFNS_no" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Valley%20SDA%20Church%2C%20Nyansiongo%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0075" data-name="Valley SDA Church" data-ward="nyansiongo"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Rigoma (10)</td></tr>
+<tr data-id="NYM-F0136">
+  <td>NYM-F0136</td>
+  <td><strong>Nyankoba Tea Factory</strong><br><small>Agriculture · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJq6qqrhdrKxgRuo-2txke2qc" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyankoba%20Tea%20Factory%2C%20Rigoma%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0136" data-name="Nyankoba Tea Factory" data-ward="rigoma"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0137">
+  <td>NYM-F0137</td>
+  <td><strong>Kitutu Masaba Technical and Vocational College</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJu7zccc4VKxgRZKzkAYlgCcc" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Kitutu%20Masaba%20Technical%20and%20Vocational%20College%2C%20Rigoma%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0137" data-name="Kitutu Masaba Technical and Vocational College" data-ward="rigoma"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0138">
+  <td>NYM-F0138</td>
+  <td><strong>Nyatieko Primary School</strong><br><small>Education · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJweVtXgBrKxgR4vvgnsYLpbc" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyatieko%20Primary%20School%2C%20Rigoma%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0138" data-name="Nyatieko Primary School" data-ward="rigoma"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0140">
+  <td>NYM-F0140</td>
+  <td><strong>Firmview Medical Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Firmview%20Medical%20Clinic%2C%20Rigoma%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0140" data-name="Firmview Medical Clinic" data-ward="rigoma"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0141">
+  <td>NYM-F0141</td>
+  <td><strong>Masaba District Hospital</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Masaba%20District%20Hospital%2C%20Rigoma%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0141" data-name="Masaba District Hospital" data-ward="rigoma"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0142">
+  <td>NYM-F0142</td>
+  <td><strong>Mong'oni</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Mong'oni%2C%20Rigoma%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0142" data-name="Mong'oni" data-ward="rigoma"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0143">
+  <td>NYM-F0143</td>
+  <td><strong>Nyanchonori Dispensary</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyanchonori%20Dispensary%2C%20Rigoma%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0143" data-name="Nyanchonori Dispensary" data-ward="rigoma"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0144">
+  <td>NYM-F0144</td>
+  <td><strong>Omwabo Medical Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Omwabo%20Medical%20Clinic%2C%20Rigoma%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0144" data-name="Omwabo Medical Clinic" data-ward="rigoma"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0145">
+  <td>NYM-F0145</td>
+  <td><strong>Rikenye Dispensary (Masaba)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Rikenye%20Dispensary%20(Masaba)%2C%20Rigoma%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0145" data-name="Rikenye Dispensary (Masaba)" data-ward="rigoma"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0148">
+  <td>NYM-F0148</td>
+  <td><strong>Saints Alive Redeemed Gospel Church</strong><br><small>Worship · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJN7daq99tKxgRq5WL1bORLNo" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Saints%20Alive%20Redeemed%20Gospel%20Church%2C%20Rigoma%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0148" data-name="Saints Alive Redeemed Gospel Church" data-ward="rigoma"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr class="ward-header"><td colspan="5">Township (11)</td></tr>
+<tr data-id="NYM-F0232">
+  <td>NYM-F0232</td>
+  <td><strong>Jamii Medical and Diagnostic centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Jamii%20Medical%20and%20Diagnostic%20centre%2C%20Township%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0232" data-name="Jamii Medical and Diagnostic centre" data-ward="township"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0234">
+  <td>NYM-F0234</td>
+  <td><strong>Motagara Health Centre (Nyamira)</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Motagara%20Health%20Centre%20(Nyamira)%2C%20Township%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0234" data-name="Motagara Health Centre (Nyamira)" data-ward="township"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0235">
+  <td>NYM-F0235</td>
+  <td><strong>Nyamira Adventist Health Centre</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyamira%20Adventist%20Health%20Centre%2C%20Township%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0235" data-name="Nyamira Adventist Health Centre" data-ward="township"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0236">
+  <td>NYM-F0236</td>
+  <td><strong>Nyamira County Beyond Zero Clinic</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyamira%20County%20Beyond%20Zero%20Clinic%2C%20Township%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0236" data-name="Nyamira County Beyond Zero Clinic" data-ward="township"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0238">
+  <td>NYM-F0238</td>
+  <td><strong>Nyamira District Hospital</strong><br><small>Health · Kenya Master Health Facility List (2017 export via HDX)</small></td>
+  <td><a href="https://www.google.com/maps/search/Nyamira%20District%20Hospital%2C%20Township%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0238" data-name="Nyamira District Hospital" data-ward="township"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0239">
+  <td>NYM-F0239</td>
+  <td><strong>Nyamira County Assembly</strong><br><small>Public office · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJN6OfF0oZKxgRw3sBtfQmdFw" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyamira%20County%20Assembly%2C%20Township%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0239" data-name="Nyamira County Assembly" data-ward="township"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0240">
+  <td>NYM-F0240</td>
+  <td><strong>Nyamira Huduma Centre</strong><br><small>Public office · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJp5cY2ksZKxgRZbTAfgWhY7Y" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyamira%20Huduma%20Centre%2C%20Township%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0240" data-name="Nyamira Huduma Centre" data-ward="township"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0242">
+  <td>NYM-F0242</td>
+  <td><strong>Nyamira Police Station</strong><br><small>Public office · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJu_i1BgAZKxgRaaMvOw-6UM0" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyamira%20Police%20Station%2C%20Township%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0242" data-name="Nyamira Police Station" data-ward="township"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0243">
+  <td>NYM-F0243</td>
+  <td><strong>Nyankono Police Station</strong><br><small>Public office · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJETAiEdsZKxgR5c3B3gC_89Y" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyankono%20Police%20Station%2C%20Township%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0243" data-name="Nyankono Police Station" data-ward="township"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0245">
+  <td>NYM-F0245</td>
+  <td><strong>Nyamira Water and Sanitation Company</strong><br><small>Water · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJ2SxMCwAZKxgRLjXxdpmjIt4" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyamira%20Water%20and%20Sanitation%20Company%2C%20Township%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0245" data-name="Nyamira Water and Sanitation Company" data-ward="township"></td>
+  <td class="status-cell"></td>
+</tr>
+<tr data-id="NYM-F0246">
+  <td>NYM-F0246</td>
+  <td><strong>Nyamira South SDA Church</strong><br><small>Worship · Google Maps (discovery)</small></td>
+  <td><a href="https://www.google.com/maps/place/?q=place_id:ChIJx-4DRzsZKxgR8m_jDVrDUUY" target="_blank">Place ID</a> · <a href="https://www.google.com/maps/search/Nyamira%20South%20SDA%20Church%2C%20Township%2C%20Nyamira%20County%2C%20Kenya" target="_blank">Search</a></td>
+  <td><input type="text" class="coord-input" placeholder="-0.5577, 34.929" data-id="NYM-F0246" data-name="Nyamira South SDA Church" data-ward="township"></td>
+  <td class="status-cell"></td>
+</tr>
+
+</tbody>
+</table>
+
+<div class="actions" style="margin-top: 16px;">
+  <button class="btn-export" onclick="exportJSON()">Export JSON</button>
+</div>
+
+<script>
+const KEY = 'nd-coord-lookup';
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch {}
+
+document.querySelectorAll('.coord-input').forEach(input => {
+  const id = input.dataset.id;
+  if (saved[id]) { input.value = saved[id]; validate(input); }
+
+  input.addEventListener('input', () => {
+    validate(input);
+    saved[id] = input.value.trim();
+    try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch {}
+    updateCount();
+  });
+});
+
+function validate(input) {
+  const val = input.value.trim();
+  const cell = input.closest('tr').querySelector('.status-cell');
+  if (!val) { input.className = 'coord-input'; cell.textContent = ''; return false; }
+  const parts = val.split(/[,\s]+/).map(Number);
+  if (parts.length >= 2 && !isNaN(parts[0]) && !isNaN(parts[1]) &&
+      parts[0] >= -1.0 && parts[0] <= 0.0 && parts[1] >= 34.5 && parts[1] <= 35.5) {
+    input.className = 'coord-input valid';
+    cell.textContent = '\u2713';
+    cell.style.color = '#2e7d32';
+    return true;
+  }
+  input.className = 'coord-input invalid';
+  cell.textContent = '?';
+  cell.style.color = '#c62828';
+  return false;
+}
+
+function updateCount() {
+  const valid = document.querySelectorAll('.coord-input.valid').length;
+  document.getElementById('count').textContent = valid;
+}
+updateCount();
+
+function exportJSON() {
+  const entries = [];
+  document.querySelectorAll('.coord-input.valid').forEach(input => {
+    const parts = input.value.trim().split(/[,\s]+/).map(Number);
+    entries.push({
+      facilityId: input.dataset.id,
+      facilityName: input.dataset.name,
+      ward: input.dataset.ward,
+      lat: Math.round(parts[0] * 100000) / 100000,
+      lon: Math.round(parts[1] * 100000) / 100000,
+      source: 'Google Maps manual lookup',
+      approve: true,
+    });
+  });
+  if (entries.length === 0) { alert('No valid coordinates entered yet.'); return; }
+  const output = {
+    generated: new Date().toISOString().slice(0, 10),
+    source: 'Manual Google Maps coordinate lookup',
+    coordinateEnrichment: entries,
+    newCandidates: [],
+    ambiguous: [],
+  };
+  const blob = new Blob([JSON.stringify(output, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'manual-coords.json';
+  a.click();
+}
+
+function clearAll() {
+  if (!confirm('Clear all entered coordinates?')) return;
+  document.querySelectorAll('.coord-input').forEach(i => { i.value = ''; i.className = 'coord-input'; });
+  document.querySelectorAll('.status-cell').forEach(c => { c.textContent = ''; });
+  saved = {};
+  try { localStorage.setItem(KEY, '{}'); } catch {}
+  updateCount();
+}
+</script>
+</body>
+</html>

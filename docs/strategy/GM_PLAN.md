@@ -1,10 +1,10 @@
-# Nyamira Daily: general manager's plan
+# Gusii Daily: general manager's plan
 
 Status: **draft from the owner interview of 16 Nov 2026.** Strategy only; site changes in section 8 need the owner's approval before they are built.
 
 ## 1. Where we are going
 
-- **In three years:** the county's fact source. When anyone in Nyamira wants a verified fact (a budget line, a clinic's status, a price), they check Nyamira Daily first.
+- **In three years:** the county's fact source. When anyone in Nyamira wants a verified fact (a budget line, a clinic's status, a price), they check Gusii Daily first.
 - **Year-one audiences:** youth (18 to 35) and residents in the wards. Businesses, officials and researchers are served by the same data, later.
 - **Red lines:** no political money; no selling personal data; no unverified claims. Paid or sponsored content is decided case by case (rules still to write, see section 9).
 - **Means:** the owner plus one to three helpers; under KSh 500,000 for 12 months; self-funded; the company stays commercial for now.

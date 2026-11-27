@@ -6,5 +6,8 @@ import money from '../../lib/county-money.js';
 const first = money.years[0].fy, last = money.years.at(-1).fy;
 ---
 <MoneyShell title="Nyamira's money since 2013" lead={`What the county budgeted and spent each year from ${first} to ${last}, how much of its development money it used, and what it owed.`} crumbs={[{ href: '/money/history/', label: 'History' }]}>
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Miaka 12 ya pesa za Kaunti ya Nyamira — bajeti na matumizi kwa kila mwaka, kiasi gani cha pesa za maendeleo kilitumika, na madeni yanayosubiri. Kila takwimu inatoka kwenye ripoti za Mdhibiti wa Bajeti.</p></div>
+  <p class="small muted">Updated when each financial year ends and the Controller of Budget publishes the annual County Budget Implementation Review Report.</p>
   <MoneyPage />
 </MoneyShell>

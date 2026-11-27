@@ -1,7 +1,10 @@
 ---
 import '../styles/global.css';
 import { toneFor, sectionFor } from '../nav.js';
+import { analytics } from '../config.js';
 import SiteHeader from '../components/SiteHeader.astro';
+import BetaBanner from '../components/BetaBanner.astro';
+import AlertBanner from '../components/AlertBanner.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SectionNav from '../components/SectionNav.astro';
 import PageTools from '../components/PageTools.astro';
@@ -9,10 +12,10 @@ import PageTools from '../components/PageTools.astro';
 interface Props { title: string; description?: string; tools?: boolean; image?: string; imageAlt?: string; noindex?: boolean }
 const {
   title,
-  description = 'Nyamira Daily: facts about Nyamira County, its money, services, laws and leaders, in plain language.',
+  description = 'Gusii Daily: facts about Nyamira County, its money, services, laws and leaders, in plain language.',
   tools = true,
   image,
-  imageAlt = 'Nyamira Daily',
+  imageAlt = 'Gusii Daily',
   noindex = false,
 } = Astro.props;
 
@@ -20,11 +23,37 @@ const path = Astro.url.pathname;
 const isHome = path === '/';
 const navSection = isHome ? null : sectionFor(path);
 const hasSubnav = Boolean(navSection && navSection.rail !== false && navSection.pages.length > 0);
-const pageTitle = title === 'Today' ? 'Nyamira Daily' : `${title} · Nyamira Daily`;
+const pageTitle = title === 'Today' ? 'Gusii Daily' : `${title} · Gusii Daily`;
 
-const shareTitle = title === 'Today' ? 'Nyamira Daily' : title;
+const shareTitle = title === 'Today' ? 'Gusii Daily' : title;
 const pageUrl = new URL(path, Astro.site).toString();
 const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toString();
+
+// Structured data: BreadcrumbList from URL segments, WebSite with SearchAction on home
+const crumbs = [{ name: 'Gusii Daily', url: new URL('/', Astro.site).toString() }];
+if (!isHome) {
+  const segs = path.replace(/\/$/, '').split('/').filter(Boolean);
+  let built = '';
+  for (const seg of segs) {
+    built += `/${seg}`;
+    crumbs.push({ name: seg.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()), url: new URL(`${built}/`, Astro.site).toString() });
+  }
+  // Replace last crumb name with the actual page title
+  crumbs[crumbs.length - 1].name = title;
+}
+const breadcrumbLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+});
+const websiteLd = isHome ? JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Gusii Daily',
+  url: new URL('/', Astro.site).toString(),
+  description: 'The civic field guide for Nyamira County, Kenya — every public place mapped, every shilling sourced.',
+  potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: new URL('/search/?q={search_term_string}', Astro.site).toString() }, 'query-input': 'required name=search_term_string' },
+}) : null;
 ---
 <!doctype html>
 <html lang="en">
@@ -33,17 +62,17 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{pageTitle}</title>
   <meta name="description" content={description} />
-  <link rel="preload" href="/brand/fonts/VarelaRound-Latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/brand/fonts/Poppins-SemiBold-Latin.woff2" as="font" type="font/woff2" crossorigin />
   {noindex && <meta name="robots" content="noindex, nofollow" />}
-  <link rel="preload" href="/brand/fonts/LeagueSpartan-Medium.woff2" as="font" type="font/woff2" crossorigin />
-  <meta name="theme-color" content="#00D46A" /><!-- Signal Green (--nd-green); meta tags cannot read CSS tokens -->
+  <link rel="preload" href="/brand/fonts/Inter-Medium-Latin.woff2" as="font" type="font/woff2" crossorigin />
+  <meta name="theme-color" content="#1FD07A" /><!-- Signal Green (--nd-green); meta tags cannot read CSS tokens -->
   <script is:inline>document.documentElement.classList.add('js');</script>
-  <link rel="icon" href="/brand/Nyamira-Daily_favicon.ico" sizes="32x32" />
-  <link rel="icon" href="/brand/Nyamira-Daily_icon-square_on-black.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/brand/Nyamira-Daily_icon-square_on-black-180px.png" />
+  <link rel="icon" href="/brand/Gusii-Daily_favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/brand/Gusii-Daily_favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/brand/Gusii-Daily_apple-touch-icon-180px.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Nyamira Daily" />
+  <meta property="og:site_name" content="Gusii Daily" />
   <meta property="og:title" content={shareTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={pageUrl} />
@@ -59,10 +88,17 @@ const shareImage = new URL(image ?? '/brand/og-default.png', Astro.site).toStrin
   <script is:inline>
   (function () { var r = document.documentElement; r.classList.add('sw-js'); try { if (localStorage.getItem('nd-sw') === '1') r.classList.add('sw-on'); } catch (e) {} })();
   </script>
+  {!isHome && <script type="application/ld+json" set:html={breadcrumbLd} />}
+  {websiteLd && <script type="application/ld+json" set:html={websiteLd} />}
+  {analytics.provider === 'plausible' && analytics.src && <script defer data-domain="gusiidaily.org" src={analytics.src} />}
+  {analytics.provider === 'umami' && analytics.src && <script defer data-website-id={analytics.websiteId} src={analytics.src} />}
+  <noscript><style>{`main .sw { display: block !important; } [data-sw-switch] { display: none; }`}</style></noscript>
 </head>
 <body id="top" class={isHome ? 'fg-home' : 'fg-inner'}>
   <a class="skip" href="#main">Skip to content</a>
   <SiteHeader path={path} />
+  <BetaBanner />
+  <AlertBanner wardSlug={path.startsWith('/ward/') && path !== '/ward/' ? path.split('/')[2] : undefined} />
 
   <main id="main" class={`sec-${toneFor(path)}`}>
     <slot name="hero" />

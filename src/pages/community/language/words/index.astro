@@ -1,0 +1,83 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import PageHead from '../../../../components/PageHead.astro';
+import CommunityRules from '../../../../components/CommunityRules.astro';
+import { languageItems, wordItems, categoryLabel } from '../../../../lib/language.js';
+import { date } from '../../../../lib/fmt.js';
+
+const all = wordItems(await languageItems());
+const categories = [...new Set(all.map((e) => e.data.category))].sort();
+const byCategory = categories.map((cat) => ({ cat, label: categoryLabel[cat], items: all.filter((e) => e.data.category === cat) }));
+---
+<Base title="Ekegusii word list" description="A browsable list of Ekegusii words and phrases with translations, pronunciation and usage.">
+  <PageHead
+    eyebrow="Community · Language"
+    title="Ekegusii word list"
+    lead="Words, phrases, greetings and proverbs — each checked by a native speaker."
+    crumbs={[{ href: '/community/', label: 'Community' }, { href: '/community/language/', label: 'Ekegusii language' }, { href: '/community/language/words/', label: 'Words' }]}
+  />
+
+  <div class="stack-lg">
+    {all.length > 0 ? (
+      <>
+        <section class="fg-sheet">
+          <div class="fg-sec-head is-compact">
+            <span class="fg-kicker">Browse by Category</span>
+            <h2>{all.length} entries across {categories.length} categories</h2>
+          </div>
+          <div class="fg-search-starters" style="justify-content:center; margin-bottom:16px">
+            {byCategory.map((g) => <a class="fg-pop-tag" href={`#cat-${g.cat}`}>{g.label} ({g.items.length})</a>)}
+          </div>
+        </section>
+
+        {byCategory.map((g) => (
+          <section class="fg-sheet stack" id={`cat-${g.cat}`} aria-labelledby={`h-${g.cat}`}>
+            <h2 id={`h-${g.cat}`}>{g.label}</h2>
+            <table class="cards">
+              <thead><tr><th>Ekegusii</th><th>English</th><th>Kiswahili</th><th>Phonetic</th></tr></thead>
+              <tbody>
+                {g.items.map((e) => (
+                  <tr>
+                    <td data-label="Ekegusii" lang="guz"><strong>{e.data.term}</strong></td>
+                    <td data-label="English">{e.data.translationEn}</td>
+                    <td data-label="Kiswahili">{e.data.translationSw ?? '—'}</td>
+                    <td data-label="Phonetic">{e.data.phonetic ? <span style="font-family:monospace">{e.data.phonetic}</span> : '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <details>
+              <summary>Full details</summary>
+              <ul class="latest">
+                {g.items.map((e) => (
+                  <li><div style="padding:12px 0; display:flex; flex-direction:column; gap:4px">
+                    <span class="t" lang="guz">{e.data.term}</span>
+                    <span class="d">{e.data.translationEn}</span>
+                    {e.data.usageExample && <span class="d" lang="guz" style="font-style:italic">{e.data.usageExample}</span>}
+                    {e.data.usageTranslationEn && <span class="d">{e.data.usageTranslationEn}</span>}
+                    {e.data.nounClass && <span class="d">Class: {e.data.nounClass}</span>}
+                    {e.data.tonePattern && <span class="d">Tone: {e.data.tonePattern}</span>}
+                    {e.data.audio && <audio controls preload="none" src={e.data.audio}></audio>}
+                    <span class="small muted">Reviewed by {e.data.reviewedBy} · {e.data.credit}</span>
+                  </div></li>
+                ))}
+              </ul>
+            </details>
+          </section>
+        ))}
+      </>
+    ) : (
+      <section class="fg-sheet">
+        <p class="callout"><strong>No words published yet.</strong> The first entries are being collected and reviewed. Each word will show its translation, pronunciation, usage example, source and reviewer.</p>
+        <p>Know Ekegusii? <a href="/community/share/">Help us build this record</a>.</p>
+      </section>
+    )}
+
+    <div class="fg-cta-row">
+      <a class="fg-cta-btn" href="/community/share/">Contribute a word or phrase</a>
+      <a class="fg-outline-btn" href="/community/language/grammar/">Grammar reference</a>
+    </div>
+
+    <CommunityRules />
+  </div>
+</Base>

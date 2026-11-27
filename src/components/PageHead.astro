@@ -1,16 +1,22 @@
 ---
-// Full-bleed soft-mint topographic Field Guide page hero (inspired by civictech.guide/build, in Nyamira Daily tokens).
+// Full-bleed soft-mint topographic Field Guide page hero (inspired by civictech.guide/build, in Gusii Daily tokens).
 interface Props {
   eyebrow?: string;
   title: string;
   lead?: string;
   crumbs?: { href: string; label: string }[];
   swSwitch?: boolean;
+  // 'ink' for section landing pages (Money, Places, About...), 'cream' (default) for everything else.
+  cover?: 'ink' | 'cream' | 'statement';
+  // For cover="statement": the page's headline figure, shown huge in Ink on green, with an Ink source strip.
+  figure?: { value: string; source: string; sourceHref?: string };
+  // An area photo for the cover. Only a verified photo with a credit and date (decision #55): no stock.
+  photo?: { src: string; alt: string; credit: string; date: string };
 }
-const { eyebrow = 'Nyamira Daily', title, lead, crumbs = [], swSwitch = true } = Astro.props;
+const { eyebrow = 'Gusii Daily', title, lead, crumbs = [], swSwitch = true, photo, cover = 'cream', figure } = Astro.props;
 const trail = crumbs.length > 1 ? crumbs.slice(0, -1) : [];
 ---
-<header class="fg-page-hero page-head">
+<header class={`fg-page-hero page-head is-${cover}`}>
   <svg class="fg-topo" viewBox="0 0 1200 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <g fill="none" stroke="currentColor" stroke-width="1.2">
       <path d="M-80 280 C 80 180, 220 260, 360 150 S 660 20, 860 120 S 1120 260, 1280 140" />
@@ -24,6 +30,7 @@ const trail = crumbs.length > 1 ? crumbs.slice(0, -1) : [];
   </svg>
 
   <div class="fg-page-hero-inner">
+   <div class="gd-cover-text">
     {trail.length > 0 && (
       <nav class="fg-crumbs breadcrumb" aria-label="Breadcrumb">
         {trail.map((c, i) => (
@@ -35,6 +42,7 @@ const trail = crumbs.length > 1 ? crumbs.slice(0, -1) : [];
       </nav>
     )}
     <span class="fg-kicker">{eyebrow}</span>
+    {cover === 'statement' && figure && <p class="gd-cover-num">{figure.value}</p>}
     <h1>{title}</h1>
     {lead && <p class="lead fg-lead">{lead}</p>}
     {swSwitch && (
@@ -42,5 +50,18 @@ const trail = crumbs.length > 1 ? crumbs.slice(0, -1) : [];
         <button type="button" class="fg-outline-btn sw-switch" data-sw-switch aria-pressed="false" hidden>Soma kwa Kiswahili</button>
       </div>
     )}
+   </div>
+    {photo && (
+      <figure class="gd-photo">
+        <img src={photo.src} alt={photo.alt} loading="eager" />
+        <figcaption>Photo: {photo.credit}, {photo.date}</figcaption>
+      </figure>
+    )}
   </div>
+  {cover === 'statement' && figure && (
+    <div class="gd-cover-strip">
+      <img src="/brand/Gusii-Daily_horizontal_full-colour.svg" alt="Gusii Daily" width="130" height="40" />
+      <span class="gd-cover-src"><b>Source</b>{figure.sourceHref ? <a href={figure.sourceHref} rel="noopener">{figure.source}</a> : figure.source}</span>
+    </div>
+  )}
 </header>

@@ -1,6 +1,32 @@
-# Status and handover (16 Nov 2026)
+# Status and handover (27 Nov 2026)
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md`, then this page, then `docs/DECISIONS.md`. Older handover notes, with the history of each feature, are in `docs/STATUS_ARCHIVE.md`.
+
+## Kisii build: state at 27 Nov 2026, evening
+
+- **Built:** one map for both counties (home hero, Places atlas, ward index); 45 Kisii ward pages (`src/components/ward/CountyWard.astro`) with voters, map and services; Kisii facilities (159 health from the 2017 KMHFL list, 131 other public places from OpenStreetMap, all unverified) in `src/data/counties/kisii/facilities.json`; census in `src/data/counties/kisii/census.json`; 163 Kisii map points in `geo.json`. Build: 917 pages; `npm test` 345 pass.
+- **Leaders (checked):** `src/data/counties/kisii/leaders.json`: 34 of 45 MCAs named, 4 of 9 MPs and the Governor-listed seat confirmed in the file. 11 MCA names and 4 MP names are blank because the gazette name order is unclear or only one source was found; those show as "Not confirmed". Changes since 2022 are in `data-src/kisii/leaders.md`.
+- **Money (checked, on About Kisii):** `src/data/counties/kisii/money.json`, FY2013/14 to FY2025/26 as printed, with unprinted values shown as "Not printed". FY2024/25 is rounded in the report; the precise figures from `compare.json` are used for the headline tiles. Sources and checks: `data-src/kisii/money.md`.
+- **Not yet:** Kisii ward-level budgets and projects; the Governor is not shown on a page.
+- **Not yet counted:** the Places "listed facilities" total and the Money pages still show Nyamira only.
+- **Check before publishing:** Basi Central, Basi Bogetaorio and Majoge spellings differ between the IEBC and the boundary data.
+- **Uncommitted:** all of the above is on the working tree, not committed.
+
+$1 County: multi-county schema, phase 3)
+
+- **Schema (decision #134):** `src/county.js` exports `site`, `counties` (Nyamira, Kisii) and `countyBySlug`; `county` is still Nyamira. New `src/data/ward-register.json` holds all 65 Gusii wards from the IEBC 2022 register (source rows in `data-src/iebc/`, built by `scripts/build-ward-register.mjs`, tested by `scripts/build-ward-register.test.js`). `wards.json` records carry `county: "nyamira"`.
+- **Kisii on the site:** `/about/kisii/` (2019 population, 2022 voters, FY2024/25 budget, spending and own revenue, all 45 wards by constituency), linked from the Places menu, the footer and `/ward/`. Open data: `/api/ward-register.json`, listed on `/about/data/` and in `/api/meta.json`.
+- **Checks:** `npm test` 345 pass; build 872 pages; Playwright at 390×844 and 1280×900 on `/about/kisii/` and `/ward/`: no sideways scroll, no errors, ward names show on phone cards.
+- **Next for Kisii (phase 4):** confirm the three ward spellings that differ from the boundary data against the 2012 wards order; Kisii facilities from KMHFL; county leaders and MCAs from IEBC gazette notices; Kisii ward boundaries in `geo.json` and a two-county map; a `county` field on facilities, contracts and money so Kisii records can sit beside Nyamira's; then Kisii ward pages. FY2025/26 CoB figures for Kisii are in `data-src/national/cob-county-2025-26/` but their check status is not recorded; confirm before using.
+
+## Changes on 27 Nov 2026 (rebrand to Gusii Daily, phases 1 and 2)
+
+- **Rebrand (phase 1):** "Nyamira Daily" is now "Gusii Daily" across code, docs, tests and Kobo form titles; `nyamiradaily.org` is now `gusiidaily.org`; `package.json` name is `gusii-daily`. "Nyamira" stays wherever it means the county. Reason: the language and cultural work covers the Abagusii across Nyamira and Kisii counties.
+- **Lead with Gusii (phase 2):** `src/nav.js` now runs Gusii (at `/community/`), Places, Money, Stories, About. The home hero, directory, Get Involved band, footer, `/community/` and `/about/` lead with the Ekegusii language dataset and the knowledge base; civic data follows. No URLs changed.
+- **Checks:** `ND_SITE_URL=https://gusiidaily.org npm run build` passes (871 pages); Playwright at 390×844 and 1280×900 on `/`, `/community/`, `/about/`: no sideways scroll, no script errors.
+- **Brand kit (decision #133):** the Gusii Daily logo, icons, favicon, manifest icons and share image are in `public/brand/Gusii-Daily_*` (from the kit in `/Users/test/Projects/nyamira-daily/Claude outputs/gusii-daily-brand/`, which has `BRAND-INTEGRATION.md` and the brand guide PDF). Fonts are now Poppins SemiBold (titles) and Inter Medium/Bold (text); Seed Brown (`--nd-brown`) marks the dot before section labels and the featured-ward marker. The 20 ward share cards were regenerated and shrunk to 64 colours (about 20 KB each). Checked at 390×844 and 1280×900 on home, a ward, money, the ward sheet and `/community/`: only the three new fonts load, no sideways scroll, no failed requests. Decision #132 records the rebrand itself.
+- **Still to do:** register `gusiidaily.org` and attach it in Cloudflare before the next production deploy (`wrangler.jsonc` now builds for it); redeploy the five Kobo forms so the new titles reach KoboToolbox; decide whether to remove the old `Nyamira-Daily_*` and `NY-Watch_*` files from `public/brand/` (nothing references them now); the footer's mint background is neither of the logo's two intended grounds (white, charcoal), so consider a white or charcoal footer strip behind it; `apps/national` still uses League Spartan and Varela Round; phase 3 (county field on civic records, `/nyamira/` and `/kisii/` addresses with redirects); phase 4 (Kisii County data).
+- **Check before reuse:** the Ekegusii speaker figure in `src/data/language-meta.json` ("about 2.2 million, 2019 census, Kisii and Nyamira combined") does not match the two counties' 2019 populations added together (about 1.87 million). Find its real source before it goes anywhere new.
 
 ## Where things stand
 
@@ -8,9 +34,219 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 - **Who runs it:** the publisher is not named on the site for now (decision #125, replacing the public parts of #73). Rules and legal are one page, `/about/rules/`.
 - **NY Watch (decision #79):** the founder's data review podcast. No episodes published yet.
 
+## Launch readiness — Phase 1 & 2 (26 Nov 2026)
+
+### Phase 1: Remove what could hurt us
+- Deleted all 15 EXAMPLE content files (alerts, factchecks, heritage, language, people, stories). These were draft fiction marked `draft: true` but could have been indexed if deployed with `ND_DRAFTS=1`.
+- Added site-wide **public beta banner** (BetaBanner.astro): "We are verifying data across all pages." Dismissible, controlled by `beta = true` in config.js.
+- Added **MCA gazette-check disclosure** on all 20 ward pages when `mcaGazetteChecked` is false.
+- Existing disclosures confirmed adequate: ward spending reconciliation (KSh 15.5M gap explained in ProjectsPage), "Mostly unverified" evidence labels, administration page gazette note.
+
+### Phase 2: Verify the people
+- **Governor Nyaribo:** Updated impeachment note — Senate terminated proceedings 3 Dec 2025 on procedural grounds (Assembly threshold not met). Charges never tested. Source updated to The Star.
+- **Speaker Nyabaro:** Updated note — Bomet HC (Justice Ngarngar) affirmed Okero's impeachment and recognised Nyabaro. Okero appealed; no outcome found as of Nov 2026. Labour Court reportedly found Okero's removal unlawful (Mar 2026). Nyabaro chairs all 2025–2026 sittings.
+- **By-election MCAs (3 wards):** Nyansiongo (Jackson Mogusu Mochumbe, PDP), Nyamaiya (Christopher Moturi Osiemo, UPA), Ekerenyo (Jeremiah Njenga Ongaro, UPA) — all now gazette-verified. IEBC gazetted winners 1 Dec 2025 (PDF: iebc.or.ke/uploads/resources/EHWTStffeC.pdf). Source links updated from news to gazette.
+- **Rigoma/Bokeira:** Notes updated with detail — expelled Jul 2025 for absenteeism, reinstated by interim HC order (Judge Okwany), full hearing set 30 Jul 2025, no published outcome found. No by-election held for these wards.
+- **2022 baseline MCAs (15 wards):** Added the IEBC Gazette Notice 9956 PDF as individual `src` for each. Names should still be checked character-by-character against the PDF.
+- `mcaGazetteChecked` remains false until every name is verified and Rigoma/Bokeira resolved.
+- `updated` date set to 2026-11-26.
+
+### Phase 3: Ground-truth the places (26 Nov 2026)
+- **Facility data audit:** 247 facilities in `facilities.json`. 120 sourced from the Kenya Master Health Facility List (2017 export, labelled "official"); 69 from OpenStreetMap and 58 from Google Maps (both labelled "unverified"). 127 of 247 are unverified. Zero living data events, zero field observations, zero road conditions — no correspondent has visited any place yet.
+- **Fixed misleading freshness language** on ward pages (`ward/[slug].astro`): replaced "Last updated 22 Oct 2026" (which implied recent verification) with honest source dates: "Health facilities from the Kenya Master Health Facility List (2017 export); schools and other places from OpenStreetMap and Google Maps." Added a "Report a change" link.
+- **Updated facilities dataset description** on the Open Data page (`OpenData.astro`): now states the actual sources and that most have not been visited.
+- **Health and Education pages already honest:** HealthPage cites KDHS 2022 and CIDP; SchoolsPage cites KNEC KCSE 2024–2025 and the Ministry of Education statistical booklet (2020). No changes needed.
+- **Map page already honest:** shows facility counts and "Checked on site: 0/247" without claiming a date. No changes needed.
+- **KMHFR unreachable:** kmhfr.health.go.ke timed out and refused connections — cannot check for newer facility data online. A person should try in a browser.
+- **Fieldwork pipeline documented but not set up:** `fieldwork/README.md` describes three Kobo forms, a four-tab Google Sheet and the sync script, but no forms have been uploaded to KoboToolbox, no sheet has been created, and no environment variables are configured. The pipeline is code-complete but needs a person to provision the accounts.
+
+### Phase 4: Legal infrastructure (26 Nov 2026)
+- **Data sources disclosure added** to `/about/rules/#data-sources` (`HowWeWork.astro`): a table listing every main dataset, its source, its date and its evidence label. This makes the age of each dataset explicit (e.g. "2017 export" for health facilities, "2022" for leaders) and notes that no field observations exist yet. Navigation link added.
+- **Privacy notice updated** (`Privacy.astro`): added the beta banner localStorage key to the list of things the browser remembers. Date updated to 26 Nov 2026.
+- **Terms date updated** (`Terms.astro`): date updated to 26 Nov 2026 to reflect the current state.
+- **Already in place (no changes needed):** corrections log with one entry (equitable share split, Nov 2026); right of reply with pre- and post-publication process; contact form gracefully disabled with a "being set up" notice; correction form similarly gated; report forms show honest "not sent" messaging; CC BY 4.0 licence stated; Data Protection Act 2019 referenced; ODPC complaints avenue documented.
+
+### Mapping infrastructure (26 Nov 2026)
+Built a four-script geographic data pipeline in `scripts/geo/` to systematically fill the map:
+- **`geo:pull-osm`** — pulls all mapped features in Nyamira County from the Overpass API. First run: 329 features (122 roads, 39 waterways, 33 education, 30 places, 30 markets, 17 water, 15 worship, 7 health, 5 leisure, 3 public office). Output: `data-src/osm-fresh.json`.
+- **`geo:reconcile`** — matches OSM data against `facilities.json` using three strategies (exact sourceRef, fuzzy name within ward, containment). Found 58 matches (coordinate enrichment candidates) and 18 new facilities (mostly markets). Output: `data-src/geo-review.json` for human review.
+- **`geo:apply`** — applies reviewed decisions from `geo-review.json` to `facilities.json`. Supports `--dry-run`.
+- **`geo:coverage`** — prints a ward × category coverage matrix with benchmarks. Key finding: 59 of ~601 schools listed (10% completeness), 125 of ~150 health facilities (83%).
+
+**Strategy document:** `docs/MAPPING_STRATEGY.md` lays out four phases (G1–G4): bulk data enrichment from Kenya schools dataset + Google Places geocoding, named roads and places, field verification with Plus Codes, and continuous improvement via monthly OSM re-pulls and resident reports.
+
+**Biggest gaps identified:** ~542 missing schools (available from energydata.info Kenya schools dataset), 178 facilities with no coordinates, 0 of 247 facilities field-verified, water points almost entirely unmapped.
+
+**Additional scripts added (Phase G1 enrichment):**
+- **`geo:geocode`** — resolves coordinates for 58 facilities with Google Place IDs (needs `GOOGLE_PLACES_KEY`).
+- **`geo:discover`** — searches each ward centroid for schools/clinics/markets via Google Places Text Search (needs `GOOGLE_PLACES_KEY`).
+- **`geo:ingest-schools`** — imports any school CSV into the reconcile pipeline format, auto-detecting columns and filtering to Nyamira. Ready for when the Kenya schools dataset is downloaded manually.
+- **`geo:reconcile-roads`** — cross-references 90 budget roads against 122 OSM roads. Found 8 fuzzy matches; the two layers are mostly complementary. Output: `data-src/road-review.json`.
+
+**Data source availability (26 Nov 2026):** energydata.info (403), opendata.go.ke (404), HDX (403), KMHFL API (connection refused). All need manual browser download or retry later. The Google Places API is the fastest path to coordinates — it needs an API key from Google Cloud Console.
+
+**Free geocoding exhausted (27 Nov 2026):** Nominatim, Photon, GeoNames and healthsites.io all returned near-zero results for Nyamira's small facilities. OSM simply doesn't have rural dispensaries, primary schools and markets mapped. The practical paths: (1) community mapping with KoboToolbox (see `docs/COMMUNITY_MAPPING.md`), (2) Google Places API ($17 for all 178), (3) wait for KMHFL API to come back online.
+
+**Community mapping tools (27 Nov 2026):**
+- **`geo:mapping-kit`** — generates a printable HTML page per ward listing every facility that needs coordinates, with a checklist, instructions and Google Maps links. Run `--ward manga` for one ward. Output: `data-src/mapping-kits/`.
+- **`geo:export-osm`** — exports verified facilities to OSM XML for JOSM upload, so our data goes back to OpenStreetMap. Run `--dry-run` to preview.
+- **`geo:nominatim`** — free OSM geocoder (0% hit rate on Nyamira facilities, documented).
+- **`geo:lookup-links`** — interactive browser page for manual Google Maps coordinate lookup.
+- Full initiative plan in `docs/COMMUNITY_MAPPING.md`. Full open-source tools assessment in `docs/INTEGRATIONS.md`.
+
+### Still needs a person
+- Open the Gazette Notice 9956 PDF and check each 2022 MCA name character-by-character.
+- Check Kenya Law or Nyamira HC registry for the Rigoma/Bokeira full hearing outcome.
+- Check whether Okero's appeal (Speaker case) has been decided.
+- **Register with the Data Protection Commissioner** (odpc.go.ke) if collecting personal data — required before any form is switched on.
+- **Set up a working contact channel** (email or WhatsApp) and fill in `contact` in `src/config.js` — this unlocks the right-of-reply and corrections paths.
+- **Lawyer review** of the privacy notice, terms and right of reply before launch (noted in the code).
+- Try kmhfr.health.go.ke in a browser for newer facility data.
+- Create a KoboToolbox account, upload the three forms, create the Google Sheet with four tabs, publish tabs as CSV, and set environment variables per `fieldwork/README.md`.
+- **Review `data-src/geo-review.json`**: 18 new facility candidates (mostly markets) and 58 coordinate-enrichment matches from OSM. Set `approve: true/false` on each, then run `npm run geo:apply`.
+- **Download the Kenya schools dataset** from energydata.info and filter to Nyamira subcounties — this closes the biggest gap (~542 missing schools).
+- **Try maps.krb.go.ke** in a browser — if the KRB road map allows feature export, it would give classified road data with condition ratings.
+
+---
+
+## Changes on 26 Nov 2026 (Kiswahili summaries + CSS cleanup)
+
+On branch `feat/data-architecture-improvements`. Completing the two leftovers from 22 Nov.
+
+### Kiswahili summaries completed
+Added Kiswahili summaries to the 17 pages that were missing them. All follow the existing pattern (`<div class="sw" lang="sw">`) and are marked `<!-- Kiswahili: needs native-speaker review -->`. Pages: about/, about/nyamira/, about/glossary/, about/contact/, about/careers/, about/partners/, watch/, ask/, take-part/submission/, tools/budget-simulator/, fact-check/, whats-working/, people/, heritage/, number-of-the-week/, search/, money/history/.
+
+### CSS cleanup (partial)
+Removed ~80 lines of confirmed dead CSS from `src/styles/global.css`: `.front-door`, `.list-filter`, `.chip-btn`, `.home-ward`/`.home-help`, `.ward-facts`, `.home-two`, `.next-steps`, `.h-name`/`.h-bar`, `.tk-year`, `.sheet-inner`/`.sheet-search`, `.ph-detail`, `.fg-ft-meta`, `.fg-cc-badge`, `a.fg-ft-pill`. Many other candidates from the original ~110 audit turned out to be false positives (dynamically generated class names like `st-${state}`, `sb-${tone}`, `op-${opinion}`, `sc${index}`). Remaining old-design CSS (`.site-header`, `.desk-nav`, `.hero-grid`, `.sec-switch`, etc.) is harmless dead weight but tangled with live code — safe removal would need a more careful refactor.
+
+### Build
+- `npm run build` (871 pages) passes.
+
+---
+
+## Changes on 22 Nov 2026 (open-source prep: endpoints, schemas, analytics, PDF scaffold)
+
+On branch `feat/data-architecture-improvements`. Structural prep for open-source tools and standards (strategy in `docs/strategy/OPEN_SOURCE_TOOLS.md`).
+
+### New API endpoints
+- **`/api/ocds.json`** — County contracts in Open Contracting Data Standard (OCDS 1.1) release format. 271 county releases; national contracts excluded per OCDS publisher rules. Spec: https://standard.open-contracting.org/
+- **`/api/leaders.json`** — County and national leaders in Popolo format (persons, organizations, memberships). 29 persons, 4 organizations. Spec: https://www.popoloproject.com/
+- **`/api/meta.json`** — Data freshness metadata: 13 datasets, each with its last-checked date, record count, refresh trigger and API endpoints. For monitoring crons, Datasette, or dashboards.
+- **`/api/budget.txt`** — County budget summary as plain text under 900 characters, for SMS/USSD/WhatsApp bot.
+- **`/api/facilities.txt`** — Facility summary as plain text, for SMS/USSD/WhatsApp bot.
+- **`/api/leaders.txt`** — Leaders summary as plain text, for SMS/USSD/WhatsApp bot.
+- All new endpoints listed on the Open Data page (`OpenData.astro`).
+
+### Schema and infrastructure changes
+- **Analytics placeholder** in `config.js` and `Base.astro`: set `analytics.provider` to `'plausible'` or `'umami'` and fill in `src` to enable. Zero weight until enabled.
+- **DocumentCloud URL field** (`documentCloud`) added to the registry `Source` schema (`packages/engine/src/schema.js`) and the facility API output. Optional, defaults to null.
+- **Whisper-ready transcript fields** (`transcript`, `transcriptLang`) added to the `archive` and `language` content collection schemas (`src/content.config.ts`). Ready for Whisper output.
+- **PDF ingest scaffold** (`scripts/ingest-pdf.py`): table extraction from county PDFs, with templates for PBB Table 18, CoB Table 2.1 and gazette MCAs. Falls back gracefully when tabula-py is not installed.
+- **Strategy doc** saved at `docs/strategy/OPEN_SOURCE_TOOLS.md`: three tiers of tools, open data standards, and a quarterly investment sequence.
+
+### Build
+- `npm run build` (871 pages) passes.
+
+---
+
+## Earlier on 22 Nov 2026 (page optimization + MCA verification research)
+
+On branch `feat/data-architecture-improvements` (from `ee970ce`).
+
+### Page content/copy optimization
+
+- **Footer trimmed:** removed the `fg-ft-meta` bottom section (Open Licence, Independence, Evidence Standard, Quick Jump blocks) from `SiteFooter.astro`.
+- **Hero cleaned up:** removed the decorative topographic SVG contour lines (`fg-hero-topo`) from `HeroMap.astro`.
+- **14px minimum font size:** all `font-size: 13px` declarations in `global.css` changed to `14px` (~28 instances across `.eyebrow`, `.label`, `.source`, `.updated`, `.small`, `.hc-note`, `.tg-meta`, `.now-meta`, etc.) for readability on budget phones.
+- **Structured data (JSON-LD):** `Base.astro` now outputs a `BreadcrumbList` on every non-home page (built from URL segments, last crumb uses the page title) and a `WebSite` with `SearchAction` on the home page.
+- **Noscript fallback for Kiswahili:** `<noscript>` block in `Base.astro` ensures Kiswahili summaries are visible and the toggle button is hidden when JavaScript is off (Opera Mini, feature phones).
+- **Sitemap:** `@astrojs/sitemap` integration added in `astro.config.mjs`, generating `sitemap-index.xml`.
+- **RSS feeds:** new `src/pages/explainers/rss.xml.js` and `src/pages/number-of-the-week/rss.xml.js`.
+- **Glossary expanded:** from 11 to 30 terms (added ADP, CARA, CIDP, ECDE, FIF, Gazette, KCSE, KDHS, KeNHA, KeRRA, KHIS, KNEC, KURA, NG-CDF, PBB, PPIP, Supplementary budget, Ward, Ward Development Fund).
+- **"What we do not measure yet" sections** added to HealthPage (5 items), SchoolsPage (4 items) and TeaMilkPage (4 items).
+- **Freshness labels** added to revenue, contracts and history pages.
+- **Kiswahili summaries** added to 9 pages: index (home), map/index, ward/index, administration/index, administration/duties, money/economy, money/track, money/revenue, money/contracts/index. All marked `<!-- Kiswahili: needs native-speaker review -->`.
+- Remaining Kiswahili summaries completed on 26 Nov (see above).
+- CSS audit: ~80 lines of confirmed dead classes removed on 26 Nov (see above). Many candidates were false positives; remaining old-design CSS is harmless dead weight.
+
+### MCA verification research
+
+Searched official IEBC and court records for the five MCA entries that need primary-source verification. No roster entries were changed; `mcaGazetteChecked` stays `false`.
+
+**By-elections (Nyansiongo, Nyamaiya, Ekerenyo — Nov 2025):**
+- The August 2025 Kenya Gazette (Vol. CXXVII—No. 169, Gazette Notice No. 11159, p. 4864) confirms the IEBC appointed Returning Officers for Nyamaiya (ward code 1352, West Mugirango), Ekerenyo (ward code 1361, North Mugirango) and Nyansiongo (ward code 1364, Borabu) for 27 Nov 2025 by-elections.
+- Gazette Notice No. 11160 (same issue, p. 4864) is the official by-election schedule notice.
+- Multiple news sources report the winners as Jackson Mogusu Mochumbe (PDP, Nyansiongo), Christopher Moturi Osiemo (UPA, Nyamaiya) and Jeremiah Njenga Ongaro (UPA, Ekerenyo) — matching the current `leaders.json` entries.
+- The official results gazette (reported as Gazette Notice No. 17611, December 2025 special issue) has not been directly verified. The IEBC website's by-elections resources page lists only two documents, neither of which is the results gazette. The Kenya Gazette archive at kenyalaw.org blocked automated access (HTTP 403).
+- **Status: corroborated by multiple news sources and the official appointments gazette, but the results gazette PDF has not been fetched and read.**
+
+**Court status (Rigoma and Bokeira — expelled MCAs):**
+- In July 2025, the Nyamira County Assembly expelled 10 MCAs (including Rigoma's Emmanuel Nyambega Gisesa and Bokeira's Joel Ombongi Nyang'au) for missing 8 consecutive sittings.
+- The High Court at Nyamira (Judge Wilfrida Okwany) granted interim relief reinstating them, with the substantive hearing set for 30 July 2025.
+- No final judgment has been found in any search (web search, news, Kenya Law — the latter blocked automated fetches with HTTP 403).
+- **Status: interim relief only. The final ruling is unresolved. The roster notes say "Final ruling not yet confirmed" and that is still accurate.**
+
+**What remains for a person:**
+1. Visit kenyalaw.org in a browser to search for the final Rigoma/Bokeira court ruling (search: "Nyamira County Assembly", "Okwany", "MCA absenteeism 2025").
+2. Visit the IEBC Gazette Notices page (iebc.or.ke/electionlaws/?Gazette_Notices) to find and download the December 2025 results gazette (Gazette Notice No. 17611).
+3. When both are verified, update `leaders.json` with the gazette citation and set `mcaGazetteChecked: true`.
+
+### Build and tests
+
+- `npm run build` (871 pages) passes.
+- `npm test` (342 tests) passes.
+- Sitemap generated at `sitemap-index.xml`.
+
+## Changes on 21-22 Nov 2026
+
+- **Data architecture improvements** (decision #131) on branch `feat/data-architecture-improvements` (from `ee970ce`).
+  - **Ward-slug validator** (`npm run check:wards`): catches typos in ward references across all data files and content collections. 935 references checked.
+  - **Flattened wards.json**: pure 20-row identity lookup. Places extracted to `ward-places.json`. Facility references derived from `facilities.json` at build time. No more double-edits.
+  - **Geo boundaries built**: `geo.json` (20 wards, 103 OSM points) and `neighbours.json` (10 counties) populated from geoBoundaries Kenya ADM3. The entire Map section is now unblocked.
+  - **Legacy money auto-generation** (`npm run generate:legacy-money`): `money.json` and `budget-sectors.json` generated from the county registry, guaranteed to match.
+  - **Hybrid alerts**: narrative as Markdown, status changes as living events (`alert:<id>` in `events.json`). Field reporters can update status from a phone form without touching git.
+  - **Contract-project triage**: 176 candidates sorted into confident (8), likely (8), ambiguous (29), reject (131). Six new contract groups produced seven proposed pairs. Manual source-level review did not confirm any new pair; the live `project-links.json` remains unchanged. Findings are in `data-src/contracts/RECONCILIATION_TRIAGE.md`.
+  - **Data dependency graph** (`npm run check:data-deps`): 56 source files, 36 data files, all validated.
+  - **Data-freshness labels** on health, education and economy pages.
+  - **Intake plan** (`docs/INTAKE_PLAN.md`): three-phase plan — Google Forms now, KoboToolbox at 3-6 months, D1 at 6+.
+  - Checked during continuation: `npm test` (342 passed), `npm run build` (871 pages; with the documented `ND_SITE_URL`), `npm run check:wards`, and `npm run check:data-deps` pass. The home page, map and contracts page have no horizontal overflow at 390px; the home page also has none at 1280px. The Administration page was checked at 390px and 1280px with no horizontal overflow.
+  - Waiting for a person: (1) Check the source documents for the seven unconfirmed contract-project pairs if stronger evidence is available. (2) Create and publish the Google Sheet from the fieldwork tab templates; the Google Drive/Sheets connector was not available in this chat. (3) The geoBoundaries source files are in `data-src/` for reproducibility.
+  - **Places facility research (registry unchanged):** the 27 Oct 2026 facility inventory has five police-tagged entries, all unverified; only Keroka has candidate coordinates. Sixteen wards have no police-tagged entry, which is a listing gap, not evidence that they lack police coverage. The 2018-22 CIDP names seven stations/posts/patrol bases, but is historical; the 2023-27 CIDP does not provide a current point-level roster. The current NPS/Kenya Police public sources checked did not yield one; the February 2026 police-hotlines document contains general hotlines, not a local station list.
+  - Other facility leads: the 2026/27 ADP identifies planned fire/ECDE works, not proof of operating facilities. WASREB's provider register can verify water-service providers, not individual water points. Next: complete and submit the drafted records request to NPS/County Commissioner; then verify locations and operating status before changing `facilities.json`. No request has been sent.
+  - **MCA source check:** the 2022 Nyamira ward roster was compared with IEBC Gazette Notice No. 9956, Kenya Gazette Vol. CXXIV, No. 170, 24 Aug 2022, p. 6747. Three current ward entries reflect later by-elections; their official result notices and the final court status for Rigoma and Bokeira remain to be verified, so `mcaGazetteChecked` stays `false`.
+
+- **Expansion build: seven tools and four new content collections** (decision #130) on branch `feat/ekegusii-language-framework` (from `6ae010c`).
+  - Four new content collections with schemas, helpers, list pages, example entries and search integration:
+    - `factchecks` at `/fact-check/`: claims checked against the record (true/mostly true/misleading/false/unproven), with evidence and sources.
+    - `stories` at `/whats-working/`: evidence-backed stories, with ward, sector, photos, evidence labels.
+    - `people` at `/people/`: consent-required profiles of residents (never politicians), with photo, role and story.
+    - `heritage` at `/heritage/`: heritage places and traditions, with named sources.
+  - **Ask Nyamira** (`/ask/`): RTI explainer citing Constitution Art 35 and AIA 2016, a client-side request-letter builder (copy/print/WhatsApp, no data sent), and a public tracker.
+  - **Submission helper** (`/take-part/submission/`): generates structured submissions for budget forums, development plans and Assembly petitions. Client-side only.
+  - **Alerts and incidents** (`/alerts/`): `alerts` content collection (19 event types, 3 levels, 3 statuses), hub page, individual alert pages, AlertBanner in Base.astro (emergencies everywhere, disruptions on affected ward pages, dismissible via localStorage), RSS feed, two JSON API endpoints, Open Data page updated.
+  - **Budget simulator** (`/tools/budget-simulator/`): interactive tool with 8 grouped sectors from the real 24-department budget, range sliders that balance, fixed wage bill, trade-off warnings, comparison table, WhatsApp share.
+  - Navigation updated: Stories gains fact-checks, what's working, people, heritage; Places gains alerts; About gains Ask Nyamira, Submission helper, Budget simulator.
+  - Search index includes all new collections and tool pages.
+  - Checked: the build (871 pages), `npm test` (340 pass), all new pages built.
+  - All content starts empty (example entries are `draft: true`); the tools work without data.
+  - Waiting for a person: the first real entries for each collection; the contact channel for Ask Nyamira requests; native-speaker review of the submission helper's template text.
+
+- **Ekegusii language documentation and AI digitization framework** (decision #129) on branch `feat/ekegusii-language-framework` (from `6ae010c`).
+  - New `language` content collection (`src/content/language/`): words, phrases, grammar notes and sentences with English and Kiswahili translations, phonetic guide, tonal marking, usage examples, audio, noun class, dialect, and consent fields (publication and AI training are separate, following the same model as the archive).
+  - Language metadata (`src/data/language-meta.json`): ISO 639-3 code `guz`, Bantu classification, speaker estimate, ten noun classes with examples, all from Cammenga (2002), Whiteley (1960), Ethnologue and the 2019 Kenya census.
+  - Helper (`src/lib/language.js`): mirrors `src/lib/archive.js` with `visible`, `forTraining`, `languageItems`, `wordItems`, `grammarItems` and category labels.
+  - Hub page expanded (`/community/language/`): dataset statistics, the four-stage workflow, noun classes table, AI-use explainer and links to the word list and grammar reference.
+  - New `/community/language/words/`: a browsable word list by category with translations, phonetics and full details behind `<details>`.
+  - New `/community/language/grammar/`: grammar reference with the Bantu noun class system, documented patterns and published sources.
+  - New `/api/language.json`: AI training export endpoint, returning only entries whose contributors gave the separate AI-training consent.
+  - Navigation updated: words and grammar pages sit under the Ekegusii language entry in the Community section.
+  - Three EXAMPLE draft entries (a noun, a grammar note, a greeting) show the schema; nothing is published.
+  - Checked: the build (870 pages), `npm test` (340 pass), all new pages built.
+  - Waiting for a person: the first real recordings and entries; the licence for the AI training export; native-speaker review of the noun class examples.
+
 ## Changes on 18 Nov 2026
 
-- **Civic Field Guide redesign** on branch `maltilda` (from `b7ec83b`), for review. Reimagines information presentation across the entire site with visual structure inspired by `civictech.guide`, while strictly preserving Nyamira Daily's original `:root` colour tokens (Signal Green, deep green, soft mint, charcoal, paper, white; zero raw colour literals outside `:root`; no red; no dark mode), self-hosted fonts (`Varela Round` + `League Spartan` 500/700), active `Nyamira-Daily_*` logos, canonical 5 sections, and every real dataset, source citation and evidence label.
+- **Civic Field Guide redesign** on branch `maltilda` (from `b7ec83b`), for review. Reimagines information presentation across the entire site with visual structure inspired by `civictech.guide`, while strictly preserving Gusii Daily's original `:root` colour tokens (Signal Green, deep green, soft mint, charcoal, paper, white; zero raw colour literals outside `:root`; no red; no dark mode), self-hosted fonts (`Varela Round` + `League Spartan` 500/700), active `Nyamira-Daily_*` logos, canonical 5 sections, and every real dataset, source citation and evidence label.
   - Global shell (`Base`, `SiteHeader`, `SiteFooter`, `SectionNav`, `PageHead`): search-first white topbar with tracked uppercase section links and offset-shadow Signal Green `Report a place` button; horizontal section pill-tab bar replacing the left sidebar; full-bleed soft-mint topographic page heroes; dashed/solid charcoal card frames with crisp offset shadows; and a soft-mint directory footer with dashed dividers, inline search bar, social links, 4 columns and CC BY 4.0 licence block.
   - Front page (`HeroMap`, `src/pages/index.astro`): soft-mint topographic hero with 2×2 headline figure grid, graphic interactive 20-ward map, and overlapping white ward-picker card; 3-column curated `↗` pill directory (*The Places*, *The Books*, *Community & Stories*) + knowledgebase search and 20-ward jumper; 4-card illustrated record preview band (county spending, every KSh 100, separated county vs national/NG-CDF contracts, and ground facility checks); overlapping dashed-border stories/videos/labels sheet; split ticket-stub PFM Act budget calendar; and 3 colour-blocked *Get Involved* cards (charcoal, white, Signal Green).
   - Section & inner pages (`map/index`, `money/contracts/index`, `community/index`, `community/language/index`, `CommunityRules`, `watch/index`, `about/index`, and unified styling for charts, tables, toggles, rows and tiles across all remaining templates).
@@ -39,7 +275,7 @@ For any assistant or developer picking this up (Codex, Claude Code, a person). R
 
 - **Navigation option B and the footer** on branch `feat/nav-switcher` (from `9a99de8`), not pushed. Decisions #119 and #120.
   - The secondary tab bar is replaced by a section switcher and, from 1,180 px, a side list of the section's pages in groups (`src/components/SectionNav.astro`, groups in `src/nav.js`). The Map section keeps full width (switcher only). Administration leaves the main menu; its two pages sit under About, in a Reference group.
-  - Footer: social icons (none set yet in `src/config.js`) and "© year Nyamira Daily" only.
+  - Footer: social icons (none set yet in `src/config.js`) and "© year Gusii Daily" only.
   - Checked: the build, `npm test` (330 pass); Money, Map, Watch and Who holds each seat at 1280 and 1500 px, and Money at 390 px with the switcher open: no sideways scroll, no script errors.
   - Next: set the social account links; the home page as a summary and the stories collection (design boards on the canvas).
 
@@ -214,7 +450,7 @@ Committed as `b2cb102` on `feat/trust-and-launch-prep` and merged to `main` in P
 
 ## Before launch (needs a person)
 
-1. Set `ND_SITE_URL=https://nyamiradaily.org` in the production build environment and verify hosting and DNS. Configure `contact`, `reportFormUrl`, `adoptSignupUrl` and `show.liveUrl` in `src/config.js` only when real, monitored destinations exist; the trust pages pick up the contact automatically.
+1. Set `ND_SITE_URL=https://gusiidaily.org` in the production build environment and verify hosting and DNS. Configure `contact`, `reportFormUrl`, `adoptSignupUrl` and `show.liveUrl` in `src/config.js` only when real, monitored destinations exist; the trust pages pick up the contact automatically.
 2. Delete the EXAMPLE drafts in `src/content/` (alerts, episodes, fact-check, heritage, knowledge, news, people, project log, story).
 3. Native-speaker review of every Kiswahili summary (new ones are marked in the page source); confirm emergency numbers before any alert goes live.
 4. Agree who posts and verifies alerts (`docs/EDITORIAL_RULES.md` section 11).

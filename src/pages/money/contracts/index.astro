@@ -15,7 +15,7 @@ const byG = groupOrder.map((g) => {
 const county = byG.filter((x) => !x.info.who.startsWith('National'));
 const national = byG.filter((x) => x.info.who.startsWith('National'));
 ---
-<Base title="Contracts" description="1,628 contracts and allocations in Nyamira: the county's own, national roads, and NG-CDF, each with its source and page.">
+<Base title="Contracts and NG-CDF in Nyamira" description="1,628 contracts and allocations in Nyamira: the county's own, national roads, and NG-CDF, each with its source and page.">
   <PageHead
     eyebrow="Public Books · Procurement & Allocations"
     title="Contracts, national roads & NG-CDF in Nyamira"
@@ -75,6 +75,10 @@ const national = byG.filter((x) => x.info.who.startsWith('National'));
     ))}
 
     <p class="source"><EvidenceLabel kind="official" /> From the Public Procurement Information Portal, the county's own reports, KeRRA, KURA, KeNHA and the NG-CDF Board. Each result names its source and page.</p>
+    <p class="small muted">Updated when new contracts are published on PPIP, new NG-CDF allocations appear on the CDF Board website, or KeRRA/KURA/KeNHA publish new awards. Last checked: October 2026.</p>
+
+    <!-- Kiswahili: needs native-speaker review -->
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Mikataba yote ya kaunti na ya kitaifa iliyotolewa Nyamira — tenda za kaunti, miradi ya NG-CDF, na barabara za kitaifa — kila moja ikionyesha chanzo chake, kiasi na mwaka wa fedha.</p></div>
   </div>
 
   <script is:inline>

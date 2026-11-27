@@ -60,7 +60,7 @@
   },
   "cobyears": {
    "title": "Controller of Budget, County Governments Budget Implementation Review Reports, FY2013/14 to FY2024/25 (Nyamira section)",
-   "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/",
+   "url": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/?wpdmdl=16263",
    "stage": "spent",
    "date": "2014–2025"
   }
@@ -1168,7 +1168,7 @@
    "spent": 2400,
    "devAbs": 44,
    "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-20132014/",
-   "page": "pp.146–148"
+   "page": "Nyamira section, p.147"
   },
   {
    "fy": "2014/15",
@@ -1176,7 +1176,7 @@
    "spent": 3620,
    "devAbs": 65.2,
    "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-201415/",
-   "page": "pp.205–207"
+   "page": "Nyamira section, PDF page 226"
   },
   {
    "fy": "2015/16",
@@ -1184,7 +1184,7 @@
    "spent": 4310,
    "devAbs": 54.5,
    "src": "https://cob.go.ke/download/annual-county-budget-implementation-review-report-fy-2015-16/",
-   "page": "section 3.34"
+   "page": "Nyamira section, PDF page 251"
   },
   {
    "fy": "2016/17",
@@ -1192,7 +1192,7 @@
    "spent": 4500,
    "devAbs": 58.6,
    "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-201617/",
-   "page": "section 3.34"
+   "page": "Nyamira section, PDF page 251"
   },
   {
    "fy": "2017/18",
@@ -1200,7 +1200,7 @@
    "spent": 4230,
    "devAbs": 27.9,
    "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-for-fy-2017-18/",
-   "page": "section 3.34, p.223"
+   "page": "Nyamira section, p.226"
   },
   {
    "fy": "2018/19",
@@ -1208,7 +1208,7 @@
    "spent": 5600,
    "devAbs": 52.6,
    "src": "https://cob.go.ke/download/county-governments-annual-budget-implementation-review-report-fy-2018-19/",
-   "page": "section 3.34, p.221"
+   "page": "Nyamira section, p.223"
   },
   {
    "fy": "2019/20",
@@ -1216,7 +1216,7 @@
    "spent": 5770,
    "devAbs": 61.5,
    "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-fy-2019-20/",
-   "page": "section 3.35, p.288"
+   "page": "Nyamira section, PDF page 309"
   },
   {
    "fy": "2020/21",
@@ -1224,7 +1224,7 @@
    "spent": 5750,
    "devAbs": 65.3,
    "src": "https://cob.go.ke/download/annual-county-governments-budget-implementation-review-report-fy-2020-21/",
-   "page": "section 3.35, p.318"
+   "page": "Nyamira section, PDF page 340"
   },
   {
    "fy": "2021/22",
@@ -1232,7 +1232,7 @@
    "spent": 5850,
    "devAbs": 64.9,
    "src": "https://cob.go.ke/download/county-governments-annual-budget-implementation-review-report-for-the-fy-2021-22/",
-   "page": "section 3.34, p.344"
+   "page": "Nyamira section, PDF page 369"
   },
   {
    "fy": "2022/23",
@@ -1240,7 +1240,7 @@
    "spent": 5740,
    "devAbs": 63.8,
    "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-fy-2022-23/",
-   "page": "section 3.34, pp.480–481"
+   "page": "Nyamira section, PDF page 507"
   },
   {
    "fy": "2023/24",
@@ -1248,15 +1248,15 @@
    "spent": 6170,
    "devAbs": 61.2,
    "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-2023-24/",
-   "page": "section 3.34, p.434"
+   "page": "Nyamira section, PDF page 459"
   },
   {
    "fy": "2024/25",
-   "budget": 8100,
-   "spent": 5650,
+   "budget": 8102.9,
+   "spent": 5656.74,
    "devAbs": 37,
-   "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/",
-   "page": "section 3.34, pp.388–391"
+   "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/?wpdmdl=16263",
+   "page": "Table 2.5, p.9"
   }
  ],
  "shilling": {
@@ -1308,7 +1308,7 @@
     "where": "Table 18, pp.43–50: sum of ward-coded lines",
     "label": "official",
     "stage": "estimates",
-    "calc": "Sum of ward-coded budget lines by Nyamira Daily; countywide and flagship lines are not counted."
+    "calc": "Sum of ward-coded budget lines by Gusii Daily; countywide and flagship lines are not counted."
    }
   ],
   "wards": [

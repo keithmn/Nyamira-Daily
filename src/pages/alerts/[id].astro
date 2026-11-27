@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import Sources from '../../components/Sources.astro';
+import { render } from 'astro:content';
+import { alertItems, levelLabel, levelIcon } from '../../lib/alerts.js';
+import { date } from '../../lib/fmt.js';
+
+export async function getStaticPaths() {
+  return (await alertItems()).map((e) => ({ params: { id: e.id }, props: { e } }));
+}
+const { e } = Astro.props;
+const d = e.data;
+const { Content } = await render(e);
+const url = new URL('/alerts/' + e.id + '/', Astro.site).toString();
+const wa = 'https://wa.me/?text=' + encodeURIComponent(d.title + '\n' + d.summary + '\n' + url);
+const now = new Date();
+const stale = d.status === 'active' && (now - d.updatedAt) > 72 * 60 * 60 * 1000;
+---
+<Base title={d.title} description={d.summary}>
+  <PageHead eyebrow={`${levelIcon[d.level]} ${levelLabel[d.level]} · ${d.type}`} title={d.title} lead={d.summary} crumbs={[{ href: '/map/', label: 'Places' }, { href: '/alerts/', label: 'Alerts' }]} />
+  <div class="stack-lg">
+    <section class="fg-sheet stack">
+      {stale && (
+        <p class="callout" style="border-left:4px solid var(--nd-charcoal)"><span><strong>Not updated recently.</strong> This alert has not been updated for more than 72 hours. Check the source below for the latest information.</span></p>
+      )}
+      <table class="cards">
+        <tbody>
+          <tr><td data-label="Status">{d.status === 'active' ? 'Active' : d.status === 'monitoring' ? 'Monitoring' : 'Resolved'}</td></tr>
+          <tr><td data-label="Level">{levelIcon[d.level]} {levelLabel[d.level]}</td></tr>
+          <tr><td data-label="Type">{d.type}</td></tr>
+          <tr><td data-label="Evidence"><EvidenceLabel kind={d.evidenceLabel} /></td></tr>
+          <tr><td data-label="Started">{date(d.startedAt.toISOString())}</td></tr>
+          <tr><td data-label="Last updated">{date(d.updatedAt.toISOString())}</td></tr>
+          {d.resolvedAt && <tr><td data-label="Resolved">{date(d.resolvedAt.toISOString())}</td></tr>}
+          {d.place && <tr><td data-label="Place">{d.place}</td></tr>}
+          {d.wards.length > 0 && <tr><td data-label="Wards">{d.wards.join(', ')}</td></tr>}
+          {d.lat != null && d.lon != null && <tr><td data-label="Location">{d.lat.toFixed(4)}, {d.lon.toFixed(4)}</td></tr>}
+        </tbody>
+      </table>
+
+      {d.advice && (
+        <div style="margin-top:16px; padding:12px 16px; background:var(--nd-green-soft); border-radius:6px">
+          <strong>Advice</strong>
+          <p>{d.advice}</p>
+        </div>
+      )}
+
+      {d.contacts.length > 0 && (
+        <div style="margin-top:16px">
+          <strong>Contacts</strong>
+          <ul class="small">
+            {d.contacts.map((c) => <li>{c.name}{c.role && ` (${c.role})`}{c.phone && <> — <a href={'tel:' + c.phone.replace(/\s/g, '')}>{c.phone}</a></>}</li>)}
+          </ul>
+        </div>
+      )}
+    </section>
+
+    <section class="fg-article-sheet">
+      <article class="stack prose"><Content /></article>
+    </section>
+
+    <div class="fg-article-sources">
+      <Sources list={d.sources} updated={date(d.updatedAt.toISOString())} />
+    </div>
+
+    {d.swSummary && <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>{d.swSummary}</p></div>}
+
+    <div class="fg-cta-row">
+      <a class="fg-cta-btn" href={wa} rel="noopener">Share on WhatsApp</a>
+      <a class="fg-outline-btn" href="/alerts/">← All alerts</a>
+    </div>
+  </div>
+</Base>

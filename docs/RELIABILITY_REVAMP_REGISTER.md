@@ -4,7 +4,7 @@ Updated 25 Oct 2026. Working branch: `fix/nd-01-project-status`; starting commit
 
 ## Agreed direction so far
 
-- Keep Nyamira Daily an independent public-information and data platform.
+- Keep Gusii Daily an independent public-information and data platform.
 - Keep The Night Watch as a separate future newsroom; do not build it here.
 - Preserve committed work and public project IDs/URLs. Do not invent facts, dates, source matches, contacts, owners, or operational status.
 - Implement repository-supported reliability work in bounded, reviewable stages. Record requirements that need owner input or missing source material as blocked rather than pretending they are complete.
@@ -15,7 +15,7 @@ Updated 25 Oct 2026. Working branch: `fix/nd-01-project-status`; starting commit
 |---|---|---|
 | ND-01, ND-06, ND-07, ND-14 | Project aggregation, identity safeguards, missing-vs-zero amounts, financial comparability | Implemented in local commit `ad2fb01`; visual review remains outstanding |
 | ND-02 | Consistent opportunity deadline state across badges, counts, search, downloads; Nairobi timezone | Implemented; regression-tested and built-artifact counts agree |
-| ND-03 | Validate production domain/configuration and prevent placeholder or preview builds | Fail-closed guard implemented; owner supplied `nyamiradaily.org`; configured local build passed; hosting/deployment unverified |
+| ND-03 | Validate production domain/configuration and prevent placeholder or preview builds | Fail-closed guard implemented; owner supplied `gusiidaily.org`; configured local build passed; hosting/deployment unverified |
 | ND-04 | Correction intake, accepted-correction record and transparent history | Accepted-correction log implemented; intake blocked on monitored destination/response role |
 | ND-05 | Distinguish scheduled, confirmed-live, recorded and planned show states | Clock-triggered live claim removed; state distinctions implemented; current config is scheduled |
 | ND-08 | Publication review/scheduling rules across pages, feeds, search and downloads | Central draft/scheduled filtering and CI test/build workflow implemented; repository review protection remains owner-dependent |
@@ -37,7 +37,7 @@ Updated 25 Oct 2026. Working branch: `fix/nd-01-project-status`; starting commit
 ## Owner interview amendments
 
 - 25 Oct 2026: The owner has no monitored correction/community-report destination yet and no responsible response role. Keep outbound delivery disabled; do not present a submission as delivered. Revisit before enabling these services.
-- 25 Oct 2026: The owner supplied `nyamiradaily.org` as the production domain. A configured local build succeeded with `ND_SITE_URL=https://nyamiradaily.org`; no DNS, hosting or deployment check was performed.
+- 25 Oct 2026: The owner supplied `gusiidaily.org` as the production domain. A configured local build succeeded with `ND_SITE_URL=https://gusiidaily.org`; no DNS, hosting or deployment check was performed.
 - 25 Oct 2026: The owner volunteered to check and update published alerts (“me”) daily. The configured responsible role is `Site owner` and review cadence is `daily`.
 
 ## Execution notes

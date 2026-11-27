@@ -1,0 +1,67 @@
+type,name,label,hint,required,relevant,constraint,constraint_message,appearance,choice_filter
+start,start,,,,,,,,
+end,end,,,,,,,,
+today,today,,,,,,,,
+note,intro,"Record a piece of Abagusii cultural knowledge. Take your time. Record the name in Ekegusii first, then in English.",,,,,,,
+select_one domain,domain,What kind of knowledge is this?,,yes,,,,,
+select_one ward,ward,Ward where this knowledge comes from,,yes,,,,minimal,
+text,name_guz,Name in Ekegusii,"The Ekegusii word or name. Spell it as you would write it.",yes,,,,,
+text,name_en,Name in English,The English translation or description,yes,,,,,
+text,name_sw,Name in Kiswahili,,no,,,,,
+text,name_scientific,Scientific name,"Latin name, if known (a botanist or vet can help)",no,${domain}='plant' or ${domain}='livestock' or ${domain}='ecology',,,,
+begin_group,description_group,Description,,,,,,field-list,
+text,summary,Describe it,"What is it? What is it for? How is it used? Write as much as you can.",yes,,,,,multiline
+text,usage_example,Example of use,"A sentence using the word, or a situation where this applies",no,,,,,multiline
+text,cultural_role,Cultural meaning,"Why is this important to the community? When is it used?",no,,,,,multiline
+end_group,,,,,,,,
+begin_group,plant_group,Plant details,,,,,,field-list,${domain}='plant'
+select_multiple plant_use,plant_uses,What is this plant used for?,,no,,,,,
+select_multiple plant_part,plant_parts,Which parts are used?,,no,,,,,
+select_one habitat,plant_habitat,Where does it grow?,,no,,,,,
+select_one conservation,plant_conservation,How common is it now?,,no,,,,,
+end_group,,,,,,,,
+begin_group,medicine_group,Medicine details,"This is a cultural record, not medical advice.",,,,,field-list,${domain}='medicine'
+text,condition_guz,What condition does it treat? (Ekegusii name),,no,,,,,
+text,condition_en,What condition does it treat? (English),,no,,,,,
+text,preparation,How is it prepared?,,no,,,,,multiline
+text,precautions,Any precautions or warnings?,,no,,,,,multiline
+end_group,,,,,,,,
+begin_group,song_group,Song details,,,,,,field-list,${domain}='song'
+select_one song_type,song_type,What kind of song?,,no,,,,,
+text,lyrics,Lyrics in Ekegusii,"Write as much as you remember. Each line on a new line.",no,,,,,multiline
+text,lyrics_en,Translation to English,,no,,,,,multiline
+text,occasion,When is it performed?,,no,,,,,
+text,instruments,What instruments are used?,"Separate with commas: obokano, drum, etc.",no,,,,,
+end_group,,,,,,,,
+begin_group,livestock_group,Livestock details,,,,,,field-list,${domain}='livestock'
+select_one animal_type,animal_type,What kind of animal?,,no,,,,,
+text,characteristics,Describe the breed,"Size, colour, temperament, what makes it different",no,,,,,multiline
+text,colour_terms,Ekegusii colour/marking names,"List the words for colours and markings used for this animal",no,,,,,multiline
+text,veterinary,Traditional treatments for this animal,"Any traditional treatments for diseases, with the plants used",no,,,,,multiline
+end_group,,,,,,,,
+begin_group,food_group,Food details,,,,,,field-list,${domain}='food'
+text,ingredients,Ingredients,"List the main ingredients",no,,,,,multiline
+text,method,How is it prepared?,,no,,,,,multiline
+text,food_occasion,When is it served?,"Everyday, ceremony, harvest, guests, etc.",no,,,,,
+end_group,,,,,,,,
+begin_group,tradition_group,Tradition details,,,,,,field-list,${domain}='tradition'
+select_one tradition_kind,tradition_kind,What kind of tradition?,,no,,,,,
+text,description,Describe the full ceremony or practice,"Who participates? What happens, step by step?",no,,,,,multiline
+text,objects_used,Objects or items used,"List any tools, clothing, or objects used",no,,,,,
+select_one yesno,still_practiced,Is this still practiced today?,,no,,,,,
+end_group,,,,,,,,
+geopoint,location,Location,"If this knowledge is linked to a specific place, record the location here",no,,,,,
+image,photo_1,Photo 1,"A photo of the plant, animal, object, or place. No people unless they consented.",no,,,,,
+image,photo_2,Photo 2,,no,,,,,
+audio,audio_recording,Audio recording,"Record the name being pronounced, a song being sung, or the elder speaking",no,,,,,
+begin_group,consent_group,Consent,,,,,,field-list,
+note,consent_note,"This knowledge belongs to the Abagusii community. Gusii Daily collects, verifies and publishes it as public cultural information — the same way we handle county budgets and facility records.",,,,,,,
+select_one method,recorded_by,Who is recording this?,,yes,,,,,
+text,source_name,Who is the knowledge holder?,"The person who shared this knowledge. Write 'anonymous' if they prefer.",yes,,,,,
+select_one yesno,consent_publish,Does the knowledge holder agree to publish this on the Gusii Daily website?,"Explain: it will appear on a public website as part of a verified record of Abagusii cultural knowledge.",yes,,,,,
+select_one yesno,consent_ai,Does the knowledge holder agree to include this in AI training?,"Explain: a computer programme will learn from their words to answer questions about Abagusii culture. This is separate from publishing on the website.",no,,,,,
+select_one access_level,access_level,Access level,"Public: anyone can see. Archive only: preserved but not shown on the website. Restricted: preserved for approved researchers only.",yes,,,,,
+text,consent_record,Where is the consent recorded?,"Signed form reference, or 'verbal consent recorded in audio'",yes,,,,,
+end_group,,,,,,,,
+text,notes,Notes for the reviewer,Never published. No names without consent.,,,,,multiline,
+acknowledge,privacy_ok,"I have not recorded anyone's name, face or phone number without their consent.",,yes,,,,,

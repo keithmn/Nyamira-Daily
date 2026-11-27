@@ -1,0 +1,2229 @@
+[
+  {
+    "id": "KSI-P0001",
+    "ward": "basi-bogetaorio",
+    "name": "Entakana",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300200425",
+    "coordinates": {
+      "lat": -0.91631,
+      "lon": 34.86474
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0002",
+    "ward": "basi-bogetaorio",
+    "name": "Ekeonga catholic church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300200424",
+    "coordinates": {
+      "lat": -0.92586,
+      "lon": 34.86685
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0003",
+    "ward": "birongo",
+    "name": "Birongo market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1252757369",
+    "coordinates": {
+      "lat": -0.74848,
+      "lon": 34.88998
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0004",
+    "ward": "birongo",
+    "name": "Birongo Police post",
+    "category": "Public office",
+    "subtype": "police",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/11644816661",
+    "coordinates": {
+      "lat": -0.74909,
+      "lon": 34.89075
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0005",
+    "ward": "bobaracho",
+    "name": "Bobaracho",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/7077867285",
+    "coordinates": {
+      "lat": -0.70253,
+      "lon": 34.79775
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0006",
+    "ward": "bobaracho",
+    "name": "Kegati",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/7077850986",
+    "coordinates": {
+      "lat": -0.70958,
+      "lon": 34.81988
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0007",
+    "ward": "bobaracho",
+    "name": "Kenya Institute of Highway & Building Technology (Kisii Training Center)",
+    "category": "Education",
+    "subtype": "college",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /relation/16422256",
+    "coordinates": {
+      "lat": -0.68576,
+      "lon": 34.78737
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0008",
+    "ward": "bobaracho",
+    "name": "Kereri Girls' High School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227526",
+    "coordinates": {
+      "lat": -0.68576,
+      "lon": 34.77936
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0009",
+    "ward": "bobaracho",
+    "name": "Kisii Campus Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227528",
+    "coordinates": {
+      "lat": -0.69056,
+      "lon": 34.78178
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0010",
+    "ward": "bobaracho",
+    "name": "Kisii School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227525",
+    "coordinates": {
+      "lat": -0.68805,
+      "lon": 34.78425
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0011",
+    "ward": "bobaracho",
+    "name": "Kisii University",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227529",
+    "coordinates": {
+      "lat": -0.69235,
+      "lon": 34.7847
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0012",
+    "ward": "bobaracho",
+    "name": "KSU Ampitheater",
+    "category": "Education",
+    "subtype": "university",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/13997129719",
+    "coordinates": {
+      "lat": -0.6906,
+      "lon": 34.78498
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0013",
+    "ward": "bobaracho",
+    "name": "KSU Law School",
+    "category": "Education",
+    "subtype": "university",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/13997129717",
+    "coordinates": {
+      "lat": -0.69114,
+      "lon": 34.78529
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0014",
+    "ward": "bobaracho",
+    "name": "KSU Library",
+    "category": "Education",
+    "subtype": "library",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/13997129715",
+    "coordinates": {
+      "lat": -0.69034,
+      "lon": 34.78458
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0015",
+    "ward": "bobaracho",
+    "name": "KSU School of Agriculture",
+    "category": "Education",
+    "subtype": "university",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/13997129718",
+    "coordinates": {
+      "lat": -0.69067,
+      "lon": 34.78547
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0016",
+    "ward": "bobaracho",
+    "name": "KSU Tution Complex",
+    "category": "Education",
+    "subtype": "university",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/13997129710",
+    "coordinates": {
+      "lat": -0.69418,
+      "lon": 34.78399
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0017",
+    "ward": "bobaracho",
+    "name": "Rianyamwamu Catholic church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1346009292",
+    "coordinates": {
+      "lat": -0.72947,
+      "lon": 34.79705
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0018",
+    "ward": "bobasi-chache",
+    "name": "Itumbe",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300199122",
+    "coordinates": {
+      "lat": -0.75834,
+      "lon": 34.77571
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0019",
+    "ward": "bogeka",
+    "name": "Nyakoe Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6976732376",
+    "coordinates": {
+      "lat": -0.61908,
+      "lon": 34.75784
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0020",
+    "ward": "bogetenga",
+    "name": "Nduru SDA Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1447077895",
+    "coordinates": {
+      "lat": -0.81973,
+      "lon": 34.63091
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0021",
+    "ward": "bogiakumu",
+    "name": "Bishop Mugendi Nyamokenye Mixed Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227538",
+    "coordinates": {
+      "lat": -0.66863,
+      "lon": 34.73785
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0022",
+    "ward": "bogiakumu",
+    "name": "Keizen School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227537",
+    "coordinates": {
+      "lat": -0.66349,
+      "lon": 34.73746
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0023",
+    "ward": "bogiakumu",
+    "name": "Mount Kenya University, Kisii Campus",
+    "category": "Education",
+    "subtype": "college",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227536",
+    "coordinates": {
+      "lat": -0.66178,
+      "lon": 34.74247
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0024",
+    "ward": "bogiakumu",
+    "name": "Nyakung'u Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227515",
+    "coordinates": {
+      "lat": -0.66392,
+      "lon": 34.72751
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0025",
+    "ward": "bogiakumu",
+    "name": "Nyamokenye Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227539",
+    "coordinates": {
+      "lat": -0.66958,
+      "lon": 34.7378
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0026",
+    "ward": "bogiakumu",
+    "name": "Gesonso Police Post",
+    "category": "Public office",
+    "subtype": "police",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6095320786",
+    "coordinates": {
+      "lat": -0.6639,
+      "lon": 34.73371
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0027",
+    "ward": "bogusero",
+    "name": "Cardinal Otunga High School- Mosocho",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/745313515",
+    "coordinates": {
+      "lat": -0.5981,
+      "lon": 34.74455
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0028",
+    "ward": "bogusero",
+    "name": "Nyamondo DOK Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/996523563",
+    "coordinates": {
+      "lat": -0.57728,
+      "lon": 34.74012
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0029",
+    "ward": "bogusero",
+    "name": "Mosocho Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6976663172",
+    "coordinates": {
+      "lat": -0.58678,
+      "lon": 34.73281
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0030",
+    "ward": "bogusero",
+    "name": "Nyamondo Catholic Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/9201458257",
+    "coordinates": {
+      "lat": -0.57746,
+      "lon": 34.74084
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0031",
+    "ward": "bokimonge",
+    "name": "Omobera Girls Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/11366691211",
+    "coordinates": {
+      "lat": -0.8919,
+      "lon": 34.74675
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0032",
+    "ward": "bombaba-borabu",
+    "name": "Riokari Tea Buying Center",
+    "category": "Agriculture",
+    "subtype": "tea buying centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/10734055110",
+    "coordinates": {
+      "lat": -0.91216,
+      "lon": 34.7907
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0033",
+    "ward": "bombaba-borabu",
+    "name": "Magena",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300215023",
+    "coordinates": {
+      "lat": -0.91585,
+      "lon": 34.79611
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0034",
+    "ward": "bombaba-borabu",
+    "name": "Gesabakwa Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/8872540827",
+    "coordinates": {
+      "lat": -0.90289,
+      "lon": 34.78243
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0035",
+    "ward": "bombaba-borabu",
+    "name": "Gesabakwa Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/8872509956",
+    "coordinates": {
+      "lat": -0.90214,
+      "lon": 34.78227
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0036",
+    "ward": "bombaba-borabu",
+    "name": "Kemoreko Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/8872065829",
+    "coordinates": {
+      "lat": -0.87934,
+      "lon": 34.77814
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0037",
+    "ward": "bombaba-borabu",
+    "name": "Ndereti Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1155235504",
+    "coordinates": {
+      "lat": -0.90525,
+      "lon": 34.78628
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0038",
+    "ward": "bombaba-borabu",
+    "name": "Sydolium Junior School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/10734055109",
+    "coordinates": {
+      "lat": -0.91098,
+      "lon": 34.79403
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0039",
+    "ward": "bombaba-borabu",
+    "name": "Majoge Borabu Location Chief's Office",
+    "category": "Public office",
+    "subtype": "government office",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1155235502",
+    "coordinates": {
+      "lat": -0.90402,
+      "lon": 34.78284
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0040",
+    "ward": "bombaba-borabu",
+    "name": "Gesabakwa SDA Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/8872523809",
+    "coordinates": {
+      "lat": -0.90484,
+      "lon": 34.78194
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0041",
+    "ward": "bombaba-borabu",
+    "name": "Magena Central S.D.A Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1155229246",
+    "coordinates": {
+      "lat": -0.91144,
+      "lon": 34.79829
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0042",
+    "ward": "bombaba-borabu",
+    "name": "Ndereti SDA Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1155235505",
+    "coordinates": {
+      "lat": -0.90555,
+      "lon": 34.78609
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0043",
+    "ward": "bombaba-borabu",
+    "name": "SUGUTA SDA CHURCH",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1153040308",
+    "coordinates": {
+      "lat": -0.91078,
+      "lon": 34.78061
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0044",
+    "ward": "bomorenda",
+    "name": "Angelic Teachers' College",
+    "category": "Education",
+    "subtype": "college",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/11203489671",
+    "coordinates": {
+      "lat": -0.67736,
+      "lon": 34.70378
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0045",
+    "ward": "bomorenda",
+    "name": "Botoro E.L.C.K. Mixed Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227519",
+    "coordinates": {
+      "lat": -0.69918,
+      "lon": 34.70981
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0046",
+    "ward": "bomorenda",
+    "name": "Botoro E.L.C.K. Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227520",
+    "coordinates": {
+      "lat": -0.69874,
+      "lon": 34.71101
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0047",
+    "ward": "bomorenda",
+    "name": "Ekerubo D.E.B. Mixed Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227523",
+    "coordinates": {
+      "lat": -0.70242,
+      "lon": 34.74196
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0048",
+    "ward": "bomorenda",
+    "name": "Ekerubo D.E.B. Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227522",
+    "coordinates": {
+      "lat": -0.7021,
+      "lon": 34.7424
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0049",
+    "ward": "bomorenda",
+    "name": "Itierio Boys' High School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209190689",
+    "coordinates": {
+      "lat": -0.67886,
+      "lon": 34.71445
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0050",
+    "ward": "bomorenda",
+    "name": "Itierio E.L.C.K Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209190672",
+    "coordinates": {
+      "lat": -0.67834,
+      "lon": 34.71873
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0051",
+    "ward": "bomorenda",
+    "name": "Itierio Girls' Boarding Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209190673",
+    "coordinates": {
+      "lat": -0.67781,
+      "lon": 34.71616
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0052",
+    "ward": "bomorenda",
+    "name": "Itierio Girls' High School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/11203463675",
+    "coordinates": {
+      "lat": -0.67865,
+      "lon": 34.71619
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0053",
+    "ward": "bomorenda",
+    "name": "Nyambunwa Academy",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/568164110",
+    "coordinates": {
+      "lat": -0.67477,
+      "lon": 34.69673
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0054",
+    "ward": "bomorenda",
+    "name": "St. Peter's Suneka Girls' Secodary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209190698",
+    "coordinates": {
+      "lat": -0.67543,
+      "lon": 34.70066
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0055",
+    "ward": "bomorenda",
+    "name": "Suneka D.O.K. Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209190697",
+    "coordinates": {
+      "lat": -0.67601,
+      "lon": 34.70186
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0056",
+    "ward": "bomorenda",
+    "name": "Itibo Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5301974326",
+    "coordinates": {
+      "lat": -0.69022,
+      "lon": 34.72644
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0057",
+    "ward": "bomorenda",
+    "name": "Old Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1213451948",
+    "coordinates": {
+      "lat": -0.67672,
+      "lon": 34.70351
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0058",
+    "ward": "boochi-borabu",
+    "name": "Magena Division D.Os Office",
+    "category": "Public office",
+    "subtype": "government office",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1155231430",
+    "coordinates": {
+      "lat": -0.91659,
+      "lon": 34.79952
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0059",
+    "ward": "boochi-tendere",
+    "name": "Tendere Tea Processing Factory",
+    "category": "Agriculture",
+    "subtype": "tea factory",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/10734076511",
+    "coordinates": {
+      "lat": -0.81553,
+      "lon": 34.73052
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0060",
+    "ward": "borabu-chitago",
+    "name": "The New Church Kiagware",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1528505516",
+    "coordinates": {
+      "lat": -0.84536,
+      "lon": 34.68164
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0061",
+    "ward": "gesusu",
+    "name": "IKENYE Primary School",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5227698975",
+    "coordinates": {
+      "lat": -0.88265,
+      "lon": 34.92766
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0062",
+    "ward": "gesusu",
+    "name": "IKENYE SDA CHURCH",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5227696508",
+    "coordinates": {
+      "lat": -0.88367,
+      "lon": 34.92817
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0063",
+    "ward": "getenga",
+    "name": "Orienyo Coffee Processing Plant",
+    "category": "Agriculture",
+    "subtype": "coffee factory",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/11126850121",
+    "coordinates": {
+      "lat": -0.95024,
+      "lon": 34.66711
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0064",
+    "ward": "getenga",
+    "name": "Kenoria Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/11126938751",
+    "coordinates": {
+      "lat": -0.96528,
+      "lon": 34.66577
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0065",
+    "ward": "getenga",
+    "name": "Muma Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/11126887615",
+    "coordinates": {
+      "lat": -0.95297,
+      "lon": 34.66051
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0066",
+    "ward": "getenga",
+    "name": "Muma Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/11126887616",
+    "coordinates": {
+      "lat": -0.95349,
+      "lon": 34.65926
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0067",
+    "ward": "getenga",
+    "name": "Muma SDA Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/11126887617",
+    "coordinates": {
+      "lat": -0.95421,
+      "lon": 34.65951
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0068",
+    "ward": "ibeno",
+    "name": "Nyabisabo",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6046184385",
+    "coordinates": {
+      "lat": -0.77745,
+      "lon": 34.82984
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0069",
+    "ward": "ibeno",
+    "name": "Nyabisabo kwa bricks",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6046184386",
+    "coordinates": {
+      "lat": -0.78699,
+      "lon": 34.84029
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0070",
+    "ward": "ichuni",
+    "name": "Amabuko Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6105571209",
+    "coordinates": {
+      "lat": -0.76686,
+      "lon": 34.93116
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0071",
+    "ward": "ichuni",
+    "name": "nyankoba",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1101932307",
+    "coordinates": {
+      "lat": -0.76237,
+      "lon": 34.91919
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0072",
+    "ward": "keumbu",
+    "name": "Keumbu",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/7077859885",
+    "coordinates": {
+      "lat": -0.73363,
+      "lon": 34.8463
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0073",
+    "ward": "keumbu",
+    "name": "Keumbu Police post",
+    "category": "Public office",
+    "subtype": "police",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6102935025",
+    "coordinates": {
+      "lat": -0.73308,
+      "lon": 34.84694
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0074",
+    "ward": "kiogoro",
+    "name": "Kiogoro",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300200426",
+    "coordinates": {
+      "lat": -0.72851,
+      "lon": 34.78401
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0075",
+    "ward": "kiogoro",
+    "name": "Matunwa Junction",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6794787892",
+    "coordinates": {
+      "lat": -0.74621,
+      "lon": 34.77962
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0076",
+    "ward": "kiogoro",
+    "name": "Plot side Matunwa",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6794787893",
+    "coordinates": {
+      "lat": -0.75438,
+      "lon": 34.79151
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0077",
+    "ward": "kiogoro",
+    "name": "Amariba Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6794937185",
+    "coordinates": {
+      "lat": -0.74785,
+      "lon": 34.7841
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0078",
+    "ward": "kiogoro",
+    "name": "Rianyamwamu SDA church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1346010880",
+    "coordinates": {
+      "lat": -0.72879,
+      "lon": 34.79399
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0079",
+    "ward": "kisii-central",
+    "name": "Chitinga",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300179621",
+    "coordinates": {
+      "lat": -0.70804,
+      "lon": 34.77291
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0080",
+    "ward": "kisii-central",
+    "name": "Etangi",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5301763523",
+    "coordinates": {
+      "lat": -0.69234,
+      "lon": 34.76335
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0081",
+    "ward": "kisii-central",
+    "name": "Masongo",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5301952527",
+    "coordinates": {
+      "lat": -0.71157,
+      "lon": 34.74927
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0082",
+    "ward": "kisii-central",
+    "name": "Menyinkwa",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300179721",
+    "coordinates": {
+      "lat": -0.70541,
+      "lon": 34.76998
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0083",
+    "ward": "kisii-central",
+    "name": "Nyaura Junction",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300186321",
+    "coordinates": {
+      "lat": -0.70779,
+      "lon": 34.77342
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0084",
+    "ward": "kisii-central",
+    "name": "Kenya Methodist University",
+    "category": "Education",
+    "subtype": "college",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6095562312",
+    "coordinates": {
+      "lat": -0.67849,
+      "lon": 34.77357
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0085",
+    "ward": "kisii-central",
+    "name": "Kenya National Library Services-Kisii",
+    "category": "Education",
+    "subtype": "library",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6095562308",
+    "coordinates": {
+      "lat": -0.67803,
+      "lon": 34.77161
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0086",
+    "ward": "kisii-central",
+    "name": "Kiamabundu Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5431393525",
+    "coordinates": {
+      "lat": -0.69872,
+      "lon": 34.76239
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0087",
+    "ward": "kisii-central",
+    "name": "Kiamabundu Secondary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5466878721",
+    "coordinates": {
+      "lat": -0.69225,
+      "lon": 34.76312
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0088",
+    "ward": "kisii-central",
+    "name": "Nyanchwa Boys' High School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227531",
+    "coordinates": {
+      "lat": -0.68014,
+      "lon": 34.76402
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0089",
+    "ward": "kisii-central",
+    "name": "Nyanchwa Girls' High School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227532",
+    "coordinates": {
+      "lat": -0.68076,
+      "lon": 34.76458
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0090",
+    "ward": "kisii-central",
+    "name": "Nyaura pri school",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/13997129704",
+    "coordinates": {
+      "lat": -0.70156,
+      "lon": 34.77513
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0091",
+    "ward": "kisii-central",
+    "name": "Sda Etangi",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5455475022",
+    "coordinates": {
+      "lat": -0.69264,
+      "lon": 34.76343
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0092",
+    "ward": "kisii-central",
+    "name": "Kisii County Council Offices",
+    "category": "Public office",
+    "subtype": "government office",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1213464770",
+    "coordinates": {
+      "lat": -0.67748,
+      "lon": 34.77147
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0093",
+    "ward": "kisii-central",
+    "name": "Kisii County Government",
+    "category": "Public office",
+    "subtype": "government office",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6102845256",
+    "coordinates": {
+      "lat": -0.67848,
+      "lon": 34.77277
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0094",
+    "ward": "kisii-central",
+    "name": "KISII COUNTY GOVERNMENT OFFICES",
+    "category": "Public office",
+    "subtype": "government office",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6140755190",
+    "coordinates": {
+      "lat": -0.67843,
+      "lon": 34.77325
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0095",
+    "ward": "kisii-central",
+    "name": "Kisii Post Office",
+    "category": "Public office",
+    "subtype": "post_office",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6095562306",
+    "coordinates": {
+      "lat": -0.67684,
+      "lon": 34.7721
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0096",
+    "ward": "kisii-central",
+    "name": "National Transport and Safety Authority",
+    "category": "Public office",
+    "subtype": "government office",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/880287003",
+    "coordinates": {
+      "lat": -0.68195,
+      "lon": 34.77531
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0097",
+    "ward": "kisii-central",
+    "name": "NTSA",
+    "category": "Public office",
+    "subtype": "government office",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/8187894006",
+    "coordinates": {
+      "lat": -0.68184,
+      "lon": 34.77524
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0098",
+    "ward": "kisii-central",
+    "name": "Kiamabundu catholic church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300181624",
+    "coordinates": {
+      "lat": -0.69883,
+      "lon": 34.76258
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0099",
+    "ward": "kitutu-central",
+    "name": "Bafa Tents E.A.",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6095320792",
+    "coordinates": {
+      "lat": -0.6616,
+      "lon": 34.74675
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0100",
+    "ward": "kitutu-central",
+    "name": "Getembe Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227534",
+    "coordinates": {
+      "lat": -0.67443,
+      "lon": 34.7622
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0101",
+    "ward": "kitutu-central",
+    "name": "Kenya Medical Training College (KMTC), Kisii Campus",
+    "category": "Education",
+    "subtype": "college",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227530",
+    "coordinates": {
+      "lat": -0.66929,
+      "lon": 34.77183
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0102",
+    "ward": "kitutu-central",
+    "name": "Kisii Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/286346936",
+    "coordinates": {
+      "lat": -0.67544,
+      "lon": 34.76882
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0103",
+    "ward": "kitutu-central",
+    "name": "Kisii Special School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227535",
+    "coordinates": {
+      "lat": -0.67481,
+      "lon": 34.76316
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0104",
+    "ward": "kitutu-central",
+    "name": "Nyabururu Girls' High School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227546",
+    "coordinates": {
+      "lat": -0.65209,
+      "lon": 34.74962
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0105",
+    "ward": "kitutu-central",
+    "name": "Nyabururu Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227544",
+    "coordinates": {
+      "lat": -0.65513,
+      "lon": 34.74708
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0106",
+    "ward": "kitutu-central",
+    "name": "Nyanchwa Mixed Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/879783727",
+    "coordinates": {
+      "lat": -0.67897,
+      "lon": 34.76377
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0107",
+    "ward": "kitutu-central",
+    "name": "St. Mary's Nyabururu Girls' Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227543",
+    "coordinates": {
+      "lat": -0.656,
+      "lon": 34.74569
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0108",
+    "ward": "kitutu-central",
+    "name": "Daraja Mbili Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6140754298",
+    "coordinates": {
+      "lat": -0.66655,
+      "lon": 34.76424
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0109",
+    "ward": "kitutu-central",
+    "name": "Kisii County Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6140754786",
+    "coordinates": {
+      "lat": -0.67372,
+      "lon": 34.77094
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0110",
+    "ward": "kitutu-central",
+    "name": "Kisii Town Market",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/880289490",
+    "coordinates": {
+      "lat": -0.67332,
+      "lon": 34.77118
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0111",
+    "ward": "kitutu-central",
+    "name": "Nyamataro",
+    "category": "Market",
+    "subtype": "marketplace",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6979788400",
+    "coordinates": {
+      "lat": -0.65489,
+      "lon": 34.74993
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0112",
+    "ward": "kitutu-central",
+    "name": "CHIEFS CAMP KISII",
+    "category": "Public office",
+    "subtype": "government office",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6774618785",
+    "coordinates": {
+      "lat": -0.66718,
+      "lon": 34.76313
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0113",
+    "ward": "kitutu-central",
+    "name": "Kisii County Ambulance Service",
+    "category": "Public office",
+    "subtype": "government office",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6882118685",
+    "coordinates": {
+      "lat": -0.67102,
+      "lon": 34.77228
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0114",
+    "ward": "kitutu-central",
+    "name": "Kisii Law Courts",
+    "category": "Public office",
+    "subtype": "courthouse",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6140754292",
+    "coordinates": {
+      "lat": -0.6768,
+      "lon": 34.77339
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0115",
+    "ward": "kitutu-central",
+    "name": "Kisii main GK prison",
+    "category": "Public office",
+    "subtype": "prison",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1539044139",
+    "coordinates": {
+      "lat": -0.67452,
+      "lon": 34.77589
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0116",
+    "ward": "kitutu-central",
+    "name": "Kisii womens prison",
+    "category": "Public office",
+    "subtype": "prison",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1539044140",
+    "coordinates": {
+      "lat": -0.67454,
+      "lon": 34.77687
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0117",
+    "ward": "kitutu-central",
+    "name": "Deliverance Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6979788403",
+    "coordinates": {
+      "lat": -0.66577,
+      "lon": 34.76899
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0118",
+    "ward": "kitutu-central",
+    "name": "Kisii Central SDA Church",
+    "category": "Worship",
+    "subtype": "church",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/456228078",
+    "coordinates": {
+      "lat": -0.67235,
+      "lon": 34.77332
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0119",
+    "ward": "kitutu-central",
+    "name": "Nyabururu Catholic Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209227542",
+    "coordinates": {
+      "lat": -0.65624,
+      "lon": 34.74447
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0120",
+    "ward": "kitutu-central",
+    "name": "Nyamataro SDA Church",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5466766856",
+    "coordinates": {
+      "lat": -0.65835,
+      "lon": 34.74943
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0121",
+    "ward": "kitutu-central",
+    "name": "Our Lady Of Victory Kisii Town Parish",
+    "category": "Worship",
+    "subtype": "place_of_worship",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/966573559",
+    "coordinates": {
+      "lat": -0.67278,
+      "lon": 34.77194
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0122",
+    "ward": "masimba",
+    "name": "Bitcoin Chama",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/12077097625",
+    "coordinates": {
+      "lat": -0.85536,
+      "lon": 34.93791
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0123",
+    "ward": "nyacheki",
+    "name": "Nyacheki",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/8562905817",
+    "coordinates": {
+      "lat": -0.8928,
+      "lon": 34.88042
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0124",
+    "ward": "nyacheki",
+    "name": "Nyamuya",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6422847086",
+    "coordinates": {
+      "lat": -0.87934,
+      "lon": 34.87837
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0125",
+    "ward": "nyacheki",
+    "name": "Mogonga Highschool",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/6283069385",
+    "coordinates": {
+      "lat": -0.87719,
+      "lon": 34.8917
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0126",
+    "ward": "nyacheki",
+    "name": "Riosugo Primary School  Playing Grounds",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/676526110",
+    "coordinates": {
+      "lat": -0.89928,
+      "lon": 34.89399
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0127",
+    "ward": "tabaka",
+    "name": "Bogirango",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300223421",
+    "coordinates": {
+      "lat": -0.73989,
+      "lon": 34.64963
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0128",
+    "ward": "tabaka",
+    "name": "Nyabigege",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300219023",
+    "coordinates": {
+      "lat": -0.72664,
+      "lon": 34.63733
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0129",
+    "ward": "tabaka",
+    "name": "Nyachenge",
+    "category": "Community centre",
+    "subtype": "community_centre",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /node/5300219022",
+    "coordinates": {
+      "lat": -0.71851,
+      "lon": 34.64952
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0130",
+    "ward": "tabaka",
+    "name": "Tabaka Girls' Boarding Primary School",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209190704",
+    "coordinates": {
+      "lat": -0.75268,
+      "lon": 34.666
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  },
+  {
+    "id": "KSI-P0131",
+    "ward": "tabaka",
+    "name": "Tabaka Girls' Boarding Section",
+    "category": "Education",
+    "subtype": "school",
+    "level": null,
+    "owner": null,
+    "source": "OpenStreetMap (ODbL), Overpass API",
+    "sourceRef": "osm /way/1209190703",
+    "coordinates": {
+      "lat": -0.75381,
+      "lon": 34.66658
+    },
+    "evidence": "unverified",
+    "evidenceNote": "Unverified"
+  }
+]

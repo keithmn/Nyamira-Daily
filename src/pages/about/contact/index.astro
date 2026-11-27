@@ -10,8 +10,11 @@ const ways = [
   ['#message', 'EDITORIAL DESK', 'A tip, a concern or a correction', 'Use the message section below. You can leave your name out.'],
 ];
 ---
-<Base title="Tell us" description="Tell Nyamira Daily about a place, send a tip, a concern, a story or a correction.">
+<Base title="Tell us" description="Tell Gusii Daily about a place, send a tip, a concern, a story or a correction.">
   <PageHead eyebrow="About · Reach the Desk" title="Tell us" lead="What would you like to tell us? Pick one below and we will take you straight to the right place. We read every message and reply as soon as we can." crumbs={[{ href: '/about/', label: 'About' }]} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Tuambie kuhusu sehemu ya umma, tuma habari, marekebisho au pendekezo. Unaweza kutuma ujumbe bila kutaja jina lako.</p></div>
+
   <div class="stack-lg">
     <div class="fg-data-grid">
       {ways.map(([href, tag, t, d]) => (
@@ -28,7 +31,7 @@ const ways = [
     <section class="fg-sheet stack" id="message">
       <div class="fg-sec-head" style="margin-bottom:8px">
         <span class="fg-kicker">DIRECT MESSAGE &amp; CORRECTIONS</span>
-        <h2>Send a message to <em>Nyamira Daily</em></h2>
+        <h2>Send a message to <em>Gusii Daily</em></h2>
       </div>
       <ContactForm />
       <p class="small muted" style="text-align:center">A message is a lead for us to check, not a published fact. If we have named you or your organisation, see your <a href="/about/rules/#right-of-reply">right of reply</a>. Accepted corrections are listed in our <a href="/about/rules/#corrections">corrections log</a>. What we keep: <a href="/about/rules/#privacy">privacy</a>.</p>

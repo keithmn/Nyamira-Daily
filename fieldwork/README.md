@@ -21,7 +21,7 @@ Built from the CSV sources in `fieldwork/kobo/<form>/` by `npm run fieldwork:for
 
 **Privacy.** Every form ends with a box the recorder must tick: no names, faces or phone numbers. The notes field is for the reviewer and is never published. The sync copies only the fields listed in `scripts/living/sync.mjs`; photos and notes stay in Kobo.
 
-**Who recorded it.** "Nyamira Daily field team" becomes a `visit` with the label Verified; "A resident" becomes a `resident-report` with the label Unverified.
+**Who recorded it.** "Gusii Daily field team" becomes a `visit` with the label Verified; "A resident" becomes a `resident-report` with the label Unverified.
 
 ## The Google Sheet
 
@@ -35,6 +35,10 @@ One sheet with four tabs. The CSV files in `fieldwork/sheets/` are the templates
 | `budget-stages` | `sheets/budget-stages.csv` | A budget step reached: year, stage, date, document, source |
 
 Values are the ones the site accepts (`src/lib/places.js`): status `open`, `closed`, `under-construction`, `stalled`, `unknown`; condition `good`, `fair`, `poor`, `impassable`, `unknown`; method `visit`, `resident-report`, `document`; evidence `verified`, `audit`, `official`, `unverified`.
+
+### Alert status updates
+
+Alert status changes (active → monitoring → resolved) can also be tracked as living events, so a field reporter can update an alert's status from a phone form or the Google Sheet without touching git. Use `alert:<id>` as the place ID (where `<id>` is the alert's filename without `.md`), `status` as the field, and `active`, `monitoring` or `resolved` as the value. If the event's `observed_on` is newer than the Markdown entry's `updatedAt`, the event's status wins at build time. The Markdown file still holds the narrative (title, summary, advice, contacts, sources).
 
 ## The sync
 

@@ -34,7 +34,7 @@ const href = csvHref ?? (csv ? `data:text/csv;charset=utf-8,${encodeURIComponent
         <thead><tr>{table.columns.map((c, i) => <th class={i ? 'num' : undefined}>{c}</th>)}</tr></thead>
         <tbody>{table.rows.map((r) => <tr>{r.map((v, i) => <td class={i ? 'num' : undefined}>{v == null ? '—' : v}</td>)}</tr>)}</tbody>
       </table></div>
-      {href && <a class="cf-csv" href={href} download={`${csvName ?? 'nyamira-daily-chart'}.csv`}>{download}</a>}
+      {href && <a class="cf-csv" href={href} download={`${csvName ?? 'gusii-daily-chart'}.csv`}>{download}</a>}
     </details>
   )}
 </figure>

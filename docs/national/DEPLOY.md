@@ -1,6 +1,6 @@
 # Putting Kenya Budget Explained online
 
-The national product is its own Cloudflare Pages project (decision #83), separate from Nyamira Daily, and built from the same repository. Until it has a name and a domain, it can run on a free `*.pages.dev` address. Nothing here is done by Claude Code: these steps need the founder's Cloudflare and GitHub accounts.
+The national product is its own Cloudflare Pages project (decision #83), separate from Gusii Daily, and built from the same repository. Until it has a name and a domain, it can run on a free `*.pages.dev` address. Nothing here is done by Claude Code: these steps need the founder's Cloudflare and GitHub accounts.
 
 ## 1. Create the project
 
@@ -15,7 +15,7 @@ In the Cloudflare dashboard, go to Workers & Pages, then Create, then Pages, the
 | Build command | `cd ../.. && npm ci && npm run build:national` |
 | Build output directory | `dist` |
 
-The root directory has to be `apps/national`. That way Cloudflare deploys the national product's own `functions/` folder, and not the Nyamira Daily site's, which has forms the national product does not use.
+The root directory has to be `apps/national`. That way Cloudflare deploys the national product's own `functions/` folder, and not the Gusii Daily site's, which has forms the national product does not use.
 
 ## 2. Settings
 

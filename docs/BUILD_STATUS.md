@@ -4,7 +4,7 @@ Initial handoff written 25 Oct 2026. The implementation was subsequently committ
 
 ## Starting point
 
-- Repository: `/Users/test/Projects/nyamira-daily`
+- Repository: `/Users/test/Projects/gusii-daily`
 - Starting branch: `codex-setup`
 - Starting commit: `8b57529371009b132b38e99d69494e3607097382`
 - Starting worktree: clean.
@@ -165,12 +165,12 @@ Review primary sources to establish whether the currently undated project-progre
 ### Scope and preserved state
 
 - Started from branch `fix/nd-01-project-status`, commit `ad2fb018e2964ebe85114271bf333d74cfc1efc1`; the starting commit is one commit ahead of `origin/fix/nd-01-project-status`. This follow-up is local and must not be confused with the earlier committed ND-01/ND-06/ND-07/ND-14 changes.
-- The user asked to implement pending reliability recommendations. No monitored correction/report destination or response role is available; intake must remain disabled. At implementation start, no alert-maintenance owner had been supplied; the owner later volunteered to check alerts. The owner supplied `nyamiradaily.org` as the production domain. The Night Watch remains a separate future newsroom.
+- The user asked to implement pending reliability recommendations. No monitored correction/report destination or response role is available; intake must remain disabled. At implementation start, no alert-maintenance owner had been supplied; the owner later volunteered to check alerts. The owner supplied `gusiidaily.org` as the production domain. The Night Watch remains a separate future newsroom.
 
 ### Implemented in this follow-up
 
 - **ND-02:** added a shared availability helper for explicit EAT deadlines and date-only deadlines (end of day Nairobi time). Open source records with missing/unparseable deadlines become `deadline_unknown`; explicit closed and cancelled states remain separate. The Opportunities page count, search entries and JSON API use the helper. Static status is labeled with its build evaluation time, and the API supplies `evaluatedAt` and `availabilityCounts`.
-- **ND-03:** public builds now require a real HTTPS `ND_SITE_URL`, reject reserved/local domains and reject draft preview mode. `ND_PREVIEW_BUILD=1` is restricted to local/CI preview builds and blocked on recognized production hosts. The owner supplied `nyamiradaily.org`; the public-configured local build passed. DNS, hosting settings and deployment remain unverified. CI preview builds use localhost and are not deployable output.
+- **ND-03:** public builds now require a real HTTPS `ND_SITE_URL`, reject reserved/local domains and reject draft preview mode. `ND_PREVIEW_BUILD=1` is restricted to local/CI preview builds and blocked on recognized production hosts. The owner supplied `gusiidaily.org`; the public-configured local build passed. DNS, hosting settings and deployment remain unverified. CI preview builds use localhost and are not deployable output.
 - **ND-04:** added an accepted-corrections register requiring date, page, change, reason and source; the public method page says that intake is not configured and does not pretend reports can be received. The register is empty; no correction was invented. Intake remains blocked on owner destination and response role.
 - **ND-05:** removed the clock-triggered “On air now” banner. The episodes page distinguishes planned, scheduled, confirmed-live and recorded statuses and explicitly says a static page cannot confirm a broadcast remains live. No live URL or recording link was invented.
 - **ND-08:** centralized draft and `publishAt` filtering in `entries()`; future Number of the Week entries are also hidden. Planned pages are excluded from search. Public builds reject `ND_DRAFTS=1`. Added a GitHub Actions quality workflow for Node tests, Python tests and a non-deployable preview build.
@@ -206,8 +206,8 @@ Review primary sources to establish whether the currently undated project-progre
 
 ### Current owner follow-up (25 Oct 2026, 23:50 EAT)
 
-- **Domain supplied:** `nyamiradaily.org`. Configured build command: `ND_SITE_URL=https://nyamiradaily.org npm run build`.
-- **Result:** passed; Astro built 504 pages. Post-build assertions verified the homepage Open Graph URL and opportunities API `site` field use `https://nyamiradaily.org/`, no localhost URL appears in the checked homepage/API/search index files, and API availability counts match the item classifications (3 open, 10 closed, 0 cancelled, 0 deadline-unknown, 0 unknown at `2026-10-25T20:50:22.569Z`).
+- **Domain supplied:** `gusiidaily.org`. Configured build command: `ND_SITE_URL=https://gusiidaily.org npm run build`.
+- **Result:** passed; Astro built 504 pages. Post-build assertions verified the homepage Open Graph URL and opportunities API `site` field use `https://gusiidaily.org/`, no localhost URL appears in the checked homepage/API/search index files, and API availability counts match the item classifications (3 open, 10 closed, 0 cancelled, 0 deadline-unknown, 0 unknown at `2026-10-25T20:50:22.569Z`).
 - **Regression checks rerun:** `npm test` passed (58/58); `python3 -m unittest discover -s scripts -p 'test_*.py'` passed (12/12); `git diff --check` passed.
 - **Not verified:** DNS, certificate/hosting configuration, repository deployment environment variables, production deployment, or live pages. Do not treat this build as a deployment or owner approval.
 - **Still awaiting:** browser visual and interaction review; correction/report destination and response role; source-backed metadata for existing claims; source definitions for ND-09/ND-13; project date and identity source review. No browser pages were shared, so no visual check is claimed.
@@ -217,7 +217,7 @@ Review primary sources to establish whether the currently undated project-progre
 - Set `alertMonitoring.role` to `Site owner` and `reviewCadence` to `daily` in `src/config.js`, based on the owner's answers (“me”; “daily”). Active-alert publication may proceed only for real, source-backed alert entries with required check times; no draft was promoted.
 - `npm test` — passed: 58 tests, 58 passed, 0 failed.
 - `python3 -m unittest discover -s scripts -p 'test_*.py'` — passed: 12 tests.
-- `ND_SITE_URL=https://nyamiradaily.org npm run build` — passed: Astro built 504 pages.
-- Post-build Node assertions verified the daily alert-monitoring configuration, homepage Open Graph URL and opportunities API use `https://nyamiradaily.org/`, checked homepage/API/search files do not contain `localhost:4321`, and API counts agree with classified items: 3 open, 10 closed, 0 cancelled, 0 deadline-unknown, 0 unknown at `2026-10-25T20:57:35.089Z`.
+- `ND_SITE_URL=https://gusiidaily.org npm run build` — passed: Astro built 504 pages.
+- Post-build Node assertions verified the daily alert-monitoring configuration, homepage Open Graph URL and opportunities API use `https://gusiidaily.org/`, checked homepage/API/search files do not contain `localhost:4321`, and API counts agree with classified items: 3 open, 10 closed, 0 cancelled, 0 deadline-unknown, 0 unknown at `2026-10-25T20:57:35.089Z`.
 - `git diff --check` — passed.
 - No browser pages were shared; responsive, light/dark, keyboard, link and source-date review remains unperformed. DNS, hosting configuration and deployment remain unverified.

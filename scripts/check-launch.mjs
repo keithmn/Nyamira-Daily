@@ -14,7 +14,7 @@ const git = (args) => `"${GIT}" ${args}`;
 
 const LOG = 'check-launch.log';
 const BRANCH = 'feat/trust-and-launch-prep';
-writeFileSync(LOG, `Nyamira Daily launch-prep check, ${new Date().toISOString()}\n`);
+writeFileSync(LOG, `Gusii Daily launch-prep check, ${new Date().toISOString()}\n`);
 const results = [];
 
 function run(title, command, env = {}) {

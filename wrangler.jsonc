@@ -4,7 +4,7 @@
   "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-10-26",
   // The public address the build needs (scripts/site-config.js). Cloudflare Pages reads build variables from this file.
-  "vars": { "ND_SITE_URL": "https://nyamiradaily.org" },
+  "vars": { "ND_SITE_URL": "https://gusiidaily.org" },
   "d1_databases": [
     {
       "binding": "DB",

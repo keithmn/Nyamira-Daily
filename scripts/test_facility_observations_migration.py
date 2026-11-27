@@ -42,7 +42,7 @@ class FacilityObservationMigrationTests(unittest.TestCase):
             "One visit by a resident",
             "2026-10-20",
             "resident",
-            "Reader report reviewed by Nyamira Daily",
+            "Reader report reviewed by Gusii Daily",
             evidence,
             submission_id,
         )

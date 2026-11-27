@@ -34,7 +34,7 @@ class RoadConditionMigrationTests(unittest.TestCase):
 
     def accept_values(self, submission_id, evidence="unverified"):
         return ("editor@example.org", "Checked", "poor", "One visit", "2026-10-20", "resident",
-                "Reader report reviewed by Nyamira Daily", evidence, submission_id)
+                "Reader report reviewed by Gusii Daily", evidence, submission_id)
 
     def test_reports_hold_no_contact_fields_and_grades_are_constrained(self):
         columns = {row[1] for row in self.db.execute("PRAGMA table_info(road_condition_submissions)")}

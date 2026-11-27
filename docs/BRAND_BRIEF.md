@@ -1,9 +1,9 @@
-# Brand brief: Nyamira Daily and NY Watch
+# Brand brief: Gusii Daily and NY Watch
 
 Status: delivered as brand kit v1, October 2026 (the avocado pin was chosen) and applied to the site; see `docs/DECISIONS.md` #18–19 and #46. This brief records the thinking behind it. League Spartan is used for body text; Varela Round is now used for headings to match the logo.
 
 ## Project
-Logo and visual identity for **Nyamira Daily**, a non-partisan, editorially independent civic information platform for Nyamira County, Kenya.
+Logo and visual identity for **Gusii Daily**, a non-partisan, editorially independent civic information platform for Nyamira County, Kenya.
 - It is **not** the county government and must never look official.
 - It explains the county in plain language: where public money goes, what each of the 20 wards has (health centres, schools, markets, water points), who the leaders are, what the Constitution says, and how residents can take part.
 - Every fact carries a source.
@@ -43,7 +43,7 @@ Not loud, not corporate, not governmental, not partisan.
 A repeating pattern built from data marks (bars, dots, ticks, grid) set to the rhythm of Gusii basketry and beadwork. It carries the personality, so the logo can stay simple.
 
 ## Wordmark
-"Nyamira Daily" in a geometric sans (Jost or Futura), sentence or title case, set calmly beside the symbol. No blocks, no all-caps slab.
+"Gusii Daily" in a geometric sans (Jost or Futura), sentence or title case, set calmly beside the symbol. No blocks, no all-caps slab.
 
 ## Palette
 **Since 16 Nov 2026 (DECISIONS #110, #111): Signal Green #1FD07A and charcoal #2A2A28 are the only colours on the website**, with charcoal steps, a deep green #1C5E3C, a green tint, paper and white. Record Red, the Highlands palette and dark mode are no longer used on the site. The list below is kept as the record of brand kit v1; the kit itself still needs updating to match (see #111).
@@ -74,7 +74,7 @@ Green is for shapes and fills only. Body text stays in dark ink, because light g
 - Generic globes, generic chart icons, stock "tech" gradients.
 
 ## Tests
-- The symbol alone, in one colour, at 32 px, still reads as Nyamira Daily.
+- The symbol alone, in one colour, at 32 px, still reads as Gusii Daily.
 - It works embroidered on a T-shirt and printed in black on a photocopied flyer.
 - A resident shown it without the name would guess "something about our place", not "a county department", "a party" or "a bank".
 

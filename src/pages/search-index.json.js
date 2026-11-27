@@ -23,6 +23,11 @@ export async function GET() {
     ['Administration: who holds each seat', '/administration/', 'governor deputy speaker mca senator mp woman representative'], ['What the county must do', '/administration/duties/', 'fourth schedule functions constitution devolution responsible'],
     ['About', '/about/'], ['Contact us', '/about/contact/', 'tips concerns'], ['Careers and volunteering', '/about/careers/', 'jobs correspondents'], ['Partner with us', '/about/partners/', 'data licence research sponsorship'], ['About Nyamira County', '/about/nyamira/', 'population facts'], ['Community', '/community/', 'Abagusii Gusii culture Ekegusii language archive'], ['How we work', '/about/rules/', 'evidence labels corrections'],
     ['Right of reply', '/about/rules/#right-of-reply'], ['Glossary', '/about/glossary/'], ['Terms and reuse', '/about/rules/#terms'], ['Privacy', '/about/rules/#privacy'],
+    ['Alerts', '/alerts/', 'emergency disruption notice incident flood fire road closure outage'],
+    ['Fact check', '/fact-check/', 'claims true false misleading verified'],
+    ["What's working", '/whats-working/', 'stories evidence water road school health working'],
+    ["Nyamira's people", '/people/', 'people profiles teachers farmers community consent'],
+    ['Heritage', '/heritage/', 'places traditions soapstone culture Tabaka'],
   ];
   for (const [t, u, k] of pages) if (!planned.has(u)) add(t, u, k);
   for (const t of topics) if (!planned.has(topicPath[t.slug])) add(t.title, topicPath[t.slug], t.question);
@@ -53,5 +58,20 @@ export async function GET() {
   for (const p of W.projects) if (p.ward) add(p.name, `/place/${p.projectId.toLowerCase()}/`, `${p.department} project ${p.fy}`, `Project in ${wards.find((w) => w.slug === p.ward)?.name}`);
   for (const e of await entries('explainers')) add(e.data.title, `/explainers/${e.id}/`, e.data.summary ?? '', 'Explainer');
   for (const e of await entries('numbers')) add(`${e.data.figure} ${e.data.sentence}`, `/number-of-the-week/#${e.id}`, e.data.explanation, 'Number of the week');
+  // Fact checks, stories, people, heritage (Expansion 1.7)
+  for (const e of await entries('factchecks')) add(`Fact check: ${e.data.claim}`, `/fact-check/#${e.id}`, `${e.data.rating} ${e.data.summary}`, 'Fact check');
+  for (const e of await entries('stories')) add(e.data.title, `/whats-working/#${e.id}`, `${e.data.sector} ${e.data.ward ?? ''}`.trim(), "What's working");
+  for (const e of await entries('people')) add(e.data.name, `/people/#${e.id}`, `${e.data.role} ${e.data.ward ?? ''}`.trim(), 'People');
+  for (const e of await entries('heritage')) add(e.data.title, `/heritage/#${e.id}`, `${e.data.place ?? ''} ${e.data.ward ?? ''}`.trim(), 'Heritage');
+  // Alerts (Expansion 1.8)
+  const { alertItems } = await import('../lib/alerts.js');
+  for (const e of await alertItems()) add(e.data.title, `/alerts/${e.id}/`, `${e.data.summary} ${e.data.wards.join(' ')}`, `Alert · ${e.data.level}`);
+  // Ekegusii language entries (decision #129): each word or phrase is searchable by its Ekegusii term and English translation
+  const { languageItems } = await import('../lib/language.js');
+  for (const e of await languageItems()) add(`${e.data.term} — ${e.data.translationEn}`, `/community/language/words/#cat-${e.data.category}`, `${e.data.translationSw ?? ''} ${e.data.usageExample ?? ''} ${e.data.category}`.trim(), 'Ekegusii');
+  // Tool pages
+  add('Ask Nyamira', '/ask/', 'right to information article 35 access to information request county government', 'Tool');
+  add('Submission helper', '/take-part/submission/', 'budget hearing petition county assembly submission public participation', 'Tool');
+  add('Budget simulator', '/tools/budget-simulator/', 'budget sectors spending move money development recurrent simulator', 'Tool');
   return new Response(JSON.stringify(items));
 }

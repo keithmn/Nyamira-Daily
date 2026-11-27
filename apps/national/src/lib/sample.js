@@ -1,5 +1,5 @@
 // Real figures for the component library only. Spending history is not in the national registry yet, so the charts that
-// need it read Nyamira Daily's checked Controller of Budget data. No product page imports this file.
+// need it read Gusii Daily's checked Controller of Budget data. No product page imports this file.
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 

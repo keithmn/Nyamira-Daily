@@ -46,6 +46,7 @@ export const Source = z.strictObject({
   date: z.string().regex(/^\d{4}-\d{2}(-\d{2})?$/),
   url: z.url(),
   archive: z.url().nullable(), // Wayback Machine copy; null means none is known yet
+  documentCloud: z.url().nullable().default(null), // DocumentCloud viewer URL for the uploaded source document
   sha256: z.string().regex(/^[0-9a-f]{64}$/).nullable(), // of the copy in data-src/national/pdfs/, not stored in Git (decision #27)
   file: z.string().nullable(),
   pageOffset: z.number().int().nullable(), // printed page = PDF page + pageOffset; null where numbering is not simple

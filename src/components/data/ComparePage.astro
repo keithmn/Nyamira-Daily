@@ -14,7 +14,7 @@ const natPop = nat.population2019;
 const ind = [
   { key: 'perPerson', title: 'County spending per person, 2024/25', say: 'spent by the county for each resident.',
     val: (c) => c.spent / c.population2019, fmt: kes, nat: nat.spent / natPop,
-    note: 'Worked out by Nyamira Daily: total spending in FY2024/25 divided by the 2019 census population (the latest count). Populations have grown since 2019, so the true figure per person today is lower.' },
+    note: 'Worked out by Gusii Daily: total spending in FY2024/25 divided by the 2019 census population (the latest count). Populations have grown since 2019, so the true figure per person today is lower.' },
   { key: 'dev', title: 'Development budget used, 2024/25', say: 'of the development budget (roads, buildings, water) was spent.',
     val: (c) => c.devAbsorptionPct, fmt: pct, nat: nat.devAbsorptionPct,
     note: 'As stated by the Controller of Budget (Table 2.5). Budgets are at different revision stages: Nyamira, Bomet and Kericho used their first supplementary budget; Kisii, Homa Bay and Migori their second.' },
@@ -23,7 +23,7 @@ const ind = [
     note: 'Controller of Budget figures. Kisii’s chart value uses the report text’s 64% ordinary-revenue rate (p.183); its Table 2.1 rate of 178% compares all revenue, including hospital fees, against a target that excludes hospital fees. The other county rates use Table 2.1, whose actual and target scopes match.' },
   { key: 'devShare', title: 'Share of spending on development, 2024/25', say: 'of all county spending went on development rather than salaries and running costs.',
     val: (c) => (c.devSpent / c.spent) * 100, fmt: pct, nat: (nat.devSpent / nat.spent) * 100,
-    note: 'Worked out by Nyamira Daily from the Controller of Budget\'s development and total spending (Table 2.5).' },
+    note: 'Worked out by Gusii Daily from the Controller of Budget\'s development and total spending (Table 2.5).' },
 ];
 ---
 <div class="stack-lg" style="margin-top:24px">

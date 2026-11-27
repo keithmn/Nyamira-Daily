@@ -1,0 +1,60 @@
+{
+  "generated": "2026-11-26",
+  "source": "Nominatim (OpenStreetMap geocoder)",
+  "total": 10,
+  "found": 0,
+  "notFound": 10,
+  "outOfBounds": 0,
+  "results": [
+    {
+      "id": "NYM-F0001",
+      "name": "Ensoko Primary School",
+      "status": "not-found"
+    },
+    {
+      "id": "NYM-F0002",
+      "name": "Kineni Primary School",
+      "status": "not-found"
+    },
+    {
+      "id": "NYM-F0004",
+      "name": "Riang'ombe Secondary School",
+      "status": "not-found"
+    },
+    {
+      "id": "NYM-F0005",
+      "name": "Alfa Clinic",
+      "status": "not-found"
+    },
+    {
+      "id": "NYM-F0006",
+      "name": "Chepngombe Health Centre",
+      "status": "not-found"
+    },
+    {
+      "id": "NYM-F0007",
+      "name": "Ensakia Dispensary",
+      "status": "not-found"
+    },
+    {
+      "id": "NYM-F0008",
+      "name": "Isoge Health Centre",
+      "status": "not-found"
+    },
+    {
+      "id": "NYM-F0009",
+      "name": "Kahawa Dispensary",
+      "status": "not-found"
+    },
+    {
+      "id": "NYM-F0010",
+      "name": "Kineni Dispensary (Esise)",
+      "status": "not-found"
+    },
+    {
+      "id": "NYM-F0011",
+      "name": "Mecheo Dispensary",
+      "status": "not-found"
+    }
+  ]
+}
