@@ -2,14 +2,14 @@
 // Bare page for printing (ward sheets) and embedding (iframes): no header, menu or footer.
 import '../styles/global.css';
 interface Props { title: string; kind: 'sheet' | 'embed'; description?: string }
-const { title, kind, description = 'Nyamira Daily' } = Astro.props;
+const { title, kind, description = 'Gusii Daily' } = Astro.props;
 ---
 <!doctype html>
 <html lang="en" class={kind}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title} · Nyamira Daily</title>
+  <title>{title} · Gusii Daily</title>
   <meta name="description" content={description} />
   {kind === 'embed' && <meta name="robots" content="noindex" />}
   <link rel="icon" href="/brand/Nyamira-Daily_favicon.ico" sizes="32x32" />

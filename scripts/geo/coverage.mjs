@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Map coverage report: how complete is the Nyamira Daily geographic registry?
+ * Map coverage report: how complete is the Gusii Daily geographic registry?
  *
  * Usage:  node scripts/geo/coverage.mjs
  *
@@ -41,7 +41,7 @@ const BENCHMARKS = {
 };
 
 console.log('═══════════════════════════════════════════════════════════');
-console.log('  NYAMIRA DAILY — MAP COVERAGE REPORT');
+console.log('  GUSII DAILY — MAP COVERAGE REPORT');
 console.log(`  Generated: ${new Date().toISOString().slice(0, 10)}`);
 console.log('═══════════════════════════════════════════════════════════\n');
 

@@ -9,7 +9,7 @@ export const beta = true;
 // Leave provider empty to disable. The script tag is added to Base.astro only when enabled.
 export const analytics = {
   provider: '',       // 'plausible' | 'umami' | '' (disabled)
-  src: '',            // e.g. 'https://plausible.io/js/script.js' or 'https://analytics.nyamiradaily.org/script.js'
+  src: '',            // e.g. 'https://plausible.io/js/script.js' or 'https://analytics.gusiidaily.org/script.js'
   websiteId: '',      // Umami only: the site's data-website-id
 };
 

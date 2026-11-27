@@ -1,5 +1,5 @@
 {
-  "name": "nyamira-daily",
+  "name": "gusii-daily",
   "type": "module",
   "version": "0.1.0",
   "private": true,
@@ -44,7 +44,11 @@
     "geo:ingest-schools": "node scripts/geo/ingest-schools.mjs",
     "geo:reconcile-roads": "node scripts/geo/reconcile-roads.mjs",
     "geo:nominatim": "node scripts/geo/geocode-nominatim.mjs",
-    "geo:lookup-links": "node scripts/geo/make-lookup-links.mjs"
+    "geo:lookup-links": "node scripts/geo/make-lookup-links.mjs",
+    "geo:mapping-kit": "node scripts/geo/ward-mapping-kit.mjs",
+    "geo:export-osm": "node scripts/geo/export-osm.mjs",
+    "knowledge:sync": "node scripts/knowledge/sync-kobo.mjs",
+    "knowledge:export": "node scripts/knowledge/export-training.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.6",

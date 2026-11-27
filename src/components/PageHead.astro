@@ -1,5 +1,5 @@
 ---
-// Full-bleed soft-mint topographic Field Guide page hero (inspired by civictech.guide/build, in Nyamira Daily tokens).
+// Full-bleed soft-mint topographic Field Guide page hero (inspired by civictech.guide/build, in Gusii Daily tokens).
 interface Props {
   eyebrow?: string;
   title: string;
@@ -7,7 +7,7 @@ interface Props {
   crumbs?: { href: string; label: string }[];
   swSwitch?: boolean;
 }
-const { eyebrow = 'Nyamira Daily', title, lead, crumbs = [], swSwitch = true } = Astro.props;
+const { eyebrow = 'Gusii Daily', title, lead, crumbs = [], swSwitch = true } = Astro.props;
 const trail = crumbs.length > 1 ? crumbs.slice(0, -1) : [];
 ---
 <header class="fg-page-hero page-head">

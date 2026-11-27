@@ -9,7 +9,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 const retentionDays = Number(import.meta.env.PUBLIC_CORRECTION_RETENTION_DAYS);
 const hasRetention = Number.isSafeInteger(retentionDays) && retentionDays >= 1 && retentionDays <= 3650;
 const enabled = intakeEnabled && turnstileSiteKey && hasRetention;
-const reporters = [['resident', 'I live or work nearby'], ['field-reporter', 'I am a Nyamira Daily field reporter']];
+const reporters = [['resident', 'I live or work nearby'], ['field-reporter', 'I am a Gusii Daily field reporter']];
 ---
 {enabled && (
   <section class="card stack" aria-labelledby="road-report-heading">

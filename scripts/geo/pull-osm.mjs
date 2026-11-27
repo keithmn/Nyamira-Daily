@@ -64,7 +64,7 @@ async function run() {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      'User-Agent': 'NyamiraDailyMapping/1.0 (civic data project)',
+      'User-Agent': 'GusiiDailyMapping/1.0 (civic data project)',
     },
     body: `data=${encodeURIComponent(query)}`,
   });

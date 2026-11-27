@@ -19,7 +19,7 @@ const isBuild = process.argv.includes('build');
 const site = resolveSite({ build: isBuild });
 const root = fileURLToPath(new URL('.', import.meta.url));
 
-// Nyamira Daily: a light, static, phone-first site.
+// Gusii Daily: a light, static, phone-first site.
 export default defineConfig({
   site,
   integrations: [sitemap({ filter: (page) => !page.includes('/review/') })],

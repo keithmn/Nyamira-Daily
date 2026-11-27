@@ -4,7 +4,7 @@ import { json } from '../../lib/api.js';
 export async function GET({ site }) {
   const all = await alertItems();
   return json({
-    description: 'All alerts and incidents recorded by Nyamira Daily, newest first.',
+    description: 'All alerts and incidents recorded by Gusii Daily, newest first.',
     total: all.length,
     alerts: all.map(fmt),
   }, site);

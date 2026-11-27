@@ -84,7 +84,7 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coordinate Lookup — Nyamira Daily</title>
+<title>Coordinate Lookup — Gusii Daily</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: system-ui, sans-serif; padding: 16px; max-width: 1000px; margin: 0 auto; background: #fafaf8; color: #1a1a1a; }

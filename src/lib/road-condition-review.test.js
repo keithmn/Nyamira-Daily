@@ -18,8 +18,8 @@ try {
 
 const intakeEnv = {
   ROAD_INTAKE_ENABLED: 'true',
-  CORRECTION_SITE_ORIGIN: 'https://nyamiradaily.org',
-  CORRECTION_SITE_HOST: 'nyamiradaily.org',
+  CORRECTION_SITE_ORIGIN: 'https://gusiidaily.org',
+  CORRECTION_SITE_HOST: 'gusiidaily.org',
   CORRECTION_RETENTION_DAYS: '30',
   CORRECTION_RATE_SALT: 's'.repeat(32),
   TURNSTILE_SECRET_KEY: 'test-secret',
@@ -35,10 +35,10 @@ function reportFields(overrides = {}) {
   };
 }
 
-function reportRequest(fields, origin = 'https://nyamiradaily.org') {
+function reportRequest(fields, origin = 'https://gusiidaily.org') {
   const form = new FormData();
   for (const [key, value] of Object.entries(fields)) form.set(key, value);
-  return new Request('https://nyamiradaily.org/api/road-conditions', {
+  return new Request('https://gusiidaily.org/api/road-conditions', {
     method: 'POST', headers: { origin, 'cf-connecting-ip': '203.0.113.25' }, body: form,
   });
 }
@@ -46,7 +46,7 @@ function reportRequest(fields, origin = 'https://nyamiradaily.org') {
 const acceptance = {
   decision: 'accepted', note: 'Photos and a second resident agree', grade: 'poor',
   scope: 'One visit by a resident; the whole road on that day', observedOn: '2026-10-20',
-  sourceCategory: 'resident', sourceRef: 'Reader report reviewed by Nyamira Daily', evidence: 'unverified',
+  sourceCategory: 'resident', sourceRef: 'Reader report reviewed by Gusii Daily', evidence: 'unverified',
 };
 
 test('road reports fail closed while road intake is off, even with other intake on', async () => {
@@ -88,7 +88,7 @@ test('accepting a road report requires every public field; a check with no publi
 
 test('road review API denies unauthenticated requests', async () => {
   const response = await onRequestGet({
-    request: new Request('https://nyamiradaily.org/api/review-roads'),
+    request: new Request('https://gusiidaily.org/api/review-roads'),
     env: { DB: {}, CORRECTION_RETENTION_DAYS: '30', CF_ACCESS_TEAM_DOMAIN: 'nyamira.cloudflareaccess.com', CF_ACCESS_AUD: 'review-app', CORRECTION_REVIEWER_EMAILS: 'editor@example.org' },
   });
   assert.equal(response.status, 401);
@@ -137,7 +137,7 @@ test('a road report round-trips from intake to review, retention cleanup, export
   const access = await accessToken('editor@example.org');
   const originalFetch = globalThis.fetch;
   globalThis.fetch = async (url) => (String(url).includes('turnstile')
-    ? Response.json({ success: true, hostname: 'nyamiradaily.org' })
+    ? Response.json({ success: true, hostname: 'gusiidaily.org' })
     : Response.json({ keys: [access.jwk] }));
   try {
     const submitted = await onRequestPost({
@@ -151,7 +151,7 @@ test('a road report round-trips from intake to review, retention cleanup, export
 
     const reviewEnv = { DB: db, CORRECTION_RETENTION_DAYS: '30', CF_ACCESS_TEAM_DOMAIN: 'nyamira.cloudflareaccess.com', CF_ACCESS_AUD: 'review-app', CORRECTION_REVIEWER_EMAILS: 'editor@example.org' };
     const patch = (body) => onRequestPatch({
-      request: new Request('https://nyamiradaily.org/api/review-roads', {
+      request: new Request('https://gusiidaily.org/api/review-roads', {
         method: 'PATCH', headers: { 'content-type': 'application/json', 'cf-access-jwt-assertion': access.token }, body: JSON.stringify(body),
       }),
       env: reviewEnv,
@@ -161,7 +161,7 @@ test('a road report round-trips from intake to review, retention cleanup, export
     assert.equal((await patch({ decision: 'rejected', note: 'Second opinion', id: reference })).status, 409);
 
     const listed = await onRequestGet({
-      request: new Request('https://nyamiradaily.org/api/review-roads', { headers: { 'cf-access-jwt-assertion': access.token } }),
+      request: new Request('https://gusiidaily.org/api/review-roads', { headers: { 'cf-access-jwt-assertion': access.token } }),
       env: reviewEnv,
     });
     const [item] = (await listed.json()).items;

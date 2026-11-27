@@ -1,4 +1,4 @@
-// Nyamira Daily icon set (decision #55). One drawing language for every icon:
+// Gusii Daily icon set (decision #55). One drawing language for every icon:
 // a 24-unit grid, 1.9-unit rounded strokes in the text colour, and one filled "accent" shape in the
 // section colour, echoing the dot inside the avocado-pin symbol. Icons are UI marks, never logos:
 // the brand logos stay the unchanged files in public/brand/.

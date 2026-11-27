@@ -43,7 +43,7 @@ const bn = (m) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
 const mcaLine = mca ? mca.name + (mca.party ? ' (' + mca.party + ')' : '') : 'not confirmed';
 const catLine = order.filter((c) => byCat[c]).map((c) => c + ' ' + byCat[c].length).join(', ');
 const shareText = [
-  w.name + ' Ward, ' + w.subCounty + ' - Nyamira Daily',
+  w.name + ' Ward, ' + w.subCounty + ' - Gusii Daily',
   'MCA: ' + mcaLine,
   'Services listed: ' + w.facilities.length + ' (' + catLine + ')',
   (b2526 != null ? 'Ward projects budgeted 2025/26: ' + amountLabel(b2526) + '\n' : '') + 'County spent ' + bn(last.spent) + ' in ' + last.fy + '; ' + last.devAbs + '% of the development budget was used.',
@@ -76,7 +76,7 @@ const constSlug = w.subCounty.toLowerCase().split(' ').join('-');
           <a class="tile" href="#projects"><b>{b2526 != null ? amountLabel(b2526) : 'Not found'}</b><span>ward projects budgeted, 2025/26</span><span class="label official">Official claim</span></a>
           <a class="tile tile-text" href={`/administration/#ward-${w.slug}`}><b>{mca ? mca.name : 'Not confirmed'}</b><span>MCA for {w.name}</span></a>
         </div>
-        <p class="source">Sources: MCA from IEBC 2022 results and later by-elections; ward budget from the county's Programme Based Budget 2025/26 (Table 18); services from the Nyamira Daily list, mostly not yet checked on site.</p>
+        <p class="source">Sources: MCA from IEBC 2022 results and later by-elections; ward budget from the county's Programme Based Budget 2025/26 (Table 18); services from the Gusii Daily list, mostly not yet checked on site.</p>
         <div class="page-tools">
           <a class="btn" href={wa} rel="noopener">Share this receipt on WhatsApp</a>
           <button class="btn quiet" type="button" data-set-ward={w.slug}>Make {w.name} my ward</button>
@@ -234,7 +234,7 @@ const constSlug = w.subCounty.toLowerCase().split(' ').join('-');
       {roads && <div class="row"><span>Road maintenance contracts, 2023/24</span><span>{amountLabel(roads.amount)}</span></div>}
       <div class="row"><span>Whole county spent, {last.fy}</span><span>{bn(last.spent)}</span></div>
       <div class="row"><span>Development budget used</span><span>{last.devAbs}%</span></div>
-      <p class="small muted">Sources: MCA from IEBC 2022 results and later by-elections. Ward budget from the county's Programme Based Budget 2025/26 (Table 18); road contracts from the Annual Development Plan 2025/26. Services from the Nyamira Daily list, mostly not yet checked on site. County spending from the Controller of Budget.</p>
+      <p class="small muted">Sources: MCA from IEBC 2022 results and later by-elections. Ward budget from the county's Programme Based Budget 2025/26 (Table 18); road contracts from the Annual Development Plan 2025/26. Services from the Gusii Daily list, mostly not yet checked on site. County spending from the Controller of Budget.</p>
     </section>
     </Toggle>
   </div>

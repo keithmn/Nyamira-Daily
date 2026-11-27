@@ -9,7 +9,7 @@ For the assistant working in VS Code (Claude Code or Codex) and for any develope
 - Node build scripts (`build-data.mjs`, `assemble.mjs`), with a test that `data.json` can be rebuilt from its sources.
 - `VERIFICATION.md`: every national figure checked against its PDF page.
 
-**Already in the Nyamira Daily site, to reuse rather than rebuild:**
+**Already in the Gusii Daily site, to reuse rather than rebuild:**
 - Components: `EvidenceLabel`, `charts/*` (ChartFrame, ColumnChart, LineChart, ShareBars), `viz/*` (Coins, HBars, Pictos, SplitBar), `EmbedCode`/`EmbedFoot` with `pages/embed/*`, `CorrectionLog`, `Sources`, `StaleScript`, `MyWard`, `DocTools`/`PageTools`, `PageHead`, `SectionTabs`, `Toggle`.
 - `layouts/Sheet.astro`, the printable ward sheet. `qrcode` is already a dependency.
 - `pages/tools/budget-simulator.astro`, `learn/budget-calendar`, `learn/glossary` and `search-index.json.js`.
@@ -40,8 +40,8 @@ Design every page for the citizen first and the analyst one tap deeper. This is 
 ## 2. Decisions to settle before building (ask the founder; log each in DECISIONS.md)
 
 1. **Where it lives.** The options:
-   - (a) A `/budget/` section inside the Nyamira Daily site.
-   - (b) A second Astro app in the same repo, using npm workspaces: `packages/engine` holds the shared lib, components, figure schema and charts; `apps/nyamira-daily` and `apps/national` sit beside it.
+   - (a) A `/budget/` section inside the Gusii Daily site.
+   - (b) A second Astro app in the same repo, using npm workspaces: `packages/engine` holds the shared lib, components, figure schema and charts; `apps/gusii-daily` and `apps/national` sit beside it.
    - (c) A separate repo.
 
    Recommend (b), done in stages: create `packages/engine` and move shared code only when both apps need it. The national product will become the umbrella brand, so it needs its own domain and identity, while the engine stays shared. Write out the trade-offs, wait for a yes, and keep the routes below working under any prefix.
@@ -175,7 +175,7 @@ Each one gets a figure set, a test and a VERIFICATION entry.
   5. **Releases this year:** equitable share released to date against the disbursement schedule, from `/track/`.
   6. **Questions to ask:** three or four generated from the data, for example "Development spending was 37% of the development budget in FY2024/25 (all counties: 57%). Which projects were not started?", each with a Copy button.
   7. **The people responsible:** governor, county assembly and the Assembly's budget committee, by office only. Never rate people.
-  8. **Deeper local data:** for Nyamira, link to Nyamira Daily's ward pages. Other counties get a slot for future county editions.
+  8. **Deeper local data:** for Nyamira, link to Gusii Daily's ward pages. Other counties get a slot for future county editions.
 - **Print sheet:** `/counties/[county]/sheet/` using `layouts/Sheet.astro`. One A4 page with the five key numbers, two questions, the hearing date and a QR code to the page. It is meant for town halls and radio scripts.
 - **Embed:** `/embed/county/[county]/`, a small card for news sites, following the existing `pages/embed/*` pattern.
 
@@ -242,9 +242,9 @@ Each one gets a figure set, a test and a VERIFICATION entry.
 
 ## 6. Interface and design system
 
-- **Brand:** the national product is a sibling of Nyamira Daily, not a copy.
+- **Brand:** the national product is a sibling of Gusii Daily, not a copy.
   - It shares the type (League Spartan for body and figures, Varela Round for display) and the neutrals.
-  - It has its own primary accent role, chosen with the founder. Signal Green stays Nyamira Daily's.
+  - It has its own primary accent role, chosen with the founder. Signal Green stays Gusii Daily's.
   - Record Red is kept for gaps (unspent money, missed targets, debt service) and deadlines, never for parties, people or blame.
   - Document the tokens in `docs/national/DESIGN.md`, with light and dark values.
 - **Components** (Astro, no client framework; behaviour in small vanilla modules):
@@ -302,7 +302,7 @@ Each one gets a figure set, a test and a VERIFICATION entry.
    - Forms use Turnstile and rate limits in `functions/`.
    - Dependencies pinned; `npm audit` clean; Renovate or Dependabot opened only with the founder's approval.
 5. **Structure:**
-   - No logic copied between Nyamira Daily and the national app: shared code lives in one place (see decision 2.1).
+   - No logic copied between Gusii Daily and the national app: shared code lives in one place (see decision 2.1).
    - Pages hold no arithmetic; all of it is in `lib/` with tests.
    - Data files are never edited by hand when a script generates them (the same rule as `roads.json`).
 6. **Failure behaviour:** every page renders fully with JavaScript off. A missing figure shows `NotYetLoaded`, never 0, NaN or an empty bar. A failed build step names the figure id and the source page.

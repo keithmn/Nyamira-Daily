@@ -23,6 +23,13 @@ const topic = (slug) => topics.find((t) => t.slug === slug);
 // `rail: false` keeps a section's pages full width (the switcher only): the Map pages need the whole width.
 // Map pages live under /map/ and /ward/, money pages under /money/ (phase R2b).
 export const sections = [
+  // Gusii language and cultural knowledge — the lead section (decision #110 recast for Gusii Daily rebrand).
+  { href: '/community/', label: 'Gusii', icon: 'community', overview: 'Gusii language & culture', groups: ['Language', 'Heritage'],
+    desc: 'The Ekegusii language database, Abagusii cultural knowledge and community heritage — recorded with consent.', pages: [
+    { href: '/community/language/', label: 'Ekegusii language', group: 'Language', icon: 'learn', desc: 'An open Ekegusii text and speech dataset', also: ['/community/share/', '/community/language/words/', '/community/language/grammar/'] },
+    { href: '/community/abagusii/', label: 'The Abagusii', group: 'Heritage', icon: 'people', desc: 'History and culture, with sources' },
+    { href: '/community/archive/', label: 'Culture archive', group: 'Heritage', icon: 'stories', desc: 'Recordings, stories and knowledge' },
+  ] },
   { href: '/map/', label: 'Places', icon: 'map', overview: 'The county map', groups: ['Find a place', 'By sector', 'The county', 'Safety'],
     desc: 'Every ward and every public place: what is there, and how it is doing.', pages: [
     { href: '/ward/', label: 'Wards', icon: 'ward', group: 'Find a place', desc: 'All 20 wards', also: ['/place/'], pages: subCounties.map((s) => ({
@@ -33,27 +40,21 @@ export const sections = [
     { href: '/map/health/', label: topic('health').title, icon: 'health', group: 'By sector', desc: 'Clinics, mothers and children' },
     { href: '/map/education/', label: topic('education').title, icon: 'education', group: 'By sector', desc: 'Schools and learners' },
     { href: '/money/farming/', label: topic('farming').title, icon: 'farming', group: 'By sector', desc: 'Tea bonuses and farm spending' },
-    { href: '/about/nyamira/', label: 'About Nyamira County', group: 'The county', icon: 'map', desc: 'Facts, figures and places to know', pages: [
+    { href: '/about/nyamira/', label: 'About the county', group: 'The county', icon: 'map', desc: 'Facts, figures and places to know', pages: [
       { href: '/administration/duties/', label: 'How it is governed', icon: 'government', desc: 'What the county must do, and how' },
       { href: '/administration/', label: 'Who holds each seat', icon: 'people', desc: 'Each county seat and its holder, with sources' },
       { href: '/about/glossary/', label: 'Glossary', icon: 'learn', desc: 'Terms explained' },
     ] },
     { href: '/alerts/', label: 'Alerts', icon: 'source', group: 'Safety', desc: 'Incidents and public notices' },
   ] },
-  { href: '/money/', label: 'Money', icon: 'money', overview: "Nyamira's money", groups: ['This year', 'Over the years', 'Follow the money'],
-    desc: "The county's budget and spending, the contracts it signed, and how money moves in Nyamira.", pages: [
+  { href: '/money/', label: 'Money', icon: 'money', overview: 'County money', groups: ['This year', 'Over the years', 'Follow the money'],
+    desc: "County budgets and spending, the contracts signed, and how money moves.", pages: [
     { href: '/money/2025-26/', label: 'Budget 2025/26', group: 'This year', desc: 'The plan, with its key dates', also: ['/money/2025-26/departments/'] },
     { href: '/money/track/', label: 'What was spent', group: 'This year' },
     { href: '/money/revenue/', label: 'Where it comes from', group: 'This year', desc: 'Including the fees you pay' },
     { href: '/money/history/', label: 'Since 2013', group: 'Over the years' },
     { href: '/money/contracts/', label: 'Contracts', icon: 'source', group: 'Follow the money', desc: 'Every contract: who, how much, when' },
-    { href: '/money/economy/', label: 'The economy', icon: 'chart', group: 'Follow the money', desc: 'Money coming into Nyamira, and how it moves' },
-  ] },
-  { href: '/community/', label: 'Community', icon: 'people', overview: 'Community', groups: ['Our heritage'],
-    desc: 'Our history, culture and language, recorded with consent and kept for the community.', pages: [
-    { href: '/community/abagusii/', label: 'The Abagusii', group: 'Our heritage', icon: 'people', desc: 'History and culture, with sources' },
-    { href: '/community/archive/', label: 'Culture archive', group: 'Our heritage', icon: 'stories', desc: 'Recordings, stories and knowledge' },
-    { href: '/community/language/', label: 'Ekegusii language', group: 'Our heritage', icon: 'learn', desc: 'An open Ekegusii text and speech dataset', also: ['/community/share/', '/community/language/words/', '/community/language/grammar/'] },
+    { href: '/money/economy/', label: 'The economy', icon: 'chart', group: 'Follow the money', desc: 'Money coming in, and how it moves' },
   ] },
   // Stories (decision #127): videos, explainers, fact-checks, what's working, people, heritage and the number of the week.
   { href: '/watch/', label: 'Stories', icon: 'camera', overview: 'All stories', groups: ['By kind', 'People & places'],
@@ -63,17 +64,17 @@ export const sections = [
     { href: '/watch/#number', label: 'Number of the week', group: 'By kind', icon: 'chart', desc: 'One figure, explained', also: ['/number-of-the-week/'] },
     { href: '/fact-check/', label: 'Fact check', group: 'By kind', icon: 'source', desc: 'Claims checked against the record' },
     { href: '/whats-working/', label: "What's working", group: 'People & places', icon: 'map', desc: 'Stories backed by evidence' },
-    { href: '/people/', label: "Nyamira's people", group: 'People & places', icon: 'people', desc: 'People making a difference, with their consent' },
+    { href: '/people/', label: 'People', group: 'People & places', icon: 'people', desc: 'People making a difference, with their consent' },
     { href: '/heritage/', label: 'Heritage', group: 'People & places', icon: 'community', desc: 'Places and traditions worth knowing' },
   ] },
-  { href: '/about/', label: 'About', icon: 'source', overview: 'About Nyamira Daily', groups: ['Nyamira Daily', 'Take part'],
-    desc: 'What Nyamira Daily is, and how to reach us.', pages: [
-    { href: '/about/contact/', label: 'Tell us', group: 'Nyamira Daily', icon: 'question', desc: 'A place, a tip, a story or a correction', also: ['/report/'] },
-    { href: '/about/careers/', label: 'Careers and volunteering', group: 'Nyamira Daily', icon: 'people', desc: 'Ward correspondents and culture volunteers' },
-    { href: '/about/partners/', label: 'Partner with us', group: 'Nyamira Daily', icon: 'data', desc: 'Data, research and sponsorship' },
-    { href: '/about/data/', label: 'Open data', group: 'Nyamira Daily', icon: 'data', desc: 'CSV tables and live JSON endpoints' },
-    { href: '/about/rules/', label: 'Rules and legal', group: 'Nyamira Daily', icon: 'source', desc: 'How we work, right of reply, terms, privacy' },
-    { href: '/ask/', label: 'Ask Nyamira', group: 'Take part', icon: 'question', desc: 'Request information from the county' },
+  { href: '/about/', label: 'About', icon: 'source', overview: 'About Gusii Daily', groups: ['Gusii Daily', 'Take part'],
+    desc: 'What Gusii Daily is, and how to reach us.', pages: [
+    { href: '/about/contact/', label: 'Tell us', group: 'Gusii Daily', icon: 'question', desc: 'A place, a tip, a story or a correction', also: ['/report/'] },
+    { href: '/about/careers/', label: 'Careers and volunteering', group: 'Gusii Daily', icon: 'people', desc: 'Ward correspondents and culture volunteers' },
+    { href: '/about/partners/', label: 'Partner with us', group: 'Gusii Daily', icon: 'data', desc: 'Data, research and sponsorship' },
+    { href: '/about/data/', label: 'Open data', group: 'Gusii Daily', icon: 'data', desc: 'CSV tables and live JSON endpoints' },
+    { href: '/about/rules/', label: 'Rules and legal', group: 'Gusii Daily', icon: 'source', desc: 'How we work, right of reply, terms, privacy' },
+    { href: '/ask/', label: 'Ask your county', group: 'Take part', icon: 'question', desc: 'Request information from the county' },
     { href: '/take-part/submission/', label: 'Submission helper', group: 'Take part', icon: 'learn', desc: 'Write a submission for a budget hearing' },
     { href: '/tools/budget-simulator/', label: 'Budget simulator', group: 'Take part', icon: 'chart', desc: 'Move money between sectors' },
   ] },

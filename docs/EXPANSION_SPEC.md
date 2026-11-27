@@ -1,4 +1,4 @@
-# Nyamira Daily: build plan (expansion and alerts)
+# Gusii Daily: build plan (expansion and alerts)
 
 Two specs in one file. **Part A:** the expansion, Phases 1 to 4. **Part B:** alerts and incidents, item **1.8** of Phase 1.
 Read `AGENTS.md` and everything in `docs/` before you start. Every rule in `docs/EDITORIAL_RULES.md` applies.
@@ -30,15 +30,15 @@ Agreed: Today · Wards · Data · Take part · Stories · Government · Learn.
 
 ## Phase 1: tools that need no new research
 
-**1.1 Ask Nyamira (`/ask/`).** Right to information (Constitution Article 35; Access to Information Act, 2016). Explainer (write to the county's information access officer, keep a copy, 21 days, complain to the Commission on Administrative Justice); a client-side request-letter builder (copy, print, WhatsApp; never submits); a public tracker from `src/data/asks.json` (`id, question, askedOf, sentOn, dueOn, status: sent|answered|partly answered|refused|no reply|appealed, answerSummary, documents[{title,url}], requester`). "Overdue" computed at build time from `dueOn`. Only requests by Nyamira Daily, or by residents who gave written consent. Starts empty.
+**1.1 Ask Nyamira (`/ask/`).** Right to information (Constitution Article 35; Access to Information Act, 2016). Explainer (write to the county's information access officer, keep a copy, 21 days, complain to the Commission on Administrative Justice); a client-side request-letter builder (copy, print, WhatsApp; never submits); a public tracker from `src/data/asks.json` (`id, question, askedOf, sentOn, dueOn, status: sent|answered|partly answered|refused|no reply|appealed, answerSummary, documents[{title,url}], requester`). "Overdue" computed at build time from `dueOn`. Only requests by Gusii Daily, or by residents who gave written consent. Starts empty.
 
 **1.2 Submission helper (`/take-part/submission/`).** Fields: topic, ward, the problem, what you want done, name (optional). Produces a structured submission for a budget forum, a plan or a petition to the County Assembly. Copy, WhatsApp, print. Linked from `/learn/taking-part/`. No data leaves the page.
 
 **1.3 Printable ward sheets (`/ward/[slug]/sheet/`).** One A4 page per ward: receipt, MCA, top services, FY2025/26 project lines, 2–3 questions to ask, a QR code to the ward page (inline SVG at build time), sources and date. Print CSS; must survive black-and-white photocopying.
 
-**1.4 Machine-readable outputs.** `/api/wards.json`, `/api/ward/[slug].json`, `/api/ward/[slug].txt` (under 900 characters, for WhatsApp/SMS), `/api/money.json`, `/api/projects.json`, `/api/opportunities.json`, with licence and source fields. Document on `/data/open-data/` ("free to reuse with credit to Nyamira Daily"; OpenStreetMap-derived data is ODbL).
+**1.4 Machine-readable outputs.** `/api/wards.json`, `/api/ward/[slug].json`, `/api/ward/[slug].txt` (under 900 characters, for WhatsApp/SMS), `/api/money.json`, `/api/projects.json`, `/api/opportunities.json`, with licence and source fields. Document on `/data/open-data/` ("free to reuse with credit to Gusii Daily"; OpenStreetMap-derived data is ODbL).
 
-**1.5 Embeds (`/embed/ward/[slug]/`, `/embed/money/`).** No header or footer, for iframes; "Source: Nyamira Daily" and a link back. A "Use this on your site" block with the iframe code on ward and money pages.
+**1.5 Embeds (`/embed/ward/[slug]/`, `/embed/money/`).** No header or footer, for iframes; "Source: Gusii Daily" and a link back. A "Use this on your site" block with the iframe code on ward and money pages.
 
 **1.6 Number of the week (`/number-of-the-week/`).** One verified figure a week: 2–3 sentence explanation, source, 30-second radio script, WhatsApp share. Collection `numbers`. Latest on the home page.
 

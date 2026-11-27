@@ -1,10 +1,10 @@
-# Open-source tools and standards for Nyamira Daily
+# Open-source tools and standards for Gusii Daily
 
 Status: **strategy memo, 22 Nov 2026.** Advisory analysis of tools, resources and open standards a civic media tech venture of this kind can adopt. Sequenced by readiness and impact.
 
 ## Context
 
-Nyamira Daily is a static Astro site (871 pages) serving civic information to residents on cheap phones and expensive data. Data comes from county PDFs, IEBC gazettes, audit reports, KoboToolbox field forms and Google Sheets. The team is small (owner plus one to three helpers), budget is tight, and the site is the verified record that social posts link back to.
+Gusii Daily is a static Astro site (871 pages) serving civic information to residents on cheap phones and expensive data. Data comes from county PDFs, IEBC gazettes, audit reports, KoboToolbox field forms and Google Sheets. The team is small (owner plus one to three helpers), budget is tight, and the site is the verified record that social posts link back to.
 
 The question: what open-source tools and standards can extend the platform's reach, speed up data collection, and deepen trust in the data — without adding weight or complexity the team cannot sustain?
 
@@ -16,7 +16,7 @@ The question: what open-source tools and standards can extend the platform's rea
 
 **What it is:** OpenAI's open-source transcription model. Handles African-accented English and Kiswahili reasonably well; can be fine-tuned on collected corpus for Ekegusii.
 
-**Why it matters:** Nyamira Daily already has an Ekegusii language dataset and a culture archive built for audio recordings. Every recorded elder, oral history and field interview becomes searchable, indexed text.
+**Why it matters:** Gusii Daily already has an Ekegusii language dataset and a culture archive built for audio recordings. Every recorded elder, oral history and field interview becomes searchable, indexed text.
 
 **How to apply:** Add a `scripts/transcribe.mjs` step to the living-data pipeline. Field reporters record audio via KoboToolbox; the sync script runs Whisper; the transcript enters the content collection alongside the audio. This also feeds the AI training export at `/api/language.json`.
 
@@ -36,7 +36,7 @@ The question: what open-source tools and standards can extend the platform's rea
 
 **What it is:** Lightweight, cookie-free analytics. Plausible is about 1 KB of JS. Umami is self-hostable on Cloudflare Workers or any Node host.
 
-**Why it matters:** Nyamira Daily has no analytics. For a civic site, you need to know which wards people look at, which pages get shared, and where readers drop off — without Google Analytics' weight (45 KB) or privacy cost.
+**Why it matters:** Gusii Daily has no analytics. For a civic site, you need to know which wards people look at, which pages get shared, and where readers drop off — without Google Analytics' weight (45 KB) or privacy cost.
 
 **How to apply:** Self-host Umami on the same Cloudflare account, or use Plausible Cloud (free for small sites under grant/open-source programmes). Know which ward pages get traffic (editorial signal for where correspondents should be), which money pages get shared (reader interest signal), and whether people use the budget simulator.
 
@@ -60,7 +60,7 @@ The question: what open-source tools and standards can extend the platform's rea
 
 **What it is:** A WhatsApp bot that answers questions from your data. Turn.io is built for African civic organisations and has grant pricing.
 
-**Why it matters:** Nyamira Daily already generates WhatsApp share links. The next step: "How much was budgeted for Bokeira?" or "Which clinics are in Nyamaiya?" answered from the JSON data, no browser needed.
+**Why it matters:** Gusii Daily already generates WhatsApp share links. The next step: "How much was budgeted for Bokeira?" or "Which clinics are in Nyamaiya?" answered from the JSON data, no browser needed.
 
 **How to apply:** A stateless bot that pattern-matches ward names and topics against the data files and returns a formatted reply. No LLM needed — the data is structured enough for keyword lookup. Add a "Report a place" flow that collects the same fields as the KoboToolbox form.
 
@@ -80,9 +80,9 @@ The question: what open-source tools and standards can extend the platform's rea
 
 **What it is:** Simon Willison's tool that turns JSON/CSV/SQLite data into a browsable, queryable, downloadable portal with zero custom code.
 
-**Why it matters:** Nyamira Daily has `/about/data/` and JSON API endpoints. Datasette lets researchers, journalists and other civic tech projects query the data without scraping the site. This is how the site becomes infrastructure others build on.
+**Why it matters:** Gusii Daily has `/about/data/` and JSON API endpoints. Datasette lets researchers, journalists and other civic tech projects query the data without scraping the site. This is how the site becomes infrastructure others build on.
 
-**How to apply:** `scripts/build-datasette.mjs` exports registries, facilities, contracts and leaders into a SQLite database. Deploy as a companion service at `data.nyamiradaily.org`. Datasette runs on Cloudflare Workers, Fly.io, or any Python host.
+**How to apply:** `scripts/build-datasette.mjs` exports registries, facilities, contracts and leaders into a SQLite database. Deploy as a companion service at `data.gusiidaily.org`. Datasette runs on Cloudflare Workers, Fly.io, or any Python host.
 
 **Prep cost:** A build script, a small hosting instance, and a subdomain.
 
@@ -112,7 +112,7 @@ The question: what open-source tools and standards can extend the platform's rea
 
 **What it is:** Built by OCCRP for cross-referencing documents and entities. Indexes documents, extracts entities, maps relationships across years of procurement data.
 
-**Why it matters:** If Nyamira Daily grows into investigating procurement patterns — which company wins contracts across years, which directors appear in multiple firms — Aleph surfaces patterns no human would spot in spreadsheets.
+**Why it matters:** If Gusii Daily grows into investigating procurement patterns — which company wins contracts across years, which directors appear in multiple firms — Aleph surfaces patterns no human would spot in spreadsheets.
 
 **When to adopt:** When 3+ years of contract data and audit reports are loaded and the team has capacity for investigative work.
 
@@ -148,4 +148,4 @@ For the leaders data. Makes MCA/Governor/MP records machine-readable by any civi
 
 ## Strategic through-line
 
-Every tool either **reduces the cost of getting data in** (Whisper, Tesseract, Ushahidi), **increases the reach of getting data out** (USSD, WhatsApp, Datasette), or **builds trust in the data itself** (DocumentCloud, OCDS, Plausible). That maps directly to Nyamira Daily's editorial promise: every figure sourced, every place checked, written in plain language for people on cheap phones.
+Every tool either **reduces the cost of getting data in** (Whisper, Tesseract, Ushahidi), **increases the reach of getting data out** (USSD, WhatsApp, Datasette), or **builds trust in the data itself** (DocumentCloud, OCDS, Plausible). That maps directly to Gusii Daily's editorial promise: every figure sourced, every place checked, written in plain language for people on cheap phones.

@@ -1,5 +1,5 @@
 // Open Contracting Data Standard (OCDS) 1.1 release package.
-// Maps Nyamira Daily's contracts tracker to OCDS so global procurement transparency tools can consume it.
+// Maps Gusii Daily's contracts tracker to OCDS so global procurement transparency tools can consume it.
 // Spec: https://standard.open-contracting.org/latest/en/
 import D from '../../data/contracts.json' with { type: 'json' };
 import { json } from '../../lib/api.js';
@@ -58,7 +58,7 @@ export function GET({ site }) {
     description: 'Open Contracting Data Standard (OCDS 1.1) release package for Nyamira County Government contracts. National contracts (NG-CDF, KeNHA, KeRRA) are excluded — OCDS says each publisher covers its own procuring entity. See /api/contracts.json for all records.',
     standard: 'OCDS 1.1 (https://standard.open-contracting.org/)',
     publishedDate: new Date().toISOString(),
-    publisher: { name: 'Nyamira Daily', scheme: 'nyamiradaily.org', url: site?.toString() },
+    publisher: { name: 'Gusii Daily', scheme: 'gusiidaily.org', url: site?.toString() },
     releases: countyContracts.map((c) => ocdsRelease(c, site)),
   }, site);
 }

@@ -1,5 +1,5 @@
 ---
-// Field-guide topbar inspired by civictech.guide, using Nyamira Daily's exact brand tokens & five sections.
+// Field-guide topbar inspired by civictech.guide, using Gusii Daily's exact brand tokens & five sections.
 import { sections as navSections, sectionFor, stateFor, groupsOf } from '../nav.js';
 import { planned } from '../config.js';
 import Icon from './Icon.astro';
@@ -11,13 +11,13 @@ const sections = navSections.filter((s) => s.href && !planned.has(s.href));
 ---
 <header class="fg-header">
   <div class="fg-hdr-inner">
-    <a class="fg-logo" href="/" aria-label="Nyamira Daily, home">
-      <img src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Nyamira Daily" width="168" height="33" />
+    <a class="fg-logo" href="/" aria-label="Gusii Daily, home">
+      <img src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Gusii Daily" width="168" height="33" />
     </a>
 
     <div class="fg-hdr-search-wrap" data-live-search>
       <form class="fg-hdr-search" action="/search/" method="get" role="search">
-        <label class="vh" for="fg-hdr-q">Search Nyamira Daily</label>
+        <label class="vh" for="fg-hdr-q">Search Gusii Daily</label>
         <Icon name="search" size={16} />
         <input id="fg-hdr-q" type="search" name="q" placeholder="Search the directory..." autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="fg-hdr-hits" />
       </form>
@@ -54,14 +54,14 @@ const sections = navSections.filter((s) => s.href && !planned.has(s.href));
   <div class="sheet-back" data-menu-close></div>
   <div class="sheet-panel fg-drawer" role="dialog" aria-modal="true" aria-label="Site menu">
     <div class="sheet-head">
-      <img src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Nyamira Daily" width="150" height="29" />
+      <img src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Gusii Daily" width="150" height="29" />
       <button class="fg-mob-icon" type="button" aria-label="Close menu" data-menu-close>
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
     <div class="sheet-body">
       <form class="fg-drawer-search" action="/search/" method="get" role="search">
-        <label class="vh" for="fg-mob-q">Search Nyamira Daily</label>
+        <label class="vh" for="fg-mob-q">Search Gusii Daily</label>
         <Icon name="search" size={16} />
         <input id="fg-mob-q" type="search" name="q" placeholder="Search wards, clinics, budgets..." />
       </form>

@@ -63,7 +63,7 @@ const cats = [['water', 'Water point'], ['health', 'Dispensary or health centre'
     (D.places[v('ward')] || []).forEach(function (n) { var o = document.createElement('option'); o.value = n; dl.appendChild(o); });
   }
   function build() {
-    var lines = [D.clinic ? 'CLINIC CHECK for Nyamira Daily' : 'IS IT WORKING? report for Nyamira Daily'];
+    var lines = [D.clinic ? 'CLINIC CHECK for Gusii Daily' : 'IS IT WORKING? report for Gusii Daily'];
     if (!D.clinic) lines.push('Category: ' + v('category'));
     lines.push('Ward: ' + (v('ward') || '?'), 'Place: ' + (v('place') || '?'));
     if (D.clinic) {

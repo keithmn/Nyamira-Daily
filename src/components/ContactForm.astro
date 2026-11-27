@@ -33,7 +33,7 @@ const live = enabled && siteKey;
     <label>Your ward (optional)
       <select class="field" name="ward"><option value="">Choose a ward</option>{wards.map((w) => <option value={w.slug}>{w.name}</option>)}</select>
     </label>
-    <label class="check"><input type="checkbox" name="consent" value="yes" required /> <span>I agree that Nyamira Daily may keep this message to read and answer it, as the <a href="/about/rules/#privacy">privacy page</a> explains.</span></label>
+    <label class="check"><input type="checkbox" name="consent" value="yes" required /> <span>I agree that Gusii Daily may keep this message to read and answer it, as the <a href="/about/rules/#privacy">privacy page</a> explains.</span></label>
     <label hidden aria-hidden="true">Leave this field empty <input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
     <div class="cf-turnstile" data-sitekey={siteKey}></div>
     <button class="btn" type="submit">Send message</button>

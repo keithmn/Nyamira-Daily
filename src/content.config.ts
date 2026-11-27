@@ -90,7 +90,7 @@ const archive = defineCollection({ loader: md('archive'), schema: z.object({
 // An entry its contributor has withdrawn is never published or exported.
 const language = defineCollection({ loader: md('language'), schema: z.object({
   term: z.string(),
-  category: z.enum(['noun', 'verb', 'adjective', 'adverb', 'pronoun', 'phrase', 'greeting', 'proverb', 'sentence', 'grammar']),
+  category: z.enum(['noun', 'verb', 'adjective', 'adverb', 'pronoun', 'phrase', 'greeting', 'proverb', 'sentence', 'grammar', 'riddle', 'praise-name', 'kinship', 'taboo', 'song-lyric']),
   nounClass: z.string().optional(),
   translationEn: z.string(),
   translationSw: z.string().optional(),
@@ -109,4 +109,176 @@ const language = defineCollection({ loader: md('language'), schema: z.object({
   sources: z.array(source).min(1), ...publication,
 }).refine((d) => d.consentPublish, { message: 'A language entry cannot be published without consentPublish: true' }) });
 
-export const collections = {numbers, explainers, factchecks, stories, people, heritage, alerts, projectlogs, archive, language };
+// ---------------------------------------------------------------------------
+// Abagusii Cultural Knowledge Base (docs/KNOWLEDGE_BASE.md)
+//
+// Every knowledge entry shares the consent model: consentPublish (required for
+// publication), consentAiTraining (opt-in for AI export), accessLevel (public,
+// archive-only, or restricted), withdrawn (removes from everything). A refine
+// enforces consentPublish for anything that builds to the site.
+// ---------------------------------------------------------------------------
+
+const knowledgeConsent = {
+  credit: z.string().default("Name withheld at the holder's request"),
+  consentPublish: z.boolean(),
+  consentAiTraining: z.boolean().default(false),
+  consentRecord: z.string().min(1),
+  accessLevel: z.enum(['public', 'archive', 'restricted']).default('public'),
+  withdrawn: z.boolean().default(false),
+  reviewedBy: z.string().min(1),
+  reviewedOn: z.coerce.date(),
+  sources: z.array(source).min(1),
+  relatedEntries: z.array(z.string()).default([]),
+  audio: z.string().optional(),
+  photos: z.array(photo).default([]),
+};
+
+const consentRefine = (d: { consentPublish: boolean }) => d.consentPublish;
+const consentMsg = { message: 'Cannot be published without consentPublish: true' };
+
+// 2.1 Ethnobotany — plants and trees with Ekegusii names, scientific names, and traditional uses
+const plants = defineCollection({ loader: md('plants'), schema: z.object({
+  nameGuz: z.string(), nameEn: z.string(), nameSw: z.string().optional(),
+  nameScientific: z.string().optional(),
+  family: z.string().optional(),
+  uses: z.array(z.object({
+    category: z.enum(['medicinal', 'food', 'construction', 'ceremony', 'dye', 'fibre', 'tool', 'shade', 'boundary', 'ornamental', 'spiritual', 'fuel', 'fodder', 'other']),
+    description: z.string(),
+    parts: z.array(z.string()).default([]),
+  })).default([]),
+  habitat: z.array(z.enum(['riverbank', 'hilltop', 'homestead', 'forest', 'cultivated', 'roadside', 'swamp', 'grassland'])).default([]),
+  season: z.string().optional(),
+  conservation: z.enum(['common', 'declining', 'rare', 'locally-extinct', 'unknown']).default('unknown'),
+  threats: z.array(z.string()).default([]),
+  botanistVerified: z.boolean().default(false),
+  ...knowledgeConsent, ...publication,
+}).refine(consentRefine, consentMsg) });
+
+// 2.2 Traditional medicine — conditions and treatments, presented as heritage not health advice
+const medicine = defineCollection({ loader: md('medicine'), schema: z.object({
+  conditionGuz: z.string(), conditionEn: z.string(), conditionSw: z.string().optional(),
+  symptoms: z.string().optional(),
+  treatments: z.array(z.object({
+    plants: z.array(z.string()),
+    preparation: z.string(),
+    administration: z.string().optional(),
+    precautions: z.string().optional(),
+  })).default([]),
+  practitionerType: z.enum(['herbalist', 'bonesetter', 'birth-attendant', 'diviner', 'elder', 'any']).optional(),
+  stillPracticed: z.boolean().default(false),
+  pharmacpiological: z.string().optional(),
+  safetyNote: z.string().default('This is a cultural record, not medical advice. Consult a qualified health professional.'),
+  ...knowledgeConsent, ...publication,
+}).refine(consentRefine, consentMsg) });
+
+// 2.3 Agriculture — heritage crop varieties, farming practices, seed preservation
+const agriculture = defineCollection({ loader: md('agriculture'), schema: z.object({
+  nameGuz: z.string(), nameEn: z.string(), nameSw: z.string().optional(),
+  nameScientific: z.string().optional(),
+  kind: z.enum(['grain', 'root', 'vegetable', 'fruit', 'legume', 'spice', 'stimulant', 'practice', 'tool']),
+  varieties: z.array(z.object({ nameGuz: z.string(), description: z.string() })).default([]),
+  growingSeason: z.string().optional(),
+  soilPreference: z.string().optional(),
+  seedSource: z.enum(['available', 'rare', 'gene-bank', 'locally-extinct', 'unknown']).default('unknown'),
+  preparation: z.string().optional(),
+  storage: z.string().optional(),
+  culturalRole: z.string().optional(),
+  ...knowledgeConsent, ...publication,
+}).refine(consentRefine, consentMsg) });
+
+// 2.4 Livestock — indigenous breeds, husbandry, veterinary folk knowledge
+const livestock = defineCollection({ loader: md('livestock'), schema: z.object({
+  nameGuz: z.string(), nameEn: z.string(), nameSw: z.string().optional(),
+  nameScientific: z.string().optional(),
+  animalType: z.enum(['cattle', 'sheep', 'goat', 'poultry', 'dog', 'bee', 'other']),
+  characteristics: z.string().optional(),
+  colourTerms: z.array(z.object({ termGuz: z.string(), description: z.string() })).default([]),
+  husbandry: z.string().optional(),
+  veterinary: z.array(z.object({ condition: z.string(), treatment: z.string(), plants: z.array(z.string()).default([]) })).default([]),
+  culturalRole: z.string().optional(),
+  conservation: z.enum(['common', 'crossbred', 'rare', 'locally-extinct', 'unknown']).default('unknown'),
+  geneticInfo: z.string().optional(),
+  ...knowledgeConsent, ...publication,
+}).refine(consentRefine, consentMsg) });
+
+// 2.5 Songs — musical heritage with full lyrics, context, and instruments
+const songs = defineCollection({ loader: md('songs'), schema: z.object({
+  title: z.string(), titleEn: z.string().optional(),
+  songType: z.enum(['work', 'ceremony', 'entertainment', 'mourning', 'lullaby', 'war', 'praise', 'satirical', 'children', 'wedding', 'harvest', 'other']),
+  lyrics: z.string(),
+  translationEn: z.string().optional(), translationSw: z.string().optional(),
+  occasion: z.string().optional(),
+  instruments: z.array(z.string()).default([]),
+  dance: z.string().optional(),
+  performers: z.string().optional(),
+  ...knowledgeConsent, ...publication,
+}).refine(consentRefine, consentMsg) });
+
+// 2.6 Traditions — ceremonies, rites, customs, and social practices
+const traditions = defineCollection({ loader: md('traditions'), schema: z.object({
+  nameGuz: z.string(), nameEn: z.string(), nameSw: z.string().optional(),
+  kind: z.enum(['rite-of-passage', 'seasonal', 'conflict-resolution', 'hospitality', 'building', 'naming', 'marriage', 'funeral', 'governance', 'taboo', 'other']),
+  description: z.string(),
+  participants: z.string().optional(),
+  timing: z.string().optional(),
+  objects: z.array(z.string()).default([]),
+  plantsUsed: z.array(z.string()).default([]),
+  songsPerformed: z.array(z.string()).default([]),
+  foodPrepared: z.array(z.string()).default([]),
+  stillPracticed: z.boolean().default(false),
+  ...knowledgeConsent, ...publication,
+}).refine(consentRefine, consentMsg) });
+
+// 2.7 Ecology — animals, birds, insects, fish with Ekegusii names and cultural significance
+const ecology = defineCollection({ loader: md('ecology'), schema: z.object({
+  nameGuz: z.string(), nameEn: z.string(), nameSw: z.string().optional(),
+  nameScientific: z.string().optional(),
+  kind: z.enum(['mammal', 'bird', 'insect', 'fish', 'reptile', 'amphibian', 'other']),
+  habitat: z.string().optional(),
+  behaviour: z.string().optional(),
+  culturalMeaning: z.string().optional(),
+  proverbs: z.array(z.string()).default([]),
+  conservation: z.enum(['common', 'declining', 'rare', 'locally-extinct', 'unknown']).default('unknown'),
+  ...knowledgeConsent, ...publication,
+}).refine(consentRefine, consentMsg) });
+
+// 2.8 Material culture — crafts, tools, architecture, instruments, clothing
+const material = defineCollection({ loader: md('material'), schema: z.object({
+  nameGuz: z.string(), nameEn: z.string(), nameSw: z.string().optional(),
+  kind: z.enum(['tool', 'pottery', 'basket', 'textile', 'instrument', 'weapon', 'architecture', 'carving', 'clothing', 'adornment', 'other']),
+  materials: z.array(z.string()).default([]),
+  maker: z.string().optional(),
+  method: z.string().optional(),
+  use: z.string().optional(),
+  stillMade: z.boolean().default(false),
+  ...knowledgeConsent, ...publication,
+}).refine(consentRefine, consentMsg) });
+
+// 2.9 Food and drink — dishes, preparations, preservation, brewing
+const food = defineCollection({ loader: md('food'), schema: z.object({
+  nameGuz: z.string(), nameEn: z.string(), nameSw: z.string().optional(),
+  kind: z.enum(['staple', 'vegetable', 'meat', 'drink', 'fermented', 'snack', 'ceremonial', 'preservation', 'other']),
+  ingredients: z.array(z.string()).default([]),
+  method: z.string().optional(),
+  occasion: z.string().optional(),
+  season: z.string().optional(),
+  nutritional: z.string().optional(),
+  ...knowledgeConsent, ...publication,
+}).refine(consentRefine, consentMsg) });
+
+// 2.10 Oral history — migration, clan history, place names, cosmology
+const oralHistory = defineCollection({ loader: md('oral-history'), schema: z.object({
+  title: z.string(), titleGuz: z.string().optional(),
+  kind: z.enum(['migration', 'clan-history', 'place-name', 'historical-event', 'origin', 'cosmology', 'belief', 'other']),
+  period: z.string().optional(),
+  place: z.string().optional(),
+  clan: z.string().optional(),
+  translationEn: z.string().optional(),
+  ...knowledgeConsent, ...publication,
+}).refine(consentRefine, consentMsg) });
+
+export const collections = {
+  numbers, explainers, factchecks, stories, people, heritage, alerts, projectlogs,
+  archive, language,
+  plants, medicine, agriculture, livestock, songs, traditions, ecology, material, food, oralHistory,
+};

@@ -1,6 +1,6 @@
-# Security audit and hardening prompt — Nyamira Daily pre-launch
+# Security audit and hardening prompt — Gusii Daily pre-launch
 
-Use this prompt with Claude Code (or any AI coding assistant with repository access) to run a systematic security review of the Nyamira Daily platform ahead of public launch. Copy the prompt below as-is.
+Use this prompt with Claude Code (or any AI coding assistant with repository access) to run a systematic security review of the Gusii Daily platform ahead of public launch. Copy the prompt below as-is.
 
 ---
 
@@ -94,7 +94,7 @@ Read `functions/` and `docs/CORRECTIONS_SERVICE.md` if they exist. Check for:
 
 - **DNSSEC:** Check whether DNSSEC is enabled on the domain.
 - **CAA records:** Check for Certificate Authority Authorization records that restrict which CAs can issue certificates for the domain.
-- **Email (SPF/DKIM/DMARC):** Even if the site does not send email, check for SPF and DMARC records that prevent spoofing of the domain in phishing attacks impersonating the site. This matters: the site publishes information about politicians and money — a spoofed email from `nyamiradaily.org` could be used to spread disinformation.
+- **Email (SPF/DKIM/DMARC):** Even if the site does not send email, check for SPF and DMARC records that prevent spoofing of the domain in phishing attacks impersonating the site. This matters: the site publishes information about politicians and money — a spoofed email from `gusiidaily.org` could be used to spread disinformation.
 - **Subdomain takeover:** Check for any dangling CNAME records pointing to deprovisioned services.
 
 #### 8. Operational security

@@ -20,5 +20,6 @@ export function grammarItems(list) {
 export const categoryLabel = {
   noun: 'Noun', verb: 'Verb', adjective: 'Adjective', adverb: 'Adverb',
   pronoun: 'Pronoun', phrase: 'Phrase', greeting: 'Greeting', proverb: 'Proverb',
-  sentence: 'Sentence', grammar: 'Grammar',
+  sentence: 'Sentence', grammar: 'Grammar', riddle: 'Riddle', 'praise-name': 'Praise name',
+  kinship: 'Kinship term', taboo: 'Taboo / euphemism', 'song-lyric': 'Song lyric',
 };

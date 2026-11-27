@@ -10,10 +10,10 @@ const rawWards = require('../data/wards.json');
 const wards = resolveWards(rawWards, facilities);
 
 test('facility API records link stable profiles and preserve explicit unknowns', () => {
-  const records = facilityApiRecords(facilities, wards, new URL('https://nyamiradaily.org/'));
+  const records = facilityApiRecords(facilities, wards, new URL('https://gusiidaily.org/'));
   assert.equal(records.length, facilities.length);
   for (const record of records) {
-    assert.equal(record.profileUrl, `https://nyamiradaily.org/place/${record.id.toLowerCase()}/`);
+    assert.equal(record.profileUrl, `https://gusiidaily.org/place/${record.id.toLowerCase()}/`);
     assert.equal(record.sourceDate, null);
     assert.equal(record.observationDate, null);
     assert.equal(record.capabilities, null);
@@ -30,7 +30,7 @@ test('facility API exposes reviewed observations and keeps older records in hist
     observation(facility, '2025-01-02', 'reported-unavailable', 'old'),
     observation(facility, '2025-04-10', 'reported-available', 'new'),
   ];
-  const record = facilityApiRecords(facilities, wards, new URL('https://nyamiradaily.org/'), observations)
+  const record = facilityApiRecords(facilities, wards, new URL('https://gusiidaily.org/'), observations)
     .find((item) => item.id === facility.id);
   assert.equal(record.capabilities[0].status, 'reported-available');
   assert.equal(record.capabilities[0].observedOn, '2025-04-10');
@@ -57,5 +57,5 @@ function observation(facility, observedOn, status, id) {
 
 test('facility API fails explicitly for missing site or ward records', () => {
   assert.throws(() => facilityApiRecords([], [], undefined), /configured site URL/);
-  assert.throws(() => facilityApiRecords([{ id: 'F-1', ward: 'missing' }], [], 'https://nyamiradaily.org'), /unknown ward/);
+  assert.throws(() => facilityApiRecords([{ id: 'F-1', ward: 'missing' }], [], 'https://gusiidaily.org'), /unknown ward/);
 });

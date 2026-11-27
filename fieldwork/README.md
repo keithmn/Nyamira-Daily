@@ -21,7 +21,7 @@ Built from the CSV sources in `fieldwork/kobo/<form>/` by `npm run fieldwork:for
 
 **Privacy.** Every form ends with a box the recorder must tick: no names, faces or phone numbers. The notes field is for the reviewer and is never published. The sync copies only the fields listed in `scripts/living/sync.mjs`; photos and notes stay in Kobo.
 
-**Who recorded it.** "Nyamira Daily field team" becomes a `visit` with the label Verified; "A resident" becomes a `resident-report` with the label Unverified.
+**Who recorded it.** "Gusii Daily field team" becomes a `visit` with the label Verified; "A resident" becomes a `resident-report` with the label Unverified.
 
 ## The Google Sheet
 

@@ -1,7 +1,7 @@
 // After a build, checks the county budget pages in dist/ (decision #105, phase C4): every department and programme
 // in the registry has its page, no internal link on a money page is broken, and no page's HTML is heavier than the
 // limit once compressed. Needs no browser, so it can run anywhere the site builds.
-//   ND_SITE_URL=https://nyamiradaily.org npm run build && npm run check:county:pages
+//   ND_SITE_URL=https://gusiidaily.org npm run build && npm run check:county:pages
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

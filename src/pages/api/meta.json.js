@@ -120,7 +120,7 @@ const datasets = [
 
 export function GET({ site }) {
   return json({
-    description: 'Data freshness metadata for all Nyamira Daily datasets. "checked" is when the site last loaded or reviewed this dataset. "sourceDate", where present, is the date of the underlying source data (which may be much older). Use this to monitor what is stale.',
+    description: 'Data freshness metadata for all Gusii Daily datasets. "checked" is when the site last loaded or reviewed this dataset. "sourceDate", where present, is the date of the underlying source data (which may be much older). Use this to monitor what is stale.',
     datasets,
   }, site);
 }

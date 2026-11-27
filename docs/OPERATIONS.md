@@ -1,6 +1,6 @@
 # Editorial operations guide
 
-How to keep Nyamira Daily alive after launch. This is the repeatable system: what to publish, how often, and the exact steps. Everything here uses tools already built into the site.
+How to keep Gusii Daily alive after launch. This is the repeatable system: what to publish, how often, and the exact steps. Everything here uses tools already built into the site.
 
 Read `AGENTS.md` first (the rules), then `EDITORIAL_RULES.md` (the standards), then come back here for the rhythm.
 

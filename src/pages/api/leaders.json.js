@@ -1,6 +1,6 @@
 // Popolo-compliant leaders endpoint.
 // Spec: https://www.popoloproject.com/specs/
-// Maps Nyamira Daily's leaders.json to Popolo persons, organizations and memberships.
+// Maps Gusii Daily's leaders.json to Popolo persons, organizations and memberships.
 import L from '../../data/leaders.json' with { type: 'json' };
 import { json } from '../../lib/api.js';
 

@@ -5,7 +5,7 @@ import { amountLabel } from './project-amounts.js';
 export function wardText(r) {
   const top = r.services.byCategory.slice(0, 3).map((c) => `${c.category} ${c.count}`).join(', ');
   const lines = [
-    `${r.name} Ward, ${r.subCounty} (Nyamira Daily)`,
+    `${r.name} Ward, ${r.subCounty} (Gusii Daily)`,
     `MCA: ${r.mca ? r.mca.name + (r.mca.party ? ' (' + r.mca.party + ')' : '') : 'not confirmed'}`,
     r.mp ? `MP: ${r.mp}` : null,
     `Services listed: ${r.services.total}${top ? ' (' + top + '), not yet checked on site' : ''}`,

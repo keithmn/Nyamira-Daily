@@ -2,7 +2,7 @@
 //
 // Every figure carries: value, unit, stage, label, source id, page/table, and (for our own arithmetic) a 'calc' note.
 // National figures are typed in from the Treasury/CRA documents listed in SOURCES; Nyamira and county figures are read
-// from the Nyamira Daily repo (src/data/*.json) so a correction there flows here on the next build.
+// from the Gusii Daily repo (src/data/*.json) so a correction there flows here on the next build.
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -204,7 +204,7 @@ export function buildData(repoData) {
       { name: 'All 47 counties’ equitable share', ...fig(415.0, B, 'summary', 'Table 2, FY2025/26: of which equitable share', { stage: 'law' }) },
       { name: 'Nyamira’s equitable share', ...fig(6.073, B, 'cra', 'Table 6.2, p.45, column FY2025/26', { stage: 'law' }) },
       { name: 'Nyamira’s whole county budget', ...fig(round(bs.countyTotal.total / 1e9, 3), B, 'nyapbb', 'Table 8 total, p.20', { stage: 'estimates', note: 'Equitable share plus conditional grants, own revenue and other sources.' }) },
-      { name: 'Ward-coded projects in 20 wards', ...fig(round(wardSum / 1e9, 4), B, 'nyapbb', 'Table 18, pp.43–50: sum of ward-coded lines', { stage: 'estimates', calc: 'Sum of ward-coded budget lines by Nyamira Daily; countywide and flagship lines are not counted.' }) },
+      { name: 'Ward-coded projects in 20 wards', ...fig(round(wardSum / 1e9, 4), B, 'nyapbb', 'Table 18, pp.43–50: sum of ward-coded lines', { stage: 'estimates', calc: 'Sum of ward-coded budget lines by Gusii Daily; countywide and flagship lines are not counted.' }) },
     ],
     wards: wardrows,
     wardSum,

@@ -1,4 +1,4 @@
-/* Nyamira Daily — global styles.
+/* Gusii Daily — global styles.
    Principles: small self-hosted font files, large tap targets, high contrast,
    works on cheap phones and slow connections. */
 
@@ -1384,7 +1384,7 @@ main .ward-figs .tile { border-top-color: var(--sec); }
 
 
 /* ===================================================================================
-   NYAMIRA DAILY — CIVIC FIELD GUIDE DESIGN SYSTEM (branch design/field-guide)
+   GUSII DAILY — CIVIC FIELD GUIDE DESIGN SYSTEM (branch design/field-guide)
    Information presentation inspired by civictech.guide, built strictly with Nyamira
    Daily's original :root colour tokens (Signal Green #00D46A, Deep Green #006B35,
    Soft Green #E6FAF0, Charcoal ramp, Paper #F7F7F5, White #FFFFFF), zero raw colour
@@ -1402,7 +1402,7 @@ main .ward-figs .tile { border-top-color: var(--sec); }
   --max: 1180px;
   /* Rich dark forest-green derived purely from existing tokens for AAA text over mint washes */
   --fg-accent-ink: color-mix(in srgb, var(--nd-green-deep) 82%, var(--ch-900));
-  /* Luminous soft-mint washes inspired by civictech.guide, composed 100% from Nyamira Daily greens */
+  /* Luminous soft-mint washes inspired by civictech.guide, composed 100% from Gusii Daily greens */
   --fg-mint-strong: color-mix(in srgb, var(--nd-green) 36%, var(--nd-white));
   --fg-mint-mid: color-mix(in srgb, var(--nd-green) 20%, var(--nd-white));
   --fg-mint-footer: color-mix(in srgb, var(--nd-green) 22%, var(--nd-green-soft));
@@ -1574,7 +1574,7 @@ main h2 {
   flex: none;
 }
 
-/* Signature offset-shadow pill buttons (civictech.guide style in Nyamira Daily Signal Green + Charcoal) */
+/* Signature offset-shadow pill buttons (civictech.guide style in Gusii Daily Signal Green + Charcoal) */
 .fg-cta-btn,
 .fg-outline-btn,
 main .btn {

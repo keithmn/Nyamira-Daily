@@ -38,8 +38,8 @@ const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/search';
 
 const contactEmail = process.env.ND_CONTACT_EMAIL || '';
 const userAgent = contactEmail
-  ? `NyamiraDailyMapping/1.0 (${contactEmail})`
-  : 'NyamiraDailyMapping/1.0 (civic data project)';
+  ? `GusiiDailyMapping/1.0 (${contactEmail})`
+  : 'GusiiDailyMapping/1.0 (civic data project)';
 
 // Nyamira County bounding box (approximate)
 const NYAMIRA_BBOX = {

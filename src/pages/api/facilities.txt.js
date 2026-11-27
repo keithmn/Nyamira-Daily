@@ -8,7 +8,7 @@ export function GET() {
   for (const f of all) byCat[f.category] = (byCat[f.category] ?? 0) + 1;
   const cats = Object.entries(byCat).sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c}: ${n}`);
   const lines = [
-    `Nyamira County Facilities (Nyamira Daily)`,
+    `Nyamira County Facilities (Gusii Daily)`,
     ``,
     `Total listed: ${all.length} across ${wards.length} wards`,
     ...cats,
@@ -16,7 +16,7 @@ export function GET() {
     `Choose a ward for details:`,
     ...wards.map((w) => `${w.name}: ${w.facilities.length} facilities`),
     ``,
-    `More: https://nyamiradaily.org/map/`,
+    `More: https://gusiidaily.org/map/`,
   ];
   return text(lines.join('\n').slice(0, 900));
 }

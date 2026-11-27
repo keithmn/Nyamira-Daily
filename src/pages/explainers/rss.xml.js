@@ -7,7 +7,7 @@ export async function GET({ site }) {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Nyamira Daily Explainers</title>
+    <title>Gusii Daily Explainers</title>
     <link>${base}/watch/</link>
     <description>Plain-language explainers about Nyamira County's budget, spending, health and education figures.</description>
     <language>en</language>

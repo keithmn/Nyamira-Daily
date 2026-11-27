@@ -1,6 +1,14 @@
-# Status and handover (26 Nov 2026)
+# Status and handover (27 Nov 2026)
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md`, then this page, then `docs/DECISIONS.md`. Older handover notes, with the history of each feature, are in `docs/STATUS_ARCHIVE.md`.
+
+## Changes on 27 Nov 2026 (rebrand to Gusii Daily, phases 1 and 2)
+
+- **Rebrand (phase 1):** "Nyamira Daily" is now "Gusii Daily" across code, docs, tests and Kobo form titles; `nyamiradaily.org` is now `gusiidaily.org`; `package.json` name is `gusii-daily`. "Nyamira" stays wherever it means the county. Reason: the language and cultural work covers the Abagusii across Nyamira and Kisii counties.
+- **Lead with Gusii (phase 2):** `src/nav.js` now runs Gusii (at `/community/`), Places, Money, Stories, About. The home hero, directory, Get Involved band, footer, `/community/` and `/about/` lead with the Ekegusii language dataset and the knowledge base; civic data follows. No URLs changed.
+- **Checks:** `ND_SITE_URL=https://gusiidaily.org npm run build` passes (871 pages); Playwright at 390×844 and 1280×900 on `/`, `/community/`, `/about/`: no sideways scroll, no script errors.
+- **Still to do:** new logo files in `public/brand/` (the header still shows the Nyamira Daily wordmark; never retype it, so it waits for the design); register `gusiidaily.org`; redeploy the five Kobo forms so the new titles reach KoboToolbox; add a decision to `docs/DECISIONS.md` for the rebrand; phase 3 (county field on civic records, `/nyamira/` and `/kisii/` addresses with redirects); phase 4 (Kisii County data).
+- **Check before reuse:** the Ekegusii speaker figure in `src/data/language-meta.json` ("about 2.2 million, 2019 census, Kisii and Nyamira combined") does not match the two counties' 2019 populations added together (about 1.87 million). Find its real source before it goes anywhere new.
 
 ## Where things stand
 
@@ -58,6 +66,15 @@ Built a four-script geographic data pipeline in `scripts/geo/` to systematically
 - **`geo:reconcile-roads`** — cross-references 90 budget roads against 122 OSM roads. Found 8 fuzzy matches; the two layers are mostly complementary. Output: `data-src/road-review.json`.
 
 **Data source availability (26 Nov 2026):** energydata.info (403), opendata.go.ke (404), HDX (403), KMHFL API (connection refused). All need manual browser download or retry later. The Google Places API is the fastest path to coordinates — it needs an API key from Google Cloud Console.
+
+**Free geocoding exhausted (27 Nov 2026):** Nominatim, Photon, GeoNames and healthsites.io all returned near-zero results for Nyamira's small facilities. OSM simply doesn't have rural dispensaries, primary schools and markets mapped. The practical paths: (1) community mapping with KoboToolbox (see `docs/COMMUNITY_MAPPING.md`), (2) Google Places API ($17 for all 178), (3) wait for KMHFL API to come back online.
+
+**Community mapping tools (27 Nov 2026):**
+- **`geo:mapping-kit`** — generates a printable HTML page per ward listing every facility that needs coordinates, with a checklist, instructions and Google Maps links. Run `--ward manga` for one ward. Output: `data-src/mapping-kits/`.
+- **`geo:export-osm`** — exports verified facilities to OSM XML for JOSM upload, so our data goes back to OpenStreetMap. Run `--dry-run` to preview.
+- **`geo:nominatim`** — free OSM geocoder (0% hit rate on Nyamira facilities, documented).
+- **`geo:lookup-links`** — interactive browser page for manual Google Maps coordinate lookup.
+- Full initiative plan in `docs/COMMUNITY_MAPPING.md`. Full open-source tools assessment in `docs/INTEGRATIONS.md`.
 
 ### Still needs a person
 - Open the Gazette Notice 9956 PDF and check each 2022 MCA name character-by-character.
@@ -211,7 +228,7 @@ Searched official IEBC and court records for the five MCA entries that need prim
 
 ## Changes on 18 Nov 2026
 
-- **Civic Field Guide redesign** on branch `maltilda` (from `b7ec83b`), for review. Reimagines information presentation across the entire site with visual structure inspired by `civictech.guide`, while strictly preserving Nyamira Daily's original `:root` colour tokens (Signal Green, deep green, soft mint, charcoal, paper, white; zero raw colour literals outside `:root`; no red; no dark mode), self-hosted fonts (`Varela Round` + `League Spartan` 500/700), active `Nyamira-Daily_*` logos, canonical 5 sections, and every real dataset, source citation and evidence label.
+- **Civic Field Guide redesign** on branch `maltilda` (from `b7ec83b`), for review. Reimagines information presentation across the entire site with visual structure inspired by `civictech.guide`, while strictly preserving Gusii Daily's original `:root` colour tokens (Signal Green, deep green, soft mint, charcoal, paper, white; zero raw colour literals outside `:root`; no red; no dark mode), self-hosted fonts (`Varela Round` + `League Spartan` 500/700), active `Nyamira-Daily_*` logos, canonical 5 sections, and every real dataset, source citation and evidence label.
   - Global shell (`Base`, `SiteHeader`, `SiteFooter`, `SectionNav`, `PageHead`): search-first white topbar with tracked uppercase section links and offset-shadow Signal Green `Report a place` button; horizontal section pill-tab bar replacing the left sidebar; full-bleed soft-mint topographic page heroes; dashed/solid charcoal card frames with crisp offset shadows; and a soft-mint directory footer with dashed dividers, inline search bar, social links, 4 columns and CC BY 4.0 licence block.
   - Front page (`HeroMap`, `src/pages/index.astro`): soft-mint topographic hero with 2×2 headline figure grid, graphic interactive 20-ward map, and overlapping white ward-picker card; 3-column curated `↗` pill directory (*The Places*, *The Books*, *Community & Stories*) + knowledgebase search and 20-ward jumper; 4-card illustrated record preview band (county spending, every KSh 100, separated county vs national/NG-CDF contracts, and ground facility checks); overlapping dashed-border stories/videos/labels sheet; split ticket-stub PFM Act budget calendar; and 3 colour-blocked *Get Involved* cards (charcoal, white, Signal Green).
   - Section & inner pages (`map/index`, `money/contracts/index`, `community/index`, `community/language/index`, `CommunityRules`, `watch/index`, `about/index`, and unified styling for charts, tables, toggles, rows and tiles across all remaining templates).
@@ -240,7 +257,7 @@ Searched official IEBC and court records for the five MCA entries that need prim
 
 - **Navigation option B and the footer** on branch `feat/nav-switcher` (from `9a99de8`), not pushed. Decisions #119 and #120.
   - The secondary tab bar is replaced by a section switcher and, from 1,180 px, a side list of the section's pages in groups (`src/components/SectionNav.astro`, groups in `src/nav.js`). The Map section keeps full width (switcher only). Administration leaves the main menu; its two pages sit under About, in a Reference group.
-  - Footer: social icons (none set yet in `src/config.js`) and "© year Nyamira Daily" only.
+  - Footer: social icons (none set yet in `src/config.js`) and "© year Gusii Daily" only.
   - Checked: the build, `npm test` (330 pass); Money, Map, Watch and Who holds each seat at 1280 and 1500 px, and Money at 390 px with the switcher open: no sideways scroll, no script errors.
   - Next: set the social account links; the home page as a summary and the stories collection (design boards on the canvas).
 
@@ -415,7 +432,7 @@ Committed as `b2cb102` on `feat/trust-and-launch-prep` and merged to `main` in P
 
 ## Before launch (needs a person)
 
-1. Set `ND_SITE_URL=https://nyamiradaily.org` in the production build environment and verify hosting and DNS. Configure `contact`, `reportFormUrl`, `adoptSignupUrl` and `show.liveUrl` in `src/config.js` only when real, monitored destinations exist; the trust pages pick up the contact automatically.
+1. Set `ND_SITE_URL=https://gusiidaily.org` in the production build environment and verify hosting and DNS. Configure `contact`, `reportFormUrl`, `adoptSignupUrl` and `show.liveUrl` in `src/config.js` only when real, monitored destinations exist; the trust pages pick up the contact automatically.
 2. Delete the EXAMPLE drafts in `src/content/` (alerts, episodes, fact-check, heritage, knowledge, news, people, project log, story).
 3. Native-speaker review of every Kiswahili summary (new ones are marked in the page source); confirm emergency numbers before any alert goes live.
 4. Agree who posts and verifies alerts (`docs/EDITORIAL_RULES.md` section 11).

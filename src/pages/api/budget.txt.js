@@ -7,7 +7,7 @@ export function GET() {
   const y = money.years[money.years.length - 1];
   const prev = money.years.length > 1 ? money.years[money.years.length - 2] : null;
   const lines = [
-    `Nyamira County Budget (Nyamira Daily)`,
+    `Nyamira County Budget (Gusii Daily)`,
     ``,
     `${y.fy}:`,
     `Budget: ${ksh(y.budget * 1e6)}`,
@@ -19,7 +19,7 @@ export function GET() {
     prev ? `${prev.fy}: Budget ${ksh(prev.budget * 1e6)}, Spent ${ksh(prev.spent * 1e6)}` : null,
     ``,
     `Source: Controller of Budget`,
-    `More: https://nyamiradaily.org/money/`,
+    `More: https://gusiidaily.org/money/`,
   ].filter((l) => l != null);
   return text(lines.join('\n').slice(0, 900));
 }

@@ -70,18 +70,18 @@ test('rejected reports require an internal review note and export no public clai
 });
 
 test('same-origin checking rejects missing or cross-origin browser requests', () => {
-  const makeRequest = (origin) => new Request('https://nyamiradaily.org/api/corrections', {
+  const makeRequest = (origin) => new Request('https://gusiidaily.org/api/corrections', {
     method: 'POST',
     headers: origin ? { origin } : {},
   });
-  assert.equal(sameOrigin(makeRequest('https://nyamiradaily.org'), 'https://nyamiradaily.org'), true);
-  assert.equal(sameOrigin(makeRequest('https://attacker.example'), 'https://nyamiradaily.org'), false);
-  assert.equal(sameOrigin(makeRequest(null), 'https://nyamiradaily.org'), false);
+  assert.equal(sameOrigin(makeRequest('https://gusiidaily.org'), 'https://gusiidaily.org'), true);
+  assert.equal(sameOrigin(makeRequest('https://attacker.example'), 'https://gusiidaily.org'), false);
+  assert.equal(sameOrigin(makeRequest(null), 'https://gusiidaily.org'), false);
 });
 
 test('disabled public intake fails closed instead of returning a success-shaped response', async () => {
   const response = await onRequestPost({
-    request: new Request('https://nyamiradaily.org/api/corrections', { method: 'POST' }),
+    request: new Request('https://gusiidaily.org/api/corrections', { method: 'POST' }),
     env: { CORRECTION_INTAKE_ENABLED: 'false' },
   });
   assert.equal(response.status, 503);
@@ -90,7 +90,7 @@ test('disabled public intake fails closed instead of returning a success-shaped 
 
 test('review API denies unauthenticated requests before querying the database', async () => {
   const response = await onRequestGet({
-    request: new Request('https://nyamiradaily.org/api/review'),
+    request: new Request('https://gusiidaily.org/api/review'),
     env: {
       DB: {},
       CORRECTION_RETENTION_DAYS: '30',
@@ -144,7 +144,7 @@ test('reviewer authorization verifies the Cloudflare Access JWT signature and al
     keys: [{ ...jwk, kid: 'test-key', use: 'sig' }],
   });
   try {
-    const request = new Request('https://nyamiradaily.org/api/review', {
+    const request = new Request('https://gusiidaily.org/api/review', {
       headers: { 'cf-access-jwt-assertion': token },
     });
     const env = {
@@ -227,7 +227,7 @@ test('correction form parsing accepts bounded URL-encoded fields without a conte
     page: '/how-we-work/#corrections',
     details: 'The cited source may be out of date.',
   });
-  const request = new Request('https://nyamiradaily.org/api/corrections', {
+  const request = new Request('https://gusiidaily.org/api/corrections', {
     method: 'POST',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body,
@@ -239,7 +239,7 @@ test('correction form parsing accepts bounded URL-encoded fields without a conte
 
 test('correction intake checks request origin before reaching the database', async () => {
   const response = await onRequestPost({
-    request: new Request('https://nyamiradaily.org/api/corrections', {
+    request: new Request('https://gusiidaily.org/api/corrections', {
       method: 'POST',
       headers: { origin: 'https://attacker.example' },
     }),
@@ -248,8 +248,8 @@ test('correction intake checks request origin before reaching the database', asy
       DB: {},
       TURNSTILE_SECRET_KEY: 'test-secret',
       CORRECTION_RATE_SALT: 'x'.repeat(32),
-      CORRECTION_SITE_ORIGIN: 'https://nyamiradaily.org',
-      CORRECTION_SITE_HOST: 'nyamiradaily.org',
+      CORRECTION_SITE_ORIGIN: 'https://gusiidaily.org',
+      CORRECTION_SITE_HOST: 'gusiidaily.org',
       CORRECTION_RETENTION_DAYS: '30',
     },
   });
@@ -286,23 +286,23 @@ test('valid correction submissions are stored atomically as pending reports', as
   form.set('details', 'The source date on this page may be wrong.');
   form.set('source', 'https://example.org/report.pdf');
   form.set('cf-turnstile-response', 'test-token');
-  const request = new Request('https://nyamiradaily.org/api/corrections', {
+  const request = new Request('https://gusiidaily.org/api/corrections', {
     method: 'POST',
     headers: {
-      origin: 'https://nyamiradaily.org',
+      origin: 'https://gusiidaily.org',
       'cf-connecting-ip': '203.0.113.25',
     },
     body: form,
   });
   const originalFetch = globalThis.fetch;
-  globalThis.fetch = async () => Response.json({ success: true, hostname: 'nyamiradaily.org' });
+  globalThis.fetch = async () => Response.json({ success: true, hostname: 'gusiidaily.org' });
   try {
     const response = await onRequestPost({
       request,
       env: {
         CORRECTION_INTAKE_ENABLED: 'true',
-        CORRECTION_SITE_ORIGIN: 'https://nyamiradaily.org',
-        CORRECTION_SITE_HOST: 'nyamiradaily.org',
+        CORRECTION_SITE_ORIGIN: 'https://gusiidaily.org',
+        CORRECTION_SITE_HOST: 'gusiidaily.org',
         CORRECTION_RETENTION_DAYS: '30',
         CORRECTION_RATE_SALT: 's'.repeat(32),
         TURNSTILE_SECRET_KEY: 'test-secret',
