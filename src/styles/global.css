@@ -3199,3 +3199,15 @@ section.figure {
     transition: none;
   }
 }
+
+/* Canva design layer (from the approved data-first direction, 2026-11-27).
+   Additive: sits after the Field Guide styles and only changes what it names. */
+:root {
+  --series-1: var(--nd-green); --series-2: var(--nd-brown);
+  --shadow-1: 0 1px 2px rgb(17 17 17 / 0.06), 0 10px 28px -12px rgb(17 17 17 / 0.16);
+  --shadow-2: 0 1px 2px rgb(17 17 17 / 0.06), 0 18px 40px -14px rgb(17 17 17 / 0.24);
+}
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; }
+.figure .num { font-family: var(--title-font); font-weight: 600; }
+.card, .fig-tile { border-radius: 20px; box-shadow: var(--shadow-1); }
+.card:hover, .fig-tile:hover { box-shadow: var(--shadow-2); }
