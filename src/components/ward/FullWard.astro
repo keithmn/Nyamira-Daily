@@ -72,7 +72,7 @@ const constSlug = w.subCounty.toLowerCase().split(' ').join('-');
       <div class="stack">
         <div class="tiles ward-figs">
           <a class="tile" href="#services"><b>{w.facilities.length}</b><span>services listed</span><span class="label unverified">Mostly unverified</span></a>
-          <a class="tile" href="#projects"><b>{b2526 != null ? amountLabel(b2526) : 'Not found'}</b><span>ward projects budgeted, 2025/26</span><span class="label official">Official claim</span></a>
+          <a class="tile is-statement" href="#projects"><b>{b2526 != null ? amountLabel(b2526) : 'Not found'}</b><span>ward projects budgeted, 2025/26</span><span class="label official">Official claim</span></a>
           <a class="tile tile-text" href={`/administration/#ward-${w.slug}`}><b>{mca ? mca.name : 'Not confirmed'}</b><span>MCA for {w.name}</span></a>
         </div>
         <p class="source">Sources: MCA from IEBC 2022 results and later by-elections; ward budget from the county's Programme Based Budget 2025/26 (Table 18); services from the Gusii Daily list, mostly not yet checked on site.</p>
@@ -90,6 +90,19 @@ const constSlug = w.subCounty.toLowerCase().split(' ').join('-');
         <WardMap mode="ward" slug={w.slug} />
       </section>
     </div>
+
+    <section class="gd-rules gd-ward-six" aria-labelledby="glance-h">
+      <h3 id="glance-h">{w.name} at a glance</h3>
+      <ol class="gd-six">
+        <li><span class="gd-label"><b>01</b>Services</span><strong class="gd-six-num">{w.facilities.length}</strong><p>Public places listed in the ward. Mostly not yet checked on site.</p></li>
+        <li><span class="gd-label"><b>02</b>Health</span><strong class="gd-six-num">{byCat.Health?.length ?? 0}</strong><p>Health facilities on our list for {w.name}.</p></li>
+        <li><span class="gd-label"><b>03</b>Schools</span><strong class="gd-six-num">{byCat.Education?.length ?? 0}</strong><p>Schools on our list for {w.name}.</p></li>
+        <li><span class="gd-label"><b>04</b>Markets</span><strong class="gd-six-num">{byCat.Market?.length ?? 0}</strong><p>Markets on our list for {w.name}.</p></li>
+        <li><span class="gd-label"><b>05</b>Water</span><strong class="gd-six-num">{byCat.Water?.length ?? 0}</strong><p>Water points on our list for {w.name}.</p></li>
+        <li class="is-statement"><span class="gd-label"><b>06</b>Budget 2025/26</span><strong class="gd-six-num">{b2526 != null ? amountLabel(b2526) : 'Not found'}</strong><p>Ward projects in the county's Programme Based Budget 2025/26 (Table 18).</p></li>
+      </ol>
+      <p class="source gd-six-src">Counts 01 to 05: the Gusii Daily list of public places, mostly unverified. 06: official claim, from the county budget.</p>
+    </section>
 
     <div class="sw" lang="sw">
       <span class="eyebrow">Muhtasari kwa Kiswahili</span>
