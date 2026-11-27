@@ -1,22 +1,22 @@
-/* Nyamira Daily — global styles.
+/* Gusii Daily — global styles.
    Principles: small self-hosted font files, large tap targets, high contrast,
    works on cheap phones and slow connections. */
 
-/* League Spartan (SIL OFL), subset to Latin, for text, labels, buttons and bold figures.
-   Varela Round is a Latin-subset title font; its OFL license is beside the font file. */
+/* Inter (SIL OFL), Latin subset, for text, labels and buttons; Poppins SemiBold (SIL OFL), Latin subset, for titles
+   and big figures (decision #129, replacing #46). About 45 KB in all. */
 @font-face {
-  font-family: "League Spartan"; font-style: normal; font-weight: 500; font-display: swap;
-  src: url("/brand/fonts/LeagueSpartan-Medium.woff2") format("woff2");
+  font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("/brand/fonts/Inter-Medium-Latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: "League Spartan"; font-style: normal; font-weight: 700; font-display: swap;
-  src: url("/brand/fonts/LeagueSpartan-Bold.woff2") format("woff2");
+  font-family: "Inter"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("/brand/fonts/Inter-Bold-Latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: "Varela Round"; font-style: normal; font-weight: 400; font-display: swap;
-  src: url("/brand/fonts/VarelaRound-Latin.woff2") format("woff2");
+  font-family: "Poppins"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("/brand/fonts/Poppins-SemiBold-Latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -26,9 +26,10 @@
      Green is for fills, marks, bars and underlines, never text on white or paper (2.0:1): text is charcoal.
      Charcoal on green is 7:1; white on charcoal is 14:1. */
   --nd-green: #1FD07A;       /* Signal Green */
+  --nd-brown: #B07B47;       /* Seed Brown (decision #129): the seed only, small marks; 3.4:1 on white, never text */
   --nd-green-deep: #1C5E3C;  /* green where it must read on white (8:1), and green steps on maps */
   --nd-green-soft: #E2F8EC;  /* green tint: "your ward" highlights, the Kiswahili box */
-  --nd-charcoal: #2A2A28;    /* charcoal: text, the map, buttons on green */
+  --nd-charcoal: #111111;    /* Ink (design direction 2026-11, was #2A2A28): text, the map, buttons on green */
   --ch-900: #1E1E1C;         /* deep charcoal: the map panel, bands, the footer */
   --ch-700: #3A3A37;         /* lines and edges on charcoal */
   --ch-600: #595957;         /* quiet text on white (6.9:1) */
@@ -71,12 +72,15 @@
   --map-1: var(--ch-100); --map-2: var(--ch-200); --map-3: var(--ch-100); --map-4: var(--ch-200);
   --pt-school: var(--nd-charcoal); --pt-health: var(--nd-green-deep); --pt-worship: var(--ch-500); --pt-market: var(--ch-600); --pt-place: var(--ch-300);
 
-  --series-1: var(--nd-charcoal); --series-2: var(--nd-green);
+  --series-1: var(--nd-green); --series-2: var(--nd-brown); /* approved chart pair: green + seed brown (passes colour-blind check) */
 
-  --radius: 12px;
+  --radius: 16px;
+  --radius-card: 20px;
+  --shadow-1: 0 1px 2px rgb(17 17 17 / 0.06), 0 10px 28px -12px rgb(17 17 17 / 0.16);
+  --shadow-2: 0 1px 2px rgb(17 17 17 / 0.06), 0 18px 40px -14px rgb(17 17 17 / 0.24);
   --max: 1120px;
-  --font: "League Spartan", "Futura", "Century Gothic", system-ui, sans-serif;
-  --title-font: "Varela Round", var(--font);
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --title-font: "Poppins", var(--font);
   --measure: 36em; /* about 70 characters of League Spartan per line */
 }
 
@@ -104,7 +108,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 }
 ::selection { background: var(--brand); color: var(--brand-ink); }
 img { max-width: 100%; height: auto; }
-h1, h2, h3 { font-family: var(--title-font); font-weight: 400; line-height: 1.1; margin: 0; }
+h1, h2, h3 { font-family: var(--title-font); font-weight: 600; line-height: 1.1; margin: 0; }
 h1 { font-size: clamp(21px, 3vw, 24px); letter-spacing: -0.01em; }
 h2 { font-size: clamp(18px, 2.5vw, 20px); }
 h3 { font-size: 17px; }
@@ -336,6 +340,7 @@ input.field { width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; 
 /* One number, then the detail: big figure, a meter for scale, the label right under it */
 .figure { display: flex; flex-direction: column; gap: 10px; }
 .figure .num { font-size: clamp(28px, 5.6vw, 42px); font-weight: 700; line-height: 1; letter-spacing: -0.01em; }
+.figure .num { font-family: var(--title-font); font-weight: 600; }
 .figure .say { font-size: 17px; max-width: 32em; }
 
 .meter { height: 12px; border-radius: 999px; background: var(--meter-track); overflow: hidden; }
@@ -938,9 +943,9 @@ main .receipt h2 { text-decoration: none; }
 .hdr { display: flex; align-items: center; gap: 12px; min-height: var(--hdr-h); }
 .brand { display: inline-flex; align-items: center; flex: none; text-decoration: none; color: var(--ink); }
 .brand img { display: block; height: auto; }
-.logo-h img { width: 160px; } /* the guidelines' minimum width for the horizontal logo */
+.logo-h img { width: auto; height: 40px; } /* icon + wordmark lockup (decision #129) */
 .logo-s { display: none; }
-.logo-s img { width: 28px; }
+.logo-s img { width: 34px; }
 @media (max-width: 374.98px) { .logo-h { display: none; } .logo-s { display: block; } } /* the symbol alone, so the ward still fits */
 .hdr-tools { display: flex; align-items: center; gap: 8px; flex: 1 1 auto; justify-content: flex-end; min-width: 0; }
 .hdr .icon-btn { width: 42px; height: 42px; background: var(--glass-low); border-color: var(--glass-edge); box-shadow: inset 0 1px 0 var(--sheen); }
@@ -1421,3 +1426,90 @@ main details.tk-year > summary { font-family: var(--title-font); font-weight: 40
 .hundred .h-bar i { display: block; height: 100%; background: var(--nd-green); border-radius: 5px; }
 .hundred b { text-align: right; white-space: nowrap; }
 @media (max-width: 760px) { .home-two { grid-template-columns: 1fr; } }
+
+
+/* ==========================================================================
+   Gusii Daily design layer (data-first direction, approved 2026-11-27)
+   Additive: it restyles the existing classes and markup, it does not replace them.
+   Pages sit on Paper; content sits on white elevated cards. Poster-size headings.
+   Signal Green leads, Seed Brown is the seed mark and the second chart series.
+   ========================================================================== */
+
+body { background: var(--nd-paper); }
+
+/* Type: poster headings, figures in Poppins */
+h1 { font-size: clamp(30px, 5vw, 44px); letter-spacing: -0.02em; line-height: 1.05; }
+h2 { font-size: clamp(22px, 3vw, 28px); letter-spacing: -0.01em; }
+h3 { font-size: clamp(18px, 2.2vw, 20px); }
+.num:not(td):not(th), .card .big, .tile .big { font-family: var(--title-font); font-weight: 600; letter-spacing: -0.01em; }
+.figure .num.is-lead { font-size: clamp(40px, 7vw, 64px); }
+
+/* The seed: section labels carry a brown seed dot, like the logo */
+.eyebrow::before { width: 0.62em; height: 0.62em; border-radius: 50%; background: var(--nd-brown); }
+
+/* Elevated white cards */
+.card, .tile, .table-box, .panel, .fig-tile, .two-figures > .figure, .money-cards a, .band .rows {
+  background: var(--nd-white); border: 1px solid var(--line); border-radius: var(--radius-card); box-shadow: var(--shadow-1);
+}
+.card, .tile, .panel { padding: clamp(18px, 3vw, 24px); }
+.two-figures > .figure { padding: clamp(20px, 3vw, 28px); }
+a.card:hover, .card:has(> a:only-child):hover, .money-cards a:hover, .fig-tile:hover, .tile:hover { box-shadow: var(--shadow-2); border-color: var(--nd-green); }
+.money-cards a { padding: 18px 20px; transition: box-shadow .15s ease, border-color .15s ease; }
+.money-cards b { font-family: var(--title-font); font-weight: 600; font-size: 18px; }
+.card.mine { border-color: var(--nd-green); box-shadow: inset 0 0 0 1px var(--nd-green), var(--shadow-1); }
+
+/* Panels on ink and the section band keep their own colour */
+.panel.on-ink, .on-ink .panel { background: var(--ch-900); border-color: var(--ch-700); }
+.panel.sec-harvest { background: var(--nd-green); border-color: var(--nd-green); }
+.band { background: var(--nd-green-soft); border-radius: var(--radius-card); }
+
+/* Callouts: white card with a green edge */
+.callout { background: var(--nd-white); border: 1px solid var(--line); border-left: 6px solid var(--nd-green); border-radius: var(--radius); box-shadow: var(--shadow-1); }
+.callout.gap { border-left-color: var(--nd-brown); }
+
+/* Buttons: green pill, ink outline pill */
+.btn, .pill-btn { transition: box-shadow .15s ease, transform .15s ease; }
+.btn:hover, .pill-btn:hover { box-shadow: var(--shadow-1); transform: translateY(-1px); }
+
+/* Meters and progress: green fill on a quiet track */
+.meter { background: var(--ch-100); }
+.meter > i { background: var(--nd-green); }
+
+/* Budget stages: done steps get a green rule */
+.stage-strip .st-done { border-top-color: var(--nd-green); }
+
+/* Tables: quiet header, clear rows */
+.table-box { padding: 4px 16px; overflow-x: auto; }
+.table-box table th { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+
+/* Chips and labels sit on white */
+.chip { background: var(--nd-white); }
+
+/* Kiswahili / your-ward soft boxes stay green tint */
+.card.soft, .soft { background: var(--nd-green-soft); }
+
+/* Design layer, charts and lists: the lead series is Signal Green, the second is Seed Brown; labels stay ink */
+.kc .kc-pt.t-main, .kc .kc-c.on.t-main { fill: var(--nd-green); }
+.kc .kc-ln.t-main { stroke: var(--nd-green); stroke-width: 3; }
+.ks-track i { background: var(--nd-green); }
+.sb-mid, .sb-k-mid i { background: var(--nd-brown); }
+
+/* Home "at a glance": three elevated cards instead of ruled columns */
+.front { border-top: 0; gap: 16px; }
+.front .front-door, .front .front-door:first-child, .front .front-door:last-child {
+  padding: 22px; background: var(--nd-white); border: 1px solid var(--line); border-radius: var(--radius-card); box-shadow: var(--shadow-1);
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+.front .front-door:hover { box-shadow: var(--shadow-2); border-color: var(--nd-green); }
+.front-door .num { font-family: var(--title-font); font-weight: 600; }
+@media (max-width: 720px) { .front { grid-template-columns: 1fr; } }
+
+/* Row lists (About, Community, ward sections): one white card holding the rows */
+.rows { background: var(--nd-white); border: 1px solid var(--line); border-radius: var(--radius-card); box-shadow: var(--shadow-1); overflow: hidden; padding: 0; }
+.rows a.row-link { padding-left: 18px; padding-right: 18px; }
+.rows li + li { border-top: 1px solid var(--line); }
+
+/* Design layer, chart frames: every chart sits on an elevated white card; the short rule above the title becomes a brown seed bar */
+.cf { background: var(--nd-white); border: 1px solid var(--line); border-radius: var(--radius-card); box-shadow: var(--shadow-1); padding: clamp(18px, 3vw, 26px); }
+.cf::before { background: var(--nd-brown); border-radius: 999px; width: 32px; }
+.cf-title { font-family: var(--title-font); font-weight: 600; }

@@ -8,6 +8,7 @@
 // (after the numbers), help us check, and three ways in for a new reader.
 import Base from '../layouts/Base.astro';
 import HeroMap from '../components/HeroMap.astro';
+import HomeFigures from '../components/HomeFigures.astro';
 import EvidenceLabel from '../components/EvidenceLabel.astro';
 import { getNumbers } from '../lib/numbers.js';
 import { entries } from '../lib/content.js';
@@ -68,6 +69,7 @@ const wardCards = wards.map((w) => ({
   </Fragment>
 
   <div class="stack-lg home" style="padding-top:40px">
+    <HomeFigures />
     <section class="home-ward panel" aria-labelledby="yourward">
       <div class="stack" data-ward-only="">
         <h2 id="yourward">Your ward</h2>

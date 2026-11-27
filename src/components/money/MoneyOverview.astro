@@ -3,6 +3,7 @@
 // pages one tap deeper. The twelve-year charts moved to /money/history/.
 import EvidenceLabel from '../EvidenceLabel.astro';
 import StageStrip from './StageStrip.astro';
+import BudgetBars from './BudgetBars.astro';
 import { ksh } from '../../lib/fmt.js';
 import { budgetYear, departments, track, yearPath, pct, FY } from '../../lib/county-budget.js';
 import { shortTitle } from '../../lib/county-registry.js';
@@ -37,6 +38,7 @@ const cards = [
       <p class="source"><EvidenceLabel kind={t.county.spent.label} /> Sources: <a href={t.county.spent.doc.url} rel="noopener">county Q4 report</a>, {t.county.spent.page}; <a href={t.cob.spent.doc.url} rel="noopener">Controller of Budget</a>, {t.cob.spent.page}.</p>
     </div>
   </section>
+  <BudgetBars />
   <p class="callout"><span><strong>Two totals for one year.</strong> The county and the Controller of Budget give different spending totals, and we show both. Why do they differ by {ksh(t.county.spent.value - t.cob.spent.value * 1e6)}? That is a question for the county.</span></p>
 
   <section aria-labelledby="money-pages">
