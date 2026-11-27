@@ -39,6 +39,9 @@ const sections = navSections.filter((s) => s.href && !planned.has(s.href));
     </nav>
 
     <div class="fg-hdr-cta">
+      <button class="fg-theme-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch between light and dark">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
       <a class="fg-cta-btn" href="/report/">Report a place</a>
       <a class="fg-mob-icon" href="/search/" aria-label="Search">
         <Icon name="search" size={20} />
@@ -55,6 +58,9 @@ const sections = navSections.filter((s) => s.href && !planned.has(s.href));
   <div class="sheet-panel fg-drawer" role="dialog" aria-modal="true" aria-label="Site menu">
     <div class="sheet-head">
       <img src="/brand/Gusii-Daily_horizontal_full-colour.svg" alt="Gusii Daily" width="117" height="36" />
+      <button class="fg-theme-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch between light and dark">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
       <button class="fg-mob-icon" type="button" aria-label="Close menu" data-menu-close>
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
