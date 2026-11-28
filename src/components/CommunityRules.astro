@@ -1,14 +1,31 @@
 ---
-// The Community rules (decision #122), shown on every Community page so they are never out of sight.
+// Six community & language consent rules presented as field-guide ticket-stub cards.
+const rules = [
+  ['01', 'History & culture only', 'No clan counts or rankings, and nothing tied to elections or land claims.'],
+  ['02', 'Every account sourced', 'Names a book, archive, or an elder who agreed on record to be recorded.'],
+  ['03', 'Several voices shown', 'Where accounts differ, we publish each one rather than choosing a winner.'],
+  ['04', 'Checked before live', 'Reviewed by a panel of elders and a historian before anything is published.'],
+  ['05', 'Consent on record', 'Contributors may withdraw anytime; AI training requires a separate explicit yes.'],
+  ['06', 'Public knowledge, credited contributors', 'The knowledge belongs to the Abagusii community. We structure and publish it as journalism. Contributors are credited unless they ask not to be.'],
+];
 ---
-<section class="card stack" aria-labelledby="c-rules">
-  <h2 id="c-rules">Our rules for this work</h2>
-  <ul>
-    <li><strong>History and culture only.</strong> No clan counts or rankings, and nothing tied to elections or land claims.</li>
-    <li><strong>Every account names its source:</strong> a book, an archive, or an elder who agreed to be recorded.</li>
-    <li><strong>Several voices.</strong> Where accounts differ, we show each one.</li>
-    <li><strong>Checked before publishing</strong> by a review panel of elders and a historian.</li>
-    <li><strong>Consent, on record.</strong> Every contributor agrees to how their words are used, and can withdraw. Using a recording to train language technology needs its own, separate yes.</li>
-    <li><strong>The community keeps the rights.</strong> Contributors are credited unless they ask not to be, and are paid or thanked for their time.</li>
+<section class="fg-dashed-sheet stack" aria-labelledby="comm-rules">
+  <div class="fg-sec-head is-compact">
+    <span class="fg-kicker">Guiding Principles</span>
+    <h2 id="comm-rules">Six <span class="fg-hl">ethical &amp; consent rules</span> for community work</h2>
+  </div>
+  <ul class="fg-ticket-grid">
+    {rules.map(([no, head, body]) => (
+      <li class="fg-ticket">
+        <div class="fg-ticket-stub">
+          <span class="fg-stub-by">Rule</span>
+          <b>{no}</b>
+        </div>
+        <div class="fg-ticket-body">
+          <strong>{head}</strong>
+          <p>{body}</p>
+        </div>
+      </li>
+    ))}
   </ul>
 </section>

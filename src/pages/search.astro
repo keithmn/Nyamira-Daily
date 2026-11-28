@@ -1,53 +1,166 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
+import Icon from '../components/Icon.astro';
+const starters = ['Township', 'Health', 'Budget', 'Keroka', 'Primary school', 'Roads', 'Water', 'Assembly'];
 ---
 <Base title="Search" tools={false}>
-  <PageHead title="Search" lead="Find a ward, a school or clinic, a leader, or a part of the Constitution." />
-  <form id="search-form" class="stack" role="search" style="max-width:640px">
-    <label for="q" class="small"><strong>Search Nyamira Daily</strong></label>
-    <input id="q" name="q" type="search" autocomplete="off" placeholder="e.g. Esise, dispensary, Speaker, budget" class="field" />
-  </form>
-  <p id="search-status" class="small muted" style="margin-top:12px" aria-live="polite">Type at least two letters.</p>
-  <ul id="search-results" class="stack" style="list-style:none;padding:0;margin-top:12px"></ul>
+  <PageHead eyebrow="Field Guide Index" title="Search the directory" lead="Find any ward, clinic, school, road, county department, elected leader, or constitutional duty across Gusii Daily." />
+
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Tafuta wodi yoyote, zahanati, shule, barabara, idara ya kaunti au kiongozi aliyechaguliwa katika Gusii Daily.</p></div>
+
+  <section class="fg-sheet fg-search-sheet">
+    <form id="search-form" class="fg-kb-form" role="search">
+      <label for="q" class="vh">Search Gusii Daily</label>
+      <Icon name="search" size={18} />
+      <input id="q" name="q" type="search" autocomplete="off" placeholder="Search a ward, dispensary, school, road, department or law..." />
+      <button type="submit" class="fg-cta-btn">Search</button>
+    </form>
+
+    <div class="fg-search-starters" id="search-starters">
+      <span class="fg-starter-label">Popular lookups:</span>
+      {starters.map((s) => (
+        <button type="button" class="fg-ward-chip" data-starter={s}>{s}</button>
+      ))}
+    </div>
+
+    <div class="fg-search-filters" id="search-filters" role="group" aria-label="Filter results by category" hidden></div>
+
+    <p id="search-status" class="fg-search-status" aria-live="polite">Type at least two letters, or pick a topic above.</p>
+    <ul id="search-results" class="fg-search-grid"></ul>
+  </section>
+
   <a id="search-index" href="/search-index.json" hidden>index</a>
-  <noscript><p>Search needs JavaScript. You can browse from the menu instead.</p></noscript>
+  <noscript><p class="callout"><span>Search needs JavaScript. You can browse every section from the menu above instead.</span></p></noscript>
+
   <script is:inline>
   (function () {
     var link = document.getElementById('search-index');
     var raw = link.getAttribute('href');
-    var rel = raw.charAt(0) !== '/';           // relative links: offline/preview copy
+    var rel = raw.charAt(0) !== '/';
     var base = link.href.replace(/search-index\.json$/, '');
-    var input = document.getElementById('q'), out = document.getElementById('search-results'), status = document.getElementById('search-status');
+    var input = document.getElementById('q');
+    var out = document.getElementById('search-results');
+    var status = document.getElementById('search-status');
+    var filters = document.getElementById('search-filters');
+    var starters = document.getElementById('search-starters');
     var items = null;
-    function url(u) { var p = u.slice(1); if (rel && (p === '' || p.slice(-1) === '/')) p += 'index.html'; return base + p; }
+    var activeGroup = 'All';
+
+    function url(u) {
+      var p = u.slice(1);
+      if (rel && (p === '' || p.slice(-1) === '/')) p += 'index.html';
+      return base + p;
+    }
     function norm(s) { return (s || '').toLowerCase().replace(/[’']/g, ''); }
+    function kindOf(g) { return ((g || 'Page').split('·')[0] || 'Page').trim(); }
+
     function run() {
-      var q = norm(input.value.trim());
-      out.innerHTML = '';
-      if (q.length < 2) { status.textContent = 'Type at least two letters.'; return; }
-      if (!items) { status.textContent = 'Loading…'; return; }
+      var qRaw = input.value.trim();
+      var q = norm(qRaw);
+      out.textContent = '';
+      try {
+        var next = qRaw ? (location.pathname + '?q=' + encodeURIComponent(qRaw)) : location.pathname;
+        history.replaceState(null, '', next);
+      } catch (e) {}
+
+      if (q.length < 2) {
+        filters.hidden = true;
+        starters.hidden = false;
+        status.textContent = items
+          ? 'Search across ' + items.length.toLocaleString() + ' indexed wards, places, roads, budget records and pages.'
+          : 'Type at least two letters, or pick a topic above.';
+        return;
+      }
+      starters.hidden = true;
+      if (!items) { status.textContent = 'Loading directory index…'; return; }
+
       var words = q.split(/\s+/);
-      var hits = items.map(function (it) {
-        var t = norm(it.t), k = norm(it.k), s = 0;
+      var allHits = items.map(function (it) {
+        var t = norm(it.t), k = norm(it.k), g = norm(it.g), s = 0;
         for (var i = 0; i < words.length; i++) {
           var w = words[i];
-          if (t.indexOf(w) === 0) s += 6; else if (t.indexOf(w) > -1) s += 4; else if (k.indexOf(w) > -1) s += 1; else return null;
+          if (t.indexOf(w) === 0) s += 8;
+          else if (t.indexOf(w) > -1) s += 5;
+          else if (g.indexOf(w) > -1) s += 3;
+          else if (k.indexOf(w) > -1) s += 1;
+          else return null;
         }
-        return { it: it, s: s };
-      }).filter(Boolean).sort(function (a, b) { return b.s - a.s; }).slice(0, 30);
-      status.textContent = hits.length ? hits.length + (hits.length === 30 ? '+' : '') + ' results' : 'No results. Try another word.';
-      hits.forEach(function (h) {
-        var li = document.createElement('li'), a = document.createElement('a'), g = document.createElement('span');
-        a.href = url(h.it.u); a.textContent = h.it.t; a.style.fontWeight = '700';
-        g.className = 'small muted'; g.textContent = ' · ' + h.it.g;
-        li.appendChild(a); li.appendChild(g); out.appendChild(li);
+        return { it: it, s: s, kind: kindOf(it.g) };
+      }).filter(Boolean).sort(function (a, b) { return b.s - a.s; });
+
+      // Build category filter pills
+      var counts = {};
+      allHits.forEach(function (h) { counts[h.kind] = (counts[h.kind] || 0) + 1; });
+      var groups = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; });
+      if (activeGroup !== 'All' && !counts[activeGroup]) activeGroup = 'All';
+
+      filters.textContent = '';
+      if (groups.length > 1) {
+        ['All'].concat(groups).forEach(function (g) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'fg-filter-pill' + (g === activeGroup ? ' is-active' : '');
+          b.setAttribute('aria-pressed', String(g === activeGroup));
+          b.textContent = g + ' (' + (g === 'All' ? allHits.length : counts[g]) + ')';
+          b.addEventListener('click', function () { activeGroup = g; run(); });
+          filters.appendChild(b);
+        });
+        filters.hidden = false;
+      } else {
+        filters.hidden = true;
+      }
+
+      var filtered = activeGroup === 'All' ? allHits : allHits.filter(function (h) { return h.kind === activeGroup; });
+      var shown = filtered.slice(0, 40);
+      status.textContent = filtered.length
+        ? (filtered.length > 40 ? 'Showing top 40 of ' + filtered.length : filtered.length) + ' result' + (filtered.length === 1 ? '' : 's') + ' for "' + qRaw + '"'
+        : 'No results for "' + qRaw + '". Try a ward name, clinic, school, road or department.';
+
+      shown.forEach(function (h) {
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.className = 'fg-search-card';
+        a.href = url(h.it.u);
+        var arr = document.createElement('span');
+        arr.className = 'fg-pill-arrow';
+        arr.setAttribute('aria-hidden', 'true');
+        arr.textContent = '↗';
+        var body = document.createElement('span');
+        body.className = 'fg-search-body';
+        var title = document.createElement('span');
+        title.className = 'fg-search-title';
+        title.textContent = h.it.t;
+        var meta = document.createElement('span');
+        meta.className = 'fg-search-meta';
+        meta.textContent = h.it.g || 'Directory entry';
+        body.appendChild(title);
+        body.appendChild(meta);
+        var badge = document.createElement('span');
+        badge.className = 'fg-pop-tag';
+        badge.textContent = h.kind;
+        a.appendChild(arr);
+        a.appendChild(body);
+        a.appendChild(badge);
+        li.appendChild(a);
+        out.appendChild(li);
       });
     }
+
+    document.querySelectorAll('[data-starter]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        input.value = btn.getAttribute('data-starter') || '';
+        activeGroup = 'All';
+        input.focus();
+        run();
+      });
+    });
+
     fetch(link.href).then(function (r) { return r.json(); }).then(function (d) { items = d; run(); })
       .catch(function () { status.textContent = 'Search could not load. Browse from the menu instead.'; });
     document.getElementById('search-form').addEventListener('submit', function (e) { e.preventDefault(); run(); });
-    input.addEventListener('input', run);
+    input.addEventListener('input', function () { activeGroup = 'All'; run(); });
     try { var q0 = new URLSearchParams(location.search).get('q'); if (q0) input.value = q0; } catch (e) {}
   })();
   </script>

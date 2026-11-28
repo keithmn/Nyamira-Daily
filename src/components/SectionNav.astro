@@ -1,54 +1,26 @@
 ---
-// Section navigation (decision #119, option B from the navigation review). Replaces the secondary tab bar.
-// - The switcher: a "Money ▾" button at the top of the page that opens the section's pages in their groups.
-//   On phones it rises from the bottom of the screen; on wide screens it drops down. It is a <details>, so it
-//   works without JavaScript; the script in Base.astro closes it on Escape or a click outside.
-// - The side list (variant "rail"): the same groups in a slim column beside the content from 960px, on every
-//   section page (decision #128). Where the side list shows, the switcher hides.
-import { sectionFor, stateFor, groupsOf } from '../nav.js';
+// Horizontal field-guide category tab ribbon across all section pages.
+import { sectionFor, stateFor } from '../nav.js';
 import { planned } from '../config.js';
-interface Props { path: string; variant?: 'switch' | 'rail' }
-const { path, variant = 'switch' } = Astro.props;
-const section = path === '/' ? null : sectionFor(path);
-const groups = section ? groupsOf(section).map((g) => ({ ...g, pages: g.pages.filter((p) => !planned.has(p.href)) })).filter((g) => g.pages.length) : [];
-const here = section ? section.pages.find((p) => stateFor(p, path)) : null;
-const onOverview = section?.href === path;
-const hasRail = section ? section.rail !== false : false;
-const chev = '<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>';
+
+interface Props { path: string; variant?: 'bar' | 'rail' | 'switch' }
+const { path } = Astro.props;
+const sec = path === '/' ? null : sectionFor(path);
+const pages = sec ? sec.pages.filter((p) => !planned.has(p.href)) : [];
+const show = Boolean(sec && sec.rail !== false && pages.length > 0);
+const onHome = Boolean(sec?.href && path === sec.href);
 ---
-{section && groups.length > 0 && variant === 'switch' && (
-  <details class={`menu sec-switch${hasRail ? ' has-rail' : ''}`}>
-    <summary aria-label={`${section.label} pages`}>
-      <span class="sw-sec">{section.label}</span>
-      {here && <span class="sw-here">{here.label}</span>}
-      <Fragment set:html={chev} />
-    </summary>
-    <div class="sw-panel" style={`--cols: ${Math.min(Math.max(groups.length, 1), 3)}`}>
-      <div class="sw-head">
-        <b>{section.label}</b>
-        <a href={section.href} aria-current={onOverview ? 'page' : undefined}>{section.overview} <span aria-hidden="true">→</span></a>
-      </div>
-      {groups.map((g) => (
-        <div class="sw-group">
-          {g.label && <span class="sw-label">{g.label}</span>}
-          <ul>
-            {g.pages.map((p) => <li><a href={p.href} aria-current={stateFor(p, path)}>{p.label}</a></li>)}
-          </ul>
-        </div>
+{show && (
+  <nav class="fg-subnav" aria-label={`${sec.label} pages`}>
+    <div class="wrap fg-subnav-inner">
+      {sec.href && (
+        <a class="fg-tab" href={sec.href} aria-current={onHome ? 'page' : undefined}>
+          {sec.label}
+        </a>
+      )}
+      {pages.map((p) => (
+        <a class="fg-tab" href={p.href} aria-current={stateFor(p, path)}>{p.label}</a>
       ))}
     </div>
-  </details>
-)}
-{section && groups.length > 0 && variant === 'rail' && hasRail && (
-  <nav class="sec-rail" aria-label={`${section.label} pages`}>
-    <a class="rail-sec" href={section.href} aria-current={onOverview ? 'page' : undefined}>{section.label}</a>
-    {groups.map((g) => (
-      <div class="rail-group">
-        {g.label && <span class="sw-label">{g.label}</span>}
-        <ul>
-          {g.pages.map((p) => <li><a href={p.href} aria-current={stateFor(p, path)}>{p.label}</a></li>)}
-        </ul>
-      </div>
-    ))}
   </nav>
 )}

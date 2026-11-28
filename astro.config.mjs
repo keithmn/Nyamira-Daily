@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 import { fileURLToPath } from 'node:url';
 import { resolveSite } from './scripts/site-config.js';
 import refocusRedirects from './redirects.json' with { type: 'json' };
@@ -18,11 +19,15 @@ const isBuild = process.argv.includes('build');
 const site = resolveSite({ build: isBuild });
 const root = fileURLToPath(new URL('.', import.meta.url));
 
-// Nyamira Daily: a light, static, phone-first site.
+// Gusii Daily: a light, static, phone-first site.
 export default defineConfig({
   site,
+  integrations: [sitemap({ filter: (page) => !page.includes('/review/') })],
   // The county figure registry is read from the repo at build time (src/lib/county-registry.js)
-  vite: { define: { __ND_ROOT__: JSON.stringify(root) } },
+  vite: {
+    define: { __ND_ROOT__: JSON.stringify(root) },
+    server: { allowedHosts: true },
+  },
   trailingSlash: 'always',
   // Astro 7's default ('jsx') drops spaces between inline elements; keep the spacing the pages were written with
   compressHTML: true,

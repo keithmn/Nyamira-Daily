@@ -1,5 +1,18 @@
 // Site-wide switches. Fill these in before launch.
 import impact from './data/impact.json' with { type: 'json' };
+
+// Public beta banner. Set to false when you are confident in the data and ready for full launch.
+export const beta = true;
+
+// Privacy-respecting analytics (strategy doc: docs/strategy/OPEN_SOURCE_TOOLS.md).
+// Set `provider` to 'plausible' or 'umami' and fill in `src` and (for Umami) `websiteId`.
+// Leave provider empty to disable. The script tag is added to Base.astro only when enabled.
+export const analytics = {
+  provider: '',       // 'plausible' | 'umami' | '' (disabled)
+  src: '',            // e.g. 'https://plausible.io/js/script.js' or 'https://analytics.gusiidaily.org/script.js'
+  websiteId: '',      // Umami only: the site's data-website-id
+};
+
 export const contact = {
   whatsapp: '',  // e.g. '2547XXXXXXXX' — turns on "Tell us" and "Get updates"
   email: '',
@@ -46,7 +59,7 @@ export const adoptSignupUrl = '';
 // link, are tagged "Planned" in menus, and are left out of the home page.
 export const planned = new Set([
   '/tell-us/', '/subscribe/',
-  // Phase 1 scaffolding (docs/EXPANSION_SPEC.md 1.7): planned until real, consented entries exist
+  // Phase 1 scaffolding (docs/EXPANSION_SPEC.md 1.7): planned until real entries exist
   '/whats-working/', '/people/', '/heritage/', '/fact-check/',
   '/diaspora/', '/schools-programme/', '/fellowship/', '/state-of-nyamira/',
   // Media, news and heritage databases (decisions #63-#65): planned until their first checked entries
@@ -56,4 +69,8 @@ export const planned = new Set([
   ...(adoptSignupUrl ? [] : ['/adopt/']),
   // Impact log (decision #76): planned until the first entry is logged
   ...(impact.entries.length > 0 ? [] : ['/impact/']),
+  // Tools (Phase 4): live from the start — the client-side tools work without data
+  // '/ask/', '/take-part/submission/', '/tools/budget-simulator/' — these are live
+  // Alerts: live from the start, starts empty
+  // '/alerts/' — live
 ]);

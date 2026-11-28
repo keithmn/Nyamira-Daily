@@ -1,26 +1,40 @@
 ---
-// Tell us (decision #127): one page for everything a reader may want to send. A clear first choice leads to the
-// right form: a place goes to its record, a story to the Community team, everything else to the form below.
+// Tell us (decision #127): one page for everything a reader may want to send.
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
 import ContactForm from '../../../components/ContactForm.astro';
 const ways = [
-  ['/report/', 'A place you have seen', 'Is the dispensary open? Is the road passable? It goes straight to that place\'s record.'],
-  ['/report/clinic/', 'A clinic visit', 'Four quick questions after a visit: medicines, staff, hours and waiting time.'],
-  ['/community/share/', 'A story, a song or an elder to record', 'For the culture archive. We get in touch before anything is recorded.'],
-  ['#message', 'A tip, a concern or a correction', 'Use the form below. You can leave your name out.'],
+  ['/report/', 'FIELD CHECK', 'A place you have seen', 'Is the dispensary open? Is the road passable? It goes straight to that place\'s record.'],
+  ['/report/clinic/', 'HEALTH VISIT', 'A clinic visit', 'Four quick questions after a visit: medicines, staff, hours and waiting time.'],
+  ['/community/share/', 'HERITAGE & EKEGUSII', 'A story, a song or an elder to record', 'For the culture archive. We get in touch before anything is recorded.'],
+  ['#message', 'EDITORIAL DESK', 'A tip, a concern or a correction', 'Use the message section below. You can leave your name out.'],
 ];
 ---
-<Base title="Tell us" description="Tell Nyamira Daily about a place, send a tip, a concern, a story or a correction.">
-  <PageHead title="Tell us" lead="What would you like to tell us? Pick one, and we will take you to the right form. We read every message and reply as soon as we can." />
-  <div class="stack-lg" style="margin-top:16px; max-width:760px">
-    <ul class="rows">
-      {ways.map(([href, t, d]) => <li><a class="row-link" href={href}><span><span class="t">{t}</span><span class="d">{d}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
-    </ul>
-    <section class="stack" id="message">
-      <h2>Send a message</h2>
+<Base title="Tell us" description="Tell Gusii Daily about a place, send a tip, a concern, a story or a correction.">
+  <PageHead eyebrow="About · Reach the Desk" title="Tell us" lead="What would you like to tell us? Pick one below and we will take you straight to the right place. We read every message and reply as soon as we can." crumbs={[{ href: '/about/', label: 'About' }]} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Tuambie kuhusu sehemu ya umma, tuma habari, marekebisho au pendekezo. Unaweza kutuma ujumbe bila kutaja jina lako.</p></div>
+
+  <div class="stack-lg">
+    <div class="fg-data-grid">
+      {ways.map(([href, tag, t, d]) => (
+        <a class="fg-way-card" href={href}>
+          <div class="fg-way-top">
+            <span class="fg-kicker">{tag}</span>
+            <span class="fg-pill-arrow" aria-hidden="true">↗</span>
+          </div>
+          <h3>{t}</h3>
+          <p class="muted">{d}</p>
+        </a>
+      ))}
+    </div>
+    <section class="fg-sheet stack" id="message">
+      <div class="fg-sec-head" style="margin-bottom:8px">
+        <span class="fg-kicker">DIRECT MESSAGE &amp; CORRECTIONS</span>
+        <h2>Send a message to <em>Gusii Daily</em></h2>
+      </div>
       <ContactForm />
-      <p class="small muted">A message is a lead for us to check, not a published fact. If we have named you or your organisation, see your <a href="/about/rules/#right-of-reply">right of reply</a>. Accepted corrections are listed in our <a href="/about/rules/#corrections">corrections log</a>. What we keep: <a href="/about/rules/#privacy">privacy</a>.</p>
+      <p class="small muted" style="text-align:center">A message is a lead for us to check, not a published fact. If we have named you or your organisation, see your <a href="/about/rules/#right-of-reply">right of reply</a>. Accepted corrections are listed in our <a href="/about/rules/#corrections">corrections log</a>. What we keep: <a href="/about/rules/#privacy">privacy</a>.</p>
     </section>
   </div>
 </Base>

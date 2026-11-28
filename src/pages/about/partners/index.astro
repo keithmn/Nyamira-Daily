@@ -9,37 +9,71 @@ import { contracts } from '../../../lib/contracts.js';
 import money from '../../../lib/county-money.js';
 const n = (x) => x.toLocaleString('en-GB');
 const facilities = places.filter((p) => p.kind === 'facility').length;
+const offers = [
+  ['01', 'Data for your work', 'Extracts and tables shaped for your use, from the records we hold.'],
+  ['02', 'Commissioned research', 'Ward surveys, price checks and facility checks, done by our field team.'],
+  ['03', 'Sponsorship', 'Support for a show, a section or a community project, clearly labelled.'],
+  ['04', 'Something else', 'If you have another use for the data, tell us and we will scope it plainly.'],
+];
 ---
-<Base title="Partner with us" description="Work with Nyamira Daily: data, commissioned research and sponsorship for businesses, NGOs and researchers.">
-  <PageHead title="Partner with us" lead="Need to understand Nyamira County for your business, organisation or research? We can help, with data you can trace to its source." />
-  <div class="stack-lg" style="margin-top:16px; max-width:760px">
-    <section class="stack">
-      <h2>What we can do together</h2>
-      <ul>
-        <li><strong>Data for your work.</strong> Extracts and tables shaped for your use, from the records we hold.</li>
-        <li><strong>Commissioned research.</strong> Ward surveys, price checks and facility checks, done by our field team.</li>
-        <li><strong>Sponsorship.</strong> Support for a show, a section or a community project, clearly labelled.</li>
-        <li><strong>Something else.</strong> If you have another use for the data, tell us.</li>
-      </ul>
+<Base title="Partner with us" description="Work with Gusii Daily: data, commissioned research and sponsorship for businesses, NGOs and researchers.">
+  <PageHead eyebrow="About · Research & Data" title="Partner with us" lead="Need to understand Nyamira County for your business, organisation or research? We can help, with data you can trace to its source." crumbs={[{ href: '/about/', label: 'About' }]} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Fanya kazi na Gusii Daily — data, utafiti na ufadhili kwa biashara, NGO na watafiti. Data yote ya umma ni CC BY 4.0. Hatukubali pesa kutoka vyama vya siasa au wagombea.</p></div>
+
+  <div class="stack-lg">
+    <div class="fg-map-stats">
+      <div class="fg-ticket is-next">
+        <div class="fg-ticket-stub"><strong class="fg-stub-d">{n(places.length)}</strong></div>
+        <div class="fg-ticket-body"><h3>Mapped &amp; listed places</h3><p>Including {n(facilities)} public facilities, each tied to its ward</p></div>
+      </div>
+      <div class="fg-ticket">
+        <div class="fg-ticket-stub"><strong class="fg-stub-d">{money.years.length} yrs</strong></div>
+        <div class="fg-ticket-body"><h3>County budgets &amp; spend</h3><p>Plus the full 2025/26 budget by department and programme</p></div>
+      </div>
+      <div class="fg-ticket">
+        <div class="fg-ticket-stub"><strong class="fg-stub-d">{n(contracts.length)}</strong></div>
+        <div class="fg-ticket-body"><h3>Contracts &amp; NG-CDF</h3><p>County and national records kept separate, each sourced</p></div>
+      </div>
+      <div class="fg-ticket">
+        <div class="fg-ticket-stub"><strong class="fg-stub-d">CC BY</strong></div>
+        <div class="fg-ticket-body"><h3>Open public files</h3><p><a href="/about/data/">Download open data</a> or read <a href="/about/rules/#terms">terms &amp; reuse</a></p></div>
+      </div>
+    </div>
+
+    <section class="fg-sheet stack">
+      <div class="fg-sec-head" style="margin-bottom:12px">
+        <span class="fg-kicker">WORKING TOGETHER</span>
+        <h2>What we can do <em>together</em></h2>
+      </div>
+      <div class="fg-ticket-grid">
+        {offers.map(([k, t, d]) => (
+          <div class="fg-ticket">
+            <div class="fg-ticket-stub"><span class="fg-stub-k">OPTION</span><strong class="fg-stub-d">{k}</strong></div>
+            <div class="fg-ticket-body"><h3>{t}</h3><p>{d}</p></div>
+          </div>
+        ))}
+      </div>
     </section>
-    <section class="stack">
-      <h2>The data we hold</h2>
-      <ul>
-        <li><strong>{n(places.length)}</strong> places, including {n(facilities)} public facilities, each with its ward.</li>
-        <li><strong>{money.years.length}</strong> years of county budgets and spending, and the 2025/26 budget by department and programme.</li>
-        <li><strong>{n(contracts.length)}</strong> county and national contracts and allocations, with sources.</li>
-      </ul>
-      <p>What we publish is free to reuse with credit (CC BY 4.0). <a href="/about/data/">Download the open data</a> or read the <a href="/about/rules/#terms">terms and reuse</a> page.</p>
-    </section>
-    <section class="stack">
-      <h2>Our two rules</h2>
-      <ul>
-        <li><strong>No political clients.</strong> We take no money or paid work from political parties, candidates or campaigns.</li>
-        <li><strong>Client data is kept apart.</strong> Work we do for a client is labelled as commissioned, and is published only if the client agrees.</li>
-      </ul>
-    </section>
-    <section class="stack">
-      <h2>Talk to us</h2>
+
+    <div class="fg-data-grid">
+      <div class="fg-data-card">
+        <span class="fg-kicker">SAFEGUARD 01</span>
+        <h3>No political clients</h3>
+        <p class="muted">We take no money or paid work from political parties, candidates or campaigns.</p>
+      </div>
+      <div class="fg-data-card">
+        <span class="fg-kicker">SAFEGUARD 02</span>
+        <h3>Client data is kept apart</h3>
+        <p class="muted">Work we do for a client is labelled as commissioned, and is published only if the client agrees.</p>
+      </div>
+    </div>
+
+    <section class="fg-sheet stack">
+      <div class="fg-sec-head" style="margin-bottom:8px">
+        <span class="fg-kicker">START A CONVERSATION</span>
+        <h2>Talk to <em>us</em></h2>
+      </div>
       <ContactForm topics={['partnership', 'general']} preset="partnership" />
     </section>
   </div>

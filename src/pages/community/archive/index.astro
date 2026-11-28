@@ -6,27 +6,45 @@ import CommunityRules from '../../../components/CommunityRules.astro';
 import { archiveItems } from '../../../lib/archive.js';
 import { date } from '../../../lib/fmt.js';
 const items = await archiveItems();
-const kindLabel = { story: 'Story', song: 'Song', proverb: 'Proverb', custom: 'Custom', craft: 'Craft', food: 'Food', history: 'History', name: 'Names', other: 'Other' };
+const kindLabel = { story: 'Story', song: 'Song', proverb: 'Proverb', custom: 'Custom', craft: 'Craft', food: 'Food', history: 'History', name: 'Names', riddle: 'Riddle', lullaby: 'Lullaby', ceremony: 'Ceremony', medicine: 'Traditional medicine', other: 'Other' };
+const kinds = ['Stories', 'Songs', 'Proverbs', 'Riddles', 'Lullabies', 'Customs', 'Ceremonies', 'Crafts', 'Food', 'Medicine', 'History', 'Naming'];
 ---
-<Base title="Culture archive" description="Stories, songs, proverbs and knowledge of the Abagusii, recorded with consent.">
-  <PageHead title="Culture archive" lead="Stories, songs, proverbs and customs, shared by the people who hold them." />
-  <div class="stack-lg" style="margin-top:16px; max-width:760px">
-    {items.length > 0 ? (
-      <ul class="latest">
-        {items.map((e) => (
-          <li id={e.id}><div style="padding:16px 0; display:flex; flex-direction:column; gap:4px">
-            <span class="eyebrow">{kindLabel[e.data.kind]}</span>
-            <span class="t">{e.data.title}</span>
-            <span class="d">{e.data.summary}</span>
-            {e.data.audio && <audio controls preload="none" src={e.data.audio}></audio>}
-            <span class="d">Recorded {date(e.data.recordedOn.toISOString())}{e.data.place && `, ${e.data.place}`} · {e.data.credit} · Reviewed by {e.data.reviewedBy}</span>
-          </div></li>
-        ))}
-      </ul>
-    ) : (
-      <p class="callout"><span><strong>The archive is not open yet.</strong> The first recordings are being made and reviewed. Each one will show who shared it, when and where, and who reviewed it.</span></p>
-    )}
-    <p><a href="/community/share/">Share a story, a song or a record</a></p>
+<Base title="Culture archive" description="Abagusii plants, medicine, songs, traditions and knowledge — collected, verified and published as public cultural information.">
+  <PageHead eyebrow="Community · Recordings & Knowledge" title="Culture archive" lead="Plants, medicine, songs, traditions and community knowledge — public information belonging to the Abagusii, collected and structured with the same rigour we apply to county budgets. Each entry names its source, its reviewer and its date." crumbs={[{ href: '/community/', label: 'Community' }]} />
+  <div class="stack-lg">
+    <section class="fg-sheet">
+      <div class="fg-sec-head" style="margin-bottom:18px">
+        <span class="fg-kicker">ARCHIVE CATALOGUE</span>
+        <h2>Consent-first recordings across <em>twelve traditions</em></h2>
+      </div>
+      <div class="fg-search-starters" style="justify-content:center; margin-bottom:20px">
+        {kinds.map((k) => <span class="fg-pop-tag">{k}</span>)}
+      </div>
+      {items.length > 0 ? (
+        <ul class="latest">
+          {items.map((e) => (
+            <li id={e.id}><div style="padding:16px 0; display:flex; flex-direction:column; gap:4px">
+              <span class="eyebrow">{kindLabel[e.data.kind]}</span>
+              <span class="t">{e.data.title}</span>
+              <span class="d">{e.data.summary}</span>
+              {e.data.audio && <audio controls preload="none" src={e.data.audio}></audio>}
+              <span class="d">Recorded {date(e.data.recordedOn.toISOString())}{e.data.place && `, ${e.data.place}`} · {e.data.credit} · Reviewed by {e.data.reviewedBy}</span>
+            </div></li>
+          ))}
+        </ul>
+      ) : (
+        <p class="callout"><span><strong>The archive is not open yet.</strong> The first recordings are being made and reviewed. Each one will show who shared it, when and where, and who reviewed it.</span></p>
+      )}
+      <!-- Ekegusii summary (marked for native-speaker review) -->
+      <div class="sw" lang="guz" style="margin-top:12px">
+        <span class="eyebrow">Okoandikwa kw'Ekegusii</span>
+        <p>Amang'ana, ebitanyi, emechango n'amasiko — ebinto ebi abanto baramanyete, biandikire koerekanwa aine ko oboisanio n'obomu.</p>
+      </div>
+      <div class="fg-cta-row">
+        <a class="fg-cta-btn" href="/community/share/">Share a story, a song or a record</a>
+        <a class="fg-outline-btn" href="/community/language/">Ekegusii language dataset</a>
+      </div>
+    </section>
     <CommunityRules />
   </div>
 </Base>

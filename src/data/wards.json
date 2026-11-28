@@ -1,783 +1,122 @@
 [
- {
-  "slug": "esise",
-  "name": "Esise",
-  "subCounty": "Borabu",
-  "places": [
-   {
-    "id": "NYM-P0001",
-    "name": "Manga Rogoro Shopping Centre",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0002",
-    "name": "Raitigo Shopping Centre",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0001",
-   "NYM-F0002",
-   "NYM-F0003",
-   "NYM-F0004",
-   "NYM-F0005",
-   "NYM-F0006",
-   "NYM-F0007",
-   "NYM-F0008",
-   "NYM-F0009",
-   "NYM-F0010",
-   "NYM-F0011",
-   "NYM-F0012",
-   "NYM-F0013",
-   "NYM-F0014",
-   "NYM-F0015"
-  ]
- },
- {
-  "slug": "kiabonyoru",
-  "name": "Kiabonyoru",
-  "subCounty": "Borabu",
-  "places": [
-   {
-    "id": "NYM-P0003",
-    "name": "Mokomoni",
-    "type": "Locality",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0016",
-   "NYM-F0017",
-   "NYM-F0018",
-   "NYM-F0019",
-   "NYM-F0020",
-   "NYM-F0021",
-   "NYM-F0022",
-   "NYM-F0023",
-   "NYM-F0024",
-   "NYM-F0025",
-   "NYM-F0026",
-   "NYM-F0027",
-   "NYM-F0028",
-   "NYM-F0029",
-   "NYM-F0030",
-   "NYM-F0031",
-   "NYM-F0032",
-   "NYM-F0033",
-   "NYM-F0034",
-   "NYM-F0035"
-  ]
- },
- {
-  "slug": "mekenene",
-  "name": "Mekenene",
-  "subCounty": "Borabu",
-  "places": [
-   {
-    "id": "NYM-P0004",
-    "name": "Kipkebe Tea Estate and Factory",
-    "type": "Farm",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0005",
-    "name": "Kipkebe Tea Factory",
-    "type": "Tea factory",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0036",
-   "NYM-F0037",
-   "NYM-F0038",
-   "NYM-F0039",
-   "NYM-F0040",
-   "NYM-F0041",
-   "NYM-F0042",
-   "NYM-F0043",
-   "NYM-F0044",
-   "NYM-F0045",
-   "NYM-F0046",
-   "NYM-F0047",
-   "NYM-F0048",
-   "NYM-F0049",
-   "NYM-F0050",
-   "NYM-F0051",
-   "NYM-F0052",
-   "NYM-F0053",
-   "NYM-F0054",
-   "NYM-F0055"
-  ]
- },
- {
-  "slug": "nyansiongo",
-  "name": "Nyansiongo",
-  "subCounty": "Borabu",
-  "places": [
-   {
-    "id": "NYM-P0006",
-    "name": "Kijauri Sub-County Hospital",
-    "type": "Health facility",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0007",
+  {
+    "slug": "esise",
+    "name": "Esise",
+    "county": "nyamira",
+    "subCounty": "Borabu"
+  },
+  {
+    "slug": "kiabonyoru",
+    "name": "Kiabonyoru",
+    "county": "nyamira",
+    "subCounty": "Borabu"
+  },
+  {
+    "slug": "mekenene",
+    "name": "Mekenene",
+    "county": "nyamira",
+    "subCounty": "Borabu"
+  },
+  {
+    "slug": "nyansiongo",
     "name": "Nyansiongo",
-    "type": "Town",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0056",
-   "NYM-F0057",
-   "NYM-F0058",
-   "NYM-F0059",
-   "NYM-F0060",
-   "NYM-F0061",
-   "NYM-F0062",
-   "NYM-F0063",
-   "NYM-F0064",
-   "NYM-F0065",
-   "NYM-F0066",
-   "NYM-F0067",
-   "NYM-F0068",
-   "NYM-F0069",
-   "NYM-F0070",
-   "NYM-F0071",
-   "NYM-F0072",
-   "NYM-F0073",
-   "NYM-F0074",
-   "NYM-F0075"
-  ]
- },
- {
-  "slug": "gachuba",
-  "name": "Gachuba",
-  "subCounty": "Kitutu Masaba",
-  "places": [
-   {
-    "id": "NYM-P0008",
-    "name": "Gachuba Centre",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0009",
-    "name": "Girango",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0076",
-   "NYM-F0077",
-   "NYM-F0078",
-   "NYM-F0079",
-   "NYM-F0080",
-   "NYM-F0081",
-   "NYM-F0082",
-   "NYM-F0083",
-   "NYM-F0084",
-   "NYM-F0085",
-   "NYM-F0086",
-   "NYM-F0087"
-  ]
- },
- {
-  "slug": "gesima",
-  "name": "Gesima",
-  "subCounty": "Kitutu Masaba",
-  "places": [
-   {
-    "id": "NYM-P0010",
+    "county": "nyamira",
+    "subCounty": "Borabu"
+  },
+  {
+    "slug": "gachuba",
+    "name": "Gachuba",
+    "county": "nyamira",
+    "subCounty": "Kitutu Masaba"
+  },
+  {
+    "slug": "gesima",
     "name": "Gesima",
-    "type": "Town",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0011",
-    "name": "Mosobeti Market",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0012",
-    "name": "Nyamakoroto Sokobe Shopping Centre",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0088",
-   "NYM-F0089",
-   "NYM-F0090",
-   "NYM-F0091",
-   "NYM-F0092",
-   "NYM-F0093",
-   "NYM-F0094",
-   "NYM-F0095",
-   "NYM-F0096",
-   "NYM-F0097",
-   "NYM-F0098",
-   "NYM-F0099",
-   "NYM-F0100",
-   "NYM-F0101"
-  ]
- },
- {
-  "slug": "kemera",
-  "name": "Kemera",
-  "subCounty": "Kitutu Masaba",
-  "places": [
-   {
-    "id": "NYM-P0013",
-    "name": "Kemera Market",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0014",
-    "name": "Nyangina",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0102",
-   "NYM-F0103",
-   "NYM-F0104",
-   "NYM-F0105",
-   "NYM-F0106",
-   "NYM-F0107",
-   "NYM-F0108",
-   "NYM-F0109",
-   "NYM-F0110"
-  ]
- },
- {
-  "slug": "magombo",
-  "name": "Magombo",
-  "subCounty": "Kitutu Masaba",
-  "places": [
-   {
-    "id": "NYM-P0015",
-    "name": "Magombo Trading Centre",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0111",
-   "NYM-F0112",
-   "NYM-F0113",
-   "NYM-F0114",
-   "NYM-F0115",
-   "NYM-F0116",
-   "NYM-F0117",
-   "NYM-F0118",
-   "NYM-F0119",
-   "NYM-F0120"
-  ]
- },
- {
-  "slug": "manga",
-  "name": "Manga",
-  "subCounty": "Kitutu Masaba",
-  "places": [
-   {
-    "id": "NYM-P0016",
+    "county": "nyamira",
+    "subCounty": "Kitutu Masaba"
+  },
+  {
+    "slug": "kemera",
+    "name": "Kemera",
+    "county": "nyamira",
+    "subCounty": "Kitutu Masaba"
+  },
+  {
+    "slug": "magombo",
+    "name": "Magombo",
+    "county": "nyamira",
+    "subCounty": "Kitutu Masaba"
+  },
+  {
+    "slug": "manga",
     "name": "Manga",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0017",
-    "name": "Manga Stadium (under construction)",
-    "type": "Sports facility",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0018",
-    "name": "Nyabioto",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0019",
-    "name": "Tombe Market",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0020",
-    "name": "Zacharia",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0121",
-   "NYM-F0122",
-   "NYM-F0123",
-   "NYM-F0124",
-   "NYM-F0125",
-   "NYM-F0126",
-   "NYM-F0127",
-   "NYM-F0128",
-   "NYM-F0129",
-   "NYM-F0130",
-   "NYM-F0131",
-   "NYM-F0132",
-   "NYM-F0133",
-   "NYM-F0134",
-   "NYM-F0135"
-  ]
- },
- {
-  "slug": "rigoma",
-  "name": "Rigoma",
-  "subCounty": "Kitutu Masaba",
-  "places": [
-   {
-    "id": "NYM-P0021",
-    "name": "Keroka Market",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0022",
-    "name": "Kitutu Masaba Technical and Vocational College",
-    "type": "Vocational centre",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0023",
-    "name": "Metamaywa Shopping Centre",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0024",
-    "name": "Mochenwa Market",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0025",
-    "name": "Rigoma Market Centre",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0136",
-   "NYM-F0137",
-   "NYM-F0138",
-   "NYM-F0139",
-   "NYM-F0140",
-   "NYM-F0141",
-   "NYM-F0142",
-   "NYM-F0143",
-   "NYM-F0144",
-   "NYM-F0145",
-   "NYM-F0146",
-   "NYM-F0147",
-   "NYM-F0148"
-  ]
- },
- {
-  "slug": "bokeira",
-  "name": "Bokeira",
-  "subCounty": "North Mugirango",
-  "places": [
-   {
-    "id": "NYM-P0026",
-    "name": "Kiomara",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0027",
-    "name": "Nyambambo Market",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0028",
-    "name": "Nyamoti Shopping Centre",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0029",
-    "name": "Nyamuse",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0149",
-   "NYM-F0150",
-   "NYM-F0151",
-   "NYM-F0152",
-   "NYM-F0153"
-  ]
- },
- {
-  "slug": "bomwagamo",
-  "name": "Bomwagamo",
-  "subCounty": "North Mugirango",
-  "places": [
-   {
-    "id": "NYM-P0030",
-    "name": "Mabariri",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0154",
-   "NYM-F0155",
-   "NYM-F0156",
-   "NYM-F0157",
-   "NYM-F0158",
-   "NYM-F0159",
-   "NYM-F0160"
-  ]
- },
- {
-  "slug": "ekerenyo",
-  "name": "Ekerenyo",
-  "subCounty": "North Mugirango",
-  "places": [
-   {
-    "id": "NYM-P0031",
-    "name": "Ikonge Market",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0161",
-   "NYM-F0162",
-   "NYM-F0163"
-  ]
- },
- {
-  "slug": "itibo",
-  "name": "Itibo",
-  "subCounty": "North Mugirango",
-  "places": [
-   {
-    "id": "NYM-P0032",
+    "county": "nyamira",
+    "subCounty": "Kitutu Masaba"
+  },
+  {
+    "slug": "rigoma",
+    "name": "Rigoma",
+    "county": "nyamira",
+    "subCounty": "Kitutu Masaba"
+  },
+  {
+    "slug": "bokeira",
+    "name": "Bokeira",
+    "county": "nyamira",
+    "subCounty": "North Mugirango"
+  },
+  {
+    "slug": "bomwagamo",
+    "name": "Bomwagamo",
+    "county": "nyamira",
+    "subCounty": "North Mugirango"
+  },
+  {
+    "slug": "ekerenyo",
     "name": "Ekerenyo",
-    "type": "Town",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0033",
-    "name": "Ikonge",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0034",
-    "name": "Nyaramba Market",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0164",
-   "NYM-F0165",
-   "NYM-F0166",
-   "NYM-F0167",
-   "NYM-F0168",
-   "NYM-F0169",
-   "NYM-F0170",
-   "NYM-F0171",
-   "NYM-F0172",
-   "NYM-F0173",
-   "NYM-F0174",
-   "NYM-F0175",
-   "NYM-F0176",
-   "NYM-F0177"
-  ]
- },
- {
-  "slug": "magwagwa",
-  "name": "Magwagwa",
-  "subCounty": "North Mugirango",
-  "places": [
-   {
-    "id": "NYM-P0035",
+    "county": "nyamira",
+    "subCounty": "North Mugirango"
+  },
+  {
+    "slug": "itibo",
+    "name": "Itibo",
+    "county": "nyamira",
+    "subCounty": "North Mugirango"
+  },
+  {
+    "slug": "magwagwa",
     "name": "Magwagwa",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0036",
-    "name": "Magwagwa Market",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0037",
-    "name": "Maraagwa",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0038",
-    "name": "Maragwa",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0178",
-   "NYM-F0179",
-   "NYM-F0180",
-   "NYM-F0181",
-   "NYM-F0182",
-   "NYM-F0183",
-   "NYM-F0184",
-   "NYM-F0185",
-   "NYM-F0186",
-   "NYM-F0187",
-   "NYM-F0188",
-   "NYM-F0189",
-   "NYM-F0190",
-   "NYM-F0191"
-  ]
- },
- {
-  "slug": "bogichora",
-  "name": "Bogichora",
-  "subCounty": "West Mugirango",
-  "places": [
-   {
-    "id": "NYM-P0039",
-    "name": "Kiambere Shopping Centre",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0040",
-    "name": "Nyairasa Shopping Centre",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0041",
-    "name": "Sironga Girls High School",
-    "type": "School",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0192",
-   "NYM-F0193",
-   "NYM-F0194",
-   "NYM-F0195",
-   "NYM-F0196",
-   "NYM-F0197",
-   "NYM-F0198",
-   "NYM-F0199",
-   "NYM-F0200"
-  ]
- },
- {
-  "slug": "bonyamatuta",
-  "name": "Bonyamatuta",
-  "subCounty": "West Mugirango",
-  "places": [
-   {
-    "id": "NYM-P0042",
-    "name": "County Government of Nyamira (Gesima listing)",
-    "type": "Public office",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0043",
-    "name": "Kebirigo",
-    "type": "Town",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0044",
-    "name": "Kebirigo Market",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0045",
-    "name": "Konate Shopping Centre",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0046",
-    "name": "St. Peter's Nyakemincha Secondary School",
-    "type": "School",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0201",
-   "NYM-F0202",
-   "NYM-F0203",
-   "NYM-F0204",
-   "NYM-F0205",
-   "NYM-F0206",
-   "NYM-F0207",
-   "NYM-F0208",
-   "NYM-F0209",
-   "NYM-F0210"
-  ]
- },
- {
-  "slug": "bosamaro",
-  "name": "Bosamaro",
-  "subCounty": "West Mugirango",
-  "places": [
-   {
-    "id": "NYM-P0062",
-    "name": "Bosamaro Masaba",
-    "type": "Location (administrative)",
-    "source": "Google Maps (school listing address)"
-   },
-   {
-    "id": "NYM-P0063",
-    "name": "Bosamaro Chache",
-    "type": "Location (administrative)",
-    "source": "Google Maps (school listing address)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0211",
-   "NYM-F0212",
-   "NYM-F0213",
-   "NYM-F0214",
-   "NYM-F0215",
-   "NYM-F0216",
-   "NYM-F0217",
-   "NYM-F0218",
-   "NYM-F0219"
-  ]
- },
- {
-  "slug": "nyamaiya",
-  "name": "Nyamaiya",
-  "subCounty": "West Mugirango",
-  "places": [
-   {
-    "id": "NYM-P0047",
-    "name": "Bonyunyu",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0048",
-    "name": "Bunyunya",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0049",
-    "name": "Miruka",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0050",
-    "name": "Miruka Market",
-    "type": "Market",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0051",
-    "name": "Nyamaiya Shopping Centre",
-    "type": "Trading centre",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0052",
-    "name": "Nyamaiya Tea Buying Centre",
-    "type": "Tea buying centre",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0053",
-    "name": "Nyasore",
-    "type": "Village",
-    "source": "OpenStreetMap (ODbL)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0220",
-   "NYM-F0221",
-   "NYM-F0222",
-   "NYM-F0223",
-   "NYM-F0224",
-   "NYM-F0225",
-   "NYM-F0226",
-   "NYM-F0227",
-   "NYM-F0228",
-   "NYM-F0229"
-  ]
- },
- {
-  "slug": "township",
-  "name": "Township",
-  "subCounty": "West Mugirango",
-  "places": [
-   {
-    "id": "NYM-P0054",
-    "name": "Nyamira",
-    "type": "Town",
-    "source": "OpenStreetMap (ODbL)"
-   },
-   {
-    "id": "NYM-P0055",
-    "name": "Nyamira County Assembly",
-    "type": "Public office",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0056",
-    "name": "Nyamira Huduma Centre",
-    "type": "Public office",
-    "source": "Google Maps (discovery)"
-   },
-   {
-    "id": "NYM-P0057",
-    "name": "Nyamira town",
-    "type": "Town",
-    "source": "Google Maps (discovery)"
-   }
-  ],
-  "facilityIds": [
-   "NYM-F0230",
-   "NYM-F0231",
-   "NYM-F0232",
-   "NYM-F0233",
-   "NYM-F0234",
-   "NYM-F0235",
-   "NYM-F0236",
-   "NYM-F0237",
-   "NYM-F0238",
-   "NYM-F0239",
-   "NYM-F0240",
-   "NYM-F0241",
-   "NYM-F0242",
-   "NYM-F0243",
-   "NYM-F0244",
-   "NYM-F0245",
-   "NYM-F0246",
-   "NYM-F0247"
-  ]
- }
+    "county": "nyamira",
+    "subCounty": "North Mugirango"
+  },
+  {
+    "slug": "bogichora",
+    "name": "Bogichora",
+    "county": "nyamira",
+    "subCounty": "West Mugirango"
+  },
+  {
+    "slug": "bonyamatuta",
+    "name": "Bonyamatuta",
+    "county": "nyamira",
+    "subCounty": "West Mugirango"
+  },
+  {
+    "slug": "bosamaro",
+    "name": "Bosamaro",
+    "county": "nyamira",
+    "subCounty": "West Mugirango"
+  },
+  {
+    "slug": "nyamaiya",
+    "name": "Nyamaiya",
+    "county": "nyamira",
+    "subCounty": "West Mugirango"
+  },
+  {
+    "slug": "township",
+    "name": "Township",
+    "county": "nyamira",
+    "subCounty": "West Mugirango"
+  }
 ]

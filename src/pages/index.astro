@@ -1,19 +1,17 @@
 ---
-// Home (decision #121): a summary of the whole site, like a newspaper's front page.
-// 1. Happening now (first called Coming fast): hand-edited, dated items (src/data/living/now.json), hidden when there are none.
-// 2. The county map with the lead story pinned to its ward (or, with no lead, an invitation to explore).
-// 3. Three numbers, one door each: places checked on site, money spent, contracts.
-// 4. Latest: the newest explainers, numbers of the week and videos. 5. Watch, when there are videos.
-// Added with decision #128: your ward (after the map), the next budget date and where KSh 100 goes
-// (after the numbers), help us check, and three ways in for a new reader.
+import { wardCount, departmentCount } from '../lib/counts.js';
+// Gusii Daily Front Page (design/field-guide): information presentation inspired by civictech.guide,
+// using 100% Gusii Daily colours, self-hosted fonts, real records, evidence labels and official sources.
 import Base from '../layouts/Base.astro';
 import HeroMap from '../components/HeroMap.astro';
+import HomeFigures from '../components/HomeFigures.astro';
 import EvidenceLabel from '../components/EvidenceLabel.astro';
+import Icon from '../components/Icon.astro';
 import { getNumbers } from '../lib/numbers.js';
 import { entries } from '../lib/content.js';
 import { allVideos, videoPath } from '../lib/videos.js';
 import { places, currentState } from '../lib/places.js';
-import { contracts } from '../lib/contracts.js';
+import { contracts, byGroup, forWard } from '../lib/contracts.js';
 import { liveItems } from '../lib/now.js';
 import { date } from '../lib/fmt.js';
 import money from '../lib/county-money.js';
@@ -22,191 +20,462 @@ import leaders from '../data/leaders.json';
 import sectors from '../data/budget-sectors.json';
 import steps from '../data/budget-steps.js';
 import { hundred } from '../lib/hundred.js';
-import { roads, roadDetail, roadsForWard } from '../lib/roads.js';
-import { forWard } from '../lib/contracts.js';
+import { roads, roadsForWard } from '../lib/roads.js';
 import { subCounties } from '../nav.js';
 
-const now = liveItems();
+const nowItems = liveItems();
 const facilities = places.filter((p) => p.kind === 'facility');
 const checked = facilities.filter((p) => currentState(p).lastChecked).length;
+
+// County money (strictly separate from national money)
 const last = money.years[money.years.length - 1];
 const bn = (m) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
-const pct = (a, b) => Math.round((a * 100) / b);
-const fy = last.fy;
-const fyContracts = contracts.filter((c) => c.fy === fy).length;
+const spentPct = Math.round((last.spent * 100) / last.budget);
+const gapPct = 100 - spentPct;
+const split = hundred(sectors.departments);
+const topShares = split.slice(0, 5);
+const wageInHundred = Math.round(sectors.wageBill.sharePct);
+const devInHundred = 38;
 
+// Contracts & NG-CDF (county vs national strictly separated)
+const countyContracts = byGroup('county').length + byGroup('assembly').length;
+const ngcdfContracts = byGroup('ng-cdf').length;
+const natRoadContracts = byGroup('roads').length;
+const otherNatContracts = byGroup('national').length;
+const totalNatContracts = ngcdfContracts + natRoadContracts + otherNatContracts;
+
+// Facilities by category
+const countCat = (c) => facilities.filter((f) => f.type === c).length;
+const healthCount = countCat('Health');
+const schoolCount = countCat('Education');
+const marketCount = countCat('Market');
+const waterCount = countCat('Water');
+const officeCount = countCat('Public office');
+
+// Stories & briefings
 const numbers = await getNumbers();
 const explainers = await entries('explainers');
-const latest = [
-  ...explainers.map((e) => ({ kind: 'Explainer', title: e.data.title, note: e.data.summary, href: `/explainers/${e.id}/`, when: e.data.updated })),
-  ...numbers.map((n) => ({ kind: 'Number of the week', title: `${n.data.figure} ${n.data.sentence}`, note: n.data.sources[0]?.name, href: `/number-of-the-week/#${n.id}`, when: n.data.week })),
-  ...allVideos.map((v) => ({ kind: 'Video', title: v.title, note: v.summary, href: videoPath(v.id), when: new Date(v.published_on) })),
-].sort((a, b) => b.when - a.when).slice(0, 4);
-const videos = allVideos.slice(0, 3);
+const iso = (d) => (d instanceof Date ? d.toISOString().slice(0, 10) : String(d || ''));
+const stories = [
+  ...allVideos.map((v) => ({ kind: 'Video briefing', fig: null, title: v.title, note: v.summary, href: videoPath(v.id), when: iso(v.published_on) })),
+  ...numbers.map((n) => ({ kind: 'Number of the week', fig: n.data.figure, title: `${n.data.figure} ${n.data.sentence}`, note: n.data.sources[0]?.name ?? '', href: `/number-of-the-week/#${n.id}`, when: iso(n.data.week) })),
+  ...explainers.map((e) => ({ kind: 'Plain-language explainer', fig: null, title: e.data.title, note: e.data.summary, href: `/explainers/${e.id}/`, when: iso(e.data.updated) })),
+].sort((a, b) => b.when.localeCompare(a.when));
 
-const split = hundred(sectors.departments);
-const roadsToVisit = roads.filter((r) => roadDetail(r).questions.some((q) => q.siteVisit)).length;
-const unchecked = facilities.length - checked;
-const wardCards = wards.map((w) => ({
-  w, mca: leaders.mcas[w.slug], roads: roadsForWard(w.slug).length, contracts: forWard(w.slug).length,
-  health: w.counts.Health ?? 0, schools: w.counts.Education ?? 0,
+// Curated 3-column Field Guide directory (inspired by civictech.guide)
+const dirGusii = [
+  { href: '/community/language/', label: 'Open Ekegusii language dataset', bold: true },
+  { href: '/community/language/words/', label: 'Ekegusii word list & dictionary' },
+  { href: '/community/language/grammar/', label: 'Grammar reference' },
+  { href: '/community/abagusii/', label: 'The Abagusii (history & culture)', bold: true },
+  { href: '/community/archive/', label: 'Culture archive & oral history' },
+  { href: '/community/', label: 'Community heritage hub' },
+];
+const dirCounty = [
+  { href: '/map/', label: `Interactive facility map (${facilities.length})`, bold: true },
+  { href: '/ward/', label: `All ${wardCount} wards & receipts` },
+  { href: '/map/health/', label: `Health (${healthCount}) · Education (${schoolCount})` },
+  { href: '/map/#roads', label: `Roads tracker (${roads.length})` },
+  { href: '/money/', label: `County money (${last.fy})`, bold: true },
+  { href: '/money/2025-26/', label: `Budget (${bn(last.budget)}) · Spent (${bn(last.spent)})` },
+  { href: '/money/contracts/', label: `Contracts & NG-CDF (${contracts.length.toLocaleString('en-GB')})` },
+  { href: '/money/economy/', label: 'The county economy' },
+];
+const dirStories = [
+  { href: '/watch/', label: 'Stories & video explainers', bold: true },
+  { href: '/number-of-the-week/', label: 'Number of the week' },
+  { href: '/fact-check/', label: 'Fact check' },
+  { href: '/about/data/', label: 'Open data, CSVs & JSON API' },
+  { href: '/about/rules/', label: 'Guiding rules & 4 evidence labels' },
+  { href: '/about/glossary/', label: 'Plain-language civic glossary' },
+];
+
+// Budget calendar milestones sorted soonest first from today
+const shortMonths = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const today = new Date();
+const t0 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+const orderedSteps = steps.map((s) => {
+  let dt = new Date(t0.getFullYear(), s.m - 1, s.d);
+  if (dt < t0) dt = new Date(t0.getFullYear() + 1, s.m - 1, s.d);
+  return { ...s, days: Math.round((dt - t0) / 86400000), year: dt.getFullYear() };
+}).sort((a, b) => a.days - b.days);
+
+// Saved ward records
+const wardRows = wards.map((w) => ({
+  w,
+  mca: leaders.mcas[w.slug],
+  health: w.counts.Health ?? 0,
+  schools: w.counts.Education ?? 0,
+  r: roadsForWard(w.slug).length,
+  c: forWard(w.slug).length,
 }));
 ---
-<Base title="Today" tools={false}>
+<Base title="Today" description="Gusii Daily: the Ekegusii language and cultural database, plus county data for every ward, budget and contract — all with sources." tools={false}>
   <Fragment slot="hero">
-    {now.length > 0 && (
+   <div class="home-ink">
+    {nowItems.length > 0 && (
       <aside class="now-strip" aria-label="Happening now">
         <div class="wrap now-inner">
           <span class="now-tag"><span class="live" aria-hidden="true"></span>Happening now</span>
           <ul>
-            {now.map((it) => <li><a href={it.href}>{it.headline}</a> <span class="now-meta">{it.source} · {date(it.date)}</span></li>)}
+            {nowItems.map((it) => <li><a href={it.href}>{it.headline}</a> <span class="now-meta">{it.source} · {date(it.date)}</span></li>)}
           </ul>
         </div>
       </aside>
     )}
     <HeroMap />
+    <section class="ink-statement" aria-labelledby="fig-h">
+      <div class="wrap">
+        <header class="ink-head">
+          <span class="seed-kicker"><span class="seed" aria-hidden="true"></span>The year in figures</span>
+          <h2 id="fig-h">County money, <span class="ink-hl">2025/26</span></h2>
+        </header>
+        <HomeFigures />
+      </div>
+    </section>
+   </div>
   </Fragment>
 
-  <div class="stack-lg home" style="padding-top:40px">
-    <section class="home-ward panel" aria-labelledby="yourward">
-      <div class="stack" data-ward-only="">
-        <h2 id="yourward">Your ward</h2>
-        <p>Choose your ward to see who represents you and what is listed there. We will remember it on this phone or computer.</p>
-        <label class="ward-pill"><span>Your ward</span>
-          <select data-ward-pick aria-label="Your ward">
-            <option value="">Choose…</option>
-            {subCounties.map((s) => (<optgroup label={s}>{wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}</optgroup>))}
-          </select>
-        </label>
-      </div>
-      {wardCards.map(({ w, mca, roads: r, contracts: c, health, schools }) => (
-        <div class="stack" data-ward-only={w.slug} hidden>
-          <span class="eyebrow">Your ward · {w.subCounty}</span>
-          <h2>{w.name}</h2>
-          <p>Your Member of the County Assembly is <a href={`/administration/#ward-${w.slug}`}><strong>{mca ? mca.name : 'not confirmed'}</strong></a>{mca?.party ? ` (${mca.party})` : ''}.</p>
-          <ul class="ward-facts">
-            <li><b>{health}</b> health {health === 1 ? 'facility' : 'facilities'}</li>
-            <li><b>{schools}</b> {schools === 1 ? 'school' : 'schools'}</li>
-            <li><b>{r}</b> {r === 1 ? 'road' : 'roads'} in the records</li>
-            <li><b>{c}</b> {c === 1 ? 'contract' : 'contracts'}</li>
+  <!-- BAND 1: THE DIRECTORY — 3-column curated category pill stacks + floating search/ward box -->
+  <section class="fg-band fg-band-white" aria-labelledby="dir-h">
+    <div class="wrap">
+      <header class="fg-sec-head">
+        <span class="fg-kicker">The Database</span>
+        <h2 id="dir-h">Explore <span class="fg-hl">the Gusii knowledge base</span><br />and every public record we hold</h2>
+      </header>
+
+      <div class="fg-dir-grid">
+        <div class="fg-dir-col is-comm">
+          <div class="fg-dir-top">
+            <h3><a href="/community/">Gusii Language &amp; Culture</a></h3>
+            <span class="fg-dir-pre">The Knowledge Base</span>
+            <p>Ekegusii words, grammar, oral history, traditional knowledge and Abagusii heritage — recorded with consent.</p>
+          </div>
+          <ul class="fg-pill-stack">
+            {dirGusii.map((item) => (
+              <li>
+                <a class={item.bold ? 'is-key' : undefined} href={item.href}>
+                  <span class="fg-ne" aria-hidden="true">↗</span>
+                  <span>{item.label}</span>
+                </a>
+              </li>
+            ))}
           </ul>
-          <div class="chips"><a class="btn" href={`/ward/${w.slug}/`}>Open {w.name} ward</a><a class="btn quiet" href="/report/">Report a place</a></div>
-          <p class="small muted">Sources: the IEBC 2022 results and later by-elections; the Nyamira Daily place list; county and national records (see the ward page).</p>
         </div>
-      ))}
-    </section>
 
-    <section class="front" aria-label="The site at a glance">
-      <a class="front-door" href="/map/">
-        <span class="eyebrow">Places</span>
-        <span class="num">{checked} <small>of {facilities.length}</small></span>
-        <span class="say">public places visited by our team so far. {checked < facilities.length / 2 ? 'We are just starting; the' : 'The'} rest come from official lists.</span>
-        <EvidenceLabel kind={checked ? 'verified' : 'unverified'} />
-        <b class="more">See the places →</b>
-      </a>
-      <a class="front-door" href="/money/">
-        <span class="eyebrow">Money · {fy}</span>
-        <span class="num">{bn(last.spent)}</span>
-        <span class="say">spent by the county, out of a {bn(last.budget)} budget. That is KSh {pct(last.spent, last.budget)} of every 100.</span>
-        <EvidenceLabel kind="official" />
-        <b class="more">Follow the money →</b>
-      </a>
-      <a class="front-door" href="/money/contracts/">
-        <span class="eyebrow">Contracts · {fy}</span>
-        <span class="num">{fyContracts.toLocaleString('en-GB')}</span>
-        <span class="say">contracts and allocations for Nyamira dated {fy}, county and national. See who got each one.</span>
-        <EvidenceLabel kind="official" />
-        <b class="more">See the contracts →</b>
-      </a>
-    </section>
-    <p class="small muted">Sources: the Nyamira Daily place list and visits; the Controller of Budget and the county's own reports, FY{fy}; the national procurement portal and other official records (see each page).</p>
+        <div class="fg-dir-col is-places">
+          <div class="fg-dir-top">
+            <span class="fg-dir-pre">The</span>
+            <h3><a href="/map/">County Data</a></h3>
+            <p>Wards, facilities, roads, budgets, contracts and elected seats — every figure with its source.</p>
+          </div>
+          <ul class="fg-pill-stack">
+            {dirCounty.map((item) => (
+              <li>
+                <a class={item.bold ? 'is-key' : undefined} href={item.href}>
+                  <span class="fg-ne" aria-hidden="true">↗</span>
+                  <span>{item.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-    <div class="home-two">
-      <section class="card stack" aria-labelledby="nextdate">
-        <span class="eyebrow">The budget calendar</span>
-        <h2 id="nextdate">The next date to watch</h2>
-        <ol class="next-steps" data-next-steps>
-          {steps.map((s) => <li data-m={s.m} data-d={s.d}><span class="t">{s.what}</span><span class="d">{s.when}. {s.note}</span><span class="days" data-days hidden></span></li>)}
-        </ol>
-        <p class="small muted">These dates are set by the Public Finance Management Act, 2012. Each step is a chance for residents to have a say.</p>
-        <a class="more" href={`/money/${fy.replace('/', '-')}/#key-dates`}>The full calendar →</a>
-      </section>
-
-      <section class="card stack" aria-labelledby="hundred">
-        <span class="eyebrow">Budget {sectors.fy}</span>
-        <h2 id="hundred">Where every KSh 100 goes</h2>
-        <ul class="hundred">
-          {split.map((r) => <li><span class="h-name">{r.name}</span><span class="h-bar" aria-hidden="true"><i style={`width:${(r.share * 100) / split[0].share}%`}></i></span><b>KSh {r.share}</b></li>)}
-        </ul>
-        <p class="small muted">Of every KSh 100, about KSh {Math.round(sectors.wageBill.sharePct)} pays wages. Departments are grouped by us; figures are the county's budget estimates, not money spent.</p>
-        <p class="source"><EvidenceLabel kind="official" /> <a href={sectors.source.url} rel="noopener">{sectors.source.title}</a></p>
-        <a class="more" href={`/money/${fy.replace('/', '-')}/`}>Open the budget →</a>
-      </section>
-    </div>
-
-    {latest.length > 0 && (
-      <section class="stack" aria-labelledby="latest">
-        <div class="row-head"><h2 id="latest">Latest from the data</h2><a href="/watch/">All stories →</a></div>
-        <ul class="latest">
-          {latest.map((x) => (
-            <li><a href={x.href}><span class="eyebrow">{x.kind}</span><span class="t">{x.title}</span>{x.note && <span class="d">{x.note}</span>}<span class="d">{date(x.when.toISOString())}</span></a></li>
-          ))}
-        </ul>
-      </section>
-    )}
-
-    {videos.length > 0 && (
-      <section class="stack" aria-labelledby="watch">
-        <div class="row-head"><h2 id="watch">Watch</h2><a href="/watch/">All videos →</a></div>
-        <ul class="latest">
-          {videos.map((v) => <li><a href={videoPath(v.id)}><span class="eyebrow">Video</span><span class="t">{v.title}</span>{v.summary && <span class="d">{v.summary}</span>}</a></li>)}
-        </ul>
-      </section>
-    )}
-
-    <section class="home-help panel stack" aria-labelledby="help">
-      <h2 id="help">Help us check</h2>
-      <p>Most of what we list comes from official records. Only a visit shows what is really there. If you live near one of these, tell us what you see.</p>
-      <ul class="ward-facts">
-        <li><b>{unchecked}</b> of {facilities.length} public places not yet checked on site</li>
-        <li><b>{roadsToVisit}</b> of {roads.length} roads with a question that needs a visit</li>
-      </ul>
-      <div class="chips"><a class="btn" href="/report/">Report a place</a><a class="btn quiet" href="/map/#roads">See the roads</a><a class="btn quiet" href="/about/careers/">Become a ward correspondent</a></div>
-    </section>
-
-    <section class="stack" aria-labelledby="start">
-      <h2 id="start">New here? Start with these</h2>
-      <ul class="rows">
-        <li><a class="row-link" href="/administration/duties/"><span><span class="t">How the county is governed</span><span class="d">What the county must do, and what belongs to the national government.</span></span><span class="go" aria-hidden="true">→</span></a></li>
-        <li><a class="row-link" href="/explainers/development-budget/"><span><span class="t">How to read the budget</span><span class="d">What "development budget used" means, and why it matters.</span></span><span class="go" aria-hidden="true">→</span></a></li>
-        <li><a class="row-link" href="/about/rules/#evidence"><span><span class="t">What our labels mean</span><span class="d">Verified, Official claim, Audit finding: how to tell what we checked ourselves.</span></span><span class="go" aria-hidden="true">→</span></a></li>
-      </ul>
-    </section>
-
-    <section class="stack">
-      <div class="row-head"><span></span><button class="sw-switch" type="button" data-sw-switch aria-pressed="false" hidden>Soma kwa Kiswahili</button></div>
-      <div class="sw" lang="sw">
-        <span class="eyebrow">Muhtasari kwa Kiswahili</span>
-        <p>Nyamira Daily inaeleza kwa lugha rahisi jinsi pesa za kaunti zinavyotumika, huduma zilizopo katika kila wadi, na hali yake. Kila takwimu ina chanzo chake.</p>
+        <div class="fg-dir-col is-money">
+          <div class="fg-dir-top">
+            <span class="fg-dir-pre">&amp;</span>
+            <h3><a href="/watch/">Stories &amp; Reference</a></h3>
+            <p>Plain-language explainers, fact-checks, open data and the rules we work by.</p>
+          </div>
+          <ul class="fg-pill-stack">
+            {dirStories.map((item) => (
+              <li>
+                <a class={item.bold ? 'is-key' : undefined} href={item.href}>
+                  <span class="fg-ne" aria-hidden="true">↗</span>
+                  <span>{item.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </section>
-  </div>
-  <script is:inline>
-    // The next budget date: find the first deadline on or after today and say how many days are left.
-    (function () {
-      var list = document.querySelector('[data-next-steps]'); if (!list) return;
-      var now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate()), best = null;
-      [].forEach.call(list.children, function (li) {
-        var m = +li.getAttribute('data-m'), d = +li.getAttribute('data-d'), y = today.getFullYear();
-        var when = new Date(y, m - 1, d); if (when < today) when = new Date(y + 1, m - 1, d);
-        var days = Math.round((when - today) / 864e5);
-        if (!best || days < best.days) best = { li: li, days: days };
-      });
-      if (!best) return;
-      [].forEach.call(list.children, function (li) { li.hidden = li !== best.li; });
-      var tag = best.li.querySelector('[data-days]');
-      tag.textContent = best.days === 0 ? 'Today' : best.days === 1 ? 'Tomorrow' : 'In ' + best.days + ' days';
-      tag.hidden = false; list.classList.add('one');
-    })();
-  </script>
+
+      <!-- Floating knowledgebase search & 20-ward quick jumper -->
+      <div class="fg-kb-wrap">
+        <p class="fg-kb-caption">Search the Gusii knowledge base, all {wardCount} wards &amp; every public record</p>
+        <div class="fg-kb-box">
+          <form class="fg-kb-form" action="/search/" method="get" role="search">
+            <label class="vh" for="kb-q">Search every record on Gusii Daily</label>
+            <Icon name="search" size={20} />
+            <input id="kb-q" type="search" name="q" placeholder="Search a ward, dispensary, school, road, department or law..." autocomplete="off" />
+            <button class="fg-cta-btn" type="submit">Search guide</button>
+          </form>
+
+          <div class="fg-kb-constituencies" data-ward-only="">
+            {subCounties.map((sc) => (
+              <div class="fg-kb-sc">
+                <span class="fg-kb-sc-name">{sc} Constituency</span>
+                <div class="fg-kb-chips">
+                  {wards.filter((w) => w.subCounty === sc).map((w) => (
+                    <a href={`/ward/${w.slug}/`}>{w.name}</a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {wardRows.map(({ w, mca, health, schools, r, c }) => (
+            <div class="fg-saved-ward" data-ward-only={w.slug} hidden>
+              <div class="fg-sw-head">
+                <div>
+                  <span class="fg-kicker">Your saved ward · {w.subCounty}</span>
+                  <h3>{w.name} Ward</h3>
+                  <p class="small">MCA: <a href={`/administration/#ward-${w.slug}`}><strong>{mca ? mca.name : 'not confirmed'}</strong></a>{mca?.party ? ` (${mca.party})` : ''} · Source: IEBC</p>
+                </div>
+                <a class="fg-cta-btn" href={`/ward/${w.slug}/`}>Open {w.name} →</a>
+              </div>
+              <ul class="fg-sw-stats">
+                <li><b>{health}</b><span>health facilities</span></li>
+                <li><b>{schools}</b><span>schools</span></li>
+                <li><b>{r}</b><span>roads listed</span></li>
+                <li><b>{c}</b><span>contracts &amp; CDF</span></li>
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND 2: INSIDE THE RECORDS — full-bleed soft-mint topographic showcase with 4 visual preview cards -->
+  <section class="fg-band fg-band-mint" aria-labelledby="peek-h">
+    <svg class="fg-topo" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-width="1.15">
+        <ellipse cx="180" cy="480" rx="320" ry="210" />
+        <ellipse cx="180" cy="480" rx="210" ry="135" />
+        <ellipse cx="180" cy="480" rx="110" ry="68" />
+        <path d="M-80 220 C 220 90, 520 260, 820 130 S 1220 20, 1520 170" />
+        <path d="M-80 310 C 240 180, 540 350, 840 220 S 1240 110, 1520 260" />
+        <ellipse cx="1290" cy="440" rx="280" ry="185" />
+        <ellipse cx="1290" cy="440" rx="170" ry="110" />
+      </g>
+    </svg>
+
+    <div class="wrap fg-rel">
+      <header class="fg-sec-head">
+        <span class="fg-kicker">Inside the Records</span>
+        <h2 id="peek-h">Preview <span class="fg-hl">key county &amp; national figures</span><br />with every source attached</h2>
+      </header>
+
+      <div class="fg-peek-grid">
+        <a class="fg-peek-card" href="/money/">
+          <div class="fg-peek-art is-dark">
+            <span class="fg-art-tag">County Budget · FY{last.fy}</span>
+            <b class="fg-art-big">{bn(last.spent)}</b>
+            <div class="fg-art-bar" aria-hidden="true">
+              <i class="is-fill" style={`width:${spentPct}%`}></i>
+              <i class="is-gap" style={`width:${gapPct}%`}></i>
+            </div>
+            <span class="fg-art-sub">{spentPct}% spent of {bn(last.budget)} · {gapPct}% gap</span>
+          </div>
+          <div class="fg-peek-body">
+            <h3>County spending in {last.fy}</h3>
+            <p>Controller of Budget year-end report ({bn(last.spent)}). The county's own Q4 report prints KSh 7.11B — both shown with sources.</p>
+            <span class="fg-peek-meta"><EvidenceLabel kind="official" /></span>
+          </div>
+        </a>
+
+        <a class="fg-peek-card" href="/money/2025-26/">
+          <div class="fg-peek-art is-paper">
+            <span class="fg-art-tag">Out of every KSh 100</span>
+            <ul class="fg-mini-bars" aria-hidden="true">
+              {topShares.map((s) => (
+                <li>
+                  <span>{s.name.split(/[\s,]+/)[0]}</span>
+                  <i><b style={`width:${Math.round((s.share / topShares[0].share) * 100)}%`}></b></i>
+                  <em>{s.share}</em>
+                </li>
+              ))}
+            </ul>
+            <span class="fg-art-sub">Staff pay: KSh {wageInHundred} · Development: KSh {devInHundred}</span>
+          </div>
+          <div class="fg-peek-body">
+            <h3>Where every KSh 100 goes</h3>
+            <p>{topShares[0].name} gets KSh {topShares[0].share}, followed by {topShares[1].name.toLowerCase()} (KSh {topShares[1].share}) and {topShares[2].name} (KSh {topShares[2].share}). Source: PBB 2025/26.</p>
+            <span class="fg-peek-meta"><EvidenceLabel kind="official" /></span>
+          </div>
+        </a>
+
+        <a class="fg-peek-card" href="/money/contracts/">
+          <div class="fg-peek-art is-green">
+            <span class="fg-art-tag">Kept strictly separate</span>
+            <div class="fg-art-split">
+              <div><b>{countyContracts}</b><span>County &amp; Assembly</span></div>
+              <div><b>{totalNatContracts.toLocaleString('en-GB')}</b><span>NG-CDF &amp; National</span></div>
+            </div>
+            <span class="fg-art-sub">{ngcdfContracts.toLocaleString('en-GB')} NG-CDF · {natRoadContracts} national roads</span>
+          </div>
+          <div class="fg-peek-body">
+            <h3>Contracts &amp; NG-CDF lists</h3>
+            <p>{contracts.length.toLocaleString('en-GB')} records from PPIP, county reports, NG-CDF Board, KeRRA, KURA and KeNHA. National money is never added to county figures.</p>
+            <span class="fg-peek-meta"><EvidenceLabel kind="official" /></span>
+          </div>
+        </a>
+
+        <a class="fg-peek-card" href="/map/">
+          <div class="fg-peek-art is-mint">
+            <span class="fg-art-tag">20 Wards · Facility Atlas</span>
+            <b class="fg-art-big">{checked} / {facilities.length}</b>
+            <div class="fg-art-bar" aria-hidden="true">
+              <i class="is-fill" style={`width:${Math.round((checked / facilities.length) * 100)}%`}></i>
+              <i class="is-gap" style={`width:${100 - Math.round((checked / facilities.length) * 100)}%`}></i>
+            </div>
+            <span class="fg-art-sub">{healthCount} health · {schoolCount} schools · {waterCount + officeCount} water &amp; offices</span>
+          </div>
+          <div class="fg-peek-body">
+            <h3>Facility map &amp; site checks</h3>
+            <p>{facilities.length} public places and {roads.length} roads listed from OpenStreetMap and official registers, awaiting on-site checks of real condition.</p>
+            <span class="fg-peek-meta"><EvidenceLabel kind="unverified" /></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND 3: STORIES, VIDEOS & STANDARDS — overlapping dashed-border + hard-shadow card on contour paper -->
+  <section class="fg-band fg-band-topo fg-overlap-band" aria-labelledby="ins-h">
+    <div class="wrap">
+      <div class="fg-dashed-sheet">
+        <header class="fg-sec-head">
+          <span class="fg-kicker">Stories &amp; Briefings</span>
+          <h2 id="ins-h">Read and watch <span class="fg-hl">latest explainers &amp; figures</span><br />turned into plain language</h2>
+        </header>
+
+        <div class="fg-insight-grid">
+          {stories.slice(0, 2).map((s, idx) => (
+            <a class="fg-insight-card" href={s.href}>
+              <div class={`fg-ins-thumb ${idx === 0 ? 'is-grad' : 'is-ink'}`}>
+                {s.fig ? (
+                  <b class="fg-thumb-fig">{s.fig}</b>
+                ) : (
+                  <svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true">
+                    <path d="M14 14 H50 V50 H38 V34 L20 52 L12 44 L30 26 H14 Z" fill="currentColor" />
+                  </svg>
+                )}
+              </div>
+              <span class="fg-ins-date">{date(s.when)} · {s.kind}</span>
+              <h3>{s.title}</h3>
+              <p>{s.note}</p>
+            </a>
+          ))}
+
+          <a class="fg-insight-card" href="/watch/">
+            <div class="fg-ins-thumb is-dashed">
+              <span class="fg-play-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+              </span>
+              <span class="fg-thumb-note">Video briefings</span>
+            </div>
+            <span class="fg-ins-date">YouTube &amp; Social · Series</span>
+            <h3>Watch confirmed data explained</h3>
+            <p>Not everyone reads a 300-page budget report. As datasets and site visits are verified, we explain them in short videos linked back to the sources here.</p>
+          </a>
+
+          <a class="fg-insight-card" href="/about/rules/#labels">
+            <div class="fg-ins-thumb is-labels">
+              <div class="fg-label-quad">
+                <EvidenceLabel kind="verified" />
+                <EvidenceLabel kind="audit" />
+                <EvidenceLabel kind="official" />
+                <EvidenceLabel kind="unverified" />
+              </div>
+            </div>
+            <span class="fg-ins-date">Editorial Standard · 4 Labels</span>
+            <h3>How we label every figure</h3>
+            <p>Every figure names its report, page and date — separating site-checked facts, Auditor-General findings, official claims and unverified lists.</p>
+          </a>
+        </div>
+
+        <div class="fg-center-actions">
+          <a class="fg-outline-btn" href="/watch/">See all stories</a>
+          <a class="fg-cta-btn" href="/about/data/">Browse open data</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND 4: FROM THE CALENDAR — split ticket-stub statutory budget cards on topographic paper -->
+  <section class="fg-band fg-band-topo" aria-labelledby="cal-h">
+    <div class="wrap">
+      <header class="fg-sec-head">
+        <span class="fg-kicker">From the Calendar</span>
+        <h2 id="cal-h">Mark your calendar for <span class="fg-hl">public budget<br />deadlines</span> &amp; hearing milestones</h2>
+      </header>
+
+      <ol class="gd-steps">
+        {orderedSteps.map((step, i) => (
+          <li class={`gd-step${i === 0 ? ' is-next' : ''}`}>
+            <span class="gd-num" aria-hidden="true">{i + 1}</span>
+            <div class="gd-step-body">
+              <div class="gd-step-top">
+                <span class="gd-pill">By {step.d} {shortMonths[step.m]}</span>
+                {i === 0
+                  ? <span class="gd-pill is-soft">{step.days === 0 ? 'Today' : `In ${step.days} days`}</span>
+                  : <span class="gd-pill is-soft">{step.year}</span>}
+              </div>
+              <a href="/money/2025-26/#calendar">{step.what}</a>
+              <p>{step.note}</p>
+            </div>
+          </li>
+        ))}
+        <li class="gd-step is-every">
+          <span class="gd-num" aria-hidden="true">{orderedSteps.length + 1}</span>
+          <div class="gd-step-body">
+            <div class="gd-step-top"><span class="gd-pill">Every quarter</span><span class="gd-pill is-soft">PFM Act s.166(4)</span></div>
+            <a href="/money/track/">Quarterly spending reports</a>
+            <p>County Treasury and Controller of Budget publish what each of the {departmentCount} departments spent.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="fg-cal-foot">Deadlines set by the Public Finance Management Act, 2012 (financial year 1 July – 30 June).</p>
+      <div class="fg-center-actions">
+        <a class="fg-outline-btn" href="/money/2025-26/#calendar">Full timetable</a>
+        <a class="fg-cta-btn" href="/money/2025-26/">Explore 2025/26 budget</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND 5: GET INVOLVED — 3 bold colour-blocked square cards (Charcoal, White, Signal Green) -->
+  <section class="fg-band fg-band-topo fg-involve-band" aria-labelledby="inv-h">
+    <div class="wrap">
+      <header class="fg-sec-head">
+        <span class="fg-kicker">Get Involved</span>
+        <h2 id="inv-h">Help grow <span class="fg-hl">Gusii Daily</span> and keep<br />every ward’s record accurate</h2>
+      </header>
+
+      <div class="fg-trio-blocks">
+        <a class="fg-block-card is-signal" href="/community/language/">
+          <span class="fg-bc-icon"><Icon name="community" size={24} /></span>
+          <h3>Record Ekegusii</h3>
+          <p>Speak, record and preserve Ekegusii words, phrases and stories with full informed consent — contributors keep the rights.</p>
+        </a>
+
+        <a class="fg-block-card is-charcoal" href="/report/">
+          <span class="fg-bc-icon"><Icon name="map" size={24} /></span>
+          <h3>Report a place</h3>
+          <p>Tell us whether a clinic, school, water point, market or road in your ward is working and when you saw it.</p>
+        </a>
+
+        <a class="fg-block-card is-white" href="/about/careers/">
+          <span class="fg-bc-icon"><Icon name="people" size={24} /></span>
+          <h3>Join your ward</h3>
+          <p>Register interest as a ward correspondent or volunteer, or send us a public document or correction.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw" style="margin:0 auto; max-width:var(--wrap); padding:0 var(--gutter)"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Gusii Daily ni hifadhi ya lugha ya Ekegusii na maarifa ya kitamaduni ya Abagusii, pamoja na data ya kiraia ya kaunti — kila neno, kila shilingi na kila takwimu ina chanzo chake na lebo ya ushahidi.</p></div>
 </Base>

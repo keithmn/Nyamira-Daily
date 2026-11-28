@@ -5,7 +5,7 @@ const STATUSES = new Set(['reported-available', 'reported-unavailable', 'unknown
 // Public attribution is the source category, never the reporter's name (decision #47).
 export const SOURCE_CATEGORIES = new Map([
   ['resident', 'Resident report'],
-  ['field-reporter', 'Nyamira Daily field reporter'],
+  ['field-reporter', 'Gusii Daily field reporter'],
 ]);
 // A reader report is either checked by an editor (verified) or not (unverified);
 // "official" and "audit" describe government and Auditor-General sources instead.
@@ -29,7 +29,7 @@ export function facilitySummary(id) {
 
 export function readFacilityObservation(fields, today = nairobiDate()) {
   const facility = facilityById.get(fields.facility);
-  if (!facility) return { error: 'Choose a facility listed on Nyamira Daily.' };
+  if (!facility) return { error: 'Choose a facility listed on Gusii Daily.' };
   const capability = clean(fields.capability);
   if (capability.length < 2 || capability.length > 120) {
     return { error: 'Describe what you checked in 2–120 characters.' };

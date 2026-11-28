@@ -1,7 +1,7 @@
 ---
 // Privacy (decision #73). Describes what the site actually does today; update it whenever a form, a tool or a
 // host changes. Needs the lawyer's review before launch (Data Protection Act 2019).
-import { county, publisher } from '../../county.js';
+import { site, publisher } from '../../county.js';
 import { contact, hasContact } from '../../config.js';
 const retention = Number(import.meta.env.PUBLIC_CORRECTION_RETENTION_DAYS);
 const hasRetention = Number.isSafeInteger(retention) && retention >= 1 && retention <= 3650;
@@ -10,14 +10,14 @@ const hasRetention = Number.isSafeInteger(retention) && retention >= 1 && retent
 <p class="lead">Reading this site does not need an account, and we do not track you. Here is the little we do keep.</p>
   <div class="stack" style="margin-top:16px; max-width:720px">
     <h3>Who is responsible</h3>
-    <p>{county.siteName} is responsible for the personal data described here, under Kenya's Data Protection Act, 2019.</p>
+    <p>{site.name} is responsible for the personal data described here, under Kenya's Data Protection Act, 2019.</p>
     {/* Before any form that collects personal data is switched on, name the legal entity (the data controller) here: decision #125. */}
 
     <h3>Just reading the site</h3>
     <ul>
       <li>We use no advertising, no tracking cookies and no visitor analytics.</li>
       <li>Our host (Cloudflare) keeps short technical logs, such as your internet address, to deliver pages and block attacks.</li>
-      <li>Your phone or browser remembers a few choices, on your device only: your ward and whether you read the Kiswahili summaries. We never receive these. Clearing your browser's site data removes them.</li>
+      <li>Your phone or browser remembers a few choices, on your device only: your ward, whether you read the Kiswahili summaries, and whether you dismissed the beta notice. We never receive these. Clearing your browser's site data removes them.</li>
       <li>Videos load from YouTube's privacy-enhanced player only when you tap play.</li>
     </ul>
 
@@ -44,7 +44,7 @@ const hasRetention = Number.isSafeInteger(retention) && retention >= 1 && retent
       ? <p>To ask: {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}{contact.email && contact.whatsapp && ' or '}{contact.whatsapp && <a href={`https://wa.me/${contact.whatsapp}`} rel="noopener">WhatsApp</a>}.</p>
       : <p class="muted">Our public contact channel is being set up and will be listed here.</p>}
 
-    <p class="small muted">Updated 31 Oct 2026.</p>
+    <p class="small muted">Updated 26 Nov 2026.</p>
     <div class="sw" lang="sw">
       <span class="eyebrow">Muhtasari kwa Kiswahili</span>
       <p>Hatukufuatilii unaposoma tovuti hii. Hatutumii matangazo wala vidakuzi vya kufuatilia. Ukitutumia ripoti, huhitaji kutoa jina wala nambari ya simu. Unaweza kuomba kuona, kusahihisha au kufuta data yako.</p>

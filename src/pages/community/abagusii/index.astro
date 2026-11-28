@@ -5,25 +5,119 @@ import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
 import CommunityRules from '../../../components/CommunityRules.astro';
 import { archiveItems } from '../../../lib/archive.js';
+import { languageItems } from '../../../lib/language.js';
 const history = (await archiveItems()).filter((e) => e.data.kind === 'history');
+const langCount = (await languageItems()).length;
+
+const areas = [
+  ['01', 'Origins & settlement', 'Where the Abagusii came from and how they settled, as different elders and written sources tell it.'],
+  ['02', 'Clans as heritage', 'Clan names, totems and customs — documented strictly as cultural heritage, never counts, rankings or elections.'],
+  ['03', 'Everyday culture', 'Food, crafts, songs, naming traditions and ceremonies recorded from consenting knowledge holders.'],
+];
+
+const factsAbout = [
+  ['Language', 'Ekegusii (ISO 639-3: guz), a Bantu language of the E.42 group'],
+  ['People', 'The Abagusii (singular: Omogusii), also known as Kisii'],
+  ['Region', 'Kisii County and Nyamira County, western Kenya'],
+  ['Population', 'About 2.2 million (2019 Kenya census, Kisii and Nyamira combined)'],
+  ['Livelihoods', 'Tea, coffee, bananas, maize, dairy farming, trade'],
+];
+
+const cultureAreas = [
+  { title: 'Obokano', desc: 'The eight-stringed lyre, the most distinctive Gusii instrument, played at ceremonies and gatherings.' },
+  { title: 'Egesagane', desc: 'Communal dance and song, performed at celebrations and rites of passage.' },
+  { title: 'Chinyangi', desc: 'Soapstone carving from Tabaka, known across Kenya and exported.' },
+  { title: 'Ebitoke & Chinsaga', desc: 'Bananas and traditional greens: staple foods that define Gusii cuisine.' },
+  { title: 'Oral tradition', desc: 'Proverbs, riddles, stories and songs passed through generations in Ekegusii.' },
+];
 ---
-<Base title="The Abagusii" description="Who the Abagusii are: history and culture, from named sources.">
-  <PageHead title="The Abagusii" lead="Who we are and where we came from, told by our elders and from named sources." />
-  <div class="stack-lg" style="margin-top:16px; max-width:760px">
-    {history.length > 0 ? (
-      <ul class="rows">{history.map((e) => <li><a class="row-link" href={`/community/archive/#${e.id}`}><span><span class="t">{e.data.title}</span><span class="d">{e.data.summary}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}</ul>
-    ) : (
-      <p class="callout"><span><strong>The first pieces are being prepared.</strong> We publish an account only when it names its source and our review panel has checked it. Nothing is published here yet.</span></p>
-    )}
-    <section class="stack">
-      <h2>What we will cover</h2>
-      <ul>
-        <li>Where the Abagusii came from and how they settled, as different elders and written sources tell it.</li>
-        <li>Clans as heritage: names, totems and customs.</li>
-        <li>Everyday culture: food, crafts, songs, naming and ceremonies.</li>
-      </ul>
-      <p>Do you know an elder we should record, or hold a book, photograph or recording? <a href="/community/share/">Share it with us</a>.</p>
+<Base title="The Abagusii" description="Who the Abagusii are: history, culture, language and identity, from named sources.">
+  <PageHead eyebrow="Community · Living Heritage" title="The Abagusii" lead="Who we are and where we came from, told by our elders and from named sources." crumbs={[{ href: '/community/', label: 'Community' }]} />
+  <div class="stack-lg">
+
+    <section class="fg-sheet">
+      <div class="fg-sec-head" style="margin-bottom:16px">
+        <span class="fg-kicker">AT A GLANCE</span>
+        <h2>The Abagusii people</h2>
+      </div>
+      <table class="cards">
+        <tbody>
+          {factsAbout.map(([label, value]) => (
+            <tr><td data-label={label}>{value}</td></tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="small muted">Sources: 2019 Kenya Population and Housing Census, Volume IV (KNBS); Ethnologue: Languages of the World.</p>
     </section>
+
+    <section class="fg-sheet">
+      <div class="fg-sec-head" style="margin-bottom:20px">
+        <span class="fg-kicker">WHAT WE WILL COVER</span>
+        <h2>Documented history with <em>every source named</em></h2>
+      </div>
+      {history.length > 0 ? (
+        <ul class="rows">{history.map((e) => <li><a class="row-link" href={`/community/archive/#${e.id}`}><span><span class="t">{e.data.title}</span><span class="d">{e.data.summary}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}</ul>
+      ) : (
+        <p class="callout" style="margin-bottom:20px"><span><strong>The first pieces are being prepared.</strong> We publish an account only when it names its source and our review panel has checked it. Nothing is published here yet.</span></p>
+      )}
+      <div class="fg-ticket-grid">
+        {areas.map(([num, title, desc], i) => (
+          <div class={`fg-ticket${i === 0 ? ' is-next' : ''}`}>
+            <div class="fg-ticket-stub">
+              <span class="fg-stub-k">PART</span>
+              <strong class="fg-stub-d">{num}</strong>
+            </div>
+            <div class="fg-ticket-body">
+              <h3>{title}</h3>
+              <p>{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="fg-sheet stack" aria-labelledby="culture">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">LIVING CULTURE</span>
+        <h2 id="culture">What makes Gusii culture distinctive</h2>
+        <p class="small muted">These areas will be documented through the culture archive, with consent from knowledge holders.</p>
+      </div>
+      <div class="fg-data-grid">
+        {cultureAreas.map((c) => (
+          <div class="fg-data-card">
+            <h3>{c.title}</h3>
+            <p class="muted">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="fg-sheet stack" aria-labelledby="lang-link">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">LANGUAGE</span>
+        <h2 id="lang-link">Ekegusii: spoken by millions, barely digital</h2>
+      </div>
+      <p>Ekegusii is the first language of most people in Nyamira and Kisii counties, but it has almost no presence in digital tools — no spell-checker, no translator, no voice assistant. We are building an open, consent-first language dataset to change that.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:8px">
+        <div class="fg-stat-tile"><span class="fg-stat-num">{langCount}</span><span class="fg-stat-label">entries so far</span></div>
+      </div>
+      <div class="fg-cta-row" style="margin-top:12px">
+        <a class="fg-cta-btn" href="/community/language/">The Ekegusii language dataset</a>
+        <a class="fg-outline-btn" href="/community/language/words/">Browse words</a>
+      </div>
+    </section>
+
+    <!-- Ekegusii summary (marked for native-speaker review) -->
+    <div class="sw" lang="guz">
+      <span class="eyebrow">Okoandikwa kw'Ekegusii</span>
+      <p>Abagusii n'abanto ab'egesaku ekero. Tokoandika amang'ana gaito — igo twaremereirwe, amachara gaito n'amasiko — n'oboisanio bw'abakori baito n'ebitabu.</p>
+    </div>
+
+    <div class="fg-cta-row">
+      <a class="fg-cta-btn" href="/community/share/">Share a source, book or elder to record</a>
+      <a class="fg-outline-btn" href="/community/archive/">See the culture archive</a>
+    </div>
+
     <CommunityRules />
   </div>
 </Base>

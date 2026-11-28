@@ -1,26 +1,67 @@
 ---
-// Page head (decision #121): a plain title area. The title, one line on what the page answers, any detail the
-// page passes as `eyebrow` (only when it says more than the section's name), and the Kiswahili switch.
-// No dark band, corner icon or green bar. The section switcher above it says where you are, so the breadcrumb
-// shows only on pages three or more levels deep (a department, a place).
-interface Crumb { href: string; label: string }
-interface Props { eyebrow?: string; title: string; lead?: string; crumbs?: Crumb[]; tools?: boolean; tone?: string; icon?: string }
-import { sectionFor } from '../nav.js';
-const { eyebrow, title, lead, crumbs = [] } = Astro.props;
-const section = sectionFor(Astro.url.pathname);
-const norm = (t?: string) => (t ?? '').trim().toLowerCase();
-// An eyebrow that only repeats the section ("Money", "Places") adds nothing beside the switcher
-const detail = eyebrow && norm(eyebrow) !== norm(section?.label) && norm(eyebrow) !== norm(title) ? eyebrow : null;
-const showCrumbs = crumbs.length >= 3;
+// Full-bleed soft-mint topographic Field Guide page hero (inspired by civictech.guide/build, in Gusii Daily tokens).
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  crumbs?: { href: string; label: string }[];
+  swSwitch?: boolean;
+  // 'ink' for section landing pages (Money, Places, About...), 'cream' (default) for everything else.
+  cover?: 'ink' | 'cream' | 'statement';
+  // For cover="statement": the page's headline figure, shown huge in Ink on green, with an Ink source strip.
+  figure?: { value: string; source: string; sourceHref?: string };
+  // An area photo for the cover. Only a verified photo with a credit and date (decision #55): no stock.
+  photo?: { src: string; alt: string; credit: string; date: string };
+}
+const { eyebrow = 'Gusii Daily', title, lead, crumbs = [], swSwitch = true, photo, cover = 'cream', figure } = Astro.props;
+const trail = crumbs.length > 1 ? crumbs.slice(0, -1) : [];
 ---
-{showCrumbs && (
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    {crumbs.map((c, i) => (<><a href={c.href}>{c.label}</a>{i < crumbs.length - 1 ? ' / ' : ''}</>))}
-  </nav>
-)}
-<header class="stack page-head">
-  <h1>{title}</h1>
-  {lead && <p class="lead">{lead}</p>}
-  {detail && <p class="ph-detail">{detail}</p>}
-  <button class="sw-switch" type="button" data-sw-switch aria-pressed="false" hidden>Soma kwa Kiswahili</button>
+<header class={`fg-page-hero page-head is-${cover}`}>
+  <svg class="fg-topo" viewBox="0 0 1200 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="1.2">
+      <path d="M-80 280 C 80 180, 220 260, 360 150 S 660 20, 860 120 S 1120 260, 1280 140" />
+      <path d="M-80 220 C 110 120, 260 210, 410 100 S 700 -20, 910 80 S 1140 210, 1280 90" />
+      <path d="M-60 330 C 120 240, 270 310, 430 205 S 720 85, 920 175 S 1150 300, 1290 200" />
+      <ellipse cx="140" cy="95" rx="180" ry="95" />
+      <ellipse cx="140" cy="95" rx="115" ry="58" />
+      <ellipse cx="1060" cy="215" rx="210" ry="110" />
+      <ellipse cx="1060" cy="215" rx="135" ry="68" />
+    </g>
+  </svg>
+
+  <div class="fg-page-hero-inner">
+   <div class="gd-cover-text">
+    {trail.length > 0 && (
+      <nav class="fg-crumbs breadcrumb" aria-label="Breadcrumb">
+        {trail.map((c, i) => (
+          <>
+            {i > 0 && <span aria-hidden="true">/</span>}
+            <a href={c.href}>{c.label}</a>
+          </>
+        ))}
+      </nav>
+    )}
+    <span class="fg-kicker">{eyebrow}</span>
+    {cover === 'statement' && figure && <p class="gd-cover-num">{figure.value}</p>}
+    <h1>{title}</h1>
+    {lead && <p class="lead fg-lead">{lead}</p>}
+    {swSwitch && (
+      <div class="fg-hero-actions">
+        <button type="button" class="fg-outline-btn sw-switch" data-sw-switch aria-pressed="false" hidden>Soma kwa Kiswahili</button>
+      </div>
+    )}
+   </div>
+    {photo && (
+      <figure class="gd-photo">
+        <img src={photo.src} alt={photo.alt} loading="eager" />
+        <figcaption>Photo: {photo.credit}, {photo.date}</figcaption>
+      </figure>
+    )}
+  </div>
+  {cover === 'statement' && figure && (
+    <div class="gd-cover-strip">
+      <img src="/brand/Gusii-Daily_horizontal_full-colour.svg" alt="Gusii Daily" width="130" height="40" />
+      <span class="gd-cover-src"><b>Source</b>{figure.sourceHref ? <a href={figure.sourceHref} rel="noopener">{figure.source}</a> : figure.source}</span>
+    </div>
+  )}
 </header>

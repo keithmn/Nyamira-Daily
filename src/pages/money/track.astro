@@ -70,4 +70,7 @@ const m = (v) => ksh(v * 1e6);
   <ul class="rows">
     {t.list.map((d) => <li><a class="row-link" href={departmentPath(d.vote)}><span><span class="t">{d.name}</span><span class="d">{pct(d.total.share)} spent · {ksh(d.total.spent)} of {ksh(d.total.budget)}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
   </ul>
+
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Kaunti ya Nyamira ilitumia kiasi gani cha bajeti yake hadi tarehe 30 Juni — idara kwa idara, ikilinganisha bajeti na matumizi halisi kutoka ripoti za Mdhibiti wa Bajeti.</p></div>
 </MoneyShell>

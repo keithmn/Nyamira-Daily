@@ -35,8 +35,14 @@ const generated = {
   'place-visit': [...wardRows, ...list('place', places.filter((p) => p.kind !== 'road'), 'Not on the list')],
   'road-check': [...wardRows, ...list('road', places.filter((p) => p.kind === 'road'), 'Not on the list')],
   'market-prices': [...wardRows, ...list('market', places.filter((p) => p.type === 'Market'), 'Not on the list')],
+  'knowledge-survey': [...wardRows],
+  'speech-recording': [...wardRows],
 };
-const titles = { 'place-visit': 'Nyamira Daily: place visit', 'road-check': 'Nyamira Daily: road check', 'market-prices': 'Nyamira Daily: market prices' };
+const titles = {
+  'place-visit': 'Gusii Daily: place visit', 'road-check': 'Gusii Daily: road check',
+  'market-prices': 'Gusii Daily: market prices', 'knowledge-survey': 'Gusii Daily: knowledge survey',
+  'speech-recording': 'Gusii Daily: Ekegusii speech recording',
+};
 
 // --- minimal XLSX writer -------------------------------------------------------------------------
 const crcTable = Array.from({ length: 256 }, (_, n) => { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; return c >>> 0; });

@@ -1,0 +1,424 @@
+{
+  "updated": "2026-11-28",
+  "county": [
+    {
+      "office": "Governor",
+      "name": "Paul Simba Arati",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://mzalendo.com/mps-performance/counties/kisii/",
+      "note": "Confirmed by two sources: the Kisii County Government site reports him sworn in as Governor (kisii.go.ke, \"H.E Hon. Paul Simba Arati Sworn In as Governor\"), and Capital FM reports his swearing-in. Declared with 270,928 votes (Mzalendo; Gazette 9949 was not found in search and is not relied on). No removal found as of the search date.",
+      "noteSrc": "https://kisii.go.ke/?p=13673"
+    },
+    {
+      "office": "Deputy Governor",
+      "name": "Elijah Obebo",
+      "party": null,
+      "since": "Jul 2024 (sworn in after a High Court order)",
+      "src": "https://www.kenyanews.go.ke/new-kisii-deputy-governor-sworn-in/",
+      "note": "Robert Monda, elected Deputy Governor with Governor Arati in 2022, was impeached by the County Assembly; the Senate upheld the impeachment in March 2024. The Governor nominated Elijah Obebo, then chair of the County Public Service Board, and the Assembly approved him. On 4 July 2024 the High Court at Kisii directed the IEBC to gazette him or have him sworn in; he was sworn in at Gusii Stadium in July 2024. Monda went to court against his removal; conservatory orders were refused in 2024 and no final outcome was found as of Nov 2026.",
+      "noteSrc": "https://new.kenyalaw.org/akn/ke/judgment/kehc/2024/8477/eng@2024-07-04"
+    },
+    {
+      "office": "Speaker, County Assembly",
+      "name": "Philip Nyanumba",
+      "party": null,
+      "since": "Elected after the 2022 election (date not confirmed); presiding Mar 2026",
+      "src": "https://www.kenyanews.go.ke/?p=136102",
+      "note": "Elected the Assembly's third Speaker with 47 votes to 21, replacing David Kombo (Mount Kenya Times, undated). The county website's Speaker page still names an earlier Speaker.",
+      "noteSrc": "https://mountkenyatimes.co.ke/?p=12228"
+    }
+  ],
+  "national": [
+    {
+      "office": "Senator",
+      "name": "Richard Momoima Onyonka",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "note": "Declared elected with 173,189 votes (Gazette Notice No. 9955, 24 Aug 2022)."
+    },
+    {
+      "office": "Woman Representative",
+      "name": "Dorice Donya Aburi",
+      "party": "Wiper",
+      "since": "2022",
+      "src": "https://mzalendo.com/mps-performance/counties/kisii/",
+      "note": "Declared elected with 190,277 votes (Gazette Notice No. 9951 of 2022, as cited by Mzalendo)."
+    },
+    {
+      "office": "MP, Bobasi",
+      "name": "Innocent Momanyi Obiri",
+      "party": "Wiper",
+      "since": "2017; re-elected 2022",
+      "src": "https://mzalendo.com/mps-performance/counties/kisii/",
+      "note": "Confirmed by two sources: The Star (11 Aug 2022) and an IEBC-based list both give Innocent Obiri (Wiper). Middle name from Mzalendo."
+    },
+    {
+      "office": "MP, Bomachoge Borabu",
+      "name": "Obadiah Nolfason Barongo",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://mzalendo.com/mps-performance/counties/kisii/"
+    },
+    {
+      "office": "MP, Bomachoge Chache",
+      "name": "Alfah Ondieki Miruka",
+      "party": "UDA",
+      "since": "2017; re-elected 2022",
+      "src": "https://mzalendo.com/mps-performance/counties/kisii/"
+    },
+    {
+      "office": "MP, Bonchari",
+      "name": "Charles Mamwacha Onchoke",
+      "party": "UPA",
+      "since": "2022",
+      "src": "https://mzalendo.com/mps-performance/counties/kisii/"
+    },
+    {
+      "office": "MP, Kitutu Chache North",
+      "name": "Japheth Mokaya Nyakundi",
+      "party": "UDA",
+      "since": "2022",
+      "src": "https://mzalendo.com/mps-performance/counties/kisii/",
+      "note": "Confirmed by two sources: The Star (11 Aug 2022) and an IEBC-based list both give Japheth Nyakundi (UDA). Middle name from Mzalendo."
+    },
+    {
+      "office": "MP, Kitutu Chache South",
+      "name": "Antoney Kibagendi",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://mzalendo.com/mps-performance/counties/kisii/"
+    },
+    {
+      "office": "MP, Nyaribari Chache",
+      "name": "Zaheer Jhanda",
+      "party": "UDA",
+      "since": "2022",
+      "src": "https://mzalendo.com/mps-performance/counties/kisii/"
+    },
+    {
+      "office": "MP, Nyaribari Masaba",
+      "name": "Daniel Ogwoka Manduku",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://mzalendo.com/mps-performance/counties/kisii/",
+      "note": "Confirmed by two sources: The Star (11 Aug 2022) and an IEBC-based list both give Daniel Manduku (ODM). Middle name from Mzalendo."
+    },
+    {
+      "office": "MP, South Mugirango",
+      "name": "Silvanus Osoro",
+      "party": "UDA",
+      "since": "2017; re-elected 2022",
+      "src": "https://mzalendo.com/mps-performance/counties/kisii/",
+      "note": "Confirmed by two sources: The Star (11 Aug 2022) and an IEBC-based list both give Sylvanus Osoro (UDA). Middle name not given by either. Constituency is South Mugirango (IEBC code 262, Kisii); the Star's list places him under Nyamira, which is noted as a conflict in the county placement, not the name."
+    }
+  ],
+  "past": [
+    {
+      "office": "Deputy Governor",
+      "name": "Robert Monda",
+      "party": "ODM ticket",
+      "since": "Aug 2022 \u2013 Mar 2024 (impeachment upheld by the Senate)",
+      "src": "https://www.standardmedia.co.ke/politics/article/2001491501/impeached-senators-vote-to-remove-kisii-deputy-governor-from-office"
+    }
+  ],
+  "mcaSource": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+  "mcaSourceName": "IEBC Gazette Notice No. 9956 (2022 baseline; no later changes found)",
+  "mcaGazetteChecked": false,
+  "mcaGazetteNote": "Built 28 Nov 2026. All 45 MCAs from IEBC Gazette Notice No. 9956 (Vol. CXXIV, No. 170, 24 Aug 2022), file sha256 eafe12d9…23e2a; every name, party and vote count was matched by script to its ward line in the PDF text. All 45 names confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026). Gazette name order differs on 10 wards (Kiamokama, Monyerero, Sensi, Marani, Kegogi, Bogusero, Bogeka, Nyakoe, Kitutu Central, Nyatieko); the County Assembly listing is used as the current record. Kiogoro confirmed earlier against gazette 9956 and Mzalendo. The IEBC by-election gazette of 1 Dec 2025 lists no Kisii ward, and searches did not find any Kisii MCA death, nullification or by-election since Aug 2022 (not exhaustive). Party names are those printed in 2022; members may have changed party since. mcaGazetteChecked stays false pending Rigoma/Bokeira resolution (Nyamira wards) and character-by-character gazette PDF check.",
+  "mcas": {
+    "bomariba": {
+      "name": "Dismas Onsombi Tirisa",
+      "party": "KNC",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "bogiakumu": {
+      "name": "Ismael Bosire Matundura",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "bomorenda": {
+      "name": "John Ombati Maisaba",
+      "party": "UPA",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "riana": {
+      "name": "Victor Ombasa Omwando",
+      "party": "MCCP",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "tabaka": {
+      "name": "Jim Kenyanya",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "boikanga": {
+      "name": "Paul Okombo Ayiema",
+      "party": "UDA",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "bogetenga": {
+      "name": "Samuel Mauti Makori",
+      "party": "KNC",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "borabu-chitago": {
+      "name": "Felix Ombati Nyambane",
+      "party": "Independent",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "moticho": {
+      "name": "Ronald Ongaga Achira",
+      "party": "UDA",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "getenga": {
+      "name": "Joseph Oroko Oyari",
+      "party": "KNC",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "bombaba-borabu": {
+      "name": "Beatrice Kerubo Makwae",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "boochi-borabu": {
+      "name": "Nicodemus Willy Omwamba",
+      "party": "KNC",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "bokimonge": {
+      "name": "Amos Begi Onderi",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "magenche": {
+      "name": "Timothy Okiomeri Ogugu",
+      "party": "KSC",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "masige-west": {
+      "name": "Jacob Barongo Bagaka",
+      "party": "UPA",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "masige-east": {
+      "name": "Michael Onchiri Motume",
+      "party": "Independent",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "basi-central": {
+      "name": "Henry Moracha",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "nyacheki": {
+      "name": "Naftal Nyaberi Onkoba",
+      "party": "Jubilee",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "basi-bogetaorio": {
+      "name": "Ibrahim Morang'a Machuki",
+      "party": "NARC-Kenya",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "bobasi-chache": {
+      "name": "John Sambo Mainama",
+      "party": "UPA",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "sameta-mokwerero": {
+      "name": "Joseph Sonye Ondari",
+      "party": "Wiper",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "bobasi-boitangare": {
+      "name": "Thomas Nyabaro Obare",
+      "party": "Independent",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "majoge-basi": {
+      "name": "Jeremiah Obwogi Ongeri",
+      "party": "PDP",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "boochi-tendere": {
+      "name": "James Mogoa Omare Ondari",
+      "party": "Jubilee",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "bosoti-sengera": {
+      "name": "Peter Mokua Okerio",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "ichuni": {
+      "name": "Wycliff Siocha Gesongori",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "nyamasibi": {
+      "name": "Christopher Ogoti Onsaga",
+      "party": "MCCP",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "masimba": {
+      "name": "Bouse Mairura",
+      "party": "UDA",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "gesusu": {
+      "name": "Antony Onkundi Kerage",
+      "party": "UDA",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "kiamokama": {
+      "name": "Malack Mainya Matara",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "note": "Confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026): Malack Mainya Matara (ODM). Gazette 9956 gives surname Malack, other names Mainya Matara (2,886 votes) - name order differs; the County Assembly listing is used as the current record. The seat fell vacant on the death of the 2022 MCA and a by-election was held; reports name the winner as Malachi Matara (ODM), consistent with this record.",
+      "noteSrc": "https://kisiiassembly.go.ke/members-of-county-assembly/kisii-county-assembly-list-of-mcas/"
+    },
+    "bobaracho": {
+      "name": "Ibrahim Ongubo Mose",
+      "party": "KSC",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "kisii-central": {
+      "name": "Wilfred Monyenye Yoge",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "keumbu": {
+      "name": "Peter Moindi Gekanana",
+      "party": "Wiper",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "kiogoro": {
+      "name": "Obare Mochache Walter",
+      "party": "Wiper",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "note": "Confirmed by two sources. Gazette 9956: surname Walter, other names Obare Mochache, Wiper, 3,766 votes (column order fixed by the gazette schedule, columns 7 and 8). Mzalendo lists the same person as Walter Obare Mochache, Wiper, 3,766 votes.",
+      "noteSrc": "https://mzalendo.com/mps-performance/counties/kisii/"
+    },
+    "birongo": {
+      "name": "Shem Mogesa Nyamwaya",
+      "party": "Jubilee",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "ibeno": {
+      "name": "Stephens Arika",
+      "party": "UPA",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf"
+    },
+    "monyerero": {
+      "name": "Peter Gichana Otachi",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "note": "Confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026): Peter Gichana Otachi (ODM, 4,135 votes per gazette 9956). Gazette 9956 gives surname Gichana, other names Otachi Peter - name order differs; the County Assembly listing is used as the current record.",
+      "noteSrc": "https://kisiiassembly.go.ke/members-of-county-assembly/kisii-county-assembly-list-of-mcas/"
+    },
+    "sensi": {
+      "name": "Onchong'a Nyagaka Saisi",
+      "party": "PDP",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "note": "Confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026): Onchong'a Nyagaka Saisi (PDP, 1,815 votes per gazette 9956). Gazette 9956 names Saisi Nyagaka Onchonga - name order differs; the County Assembly listing is used as the current record.",
+      "noteSrc": "https://kisiiassembly.go.ke/members-of-county-assembly/kisii-county-assembly-list-of-mcas/"
+    },
+    "marani": {
+      "name": "Dennis Ochwang'i Ombachi",
+      "party": "PDP",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "note": "Confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026): Dennis Ochwang'i Ombachi (PDP, 3,002 votes per gazette 9956). Gazette 9956 gives surname Ochwangi, other names Ombachi Denis - name order differs; the County Assembly listing is used as the current record.",
+      "noteSrc": "https://kisiiassembly.go.ke/members-of-county-assembly/kisii-county-assembly-list-of-mcas/"
+    },
+    "kegogi": {
+      "name": "Jared Kimori Masieka",
+      "party": "UDA",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "note": "Confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026): Jared Kimori Masieka (UDA, 2,671 votes per gazette 9956). Gazette 9956 gives surname Kimori, other names Masieka Jared - name order differs; the County Assembly listing is used as the current record.",
+      "noteSrc": "https://kisiiassembly.go.ke/members-of-county-assembly/kisii-county-assembly-list-of-mcas/"
+    },
+    "bogusero": {
+      "name": "Vincent Obuga Onyangore",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "note": "Confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026): Vincent Obuga Onyangore (ODM, 3,090 votes per gazette 9956). Gazette 9956 gives surname Onyangore, other names Abuga Vincent - name order differs; the County Assembly listing is used as the current record.",
+      "noteSrc": "https://kisiiassembly.go.ke/members-of-county-assembly/kisii-county-assembly-list-of-mcas/"
+    },
+    "bogeka": {
+      "name": "Richmond Manani Rayori",
+      "party": "DAP-K",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "note": "Confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026): Richmond Manani Rayori (DAP-K, 1,291 votes per gazette 9956). Gazette 9956 gives surname Rayori, other names Manani Richmond - name order differs; the County Assembly listing is used as the current record.",
+      "noteSrc": "https://kisiiassembly.go.ke/members-of-county-assembly/kisii-county-assembly-list-of-mcas/"
+    },
+    "nyakoe": {
+      "name": "Cosmas Asimundi Oyagi",
+      "party": "KNC",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "note": "Confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026): Cosmas Asimundi Oyagi (KNC, 2,280 votes per gazette 9956). Gazette 9956 gives surname Oyagi, other names Asimundi Cosmas - name order differs; the County Assembly listing is used as the current record.",
+      "noteSrc": "https://kisiiassembly.go.ke/members-of-county-assembly/kisii-county-assembly-list-of-mcas/"
+    },
+    "kitutu-central": {
+      "name": "Duke Samwel Nyarango",
+      "party": "ODM",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "note": "Confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026): Duke Samwel Nyarango (ODM, 2,612 votes per gazette 9956). Gazette 9956 and the County Assembly agree on surname and first name.",
+      "noteSrc": "https://kisiiassembly.go.ke/members-of-county-assembly/kisii-county-assembly-list-of-mcas/"
+    },
+    "nyatieko": {
+      "name": "Amos Omweri Mokaya",
+      "party": "KSC",
+      "since": "2022",
+      "src": "https://www.iebc.or.ke/uploads/resources/t5KQ6O4YGp.pdf",
+      "noteSrc": "https://kisiiassembly.go.ke/members-of-county-assembly/kisii-county-assembly-list-of-mcas/",
+      "note": "Confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026): Amos Omweri Mokaya (KSC, 2,646 votes per gazette 9956). Gazette 9956 and the County Assembly agree. An election petition over the 2022 result was dismissed (High Court, 30 Jun 2023)."
+    }
+  }
+}

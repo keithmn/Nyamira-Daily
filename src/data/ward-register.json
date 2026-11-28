@@ -1,0 +1,771 @@
+{
+ "source": {
+  "title": "Registered voters per county assembly ward for the 2022 General Election",
+  "publisher": "Independent Electoral and Boundaries Commission (IEBC)",
+  "url": "https://www.iebc.or.ke/docs/rov_per_caw.pdf",
+  "sha256": "904aee16b5a1e13442eac5c1156482a2aa9418396f615ff6a97340fc66b8671c",
+  "label": "official",
+  "checked": "Ward totals match the IEBC register of voters per county (rov_per_county.pdf): Kisii 637,010, Nyamira 323,283.",
+  "note": "Names and spellings as printed by the IEBC. Three Kisii wards are spelt differently in the boundary data: Basi Central (Bobasi Central), Basi Bogetaorio (Bobasi Bogetaorio) and Majoge Basi (Majoge)."
+ },
+ "boundarySource": "Ward boundaries: geoBoundaries gbOpen KEN ADM3; county boundaries: geoBoundaries gbOpen KEN ADM1 (CC BY 4.0).",
+ "counties": {
+  "kisii": {
+   "name": "Kisii",
+   "iebcCode": "045",
+   "wards": 45,
+   "registeredVoters2022": 637010
+  },
+  "nyamira": {
+   "name": "Nyamira",
+   "iebcCode": "046",
+   "wards": 20,
+   "registeredVoters2022": 323283
+  }
+ },
+ "constituencies": [
+  {
+   "code": "261",
+   "name": "Bonchari",
+   "county": "kisii",
+   "wards": 4,
+   "registeredVoters2022": 64630
+  },
+  {
+   "code": "262",
+   "name": "South Mugirango",
+   "county": "kisii",
+   "wards": 6,
+   "registeredVoters2022": 79004
+  },
+  {
+   "code": "263",
+   "name": "Bomachoge Borabu",
+   "county": "kisii",
+   "wards": 4,
+   "registeredVoters2022": 56991
+  },
+  {
+   "code": "264",
+   "name": "Bobasi",
+   "county": "kisii",
+   "wards": 8,
+   "registeredVoters2022": 106060
+  },
+  {
+   "code": "265",
+   "name": "Bomachoge Chache",
+   "county": "kisii",
+   "wards": 3,
+   "registeredVoters2022": 49301
+  },
+  {
+   "code": "266",
+   "name": "Nyaribari Masaba",
+   "county": "kisii",
+   "wards": 5,
+   "registeredVoters2022": 68593
+  },
+  {
+   "code": "267",
+   "name": "Nyaribari Chache",
+   "county": "kisii",
+   "wards": 6,
+   "registeredVoters2022": 88553
+  },
+  {
+   "code": "268",
+   "name": "Kitutu Chache North",
+   "county": "kisii",
+   "wards": 4,
+   "registeredVoters2022": 56970
+  },
+  {
+   "code": "269",
+   "name": "Kitutu Chache South",
+   "county": "kisii",
+   "wards": 5,
+   "registeredVoters2022": 66908
+  },
+  {
+   "code": "270",
+   "name": "Kitutu Masaba",
+   "county": "nyamira",
+   "wards": 6,
+   "registeredVoters2022": 106269
+  },
+  {
+   "code": "271",
+   "name": "West Mugirango",
+   "county": "nyamira",
+   "wards": 5,
+   "registeredVoters2022": 88199
+  },
+  {
+   "code": "272",
+   "name": "North Mugirango",
+   "county": "nyamira",
+   "wards": 5,
+   "registeredVoters2022": 64750
+  },
+  {
+   "code": "273",
+   "name": "Borabu",
+   "county": "nyamira",
+   "wards": 4,
+   "registeredVoters2022": 64065
+  }
+ ],
+ "wards": [
+  {
+   "slug": "bomariba",
+   "name": "Bomariba",
+   "county": "kisii",
+   "constituency": "Bonchari",
+   "iebcWardCode": "1301",
+   "iebcConstituencyCode": "261",
+   "registeredVoters2022": 11167,
+   "boundaryName": "Bomariba"
+  },
+  {
+   "slug": "bogiakumu",
+   "name": "Bogiakumu",
+   "county": "kisii",
+   "constituency": "Bonchari",
+   "iebcWardCode": "1302",
+   "iebcConstituencyCode": "261",
+   "registeredVoters2022": 17744,
+   "boundaryName": "Bogiakumu"
+  },
+  {
+   "slug": "bomorenda",
+   "name": "Bomorenda",
+   "county": "kisii",
+   "constituency": "Bonchari",
+   "iebcWardCode": "1303",
+   "iebcConstituencyCode": "261",
+   "registeredVoters2022": 17363,
+   "boundaryName": "Bomorenda"
+  },
+  {
+   "slug": "riana",
+   "name": "Riana",
+   "county": "kisii",
+   "constituency": "Bonchari",
+   "iebcWardCode": "1304",
+   "iebcConstituencyCode": "261",
+   "registeredVoters2022": 18356,
+   "boundaryName": "Riana"
+  },
+  {
+   "slug": "tabaka",
+   "name": "Tabaka",
+   "county": "kisii",
+   "constituency": "South Mugirango",
+   "iebcWardCode": "1305",
+   "iebcConstituencyCode": "262",
+   "registeredVoters2022": 16395,
+   "boundaryName": "Tabaka"
+  },
+  {
+   "slug": "boikanga",
+   "name": "Boikang'a",
+   "county": "kisii",
+   "constituency": "South Mugirango",
+   "iebcWardCode": "1306",
+   "iebcConstituencyCode": "262",
+   "registeredVoters2022": 10127,
+   "boundaryName": "Boikang'A"
+  },
+  {
+   "slug": "bogetenga",
+   "name": "Bogetenga",
+   "county": "kisii",
+   "constituency": "South Mugirango",
+   "iebcWardCode": "1307",
+   "iebcConstituencyCode": "262",
+   "registeredVoters2022": 14408,
+   "boundaryName": "Bogetenga"
+  },
+  {
+   "slug": "borabu-chitago",
+   "name": "Borabu/Chitago",
+   "county": "kisii",
+   "constituency": "South Mugirango",
+   "iebcWardCode": "1308",
+   "iebcConstituencyCode": "262",
+   "registeredVoters2022": 17760,
+   "boundaryName": "Borabu/Chitago"
+  },
+  {
+   "slug": "moticho",
+   "name": "Moticho",
+   "county": "kisii",
+   "constituency": "South Mugirango",
+   "iebcWardCode": "1309",
+   "iebcConstituencyCode": "262",
+   "registeredVoters2022": 12699,
+   "boundaryName": "Moticho"
+  },
+  {
+   "slug": "getenga",
+   "name": "Getenga",
+   "county": "kisii",
+   "constituency": "South Mugirango",
+   "iebcWardCode": "1310",
+   "iebcConstituencyCode": "262",
+   "registeredVoters2022": 7615,
+   "boundaryName": "Getenga"
+  },
+  {
+   "slug": "bombaba-borabu",
+   "name": "Bombaba Borabu",
+   "county": "kisii",
+   "constituency": "Bomachoge Borabu",
+   "iebcWardCode": "1311",
+   "iebcConstituencyCode": "263",
+   "registeredVoters2022": 12474,
+   "boundaryName": "Bombaba Borabu"
+  },
+  {
+   "slug": "boochi-borabu",
+   "name": "Boochi Borabu",
+   "county": "kisii",
+   "constituency": "Bomachoge Borabu",
+   "iebcWardCode": "1312",
+   "iebcConstituencyCode": "263",
+   "registeredVoters2022": 8650,
+   "boundaryName": "Boochi Borabu"
+  },
+  {
+   "slug": "bokimonge",
+   "name": "Bokimonge",
+   "county": "kisii",
+   "constituency": "Bomachoge Borabu",
+   "iebcWardCode": "1313",
+   "iebcConstituencyCode": "263",
+   "registeredVoters2022": 18795,
+   "boundaryName": "Bokimonge"
+  },
+  {
+   "slug": "magenche",
+   "name": "Magenche",
+   "county": "kisii",
+   "constituency": "Bomachoge Borabu",
+   "iebcWardCode": "1314",
+   "iebcConstituencyCode": "263",
+   "registeredVoters2022": 17072,
+   "boundaryName": "Magenche"
+  },
+  {
+   "slug": "masige-west",
+   "name": "Masige West",
+   "county": "kisii",
+   "constituency": "Bobasi",
+   "iebcWardCode": "1315",
+   "iebcConstituencyCode": "264",
+   "registeredVoters2022": 12614,
+   "boundaryName": "Masige West"
+  },
+  {
+   "slug": "masige-east",
+   "name": "Masige East",
+   "county": "kisii",
+   "constituency": "Bobasi",
+   "iebcWardCode": "1316",
+   "iebcConstituencyCode": "264",
+   "registeredVoters2022": 11667,
+   "boundaryName": "Masige East"
+  },
+  {
+   "slug": "basi-central",
+   "name": "Basi Central",
+   "county": "kisii",
+   "constituency": "Bobasi",
+   "iebcWardCode": "1317",
+   "iebcConstituencyCode": "264",
+   "registeredVoters2022": 13122,
+   "boundaryName": "Bobasi Central"
+  },
+  {
+   "slug": "nyacheki",
+   "name": "Nyacheki",
+   "county": "kisii",
+   "constituency": "Bobasi",
+   "iebcWardCode": "1318",
+   "iebcConstituencyCode": "264",
+   "registeredVoters2022": 16988,
+   "boundaryName": "Nyacheki"
+  },
+  {
+   "slug": "basi-bogetaorio",
+   "name": "Basi Bogetaorio",
+   "county": "kisii",
+   "constituency": "Bobasi",
+   "iebcWardCode": "1319",
+   "iebcConstituencyCode": "264",
+   "registeredVoters2022": 16319,
+   "boundaryName": "Bobasi Bogetaorio"
+  },
+  {
+   "slug": "bobasi-chache",
+   "name": "Bobasi Chache",
+   "county": "kisii",
+   "constituency": "Bobasi",
+   "iebcWardCode": "1320",
+   "iebcConstituencyCode": "264",
+   "registeredVoters2022": 12997,
+   "boundaryName": "Bobasi Chache"
+  },
+  {
+   "slug": "sameta-mokwerero",
+   "name": "Sameta/Mokwerero",
+   "county": "kisii",
+   "constituency": "Bobasi",
+   "iebcWardCode": "1321",
+   "iebcConstituencyCode": "264",
+   "registeredVoters2022": 11884,
+   "boundaryName": "Sameta/Mokwerero"
+  },
+  {
+   "slug": "bobasi-boitangare",
+   "name": "Bobasi Boitangare",
+   "county": "kisii",
+   "constituency": "Bobasi",
+   "iebcWardCode": "1322",
+   "iebcConstituencyCode": "264",
+   "registeredVoters2022": 10469,
+   "boundaryName": "Bobasi Boitangare"
+  },
+  {
+   "slug": "majoge-basi",
+   "name": "Majoge Basi",
+   "county": "kisii",
+   "constituency": "Bomachoge Chache",
+   "iebcWardCode": "1323",
+   "iebcConstituencyCode": "265",
+   "registeredVoters2022": 13016,
+   "boundaryName": "Majoge"
+  },
+  {
+   "slug": "boochi-tendere",
+   "name": "Boochi/Tendere",
+   "county": "kisii",
+   "constituency": "Bomachoge Chache",
+   "iebcWardCode": "1324",
+   "iebcConstituencyCode": "265",
+   "registeredVoters2022": 17987,
+   "boundaryName": "Boochi/Tendere"
+  },
+  {
+   "slug": "bosoti-sengera",
+   "name": "Bosoti/Sengera",
+   "county": "kisii",
+   "constituency": "Bomachoge Chache",
+   "iebcWardCode": "1325",
+   "iebcConstituencyCode": "265",
+   "registeredVoters2022": 18298,
+   "boundaryName": "Bosoti/Sengera"
+  },
+  {
+   "slug": "ichuni",
+   "name": "Ichuni",
+   "county": "kisii",
+   "constituency": "Nyaribari Masaba",
+   "iebcWardCode": "1326",
+   "iebcConstituencyCode": "266",
+   "registeredVoters2022": 15662,
+   "boundaryName": "Ichuni"
+  },
+  {
+   "slug": "nyamasibi",
+   "name": "Nyamasibi",
+   "county": "kisii",
+   "constituency": "Nyaribari Masaba",
+   "iebcWardCode": "1327",
+   "iebcConstituencyCode": "266",
+   "registeredVoters2022": 11782,
+   "boundaryName": "Nyamasibi"
+  },
+  {
+   "slug": "masimba",
+   "name": "Masimba",
+   "county": "kisii",
+   "constituency": "Nyaribari Masaba",
+   "iebcWardCode": "1328",
+   "iebcConstituencyCode": "266",
+   "registeredVoters2022": 14188,
+   "boundaryName": "Masimba"
+  },
+  {
+   "slug": "gesusu",
+   "name": "Gesusu",
+   "county": "kisii",
+   "constituency": "Nyaribari Masaba",
+   "iebcWardCode": "1329",
+   "iebcConstituencyCode": "266",
+   "registeredVoters2022": 14569,
+   "boundaryName": "Gesusu"
+  },
+  {
+   "slug": "kiamokama",
+   "name": "Kiamokama",
+   "county": "kisii",
+   "constituency": "Nyaribari Masaba",
+   "iebcWardCode": "1330",
+   "iebcConstituencyCode": "266",
+   "registeredVoters2022": 12392,
+   "boundaryName": "Kiamokama"
+  },
+  {
+   "slug": "bobaracho",
+   "name": "Bobaracho",
+   "county": "kisii",
+   "constituency": "Nyaribari Chache",
+   "iebcWardCode": "1331",
+   "iebcConstituencyCode": "267",
+   "registeredVoters2022": 19235,
+   "boundaryName": "Bobaracho"
+  },
+  {
+   "slug": "kisii-central",
+   "name": "Kisii Central",
+   "county": "kisii",
+   "constituency": "Nyaribari Chache",
+   "iebcWardCode": "1332",
+   "iebcConstituencyCode": "267",
+   "registeredVoters2022": 24550,
+   "boundaryName": "Kisii Central"
+  },
+  {
+   "slug": "keumbu",
+   "name": "Keumbu",
+   "county": "kisii",
+   "constituency": "Nyaribari Chache",
+   "iebcWardCode": "1333",
+   "iebcConstituencyCode": "267",
+   "registeredVoters2022": 10022,
+   "boundaryName": "Keumbu"
+  },
+  {
+   "slug": "kiogoro",
+   "name": "Kiogoro",
+   "county": "kisii",
+   "constituency": "Nyaribari Chache",
+   "iebcWardCode": "1334",
+   "iebcConstituencyCode": "267",
+   "registeredVoters2022": 10510,
+   "boundaryName": "Kiogoro"
+  },
+  {
+   "slug": "birongo",
+   "name": "Birongo",
+   "county": "kisii",
+   "constituency": "Nyaribari Chache",
+   "iebcWardCode": "1335",
+   "iebcConstituencyCode": "267",
+   "registeredVoters2022": 11320,
+   "boundaryName": "Birongo"
+  },
+  {
+   "slug": "ibeno",
+   "name": "Ibeno",
+   "county": "kisii",
+   "constituency": "Nyaribari Chache",
+   "iebcWardCode": "1336",
+   "iebcConstituencyCode": "267",
+   "registeredVoters2022": 12916,
+   "boundaryName": "Ibeno"
+  },
+  {
+   "slug": "monyerero",
+   "name": "Monyerero",
+   "county": "kisii",
+   "constituency": "Kitutu Chache North",
+   "iebcWardCode": "1337",
+   "iebcConstituencyCode": "268",
+   "registeredVoters2022": 15350,
+   "boundaryName": "Monyerero"
+  },
+  {
+   "slug": "sensi",
+   "name": "Sensi",
+   "county": "kisii",
+   "constituency": "Kitutu Chache North",
+   "iebcWardCode": "1338",
+   "iebcConstituencyCode": "268",
+   "registeredVoters2022": 15165,
+   "boundaryName": "Sensi"
+  },
+  {
+   "slug": "marani",
+   "name": "Marani",
+   "county": "kisii",
+   "constituency": "Kitutu Chache North",
+   "iebcWardCode": "1339",
+   "iebcConstituencyCode": "268",
+   "registeredVoters2022": 15466,
+   "boundaryName": "Marani"
+  },
+  {
+   "slug": "kegogi",
+   "name": "Kegogi",
+   "county": "kisii",
+   "constituency": "Kitutu Chache North",
+   "iebcWardCode": "1340",
+   "iebcConstituencyCode": "268",
+   "registeredVoters2022": 10989,
+   "boundaryName": "Kegogi"
+  },
+  {
+   "slug": "bogusero",
+   "name": "Bogusero",
+   "county": "kisii",
+   "constituency": "Kitutu Chache South",
+   "iebcWardCode": "1341",
+   "iebcConstituencyCode": "269",
+   "registeredVoters2022": 12271,
+   "boundaryName": "Bogusero"
+  },
+  {
+   "slug": "bogeka",
+   "name": "Bogeka",
+   "county": "kisii",
+   "constituency": "Kitutu Chache South",
+   "iebcWardCode": "1342",
+   "iebcConstituencyCode": "269",
+   "registeredVoters2022": 7774,
+   "boundaryName": "Bogeka"
+  },
+  {
+   "slug": "nyakoe",
+   "name": "Nyakoe",
+   "county": "kisii",
+   "constituency": "Kitutu Chache South",
+   "iebcWardCode": "1343",
+   "iebcConstituencyCode": "269",
+   "registeredVoters2022": 12178,
+   "boundaryName": "Nyakoe"
+  },
+  {
+   "slug": "kitutu-central",
+   "name": "Kitutu Central",
+   "county": "kisii",
+   "constituency": "Kitutu Chache South",
+   "iebcWardCode": "1344",
+   "iebcConstituencyCode": "269",
+   "registeredVoters2022": 24345,
+   "boundaryName": "Kitutu Central"
+  },
+  {
+   "slug": "nyatieko",
+   "name": "Nyatieko",
+   "county": "kisii",
+   "constituency": "Kitutu Chache South",
+   "iebcWardCode": "1345",
+   "iebcConstituencyCode": "269",
+   "registeredVoters2022": 10340,
+   "boundaryName": "Nyatieko"
+  },
+  {
+   "slug": "rigoma",
+   "name": "Rigoma",
+   "county": "nyamira",
+   "constituency": "Kitutu Masaba",
+   "iebcWardCode": "1346",
+   "iebcConstituencyCode": "270",
+   "registeredVoters2022": 19808,
+   "boundaryName": "Rigoma"
+  },
+  {
+   "slug": "gachuba",
+   "name": "Gachuba",
+   "county": "nyamira",
+   "constituency": "Kitutu Masaba",
+   "iebcWardCode": "1347",
+   "iebcConstituencyCode": "270",
+   "registeredVoters2022": 16245,
+   "boundaryName": "Gachuba"
+  },
+  {
+   "slug": "kemera",
+   "name": "Kemera",
+   "county": "nyamira",
+   "constituency": "Kitutu Masaba",
+   "iebcWardCode": "1348",
+   "iebcConstituencyCode": "270",
+   "registeredVoters2022": 18264,
+   "boundaryName": "Kemera"
+  },
+  {
+   "slug": "magombo",
+   "name": "Magombo",
+   "county": "nyamira",
+   "constituency": "Kitutu Masaba",
+   "iebcWardCode": "1349",
+   "iebcConstituencyCode": "270",
+   "registeredVoters2022": 13683,
+   "boundaryName": "Magombo"
+  },
+  {
+   "slug": "manga",
+   "name": "Manga",
+   "county": "nyamira",
+   "constituency": "Kitutu Masaba",
+   "iebcWardCode": "1350",
+   "iebcConstituencyCode": "270",
+   "registeredVoters2022": 19212,
+   "boundaryName": "Manga"
+  },
+  {
+   "slug": "gesima",
+   "name": "Gesima",
+   "county": "nyamira",
+   "constituency": "Kitutu Masaba",
+   "iebcWardCode": "1351",
+   "iebcConstituencyCode": "270",
+   "registeredVoters2022": 19057,
+   "boundaryName": "Gesima"
+  },
+  {
+   "slug": "nyamaiya",
+   "name": "Nyamaiya",
+   "county": "nyamira",
+   "constituency": "West Mugirango",
+   "iebcWardCode": "1352",
+   "iebcConstituencyCode": "271",
+   "registeredVoters2022": 16431,
+   "boundaryName": "Nyamaiya"
+  },
+  {
+   "slug": "bogichora",
+   "name": "Bogichora",
+   "county": "nyamira",
+   "constituency": "West Mugirango",
+   "iebcWardCode": "1353",
+   "iebcConstituencyCode": "271",
+   "registeredVoters2022": 21267,
+   "boundaryName": "Bogichora"
+  },
+  {
+   "slug": "bosamaro",
+   "name": "Bosamaro",
+   "county": "nyamira",
+   "constituency": "West Mugirango",
+   "iebcWardCode": "1354",
+   "iebcConstituencyCode": "271",
+   "registeredVoters2022": 20028,
+   "boundaryName": "Bosamaro"
+  },
+  {
+   "slug": "bonyamatuta",
+   "name": "Bonyamatuta",
+   "county": "nyamira",
+   "constituency": "West Mugirango",
+   "iebcWardCode": "1355",
+   "iebcConstituencyCode": "271",
+   "registeredVoters2022": 15455,
+   "boundaryName": "Bonyamatuta"
+  },
+  {
+   "slug": "township",
+   "name": "Township",
+   "county": "nyamira",
+   "constituency": "West Mugirango",
+   "iebcWardCode": "1356",
+   "iebcConstituencyCode": "271",
+   "registeredVoters2022": 15018,
+   "boundaryName": "Township"
+  },
+  {
+   "slug": "itibo",
+   "name": "Itibo",
+   "county": "nyamira",
+   "constituency": "North Mugirango",
+   "iebcWardCode": "1357",
+   "iebcConstituencyCode": "272",
+   "registeredVoters2022": 13950,
+   "boundaryName": "Itibo"
+  },
+  {
+   "slug": "bomwagamo",
+   "name": "Bomwagamo",
+   "county": "nyamira",
+   "constituency": "North Mugirango",
+   "iebcWardCode": "1358",
+   "iebcConstituencyCode": "272",
+   "registeredVoters2022": 10152,
+   "boundaryName": "Bomwagamo"
+  },
+  {
+   "slug": "bokeira",
+   "name": "Bokeira",
+   "county": "nyamira",
+   "constituency": "North Mugirango",
+   "iebcWardCode": "1359",
+   "iebcConstituencyCode": "272",
+   "registeredVoters2022": 13595,
+   "boundaryName": "Bokeira"
+  },
+  {
+   "slug": "magwagwa",
+   "name": "Magwagwa",
+   "county": "nyamira",
+   "constituency": "North Mugirango",
+   "iebcWardCode": "1360",
+   "iebcConstituencyCode": "272",
+   "registeredVoters2022": 12780,
+   "boundaryName": "Magwagwa"
+  },
+  {
+   "slug": "ekerenyo",
+   "name": "Ekerenyo",
+   "county": "nyamira",
+   "constituency": "North Mugirango",
+   "iebcWardCode": "1361",
+   "iebcConstituencyCode": "272",
+   "registeredVoters2022": 14273,
+   "boundaryName": "Ekerenyo"
+  },
+  {
+   "slug": "mekenene",
+   "name": "Mekenene",
+   "county": "nyamira",
+   "constituency": "Borabu",
+   "iebcWardCode": "1362",
+   "iebcConstituencyCode": "273",
+   "registeredVoters2022": 10730,
+   "boundaryName": "Mekenene"
+  },
+  {
+   "slug": "kiabonyoru",
+   "name": "Kiabonyoru",
+   "county": "nyamira",
+   "constituency": "Borabu",
+   "iebcWardCode": "1363",
+   "iebcConstituencyCode": "273",
+   "registeredVoters2022": 22625,
+   "boundaryName": "Kiabonyoru"
+  },
+  {
+   "slug": "nyansiongo",
+   "name": "Nyansiongo",
+   "county": "nyamira",
+   "constituency": "Borabu",
+   "iebcWardCode": "1364",
+   "iebcConstituencyCode": "273",
+   "registeredVoters2022": 16050,
+   "boundaryName": "Nyansiongo"
+  },
+  {
+   "slug": "esise",
+   "name": "Esise",
+   "county": "nyamira",
+   "constituency": "Borabu",
+   "iebcWardCode": "1365",
+   "iebcConstituencyCode": "273",
+   "registeredVoters2022": 14660,
+   "boundaryName": "Esise"
+  }
+ ]
+}

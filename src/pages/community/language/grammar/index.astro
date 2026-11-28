@@ -1,0 +1,95 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import PageHead from '../../../../components/PageHead.astro';
+import CommunityRules from '../../../../components/CommunityRules.astro';
+import { languageItems, grammarItems } from '../../../../lib/language.js';
+import { date } from '../../../../lib/fmt.js';
+import langMeta from '../../../../data/language-meta.json' with { type: 'json' };
+
+const grammar = grammarItems(await languageItems());
+---
+<Base title="Ekegusii grammar" description="Grammar reference for Ekegusii: noun classes, verb forms and sentence patterns, documented from speakers and published sources.">
+  <PageHead
+    eyebrow="Community · Language"
+    title="Ekegusii grammar reference"
+    lead="How Ekegusii works: noun classes, verb forms and sentence patterns — from published sources and reviewed speaker contributions."
+    crumbs={[{ href: '/community/', label: 'Community' }, { href: '/community/language/', label: 'Ekegusii language' }, { href: '/community/language/grammar/', label: 'Grammar' }]}
+  />
+
+  <div class="stack-lg">
+    <section class="fg-sheet stack" aria-labelledby="nc">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">Noun Classes</span>
+        <h2 id="nc">The Bantu noun class system in Ekegusii</h2>
+        <p class="small muted">Like other Bantu languages, Ekegusii groups nouns into classes. Each class determines the prefix on the noun and the agreement on adjectives, verbs and pronouns.</p>
+      </div>
+      <table class="cards">
+        <thead><tr><th>Class</th><th>Prefix</th><th>Example</th><th>Meaning</th></tr></thead>
+        <tbody>
+          {langMeta.nounClasses.map((c) => (
+            <tr>
+              <td data-label="Class">{c.class}</td>
+              <td data-label="Prefix">{c.prefix}</td>
+              <td data-label="Example" lang="guz">{c.example}</td>
+              <td data-label="Meaning">{c.meaning}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="small muted">Based on Cammenga (2002). Prefixes may vary by dialect.</p>
+    </section>
+
+    {grammar.length > 0 ? (
+      <section class="fg-sheet stack" aria-labelledby="notes">
+        <div class="fg-sec-head is-compact">
+          <span class="fg-kicker">Grammar Notes</span>
+          <h2 id="notes">{grammar.length} documented patterns</h2>
+        </div>
+        <ul class="latest">
+          {grammar.map((e) => (
+            <li><div style="padding:12px 0; display:flex; flex-direction:column; gap:4px">
+              <span class="t" lang="guz">{e.data.term}</span>
+              <span class="d">{e.data.translationEn}</span>
+              {e.data.usageExample && <span class="d" lang="guz" style="font-style:italic">{e.data.usageExample}</span>}
+              {e.data.usageTranslationEn && <span class="d">{e.data.usageTranslationEn}</span>}
+              {e.data.audio && <audio controls preload="none" src={e.data.audio}></audio>}
+              <span class="small muted">Reviewed by {e.data.reviewedBy} · {e.data.credit}</span>
+            </div></li>
+          ))}
+        </ul>
+      </section>
+    ) : (
+      <section class="fg-sheet">
+        <p class="callout"><strong>No grammar notes published yet.</strong> The first entries are being documented. Each note will explain a pattern with examples, its source and reviewer.</p>
+      </section>
+    )}
+
+    <section class="fg-sheet stack" aria-labelledby="tone">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">Tone</span>
+        <h2 id="tone">Ekegusii is a tonal language</h2>
+      </div>
+      <p>Ekegusii uses two level tones — high and low — with downstep. The pitch of a syllable can change the meaning of a word. Tone is not yet written consistently in everyday Ekegusii, but the dataset records tone patterns where the source provides them.</p>
+      <p class="small muted">Source: Cammenga, J. (2002). Phonology and Morphology of Ekegusii.</p>
+    </section>
+
+    <section class="fg-sheet stack" aria-labelledby="sources">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">Sources</span>
+        <h2 id="sources">Published references</h2>
+      </div>
+      <ul>
+        {langMeta.sources.map((s) => (
+          <li><strong>{s.name}</strong>{s.detail && ` — ${s.detail}`}{s.note && `. ${s.note}`}</li>
+        ))}
+      </ul>
+    </section>
+
+    <div class="fg-cta-row">
+      <a class="fg-cta-btn" href="/community/share/">Help document Ekegusii grammar</a>
+      <a class="fg-outline-btn" href="/community/language/words/">Word list</a>
+    </div>
+
+    <CommunityRules />
+  </div>
+</Base>

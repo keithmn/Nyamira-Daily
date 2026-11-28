@@ -23,6 +23,7 @@ const rows = [
 ---
 <div class="stack-lg" style="margin-top:24px">
   <p class="lead">Figures for Nyamira from the 2022 Kenya Demographic and Health Survey, a national household survey. They come from small samples in the county (about 55 to 57 recent births), so treat them as a rough guide.</p>
+  <p class="small muted">Updated from published national reports (KDHS, CIDP). Facility-level data from the KHIS requires a Ministry of Health login and is not publicly available. Next major update: when the next KDHS or census is published.</p>
   <section class="cols-2">
     <ChartFrame title={`Most births now have a skilled health worker, but only ${Math.round(firstAnc?.value ?? 0)}% of mothers start antenatal care early`}
       sub="Nyamira County, Kenya Demographic and Health Survey 2022, %"
@@ -48,5 +49,16 @@ const rows = [
       <tbody>{H.items.map((i) => <tr><td>{i.indicator}</td><td class="num" data-label="Value">{i.value}{i.unit === 'percent' ? '%' : ''}</td><td data-label="Sample">{i.denominatorWeighted ?? '—'}</td><td class="small" data-label="Source">{srcs[i.sourceId]?.title}{i.page && `, ${i.page}`}</td></tr>)}</tbody>
     </table></div>
   </details>
+  <section class="stack" style="margin-top:32px" aria-labelledby="health-missing">
+    <h2 id="health-missing">What we do not measure yet</h2>
+    <ul>
+      <li><strong>Facility-level data</strong> (births, vaccinations, outpatient visits per clinic). The Kenya Health Information System (KHIS) holds this, but it requires a Ministry of Health login and is not publicly available.</li>
+      <li><strong>Maternal mortality rates</strong> for Nyamira. The KDHS publishes this at national level only; county-level figures need KHIS access or a special study.</li>
+      <li><strong>Disease burden by ward.</strong> No ward-level breakdown of malaria, respiratory infections or other conditions is published.</li>
+      <li><strong>Nutrition indicators</strong> (stunting, wasting, underweight) at county level. The KDHS publishes these at national and regional level; Nyamira-specific figures are not available from the latest survey.</li>
+      <li><strong>Mental health services.</strong> No published data on counsellors, psychiatric nurses or mental health facility capacity in the county.</li>
+    </ul>
+    <p class="small">Know a source for one of these? <a href="/about/rules/#corrections">Tell us</a>.</p>
+  </section>
   <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Takwimu za afya ya mama na mtoto Nyamira kutoka Utafiti wa Afya na Demografia wa Kenya 2022 (KDHS). Takwimu za kila kituo cha afya bado hazijapatikana.</p></div>
 </div>

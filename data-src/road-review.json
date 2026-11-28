@@ -1,0 +1,1613 @@
+{
+  "generated": "2026-11-26",
+  "summary": {
+    "budgetRoads": 90,
+    "osmRoads": 122,
+    "osmNamed": 115,
+    "matches": 8,
+    "budgetOnly": 82,
+    "osmOnly": 104
+  },
+  "matches": [
+    {
+      "budgetRoad": "Nyaibasa – Moturumesi (Okeraro)",
+      "budgetId": "NYM-R0009",
+      "budgetWards": [
+        "gachuba"
+      ],
+      "osmRoad": "Nyaibasa Road",
+      "osmType": "track",
+      "osmWard": "gachuba",
+      "lat": -0.72812,
+      "lon": 34.8882914,
+      "confidence": 0.5,
+      "approve": null
+    },
+    {
+      "budgetRoad": "Mosobeti-Entorobo-Nyaronge",
+      "budgetId": "NYM-R0010",
+      "budgetWards": [
+        "gesima"
+      ],
+      "osmRoad": "Mwongori Nyaronge Road",
+      "osmType": "unclassified",
+      "osmWard": "mekenene",
+      "lat": -0.6911544,
+      "lon": 35.0473587,
+      "confidence": 0.33,
+      "approve": null
+    },
+    {
+      "budgetRoad": "Kemera rooche - Eriasibu road",
+      "budgetId": "NYM-R0014",
+      "budgetWards": [
+        "kemera"
+      ],
+      "osmRoad": "Kemera-Ikonge Road",
+      "osmType": "unclassified",
+      "osmWard": "kemera",
+      "lat": -0.6656533,
+      "lon": 34.840554,
+      "confidence": 0.5,
+      "approve": null
+    },
+    {
+      "budgetRoad": "Omogonchoro - Kiendege road",
+      "budgetId": "NYM-R0017",
+      "budgetWards": [
+        "kemera"
+      ],
+      "osmRoad": "Kemera-Kiendege-Kegati Road",
+      "osmType": "unclassified",
+      "osmWard": "kemera",
+      "lat": -0.6733135,
+      "lon": 34.8397868,
+      "confidence": 0.33,
+      "approve": null
+    },
+    {
+      "budgetRoad": "Omogwa – Omosocho – Riamaranga - Gesonso FCS - Riamaranga Bridge - St. Marys Ekerubo",
+      "budgetId": "NYM-R0029",
+      "budgetWards": [
+        "manga"
+      ],
+      "osmRoad": "Omosocho-Omogwa",
+      "osmType": "residential",
+      "osmWard": "manga",
+      "lat": -0.6568593,
+      "lon": 34.8544553,
+      "confidence": 0.33,
+      "approve": null
+    },
+    {
+      "budgetRoad": "Ikonge Primary-Nyaora-Bogisero",
+      "budgetId": "NYM-R0048",
+      "budgetWards": [
+        "ekerenyo"
+      ],
+      "osmRoad": "Ikonge-Chelibat road",
+      "osmType": "primary",
+      "osmWard": null,
+      "lat": -0.6541313,
+      "lon": 35.0641733,
+      "confidence": 0.33,
+      "approve": null
+    },
+    {
+      "budgetRoad": "Nyaramba Junction-Kebabe Girls-Ikonge (Bwarani Junction) road",
+      "budgetId": "NYM-R0058",
+      "budgetWards": [
+        "itibo"
+      ],
+      "osmRoad": "Ikonge-Chelibat road",
+      "osmType": "primary",
+      "osmWard": null,
+      "lat": -0.6541313,
+      "lon": 35.0641733,
+      "confidence": 0.33,
+      "approve": null
+    },
+    {
+      "budgetRoad": "Public Works – CDF – Nyamira Hospital road",
+      "budgetId": "NYM-R0090",
+      "budgetWards": [],
+      "osmRoad": "Kadongo-Nyamira-Kebirigo",
+      "osmType": "trunk",
+      "osmWard": "bonyamatuta",
+      "lat": -0.599497,
+      "lon": 34.9471222,
+      "confidence": 0.33,
+      "approve": null
+    }
+  ],
+  "budgetOnly": [
+    {
+      "id": "NYM-R0001",
+      "name": "Kiabonyoru Girls - Ndurumo - Legio Maria",
+      "wards": [
+        "kiabonyoru"
+      ],
+      "lengthKm": 2.5
+    },
+    {
+      "id": "NYM-R0002",
+      "name": "Nyainogu - Omogute - Mariba",
+      "wards": [
+        "kiabonyoru"
+      ],
+      "lengthKm": 4
+    },
+    {
+      "id": "NYM-R0003",
+      "name": "Mwongori Pri Sch - Bwayiera",
+      "wards": [
+        "mekenene"
+      ],
+      "lengthKm": 3
+    },
+    {
+      "id": "NYM-R0004",
+      "name": "Outreach Church-Riokerio-Riamogere-Mogumo-Bwonchuru road",
+      "wards": [
+        "mekenene"
+      ],
+      "lengthKm": 3.3
+    },
+    {
+      "id": "NYM-R0005",
+      "name": "Box culvert at Rianyaanga / Tinderet bridge",
+      "wards": [
+        "nyansiongo"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0006",
+      "name": "Nyabiemba Junct - Kenyerere TBC - Bwaosa - Keginga Pri Sch – Bw'akama",
+      "wards": [
+        "nyansiongo"
+      ],
+      "lengthKm": 5
+    },
+    {
+      "id": "NYM-R0007",
+      "name": "Nyaronde Mkt - Nyaronde Pri Sch - Milimani - Ribaita",
+      "wards": [
+        "nyansiongo"
+      ],
+      "lengthKm": 6
+    },
+    {
+      "id": "NYM-R0008",
+      "name": "(E1065) Sengereri Junct – Nyamasebe TBC – Nyamasebe Junct",
+      "wards": [
+        "gachuba"
+      ],
+      "lengthKm": 4.1
+    },
+    {
+      "id": "NYM-R0011",
+      "name": "Nyaboraire Junct - Nyaboraire SDA Church - Nyaboraire (Dip)",
+      "wards": [
+        "gesima"
+      ],
+      "lengthKm": 5
+    },
+    {
+      "id": "NYM-R0012",
+      "name": "Ritongo-Nyabiosi-Mochenwa Road",
+      "wards": [
+        "gesima"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0013",
+      "name": "Sokobe – Kiamitengi Junct – Karantini Junct – Matunwa",
+      "wards": [
+        "gesima"
+      ],
+      "lengthKm": 3.7
+    },
+    {
+      "id": "NYM-R0015",
+      "name": "Nyagechenche - Charara - Momoma road",
+      "wards": [
+        "kemera"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0016",
+      "name": "Nyamarambe box culvert",
+      "wards": [
+        "kemera"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0018",
+      "name": "Omogonchoro - Ri'Orwoba",
+      "wards": [
+        "kemera"
+      ],
+      "lengthKm": 1.5
+    },
+    {
+      "id": "NYM-R0019",
+      "name": "Omotanganyekania - Momoma – Magogo",
+      "wards": [
+        "kemera"
+      ],
+      "lengthKm": 2.2
+    },
+    {
+      "id": "NYM-R0020",
+      "name": "Riakiabuso - Riontita",
+      "wards": [
+        "kemera"
+      ],
+      "lengthKm": 1.5
+    },
+    {
+      "id": "NYM-R0021",
+      "name": "Gekano Pri Sch Junct - St. Thomas Gekano - St. Pauls Gekano High Sch - St. Pauls Gekano High Sch Signpost - Riogeto Junct",
+      "wards": [
+        "magombo"
+      ],
+      "lengthKm": 3
+    },
+    {
+      "id": "NYM-R0022",
+      "name": "Ribwago Junct - Nyaguku Junct - Nyamanagu Poly - Getare South SDA",
+      "wards": [
+        "magombo"
+      ],
+      "lengthKm": 3
+    },
+    {
+      "id": "NYM-R0023",
+      "name": "Ritongo-Matunwa-Nyabira IV-Kambini-Kabosi road",
+      "wards": [
+        "magombo"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0024",
+      "name": "Emonga - Monsore Chief's Camp",
+      "wards": [
+        "manga"
+      ],
+      "lengthKm": 2.7
+    },
+    {
+      "id": "NYM-R0025",
+      "name": "Enamba Borecho – Omobondo (CID)",
+      "wards": [
+        "manga"
+      ],
+      "lengthKm": 4.8
+    },
+    {
+      "id": "NYM-R0026",
+      "name": "Ikobe Primary School-Riakuma-Bigogo Primary-Riamangaa",
+      "wards": [
+        "manga"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0027",
+      "name": "Nyaikuro - Etanki - Ogango SDA - Kirwanda - Ogango Dip",
+      "wards": [
+        "manga"
+      ],
+      "lengthKm": 2.1
+    },
+    {
+      "id": "NYM-R0028",
+      "name": "Nyaikuro-Gesure-Bokondo-Nyabioto",
+      "wards": [
+        "manga"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0030",
+      "name": "Riamaranga – Nyamwoga – Riantiana - Riomwamba",
+      "wards": [
+        "manga"
+      ],
+      "lengthKm": 4
+    },
+    {
+      "id": "NYM-R0031",
+      "name": "Riorina-Ogesanda-Riaguto-Gatuta Dispensary-Riamosoti road",
+      "wards": [
+        "manga"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0032",
+      "name": "Ritibo - Esamba SDA – Rioroti - Nyamare Pri - Riamotari",
+      "wards": [
+        "manga"
+      ],
+      "lengthKm": 4.5
+    },
+    {
+      "id": "NYM-R0033",
+      "name": "Kenyerere South SDA Junct - Riyabe TBC - Abisai Junct - Kenyerere TBC - Siara Disp",
+      "wards": [
+        "rigoma"
+      ],
+      "lengthKm": 4
+    },
+    {
+      "id": "NYM-R0034",
+      "name": "Matangi Erora - Riomanga Tonya - Rikenye Dip - Riyabe",
+      "wards": [
+        "rigoma"
+      ],
+      "lengthKm": 2.3
+    },
+    {
+      "id": "NYM-R0035",
+      "name": "Rikenye, Bocharia and Botana roads",
+      "wards": [
+        "rigoma"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0036",
+      "name": "Kiomanga Pri Sch - Gekonge Junct - Gekonge Sec Sch",
+      "wards": [
+        "bokeira"
+      ],
+      "lengthKm": 2.5
+    },
+    {
+      "id": "NYM-R0037",
+      "name": "Matongo Dip - Enchoro Pri Sch",
+      "wards": [
+        "bokeira"
+      ],
+      "lengthKm": 3.2
+    },
+    {
+      "id": "NYM-R0038",
+      "name": "Matongo Dip - Nyakaranga TBC - Nyakaranga Pri Sch",
+      "wards": [
+        "bokeira"
+      ],
+      "lengthKm": 3.3
+    },
+    {
+      "id": "NYM-R0039",
+      "name": "Nyagekoboko-Mokarate-Moteomokamba-Boitabai Nyamao Road",
+      "wards": [
+        "bokeira"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0040",
+      "name": "Nyaobe bridge",
+      "wards": [
+        "bokeira"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0041",
+      "name": "Box Culvert at Riondiba",
+      "wards": [
+        "bomwagamo"
+      ],
+      "lengthKm": 1
+    },
+    {
+      "id": "NYM-R0042",
+      "name": "Nyageita bridge",
+      "wards": [
+        "bomwagamo"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0043",
+      "name": "Nyamiacho - Omokonge Pri Sch",
+      "wards": [
+        "bomwagamo"
+      ],
+      "lengthKm": 2.5
+    },
+    {
+      "id": "NYM-R0044",
+      "name": "Nyangoso - Kioge",
+      "wards": [
+        "bomwagamo"
+      ],
+      "lengthKm": 3
+    },
+    {
+      "id": "NYM-R0045",
+      "name": "(R31) Riechieri–Nyabigena–Bogisero–(U19) Bisembe",
+      "wards": [
+        "ekerenyo"
+      ],
+      "lengthKm": 3.7
+    },
+    {
+      "id": "NYM-R0046",
+      "name": "Box Culvert at Riagetugi",
+      "wards": [
+        "ekerenyo"
+      ],
+      "lengthKm": 1
+    },
+    {
+      "id": "NYM-R0047",
+      "name": "Gesura TBC - Ensoko TBC – Maranatha",
+      "wards": [
+        "ekerenyo"
+      ],
+      "lengthKm": 2.2
+    },
+    {
+      "id": "NYM-R0049",
+      "name": "Itibonge-Chichuma-Nyamaruma",
+      "wards": [
+        "ekerenyo"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0050",
+      "name": "Nyamatimbo-Egetare-Kiamogake",
+      "wards": [
+        "ekerenyo"
+      ],
+      "lengthKm": 4.2
+    },
+    {
+      "id": "NYM-R0051",
+      "name": "Obwari-Riagetugi-Kiamogake road",
+      "wards": [
+        "ekerenyo"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0052",
+      "name": "Riechieri-Nyangundi-Ekegogi",
+      "wards": [
+        "ekerenyo"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0053",
+      "name": "Sere-Rianyamweno-Kea",
+      "wards": [
+        "ekerenyo"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0054",
+      "name": "St Clare-Sere-Egesero",
+      "wards": [
+        "ekerenyo"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0055",
+      "name": "Bonyunyu Mkt - Motorora Junct - Keburunga - China Junct",
+      "wards": [
+        "itibo"
+      ],
+      "lengthKm": 2.7
+    },
+    {
+      "id": "NYM-R0056",
+      "name": "Enkinda Catholic Junct - Riamorubi - Getengereri",
+      "wards": [
+        "itibo"
+      ],
+      "lengthKm": 2.5
+    },
+    {
+      "id": "NYM-R0057",
+      "name": "Itibo Junction-Nyasore-Kiabonyoru road",
+      "wards": [
+        "itibo"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0059",
+      "name": "Sanganyi Tea Factory - Enkinda Pri Sch - Nasari Polytechnic - Riamorubi Junct",
+      "wards": [
+        "itibo"
+      ],
+      "lengthKm": 3.2
+    },
+    {
+      "id": "NYM-R0060",
+      "name": "ACK Samaritan-Kisumu ndogo-misambi SDA church-Misambi junction-Nyambambo road",
+      "wards": [
+        "magwagwa"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0061",
+      "name": "Bisembe - Nyamage - Kebuye - Kenyerere - Ngong",
+      "wards": [
+        "magwagwa"
+      ],
+      "lengthKm": 3.4
+    },
+    {
+      "id": "NYM-R0062",
+      "name": "Borioba - Kiomanga SDA - Esamba Market",
+      "wards": [
+        "magwagwa"
+      ],
+      "lengthKm": 2.7
+    },
+    {
+      "id": "NYM-R0063",
+      "name": "Rikuruma - Gitwebe - Morembe",
+      "wards": [
+        "magwagwa"
+      ],
+      "lengthKm": 3.5
+    },
+    {
+      "id": "NYM-R0064",
+      "name": "(B3) Sironga Stage – Kebacha – Ramba TBC",
+      "wards": [
+        "bogichora"
+      ],
+      "lengthKm": 2
+    },
+    {
+      "id": "NYM-R0065",
+      "name": "Bonyunyu-Omosasa-Rioyako-Riatengeya",
+      "wards": [
+        "bogichora"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0066",
+      "name": "Bosiango Primary-Makairo bridge",
+      "wards": [
+        "bogichora"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0067",
+      "name": "Kenyambi OPD - Rianyatigo",
+      "wards": [
+        "bogichora"
+      ],
+      "lengthKm": 1.6
+    },
+    {
+      "id": "NYM-R0068",
+      "name": "Kenyenya- Nyabiosi SDA-Geta junction-Nyairasa Tea Buying Center-Mensire junction",
+      "wards": [
+        "bogichora"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0069",
+      "name": "Kioge Coffee Factory-Rionyangi junction",
+      "wards": [
+        "bogichora"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0070",
+      "name": "Mabundu SDA - Nyabomite - Bonyagwoka - Bundo - Marindi",
+      "wards": [
+        "bogichora"
+      ],
+      "lengthKm": 3.3
+    },
+    {
+      "id": "NYM-R0071",
+      "name": "Nyabirorwe bridge-Nyabirorwe catholic-Sironga society-Bosose Junction",
+      "wards": [
+        "bogichora"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0072",
+      "name": "Nyaisa junction-Eronge-Kereri junction-Eronge health center Nyaramba",
+      "wards": [
+        "bogichora"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0073",
+      "name": "Nyamatoki – Nyamasembe – Nyaramba – Nyaisa",
+      "wards": [
+        "bogichora"
+      ],
+      "lengthKm": 3.1
+    },
+    {
+      "id": "NYM-R0074",
+      "name": "Rionyambu-Nyamokeri Rianyaribari-Nyamokeri Bwa Aori-Salama Academy",
+      "wards": [
+        "bogichora"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0075",
+      "name": "Bokimo – Masare road",
+      "wards": [
+        "bonyamatuta"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0076",
+      "name": "Kabatia - Nyangweta - Kiambere",
+      "wards": [
+        "bonyamatuta"
+      ],
+      "lengthKm": 4
+    },
+    {
+      "id": "NYM-R0077",
+      "name": "Mobamba Pri Sch Junct - Nyamonyo - Nyakemincha TBC",
+      "wards": [
+        "bonyamatuta"
+      ],
+      "lengthKm": 2.6
+    },
+    {
+      "id": "NYM-R0078",
+      "name": "Nyakeore TBC-Riatunga TBC",
+      "wards": [
+        "bonyamatuta"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0079",
+      "name": "Turning Point-Miringa- Kianyabongere-Migingo Road",
+      "wards": [
+        "bonyamatuta"
+      ],
+      "lengthKm": null
+    },
+    {
+      "id": "NYM-R0080",
+      "name": "(B3) Ikobe - Gesicha",
+      "wards": [
+        "bosamaro"
+      ],
+      "lengthKm": 2
+    },
+    {
+      "id": "NYM-R0081",
+      "name": "Gesero - Sirate",
+      "wards": [
+        "bosamaro"
+      ],
+      "lengthKm": 4
+    },
+    {
+      "id": "NYM-R0082",
+      "name": "Gesero (Makutano) - Ndurumo – Riamoti",
+      "wards": [
+        "bosamaro"
+      ],
+      "lengthKm": 4.5
+    },
+    {
+      "id": "NYM-R0083",
+      "name": "Motagara - Omaraburi - Kipkebe",
+      "wards": [
+        "bosamaro"
+      ],
+      "lengthKm": 2.7
+    },
+    {
+      "id": "NYM-R0084",
+      "name": "Mang'ong'o - Masosa – Nyarombe",
+      "wards": [
+        "nyamaiya"
+      ],
+      "lengthKm": 3.7
+    },
+    {
+      "id": "NYM-R0085",
+      "name": "Tonga DEB Pri Sch Junct - Omonuri River - Tonga Omonuri Boarding - Monga",
+      "wards": [
+        "nyamaiya"
+      ],
+      "lengthKm": 2.5
+    },
+    {
+      "id": "NYM-R0086",
+      "name": "Bwombuya Junct - Kisii University (Okeno) - Borabu - Ombane - Nyansanda – Gesore (Fire station)",
+      "wards": [
+        "township"
+      ],
+      "lengthKm": 3
+    },
+    {
+      "id": "NYM-R0087",
+      "name": "Gesonso Junct - Mwamoturi - Nyabite - Egesieri Junct",
+      "wards": [
+        "township"
+      ],
+      "lengthKm": 2
+    },
+    {
+      "id": "NYM-R0088",
+      "name": "Gesore TBC - Bomondo Bridge – Rienchogu – Nyairicha - Nyamache Mange",
+      "wards": [
+        "township"
+      ],
+      "lengthKm": 3.5
+    },
+    {
+      "id": "NYM-R0089",
+      "name": "Borabu Inn – Nyabite road",
+      "wards": [],
+      "lengthKm": null
+    }
+  ],
+  "osmClassifiedNetwork": [
+    {
+      "osmId": "way/34358480",
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "type": "trunk",
+      "ward": null,
+      "lat": -0.7047247,
+      "lon": 35.0569412
+    },
+    {
+      "osmId": "way/173349376",
+      "name": "Chabera-Ikonge Road",
+      "type": "primary",
+      "ward": "magwagwa",
+      "lat": -0.5078146,
+      "lon": 35.0289162
+    },
+    {
+      "osmId": "way/173349377",
+      "name": "Kendu-Kandongo-Nyamira Rd",
+      "type": "trunk",
+      "ward": "bogichora",
+      "lat": -0.5476033,
+      "lon": 34.9093882
+    },
+    {
+      "osmId": "way/239553453",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "nyamaiya",
+      "lat": -0.4895093,
+      "lon": 34.9024335
+    },
+    {
+      "osmId": "way/294714840",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "gesima",
+      "lat": -0.7128259,
+      "lon": 34.9884512
+    },
+    {
+      "osmId": "way/294714850",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "gesima",
+      "lat": -0.6921695,
+      "lon": 34.9932442
+    },
+    {
+      "osmId": "way/312928769",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.7699264,
+      "lon": 34.9661524
+    },
+    {
+      "osmId": "way/313267949",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "gesima",
+      "lat": -0.7353262,
+      "lon": 34.9765869
+    },
+    {
+      "osmId": "way/313305107",
+      "name": "Kebirigo - Keroka Road",
+      "type": "trunk",
+      "ward": "bonyamatuta",
+      "lat": -0.6146103,
+      "lon": 34.9736703
+    },
+    {
+      "osmId": "way/313305108",
+      "name": "Kebirigo - Keroka Road",
+      "type": "trunk",
+      "ward": "bogichora",
+      "lat": -0.6509329,
+      "lon": 34.9949412
+    },
+    {
+      "osmId": "way/313310361",
+      "name": "Chabera-Ikonge Road",
+      "type": "primary",
+      "ward": "bokeira",
+      "lat": -0.4518033,
+      "lon": 35.0135867
+    },
+    {
+      "osmId": "way/313435658",
+      "name": "Magombo Road",
+      "type": "tertiary",
+      "ward": "magombo",
+      "lat": -0.6748329,
+      "lon": 34.8989369
+    },
+    {
+      "osmId": "way/313435659",
+      "name": "Tombe-Nyaikuro Road",
+      "type": "tertiary",
+      "ward": "manga",
+      "lat": -0.6386284,
+      "lon": 34.8779262
+    },
+    {
+      "osmId": "way/313435660",
+      "name": "Miriri-Tombe Road",
+      "type": "tertiary",
+      "ward": "magombo",
+      "lat": -0.6775209,
+      "lon": 34.8890799
+    },
+    {
+      "osmId": "way/313657712",
+      "name": "Magombo-Gachuba-Kegati Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.7026339,
+      "lon": 34.9047986
+    },
+    {
+      "osmId": "way/313848987",
+      "name": "Gachuba-Birongo Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.7099893,
+      "lon": 34.8659981
+    },
+    {
+      "osmId": "way/313848988",
+      "name": "Gachuba-Birongo Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.7178488,
+      "lon": 34.8713642
+    },
+    {
+      "osmId": "way/313850956",
+      "name": "Nyabar 4-Birongo Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.7285668,
+      "lon": 34.885143
+    },
+    {
+      "osmId": "way/313852221",
+      "name": "Nyabara4-Moturumesi Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.7167619,
+      "lon": 34.8887436
+    },
+    {
+      "osmId": "way/313852496",
+      "name": "Nyagancha-Bonyunyu Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.7102371,
+      "lon": 34.8841949
+    },
+    {
+      "osmId": "way/313853558",
+      "name": "Gucha Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.6977562,
+      "lon": 34.8775214
+    },
+    {
+      "osmId": "way/313854679",
+      "name": "Gachuba-Keboba-Keumbu Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.7216859,
+      "lon": 34.8554524
+    },
+    {
+      "osmId": "way/313858155",
+      "name": "Gachuba-Miriri Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.6940643,
+      "lon": 34.8689057
+    },
+    {
+      "osmId": "way/313859059",
+      "name": "Sengereri Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.6854972,
+      "lon": 34.8667143
+    },
+    {
+      "osmId": "way/313860294",
+      "name": "Kerongeta Road",
+      "type": "service",
+      "ward": "gachuba",
+      "lat": -0.7124511,
+      "lon": 34.8776915
+    },
+    {
+      "osmId": "way/313861486",
+      "name": "Tombe Girls Road",
+      "type": "unclassified",
+      "ward": "manga",
+      "lat": -0.6483311,
+      "lon": 34.8650251
+    },
+    {
+      "osmId": "way/313862959",
+      "name": "Kenani Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.7226723,
+      "lon": 34.8618531
+    },
+    {
+      "osmId": "way/314659322",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.7469472,
+      "lon": 34.9651996
+    },
+    {
+      "osmId": "way/314659338",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.7530555,
+      "lon": 34.9656315
+    },
+    {
+      "osmId": "way/314659339",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.7494462,
+      "lon": 34.9639745
+    },
+    {
+      "osmId": "way/314660297",
+      "name": "Mongoni Road",
+      "type": "unclassified",
+      "ward": "rigoma",
+      "lat": -0.7368851,
+      "lon": 34.899752
+    },
+    {
+      "osmId": "way/315819722",
+      "name": "Mwongori Maziwa-Nyaronge Road",
+      "type": "unclassified",
+      "ward": "mekenene",
+      "lat": -0.7023534,
+      "lon": 35.0483183
+    },
+    {
+      "osmId": "way/315969096",
+      "name": "Omogwa-Entanda",
+      "type": "unclassified",
+      "ward": "kemera",
+      "lat": -0.6704135,
+      "lon": 34.8537806
+    },
+    {
+      "osmId": "way/324427479",
+      "name": "Gachuba Street",
+      "type": "service",
+      "ward": "gachuba",
+      "lat": -0.7084648,
+      "lon": 34.8652443
+    },
+    {
+      "osmId": "way/426375685",
+      "name": "Birongo-Rigoma Road",
+      "type": "unclassified",
+      "ward": "rigoma",
+      "lat": -0.7417763,
+      "lon": 34.8963275
+    },
+    {
+      "osmId": "way/426375698",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "gesima",
+      "lat": -0.720812,
+      "lon": 34.9857594
+    },
+    {
+      "osmId": "way/426442125",
+      "name": "Gucha Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.705982,
+      "lon": 34.8644518
+    },
+    {
+      "osmId": "way/426442128",
+      "name": "Gucha Road",
+      "type": "unclassified",
+      "ward": "gachuba",
+      "lat": -0.70529,
+      "lon": 34.8635375
+    },
+    {
+      "osmId": "way/426442130",
+      "name": "Amabuko-Rigoma Road",
+      "type": "tertiary",
+      "ward": "rigoma",
+      "lat": -0.7295366,
+      "lon": 34.9207101
+    },
+    {
+      "osmId": "way/426442132",
+      "name": "Magombo Road",
+      "type": "tertiary",
+      "ward": "gachuba",
+      "lat": -0.6942075,
+      "lon": 34.9130477
+    },
+    {
+      "osmId": "way/533220831",
+      "name": "Kemera- Manga Road",
+      "type": "unclassified",
+      "ward": "kemera",
+      "lat": -0.6620577,
+      "lon": 34.8444227
+    },
+    {
+      "osmId": "way/553773122",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.7679082,
+      "lon": 34.9672461
+    },
+    {
+      "osmId": "way/553773123",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.7658853,
+      "lon": 34.9683532
+    },
+    {
+      "osmId": "way/553773124",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.762378,
+      "lon": 34.9679066
+    },
+    {
+      "osmId": "way/553773125",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.7589645,
+      "lon": 34.9668538
+    },
+    {
+      "osmId": "way/553773126",
+      "name": "Kebirigo - Keroka Rd.",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.756361,
+      "lon": 34.9663757
+    },
+    {
+      "osmId": "way/553779085",
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "type": "tertiary",
+      "ward": "itibo",
+      "lat": -0.5923815,
+      "lon": 35.0220604
+    },
+    {
+      "osmId": "way/553779627",
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "type": "tertiary",
+      "ward": "itibo",
+      "lat": -0.5781551,
+      "lon": 35.0162943
+    },
+    {
+      "osmId": "way/553781473",
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "type": "tertiary",
+      "ward": "kiabonyoru",
+      "lat": -0.6133495,
+      "lon": 35.0261038
+    },
+    {
+      "osmId": "way/553781817",
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "type": "tertiary",
+      "ward": "kiabonyoru",
+      "lat": -0.6020791,
+      "lon": 35.0245468
+    },
+    {
+      "osmId": "way/587294913",
+      "name": "Keroka - Masimba Road",
+      "type": "trunk",
+      "ward": null,
+      "lat": -0.8322317,
+      "lon": 34.9266583
+    },
+    {
+      "osmId": "way/604160028",
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "type": "tertiary",
+      "ward": "itibo",
+      "lat": -0.5468452,
+      "lon": 35.0098121
+    },
+    {
+      "osmId": "way/623986811",
+      "name": "Mokomoni Chepilat Road",
+      "type": "tertiary",
+      "ward": "mekenene",
+      "lat": -0.6128687,
+      "lon": 35.039306
+    },
+    {
+      "osmId": "way/632068543",
+      "name": "Riensune School Road",
+      "type": "unclassified",
+      "ward": "nyansiongo",
+      "lat": -0.769754,
+      "lon": 34.9993082
+    },
+    {
+      "osmId": "way/650597209",
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "type": "trunk",
+      "ward": "nyansiongo",
+      "lat": -0.7684075,
+      "lon": 34.9845066
+    },
+    {
+      "osmId": "way/650991280",
+      "name": "Birongo-Rigoma Road",
+      "type": "unclassified",
+      "ward": null,
+      "lat": -0.7460323,
+      "lon": 34.8959591
+    },
+    {
+      "osmId": "way/650991281",
+      "name": "Birongo-Rigoma Road",
+      "type": "unclassified",
+      "ward": "rigoma",
+      "lat": -0.7384386,
+      "lon": 34.9009766
+    },
+    {
+      "osmId": "way/651044997",
+      "name": "Riensune Church Path",
+      "type": "residential",
+      "ward": "nyansiongo",
+      "lat": -0.7629879,
+      "lon": 34.9931745
+    },
+    {
+      "osmId": "way/673265870",
+      "name": "Stewa Niwa Road",
+      "type": "residential",
+      "ward": null,
+      "lat": -0.6731234,
+      "lon": 34.7839487
+    },
+    {
+      "osmId": "way/683651464",
+      "name": "Mekenene Ecd-Simbi Road 1",
+      "type": "residential",
+      "ward": "nyansiongo",
+      "lat": -0.7225632,
+      "lon": 35.0422211
+    },
+    {
+      "osmId": "way/683651467",
+      "name": "Riamanoti Adult Centre-Mekenene Ecd",
+      "type": "residential",
+      "ward": "nyansiongo",
+      "lat": -0.7205371,
+      "lon": 35.0349093
+    },
+    {
+      "osmId": "way/694497540",
+      "name": "Keroka - Masimba Road",
+      "type": "trunk",
+      "ward": null,
+      "lat": -0.7800524,
+      "lon": 34.9476991
+    },
+    {
+      "osmId": "way/694497541",
+      "name": "Keroka - Masimba Road",
+      "type": "trunk",
+      "ward": null,
+      "lat": -0.7800015,
+      "lon": 34.94766
+    },
+    {
+      "osmId": "way/698742996",
+      "name": "Kemera-Entanda Road",
+      "type": "unclassified",
+      "ward": "kemera",
+      "lat": -0.6697623,
+      "lon": 34.8487183
+    },
+    {
+      "osmId": "way/699456987",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": null,
+      "lat": -0.5033997,
+      "lon": 34.8732193
+    },
+    {
+      "osmId": "way/699912633",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "bokeira",
+      "lat": -0.4464206,
+      "lon": 34.9799446
+    },
+    {
+      "osmId": "way/699945939",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "bomwagamo",
+      "lat": -0.4861113,
+      "lon": 34.9522319
+    },
+    {
+      "osmId": "way/700150452",
+      "name": "Bonyunyu Mokomoni Ikonge Road",
+      "type": "tertiary",
+      "ward": "itibo",
+      "lat": -0.5614672,
+      "lon": 35.0098692
+    },
+    {
+      "osmId": "way/700181014",
+      "name": "Sotik-Ikonge Road",
+      "type": "secondary",
+      "ward": "mekenene",
+      "lat": -0.6154654,
+      "lon": 35.0592302
+    },
+    {
+      "osmId": "way/700849453",
+      "name": "Irianyi-Goti",
+      "type": "residential",
+      "ward": "kemera",
+      "lat": -0.6618182,
+      "lon": 34.857829
+    },
+    {
+      "osmId": "way/700849454",
+      "name": "Omogwa-Irianyi",
+      "type": "residential",
+      "ward": "kemera",
+      "lat": -0.6611965,
+      "lon": 34.855367
+    },
+    {
+      "osmId": "way/700849456",
+      "name": "Irianyi Secondary",
+      "type": "residential",
+      "ward": "kemera",
+      "lat": -0.6632599,
+      "lon": 34.855007
+    },
+    {
+      "osmId": "way/700849457",
+      "name": "Nyaera-Irianyi Road",
+      "type": "residential",
+      "ward": "kemera",
+      "lat": -0.6635264,
+      "lon": 34.8525045
+    },
+    {
+      "osmId": "way/700849460",
+      "name": "Omogwa",
+      "type": "residential",
+      "ward": "kemera",
+      "lat": -0.6592292,
+      "lon": 34.8527313
+    },
+    {
+      "osmId": "way/701293387",
+      "name": "Riamaranga",
+      "type": "residential",
+      "ward": "manga",
+      "lat": -0.6565851,
+      "lon": 34.8541401
+    },
+    {
+      "osmId": "way/701866419",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "nyamaiya",
+      "lat": -0.4842249,
+      "lon": 34.9331747
+    },
+    {
+      "osmId": "way/701866420",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "nyamaiya",
+      "lat": -0.4832714,
+      "lon": 34.9189399
+    },
+    {
+      "osmId": "way/706562268",
+      "name": "Mokomoni Chepilat Road",
+      "type": "tertiary",
+      "ward": "mekenene",
+      "lat": -0.6127802,
+      "lon": 35.0519265
+    },
+    {
+      "osmId": "way/706562269",
+      "name": "Mokomoni Chepilat Road",
+      "type": "tertiary",
+      "ward": "mekenene",
+      "lat": -0.6139546,
+      "lon": 35.0557349
+    },
+    {
+      "osmId": "way/706581414",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "bokeira",
+      "lat": -0.4840871,
+      "lon": 34.9621767
+    },
+    {
+      "osmId": "way/706833857",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "bomwagamo",
+      "lat": -0.4865804,
+      "lon": 34.947438
+    },
+    {
+      "osmId": "way/706833858",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "bomwagamo",
+      "lat": -0.4867668,
+      "lon": 34.9498732
+    },
+    {
+      "osmId": "way/706833859",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "nyamaiya",
+      "lat": -0.4957623,
+      "lon": 34.8971516
+    },
+    {
+      "osmId": "way/706833860",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "nyamaiya",
+      "lat": -0.4961668,
+      "lon": 34.8891657
+    },
+    {
+      "osmId": "way/998040736",
+      "name": "Kendu Bay-Kosele- Oyugis-Rioma-Marani- Nyabioto",
+      "type": "primary",
+      "ward": "manga",
+      "lat": -0.6136875,
+      "lon": 34.8642426
+    },
+    {
+      "osmId": "way/998040737",
+      "name": "Kendu Bay-Kosele- Oyugis-Rioma-Marani- Nyabioto",
+      "type": "primary",
+      "ward": "manga",
+      "lat": -0.5985496,
+      "lon": 34.8492241
+    },
+    {
+      "osmId": "way/998040739",
+      "name": "Kendu Bay-Kosele- Oyugis-Rioma-Marani- Nyabioto",
+      "type": "primary",
+      "ward": "manga",
+      "lat": -0.6049523,
+      "lon": 34.8572997
+    },
+    {
+      "osmId": "way/998289017",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "bokeira",
+      "lat": -0.4691395,
+      "lon": 34.969695
+    },
+    {
+      "osmId": "way/998289018",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "nyamaiya",
+      "lat": -0.4834504,
+      "lon": 34.9133039
+    },
+    {
+      "osmId": "way/998289019",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "nyamaiya",
+      "lat": -0.4986975,
+      "lon": 34.8808958
+    },
+    {
+      "osmId": "way/998289020",
+      "name": "Kisii-Kegogi- Miruka-Nyamusi- Chabera",
+      "type": "secondary",
+      "ward": "nyamaiya",
+      "lat": -0.4995706,
+      "lon": 34.8788104
+    },
+    {
+      "osmId": "way/998955396",
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "type": "trunk",
+      "ward": null,
+      "lat": -0.6917201,
+      "lon": 35.074421
+    },
+    {
+      "osmId": "way/998955397",
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "type": "trunk",
+      "ward": "nyansiongo",
+      "lat": -0.7643684,
+      "lon": 34.9987911
+    },
+    {
+      "osmId": "way/998955398",
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "type": "trunk",
+      "ward": "nyansiongo",
+      "lat": -0.76134,
+      "lon": 35.0083491
+    },
+    {
+      "osmId": "way/998955399",
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "type": "trunk",
+      "ward": "nyansiongo",
+      "lat": -0.7707283,
+      "lon": 34.9721365
+    },
+    {
+      "osmId": "way/998955400",
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.7712409,
+      "lon": 34.9697808
+    },
+    {
+      "osmId": "way/998955401",
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.7803243,
+      "lon": 34.9488768
+    },
+    {
+      "osmId": "way/998955402",
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.7766672,
+      "lon": 34.9591593
+    },
+    {
+      "osmId": "way/998955403",
+      "name": "Birongo-Kisii Road",
+      "type": "trunk",
+      "ward": null,
+      "lat": -0.7662987,
+      "lon": 34.9307495
+    },
+    {
+      "osmId": "way/998955404",
+      "name": "Birongo-Kisii Road",
+      "type": "trunk",
+      "ward": null,
+      "lat": -0.7735852,
+      "lon": 34.9410354
+    },
+    {
+      "osmId": "way/998955406",
+      "name": "Birongo-Kisii Road",
+      "type": "trunk",
+      "ward": "rigoma",
+      "lat": -0.7567547,
+      "lon": 34.9118541
+    },
+    {
+      "osmId": "way/1002172249",
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "type": "trunk",
+      "ward": "nyansiongo",
+      "lat": -0.7169809,
+      "lon": 35.0411572
+    },
+    {
+      "osmId": "way/1002172250",
+      "name": "A1 Kisii-Keroka-Sotik-Litein-Chemosit-A12 Kericho",
+      "type": "trunk",
+      "ward": "nyansiongo",
+      "lat": -0.738295,
+      "lon": 35.0279687
+    },
+    {
+      "osmId": "way/1332688114",
+      "name": "Kendu-Kandongo-Nyamira Rd",
+      "type": "trunk",
+      "ward": null,
+      "lat": -0.4773546,
+      "lon": 34.8848353
+    }
+  ]
+}

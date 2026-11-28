@@ -442,7 +442,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
       <div class="ch-head">
         <span class="eyebrow">Chapter 5 · From Treasury to your ward</span>
         <h2 id="h-shilling">Follow the money to the 20 wards of Nyamira</h2>
-        <p>One county, one year (FY2025/26), followed from the national budget down to projects named for each ward. The county figures come from Nyamira Daily's records, where every ward has its own page.</p>
+        <p>One county, one year (FY2025/26), followed from the national budget down to projects named for each ward. The county figures come from Gusii Daily's records, where every ward has its own page.</p>
       </div>
       <div class="grid2">
         <div class="stack">
@@ -528,7 +528,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
 
 <footer>
   <div class="wrap">
-    <p><b>Kenya Budget Explained</b> (working name) · prototype, built 1 November 2026 on the Nyamira Daily data engine by Underdogs Rising Group Limited. Non-partisan: we explain public money and ask questions; we do not support or oppose any party, candidate or official.</p>
+    <p><b>Kenya Budget Explained</b> (working name) · prototype, built 1 November 2026 on the Gusii Daily data engine by Underdogs Rising Group Limited. Non-partisan: we explain public money and ask questions; we do not support or oppose any party, candidate or official.</p>
     <p>Found a wrong figure? Before public launch this page will list a correction channel and a public log of what changed and why.</p>
   </div>
 </footer>
@@ -685,7 +685,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
     $('ccard').innerHTML = `<span class="cname">${esc(c.name)}</span>
       <dl><dt>Share in FY2025/26</dt><dd>${bn(c.prev / 1000)}</dd><dt>CRA recommended for FY2026/27</dt><dd>${bn(c.rec / 1000)}</dd><dt>Change recommended</dt><dd>${ch >= 0 ? '+' : ''}${nf1.format(ch)}%</dd><dt>Rank among 47 (recommendation)</dt><dd>${rank}</dd><dt>Treasury guide, June 2026 (rounded)</dt><dd>${bn(c.guide)}</dd><dt>Exact amount in the 2026 Act</dt><dd class="small" style="font-family:var(--font)">not yet loaded</dd></dl>
       ${srcLine(M.rec)}${srcLine(M.guide)}${cob}
-      ${c.name === 'Nyamira' ? '<p class="small"><b>Nyamira Daily</b> has ward-by-ward budgets, projects and services for this county.</p>' : ''}`;
+      ${c.name === 'Nyamira' ? '<p class="small"><b>Gusii Daily</b> has ward-by-ward budgets, projects and services for this county.</p>' : ''}`;
     hbars($('cbars'), C.map((x) => ({ label: esc(x.name), v: x.rec / 1000, vl: nf1.format(x.rec / 1000), tick: x.prev / 1000, cls: x.name === chosen ? 'hi' : '', x })), { max: 24, tips: (r) => `<b>${esc(r.x.name)}</b>Recommended ${bn(r.x.rec / 1000)}<br>FY2025/26 ${bn(r.x.prev / 1000)}` });
     const hiRow = $('cbars').querySelector('.hi');
     if (hiRow) { const box = $('cbars'); box.scrollTop = hiRow.offsetTop - box.clientHeight / 2; }
@@ -711,7 +711,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   const ymax = Math.max(...ys.map((y) => y.budget));
   $('years').innerHTML = ys.map((y) => `<div class="yr" tabindex="0" data-fy="${y.fy}"><span class="tab">${y.fy}</span><span class="t"><span class="b" style="width:${y.budget / ymax * 100}%"></span><span class="s" style="width:${y.spent / ymax * 100}%"></span></span><span class="pc">${nf0.format(y.spent / y.budget * 100)}%</span></div>`).join('');
   $('years').querySelectorAll('.yr').forEach((el) => { const y = ys.find((v) => v.fy === el.dataset.fy); bindTip(el, `<b>${y.fy}</b>Budget ${bn(y.budget / 1000)}<br>Spent ${bn(y.spent / 1000)}<br>Development budget spent: ${y.devAbs}%`); });
-  $('years-src').innerHTML = `<p class="src">${chips({ label: 'official', stage: 'spent' })} <a href="${S.cobyears.url}" target="_blank" rel="noopener">Controller of Budget annual county reports</a>, Nyamira section, one report per year (pages on Nyamira Daily) · % is our calculation</p>`;
+  $('years-src').innerHTML = `<p class="src">${chips({ label: 'official', stage: 'spent' })} <a href="${S.cobyears.url}" target="_blank" rel="noopener">Controller of Budget annual county reports</a>, Nyamira section, one report per year (pages on Gusii Daily) · % is our calculation</p>`;
   const six = D.counties.filter((c) => c.cob).sort((a, b) => b.cob.devAbs - a.cob.devAbs);
   $('cmp6').innerHTML = `<h3>Development budget spent, FY2024/25</h3><p class="small muted">Nyamira and five other counties in the region, against all 47 counties (${D.countiesMeta.national2425.devAbsorptionPct}%).</p><div class="hb" id="six"></div>${`<p class="src">${chips({ label: 'official', stage: 'spent' })} <a href="${S.cob2425.url}" target="_blank" rel="noopener">Controller of Budget, County BIRR FY2024/25</a>, Table 2.5</p>`}`;
   hbars($('six'), six.map((c) => ({ label: esc(c.name), v: c.cob.devAbs, vl: c.cob.devAbs + '%', cls: c.name === 'Nyamira' ? 'hi' : '', tick: D.countiesMeta.national2425.devAbsorptionPct, c })), { max: 100, tips: (r) => `<b>${r.v}% spent</b>${bn(r.c.cob.devSpent / 1e9)} of ${bn(r.c.cob.devBudget / 1e9)}` });
@@ -779,7 +779,7 @@ footer b { color: var(--hero-fg); font-weight: 500; }
   D.shilling.steps.forEach((s) => add(s.name + ' (FY2025/26)', s));
   $('figtable').innerHTML = `<table class="cards"><thead><tr><th>Figure</th><th class="r">Value</th><th>Tags</th><th>Source and place</th></tr></thead><tbody>${figs.map(([n, f]) => `<tr><td>${esc(n)}</td><td class="r" data-label="Value">${f.unit === 'KSh m' ? nf0.format(f.v) + ' m' : f.unit.startsWith('%') ? nf1.format(f.v) + '%' : nf1.format(f.v) + (f.v < 10 ? '' : '')}</td><td>${chips(f)}</td><td class="small" data-label="Source and place"><a href="${esc(S[f.src].url)}" target="_blank" rel="noopener">${esc(S[f.src].title.split(' (')[0])}</a>, ${esc(f.where)}${f.note ? `. ${esc(f.note)}` : ''}</td></tr>`).join('')}</tbody></table><p class="small muted">Values in KSh billion unless marked m (million) or %.</p>`;
   $('srclist').innerHTML = Object.values(S).filter(Boolean).map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>${s.archive ? ` (<a href="${esc(s.archive)}" target="_blank" rel="noopener">archive copy</a>)` : ''}</li>`).join('');
-  $('checknote').textContent = `Built ${D.built}. National figures were checked against the Treasury and CRA documents on 1 November 2026, by software and not yet by a person; before public launch an editor checks each against its printed page and marks it Verified. County spending figures come from Nyamira Daily's checked records.`;
+  $('checknote').textContent = `Built ${D.built}. National figures were checked against the Treasury and CRA documents on 1 November 2026, by software and not yet by a person; before public launch an editor checks each against its printed page and marks it Verified. County spending figures come from Gusii Daily's checked records.`;
   $('copyjson').addEventListener('click', () => copy(JSON.stringify(D, null, 1), 'Data copied'));
   $('copycsv').addEventListener('click', () => copy(['county,share_2025_26_ksh_m,cra_recommended_2026_27_ksh_m,treasury_guide_june_2026_ksh_bn_rounded'].concat(D.counties.map((c) => `"${c.name}",${c.prev},${c.rec},${c.guide}`)).join('\n'), 'County table copied'));
 

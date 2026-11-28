@@ -1,4 +1,5 @@
 ---
+import { nyamiraWardCount } from '../../../lib/counts.js';
 // About Nyamira County (decision #122): facts and figures, places to know, and how the county is governed.
 // Every figure is from src/data (with its source); nothing is typed in here.
 import Base from '../../../layouts/Base.astro';
@@ -16,6 +17,9 @@ const centres = towns.places.filter((p) => p.kind === 'centre').sort((a, b) => a
 ---
 <Base title="About Nyamira County" description="Nyamira County in figures: population, households, area, wards, towns, and how the county is governed.">
   <PageHead title="About Nyamira County" lead={`${county.countyName} in figures: its people, its wards and its towns, with a source for each.`} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Kaunti ya Nyamira ina wodi 20 katika majimbo 5. Idadi ya watu ni zaidi ya 605,000 (sensa ya 2019) katika eneo la kilomita za mraba 899. Hapa unapata takwimu za watu, miji na jinsi kaunti inavyosimamiwa.</p></div>
+
   <div class="stack-lg" style="margin-top:16px">
     <section class="stack" aria-labelledby="facts">
       <h2 id="facts">Facts and figures</h2>
@@ -25,10 +29,10 @@ const centres = towns.places.filter((p) => p.kind === 'centre').sort((a, b) => a
         <div class="tile"><b>{n(c.areaKm2)} km²</b><span>land area</span></div>
         <div class="tile"><b>{n(c.density)}</b><span>people per square kilometre</span></div>
         <div class="tile"><b>{n(c.rural.population)}</b><span>live in rural areas; {n(c.urban.population)} in urban areas</span></div>
-        <div class="tile"><b>{wards.length}</b><span>wards, in {county.constituencies.join(', ')}</span></div>
+        <div class="tile"><b>{nyamiraWardCount}</b><span>wards, in {county.constituencies.join(', ')}</span></div>
       </div>
       <p class="source"><EvidenceLabel kind="official" /> Source: <a href={c.url} rel="noopener">Kenya National Bureau of Statistics, 2019 Population and Housing Census</a>, {c.page}.</p>
-      <p><a href="/ward/">See all {wards.length} wards</a> · <a href="/money/economy/">The Nyamira economy</a> · <a href="/money/farming/">Farming</a></p>
+      <p><a href="/ward/">See all {nyamiraWardCount} wards</a> · <a href="/money/economy/">The Nyamira economy</a> · <a href="/money/farming/">Farming</a></p>
     </section>
 
     <section class="stack" aria-labelledby="places">

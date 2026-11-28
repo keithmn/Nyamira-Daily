@@ -1,17 +1,20 @@
 ---
 // Inline SVG ward maps built at build time: no map library, no downloads,
 // works on any phone and without JavaScript.
-// mode "county": all 20 wards, each one a link to its ward page.
+// mode "county": the one Gusii map, every ward in Nyamira and Kisii, each a link to its ward page (decision #134).
 // mode "ward": zoomed to one ward, neighbours faint, OpenStreetMap points shown.
 import geo from '../data/geo.json';
-import wards from '../data/wards.json';
+import register from '../data/ward-register.json';
 interface Props { mode: 'county' | 'ward'; slug?: string }
 const { mode, slug } = Astro.props;
-const sub = Object.fromEntries(wards.map((w) => [w.slug, w.subCounty]));
+const sub = Object.fromEntries(register.wards.map((w) => [w.slug, w.constituency]));
+const cty = Object.fromEntries(register.wards.map((w) => [w.slug, w.county]));
 const subClass = { 'Borabu': 's1', 'Kitutu Masaba': 's2', 'North Mugirango': 's3', 'West Mugirango': 's4' };
 const list = Object.entries(geo.wards);
 const me = slug ? geo.wards[slug] : null;
-const vb = mode === 'ward' && me ? me.vb : `0 0 ${geo.w} ${geo.h}`;
+const vb = mode === 'ward' && me ? me.vb : geo.frame;
+// Nyamira wards keep their constituency shades; the second county's wards share one shade.
+const shade = (s) => (cty[s] === 'nyamira' ? subClass[sub[s]] : 'k');
 const r = me ? me.span * 0.014 : 4;
 const cats = [
   { key: 'school', label: 'School' }, { key: 'health', label: 'Health' }, { key: 'worship', label: 'Place of worship' },
@@ -22,10 +25,10 @@ const points = me ? [...new Map(me.points.map((p) => [`${p.cat}|${p.name}|${Math
 const present = cats.filter((c) => points.some((p) => p.cat === c.key));
 ---
 <figure class={`wardmap ${mode}`}>
-  <svg viewBox={vb} role="img" aria-label={mode === 'county' ? 'Map of Nyamira County showing its 20 wards. Tap a ward to open its page.' : `Map of ${me?.name} ward`}>
+  <svg viewBox={vb} role="img" aria-label={mode === 'county' ? `Map of the Gusii counties, Nyamira and Kisii, showing their ${list.length} wards. Tap a ward to open its page.` : `Map of ${me?.name} ward`}>
     {list.map(([s, w]) => mode === 'county' ? (
       <a href={`/ward/${s}/`} aria-label={`${w.name} ward`}>
-        <path d={w.d} class={`ward ${subClass[sub[s]]}`} data-ward-row={s}><title>{w.name} ({sub[s]})</title></path>
+        <path d={w.d} class={`ward ${shade(s)}`} data-ward-row={s}><title>{w.name} ({sub[s]})</title></path>
       </a>
     ) : (
       s !== slug && <a href={`/ward/${s}/`} tabindex="-1"><path d={w.d} class="ward other"><title>{w.name}</title></path></a>
@@ -47,6 +50,7 @@ const present = cats.filter((c) => points.some((p) => p.cat === c.key));
       <span class="key"><i class="s2"></i>Kitutu Masaba</span>
       <span class="key"><i class="s3"></i>North Mugirango</span>
       <span class="key"><i class="s4"></i>West Mugirango</span>
+      <span class="key"><i class="k"></i>Kisii County (9 constituencies)</span>
       <span>Ward boundaries: geoBoundaries (CC BY 4.0), checked against the IEBC ward list.</span>
     </figcaption>
   ) : (

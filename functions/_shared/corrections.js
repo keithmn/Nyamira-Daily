@@ -28,8 +28,8 @@ export function validSourceUrl(value, { optional = false } = {}) {
 export function validPagePath(value) {
   if (typeof value !== 'string' || value.length > 500 || !value.startsWith('/') || value.startsWith('//')) return false;
   try {
-    const url = new URL(value, 'https://nyamiradaily.org');
-    return url.origin === 'https://nyamiradaily.org' && !url.username && !url.password;
+    const url = new URL(value, 'https://gusiidaily.org');
+    return url.origin === 'https://gusiidaily.org' && !url.username && !url.password;
   } catch {
     return false;
   }

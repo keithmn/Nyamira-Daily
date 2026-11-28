@@ -50,14 +50,14 @@ Seat holders ("Who holds each seat")
 
 Community
 - First initiatives: **Who the Gusii are**, **Ekegusii language data**, **the Gusii culture archive**.
-- Brand: **inside Nyamira Daily first, spin out later** if it grows. PROJECT_BRIEF's line "kept off this site for now" is replaced.
+- Brand: **inside Gusii Daily first, spin out later** if it grows. PROJECT_BRIEF's line "kept off this site for now" is replaced.
 - Sensitivity rules (all chosen): **history and culture only** (no clan population counts, rankings, or anything tied to elections or land claims); **sources and elders cited**; **several voices** where accounts differ; **review before publishing** by a small panel (elders, a historian).
 - Consent rules (all chosen): **written or recorded consent**, with the right to withdraw; **the community keeps the rights**, contributors credited unless they ask not to be; **separate consent for AI training**; **pay or thank contributors** for their time.
 - First language-model goal: **an open, documented Ekegusii text and speech dataset** (collect, transcribe, translate), before any translator or chatbot.
 - Ways to take part: **read and listen**; **volunteer to record**; **share a story or record**; **send tips and concerns**.
 
 Footer and social
-- Footer stays: social icons and "© year Nyamira Daily" (decision #120).
+- Footer stays: social icons and "© year Gusii Daily" (decision #120).
 - Accounts: YouTube, TikTok, Instagram, WhatsApp Channel, X. Owner asked to **show the icons now without links**, for the look. Build note: the icons render as plain images (not links, hidden from screen readers) until each URL is set, then become links automatically.
 
 ## 3. Build plan (one branch: `feat/overhaul-2`)

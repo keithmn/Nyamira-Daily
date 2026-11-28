@@ -1,4 +1,5 @@
 ---
+import { nyamiraWardCount } from '../../lib/counts.js';
 // Administration (decision #110): who holds each seat now, for information only. Seat, holder, since and source.
 // No party, photos or profiles: the site is about the map and the money, and names officials only as office holders.
 // A note is shown only where it changes who holds the seat (the disputed Speakership, a by-election).
@@ -12,7 +13,7 @@ import { date } from '../../lib/fmt.js';
 
 const seatNotes = { 'Speaker, County Assembly': true };
 ---
-<Base title="Who holds each seat" description="Who holds each county seat in Nyamira now: the Governor, the Deputy Governor, the Speaker and the 20 MCAs, with sources.">
+<Base title="Who runs Nyamira County" description="Who holds each county seat in Nyamira now: the Governor, the Deputy Governor, the Speaker and the 20 MCAs, with sources.">
   <PageHead eyebrow="The county" title="Who holds each seat" lead="The people in Nyamira's elected and county offices now. For information: we list the seat, the holder, since when, and where it is recorded." crumbs={[{ href: '/map/', label: 'Places' }, { href: '/administration/', label: 'Who holds each seat' }]} />
   <ElectionNotice />
   <p class="updated">Last checked {date(L.updated)}.</p>
@@ -34,7 +35,7 @@ const seatNotes = { 'Speaker, County Assembly': true };
 
   <section class="stack" style="margin-top:32px" aria-labelledby="mcas">
     <h2 id="mcas">Members of the County Assembly</h2>
-    <p class="small muted">One MCA for each of the 20 wards. From {L.mcaSourceName}{L.mcaGazetteChecked ? '' : '; not yet checked against the Kenya Gazette'}. <a href={L.mcaSource} rel="noopener">Source</a></p>
+    <p class="small muted">One MCA for each of the {nyamiraWardCount} wards. From {L.mcaSourceName}{L.mcaGazetteChecked ? '' : '; not yet checked against the Kenya Gazette'}. <a href={L.mcaSource} rel="noopener">Source</a></p>
     {subCounties.map((s) => (
       <div class="stack" style="gap:8px">
         <h3>{s}</h3>
@@ -71,4 +72,7 @@ const seatNotes = { 'Speaker, County Assembly': true };
   </section>
 
   <p class="small" style="margin-top:32px">Spotted a mistake? <a href="/about/rules/#corrections">Tell us</a>, with a link to the record. Anyone named on the site can <a href="/about/rules/#right-of-reply">reply</a>.</p>
+
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Nani anashika kiti gani katika Kaunti ya Nyamira — Gavana, Naibu Gavana, Spika, Wabunge na Wawakilishi wa Wodi 20. Kila jina linataja chanzo chake rasmi.</p></div>
 </Base>

@@ -1,10 +1,10 @@
-# Nyamira Daily: project brief
+# Gusii Daily: project brief
 
-Read this first. It explains what Nyamira Daily is, who it is for, and what we are trying to achieve. The other docs in this folder cover the rules, the data and the decisions behind the code. Rewritten for the refocus of 16 Nov 2026 (`docs/refocus/PLAN.md`, decisions #110 to #118).
+Read this first. It explains what Gusii Daily is, who it is for, and what we are trying to achieve. The other docs in this folder cover the rules, the data and the decisions behind the code. Rewritten for the refocus of 16 Nov 2026 (`docs/refocus/PLAN.md`, decisions #110 to #118).
 
 ## In one sentence
 
-Nyamira Daily is a local data journalism tool for Nyamira County, Kenya: it maps every facility and the condition it is in, and it follows the money, with a source behind every fact.
+Gusii Daily is a local data journalism tool for Nyamira County, Kenya: it maps every facility and the condition it is in, and it follows the money, with a source behind every fact.
 
 ## The two goals
 
@@ -52,7 +52,7 @@ Five sections (`src/nav.js`):
 
 ## Who runs it
 
-Nyamira Daily is built and published by Underdogs Rising Group Limited, which supplies the developers and data journalists. It is editorially independent and non-partisan, and the company has committed to spin it out into its own non-profit (a company limited by guarantee, then a registered PBO). Until then, never describe it as a non-profit, NGO, charity or PBO. Details: `/who-runs-us/` and `DECISIONS.md` #73. One name covers the site, the channel and every show: Nyamira Daily.
+Gusii Daily is built and published by Underdogs Rising Group Limited, which supplies the developers and data journalists. It is editorially independent and non-partisan, and the company has committed to spin it out into its own non-profit (a company limited by guarantee, then a registered PBO). Until then, never describe it as a non-profit, NGO, charity or PBO. Details: `/who-runs-us/` and `DECISIONS.md` #73. One name covers the site, the channel and every show: Gusii Daily.
 
 ## Languages
 

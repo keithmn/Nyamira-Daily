@@ -7,19 +7,19 @@ test('public builds require a configured site domain', () => {
 });
 
 test('public builds reject draft-preview mode', () => {
-  assert.throws(() => resolveSite({ build: true, env: { ND_SITE_URL: 'https://nyamiradaily.org', ND_DRAFTS: '1' } }), /ND_DRAFTS/);
+  assert.throws(() => resolveSite({ build: true, env: { ND_SITE_URL: 'https://gusiidaily.org', ND_DRAFTS: '1' } }), /ND_DRAFTS/);
 });
 
 test('public builds reject placeholders and non-HTTPS origins', () => {
-  assert.throws(() => resolveSite({ build: true, env: { ND_SITE_URL: 'https://nyamira-daily.example' } }), /placeholder/);
+  assert.throws(() => resolveSite({ build: true, env: { ND_SITE_URL: 'https://gusii-daily.example' } }), /placeholder/);
   assert.throws(() => resolveSite({ build: true, env: { ND_SITE_URL: 'https://preview.example.org' } }), /placeholder/);
-  assert.throws(() => resolveSite({ build: true, env: { ND_SITE_URL: 'http://nyamiradaily.org' } }), /HTTPS/);
+  assert.throws(() => resolveSite({ build: true, env: { ND_SITE_URL: 'http://gusiidaily.org' } }), /HTTPS/);
 });
 
 test('public builds accept an explicit HTTPS domain', () => {
   assert.equal(
-    resolveSite({ build: true, env: { ND_SITE_URL: 'https://nyamiradaily.org/' } }),
-    'https://nyamiradaily.org',
+    resolveSite({ build: true, env: { ND_SITE_URL: 'https://gusiidaily.org/' } }),
+    'https://gusiidaily.org',
   );
 });
 
@@ -32,7 +32,7 @@ test('local preview builds may use localhost but are blocked on recognized produ
 });
 
 test('site URL cannot contain credentials, query strings, or fragments', () => {
-  for (const value of ['https://user:pass@nyamiradaily.org', 'https://nyamiradaily.org/?x=1', 'https://nyamiradaily.org/#top']) {
+  for (const value of ['https://user:pass@gusiidaily.org', 'https://gusiidaily.org/?x=1', 'https://gusiidaily.org/#top']) {
     assert.throws(() => resolveSite({ build: true, env: { ND_SITE_URL: value } }), /without credentials/);
   }
 });

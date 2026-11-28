@@ -22,6 +22,7 @@ export function facilityApiRecords(facilities, wards, site, observations = []) {
       observationDate: null,
       evidence: facility.evidence,
       evidenceNote: facility.evidenceNote,
+      documentCloudUrl: facility.documentCloudUrl || null,
       capabilities: capabilities.length ? capabilities : null,
       history: observationsForFacility(reviewedObservations, facility.id),
       ward: { slug: ward.slug, name: ward.name, subCounty: ward.subCounty },

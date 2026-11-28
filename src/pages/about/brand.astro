@@ -1,0 +1,113 @@
+---
+// The Gusii Daily brand, built from the site's own components (brand guide v3, 2026-11-27). Every figure on this page
+// is live from the same data as the rest of the site; nothing here is a placeholder.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import HomeFigures from '../../components/HomeFigures.astro';
+import SwatchStack from '../../components/kit/SwatchStack.astro';
+import { track } from '../../lib/county-budget.js';
+import { ksh } from '../../lib/fmt.js';
+
+const t = track();
+const palette = [
+  { name: 'Ink', value: '#111111', note: 'Covers, panels and source strips' },
+  { name: 'Signal Green', value: '#1FD07A', note: 'Statement blocks: the one loud accent' },
+  { name: 'Seed Brown', value: '#B07B47', note: 'Buttons on green, seeds, step 3, second chart series. Never text' },
+  { name: 'Deep cream', value: '#E3D7C5', note: 'Stages for printed sheets and photos' },
+  { name: 'White', value: '#FFFFFF', note: 'Cards and reading surfaces only' },
+];
+const pipeline = [
+  { tag: 'Collect', title: 'Phone in the field', note: 'Records are captured in the KoboCollect app, offline if needed, and sync when there is signal.' },
+  { tag: 'Review', title: 'Checked before use', note: 'Each submission is reviewed in KoboToolbox. Only approved records enter the system; names and phone numbers stay there.' },
+  { tag: 'Sync and build', title: 'Turned into pages', note: 'Approved records are written to data files and validated, then the site is built as static pages.' },
+  { tag: 'Serve', title: 'Published', note: 'Static pages on Cloudflare Pages: fast on cheap phones, every figure with its source.' },
+  { tag: 'Export', title: 'Open data', note: 'The same records are published as CSV and JSON, and as a knowledge graph.' },
+];
+const six = [
+  ['Source first.', 'Every number has a source a reader can check.'],
+  ['State the statement.', 'One key figure per view, in one clear accent.'],
+  ['Check and cross-check.', 'Where two official totals differ, we show both.'],
+  ['Date and document.', 'We record when, where and who for every check.'],
+  ['Label the evidence.', 'Verified, audit, official claim or unverified.'],
+  ['Open by default.', 'Clean data and open files for anyone to reuse.'],
+];
+---
+<Base title="Brand" description="The Gusii Daily brand: logo, colour roles, type, and how we present data.">
+  <PageHead cover="ink" eyebrow="About · Brand guide v3" title="The Gusii Daily brand" lead="One logo, six colours with one job each, three typefaces, and a small set of ways to present data. Everything on this page is built from the site's own parts." crumbs={[{ href: '/about/', label: 'About' }, { href: '/about/brand/', label: 'Brand' }]} />
+
+  <div class="stack-lg gd-brand-page">
+    <section class="gd-split" aria-labelledby="b-logo">
+      <header><span class="fg-kicker">01 · Logo</span><h2 id="b-logo">Logo and icon</h2><p>Use the files as they are. Never recolour, stretch, outline or retype the logo. Keep clear space the height of the “g” all round.</p></header>
+      <div class="gd-logo-grid">
+        <figure class="is-cream"><img src="/brand/Gusii-Daily_horizontal_full-colour.svg" alt="Gusii Daily logo on cream" /></figure>
+        <figure class="is-white"><img src="/brand/Gusii-Daily_horizontal_full-colour.svg" alt="Gusii Daily logo on white" /></figure>
+        <figure class="is-ink"><img src="/brand/Gusii-Daily_horizontal_full-colour.svg" alt="Gusii Daily logo on Ink" /></figure>
+        <figure class="is-stage"><img src="/brand/Gusii-Daily_symbol_full-colour.svg" alt="Gusii Daily icon" /></figure>
+      </div>
+    </section>
+
+    <SwatchStack kicker="02 · Colour" title="Colour roles" lead="Cream #F4F0EA is the base of every page. On it, each colour has one job, used in this order of impact." rows={palette} source="Gusii Daily brand guide v3" />
+
+    <section class="gd-split" aria-labelledby="b-type">
+      <header><span class="fg-kicker">03 · Type</span><h2 id="b-type">Three voices</h2><p>Each typeface has one role. Together they make a clear order that is easy to read.</p></header>
+      <div class="gd-type">
+        <div class="gd-type-row"><span class="gd-label">Titles &amp; big figures</span><b class="gd-t-poppins">Poppins SemiBold</b><span class="gd-t-sample gd-t-poppins">KSh 8.65B</span></div>
+        <div class="gd-type-row"><span class="gd-label">Body &amp; interface</span><b class="gd-t-inter">Inter Medium &amp; Bold</b><span class="gd-t-sample gd-t-inter">Every figure has a source a reader can check.</span></div>
+        <div class="gd-type-row"><span class="gd-label">Labels &amp; kickers</span><b class="gd-t-sg">Space Grotesk Bold</b><span class="gd-t-sample gd-t-sg">SPENT BY 30 JUNE 2026</span></div>
+      </div>
+    </section>
+
+    <section class="gd-split" aria-labelledby="b-statement">
+      <header><span class="fg-kicker">04 · Statement</span><h2 id="b-statement">The green statement block</h2><p>Green background, black text, Seed Brown buttons. One per view. It always ends in an Ink strip with the logo and the source.</p></header>
+      <div class="home-ink gd-brand-figs"><HomeFigures /></div>
+    </section>
+
+    <section class="gd-split" aria-labelledby="b-pair">
+      <header><span class="fg-kicker">05 · Comparison</span><h2 id="b-pair">Ink and white panels</h2><p>Two sources, side by side, when they do not agree.</p></header>
+      <section class="gd-pair" aria-label="Two spending totals for one year">
+        <div class="gd-panel is-ink"><span class="gd-panel-k">The county's own report</span><b class="gd-panel-v">{ksh(t.county.spent.value)}</b><span class="gd-panel-s">Spent by 30 June 2026</span><span class="gd-panel-src">Q4 Budget Implementation Report, {t.county.spent.page}</span></div>
+        <div class="gd-panel is-paper"><span class="gd-panel-k">Controller of Budget</span><b class="gd-panel-v">{ksh(t.cob.spent.value * 1e6)}</b><span class="gd-panel-s">Spent, by the national budget watchdog's count</span><span class="gd-panel-src">Controller of Budget report, {t.cob.spent.page}</span></div>
+      </section>
+    </section>
+
+    <section class="fg-band" aria-labelledby="b-steps" style="padding-block:0">
+      <div class="wrap" style="padding:0">
+        <header class="fg-sec-head"><span class="fg-kicker">06 · Steps</span><h2 id="b-steps">From the field to the page</h2></header>
+        <ol class="gd-steps">
+          {pipeline.map((s, i) => (
+            <li class={`gd-step${i === 1 ? ' is-next' : i === 2 ? ' is-every' : ''}`}>
+              <span class="gd-num" aria-hidden="true">{i + 1}</span>
+              <div class="gd-step-body"><div class="gd-step-top"><span class="gd-pill">{s.tag}</span></div><span class="gd-step-title">{s.title}</span><p>{s.note}</p></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="gd-rules" aria-labelledby="b-six">
+      <h3 id="b-six">Six-point grid</h3>
+      <ol class="gd-six">
+        {six.map(([title, note], i) => <li><span class="gd-label"><b>0{i + 1}</b>Standard</span><strong>{title}</strong><p>{note}</p></li>)}
+      </ol>
+    </section>
+
+    <section class="gd-split" aria-labelledby="b-devices">
+      <header><span class="fg-kicker">07 · Devices</span><h2 id="b-devices">Desktop and phone</h2><p>A real ward page, live, as readers see it on a computer and on a phone.</p></header>
+      <div class="gd-devices">
+        <div class="gd-desktop"><div class="gd-screen"><iframe src="/ward/bogichora/" title="Bogichora Ward page on a desktop" loading="lazy" tabindex="-1"></iframe></div><span class="gd-stand" aria-hidden="true"></span></div>
+        <div class="gd-phone"><div class="gd-screen"><iframe src="/ward/bogichora/" title="Bogichora Ward page on a phone" loading="lazy" tabindex="-1"></iframe></div></div>
+      </div>
+    </section>
+
+    <section class="gd-split" aria-labelledby="b-dodont">
+      <header><span class="fg-kicker">08 · Rules</span><h2 id="b-dodont">Do and don't</h2><p>Quick rules for designers, editors and video makers.</p></header>
+      <ul class="gd-dodont">
+        <li class="is-do"><b>Do</b><span>Use one loud accent per view.</span><em>Signal Green only.</em></li>
+        <li class="is-do"><b>Do</b><span>Give every figure a source strip.</span><em>Always show the source.</em></li>
+        <li class="is-dont"><b>Don't</b><span>Put brown text on green or Ink.</span><em>Brown is for seeds.</em></li>
+        <li class="is-dont"><b>Don't</b><span>Use hard offset shadows or dashed boxes.</span><em>Stay soft and calm.</em></li>
+        <li class="is-dont"><b>Don't</b><span>Retype, recolour or stretch the logo.</span><em>Use the files.</em></li>
+      </ul>
+    </section>
+  </div>
+</Base>

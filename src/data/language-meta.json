@@ -1,0 +1,47 @@
+{
+  "language": {
+    "name": "Ekegusii",
+    "endonym": "Ekegusii",
+    "iso639_3": "guz",
+    "family": "Niger–Congo › Atlantic–Congo › Volta-Congo › Benue-Congo › Bantoid › Southern Bantoid › Bantu › E.42",
+    "speakers": "About 2.2 million (2019 Kenya census, Kisii and Nyamira counties combined)",
+    "region": "Kisii County and Nyamira County, western Kenya",
+    "writingSystem": "Latin script (no official orthography standardised across all publishers)",
+    "tpiType": "Tonal (two level tones: high and low, with downstep)"
+  },
+  "nounClasses": [
+    { "class": "1/2", "prefix": "omo- / aba-", "example": "omotemi / abatemi", "meaning": "chief / chiefs" },
+    { "class": "3/4", "prefix": "omo- / emi-", "example": "omote / emete", "meaning": "tree / trees" },
+    { "class": "5/6", "prefix": "eri- / ama-", "example": "erigena / amagena", "meaning": "stone / stones" },
+    { "class": "7/8", "prefix": "eke- / ebi-", "example": "ekemo / ebimo", "meaning": "thing / things" },
+    { "class": "9/10", "prefix": "e(n)- / chi(n)-", "example": "enyumba / chinyumba", "meaning": "house / houses" },
+    { "class": "11", "prefix": "oro-", "example": "orogendo", "meaning": "journey" },
+    { "class": "12/13", "prefix": "aka- / otu-", "example": "akana / otuana", "meaning": "small child / small children" },
+    { "class": "14", "prefix": "obo-", "example": "oboke", "meaning": "smallness" },
+    { "class": "15", "prefix": "oko-", "example": "okogenda", "meaning": "to go (infinitive)" },
+    { "class": "16", "prefix": "aha-", "example": "ahanto", "meaning": "place (at)" }
+  ],
+  "sources": [
+    {
+      "name": "Ethnologue: Languages of the World",
+      "detail": "Entry for Gusii [guz]",
+      "note": "ISO 639-3 code, classification and speaker estimate"
+    },
+    {
+      "name": "2019 Kenya Population and Housing Census, Volume IV",
+      "detail": "Kenya National Bureau of Statistics",
+      "note": "Population figures for Kisii and Nyamira counties"
+    },
+    {
+      "name": "Whiteley, W. H. (1960). The Tense System of Gusii",
+      "detail": "East African Languages Committee",
+      "note": "Early grammatical description"
+    },
+    {
+      "name": "Cammenga, J. (2002). Phonology and Morphology of Ekegusii",
+      "detail": "Rüdiger Köppe Verlag, Cologne",
+      "note": "Noun class system, tone, phoneme inventory"
+    }
+  ],
+  "note": "This metadata summarises published linguistic descriptions. Noun class examples and prefixes may vary by dialect and source; each entry in the language dataset records its own source and reviewer."
+}

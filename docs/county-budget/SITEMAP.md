@@ -2,7 +2,7 @@
 
 **Status: approved by the owner, 4 Nov 2026 (decision #105).** The nine decisions below stand as recommended.
 
-The owner asked for Nyamira Daily's money pages to follow the model of Kenya Budget Explained (`apps/national`, `docs/national/SITEMAP.md`). The owner chose, on 4 Nov 2026:
+The owner asked for Gusii Daily's money pages to follow the model of Kenya Budget Explained (`apps/national`, `docs/national/SITEMAP.md`). The owner chose, on 4 Nov 2026:
 
 1. **Data model and pages.** Move the county's money figures into the figure registry first, then rebuild the pages on it.
 2. **Nyamira's own look.** Signal Green and the Highlands palette stay. The structure and components follow the national product, as its design doc asks ("a sibling, not a copy").

@@ -1,240 +1,231 @@
 ---
-// Home page opening panel: the whole county as a live map (decision #121: the lead story replaces the
-// "Question to ask" carousel).
-// - Every ward is a link to its page (works without JavaScript).
-// - The lead story (src/data/living/now.json `lead`) is pinned to its ward with a pulsing dot; with no lead,
-//   the card invites the reader to point at a ward.
-// - The map runs the full width of the page, with the neighbouring counties around Nyamira.
-// - With JavaScript, pointing at a ward (or tapping it once on a touch screen) shows that ward's figures in the card.
-//   On phones the card docks under the map.
-// - Motion stops for readers who ask their phone for reduced motion.
+import { departmentCount } from '../lib/counts.js';
+// Field-guide home hero inspired by civictech.guide: luminous soft-mint topographic wash, giant dark charcoal
+// headline, 2x2 live metric grid, graphic Nyamira 20-ward interactive map with geometric arrow motif, and an
+// overlapping floating white ward-picker card with crisp charcoal offset shadow. Zero raw colours; real data only.
 import geo from '../data/geo.json';
-import TownMarks from './TownMarks.astro';
 import nb from '../data/neighbours.json';
-// Neighbouring counties, for context only (not links): where each name sits inside the frame.
-const nbLabels = [['Kisumu', 230, -95], ['Homa Bay', -330, 170], ['Kericho', 830, 40], ['Bomet', 940, 560], ['Kisii', -170, 640], ['Narok', 1040, 1010], ['Migori', -700, 780]];
 import wards from '../data/wards.js';
-import { budget2526, questions } from '../lib/projects.js';
+import register from '../data/ward-register.json';
+import leaders from '../data/leaders.json';
+import { places } from '../lib/places.js';
+import { budget2526 } from '../lib/projects.js';
+import money from '../lib/county-money.js';
 import { ksh } from '../lib/fmt.js';
-import { subCounties } from '../nav.js';
 import { lead } from '../lib/now.js';
 
-const subClass = { 'Borabu': 's1', 'Kitutu Masaba': 's2', 'North Mugirango': 's3', 'West Mugirango': 's4' };
-const info = Object.fromEntries(wards.map((w) => {
-  const b = budget2526(w.slug);
-  return [w.slug, {
-    name: w.name, sub: w.subCounty, href: `/ward/${w.slug}/`,
-    services: w.facilities.length,
-    budget: b == null ? null : ksh(b),
-    // Several 2025/26 lines for these two wards are printed as KSh 0 (see docs/DATA.md and wardspend.json notes)
-    low: w.slug === 'nyansiongo' || w.slug === 'nyamaiya',
-    questions: questions.filter((q) => q.ward === w.slug).length,
+const facilities = places.filter((p) => p.kind === 'facility');
+const last = money.years[money.years.length - 1];
+const bn = (m) => 'KSh ' + parseFloat((m / 1000).toFixed(2)) + 'B';
+const subClass = { Borabu: 's1', 'Kitutu Masaba': 's2', 'North Mugirango': 's3', 'West Mugirango': 's4' };
+const nbLabels = [['Homa Bay', -110, 190], ['Kericho', 610, 80], ['Bomet', 630, 560]];
+
+// Every ward on the one map. Kisii wards have no facility or money records yet: their values stay null (unknown).
+const civic = Object.fromEntries(wards.map((w) => [w.slug, w]));
+const info = Object.fromEntries(register.wards.map((r) => {
+  const w = civic[r.slug];
+  const b = w ? budget2526(r.slug) : null;
+  const mca = leaders.mcas[r.slug];
+  return [r.slug, {
+    n: r.name,
+    s: r.constituency,
+    c: r.county,
+    f: w ? w.facilities.length : null,
+    b: b == null ? null : ksh(b),
+    m: mca?.name ?? null,
   }];
 }));
-const leadW = lead ? { ...lead, name: info[lead.ward].name } : null;
-const flagged = leadW ? [leadW.ward] : [];
-const data = JSON.stringify({ wards: info, lead: leadW, centres: Object.fromEntries(Object.entries(geo.wards).map(([s, w]) => [s, [Number(w.cx), Number(w.cy)]])) }).split('<').join('\\u003c');
+
+const leadW = lead && info[lead.ward] ? { slug: lead.ward, name: info[lead.ward].name, cx: Number(geo.wards[lead.ward].cx), cy: Number(geo.wards[lead.ward].cy), title: lead.headline } : null;
+const dataJson = JSON.stringify(info).split('<').join('\\u003c');
 ---
-<section class="atlas-hero on-ink" aria-labelledby="hero-title">
-  <svg class="contours" aria-hidden="true" viewBox="0 0 1440 640" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M-20 480C200 420 360 530 600 460S1000 390 1460 450" /><path d="M-20 515C220 455 380 565 620 495S1020 425 1460 485" /><path d="M-20 550C240 490 400 600 640 530S1040 460 1460 520" /><path d="M-20 585C260 525 420 635 660 565S1060 495 1460 555" /></g></svg>
-  <div class="wrap hero-grid">
-    <div class="hero-top">
-      <span class="eyebrow">Nyamira County · 20 wards</span>
-      <h1 id="hero-title">Know your ward. Follow the money.</h1>
-      <p class="lead">What is in your ward, what condition it is in, and where the county's money goes. Every figure has a source.</p>
-    </div>
-
-    <div class="hero-pick">
-      <label class="hero-select">
-        <span class="vh">Your ward</span>
-        <select data-ward-pick>
-          <option value="">Choose your ward</option>
-          {subCounties.map((s) => (
-            <optgroup label={s}>
-              {wards.filter((w) => w.subCounty === s).map((w) => <option value={w.slug}>{w.name}</option>)}
-            </optgroup>
-          ))}
-        </select>
-      </label>
-      <a class="pill-btn line" href="/ward/">See all 20 wards</a>
-    </div>
-
-  </div>
-
-  <div class="hero-stage">
-    <figure class="hero-map">
-      <svg viewBox="-450 -80 1500 1110" preserveAspectRatio="xMidYMid meet" aria-label={`Map of Nyamira County's 20 wards, with the neighbouring counties around it. Each ward links to its page${leadW ? `; a pulsing dot marks ${leadW.name}, the ward in the lead story` : ''}.`}>
-        <g class="hm-nb" aria-hidden="true">
-          {Object.entries(nb.counties).filter(([n]) => n !== 'Nyamira').map(([n, c]) => <path d={c.d} data-county={n} />)}
-        </g>
-        <g class="hm-nbl" aria-hidden="true">
-          {nbLabels.map(([n, x, y]) => <text x={x} y={y} text-anchor="middle">{n}</text>)}
-        </g>
-        <g class="hm-county">
-        {Object.entries(geo.wards).map(([s, w]) => (
-          <a href={`/ward/${s}/`} data-w={s} aria-label={`${w.name} ward${flagged.includes(s) ? ', in the lead story' : ''}`}>
-            <path class={`hm-w ${subClass[info[s].sub]}`} d={w.d} />
-          </a>
-        ))}
-        </g>
-        <TownMarks only="towns" scale={1.5} />
-        {flagged.map((s, i) => (
-          <g class="hm-ping" data-p={s} aria-hidden="true">
-            <circle class="ring" cx={geo.wards[s].cx} cy={geo.wards[s].cy} r="9" style={`animation-delay:${(i * 0.37).toFixed(2)}s`} />
-            <circle class="dot" cx={geo.wards[s].cx} cy={geo.wards[s].cy} r="8" />
-          </g>
-        ))}
-        <g class="hm-label" aria-hidden="true" hidden><rect height="44" rx="22" /><text text-anchor="middle"></text></g>
-      </svg>
-      <figcaption>
-        {leadW && <span class="key"><span class="live" aria-hidden="true"></span>Lead story</span>}
-        <span class="key"><i class="hm-key"></i><span class="hint-hover">Point at a ward</span><span class="hint-touch">Tap a ward</span></span>
-        <span class="key"><i class="tm-sw tm-town"></i>Town (OpenStreetMap)</span>
-        <span class="key nb-key">Around it: Kisii, Bomet, Kericho, Kisumu, Homa Bay and Narok counties</span>
-      </figcaption>
-    </figure>
-    <span class="hc-link" aria-hidden="true" hidden></span>
-    <div class="hero-card" aria-live="polite">
-      <!-- The lead story, or with none an invitation to explore the wards -->
-      <div class="hc-q" data-hc="q">
-        {leadW ? (<>
-          <div class="hc-top"><span class="eyebrow"><span class="live" aria-hidden="true"></span>Lead story</span></div>
-          <span class="hc-ward">{leadW.name} ward</span>
-          <h2 class="hc-title">{leadW.title}</h2>
-          <p>{leadW.text}</p>
-          <p class="source">Source: {leadW.source}</p>
-          <a class="pill-btn" href={leadW.href}>Read the story</a>
-        </>) : (<>
-          <div class="hc-top"><span class="eyebrow">Your ward</span></div>
-          <h2 class="hc-title">Start with your ward</h2>
-          <p>Pick your ward to see its schools, clinics and roads, the money set aside for it, and who represents you.</p>
-          <a class="pill-btn" href="/ward/">See all 20 wards</a>
-        </>)}
+<section class="fg-hero" aria-label="Gusii Daily: language, heritage and public record">
+  <div class="wrap fg-hero-grid">
+    <!-- Left column: directional arrow stamp + display headline + 2x2 figure grid -->
+    <div class="fg-hero-left">
+      <div class="fg-title-wrap">
+        <svg class="fg-title-arrow" viewBox="0 0 96 96" aria-hidden="true">
+          <path d="M16 16 H80 V80 H58 V53 L26 85 L11 70 L43 38 H16 Z" fill="currentColor" />
+        </svg>
+        <h1>Recording the Gusii language, heritage &amp; public record.</h1>
       </div>
-      <div class="hc-w" data-hc="w" hidden>
-        <div class="hc-top"><span class="eyebrow" data-f="sub"></span><span class="hc-count">Ward</span></div>
-        <h2 class="hc-title big" data-f="wname"></h2>
-        <div class="hc-figs">
-          <div><b data-f="services"></b><span>services listed</span><span class="label unverified">Unverified</span></div>
-          <div><b data-f="budget"></b><span data-f="bnote">ward projects, 2025/26 budget</span><span class="label official">Official claim</span></div>
+
+      <div class="fg-stat-quad" aria-label="What the database holds">
+        <div class="fg-sq-item">
+          <b class="fg-sq-num">Ekegusii</b>
+          <strong class="fg-sq-label">open language dataset</strong>
+          <p class="fg-sq-sub">
+            <a href="/community/language/words/">Words</a>, <a href="/community/language/grammar/">grammar</a> &amp; <a href="/community/language/">speech</a>, with speaker consent
+          </p>
         </div>
-        <p class="hc-flag" data-f="flag"></p>
-        <a class="pill-btn" data-f="open" href="/ward/">Open ward</a>
+
+        <div class="fg-sq-item">
+          <b class="fg-sq-num">10</b>
+          <strong class="fg-sq-label">areas of Gusii knowledge</strong>
+          <p class="fg-sq-sub">
+            Plants, medicine, songs, food &amp; more in the <a href="/community/">knowledge base</a>
+          </p>
+        </div>
+
+        <div class="fg-sq-item">
+          <b class="fg-sq-num">{facilities.length}</b>
+          <strong class="fg-sq-label">listed public places</strong>
+          <p class="fg-sq-sub">
+            Browse <a href="/map/health/">Health</a>, <a href="/map/education/">Schools</a> &amp; <a href="/map/">Map</a>
+          </p>
+        </div>
+
+        <div class="fg-sq-item">
+          <b class="fg-sq-num">{bn(last.budget)}</b>
+          <strong class="fg-sq-label">Nyamira county budget ({last.fy})</strong>
+          <p class="fg-sq-sub">
+            Follow <a href="/money/2025-26/departments/">{departmentCount} departments</a> &amp; <a href="/money/track/">what was spent</a>
+          </p>
+        </div>
       </div>
     </div>
 
+    <!-- Right column: graphic interactive county map + outlined arrow motif + overlapping white ward card -->
+    <div class="fg-hero-right">
+      <div class="fg-map-stage">
+        <svg class="fg-corner-arrow" viewBox="0 0 110 110" aria-hidden="true">
+          <path d="M92 32 L52 72 H88 V94 H16 V22 H38 V58 L78 18 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" />
+        </svg>
+
+        <div class="fg-map-frame">
+          <span class="fg-map-caption">Tap any of the {register.wards.length} wards</span>
+          <svg class="fg-hero-svg" viewBox={geo.frame} preserveAspectRatio="xMidYMid meet" aria-label={`Interactive map of the Gusii counties: ${register.wards.length} wards in Nyamira and Kisii. Each ward links to its page${leadW ? `; a dot marks ${leadW.name}` : ''}.`}>
+            <g class="fg-nb" aria-hidden="true">
+              {Object.entries(nb.counties).filter(([n]) => n !== 'Nyamira' && n !== 'Kisii').map(([, c]) => <path d={c.d} />)}
+              {nbLabels.map(([n, x, y]) => <text x={x} y={y}>{n}</text>)}
+            </g>
+            <g class="fg-county">
+              {Object.entries(geo.wards).map(([slug, w]) => (
+                <a href={`/ward/${slug}/`} data-w={slug} aria-label={`${w.name} Ward, ${info[slug].s}`}>
+                  <path class={info[slug].c === 'nyamira' ? `fg-w ${subClass[info[slug].s]}` : 'fg-w k'} d={w.d} />
+                </a>
+              ))}
+            </g>
+            <g class="fg-towns" aria-hidden="true">
+              <circle cx="297" cy="316" r="8" /><text x="297" y="346">Nyamira</text>
+              <circle cx="352" cy="383" r="7" /><text x="369" y="389" class="left">Kebirigo</text>
+              <circle cx="322" cy="708" r="7" /><text x="339" y="714" class="left">Keroka</text>
+            </g>
+            {leadW && (
+              <a href={`/ward/${leadW.slug}/`} class="fg-pulse" aria-label={leadW.title ? `${leadW.name}: ${leadW.title}` : leadW.name}>
+                <circle class="fg-ring" cx={leadW.cx} cy={leadW.cy} r="12" />
+                <circle class="fg-dot" cx={leadW.cx} cy={leadW.cy} r="7" />
+              </a>
+            )}
+            <g class="fg-tip" data-tip hidden aria-hidden="true">
+              <rect rx="16" ry="16" height="36" />
+              <text y="24" />
+            </g>
+          </svg>
+        </div>
+
+        <!-- Overlapping pure-white floating ward-finder card with hard offset shadow -->
+        <div class="fg-float-card" data-card aria-live="polite">
+          <strong class="fg-fc-title" data-fc-title>Know your ward. Follow the money.</strong>
+          <p class="fg-fc-sub" data-fc-sub>Pick your ward to inspect its clinics, schools, budget &amp; MCA.</p>
+          <label class="fg-fc-select">
+            <span class="vh">Choose your ward</span>
+            <select data-ward-pick data-hero-pick>
+              <option value="">Choose your ward...</option>
+              {register.constituencies.map((k) => (
+                <optgroup label={`${k.name} Constituency`}>
+                  {register.wards.filter((w) => w.county === k.county && w.constituency === k.name).map((w) => <option value={w.slug}>{w.name}</option>)}
+                </optgroup>
+              ))}
+            </select>
+          </label>
+          <a class="fg-fc-btn" data-fc-btn data-all={register.wards.length} href="/ward/">Browse all {register.wards.length} wards <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
   </div>
-  <script is:inline type="application/json" id="hm-data" set:html={data}></script>
+
+  <script is:inline type="application/json" data-wards set:html={dataJson} />
 </section>
 
 <script is:inline>
 (function () {
-  var root = document.querySelector('.atlas-hero');
-  var el = document.getElementById('hm-data');
-  if (!root || !el) return;
-  var D = JSON.parse(el.textContent);
-  var L = D.lead, W = D.wards, C = D.centres;
-  var svg = root.querySelector('.hero-map svg');
-  var cardQ = root.querySelector('[data-hc="q"]'), cardW = root.querySelector('[data-hc="w"]');
-  var label = root.querySelector('.hm-label'), lrect = label.querySelector('rect'), ltext = label.querySelector('text');
-  var hover = null, lastTouch = false;
-  function f(card, k) { return card.querySelector('[data-f="' + k + '"]'); }
-  function each(sel, fn) { Array.prototype.forEach.call(root.querySelectorAll(sel), fn); }
-  root.classList.add('live-on');
-  var stage = root.querySelector('.hero-stage'), card = root.querySelector('.hero-card'), link = root.querySelector('.hc-link');
-  var wide = window.matchMedia('(min-width: 900px)');
-  // Fit the camera to the stage: the county fills most of the height, centred; neighbours fill the sides
-  function fit() {
-    var r = svg.getBoundingClientRect(); if (!r.width || !r.height) return;
-    var a = r.width / r.height, h = wide.matches ? 1080 : 1120, w = h * a;
-    if (!wide.matches && w < 700) { w = 700; h = w / a; }
-    var cx = 300, cy = wide.matches ? 470 : 480;
-    // The reader's own ward (decision #123): the camera moves in on it
-    var own = C[document.documentElement.getAttribute('data-ward') || ''];
-    if (own) { cx = own[0]; cy = own[1]; h = 460; w = h * a; if (w < 420) { w = 420; h = w / a; } }
-    svg.setAttribute('viewBox', [cx - w / 2, cy - h / 2, w, h].map(function (n) { return n.toFixed(1); }).join(' '));
-    svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
-  }
-  // Float the card beside the highlighted ward (desktop); on phones it docks under the map
-  function place(slug) {
-    if (!wide.matches) { card.style.transform = ''; link.hidden = true; return; }
-    var c = C[slug], m = svg.getScreenCTM(); if (!c || !m) return;
-    var sr = stage.getBoundingClientRect(), px = m.a * c[0] + m.e - sr.left, py = m.d * c[1] + m.f - sr.top;
-    var cw = card.offsetWidth, ch = card.offsetHeight, gap = 40;
-    // Beside the county, never on top of it: right of its east edge if there is room, else left of its west edge
-    var east = m.a * 640 + m.e - sr.left, west = m.a * -40 + m.e - sr.left;
-    var right = east + gap + cw < sr.width - 16 || west - gap - cw < 16, x = right ? east + gap : west - gap - cw;
-    x = Math.max(16, Math.min(x, sr.width - cw - 16));
-    var y = Math.max(16, Math.min(py - ch / 2, sr.height - ch - 16));
-    card.style.transform = 'translate(' + x.toFixed(0) + 'px,' + y.toFixed(0) + 'px)';
-    var ex = right ? x : x + cw, ey = y + Math.min(Math.max(py - y, 24), ch - 24);
-    var dx = ex - px, dy = ey - py, len = Math.hypot(dx, dy);
-    link.hidden = false;
-    link.style.width = Math.max(0, len - 12).toFixed(0) + 'px';
-    link.style.transform = 'translate(' + px.toFixed(0) + 'px,' + py.toFixed(0) + 'px) rotate(' + Math.atan2(dy, dx) + 'rad) translateX(12px)';
-  }
-  // With no ward in focus the card rests at the right of the stage, clear of the county (desktop only)
-  function rest() {
-    if (!wide.matches) { card.style.transform = ''; return; }
-    var sr = stage.getBoundingClientRect(), cw = card.offsetWidth, ch = card.offsetHeight;
-    card.style.transform = 'translate(' + Math.max(16, sr.width - cw - 48).toFixed(0) + 'px,' + Math.max(16, (sr.height - ch) / 2).toFixed(0) + 'px)';
-  }
-  function showLabel(slug) {
-    var c = C[slug], name = W[slug].name, w = name.length * 14.5 + 40;
-    var x = Math.min(Math.max(c[0] - w / 2, 4), 596 - w), y = c[1] - 78 < 4 ? c[1] + 30 : c[1] - 70;
-    lrect.setAttribute('x', x); lrect.setAttribute('y', y); lrect.setAttribute('width', w);
-    ltext.setAttribute('x', x + w / 2); ltext.setAttribute('y', y + 30); ltext.textContent = name;
-    label.removeAttribute('hidden');
-  }
-  function mark() {
-    var focus = hover || (L && L.ward);
-    each('[data-w]', function (a) {
-      var s = a.getAttribute('data-w');
-      a.classList.toggle('is-on', s === hover);
-      a.classList.toggle('is-q', !hover && !!L && s === L.ward);
-    });
-    each('[data-p]', function (g) { g.classList.toggle('hot', g.getAttribute('data-p') === focus); });
-    if (focus) { showLabel(focus); requestAnimationFrame(function () { place(focus); }); }
-    else { label.setAttribute('hidden', ''); link.hidden = true; requestAnimationFrame(rest); }
-  }
-  function renderW(slug) {
-    var w = W[slug];
-    f(cardW, 'sub').textContent = w.sub + ' Constituency';
-    f(cardW, 'wname').textContent = w.name;
-    f(cardW, 'services').textContent = w.services;
-    f(cardW, 'budget').textContent = w.budget || 'Not found';
-    f(cardW, 'bnote').textContent = w.low ? 'ward projects, 2025/26 (several lines printed as KSh 0)' : 'ward projects, 2025/26 budget';
-    f(cardW, 'flag').textContent = w.questions ? (w.questions === 1 ? '1 question to ask about a project here.' : w.questions + ' questions to ask about projects here.') : 'No questions to ask in the documents we have read so far.';
-    var o = f(cardW, 'open'); o.href = w.href; o.textContent = 'Open ' + w.name + ' →';
-  }
-  function draw() {
-    cardQ.hidden = !!hover; cardW.hidden = !hover;
-    if (hover) renderW(hover);
-    mark();
-  }
-  each('[data-w]', function (a) {
-    var s = a.getAttribute('data-w');
-    a.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hover = s; draw(); } });
-    a.addEventListener('focus', function () { if (!lastTouch) { hover = s; draw(); } });
-    a.addEventListener('pointerdown', function (e) { lastTouch = e.pointerType !== 'mouse'; });
-    // On a touch screen the first tap shows the ward; the "Open" button (or a second tap) goes to its page
-    a.addEventListener('click', function (e) { if (lastTouch && hover !== s) { e.preventDefault(); hover = s; draw(); } });
-  });
-  document.addEventListener('keydown', function () { lastTouch = false; });
-  // Moving from a ward onto its floating card keeps the ward's card open (so "Open ward" can be clicked)
-  svg.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && !card.contains(e.relatedTarget)) { hover = null; draw(); } });
-  card.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && hover && !svg.contains(e.relatedTarget)) { hover = null; draw(); } });
-  function refit() { fit(); mark(); }
-  window.addEventListener('resize', refit);
-  if (wide.addEventListener) wide.addEventListener('change', refit);
-  fit();
-  svg.addEventListener('focusout', function (e) { if (!svg.contains(e.relatedTarget)) { hover = null; draw(); } });
+  var hero = document.querySelector('.fg-hero'); if (!hero) return;
+  var info = JSON.parse(hero.querySelector('[data-wards]').textContent);
+  var svg = hero.querySelector('.fg-hero-svg');
+  var tip = hero.querySelector('[data-tip]'), tipR = tip.querySelector('rect'), tipT = tip.querySelector('text');
+  var titleEl = hero.querySelector('[data-fc-title]');
+  var subEl = hero.querySelector('[data-fc-sub]');
+  var btnEl = hero.querySelector('[data-fc-btn]');
+  var links = Array.prototype.slice.call(svg.querySelectorAll('[data-w]'));
+  var bySlug = {}; links.forEach(function (a) { bySlug[a.getAttribute('data-w')] = a; });
+  var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var shown = '', saved = '';
+  try { saved = localStorage.getItem('nd-ward') || ''; } catch (e) {}
 
-  // The reader's own ward (from the picker) is outlined on the map
-  function mine() { var w = document.documentElement.getAttribute('data-ward') || ''; each('[data-w]', function (a) { a.classList.toggle('mine', a.getAttribute('data-w') === w); }); }
-  document.addEventListener('nd-ward', function () { mine(); refit(); });
-  document.addEventListener('DOMContentLoaded', function () { mine(); refit(); });
-  mine();
-  draw();
+  function setCard(slug) {
+    var d = slug && info[slug];
+    if (!d) {
+      titleEl.textContent = 'Know your ward. Follow the money.';
+      subEl.textContent = 'Pick your ward to inspect its clinics, schools, budget & MCA.';
+      btnEl.href = '/ward/';
+      btnEl.innerHTML = 'Browse all ' + btnEl.dataset.all + ' wards <span aria-hidden="true">\u2192</span>';
+      return;
+    }
+    titleEl.textContent = d.n + ' Ward';
+    var parts = [d.s, d.f == null ? 'places not yet listed' : d.f + ' places listed'];
+    if (d.b) parts.push(d.b + ' ward budget');
+    if (d.m) parts.push('MCA: ' + d.m);
+    subEl.textContent = parts.join(' \u00b7 ');
+    btnEl.href = '/ward/' + slug + '/';
+    btnEl.innerHTML = 'Open ' + d.n + ' <span aria-hidden="true">\u2192</span>';
+  }
+
+  function showTip(slug) {
+    var a = bySlug[slug], d = info[slug];
+    if (!a || !d) { tip.setAttribute('hidden', ''); return; }
+    tipT.textContent = d.n;
+    tip.removeAttribute('hidden');
+    var w = Math.max(104, tipT.getComputedTextLength() + 34), b = a.getBBox();
+    var cx = Math.max(w / 2 - 120, Math.min(680 - w / 2, b.x + b.width / 2));
+    var y = b.y > 48 ? b.y - 42 : b.y + b.height + 8;
+    tipR.setAttribute('x', cx - w / 2); tipR.setAttribute('y', y); tipR.setAttribute('width', w);
+    tipT.setAttribute('x', cx); tipT.setAttribute('y', y + 24);
+  }
+
+  function on(slug) {
+    if (shown && bySlug[shown]) bySlug[shown].classList.remove('is-on');
+    shown = slug;
+    if (slug && bySlug[slug]) {
+      svg.querySelector('.fg-county').appendChild(bySlug[slug]);
+      bySlug[slug].classList.add('is-on');
+      showTip(slug);
+    } else {
+      tip.setAttribute('hidden', '');
+    }
+    setCard(slug || saved);
+  }
+
+  function markSaved(slug) {
+    links.forEach(function (a) { a.classList.toggle('mine', a.getAttribute('data-w') === slug); });
+    saved = slug;
+    if (slug && bySlug[slug]) svg.querySelector('.fg-county').appendChild(bySlug[slug]);
+    setCard(slug);
+  }
+
+  links.forEach(function (a) {
+    var slug = a.getAttribute('data-w');
+    if (fine) {
+      a.addEventListener('pointerenter', function () { on(slug); });
+      a.addEventListener('pointerleave', function () { on(''); });
+    } else {
+      a.addEventListener('click', function (e) { if (shown !== slug) { e.preventDefault(); on(slug); } });
+    }
+    a.addEventListener('focus', function () { on(slug); });
+    a.addEventListener('blur', function () { on(''); });
+  });
+
+  if (saved && info[saved]) markSaved(saved);
+  document.addEventListener('nd-ward', function (e) { markSaved(e.detail || ''); });
 })();
 </script>

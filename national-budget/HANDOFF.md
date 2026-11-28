@@ -3,7 +3,7 @@
 Read this first if you are an assistant picking this up in VS Code (Claude Code, Codex) or a developer.
 
 ## What this is
-A prototype of the national budget platform from the masterplan: a BudgIT-style explainer for Kenya's FY2026/27 national budget. It reuses Nyamira Daily's data, its evidence labels and its brand. It is built as one self-contained HTML page. A published copy (private to the owner) is at https://claude.ai/artifact/5nQyn6Qs4r2Dj3CYkXVLVr.
+A prototype of the national budget platform from the masterplan: a BudgIT-style explainer for Kenya's FY2026/27 national budget. It reuses Gusii Daily's data, its evidence labels and its brand. It is built as one self-contained HTML page. A published copy (private to the owner) is at https://claude.ai/artifact/5nQyn6Qs4r2Dj3CYkXVLVr.
 
 Working name: "Kenya Budget Explained". The founder has not chosen the final name.
 

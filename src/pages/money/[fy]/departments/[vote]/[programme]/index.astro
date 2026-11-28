@@ -27,7 +27,7 @@ const layout = p.rows.some((r) => r.groupedBy === 'layout');
     {p.total ? (
       <>
         <span class="num is-lead">{ksh(p.total)}</span>
-        <p class="say"><strong>{ofDept.toFixed(1)}%</strong> of {d.name}'s budget ({full(p.total)}).{several && ' Worked out by Nyamira Daily: the sum of the sub-programmes below, as printed.'}</p>
+        <p class="say"><strong>{ofDept.toFixed(1)}%</strong> of {d.name}'s budget ({full(p.total)}).{several && ' Worked out by Gusii Daily: the sum of the sub-programmes below, as printed.'}</p>
       </>
     ) : (
       <p class="say"><strong>No money is budgeted</strong> for this programme in {FY}: every amount is printed as a dash.</p>

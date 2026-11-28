@@ -3,7 +3,7 @@
 interface Props { title: string }
 const { title } = Astro.props;
 const url = new URL(Astro.url.pathname, Astro.site).toString();
-const wa = `https://wa.me/?text=${encodeURIComponent(`${title} — Nyamira Daily\n${url}`)}`;
+const wa = `https://wa.me/?text=${encodeURIComponent(`${title} — Gusii Daily\n${url}`)}`;
 ---
 <div class="page-tools foot" aria-label="Share this page">
   <span class="small muted">Found this useful?</span>

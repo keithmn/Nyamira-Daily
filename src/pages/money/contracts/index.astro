@@ -1,95 +1,128 @@
 ---
-// Contracts (decision #116): one page instead of 1,962. Totals by group (county and national money shown apart and
-// never added together), the largest contracts in each group, and a search over every contract that loads only
-// when used. No page per contractor: a contractor appears only as the name on a public record.
+// Contracts & NG-CDF (design/field-guide): ticket summary cards, offset-shadow search box, county vs national separate.
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
-import EvidenceLabel from '../../../components/EvidenceLabel.astro';
 import ContractRow from '../../../components/ContractRow.astro';
-import { contracts, groups, groupOrder, totals, byGroup } from '../../../lib/contracts.js';
+import EvidenceLabel from '../../../components/EvidenceLabel.astro';
+import { contracts, byGroup, groups, groupOrder, totals } from '../../../lib/contracts.js';
 import { ksh } from '../../../lib/fmt.js';
 
-const byG = groupOrder.map((g) => ({ g, info: groups[g], list: byGroup(g), t: totals(byGroup(g)) }));
 const largest = (list) => [...list].filter((c) => c.amount != null).sort((a, b) => b.amount - a.amount).slice(0, 5);
-const county = byG.filter((x) => !groups[x.g].who.startsWith('National'));
-const national = byG.filter((x) => groups[x.g].who.startsWith('National'));
+const byG = groupOrder.map((g) => {
+  const list = byGroup(g);
+  return { g, info: groups[g], list, t: totals(list) };
+});
+const county = byG.filter((x) => !x.info.who.startsWith('National'));
+const national = byG.filter((x) => x.info.who.startsWith('National'));
 ---
-<Base title="Contracts" description="Every public contract we can find in Nyamira: county and national, who got it, for how much, and where it says so.">
-  <PageHead eyebrow="Money" title="Contracts" lead={`${contracts.length.toLocaleString('en-GB')} contracts and allocations in Nyamira. See who got each one, for how much, and the record that shows it.`} crumbs={[{ href: '/money/', label: 'Money' }, { href: '/money/contracts/', label: 'Contracts' }]} />
+<Base title="Contracts and NG-CDF in Nyamira" description="1,628 contracts and allocations in Nyamira: the county's own, national roads, and NG-CDF, each with its source and page.">
+  <PageHead
+    eyebrow="Public Books · Procurement & Allocations"
+    title="Contracts, national roads & NG-CDF in Nyamira"
+    lead={`${contracts.length.toLocaleString('en-GB')} contracts and allocations consolidated from official sources — county and national money kept strictly separate, every row naming its report and page.`}
+    crumbs={[{ href: '/money/', label: 'Money' }, { href: '/money/contracts/', label: 'Contracts' }]}
+  />
 
-  <section class="stack" style="margin-top:24px" aria-labelledby="find">
-    <h2 id="find">Find a contract</h2>
-    <form class="tk-filters" data-ct-search action="/money/contracts/" method="get">
-      <label class="tk-f">Search
-        <input type="search" name="q" placeholder="A road, a school, a contractor, a tender number" autocomplete="off" />
-      </label>
-      <label class="tk-f">Whose money
-        <select name="group"><option value="">All</option>{groupOrder.map((g) => <option value={g}>{groups[g].label}</option>)}</select>
-      </label>
-      <p class="tk-count small muted" data-ct-status aria-live="polite">Type to search all {contracts.length.toLocaleString('en-GB')}. The list loads when you start (about 120 KB).</p>
-    </form>
-    <ul class="ct-list" data-ct-results></ul>
-    <noscript><p class="small">Without JavaScript, download <a href="/files/contracts.csv">every contract as a CSV file</a>.</p></noscript>
-    <p class="small"><a href="/files/contracts.csv">Download every contract (CSV)</a> · Licence: CC BY 4.0.</p>
-  </section>
-
-  {[['County money', county], ['National money spent in Nyamira', national]].map(([title, list]) => (
-    <section class="stack" style="margin-top:32px">
-      <h2>{title}</h2>
-      {title !== 'County money' && <p class="small muted">National agencies' contracts in Nyamira. This is national money: it is never added to the county's figures.</p>}
-      {list.map(({ g, info, list: items, t }) => (
-        <details>
-          <summary>{info.label}: {t.count.toLocaleString('en-GB')} records{t.withAmount ? `, ${ksh(t.value)} in the ${t.withAmount.toLocaleString('en-GB')} that print an amount` : ''}</summary>
-          <p class="small">{info.blurb} Amounts are contract sums or allocations as printed, not money paid.</p>
-          <h3 class="mini">The five largest</h3>
-          <ul class="ct-list">{largest(items).map((c) => <ContractRow c={c} />)}</ul>
-          <p class="small"><a href={`/money/contracts/?group=${g}`}>Search only {info.label}</a></p>
-        </details>
+  <div class="stack-lg">
+    <ul class="fg-ticket-grid">
+      {byG.map(({ g, info, t }) => (
+        <li class={`fg-ticket${!info.who.startsWith('National') ? ' is-next' : ''}`}>
+          <div class="fg-ticket-stub">
+            <span class="fg-stub-by">{info.who.startsWith('National') ? 'National' : 'County'}</span>
+            <b>{t.count.toLocaleString('en-GB')}</b>
+            <span class="fg-stub-yr">{t.count === 1 ? 'record' : 'records'}</span>
+          </div>
+          <div class="fg-ticket-body">
+            <a href={`/money/contracts/?group=${g}`}>{info.label}</a>
+            <p>{t.withAmount ? `${ksh(t.value)} across ${t.withAmount.toLocaleString('en-GB')} priced ${t.withAmount === 1 ? 'row' : 'rows'}` : 'Official records'}</p>
+          </div>
+        </li>
       ))}
+    </ul>
+
+    <section class="fg-solid-sheet stack" aria-labelledby="find">
+      <div class="row-head">
+        <h2 id="find">Search all <span class="fg-hl">{contracts.length.toLocaleString('en-GB')} records</span></h2>
+        <a class="fg-outline-btn" href="/files/contracts.csv">Download CSV (CC BY 4.0)</a>
+      </div>
+      <form class="tk-filters" data-ct-search action="/money/contracts/" method="get">
+        <label class="tk-f">Search
+          <input type="search" name="q" placeholder="A road, a school, a contractor, a tender number..." autocomplete="off" />
+        </label>
+        <label class="tk-f">Whose money
+          <select name="group"><option value="">All registers</option>{groupOrder.map((g) => <option value={g}>{groups[g].label}</option>)}</select>
+        </label>
+        <p class="tk-count small muted" data-ct-status aria-live="polite">Type to search all {contracts.length.toLocaleString('en-GB')}. The list loads when you start (about 120 KB).</p>
+      </form>
+      <ul class="ct-list" data-ct-results></ul>
+      <noscript><p class="small">Without JavaScript, download <a href="/files/contracts.csv">every contract as a CSV file</a>.</p></noscript>
     </section>
-  ))}
 
-  <p class="source" style="margin-top:24px"><EvidenceLabel kind="official" /> From the Public Procurement Information Portal, the county's own reports, KeRRA, KURA, KeNHA and the NG-CDF Board. Each result names its source and page.</p>
+    {[['County money', county], ['National money spent in Nyamira', national]].map(([title, list]) => (
+      <section class="fg-dashed-sheet stack">
+        <h2>{title}</h2>
+        {title !== 'County money' && <p class="small muted">National agencies' contracts and NG-CDF allocations in Nyamira. This is national money: it is never added to the county's figures.</p>}
+        {list.map(({ g, info, list: items, t }) => (
+          <details>
+            <summary>{info.label}: {t.count.toLocaleString('en-GB')} {t.count === 1 ? 'record' : 'records'}{t.withAmount ? `, ${ksh(t.value)} in ${t.withAmount.toLocaleString('en-GB')} priced ${t.withAmount === 1 ? 'row' : 'rows'}` : ''}</summary>
+            <p class="small" style="margin-top:8px">{info.blurb} Amounts are contract sums or allocations as printed, not money paid.</p>
+            <h3 class="mini">The five largest</h3>
+            <ul class="ct-list">{largest(items).map((c) => <ContractRow c={c} />)}</ul>
+            <p class="small" style="margin-top:8px"><a href={`/money/contracts/?group=${g}`}>Search only {info.label} →</a></p>
+          </details>
+        ))}
+      </section>
+    ))}
 
-  <script>
-    const form = document.querySelector('[data-ct-search]');
-    const out = document.querySelector('[data-ct-results]');
-    const status = document.querySelector('[data-ct-status]');
-    const params = new URLSearchParams(location.search);
-    const q = form.elements.q, group = form.elements.group;
-    q.value = params.get('q') ?? ''; group.value = params.get('group') ?? '';
-    const ward = params.get('ward');
-    let data = null, loading = null;
-    const money = (n) => 'KSh ' + Math.round(n).toLocaleString('en-GB');
-    const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-    async function load() {
-      if (data) return data;
-      loading ??= fetch('/money/contracts/search.json').then((r) => r.json()).then((j) => (data = j));
+    <p class="source"><EvidenceLabel kind="official" /> From the Public Procurement Information Portal, the county's own reports, KeRRA, KURA, KeNHA and the NG-CDF Board. Each result names its source and page.</p>
+    <p class="small muted">Updated when new contracts are published on PPIP, new NG-CDF allocations appear on the CDF Board website, or KeRRA/KURA/KeNHA publish new awards. Last checked: October 2026.</p>
+
+    <!-- Kiswahili: needs native-speaker review -->
+    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Mikataba yote ya kaunti na ya kitaifa iliyotolewa Nyamira — tenda za kaunti, miradi ya NG-CDF, na barabara za kitaifa — kila moja ikionyesha chanzo chake, kiasi na mwaka wa fedha.</p></div>
+  </div>
+
+  <script is:inline>
+  (function () {
+    var form = document.querySelector('[data-ct-search]'); if (!form) return;
+    var q = form.querySelector('[name=q]'), g = form.querySelector('[name=group]');
+    var st = form.querySelector('[data-ct-status]'), out = document.querySelector('[data-ct-results]');
+    var data = null, loading = null;
+    var ksh = function (n) { return n >= 1e9 ? 'KSh ' + (n/1e9).toFixed(2).replace(/\.?0+$/,'') + 'B' : n >= 1e6 ? 'KSh ' + (n/1e6).toFixed(1).replace(/\.0$/,'') + 'M' : n >= 1e3 ? 'KSh ' + Math.round(n/1e3).toLocaleString('en-GB') + 'K' : 'KSh ' + n; };
+    function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+    function load() {
+      if (data) return Promise.resolve(data);
+      if (!loading) { st.textContent = 'Loading the contract list\u2026'; loading = fetch('/money/contracts/search.json').then(function (r) { return r.json(); }).then(function (d) { data = d; return d; }); }
       return loading;
     }
-    function row(c) {
-      const who = c.c ? esc(c.c) : c.k === 'allocation' ? esc(c.ag) : c.x ? 'Contractor not shown (private person)' : 'Contractor not named in the source';
-      const where = c.w.length ? esc(c.w.join(', ')) + (c.w.length === 1 ? ' Ward' : ' wards') : c.cs ? esc(c.cs) + ' Constituency' : '';
-      const src = data.sources[c.s];
-      return `<li class="ct-row" id="${esc(c.i.toLowerCase())}"><span class="ct-title">${esc(c.t)}</span><span class="ct-who">${who}</span>`
-        + `<span class="ct-amt"><span class="ct-al">${esc(c.al)}</span> <b>${c.a != null ? money(c.a) : 'Not printed'}</b></span>`
-        + `<span class="ct-meta">${c.y ? `<span>FY${esc(c.y)}</span>` : ''}${where ? `<span>${where}</span>` : ''}<span>${esc(data.groups[c.g])}${c.n ? ' (national money)' : ''}</span>`
-        + `${c.tn ? `<span>Tender ${esc(c.tn)}</span>` : ''}<span>Source: ${src?.u ? `<a href="${esc(src.u)}" rel="noopener">${esc(src.t)}</a>` : esc(src?.t ?? c.s)}${c.p ? `, ${esc(c.p)}` : ''}</span><span>${esc(c.i)}</span></span></li>`;
+    function run() {
+      var words = q.value.trim().toLowerCase().split(/\s+/).filter(Boolean), gv = g.value;
+      if (!words.length && !gv) { out.innerHTML = ''; st.textContent = 'Type to search, or pick a group.'; return; }
+      load().then(function (d) {
+        var hits = d.rows.filter(function (r) {
+          if (gv && r.g !== gv) return false;
+          if (!words.length) return true;
+          var hay = (r.t + ' ' + (r.c || '') + ' ' + (r.w || '') + ' ' + (r.f || '') + ' ' + (r.y || '')).toLowerCase();
+          return words.every(function (w) { return hay.indexOf(w) >= 0; });
+        });
+        var shown = hits.slice(0, 60);
+        st.textContent = hits.length.toLocaleString('en-GB') + (hits.length === 1 ? ' match' : ' matches') + (hits.length > shown.length ? ' (showing the largest ' + shown.length + '; narrow your search to see the rest)' : '') + '.';
+        out.innerHTML = shown.map(function (r) {
+          var meta = [d.groups[r.g], r.y, r.w, r.f].filter(Boolean).map(esc).join(' \u00b7 ');
+          var s = r.s ? '<span class="ct-st st-' + r.s + '">' + (r.s === 'ongoing' ? 'In progress' : r.s === 'complete' ? 'Finished' : 'Ended early') + '</span>' : '';
+          return '<li class="ct-row"><div class="ct-main"><span class="ct-title">' + esc(r.t) + '</span>'
+            + (r.c ? '<span class="ct-co">' + esc(r.c) + '</span>' : '')
+            + '<span class="ct-meta">' + meta + '</span>'
+            + '<span class="ct-src">Source: ' + esc(d.sources[r.src]) + (r.p ? ', ' + esc(r.p) : '') + '</span></div>'
+            + '<div class="ct-amt">' + (r.a != null ? '<b>' + ksh(r.a) + '</b>' : '<span class="muted">not printed</span>') + s + '</div></li>';
+        }).join('');
+      });
     }
-    async function run() {
-      const text = q.value.trim().toLowerCase();
-      if (!text && !group.value && !ward) { out.innerHTML = ''; return; }
-      status.textContent = 'Loading…';
-      await load();
-      const words = text.split(/\s+/).filter(Boolean);
-      const hits = data.rows.filter((c) => (!group.value || c.g === group.value) && (!ward || c.ws.includes(ward))
-        && words.every((w) => [c.i, c.t, c.c, c.ag, c.tn, c.r, c.cs, ...c.w].filter(Boolean).join(' ').toLowerCase().includes(w)));
-      out.innerHTML = hits.slice(0, 100).map(row).join('');
-      status.textContent = hits.length ? `${hits.length.toLocaleString('en-GB')} found${hits.length > 100 ? ', showing the first 100' : ''}.` : 'Nothing found. Try fewer words.';
-    }
-    let timer;
-    form.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(run, 200); });
-    form.addEventListener('submit', (e) => { e.preventDefault(); run(); });
-    if (q.value || group.value || ward) run();
+    q.addEventListener('input', run); g.addEventListener('change', run);
+    form.addEventListener('submit', function (e) { e.preventDefault(); run(); });
+    var p = new URLSearchParams(location.search);
+    if (p.get('q')) q.value = p.get('q');
+    if (p.get('group')) g.value = p.get('group');
+    if (q.value || g.value) run();
+  })();
   </script>
 </Base>

@@ -4,7 +4,7 @@ Status: **plan for the owner to approve. Not built.** It combines what overhaul 
 
 ## The aim
 
-In three years Nyamira Daily is the county's fact source. Overhaul 2 gave the site its sections. Overhaul 3 makes it answer a reader's own question fast, shows how much of the data is checked, and turns each week's work into content for every channel.
+In three years Gusii Daily is the county's fact source. Overhaul 2 gave the site its sections. Overhaul 3 makes it answer a reader's own question fast, shows how much of the data is checked, and turns each week's work into content for every channel.
 
 ## Part A: built around the reader
 
@@ -91,4 +91,4 @@ The visit questionnaire (one per facility type; to be drafted and reviewed with 
 
 ## Language goal (owner, 16 Nov 2026)
 
-Once the Ekegusii dataset exists, Nyamira Daily should be fully readable in Ekegusii: a language switch for the whole site, not only summaries. Ekegusii is the site's second language (not Kiswahili). Steps: (1) move every piece of interface text into one strings file per language, so a second language can be switched on without touching pages; (2) Ekegusii speakers translate and review the strings and the key pages; (3) machine translation of longer pages only after the dataset and a reviewed model exist, always marked and checked by a speaker. Before claiming "the first", check what else exists in Ekegusii online.
+Once the Ekegusii dataset exists, Gusii Daily should be fully readable in Ekegusii: a language switch for the whole site, not only summaries. Ekegusii is the site's second language (not Kiswahili). Steps: (1) move every piece of interface text into one strings file per language, so a second language can be switched on without touching pages; (2) Ekegusii speakers translate and review the strings and the key pages; (3) machine translation of longer pages only after the dataset and a reviewed model exist, always marked and checked by a speaker. Before claiming "the first", check what else exists in Ekegusii online.

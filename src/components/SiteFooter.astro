@@ -1,25 +1,94 @@
 ---
-// Site footer (decisions #120, #122): our social accounts and "© year Nyamira Daily".
-// Every account's icon shows. One whose link is set in src/config.js `social` is a link; one without a link is a
-// plain picture (hidden from screen readers and the keyboard), so nobody is sent to a page that does not exist.
+import { wardCount } from '../lib/counts.js';
+// Field-guide soft-mint footer with dashed charcoal dividers, inline search capsule, directory columns & CC BY 4.0 row.
 import Icon from './Icon.astro';
 import { social } from '../config.js';
-import { county } from '../county.js';
+import { site } from '../county.js';
+
 const names = { whatsapp: 'WhatsApp Channel', youtube: 'YouTube', facebook: 'Facebook', x: 'X', instagram: 'Instagram', tiktok: 'TikTok' };
 const order = ['youtube', 'tiktok', 'instagram', 'whatsapp', 'x', 'facebook'];
-const icons = order.filter((k) => k in social).map((k) => ({ k, url: /^https:\/\//.test(social[k]) ? social[k] : null }));
+const icons = order.filter((k) => k in social).map((k) => ({ id: k, label: names[k], href: /^https:\/\//.test(social[k]) ? social[k] : null }));
+const year = new Date().getFullYear();
+const columns = [
+  {
+    title: 'About',
+    links: [
+      { href: '/about/', label: 'About Gusii Daily' },
+      { href: '/about/nyamira/', label: 'About Nyamira County' },
+      { href: '/about/kisii/', label: 'About Kisii County' },
+      { href: '/about/rules/', label: 'Guiding rules & labels' },
+      { href: '/about/contact/', label: 'Tell us / contact' },
+      { href: '/about/data/', label: 'Open data & API' },
+    ],
+  },
+  {
+    title: 'Places',
+    links: [
+      { href: '/map/', label: 'County facility map' },
+      { href: '/ward/', label: `All ${wardCount} wards` },
+      { href: '/map/health/', label: 'Health facilities' },
+      { href: '/map/education/', label: 'Schools & education' },
+      { href: '/report/', label: 'Report a place' },
+    ],
+  },
+  {
+    title: 'Money',
+    links: [
+      { href: '/money/', label: 'Money overview' },
+      { href: '/money/2025-26/', label: 'Budget 2025/26' },
+      { href: '/money/track/', label: 'What was spent' },
+      { href: '/money/contracts/', label: 'Contracts & NG-CDF' },
+      { href: '/money/economy/', label: 'Economy & farming' },
+    ],
+  },
+  {
+    title: 'Gusii & Stories',
+    links: [
+      { href: '/community/', label: 'Gusii knowledge base' },
+      { href: '/community/language/', label: 'Ekegusii language dataset' },
+      { href: '/watch/', label: 'Videos & explainers' },
+    ],
+  },
+];
 ---
-<footer class="site-footer">
-  <div class="wrap ft-min">
-    <ul class="ft-social" aria-label={`${county.siteName} on social media`}>
-      {icons.map(({ k, url }) => (
-        <li aria-hidden={url ? undefined : 'true'}>
-          {url
-            ? <a href={url} rel="noopener me" aria-label={`${county.siteName} on ${names[k]}`}><Icon name={k} size={22} /></a>
-            : <span class="ft-ico"><Icon name={k} size={22} /></span>}
-        </li>
+<footer class="fg-footer">
+  <div class="wrap fg-ft-wrap">
+    <!-- Top action row: title + offset-shadow pill search + social icon grid -->
+    <div class="fg-ft-top">
+      <p class="fg-ft-headline">Search the Gusii knowledge base &amp; county records</p>
+      <form class="fg-ft-capsule" action="/search/" method="get" role="search">
+        <label class="vh" for="fg-ft-q">Search every page on Gusii Daily</label>
+        <input id="fg-ft-q" type="search" name="q" placeholder="Type a ward, school, clinic, department or law..." />
+        <button type="submit">Search <span aria-hidden="true">→</span></button>
+      </form>
+      <ul class="fg-ft-socials" aria-label={`${site.name} on social media`}>
+        {icons.map((s) => (
+          <li>
+            {s.href
+              ? <a href={s.href} aria-label={s.label}><Icon name={s.id} size={20} /></a>
+              : <span class="is-soon" aria-hidden="true" title={`${s.label}: coming soon`}><Icon name={s.id} size={20} /></span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Middle directory columns -->
+    <div class="fg-ft-cols">
+      <div class="fg-ft-mark">
+        <a href="/" aria-label="Gusii Daily home">
+          <img src="/brand/Gusii-Daily_horizontal_full-colour.svg" alt="Gusii Daily" width="156" height="48" />
+        </a>
+        <p>The Gusii language and cultural database, and a living public record of the county — every word recorded with consent, every figure sourced, written in plain language.</p>
+      </div>
+      {columns.map((c) => (
+        <nav class="fg-ft-col" aria-label={c.title}>
+          <span class="fg-ft-h">{c.title}</span>
+          <ul>
+            {c.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+          </ul>
+        </nav>
       ))}
-    </ul>
-    <p class="ft-copy">© {new Date().getFullYear()} {county.siteName}</p>
+    </div>
+
   </div>
 </footer>

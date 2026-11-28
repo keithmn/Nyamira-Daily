@@ -1,0 +1,182 @@
+{
+ "generated": "2026-11-27",
+ "note": "Candidate Kisii road contracts (titles naming a road, tarmac or road works, excluding bridges and footbridges). Not yet grouped into roads: no identity review has been done. Lengths are null because the titles do not print them.",
+ "roads": [
+  {
+   "id": "KSI-R001",
+   "key": "ppip:118853",
+   "name": "ARURA MARKET-NYABIOSI JUNCTION ROAD",
+   "subtype": "road",
+   "wards": [],
+   "projectIds": [],
+   "auditIds": [],
+   "contractIds": [
+    "K-118853"
+   ],
+   "lengthKm": null,
+   "confirmedGroup": false,
+   "amount": 1989536,
+   "fy": "2023/24"
+  },
+  {
+   "id": "KSI-R002",
+   "key": "ppip:118893",
+   "name": "NYAMOISEKE MUYA EKERUBO ROAD IN ICHUNI WARD",
+   "subtype": "road",
+   "wards": [
+    "ichuni"
+   ],
+   "projectIds": [],
+   "auditIds": [],
+   "contractIds": [
+    "K-118893"
+   ],
+   "lengthKm": null,
+   "confirmedGroup": false,
+   "amount": 799820,
+   "fy": "2023/24"
+  },
+  {
+   "id": "KSI-R003",
+   "key": "ppip:118910",
+   "name": "CONSTRUCTION, REPAIR AND MAINTENANCE OF LOT 1 ROADS IN GETENGA, BOGETENGA & TABAKA WARDS IN SOUTH MUGIRANGO SUB COUNTY",
+   "subtype": "road",
+   "wards": [
+    "getenga",
+    "bogetenga",
+    "tabaka"
+   ],
+   "projectIds": [],
+   "auditIds": [],
+   "contractIds": [
+    "K-118910"
+   ],
+   "lengthKm": null,
+   "confirmedGroup": false,
+   "amount": 28259363.2,
+   "fy": "2023/24"
+  },
+  {
+   "id": "KSI-R004",
+   "key": "ppip:118955",
+   "name": "TARMAC MARINDI PRIMARY OMOTEMBE, NYAMAGE, RAGESUYA ROAD",
+   "subtype": "road",
+   "wards": [],
+   "projectIds": [],
+   "auditIds": [],
+   "contractIds": [
+    "K-118955"
+   ],
+   "lengthKm": null,
+   "confirmedGroup": false,
+   "amount": 2999017.6,
+   "fy": "2023/24"
+  },
+  {
+   "id": "KSI-R005",
+   "key": "ppip:118967",
+   "name": "RIARIGA-TIMANI ROAD",
+   "subtype": "road",
+   "wards": [],
+   "projectIds": [],
+   "auditIds": [],
+   "contractIds": [
+    "K-118967"
+   ],
+   "lengthKm": null,
+   "confirmedGroup": false,
+   "amount": 2990932.4,
+   "fy": "2023/24"
+  },
+  {
+   "id": "KSI-R006",
+   "key": "ppip:148999",
+   "name": "CONSTRUCTION, REPAIR AND MAINTENANCE OF ROADS IN MASIMBA WARD, KISII COUNTY",
+   "subtype": "road",
+   "wards": [
+    "masimba"
+   ],
+   "projectIds": [],
+   "auditIds": [],
+   "contractIds": [
+    "K-148999"
+   ],
+   "lengthKm": null,
+   "confirmedGroup": false,
+   "amount": 16354956,
+   "fy": "2024/25"
+  },
+  {
+   "id": "KSI-R007",
+   "key": "ppip:149095",
+   "name": "CONSTRUCTION, REPAIR AND MAINTENANCE OF ROADS IN SENSI WARD, KISII COUNTY",
+   "subtype": "road",
+   "wards": [
+    "sensi"
+   ],
+   "projectIds": [],
+   "auditIds": [],
+   "contractIds": [
+    "K-149095"
+   ],
+   "lengthKm": null,
+   "confirmedGroup": false,
+   "amount": 19311082,
+   "fy": "2024/25"
+  },
+  {
+   "id": "KSI-R008",
+   "key": "ppip:149129",
+   "name": "CONSTRUCTION, REPAIR AND MAINTENANCE OF ROADS IN MARANI WARD, KISII COUNTY",
+   "subtype": "road",
+   "wards": [
+    "marani"
+   ],
+   "projectIds": [],
+   "auditIds": [],
+   "contractIds": [
+    "K-149129"
+   ],
+   "lengthKm": null,
+   "confirmedGroup": false,
+   "amount": 18232346,
+   "fy": "2024/25"
+  },
+  {
+   "id": "KSI-R009",
+   "key": "ppip:149222",
+   "name": "CONSTRUCTION, REPAIR AND MAINTENANCE OF ROADS IN MAJOGE BASSI WARD, KISII COUNTY",
+   "subtype": "road",
+   "wards": [
+    "majoge-basi"
+   ],
+   "projectIds": [],
+   "auditIds": [],
+   "contractIds": [
+    "K-149222"
+   ],
+   "lengthKm": null,
+   "confirmedGroup": false,
+   "amount": 26350873.2,
+   "fy": "2024/25"
+  },
+  {
+   "id": "KSI-R010",
+   "key": "ppip:149233",
+   "name": "CONSTRUCTION, REPAIR AND MAINTENANCE OF ROADS IN BOOCHI BORABU WARD, KISII COUNTY",
+   "subtype": "road",
+   "wards": [
+    "boochi-borabu"
+   ],
+   "projectIds": [],
+   "auditIds": [],
+   "contractIds": [
+    "K-149233"
+   ],
+   "lengthKm": null,
+   "confirmedGroup": false,
+   "amount": 11397232,
+   "fy": "2024/25"
+  }
+ ]
+}

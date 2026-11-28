@@ -8,18 +8,20 @@ import { contact, reportFormUrl, canReport } from '../config.js';
 interface Props { clinic?: boolean }
 const { clinic = false } = Astro.props;
 const places = Object.fromEntries(wards.map((w) => [w.name, [...new Set([
-  ...w.facilities.filter((f) => !clinic || f.category === 'Health').map((f) => f.name),
+  ...w.facilities.filter((f) => !clinic || (f.type || f.category) === 'Health').map((f) => f.name),
   ...(clinic ? [] : w.places.map((p) => p.name)),
 ])].sort()]));
 const data = JSON.stringify({ places, wa: contact.whatsapp, clinic }).split('<').join('\\u003c');
 const cats = [['water', 'Water point'], ['health', 'Dispensary or health centre'], ['streetlight', 'Streetlight'], ['road', 'Road or bridge'], ['market', 'Market facility']];
 ---
-<form class="builder" data-report onsubmit="return false">
-  {!clinic && <label>What are you reporting on?<select name="category">{cats.map(([v, t]) => <option value={t}>{t}</option>)}</select></label>}
-  <label>Ward
-    <select name="ward" required><option value="">Choose</option>{subCounties.map((s) => <optgroup label={s}>{wards.filter((w) => w.subCounty === s).map((w) => <option>{w.name}</option>)}</optgroup>)}</select>
-  </label>
-  <label>{clinic ? 'Which health facility?' : 'Which place?'}<span class="hint">Choose from our list, or type the name.</span><input name="place" list="rep-places" autocomplete="off" /><datalist id="rep-places"></datalist></label>
+<form class="builder fg-report-form" data-report onsubmit="return false">
+  <div class={clinic ? 'stack' : 'fg-form-row'}>
+    {!clinic && <label>What are you reporting on?<select name="category">{cats.map(([, t]) => <option value={t}>{t}</option>)}</select></label>}
+    <label>Ward
+      <select name="ward" required><option value="">Choose a ward</option>{subCounties.map((s) => <optgroup label={s}>{wards.filter((w) => w.subCounty === s).map((w) => <option>{w.name}</option>)}</optgroup>)}</select>
+    </label>
+  </div>
+  <label>{clinic ? 'Which health facility?' : 'Which place?'}<span class="hint">Choose from our list for that ward, or type the name.</span><input name="place" list="rep-places" placeholder={clinic ? 'e.g. Nyamira County Referral Hospital' : 'e.g. dispensary, borehole, market or road'} autocomplete="off" /><datalist id="rep-places"></datalist></label>
   {!clinic && (
     <fieldset class="choice"><legend>Is it working?</legend>
       {['Working', 'Partly working', 'Not working', 'Closed', 'Not sure / could not check'].map((s) => <label><input type="radio" name="status" value={s} required /> {s}</label>)}
@@ -33,8 +35,12 @@ const cats = [['water', 'Water point'], ['health', 'Dispensary or health centre'
       <fieldset class="choice"><legend>How long did you wait?</legend>{['Under 30 min', '30 to 60 min', '1 to 2 hours', 'Over 2 hours', 'Did not wait / not sure'].map((s) => <label><input type="radio" name="waiting" value={s} required /> {s}</label>)}</fieldset>
     </>
   )}
-  <label>Short note<span class="hint">What you saw and when. About the service, not about any person: please don't name staff or anyone else.</span><textarea name="note"></textarea></label>
-  <label>Your message<textarea class="out" id="rep-out" readonly></textarea></label>
+  <label>Short note<span class="hint">What you saw and when. About the service, not about any person: please don't name staff or anyone else.</span><textarea name="note" rows="3"></textarea></label>
+  <label>Your structured draft message<textarea class="out" id="rep-out" readonly></textarea></label>
+  <div class="fg-report-actions">
+    <button type="button" class="fg-outline-btn" data-copy-report>Copy draft message</button>
+    <span class="small muted" data-copy-status aria-live="polite"></span>
+  </div>
   {canReport ? (
     <div class="page-tools">
       {contact.whatsapp ? <a class="btn" data-send href={`https://wa.me/${contact.whatsapp}`} rel="noopener">Send on WhatsApp</a> : <a class="btn" href={reportFormUrl} rel="noopener">Open the report form</a>}
@@ -50,13 +56,14 @@ const cats = [['water', 'Water point'], ['health', 'Dispensary or health centre'
   var f = document.querySelector('[data-report]'); if (!f) return;
   var D = JSON.parse(document.getElementById('rep-data').textContent);
   var out = document.getElementById('rep-out'), dl = document.getElementById('rep-places'), send = f.querySelector('[data-send]');
+  var copyBtn = f.querySelector('[data-copy-report]'), copyStatus = f.querySelector('[data-copy-status]');
   function v(n) { var el = f.elements[n]; if (!el) return ''; return (el.value || '').trim(); }
   function fill() {
     dl.textContent = '';
     (D.places[v('ward')] || []).forEach(function (n) { var o = document.createElement('option'); o.value = n; dl.appendChild(o); });
   }
   function build() {
-    var lines = [D.clinic ? 'CLINIC CHECK for Nyamira Daily' : 'IS IT WORKING? report for Nyamira Daily'];
+    var lines = [D.clinic ? 'CLINIC CHECK for Gusii Daily' : 'IS IT WORKING? report for Gusii Daily'];
     if (!D.clinic) lines.push('Category: ' + v('category'));
     lines.push('Ward: ' + (v('ward') || '?'), 'Place: ' + (v('place') || '?'));
     if (D.clinic) {
@@ -67,6 +74,16 @@ const cats = [['water', 'Water point'], ['health', 'Dispensary or health centre'
     if (v('note')) lines.push('Note: ' + v('note'));
     out.value = lines.join('\n');
     if (send) send.href = 'https://wa.me/' + D.wa + '?text=' + encodeURIComponent(out.value);
+  }
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(out.value).then(function () {
+          if (copyStatus) copyStatus.textContent = 'Copied to clipboard.';
+          setTimeout(function () { if (copyStatus) copyStatus.textContent = ''; }, 2800);
+        }).catch(function () { out.select(); });
+      } else { out.select(); }
+    });
   }
   f.addEventListener('change', function (e) { if (e.target.name === 'ward') fill(); build(); });
   f.addEventListener('input', build);

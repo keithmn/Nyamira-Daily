@@ -65,16 +65,20 @@ export const statusLabel = { open: 'Open', closed: 'Closed', 'under-construction
 export const conditionLabel = { good: 'Good', fair: 'Fair', poor: 'Poor', impassable: 'Impassable (roads)', unknown: 'Not yet checked' };
 const METHODS = new Set(['visit', 'resident-report', 'document']);
 
+const ALERT_STATUSES = new Set(['active', 'monitoring', 'resolved']);
 export function validateEvents(list) {
   for (const [i, e] of list.entries()) {
     const at = `living event ${i}`;
-    if (!placeById.has(String(e.place).toLowerCase())) throw new Error(`${at}: unknown place ${e.place}`);
-    if (!/^(status|condition|service:.+)$/.test(e.field)) throw new Error(`${at}: unknown field ${e.field}`);
+    const isAlert = String(e.place).startsWith('alert:');
+    if (!isAlert && !placeById.has(String(e.place).toLowerCase())) throw new Error(`${at}: unknown place ${e.place}`);
+    if (isAlert && e.field !== 'status') throw new Error(`${at}: alert events only support the status field`);
+    if (!isAlert && !/^(status|condition|service:.+)$/.test(e.field)) throw new Error(`${at}: unknown field ${e.field}`);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(e.observed_on)) throw new Error(`${at}: observed_on must be YYYY-MM-DD`);
     if (!METHODS.has(e.method)) throw new Error(`${at}: method must be visit, resident-report or document`);
     if (!e.source) throw new Error(`${at}: a source is required`);
     if (!['verified', 'audit', 'official', 'unverified'].includes(e.evidence)) throw new Error(`${at}: unknown evidence label`);
-    if (e.field === 'status' && !statusLabel[e.value]) throw new Error(`${at}: unknown status ${e.value}`);
+    if (isAlert && !ALERT_STATUSES.has(e.value)) throw new Error(`${at}: unknown alert status ${e.value}`);
+    if (!isAlert && e.field === 'status' && !statusLabel[e.value]) throw new Error(`${at}: unknown status ${e.value}`);
     if (e.field === 'condition' && !conditionLabel[e.value]) throw new Error(`${at}: unknown condition ${e.value}`);
   }
   return list;
@@ -100,4 +104,6 @@ export function currentState(place) {
   state.lastChecked = h.find((e) => e.method === 'visit')?.observed_on ?? null;
   return state;
 }
+// Alert status events (alert:<id> in the living events log)
+export const alertEvents = reviewed.filter((e) => e.place.startsWith('alert:'));
 export { wardName };

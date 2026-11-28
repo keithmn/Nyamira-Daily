@@ -1,3 +1,6 @@
+// Derive each ward's facility list from the ward field on each facility record.
+// Before the flattening (decision #130), wards.json carried facilityIds[]; now facilities.json
+// is the single source and this function groups them by ward at build time.
 export function resolveWards(wards, records) {
   const facilityById = new Map();
   for (const facility of records) {
@@ -10,32 +13,21 @@ export function resolveWards(wards, records) {
     facilityById.set(facility.id, facility);
   }
 
-  const wardSlugs = new Set();
-  const referencedIds = new Set();
+  const wardSlugs = new Set(wards.map((w) => w.slug));
+  const byWard = new Map(wards.map((w) => [w.slug, []]));
+
+  for (const facility of records) {
+    if (!facility.ward || !wardSlugs.has(facility.ward)) {
+      throw new Error(`Facility ${facility.id} names unknown ward "${facility.ward}".`);
+    }
+    byWard.get(facility.ward).push(facility);
+  }
+
   const resolvedWards = wards.map((ward) => {
-    if (!ward.slug || wardSlugs.has(ward.slug)) {
-      throw new Error(`Ward registry has a missing or duplicate slug: ${ward.slug ?? '(missing)'}`);
+    if (!ward.slug) {
+      throw new Error(`Ward registry has a missing slug.`);
     }
-    wardSlugs.add(ward.slug);
-    if (!Array.isArray(ward.facilityIds)) {
-      throw new Error(`Ward ${ward.slug} must list facilityIds.`);
-    }
-
-    const wardFacilities = ward.facilityIds.map((id) => {
-      if (referencedIds.has(id)) {
-        throw new Error(`Facility ${id} is referenced more than once.`);
-      }
-      const facility = facilityById.get(id);
-      if (!facility) {
-        throw new Error(`Ward ${ward.slug} references unknown facility ${id}.`);
-      }
-      if (facility.ward !== ward.slug) {
-        throw new Error(`Facility ${id} belongs to ${facility.ward}, not ${ward.slug}.`);
-      }
-      referencedIds.add(id);
-      return facility;
-    });
-
+    const wardFacilities = byWard.get(ward.slug);
     const counts = {};
     for (const facility of wardFacilities) {
       counts[facility.category] = (counts[facility.category] ?? 0) + 1;
@@ -43,9 +35,5 @@ export function resolveWards(wards, records) {
     return { ...ward, facilities: wardFacilities, counts };
   });
 
-  const orphaned = records.find((facility) => !referencedIds.has(facility.id));
-  if (orphaned) {
-    throw new Error(`Facility ${orphaned.id} is not referenced by a ward.`);
-  }
   return resolvedWards;
 }

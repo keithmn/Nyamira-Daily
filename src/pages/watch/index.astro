@@ -1,71 +1,97 @@
 ---
-// Stories (decision #127): videos, explainers and the number of the week in one list, with a search box and
-// type filters. Everything shows without JavaScript; the filters only hide rows. Only what is published.
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import { entries } from '../../lib/content.js';
 import { getNumbers, weekOf } from '../../lib/numbers.js';
 import { allVideos, videoPath } from '../../lib/videos.js';
 import { date } from '../../lib/fmt.js';
+
 const explainers = await entries('explainers');
 const numbers = await getNumbers();
+const iso = (d) => (d instanceof Date ? d.toISOString().slice(0, 10) : String(d || ''));
 const items = [
-  ...allVideos.map((v) => ({ type: 'video', kind: 'Video', title: v.title, note: v.summary, href: videoPath(v.id), when: new Date(v.published_on) })),
-  ...explainers.map((e) => ({ type: 'explainer', kind: 'Explainer', title: e.data.title, note: e.data.summary, href: `/explainers/${e.id}/`, when: e.data.updated })),
-  ...numbers.map((n) => ({ type: 'number', kind: 'Number of the week', title: `${n.data.figure}: ${n.data.sentence}`, note: `Week of ${weekOf(n.data.week)}`, href: `/number-of-the-week/#${n.id}`, when: n.data.week })),
-].sort((a, b) => b.when - a.when);
+  ...allVideos.map((v) => ({ type: 'video', kind: 'Video', fig: null, title: v.title, note: v.summary, href: videoPath(v.id), when: iso(v.published_on) })),
+  ...explainers.map((e) => ({ type: 'explainer', kind: 'Explainer', fig: null, title: e.data.title, note: e.data.summary, href: `/explainers/${e.id}/`, when: iso(e.data.updated) })),
+  ...numbers.map((n) => ({ type: 'number', kind: 'Number of the week', fig: n.data.figure, title: `${n.data.figure} ${n.data.sentence}`, note: `Week of ${date(iso(n.data.week))}`, href: `/number-of-the-week/#${n.id}`, when: iso(n.data.week) })),
+].sort((a, b) => b.when.localeCompare(a.when));
 const types = [['video', 'Videos'], ['explainer', 'Explainers'], ['number', 'Numbers']].filter(([t]) => items.some((i) => i.type === t));
 ---
-<Base title="Stories" description="Nyamira Daily's videos, explainers and the number of the week, each with the figures and sources behind it.">
-  <PageHead title="Stories" lead="Videos and stories from the data. Each one shows the figures and sources behind it." />
-  <div class="stack" style="margin-top:16px">
-    <form class="list-filter" role="search" data-list-filter="stories" hidden>
-      <label class="vh" for="st-q">Search stories</label>
-      <input class="field" id="st-q" type="search" placeholder="Search stories" autocomplete="off" />
-      <div class="chips" role="group" aria-label="Show">
-        <button type="button" class="chip-btn" data-type="" aria-pressed="true">All</button>
-        {types.map(([t, l]) => <button type="button" class="chip-btn" data-type={t} aria-pressed="false">{l}</button>)}
+<Base title="Stories" description="Gusii Daily's videos, explainers and the number of the week, each with the figures and sources behind it.">
+  <PageHead
+    eyebrow="Watch & Read"
+    title="Stories, video briefings & plain-language explainers"
+    lead="Once a dataset is confirmed, we explain what it means in plain language — through YouTube briefings, short articles and a weekly figure, each linked to its source documents."
+  />
+
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Video, maelezo na nambari ya wiki kutoka Gusii Daily — kila moja inataja chanzo chake na hati za ushahidi. Tazama kwenye YouTube au soma hapa.</p></div>
+
+  <div class="stack-lg">
+    <section class="fg-dashed-sheet stack" aria-label="Stories catalogue">
+      <div class="fg-stories-bar">
+        <div class="fg-st-input">
+          <label class="vh" for="story-q">Search stories</label>
+          <input class="field" id="story-q" type="search" placeholder="Search explainers, numbers and videos..." data-story-q />
+        </div>
+        <div class="chips" role="group" aria-label="Show">
+          <button type="button" class="chip" data-filter="all" aria-pressed="true">All ({items.length})</button>
+          {types.map(([t, l]) => <button type="button" class="chip" data-filter={t} aria-pressed="false">{l}</button>)}
+        </div>
       </div>
-    </form>
-    {items.length === 0 && <p class="muted">Nothing published yet.</p>}
-    <ul class="latest" id="stories">
-      {items.map((x) => (
-        <li data-type={x.type} data-q={`${x.title} ${x.note ?? ''}`.toLowerCase()}><a href={x.href}><span class="eyebrow">{x.kind}</span><span class="t">{x.title}</span>{x.note && <span class="d">{x.note}</span>}<span class="d">{date(x.when.toISOString())}</span></a></li>
-      ))}
-    </ul>
-    <p class="muted" data-none hidden>Nothing matches. Try another word.</p>
+
+      <p class="small muted" data-story-count hidden></p>
+
+      <div class="fg-insight-grid is-three" data-story-list>
+        {items.map((s, idx) => (
+          <a class="fg-insight-card" href={s.href} data-type={s.type} data-text={`${s.title} ${s.note}`.toLowerCase()}>
+            <div class={`fg-ins-thumb ${idx === 0 ? 'is-grad' : 'is-ink'}`}>
+              {s.fig ? <b class="fg-thumb-fig">{s.fig}</b> : (
+                <svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true">
+                  <path d="M14 14 H50 V50 H38 V34 L20 52 L12 44 L30 26 H14 Z" fill="currentColor" />
+                </svg>
+              )}
+            </div>
+            <span class="fg-ins-date">{date(s.when)} · {s.kind}</span>
+            <h3>{s.title}</h3>
+            <p>{s.note}</p>
+          </a>
+        ))}
+
+        <div class="fg-insight-card is-static">
+          <div class="fg-ins-thumb is-dashed">
+            <span class="fg-play-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <span class="fg-thumb-note">Video series</span>
+          </div>
+          <span class="fg-ins-date">YouTube &amp; Social</span>
+          <h3>Video explainers</h3>
+          <p>{allVideos.length ? `${allVideos.length} briefings live.` : 'Short video breakdowns publish here as datasets and site visits are verified.'}</p>
+        </div>
+      </div>
+    </section>
   </div>
+
+  <script is:inline>
+  (function () {
+    var list = document.querySelector('[data-story-list]'), q = document.querySelector('[data-story-q]'), count = document.querySelector('[data-story-count]');
+    if (!list || !q) return;
+    var rows = [].slice.call(list.querySelectorAll('a[data-type]')), btns = [].slice.call(document.querySelectorAll('[data-filter]')), kind = 'all';
+    function apply() {
+      var term = q.value.trim().toLowerCase(), shown = 0;
+      rows.forEach(function (a) {
+        var on = (kind === 'all' || a.getAttribute('data-type') === kind) && (!term || a.getAttribute('data-text').indexOf(term) !== -1);
+        a.hidden = !on; if (on) shown++;
+      });
+      count.hidden = !term && kind === 'all';
+      count.textContent = shown === 0 ? 'No matching stories.' : shown + (shown === 1 ? ' story' : ' stories');
+    }
+    q.addEventListener('input', apply);
+    btns.forEach(function (b) { b.addEventListener('click', function () {
+      kind = b.getAttribute('data-filter');
+      btns.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      apply();
+    }); });
+  })();
+  </script>
 </Base>
-<script is:inline>
-// One small list filter, shared by any list marked up the same way (decision #127)
-document.querySelectorAll('[data-list-filter]').forEach(function (form) {
-  var list = document.getElementById(form.getAttribute('data-list-filter')), none = form.parentNode.querySelector('[data-none]');
-  var q = form.querySelector('input[type="search"]'), type = '';
-  form.hidden = false;
-  function run() {
-    var words = q.value.trim().toLowerCase(), shown = 0;
-    Array.prototype.forEach.call(list.children, function (li) {
-      var ok = (!type || li.getAttribute('data-type') === type) && (!words || li.getAttribute('data-q').indexOf(words) !== -1);
-      li.hidden = !ok; if (ok) shown++;
-    });
-    if (none) none.hidden = shown > 0;
-  }
-  // A link such as /watch/#explainer (the Stories side list) picks that kind
-  function fromHash() {
-    var want = location.hash.slice(1), hit = null;
-    Array.prototype.forEach.call(form.querySelectorAll('.chip-btn'), function (b) { if (want && b.getAttribute('data-type') === want) hit = b; });
-    if (hit) hit.click();
-  }
-  window.addEventListener('hashchange', fromHash);
-  q.addEventListener('input', run);
-  form.addEventListener('submit', function (e) { e.preventDefault(); });
-  Array.prototype.forEach.call(form.querySelectorAll('.chip-btn'), function (b) {
-    b.addEventListener('click', function () {
-      type = b.getAttribute('data-type');
-      Array.prototype.forEach.call(form.querySelectorAll('.chip-btn'), function (x) { x.setAttribute('aria-pressed', String(x === b)); });
-      run();
-    });
-  });
-  fromHash();
-});
-</script>

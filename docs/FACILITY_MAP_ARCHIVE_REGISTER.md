@@ -4,13 +4,13 @@ Started 26 Oct 2026. Requirements interview and source audit are recorded here. 
 
 ## Direction received
 
-The owner wants Nyamira Daily's map experience to let readers zoom in and out, see facility imagery that the team will create, map facilities across the county, understand what capabilities facilities have, and consult a dated archive of facility records and changes.
+The owner wants Gusii Daily's map experience to let readers zoom in and out, see facility imagery that the team will create, map facilities across the county, understand what capabilities facilities have, and consult a dated archive of facility records and changes.
 
-This supports Nyamira Daily's existing role as an independent public-information service. Present sourced information so readers can assess claims; do not frame the tool as suppressing or targeting any politician or official.
+This supports Gusii Daily's existing role as an independent public-information service. Present sourced information so readers can assess claims; do not frame the tool as suppressing or targeting any politician or official.
 
 ## Existing project constraints
 
-- Keep Nyamira Daily separate from The Night Watch.
+- Keep Gusii Daily separate from The Night Watch.
 - The repository currently favors light, build-time maps and minimal client-side JavaScript.
 - Every factual claim needs a source, date and evidence label. Do not infer a service or capability from a facility name, category, building, equipment list or funding record.
 - Preserve uncertainty, record corrections transparently, and do not expose patient or other private personal data.

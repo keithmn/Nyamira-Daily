@@ -1,24 +1,66 @@
 ---
-// About Nyamira Daily (decisions #122, #126): everything about us on one short page. Nyamira County has its own
-// pages (the Nyamira County group in src/nav.js).
+import { wardCount } from '../../lib/counts.js';
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
-import { county } from '../../county.js';
-const row = (href, t, d) => ({ href, t, d });
-const us = [
-  row('/about/contact/', 'Tell us', 'A place you have seen, a tip, a story or a correction.'),
-  row('/about/careers/', 'Careers and volunteering', 'Become a ward correspondent or a culture volunteer.'),
-  row('/about/partners/', 'Partner with us', 'Data, research and sponsorship for organisations.'),
+import EvidenceLabel from '../../components/EvidenceLabel.astro';
+import Icon from '../../components/Icon.astro';
+
+const links = [
+  { href: '/about/contact/', label: 'Tell us — report a place, send a tip or correction' },
+  { href: '/about/data/', label: 'Open data, CSV downloads, API & source documents' },
+  { href: '/about/careers/', label: 'Careers, ward correspondents & culture volunteers' },
+  { href: '/about/partners/', label: 'Partner with us (no political funding or clients)' },
+  { href: '/about/rules/', label: 'Rules, editorial standards, right of reply & legal' },
+  { href: '/about/nyamira/', label: 'About Nyamira County — geography & census' },
 ];
 ---
-<Base title="About Nyamira Daily" description={`What ${county.siteName} is and how to reach us.`}>
-  <PageHead title="About Nyamira Daily" lead={`${county.siteName} helps you check the facts about ${county.countyName} for yourself: what is in your ward, what condition it is in, and where the county's money goes.`} />
-  <div class="stack" style="margin-top:16px; max-width:760px">
-    <p>We are non-partisan. We are not part of the {county.government} or any political party. Every figure on this site has a source and a label that says how well it has been checked, and we correct mistakes openly.</p>
-    <ul class="rows">
-      {us.map((p) => <li><a class="row-link" href={p.href}><span><span class="t">{p.t}</span><span class="d">{p.d}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
-    </ul>
-    <p>Looking for the county itself? See <a href="/about/nyamira/">About Nyamira County</a>.</p>
-    <p class="small muted">Our rules: <a href="/about/rules/">how we work, corrections, right of reply, terms and privacy</a>.</p>
+<Base title="About" description="Who Gusii Daily is, how we work, and how to take part.">
+  <PageHead
+    cover="ink"
+    eyebrow="About Gusii Daily"
+    title="The Gusii language and cultural database — plus civic data for every ward"
+    lead="Gusii Daily records the Ekegusii language and Abagusii cultural knowledge, and brings scattered county records into one clear place — with sources, evidence labels and informed consent."
+  />
+
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Gusii Daily ni hifadhi ya lugha ya Ekegusii na maarifa ya kitamaduni ya Abagusii, pamoja na data ya kiraia — tunaonyesha ramani ya vituo vya umma, tunafuatilia pesa za kaunti, na kila takwimu inataja chanzo chake. Hatusaidii chama chochote cha kisiasa.</p></div>
+
+  <div class="stack-lg">
+    <div class="fg-trio-blocks">
+      <a class="fg-block-card is-charcoal" href="/map/">
+        <span class="fg-bc-icon"><Icon name="map" size={24} /></span>
+        <h3>Map &amp; verify</h3>
+        <p>Schools, clinics, water points, markets and roads mapped across all {wardCount} wards and verified through field checks.</p>
+      </a>
+      <a class="fg-block-card is-white" href="/money/">
+        <span class="fg-bc-icon"><Icon name="money" size={24} /></span>
+        <h3>Follow the books</h3>
+        <p>County budgets, spending, audit findings, procurement and NG-CDF consolidated with sources and kept separate.</p>
+      </a>
+      <a class="fg-block-card is-signal" href="/watch/">
+        <span class="fg-bc-icon"><Icon name="explain" size={24} /></span>
+        <h3>Explain plainly</h3>
+        <p>Verified records unpacked through videos, explainers and open files — never party-affiliated.</p>
+      </a>
+    </div>
+
+    <section class="fg-dashed-sheet stack" aria-labelledby="ind">
+      <div class="fg-sec-head is-compact">
+        <span class="fg-kicker">Independence &amp; Standards</span>
+        <h2 id="ind">Every figure carries <span class="fg-hl">its source and one of four labels</span></h2>
+      </div>
+      <p style="margin-inline:auto;text-align:center">We are non-partisan and editorially independent — not part of the County Government of Nyamira or any political party. When we get something wrong, we publish the correction.</p>
+      <div class="chips" style="justify-content:center">
+        <EvidenceLabel kind="verified" />
+        <EvidenceLabel kind="audit" />
+        <EvidenceLabel kind="official" />
+        <EvidenceLabel kind="unverified" />
+      </div>
+      <ul class="fg-pill-grid">
+        {links.map((l) => (
+          <li><a href={l.href}><span class="fg-ne" aria-hidden="true">↗</span><span>{l.label}</span></a></li>
+        ))}
+      </ul>
+    </section>
   </div>
 </Base>

@@ -3,24 +3,44 @@ import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import ReportForm from '../../components/ReportForm.astro';
 import CommunityReports from '../../components/CommunityReports.astro';
+const steps = [
+  ['STEP 1', 'Draft locally', 'Reports are not sent or stored by this website yet. Do not include personal or sensitive information.'],
+  ['STEP 2', 'Checked before live', 'If a monitored channel is set up later, a reviewer must check a report against a second source or a visit before it is included in a public summary.'],
+  ['STEP 3', 'Dated & kept fresh', 'We show only the latest status for each place, with its date. After 90 days it is marked "may be out of date".'],
+];
 ---
 <Base title="Is it working?" description="Report whether a water point, dispensary, streetlight, road or market in your ward is working.">
-  <PageHead eyebrow="Places" title="Report a place" lead="Is the dispensary open? Is the road passable? Tell us what you see in your ward. We check every report before we publish, and we report on services, never on people." crumbs={[{ href: '/map/', label: 'Places' }, { href: '/report/', label: 'Report a place' }]} />
-  <div class="stack-lg" style="margin-top:16px">
-    <section class="stack">
-      <h2>Make a report</h2>
+  <PageHead eyebrow="Places · Field Verification" title="Report a place" lead="Is the dispensary open? Is the road passable? Tell us what you see in your ward. We check every report before we publish, and we report on services, never on people." crumbs={[{ href: '/map/', label: 'Places' }, { href: '/report/', label: 'Report a place' }]} />
+  <div class="fg-report-grid">
+    <section class="fg-sheet fg-sheet-solid stack">
+      <div class="fg-report-head">
+        <div>
+          <span class="fg-kicker">FIELD OBSERVATION DRAFT</span>
+          <h2>Make a report</h2>
+        </div>
+        <a class="fg-outline-btn" href="/report/clinic/">Clinic check →</a>
+      </div>
       <ReportForm />
-      <p class="small">At a dispensary or health centre? Use the <a href="/report/clinic/">clinic check</a> instead.</p>
+      <p class="small muted">At a dispensary or health centre? Use the <a href="/report/clinic/">clinic check</a> for medicines, staff, hours and waiting time.</p>
     </section>
-    <CommunityReports />
-    <section class="stack">
-      <h2>What happens to your report</h2>
-      <ol class="steps">
-        <li>Reports are not sent or stored by this website yet. Do not include personal or sensitive information.</li>
-        <li>If a monitored channel is set up later, a reviewer must check a report against a second source or a visit before it is included in a public summary.</li>
-        <li>We show only the latest status for each place, with its date. After 90 days it is marked "may be out of date".</li>
-      </ol>
-    </section>
-    <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Tuambie kama kisima, zahanati, taa ya barabarani, barabara au soko katika wadi yako kinafanya kazi. Tunakagua ripoti kabla ya kuchapisha.</p></div>
+
+    <aside class="stack">
+      <div class="fg-data-card stack">
+        <span class="fg-kicker">HOW VERIFICATION WORKS</span>
+        <h3>What happens to your report</h3>
+        <div class="stack" style="gap:12px">
+          {steps.map(([k, t, d], i) => (
+            <div class={`fg-ticket${i === 0 ? ' is-next' : ''}`}>
+              <div class="fg-ticket-stub"><span class="fg-stub-k">{k}</span></div>
+              <div class="fg-ticket-body"><h3>{t}</h3><p>{d}</p></div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="fg-data-card">
+        <CommunityReports />
+      </div>
+    </aside>
   </div>
+  <div class="sw" lang="sw" style="margin-top:24px"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Tuambie kama kisima, zahanati, taa ya barabarani, barabara au soko katika wadi yako kinafanya kazi. Tunakagua ripoti kabla ya kuchapisha.</p></div>
 </Base>

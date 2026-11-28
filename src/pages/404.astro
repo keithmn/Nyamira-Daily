@@ -1,9 +1,34 @@
 ---
+import { wardCount } from '../lib/counts.js';
 import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Icon from '../components/Icon.astro';
+const links = [
+  ['/', 'Home — the full field guide'],
+  ['/map/', 'Places & county facility map'],
+  ['/ward/', `All ${wardCount} wards`],
+  ['/money/', 'Money — budgets, spending & audit'],
+  ['/community/', 'Community, Abagusii & Ekegusii'],
+  ['/watch/', 'Stories & plain-language explainers'],
+];
 ---
-<Base title="Page not found">
-  <div class="stack" style="padding:48px 0">
-    <h1>Page not found</h1>
-    <p class="lead">The page may have moved. Try the main sections above, or go to <a href="/">Today</a>.</p>
-  </div>
+<Base title="Page not found" tools={false}>
+  <PageHead eyebrow="404 · Not in the Directory" title="Page not found" lead="That page may have moved or the address may be mistyped. Search the field guide below or jump straight to a section." />
+  <section class="fg-sheet">
+    <form class="fg-kb-form" action="/search/" method="get" role="search" style="margin-bottom:22px">
+      <label class="vh" for="q404">Search Gusii Daily</label>
+      <Icon name="search" size={18} />
+      <input id="q404" type="search" name="q" placeholder="Search a ward, clinic, school, budget or law..." />
+      <button type="submit" class="fg-cta-btn">Search guide</button>
+    </form>
+    <div class="fg-search-grid">
+      {links.map(([href, label]) => (
+        <a class="fg-search-card" href={href}>
+          <span class="fg-pill-arrow" aria-hidden="true">↗</span>
+          <span class="fg-search-title">{label}</span>
+          <span class="fg-pop-tag">Open</span>
+        </a>
+      ))}
+    </div>
+  </section>
 </Base>

@@ -39,7 +39,7 @@ function readChecks(values) {
 
 export function readRoadReport(fields, today = nairobiDate()) {
   const road = currentRoad(fields.road);
-  if (!road) return { error: 'Choose a road listed on Nyamira Daily.' };
+  if (!road) return { error: 'Choose a road listed on Gusii Daily.' };
   if (!GRADES.has(fields.grade)) return { error: 'Choose the road\'s condition, or choose "Not sure".' };
   if (!validIsoDate(fields.observedOn) || fields.observedOn > today) {
     return { error: 'Enter the date you saw this. It cannot be in the future.' };

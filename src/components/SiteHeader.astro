@@ -1,81 +1,236 @@
 ---
-// The site header (decisions #60, #121): one bar with the logo, the four sections and search.
-// Desktop: the sections are plain links; each section's own pages are in the switcher and side list (SectionNav.astro).
-// Phones and tablets: a hamburger opens a sheet with every section and its pages in the same groups as the switcher.
-// Everything works without JavaScript (the sheet is a <details>).
-import { sections, sectionFor, stateFor, groupsOf } from '../nav.js';
+// Field-guide topbar inspired by civictech.guide, using Gusii Daily's exact brand tokens & five sections.
+import { sections as navSections, sectionFor, stateFor, groupsOf } from '../nav.js';
 import { planned } from '../config.js';
+import Icon from './Icon.astro';
+
 interface Props { path: string }
 const { path } = Astro.props;
-const section = sectionFor(path);
-const state = (s: (typeof sections)[number]) => (s === section ? (s.href === path ? 'page' : 'true') : undefined);
-const chev = '<svg class="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>';
+const active = sectionFor(path);
+const sections = navSections.filter((s) => s.href && !planned.has(s.href));
 ---
-<header class="site-header">
-  <div class="wrap hdr">
-    <a class="brand" href="/">
-      <!-- Horizontal logo; the symbol alone on very narrow screens. -->
-      <span class="logo-h">
-        <img class="for-light" src="/brand/Nyamira-Daily_horizontal_full-colour.svg" alt="Nyamira Daily" width="1197" height="228" />
-      </span>
-      <span class="logo-s">
-        <img class="for-light" src="/brand/Nyamira-Daily_symbol_full-colour.svg" alt="Nyamira Daily" width="216" height="256" />
-      </span>
+<header class="fg-header">
+  <div class="fg-hdr-inner">
+    <a class="fg-logo" href="/" aria-label="Gusii Daily, home">
+      <img src="/brand/Gusii-Daily_horizontal_full-colour.svg" alt="Gusii Daily" width="130" height="40" />
     </a>
 
-    <nav class="desk-nav" aria-label="Main sections">
+    <div class="fg-hdr-search-wrap" data-live-search>
+      <form class="fg-hdr-search" action="/search/" method="get" role="search">
+        <label class="vh" for="fg-hdr-q">Search Gusii Daily</label>
+        <Icon name="search" size={16} />
+        <input id="fg-hdr-q" type="search" name="q" placeholder="Search the directory..." autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="fg-hdr-hits" />
+      </form>
+      <div class="fg-search-pop" id="fg-hdr-hits" role="listbox" aria-label="Quick search results" hidden></div>
+    </div>
+
+    <nav class="fg-nav" aria-label="Sections">
       <ul>
-        <li><a class="desk-link" href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a></li>
         {sections.map((s) => (
-          <li><a class="desk-link" href={s.href} aria-current={state(s)}>{s.label}</a></li>
+          <li>
+            <a
+              class="fg-nav-link"
+              href={s.href}
+              aria-current={active === s ? (path === s.href ? 'page' : 'true') : undefined}
+            >{s.label}</a>
+          </li>
         ))}
       </ul>
     </nav>
 
-    <div class="hdr-tools">
-      <a class="icon-btn" href="/search/" aria-label="Search">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2" /><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></svg>
+    <div class="fg-hdr-cta">
+      <button class="fg-theme-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch between light and dark">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="fg-cta-btn" href="/report/">Report a place</a>
+      <a class="fg-mob-icon" href="/search/" aria-label="Search">
+        <Icon name="search" size={20} />
       </a>
-
-      <!-- Phones and tablets: the whole menu in one sheet -->
-      <details class="menu sheet">
-        <summary class="icon-btn burger" aria-label="Menu">
-          <svg class="i-open" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></svg>
-          <svg class="i-close" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></svg>
-        </summary>
-        <div class="sheet-panel">
-          <div class="wrap sheet-inner">
-            <form class="sheet-search" action="/search/" method="get" role="search">
-              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2" /><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></svg>
-              <label class="vh" for="sheet-q">Search Nyamira Daily</label>
-              <input id="sheet-q" name="q" type="search" autocomplete="off" placeholder="Search wards, schools, budgets…" />
-            </form>
-            <a class="sheet-home" href="/" aria-current={path === '/' ? 'page' : undefined}><span class="ss-title">Home</span></a>
-            {sections.map((s) => (
-              <details class="menu sheet-sec" name="sheet-sec" open={state(s) ? true : undefined}>
-                <summary aria-current={state(s)}>
-                  <span class="ss-title">{s.label}</span>
-                  <Fragment set:html={chev} />
-                </summary>
-                <div class="ss-body">
-                  <a class="ss-go" href={s.href} aria-current={s.href === path ? 'page' : undefined}>{s.overview} <span aria-hidden="true">→</span></a>
-                  <div class="ss-groups">
-                    {groupsOf(s).map((g) => (
-                      <div class="sw-group">
-                        {g.label && <span class="sw-label">{g.label}</span>}
-                        <ul>
-                          {g.pages.filter((p) => !planned.has(p.href)).map((p) => <li><a href={p.href} aria-current={stateFor(p, path)}>{p.label}</a></li>)}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </details>
+      <button class="fg-mob-icon fg-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu" data-menu-open>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </div>
-
 </header>
+
+<div class="sheet" id="site-menu" hidden>
+  <div class="sheet-back" data-menu-close></div>
+  <div class="sheet-panel fg-drawer" role="dialog" aria-modal="true" aria-label="Site menu">
+    <div class="sheet-head">
+      <img src="/brand/Gusii-Daily_horizontal_full-colour.svg" alt="Gusii Daily" width="117" height="36" />
+      <button class="fg-theme-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch between light and dark">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="fg-mob-icon" type="button" aria-label="Close menu" data-menu-close>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body">
+      <form class="fg-drawer-search" action="/search/" method="get" role="search">
+        <label class="vh" for="fg-mob-q">Search Gusii Daily</label>
+        <Icon name="search" size={16} />
+        <input id="fg-mob-q" type="search" name="q" placeholder="Search wards, clinics, budgets..." />
+      </form>
+      <a class="sheet-home" href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a>
+      {sections.map((s) => {
+        const isCurrent = active === s;
+        const groups = groupsOf(s).map((g) => ({ ...g, items: g.pages.filter((p) => !planned.has(p.href)) })).filter((g) => g.items.length);
+        return groups.length ? (
+          <details class="sheet-sec" open={isCurrent}>
+            <summary aria-current={isCurrent ? 'true' : undefined}>
+              <span>{s.label}</span>
+              <Icon name="chevron-down" size={18} />
+            </summary>
+            <div class="sheet-sec-body">
+              <a class="sheet-overview" href={s.href} aria-current={path === s.href ? 'page' : undefined}>
+                <span>{s.label} overview</span>
+                <Icon name="arrow-right" size={16} />
+              </a>
+              {groups.map((g) => (
+                <div class="sheet-group">
+                  {g.label && <span class="sw-label">{g.label}</span>}
+                  <ul>
+                    {g.items.map((p) => (
+                      <li><a href={p.href} aria-current={stateFor(p, path)}>{p.label}</a></li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </details>
+        ) : (
+          <a class="sheet-home" href={s.href} aria-current={isCurrent ? 'page' : undefined}>{s.label}</a>
+        );
+      })}
+      <div class="fg-drawer-foot">
+        <a class="fg-cta-btn" href="/report/">Report a place</a>
+        <a class="fg-outline-btn" href="/about/data/">Open data</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+(function () {
+  var sheet = document.getElementById('site-menu');
+  var openBtn = document.querySelector('[data-menu-open]');
+  if (sheet && openBtn) {
+    var closes = sheet.querySelectorAll('[data-menu-close]');
+    var closeBtn = sheet.querySelector('button[data-menu-close]');
+    function setOpen(on) {
+      sheet.hidden = !on;
+      openBtn.setAttribute('aria-expanded', String(on));
+      document.documentElement.classList.toggle('sheet-open', on);
+      (on ? closeBtn : openBtn).focus();
+    }
+    openBtn.addEventListener('click', function () { setOpen(true); });
+    closes.forEach(function (el) { el.addEventListener('click', function () { setOpen(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !sheet.hidden) setOpen(false); });
+    sheet.querySelectorAll('details.sheet-sec').forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (!d.open) return;
+        sheet.querySelectorAll('details.sheet-sec').forEach(function (o) { if (o !== d) o.open = false; });
+      });
+    });
+  }
+
+  // Instant Field Guide directory search dropdown
+  var wrap = document.querySelector('[data-live-search]');
+  var input = document.getElementById('fg-hdr-q');
+  var pop = document.getElementById('fg-hdr-hits');
+  if (!wrap || !input || !pop) return;
+  var cache = null, waiters = null, activeIdx = -1;
+  function norm(s) { return (s || '').toLowerCase().replace(/[’']/g, ''); }
+  function hide() { pop.hidden = true; input.setAttribute('aria-expanded', 'false'); activeIdx = -1; }
+  function load(cb) {
+    if (cache) return cb(cache);
+    if (waiters) { waiters.push(cb); return; }
+    waiters = [cb];
+    fetch('/search-index.json')
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (d) {
+        cache = Array.isArray(d) ? d : [];
+        var q = waiters; waiters = null;
+        q.forEach(function (fn) { fn(cache); });
+      })
+      .catch(function () { waiters = null; });
+  }
+  function render() {
+    var raw = input.value.trim();
+    var q = norm(raw);
+    if (q.length < 2) { hide(); return; }
+    load(function (items) {
+      var words = q.split(/\s+/);
+      var hits = items.map(function (it) {
+        var t = norm(it.t), k = norm(it.k), g = norm(it.g), s = 0;
+        for (var i = 0; i < words.length; i++) {
+          var w = words[i];
+          if (t.indexOf(w) === 0) s += 8;
+          else if (t.indexOf(w) > -1) s += 5;
+          else if (g.indexOf(w) > -1) s += 3;
+          else if (k.indexOf(w) > -1) s += 1;
+          else return null;
+        }
+        return { it: it, s: s };
+      }).filter(Boolean).sort(function (a, b) { return b.s - a.s; }).slice(0, 7);
+
+      pop.textContent = '';
+      activeIdx = -1;
+      if (!hits.length) {
+        var empty = document.createElement('div');
+        empty.className = 'fg-pop-empty';
+        empty.textContent = 'No instant match for "' + raw + '". Press Enter for full search.';
+        pop.appendChild(empty);
+      } else {
+        hits.forEach(function (h) {
+          var a = document.createElement('a');
+          a.className = 'fg-pop-item';
+          a.href = h.it.u;
+          a.setAttribute('role', 'option');
+          var arr = document.createElement('span');
+          arr.className = 'fg-pop-arr';
+          arr.setAttribute('aria-hidden', 'true');
+          arr.textContent = '↗';
+          var title = document.createElement('span');
+          title.className = 'fg-pop-title';
+          title.textContent = h.it.t;
+          var tag = document.createElement('span');
+          tag.className = 'fg-pop-tag';
+          tag.textContent = (h.it.g || 'Record').split('·')[0].trim();
+          a.appendChild(arr);
+          a.appendChild(title);
+          a.appendChild(tag);
+          pop.appendChild(a);
+        });
+      }
+      var all = document.createElement('a');
+      all.className = 'fg-pop-all';
+      all.href = '/search/?q=' + encodeURIComponent(raw);
+      all.textContent = 'See all directory results for "' + raw + '" →';
+      pop.appendChild(all);
+      pop.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+    });
+  }
+  input.addEventListener('input', render);
+  input.addEventListener('focus', function () { if (input.value.trim().length >= 2) render(); else load(function () {}); });
+  input.addEventListener('keydown', function (e) {
+    if (pop.hidden) return;
+    var links = pop.querySelectorAll('a');
+    if (e.key === 'Escape') { hide(); }
+    else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIdx = (activeIdx + 1) % links.length;
+      links.forEach(function (l, i) { l.classList.toggle('is-active', i === activeIdx); });
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIdx = (activeIdx - 1 + links.length) % links.length;
+      links.forEach(function (l, i) { l.classList.toggle('is-active', i === activeIdx); });
+    } else if (e.key === 'Enter' && activeIdx >= 0 && links[activeIdx]) {
+      e.preventDefault();
+      window.location.href = links[activeIdx].href;
+    }
+  });
+  document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) hide(); });
+})();
+</script>

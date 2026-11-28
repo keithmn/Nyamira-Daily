@@ -1,0 +1,34 @@
+---
+// Home figures band (Ink-and-green statement system, 2026-11). One green statement block carries the headline
+// figure; the other two sit on lifted Ink. Every tile ends in an Ink source strip. Figures come from the same
+// helpers as /money, and each strip names the document and page the figure was read from.
+import { budgetYear, track } from '../lib/county-budget.js';
+import { ksh } from '../lib/fmt.js';
+import wards from '../data/wards.js';
+
+const y = budgetYear();
+const t = track();
+const total = y.total.value;
+const spent = t.county.spent.value;
+const share = Math.round((spent * 100) / total);
+---
+<div class="figures" aria-label="The year in figures">
+  <a class="fig-tile fig-statement" href="/money/">
+    <span class="fig-k"><span class="seed" aria-hidden="true"></span>Spent by 30 June 2026</span>
+    <span class="fig-v">{share}%</span>
+    <span class="fig-s">of the 2025/26 budget was spent: <strong>{ksh(spent)}</strong> of {ksh(total)}.</span>
+    <span class="fig-src"><span class="gd-brand">Gusii Daily</span><span><b>Source</b> Q4 Budget Implementation Report 2025/26, {t.county.spent.page}</span></span>
+  </a>
+  <a class="fig-tile" href="/money/">
+    <span class="fig-k"><span class="seed" aria-hidden="true"></span>Budget 2025/26</span>
+    <span class="fig-v">{ksh(total)}</span>
+    <span class="fig-s">What the county planned to spend this year (printed estimates).</span>
+    <span class="fig-src"><b>Source</b> Programme Based Budget 2025/26, {y.total.page}</span>
+  </a>
+  <a class="fig-tile" href="/ward/">
+    <span class="fig-k"><span class="seed" aria-hidden="true"></span>Nyamira wards with full records</span>
+    <span class="fig-v">{wards.length}</span>
+    <span class="fig-s">Schools, clinics, roads and money for each one. Kisii wards show on the map but have no records yet.</span>
+    <span class="fig-src"><b>Source</b> Gusii Daily ward register</span>
+  </a>
+</div>

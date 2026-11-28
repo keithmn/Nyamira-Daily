@@ -33,7 +33,7 @@ const videoHref = (yt) => (videoByYoutube.get(yt) ? videoPath(videoByYoutube.get
     <div><dt>Last checked on site</dt><dd>{state.lastChecked ? date(state.lastChecked) : 'Not yet'}</dd></div>
     {place.partOf && <div><dt>Part of</dt><dd><a href={placePath(place.partOf.id)}>{place.partOf.name}</a></dd></div>}
   </dl>
-  {state.status?.method === 'document' && <p class="small muted">Status as given in {state.status.source}. Nobody from Nyamira Daily has checked it on site yet.</p>}
+  {state.status?.method === 'document' && <p class="small muted">Status as given in {state.status.source}. Nobody from Gusii Daily has checked it on site yet.</p>}
 
   <div class="stack" style="gap:6px">
     <h3>Who is responsible</h3>

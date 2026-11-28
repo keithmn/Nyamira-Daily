@@ -1,4 +1,4 @@
-# Plan: refocus Nyamira Daily on the map and the money
+# Plan: refocus Gusii Daily on the map and the money
 
 **Status: approved by the owner, 16 Nov 2026 (decision #110).** The nine decisions below stand as recommended. The archive tag `archive/pre-refocus-2026-11` marks `main` before any change.
 
@@ -6,7 +6,7 @@
 
 The owner's direction, 16 Nov 2026: the site has grown past its purpose. It has 2,939 pages in eight sections, 146 colours, a second product inside the repo, and a government directory, while the core goal (the condition of every facility) has 247 listings, none checked on site and none with a condition or status.
 
-Nyamira Daily is now **a local, ultra-modern data journalism tool** with two goals:
+Gusii Daily is now **a local, ultra-modern data journalism tool** with two goals:
 
 1. **The map.** Every facility in every location in Nyamira County: what it is, its condition, its status, and what services it delivers.
 2. **The money.** Public money (the county budget, and the government's responsibility for it) and the private economy (what Nyamira earns in each sector, and how money circulates). Gathered from documents, research and field collection.
@@ -15,7 +15,7 @@ Everything else is non-partisan community building. Government appears only wher
 
 **YouTube comes first.** There is no big launch. The site grows behind the videos: explainers on the money, facility visits, revisits and update videos. Each video links to the page holding its figures. A community radio may follow. Digitising Ekegusii (training language models) is a separate initiative, kept off this site for now.
 
-**One name: Nyamira Daily.** The site, the channel and every show use it. The NY Watch name and logo are retired.
+**One name: Gusii Daily.** The site, the channel and every show use it. The NY Watch name and logo are retired.
 
 ## The site after the refocus
 
@@ -148,7 +148,7 @@ Estimated size afterwards: about 850 pages (about 690 places, 110 money pages, 2
 
 - `apps/national`, `data/national`, `data-src/national`, `scripts/national`, `docs/national` and `national-budget/` move to a new repository, keeping their Git history.
 - `packages/engine` is used by both. It becomes a versioned package that both repositories install, so it is never copied (AGENTS.md).
-- Nyamira Daily reads the national figures it needs (Nyamira's equitable share and Controller of Budget totals) from the national product's published data release, instead of from a folder in this repository.
+- Gusii Daily reads the national figures it needs (Nyamira's equitable share and Controller of Budget totals) from the national product's published data release, instead of from a folder in this repository.
 
 ## Phases
 
@@ -176,7 +176,7 @@ R7 does not depend on R1 to R6 and can run beside them.
 | 1 | Menu | Map · Money · Watch · Administration · About |
 | 2 | Addresses | `/map/`, `/place/<id>/`, `/money/`, `/watch/`, `/administration/`, with redirects from the old URLs |
 | 3 | Administration | Seat, name, since, source. No party, photos or profiles. Ward pages name the MCA in one line |
-| 4 | One name | Nyamira Daily everywhere; NY Watch retired |
+| 4 | One name | Gusii Daily everywhere; NY Watch retired |
 | 5 | Theme | Light pages with charcoal bands; dark mode dropped |
 | 6 | Living data | Kobo for the field, Sheets for the desk, snapshots committed to Git; D1 for public intake only |
 | 7 | Contracts | One table of all public contracts in Nyamira, county and national labelled apart |

@@ -4,31 +4,43 @@ import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
 import ContactForm from '../../../components/ContactForm.astro';
 ---
-<Base title="Careers and volunteering" description="Join Nyamira Daily as a ward correspondent or a language and culture volunteer.">
-  <PageHead title="Careers and volunteering" lead="Help us check every place in every ward and record what our elders know. Tell us you are interested." />
-  <div class="stack-lg" style="margin-top:16px; max-width:760px">
-    <section class="card stack">
-      <h2>Ward correspondent</h2>
-      <p>You visit public places in your own ward (dispensaries, schools, markets, roads), record what you find on a short phone form, and send photos.</p>
-      <ul>
-        <li><strong>What you need:</strong> to live in the ward; a smartphone; care with facts.</li>
-        <li><strong>Time:</strong> a few hours a month.</li>
-        <li><strong>What you get:</strong> training in fact-checking and data collection, and credit for your work.</li>
-      </ul>
-    </section>
-    <section class="card stack">
-      <h2>Language and culture volunteer</h2>
-      <p>You help record elders' stories, songs, proverbs and knowledge in Ekegusii, with their consent, and help write them down and translate them.</p>
-      <ul>
-        <li><strong>What you need:</strong> good Ekegusii; patience and respect with elders; a smartphone that records clearly.</li>
-        <li><strong>Time:</strong> a few hours a month.</li>
-        <li><strong>What you get:</strong> training in recording and consent, and credit for your work.</li>
-      </ul>
-      <p><a href="/community/">About the Community work</a></p>
-    </section>
-    <p class="small muted">We are still setting the terms for these roles, so we do not promise pay here. We will tell everyone who registers when the terms are set.</p>
-    <section class="stack">
-      <h2>Register your interest</h2>
+<Base title="Careers and volunteering" description="Join Gusii Daily as a ward correspondent or a language and culture volunteer.">
+  <PageHead eyebrow="About · Join Your Ward" title="Careers and volunteering" lead="Help us check every place in every ward and record what our elders know. Tell us you are interested." crumbs={[{ href: '/about/', label: 'About' }]} />
+  <!-- Kiswahili: needs native-speaker review -->
+  <div class="sw" lang="sw"><span class="eyebrow">Muhtasari kwa Kiswahili</span><p>Jiunge na Gusii Daily kama mwandishi wa wodi au kujitolea kwa lugha na utamaduni. Mwandishi wa wodi anatembelea sehemu za umma na kurekodi hali yake; kujitolea kwa utamaduni kunahusisha kurekodi hadithi na maarifa ya wazee kwa Ekegusii.</p></div>
+
+  <div class="stack-lg">
+    <div class="fg-data-grid">
+      <section class="fg-data-card stack">
+        <span class="fg-kicker">ROLE 01 · ALL 20 WARDS</span>
+        <h2>Ward correspondent</h2>
+        <p>You visit public places in your own ward (dispensaries, schools, markets, roads), record what you find on a short phone form, and send photos.</p>
+        <ul>
+          <li><strong>What you need:</strong> to live in the ward; a smartphone; care with facts.</li>
+          <li><strong>Time:</strong> a few hours a month.</li>
+          <li><strong>What you get:</strong> training in fact-checking and data collection, and credit for your work.</li>
+        </ul>
+      </section>
+      <section class="fg-data-card stack">
+        <span class="fg-kicker">ROLE 02 · EKEGUSII &amp; HERITAGE</span>
+        <h2>Language and culture volunteer</h2>
+        <p>You help record elders' stories, songs, proverbs and knowledge in Ekegusii, with their consent, and help write them down and translate them.</p>
+        <ul>
+          <li><strong>What you need:</strong> good Ekegusii; patience and respect with elders; a smartphone that records clearly.</li>
+          <li><strong>Time:</strong> a few hours a month.</li>
+          <li><strong>What you get:</strong> training in recording and consent, and credit for your work.</li>
+        </ul>
+        <p><a href="/community/">About the Community work →</a></p>
+      </section>
+    </div>
+
+    <p class="callout"><span>We are still setting the terms for these roles, so we do not promise pay here. We will tell everyone who registers when the terms are set.</span></p>
+
+    <section class="fg-sheet stack">
+      <div class="fg-sec-head" style="margin-bottom:8px">
+        <span class="fg-kicker">EXPRESSION OF INTEREST</span>
+        <h2>Register your <em>interest</em></h2>
+      </div>
       <ContactForm topics={['careers', 'volunteer']} preset="careers" />
     </section>
   </div>

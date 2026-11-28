@@ -1,4 +1,4 @@
-# Nyamira Daily
+# Gusii Daily
 
 A non-partisan, editorially independent information service about Nyamira County, Kenya, built and published by Underdogs Rising Group Limited (see `docs/DECISIONS.md` #73): its money, projects, services, laws and leaders, in plain language, with a source behind every fact.
 
@@ -60,7 +60,7 @@ Five sections form the navigation bar (decision #112): Map · Money · Watch · 
 
 ## Hosting
 
-Public builds require `ND_SITE_URL=https://your-real-domain` and reject placeholder/local domains. `ND_PREVIEW_BUILD=1` is only for local preview builds; production hosting environments reject it. Public builds also reject `ND_DRAFTS=1`. The owner supplied `nyamiradaily.org`; configure the deployment environment with `ND_SITE_URL=https://nyamiradaily.org`. A successful local build does not verify DNS, hosting settings, or deployment.
+Public builds require `ND_SITE_URL=https://your-real-domain` and reject placeholder/local domains. `ND_PREVIEW_BUILD=1` is only for local preview builds; production hosting environments reject it. Public builds also reject `ND_DRAFTS=1`. The owner supplied `gusiidaily.org`; configure the deployment environment with `ND_SITE_URL=https://gusiidaily.org`. A successful local build does not verify DNS, hosting settings, or deployment.
 
 The database-backed corrections workflow is an optional Cloudflare Pages Functions + D1 service. It is disabled until configured. See [`docs/CORRECTIONS_SERVICE.md`](docs/CORRECTIONS_SERVICE.md) before creating Cloudflare resources or enabling submissions.
 

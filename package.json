@@ -1,5 +1,5 @@
 {
-  "name": "nyamira-daily",
+  "name": "gusii-daily",
   "type": "module",
   "version": "0.1.0",
   "private": true,
@@ -27,14 +27,32 @@
     "build:national": "npm run build -w @kbe/national",
     "test:national:site": "npm run test:site -w @kbe/national",
     "test:national:visual": "npm run test:visual -w @kbe/national",
+    "check:wards": "node scripts/check-ward-slugs.mjs",
+    "check:data-deps": "node scripts/check-data-deps.mjs",
     "check:county": "node scripts/county/check-county.mjs",
+    "generate:legacy-money": "node scripts/county/generate-legacy.mjs",
     "build:county-data": "node scripts/county/build-figures.mjs",
     "check:county:pages": "node scripts/county/check-pages.mjs",
     "fieldwork:forms": "node scripts/fieldwork/build-forms.mjs",
-    "living:sync": "node scripts/living/sync.mjs"
+    "living:sync": "node scripts/living/sync.mjs",
+    "geo:pull-osm": "node scripts/geo/pull-osm.mjs",
+    "geo:reconcile": "node scripts/geo/reconcile.mjs",
+    "geo:apply": "node scripts/geo/apply-review.mjs",
+    "geo:coverage": "node scripts/geo/coverage.mjs",
+    "geo:geocode": "node scripts/geo/geocode-google.mjs",
+    "geo:discover": "node scripts/geo/discover-google.mjs",
+    "geo:ingest-schools": "node scripts/geo/ingest-schools.mjs",
+    "geo:reconcile-roads": "node scripts/geo/reconcile-roads.mjs",
+    "geo:nominatim": "node scripts/geo/geocode-nominatim.mjs",
+    "geo:lookup-links": "node scripts/geo/make-lookup-links.mjs",
+    "geo:mapping-kit": "node scripts/geo/ward-mapping-kit.mjs",
+    "geo:export-osm": "node scripts/geo/export-osm.mjs",
+    "knowledge:sync": "node scripts/knowledge/sync-kobo.mjs",
+    "knowledge:export": "node scripts/knowledge/export-training.mjs"
   },
   "dependencies": {
-    "astro": "7.4.4",
+    "@astrojs/sitemap": "^3.7.6",
+    "astro": "^7.4.13",
     "qrcode": "1.5.4"
   },
   "devDependencies": {

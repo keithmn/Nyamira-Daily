@@ -1,22 +1,47 @@
 ---
-// Community (decision #122): the Abagusii, their culture and language. Recorded with consent, kept for the community.
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import CommunityRules from '../../components/CommunityRules.astro';
-import { sections, groupsOf } from '../../nav.js';
-const community = sections.find((s) => s.href === '/community/');
+import Icon from '../../components/Icon.astro';
 ---
-<Base title="Community" description="The Abagusii, their culture and the Ekegusii language: recorded with consent and kept for the community.">
-  <PageHead title="Community" lead="Much of what our elders know has never been written down. We are recording it, with their consent, so it is kept for all of us and for those who come after." />
-  <div class="stack-lg" style="margin-top:16px">
-    {groupsOf(community).map((g) => (
-      <section class="stack">
-        <h2>{g.label}</h2>
-        <ul class="rows">
-          {g.pages.map((p) => <li><a class="row-link" href={p.href}><span><span class="t">{p.label}</span><span class="d">{p.desc}</span></span><span class="go" aria-hidden="true">→</span></a></li>)}
-        </ul>
-      </section>
-    ))}
+<Base title="Gusii" description="The Ekegusii language and Abagusii cultural knowledge — plants, medicine, songs, traditions, oral history — collected, verified and structured as public information.">
+  <PageHead
+    eyebrow="Language, Heritage & Knowledge"
+    title="The Gusii knowledge base"
+    lead="The Ekegusii language and the cultural knowledge of the Abagusii — recorded, verified and structured with sources, evidence labels and informed consent."
+  />
+
+  <div class="stack-lg">
+    <div class="fg-trio-blocks">
+      <a class="fg-block-card is-charcoal" href="/community/abagusii/">
+        <span class="fg-bc-icon"><Icon name="people" size={24} /></span>
+        <h3>The Abagusii</h3>
+        <p>Documented history and culture, with every account naming its book, archive or speaker.</p>
+      </a>
+
+      <a class="fg-block-card is-white" href="/community/archive/">
+        <span class="fg-bc-icon"><Icon name="community" size={24} /></span>
+        <h3>Culture archive</h3>
+        <p>Recorded stories, oral histories and community knowledge checked by elders and a historian.</p>
+      </a>
+
+      <a class="fg-block-card is-signal" href="/community/language/">
+        <span class="fg-bc-icon"><Icon name="explain" size={24} /></span>
+        <h3>Ekegusii language</h3>
+        <p>An open, speaker-consented Ekegusii text and speech dataset for schools, research and language tools.</p>
+      </a>
+    </div>
+
+    <!-- Ekegusii summary (marked for native-speaker review) -->
+    <div class="sw" lang="guz">
+      <span class="eyebrow">Okoandikwa kw'Ekegusii</span>
+      <p>Ebinto ebi abakori baito baramanyete tibierigwa. Tori koandika amang'ana, ebitanyi n'Ekegusii n'oboisanio — egento eki giatiywe n'abanto baito.</p>
+    </div>
+
+    <div class="fg-center-actions">
+      <a class="fg-cta-btn" href="/community/share/">Share a recording or volunteer</a>
+    </div>
+
     <CommunityRules />
   </div>
 </Base>
