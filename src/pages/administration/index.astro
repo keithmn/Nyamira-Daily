@@ -1,4 +1,5 @@
 ---
+import { nyamiraWardCount } from '../../lib/counts.js';
 // Administration (decision #110): who holds each seat now, for information only. Seat, holder, since and source.
 // No party, photos or profiles: the site is about the map and the money, and names officials only as office holders.
 // A note is shown only where it changes who holds the seat (the disputed Speakership, a by-election).
@@ -34,7 +35,7 @@ const seatNotes = { 'Speaker, County Assembly': true };
 
   <section class="stack" style="margin-top:32px" aria-labelledby="mcas">
     <h2 id="mcas">Members of the County Assembly</h2>
-    <p class="small muted">One MCA for each of the 20 wards. From {L.mcaSourceName}{L.mcaGazetteChecked ? '' : '; not yet checked against the Kenya Gazette'}. <a href={L.mcaSource} rel="noopener">Source</a></p>
+    <p class="small muted">One MCA for each of the {nyamiraWardCount} wards. From {L.mcaSourceName}{L.mcaGazetteChecked ? '' : '; not yet checked against the Kenya Gazette'}. <a href={L.mcaSource} rel="noopener">Source</a></p>
     {subCounties.map((s) => (
       <div class="stack" style="gap:8px">
         <h3>{s}</h3>

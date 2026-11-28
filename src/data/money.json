@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-04",
+  "updated": "2026-11-28",
   "unit": "KSh million",
   "note": "County totals (County Executive and County Assembly together), as reported by the Controller of Budget (CoB) in its annual County Governments Budget Implementation Review Report. The budget is the final approved/revised (supplementary) budget where CoB says so; expenditure is reported actual spending. These fields do not include a separate cash-release series. The equitable share is shown in two columns: what the county was allocated (what it expected to receive) and what it received, as each report gives them.",
   "years": [
@@ -176,6 +176,21 @@
       "pending": 340.4,
       "pendingNote": "Older (legacy) bills only. The report text says 391.68M. The county's own Pending Bills Committee gives 673.03M.",
       "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-fy-2024-25/?wpdmdl=16263",
+      "page": "Table 2.5, p.9"
+    },
+    {
+      "fy": "2025/26",
+      "budget": 8646.30,
+      "spent": 7009.26,
+      "dev": 1926.23,
+      "rec": 5083.03,
+      "devAbs": 58.71,
+      "osrTarget": 868.71,
+      "osr": 613.01,
+      "eqShare": 6073.43,
+      "pending": null,
+      "pendingNote": "CoB's FY2025/26 report gives trade payables instead (KSh 357.68 million at 30 June 2026), counted differently from pending bills, so no pending-bills figure is shown for this year.",
+      "src": "https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-2025-26/?wpdmdl=16482",
       "page": "Table 2.5, p.9"
     }
   ],

@@ -1,4 +1,5 @@
 ---
+import { wardCount } from '../lib/counts.js';
 // Field-guide soft-mint footer with dashed charcoal dividers, inline search capsule, directory columns & CC BY 4.0 row.
 import Icon from './Icon.astro';
 import { social } from '../config.js';
@@ -24,7 +25,7 @@ const columns = [
     title: 'Places',
     links: [
       { href: '/map/', label: 'County facility map' },
-      { href: '/ward/', label: 'All 20 wards' },
+      { href: '/ward/', label: `All ${wardCount} wards` },
       { href: '/map/health/', label: 'Health facilities' },
       { href: '/map/education/', label: 'Schools & education' },
       { href: '/report/', label: 'Report a place' },

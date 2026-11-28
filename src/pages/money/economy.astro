@@ -1,4 +1,5 @@
 ---
+import { nyamiraConstituencyCount } from '../../lib/counts.js';
 // The Nyamira economy (decision #116): the money that comes into the county and how it moves, from the figures we
 // hold, each with its source. County money, national money and private income are different measures and are never
 // added together. Where there is no figure, the page says so.
@@ -44,7 +45,7 @@ const latestPrices = Object.values(prices.reduce((acc, p) => { const k = `${p.it
       <tbody>
         <tr><td>The county's share of national revenue (equitable share), received</td><td data-label="Amount"><strong>{m(eqGot.value)}</strong></td><td data-label="Period">FY2025/26</td><td data-label="Whose money">County</td><td data-label="Source"><EvidenceLabel kind={eqGot.label} /> <a href={eqGot.doc.url} rel="noopener">{shortTitle(eqGot.doc)}</a>, {eqGot.page}</td></tr>
         <tr><td>Money the county raised itself (fees, rates, charges)</td><td data-label="Amount"><strong>{m(osrA.value)}</strong></td><td data-label="Period">FY2025/26</td><td data-label="Whose money">County</td><td data-label="Source"><EvidenceLabel kind={osrA.label} /> <a href={osrA.doc.url} rel="noopener">{shortTitle(osrA.doc)}</a>, {osrA.page}</td></tr>
-        {cdfFy && <tr><td>NG-CDF allocations to Nyamira's four constituencies</td><td data-label="Amount"><strong>{ksh(cdfTotal)}</strong></td><td data-label="Period">FY{cdfFy}</td><td data-label="Whose money">National</td><td data-label="Source"><EvidenceLabel kind="official" /> {cdfSrc ? <a href={cdfSrc.url} rel="noopener">{cdfSrc.publisher}</a> : 'NG-CDF Board'}, one row per constituency</td></tr>}
+        {cdfFy && <tr><td>NG-CDF allocations to Nyamira's {nyamiraConstituencyCount} constituencies</td><td data-label="Amount"><strong>{ksh(cdfTotal)}</strong></td><td data-label="Period">FY{cdfFy}</td><td data-label="Whose money">National</td><td data-label="Source"><EvidenceLabel kind="official" /> {cdfSrc ? <a href={cdfSrc.url} rel="noopener">{cdfSrc.publisher}</a> : 'NG-CDF Board'}, one row per constituency</td></tr>}
       </tbody>
     </table></div>
     <p class="small"><a href="/money/revenue/">Where the county's money comes from, year by year</a></p>

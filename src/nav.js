@@ -1,3 +1,4 @@
+import { wardCount } from './lib/counts.js';
 // Site navigation, used by Base.astro.
 // Five sections (decision #110). On desktop each opens a mega menu of cards; on phones the hamburger sheet lists them all
 // (src/components/SiteHeader.astro). Section pages also get a secondary bar of their pages (SectionTabs.astro).
@@ -32,7 +33,7 @@ export const sections = [
   ] },
   { href: '/map/', label: 'Places', icon: 'map', overview: 'The county map', groups: ['Find a place', 'By sector', 'The counties', 'Safety'],
     desc: 'Every ward and every public place: what is there, and how it is doing.', pages: [
-    { href: '/ward/', label: 'Wards', icon: 'ward', group: 'Find a place', desc: 'All 20 wards', also: ['/place/'], pages: subCounties.map((s) => ({
+    { href: '/ward/', label: 'Wards', icon: 'ward', group: 'Find a place', desc: `All ${wardCount} wards`, also: ['/place/'], pages: subCounties.map((s) => ({
       href: `/ward/#${anchorFor(s)}`, label: s,
       pages: wards.filter((w) => w.subCounty === s).map((w) => ({ href: `/ward/${w.slug}/`, label: w.name })),
     })) },

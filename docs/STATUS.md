@@ -2,14 +2,30 @@
 
 For any assistant or developer picking this up (Codex, Claude Code, a person). Read `AGENTS.md`, then this page, then `docs/DECISIONS.md`. Older handover notes, with the history of each feature, are in `docs/STATUS_ARCHIVE.md`.
 
-## Kisii build: state at 27 Nov 2026, evening
+## Data gaps, round 1 (27 Nov 2026)
+
+- **Leaders (Kisii):** all 45 MCAs named (`src/data/counties/kisii/leaders.json`). 9 of 11 national seats named (2 uncertain: MP Kitutu Chache North and MP South Mugirango have only one source each). Governor and Woman Representative confirmed. Changes since 2022 are in `data-src/kisii/leaders.md`.
+- **Ward spellings:** keep the IEBC names and the three boundary aliases (Basi Central, Basi Bogetaorio, Majoge). The constituency-boundary check is still open; the boundary file is not in the repo.
+- **Kisii ward budgets:** none found in primary documents; the FY2025/26 approved budget (18.58bn) and revised budget (20.05bn) are in `data-src/kisii/budget-gaps.md`. The Controller of Budget figure (20.16bn) sits between them and is unexplained.
+- **Nyamira FY2025/26 in money.json:** added (budget 8,646.30, spent 7,009.26, dev 1,926.23, rec 5,083.03, eqShare 6,073.43, osrTarget 868.71, osr 613.01, pending null, src https://cob.go.ke/download/county-governments-budget-implementation-review-report-for-the-financial-year-2025-26/?wpdmdl=16482). Adding it changed the national budget data (`national-budget/build-data.mjs`, `data.json`, `kenya-budget.html`) and 3 tests. Money pages already show FY2025/26 from the national registry. Plan in `data-src/kisii/nyamira-fy2526-plan.md`.
+- **Kisii contracts and roads (candidates, not on the site):** 214 county contracts from the PPRA portal (KSh 2.86bn), 59 assigned to wards by title, 155 unassigned; 10 road candidates, 7 assigned, 3 unassigned; no KeRRA or KeNHA Kisii award lists found; NG-CDF Board unreachable. Files in `data-src/kisii/` (see `roads.md`); no ward assignments checked by a person.
+- **Needs fieldwork:** living events (empty); Kisii places with no mapped points.
+- **Needs archiving:** the FY2025/26 Controller of Budget report PDF (cited by URL, not kept in the repo).
+
+$1 (27 Nov 2026)
+
+- **Added:** `scripts/data-integrity.test.js` (six checks, in `npm test`: 351 pass) and `src/lib/counts.js`. Decision #136.
+- **Copy:** Gusii-wide pages (menu, footer, home, About, 404, the ward index and the Places KPI) now read 65 wards; Nyamira-only pages read 20 wards and 4 constituencies. The ward index now says Nyamira's directory and the Gusii map separately.
+- **Found and not yet fixed:** the living-events file is empty (needs fieldwork setup — KoboToolbox forms, Google Sheet, env vars; cannot fabricate events). Ward spellings Basi Central/Bobasi Central, Basi Bogetaorio/Bobasi Bogetaorio, Majoge Basi/Majoge are recorded as boundaryName aliases in `src/data/ward-register.json`; IEBC names are kept as primary.
+- **Uncommitted.**
+
+$1: state at 27 Nov 2026, evening
 
 - **Built:** one map for both counties (home hero, Places atlas, ward index); 45 Kisii ward pages (`src/components/ward/CountyWard.astro`) with voters, map and services; Kisii facilities (159 health from the 2017 KMHFL list, 131 other public places from OpenStreetMap, all unverified) in `src/data/counties/kisii/facilities.json`; census in `src/data/counties/kisii/census.json`; 163 Kisii map points in `geo.json`. Build: 917 pages; `npm test` 345 pass.
-- **Leaders (checked):** `src/data/counties/kisii/leaders.json`: 34 of 45 MCAs named, 4 of 9 MPs and the Governor-listed seat confirmed in the file. 11 MCA names and 4 MP names are blank because the gazette name order is unclear or only one source was found; those show as "Not confirmed". Changes since 2022 are in `data-src/kisii/leaders.md`.
+- **Leaders (checked):** `src/data/counties/kisii/leaders.json`: all 45 MCAs named (10 confirmed against the Kisii County Assembly member list, kisiiassembly.go.ke, updated 27 Nov 2026), 4 of 9 MPs and the Governor-listed seat confirmed. 4 MP names are blank (only one source found); those show as "Not confirmed". Changes since 2022 are in `data-src/kisii/leaders.md`.
 - **Money (checked, on About Kisii):** `src/data/counties/kisii/money.json`, FY2013/14 to FY2025/26 as printed, with unprinted values shown as "Not printed". FY2024/25 is rounded in the report; the precise figures from `compare.json` are used for the headline tiles. Sources and checks: `data-src/kisii/money.md`.
 - **Not yet:** Kisii ward-level budgets and projects; the Governor is not shown on a page.
 - **Not yet counted:** the Places "listed facilities" total and the Money pages still show Nyamira only.
-- **Check before publishing:** Basi Central, Basi Bogetaorio and Majoge spellings differ between the IEBC and the boundary data.
 - **Uncommitted:** all of the above is on the working tree, not committed.
 
 $1 County: multi-county schema, phase 3)
@@ -443,7 +459,7 @@ Committed as `b2cb102` on `feat/trust-and-launch-prep` and merged to `main` in P
 2. Confirm the exact registered company name against the certificate (`src/county.js`, `publisher.legalName`).
 3. Lawyer review of `/who-runs-us/`, `/privacy/` and `/terms/`; set the spin-out date and criteria in `src/county.js` (`spinOut`).
 4. Editor review and publication of the two money explainers (Sigma Awards deadline mid-January 2027), then the first ward receipts series.
-5. Check every MCA against the Kenya Gazette; then set `mcaGazetteChecked: true` and replace `mcaSource`.
+5. All 45 Kisii MCA names confirmed against the County Assembly list; mcaGazetteChecked stays false pending Rigoma/Bokeira resolution (Nyamira wards) and character-by-character gazette PDF check.
 6. Refresh the health facility count from the current Kenya Master Health Facility List.
 7. Page weight: done for the NG-CDF list (decision #81). The stylesheet stays as one file (about 20 KB compressed, cached).
 8. County kit: move hard-coded "Nyamira" in older files to `src/county.js` as they are touched (#74).

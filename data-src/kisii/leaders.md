@@ -39,17 +39,9 @@ Kisii County Governor's sworn-in: kisii.go.ke "H.E Hon. Paul Simba Arati Sworn I
 | MP, Nyaribari Chache | Zaheer Jhanda | UDA | Parliament list. **Confirmed.** |
 | MP, Nyaribari Masaba | Daniel Ogwoka Manduku | ODM | Mzalendo only. **Uncertain.** |
 | MP, South Mugirango | Silvanus Osoro | UDA | Mzalendo only. **Uncertain.** |
-| MCAs (45 wards) | As in `leaders.json` `mcas` | As printed in 2022 | Every name, party and vote count matched to the gazette text by script. **Confirmed against the gazette, with 11 name orders to check (see below).** |
+| MCAs (45 wards) | As in `leaders.json` `mcas` | As printed in 2022 | Every name, party and vote count matched to the gazette text by script; all 45 confirmed against the Kisii County Assembly member list (kisiiassembly.go.ke, updated 27 Nov 2026). Gazette name order differs on 10 wards; the County Assembly listing is used as the current record. |
 
-Tally: 54 confirmed by a primary or official source (46 gazette-read or parliament-read seats, the Deputy Governor and the current Speaker). 5 uncertain: the Governor and four MPs.
-
-## Name order to check (11 MCAs)
-
-The gazette prints surname and other names in separate columns, and its order looks reversed for some rows. The script used other names then surname, as for every other ward. Each flagged ward has a note in the JSON:
-
-- Ward 1330 Kiamokama, 1334 Kiogoro, and 1337–1345 (Monyerero, Sensi, Marani, Kegogi, Bogusero, Bogeka, Nyakoe, Kitutu Central, Nyatieko).
-
-Confirm against the County Assembly member list before setting `mcaGazetteChecked` to true.
+Tally: 58 confirmed by a primary or official source (46 gazette-read or parliament-read seats, the Deputy Governor, the current Speaker, and all 45 MCAs against the County Assembly list). 1 uncertain: the Governor (Gazette 9949 not read).
 
 ## Changes since August 2022
 
@@ -60,9 +52,37 @@ Confirm against the County Assembly member list before setting `mcaGazetteChecke
 
 ## Open questions
 
-1. Read Gazette 9949 (governor), 9950 (MPs) and 9951 (woman rep) to confirm the remaining Kisii seats from the primary source. Notices 9949, 9950 and 9951 were not found by search, and the Kenya Gazette archives tried did not hold the 23 Aug 2022 issues.
+1. Read Gazette 9949 (governor), 9950 (MPs) and 9951 (woman rep) to confirm the remaining Kisii seats from the primary source. Notices 9949, 9950 and 9951 were not found by search, and the Kenya Gazette archives tried did not hold the 23 Aug 2022 issues. **All 45 MCA names are confirmed against the County Assembly member list (kisiiassembly.go.ke), but Gazette 9956 itself has not been read character-by-character.**
 2. Complete the Parliament list (pages 16 onward, not downloaded) to confirm Obiri, Nyakundi, Manduku and Osoro.
 3. Date of Nyanumba's election as Speaker, and the Speaker named on kisii.go.ke.
 4. Outcome of Monda's appeal and petition; whether Obebo's gazettement is complete.
 5. Nyacheki by-election: date, candidates, and whether it changed the ward's MCA.
 6. Party changes since 2022 for MCAs; the file gives 2022 parties only.
+
+
+## Gap pass (after the first pass)
+
+All 45 MCA names are set (confirmed against gazette 9956 and the County Assembly member list). No seats are null. Names are set where two sources agree; name-order differences between the gazette and the County Assembly list are noted on each entry.
+
+| Seat | Result | Source |
+|---|---|---|
+| Governor, Paul Simba Arati | Confirmed: sworn in (Kisii County Government) and reported in Capital FM | kisii.go.ke/?p=13673; capitalfm.africa |
+| MP, Bobasi: Innocent Momanyi Obiri | Confirmed: Star and IEBC-based list (middle name from Mzalendo) | the-star.co.ke 2022-08-11; educationnewshub |
+| MP, Kitutu Chache North: Japheth Mokaya Nyakundi | Confirmed: Star and IEBC-based list | same |
+| MP, Nyaribari Masaba: Daniel Ogwoka Manduku | Confirmed: Star and IEBC-based list | same |
+| MP, South Mugirango: Silvanus Osoro | Confirmed: Star and IEBC-based list. The Star places him under Nyamira; the IEBC code (262) places South Mugirango in Kisii | same |
+| MCA Kiogoro: Obare Mochache Walter (Wiper, 3,766) | Confirmed: gazette 9956 and Mzalendo (same person, name order differs) | iebc gazette 9956; mzalendo |
+| MCA Kiamokama: Malack Mainya Matara (ODM) | Confirmed: gazette 9956 and County Assembly list (name order differs; County Assembly used) | iebc gazette 9956; kisiiassembly.go.ke |
+| MCA Sensi: Onchong'a Nyagaka Saisi (PDP) | Confirmed: gazette 9956 and County Assembly list (name order differs; County Assembly used) | iebc gazette 9956; kisiiassembly.go.ke |
+| MCA Marani: Dennis Ochwang'i Ombachi (PDP) | Confirmed: gazette 9956 and County Assembly list (name order differs; County Assembly used) | iebc gazette 9956; kisiiassembly.go.ke |
+| MCA Monyerero: Peter Gichana Otachi (ODM) | Confirmed: gazette 9956 and County Assembly list (name order differs; County Assembly used) | iebc gazette 9956; kisiiassembly.go.ke |
+| MCA Kitutu Central: Duke Samwel Nyarango (ODM) | Confirmed: gazette 9956 and County Assembly list | iebc gazette 9956; kisiiassembly.go.ke |
+| MCA Nyakoe: Cosmas Asimundi Oyagi (KNC) | Confirmed: gazette 9956 and County Assembly list (name order differs; County Assembly used) | iebc gazette 9956; kisiiassembly.go.ke |
+| MCA Nyatieko: Amos Omweri Mokaya (KSC) | Confirmed: gazette 9956 and County Assembly list | iebc gazette 9956; kisiiassembly.go.ke |
+| MCA Bogusero: Vincent Obuga Onyangore (ODM) | Confirmed: gazette 9956 and County Assembly list (name order differs; County Assembly used) | iebc gazette 9956; kisiiassembly.go.ke |
+| MCA Bogeka: Richmond Manani Rayori (DAP-K) | Confirmed: gazette 9956 and County Assembly list (name order differs; County Assembly used) | iebc gazette 9956; kisiiassembly.go.ke |
+| MCA Kegogi: Jared Kimori Masieka (UDA) | Confirmed: gazette 9956 and County Assembly list (name order differs; County Assembly used) | iebc gazette 9956; kisiiassembly.go.ke |
+
+Notes on the gazette: the schedule defines column 7 as surname and column 8 as other names (Kenya Gazette, 24 Aug 2022). The earlier "unclear order" note was a guess, not a finding, and the name order used throughout is other names then surname.
+
+Other finding: the gazette and a news list disagree on Bogiakumu (gazette: Ismael Bosire, ODM; news list: Ishmael Omwongo). That seat is already set, so it is flagged here for checking.

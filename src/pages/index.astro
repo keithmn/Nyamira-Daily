@@ -1,4 +1,5 @@
 ---
+import { wardCount, departmentCount } from '../lib/counts.js';
 // Gusii Daily Front Page (design/field-guide): information presentation inspired by civictech.guide,
 // using 100% Gusii Daily colours, self-hosted fonts, real records, evidence labels and official sources.
 import Base from '../layouts/Base.astro';
@@ -72,7 +73,7 @@ const dirGusii = [
 ];
 const dirCounty = [
   { href: '/map/', label: `Interactive facility map (${facilities.length})`, bold: true },
-  { href: '/ward/', label: 'All 20 wards & receipts' },
+  { href: '/ward/', label: `All ${wardCount} wards & receipts` },
   { href: '/map/health/', label: `Health (${healthCount}) · Education (${schoolCount})` },
   { href: '/map/#roads', label: `Roads tracker (${roads.length})` },
   { href: '/money/', label: `County money (${last.fy})`, bold: true },
@@ -201,7 +202,7 @@ const wardRows = wards.map((w) => ({
 
       <!-- Floating knowledgebase search & 20-ward quick jumper -->
       <div class="fg-kb-wrap">
-        <p class="fg-kb-caption">Search the Gusii knowledge base, all 20 wards &amp; every public record</p>
+        <p class="fg-kb-caption">Search the Gusii knowledge base, all {wardCount} wards &amp; every public record</p>
         <div class="fg-kb-box">
           <form class="fg-kb-form" action="/search/" method="get" role="search">
             <label class="vh" for="kb-q">Search every record on Gusii Daily</label>
@@ -432,7 +433,7 @@ const wardRows = wards.map((w) => ({
           <div class="gd-step-body">
             <div class="gd-step-top"><span class="gd-pill">Every quarter</span><span class="gd-pill is-soft">PFM Act s.166(4)</span></div>
             <a href="/money/track/">Quarterly spending reports</a>
-            <p>County Treasury and Controller of Budget publish what each of the 24 departments spent.</p>
+            <p>County Treasury and Controller of Budget publish what each of the {departmentCount} departments spent.</p>
           </div>
         </li>
       </ol>

@@ -1,4 +1,5 @@
 ---
+import { nyamiraWardCount, nyamiraConstituencyCount } from '../../lib/counts.js';
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 const terms = [
@@ -30,7 +31,7 @@ const terms = [
   ['Public participation', 'The legal requirement for the county to involve residents in decisions.'],
   ['Recurrent budget', 'Money for running costs, such as salaries, drugs and fuel.'],
   ['Supplementary budget', 'A revised budget passed during the financial year to adjust spending up or down from the original approved budget.'],
-  ['Ward', 'The smallest unit of elected government in Kenya. Each ward elects one MCA. Nyamira has 20 wards in four sub-counties.'],
+  ['Ward', `The smallest unit of elected government in Kenya. Each ward elects one MCA. Nyamira has ${nyamiraWardCount} wards in ${nyamiraConstituencyCount} constituencies.`],
   ['Ward Development Fund', 'A share of the county development budget set aside for projects chosen at the ward level, through public participation.'],
 ];
 ---
